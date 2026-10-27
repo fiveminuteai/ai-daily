@@ -68,7 +68,7 @@ function palette(){var c=(cv.dataset.colors||"models,architecture,research,produ
 var cols=palette(),bg=css("--bg");
 function size(){var r=cv.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
 var n=Math.round(Math.min(1100,r.width*r.height/900));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,c:cols[i%cols.length]});x.fillStyle=bg;x.fillRect(0,0,W,H);for(var k=0;k<380;k++)step(true)}
-function step(){t+=.016;x.globalAlpha=1;x.fillStyle=bg;x.globalAlpha=.03;x.fillRect(0,0,W,H);x.globalAlpha=.72;x.lineWidth=1.6*dpr;var R=170*dpr,R2=R*R;
+function step(){t+=.016;x.globalAlpha=1;var lt=document.documentElement.dataset.theme==="light";x.fillStyle=bg;x.globalAlpha=lt?.05:.03;x.fillRect(0,0,W,H);x.globalAlpha=lt?.6:.72;x.lineWidth=1.6*dpr;var R=170*dpr,R2=R*R;
 for(var i=0;i<P.length;i++){var p=P[i],a=Math.sin(p.x*.0016/dpr+t*.15)*1.4+Math.cos(p.y*.0021/dpr-t*.1)*1.2,dx=Math.cos(a),dy=Math.sin(a),ex=p.x-mx,ey=p.y-my,d2=ex*ex+ey*ey;
 if(d2<R2){var k=(R2-d2)/R2;dx+=-ey/(R*.6)*k;dy+=ex/(R*.6)*k}var nx=p.x+dx*1.7*dpr,ny=p.y+dy*1.7*dpr;x.strokeStyle=p.c;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(nx,ny);x.stroke();p.x=nx;p.y=ny;
 if(p.x<0||p.x>W||p.y<0||p.y>H||Math.random()<.004){p.x=Math.random()*W;p.y=Math.random()*H}}x.globalAlpha=1}
@@ -78,7 +78,8 @@ cv.parentElement.addEventListener("pointerleave",function(){mx=my=-1e5});
 var still=matchMedia("(prefers-reduced-motion: reduce)").matches;size();
 if("IntersectionObserver"in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe(cv);
 var rt;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(size,150)});
-document.addEventListener("themechange",function(){cols=palette();bg=css("--bg");size()});
+function retheme(){cols=palette();bg=css("--bg");size()}
+if("MutationObserver"in window)new MutationObserver(retheme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 if(!still){running=true;requestAnimationFrame(loop)}})();
 </script>
 {% endblock %}

@@ -16,7 +16,7 @@
   --accent: #FFB86B; --accent-2: #FF7A93; --ok: #7BE495; --warn: #FFC870; --bad: #FF8FA3;
   --on-accent: #0B1022;
   --hero-scrim: linear-gradient(90deg, rgba(11,16,34,.97) 0%, rgba(11,16,34,.86) 46%, rgba(11,16,34,.18) 100%);
-  --hero-scrim-m: linear-gradient(180deg, rgba(11,16,34,.5) 0%, rgba(11,16,34,.94) 38%);
+  --hero-scrim-m: linear-gradient(180deg, rgba(11,16,34,.82) 0%, rgba(11,16,34,.95) 40%);
   --shadow: 0 24px 60px -30px rgba(0,0,0,.6);
   --display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
   --text: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -33,7 +33,7 @@
   --accent: #B65307; --accent-2: #C92A55; --ok: #23803F; --warn: #8A5A00; --bad: #B4233F;
   --on-accent: #FFFFFF;
   --hero-scrim: linear-gradient(90deg, rgba(246,247,251,.97) 0%, rgba(246,247,251,.9) 46%, rgba(246,247,251,.25) 100%);
-  --hero-scrim-m: linear-gradient(180deg, rgba(246,247,251,.55) 0%, rgba(246,247,251,.95) 38%);
+  --hero-scrim-m: linear-gradient(180deg, rgba(246,247,251,.85) 0%, rgba(246,247,251,.96) 40%);
   --shadow: 0 24px 60px -34px rgba(20,30,70,.35);
   color-scheme: light;
 }
@@ -126,7 +126,7 @@ code { font: .85em var(--mono); background: var(--surface-2); padding: .1em .35e
 .button span { transition: transform .2s var(--ease); }
 .button:hover span { transform: translateX(3px); }
 .ghost { font: 600 .95rem/1 var(--text); color: var(--ink-2); text-decoration: none; padding: 14px 6px; }
-.field-hint { position: absolute; right: var(--s5); bottom: var(--s4); font: 500 .72rem/1 var(--text); letter-spacing: .08em; color: var(--faint); text-transform: uppercase; }
+.field-hint { position: absolute; right: var(--s5); bottom: var(--s4); font: 600 .7rem/1 var(--text); letter-spacing: .1em; color: var(--muted); text-transform: uppercase; background: color-mix(in srgb, var(--bg) 85%, transparent); border: 1px solid var(--line); padding: 8px 12px; border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); margin: 0; }
 @media (max-width: 900px) { .field-hint { display: none; } }
 
 .cards { display: grid; grid-template-columns: 1fr; gap: var(--s4); margin: var(--s6) 0 0; }
