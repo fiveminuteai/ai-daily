@@ -37,7 +37,13 @@ class Story:
 
     @property
     def lead(self) -> Item:
-        """The item to cite first: a primary source if one exists, else the strongest item."""
+        """The item to cite first: a primary source if one exists, else the strongest item. Once article text has
+        been fetched, an item with too little readable text (a JavaScript-built page, say) never leads if another
+        item about the same event has a full article."""
+        readable = [i for i in self.items if len(i.text) >= 600]
+        if any(i.text for i in self.items) and readable:
+            pool = [i for i in readable if i.primary] or readable
+            return max(pool, key=lambda i: (i.weight, len(i.text)))
         prim = [i for i in self.items if i.primary]
         pool = prim or self.items
         return max(pool, key=lambda i: (i.weight, len(i.text or i.summary)))

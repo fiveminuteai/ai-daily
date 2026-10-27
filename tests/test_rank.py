@@ -96,3 +96,14 @@ def test_lineup_skips_second_angle_on_same_event():
 def test_norm_url():
     assert norm_url("https://www.Example.com/a/?utm=1#x") == "example.com/a"
     assert norm_url("https://arxiv.org/pdf/2610.01234v2") == "arxiv.org/abs/2610.01234"
+
+
+def test_lead_switches_to_readable_article_when_lab_page_is_empty():
+    lab = item("Genie 4: world simulation", "https://deepmind/genie", "deepmind", primary=True, weight=1.5)
+    news = item("Google's Genie 4 world model adds audio", "https://tc/genie", "techcrunch")
+    st = Story([lab, news])
+    assert st.lead is lab                               # before any text is fetched, the lab's own post leads
+    lab.text, news.text = "Genie 4", "Full article text. " * 60
+    assert st.lead is news                              # the lab page came back nearly empty
+    lab.text = "Full lab announcement. " * 60
+    assert st.lead is lab                               # with readable text, the primary source leads again

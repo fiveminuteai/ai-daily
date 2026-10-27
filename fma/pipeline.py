@@ -139,6 +139,13 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     history = load_json(data_dir / "history.json", [])
     ranked = rank(items, srcs, pipe, history, now, date)
     ranked = apply_editor(chain, ranked, site.get("audience", {}))
+    try:                                   # keep the day's ranking, so picks can be explained later
+        (root / "logs").mkdir(exist_ok=True)
+        (root / "logs" / f"ranking-{date}.json").write_text(json.dumps(
+            [{"title": st.title, "score": st.score, "interest": st.interest, "category": st.category,
+              "outlets": sorted(st.publishers)} for st in ranked[:40]], ensure_ascii=False, indent=1), encoding="utf-8")
+    except OSError:
+        pass
     want = int(pipe.get("stories_per_post", 5))
     candidates = pick_lineup(ranked, n=want + 2)
     for st in candidates:
