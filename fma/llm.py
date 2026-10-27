@@ -36,7 +36,7 @@ class Provider:
     def available(self) -> bool:
         if self.local:
             try:
-                return requests.get(self.base_url.rstrip("/") + "/api/tags", timeout=3).ok
+                return requests.get(self.base_url.rstrip("/") + "/api/tags", timeout=30).ok   # a busy Ollama can take a while to answer
             except requests.RequestException:
                 return False
         return bool(self.key)
