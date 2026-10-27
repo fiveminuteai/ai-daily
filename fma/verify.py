@@ -436,6 +436,42 @@ LLM_CHECK_SYSTEM = """You are a strict fact-checker. You compare sentences with 
 You reply with one JSON object and nothing else."""
 
 
+TOKEN_RE = re.compile(r"[a-z0-9]+")
+
+
+def evidence_found(quote: str, corpus_norm: str, need: float = 0.85) -> bool:
+    """The checker's quote must really be in the source. Each piece (split on '...') must have at least 85% of its
+    words together in one short stretch of the source, so small differences in punctuation, quote marks or a
+    dropped word don't matter, but a sentence assembled from scattered words or invented outright doesn't pass."""
+    ctoks = TOKEN_RE.findall(corpus_norm)
+    pieces = [TOKEN_RE.findall(norm(p)) for p in re.split(r"\.\.\.|…", quote)]
+    pieces = [p for p in pieces if len(p) >= 4] or [TOKEN_RE.findall(norm(quote))]
+    if not pieces or not pieces[0]:
+        return False
+    for q in pieces:
+        span = int(len(q) * 1.3) + 2
+        starts = {t for t in q[:3]}
+        ok = False
+        for i, t in enumerate(ctoks):
+            if t not in starts:
+                continue
+            window = ctoks[i:i + span]
+            pool = {}
+            for w in window:
+                pool[w] = pool.get(w, 0) + 1
+            hit = 0
+            for w in q:
+                if pool.get(w, 0):
+                    pool[w] -= 1
+                    hit += 1
+            if hit / len(q) >= need:
+                ok = True
+                break
+        if not ok:
+            return False
+    return True
+
+
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
     """Ask the model which sentences their cited sources don't support, and drop those."""
     by_id = {s["id"]: s for s in sources}
@@ -466,16 +502,30 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         used = sorted({i for _, s in items for i in cites(s)}, key=lambda x: int(x[1:]))
         src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}\n{by_id[i]['text'][:2600]}"
                                 for i in used if i in by_id)
-        claims = "\n".join(f"{k}: {s}" for k, s in items)
-        prompt = (f"For each claim, decide whether the cited source text supports it. A claim is unsupported if it "
-                  f"states something the source does not say, gets a number, name or date wrong, or attributes something "
-                  f"to the wrong party. Paraphrase and summary are fine; only flag real errors. "
-                  f"Reply as {{\"unsupported\": [{{\"id\": \"C3\", \"reason\": \"...\"}}]}} "
-                  f"with an empty list if all are supported.\n\nCLAIMS\n{claims}\n\nSOURCES\n{src_block}")
-        result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0)
-        ids_here = {k for k, _ in items}
-        bad.update({str(x.get("id")): str(x.get("reason", "")) for x in result.get("unsupported", [])
-                    if isinstance(x, dict) and str(x.get("id")) in ids_here})
+        corpus_here = " ".join(corpus(by_id[i]) for i in used if i in by_id)
+        for start in range(0, len(items), 6):          # small batches keep each reply short
+            batch = items[start:start + 6]
+            claims = "\n".join(f"{k}: {plain(s)}" for k, s in batch)
+            prompt = (
+                "Fact-check each claim against the SOURCES. For every claim, first copy the exact sentence or phrase from "
+                "the sources that supports it (word for word, at most 40 words), then decide whether that evidence says "
+                "the same thing. A claim is NOT supported if the evidence is about a different product, version, person, "
+                "result or event than the claim says (for example the source's maths result described as the physics "
+                "result, or a version 1 date or feature given to version 2), if a number, name or date differs, if it "
+                "presents an older event as new, or if no evidence exists. Paraphrase is fine.\n"
+                "Reply as {\"checks\": [{\"id\": \"C1\", \"evidence\": \"exact words from the source\", "
+                "\"supported\": true, \"reason\": \"short reason\"}]} with one entry per claim.\n\n"
+                f"CLAIMS\n{claims}\n\nSOURCES\n{src_block}")
+            result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0, careful=True)
+            checks = {str(c.get("id")): c for c in result.get("checks", []) if isinstance(c, dict)}
+            for k, _ in batch:
+                c = checks.get(k)
+                if c is None:
+                    bad[k] = "checker returned no verdict"
+                elif not c.get("supported", False):
+                    bad[k] = str(c.get("reason") or "not supported by the source")
+                elif not evidence_found(str(c.get("evidence", "")), corpus_here):
+                    bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
     drop = {s: bad[k] for k, s, _ in sentences if k in bad}
 
     def filt(text: str) -> str:

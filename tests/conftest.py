@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import sys
 from datetime import datetime, timedelta, timezone
@@ -57,18 +58,30 @@ class FakeHttp:
 
 
 class FakeChain:
-    """Returns queued JSON replies in order, like a model would."""
+    """Returns queued JSON replies in order, like a model would. Fact-check prompts are answered automatically:
+    every claim supported, with a real quote from the prompt's sources as evidence, except ids listed in `flags`."""
 
-    def __init__(self, replies: list[dict]):
+    def __init__(self, replies: list[dict], flags: dict | None = None):
         self.replies = list(replies)
+        self.flags = flags or {}
         self.prompts: list[str] = []
         self.used = "fake:model"
 
     def __bool__(self):
         return True
 
-    def ask_json(self, system, user, temperature=0.3):
+    def _check_reply(self, user: str) -> dict:
+        ids = re.findall(r"^(C\d+): ", user, flags=re.M)
+        src = user.split("\n\nSOURCES\n", 1)[1]
+        first_text = [ln for ln in src.splitlines() if ln.strip() and not ln.startswith("[S")][0]
+        evidence = " ".join(first_text.split()[:6])
+        return {"checks": [{"id": i, "evidence": evidence, "supported": i not in self.flags,
+                            "reason": self.flags.get(i, "ok")} for i in ids]}
+
+    def ask_json(self, system, user, temperature=0.3, careful=False):
         self.prompts.append(user)
+        if user.startswith("Fact-check each claim"):
+            return self._check_reply(user)
         if not self.replies:
             raise RuntimeError("no more replies")
         r = self.replies.pop(0)

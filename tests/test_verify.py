@@ -163,3 +163,19 @@ def test_number_shorthand_is_a_unit_not_a_name():
     assert v.sentence("DataCorp was fined 300 M euros [S2].", "x", [])
     assert v.sentence("DataCorp was fined 300 B euros [S2].", "x", []) is None
     assert v.sentence("Nova-2 Mini weighs 3B parameters [S4].", "x", [])
+
+
+def test_checker_evidence_must_be_in_the_source():
+    from fma.verify import corpus, evidence_found
+    c = corpus(SOURCES[1])
+    assert evidence_found("fined DataCorp 300 million euros on Monday", c)
+    assert evidence_found("The European Commission fined DataCorp ... within 90 days under the AI Act", c)
+    assert not evidence_found("DataCorp agreed to pay the fine immediately", c)
+
+
+def test_evidence_tolerates_small_differences_but_not_scattered_words():
+    from fma.verify import corpus, evidence_found
+    c = corpus(SOURCES[1])
+    assert evidence_found("“The European Commission fined DataCorp 300 million euros on Monday”", c)
+    assert evidence_found("Commission fined DataCorp 300 million euros Monday for training models on photos", c)
+    assert not evidence_found("DataCorp fined the European Commission over Monday photos in court", c)

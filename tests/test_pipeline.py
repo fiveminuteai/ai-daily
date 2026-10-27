@@ -30,7 +30,7 @@ def files(proj):
 
 
 def test_publishes_a_verified_post(proj, fake_web):
-    chain = FakeChain(replies(good_draft()) + [OK_CHECK] * 3)
+    chain = FakeChain(replies(good_draft()))
     r = run(proj, fake_web, chain)
     assert r.status == "published", r.reason
     post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
@@ -48,14 +48,14 @@ def test_publishes_a_verified_post(proj, fake_web):
 
 
 def test_second_run_same_day_is_skipped(proj, fake_web):
-    assert run(proj, fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3)).status == "published"
-    r = run(proj, fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3))
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    r = run(proj, fake_web, FakeChain(replies(good_draft())))
     assert r.status == "skipped" and "already exists" in r.reason
 
 
 def test_next_day_does_not_repeat_yesterdays_stories(proj, fake_web):
-    assert run(proj, fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3)).status == "published"
-    r = run_day("2026-10-28", fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3), now=NOW, root=proj)
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    r = run_day("2026-10-28", fake_web, FakeChain(replies(good_draft())), now=NOW, root=proj)
     assert r.status == "skipped" and "new stories" in r.reason
     assert not (proj / "content/posts/2026-10-28.json").exists()
 
@@ -63,17 +63,17 @@ def test_next_day_does_not_repeat_yesterdays_stories(proj, fake_web):
 def test_retry_once_then_publish(proj, fake_web):
     bad = good_draft()
     bad["headline"] = "Globex buys Acme for $40 billion"      # unverifiable headline -> gate fails
-    chain = FakeChain(replies(bad) + [OK_CHECK] * 3 + replies(good_draft()) + [OK_CHECK] * 3)
+    chain = FakeChain(replies(bad) + replies(good_draft()))
     r = run(proj, fake_web, chain)
     assert r.status == "published"
-    assert any("rejected" in q and "headline" in q for q in chain.prompts[7:])   # the retry was told why
+    assert any("rejected" in q and "headline" in q for q in chain.prompts[4:])   # the retry was told why
 
 
 def test_two_failures_skip_the_day_and_write_nothing(proj, fake_web):
     bad = good_draft()
     bad["sections"] = bad["sections"][:1]
     before = files(proj)
-    r = run(proj, fake_web, FakeChain(replies(bad) + [OK_CHECK] * 3 + replies(bad) + [OK_CHECK] * 3))
+    r = run(proj, fake_web, FakeChain(replies(bad) + replies(bad)))
     assert r.status == "skipped" and "gate failed" in r.reason
     assert files(proj) == before
 
@@ -86,7 +86,7 @@ def test_model_crash_is_a_clean_skip(proj, fake_web):
 
 
 def test_layer2_flags_drop_sentences(proj, fake_web):
-    chain = FakeChain(replies(good_draft()) + [{"unsupported": [{"id": "C1", "reason": "not in source"}]}] + [OK_CHECK] * 2)
+    chain = FakeChain(replies(good_draft()), flags={"C1": "not in source"})
     r = run(proj, fake_web, chain)
     assert r.status == "published"
     assert r.report["layer2_flagged"] == 1
@@ -107,13 +107,13 @@ def test_broken_image_blocks_publish(proj, fake_web, monkeypatch):
         for png in (out / "og").glob("2026-*.png"):
             png.unlink()
         return out
-    r = run(proj, fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3), build_fn=broken_build)
+    r = run(proj, fake_web, FakeChain(replies(good_draft())), build_fn=broken_build)
     assert r.status == "skipped" and "broken images" in r.reason
     assert not (proj / "content/posts/2026-10-27.json").exists()
 
 
 def test_site_build_renders_everything(proj, fake_web, tmp_path):
-    assert run(proj, fake_web, FakeChain(replies(good_draft()) + [OK_CHECK] * 3)).status == "published"
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
     out = site_mod.build(content_dir=proj / "content", out_dir=tmp_path / "public")
     post_dirs = list((out / "posts").iterdir())
     assert len(post_dirs) == 1

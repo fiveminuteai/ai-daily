@@ -50,17 +50,21 @@ class Provider:
                 return False
         return bool(self.key)
 
-    def chat(self, system: str, user: str, temperature: float = 0.3, want_json: bool = True) -> str:
+    def chat(self, system: str, user: str, temperature: float = 0.3, want_json: bool = True, careful: bool = False) -> str:
         if self.local:
             return self._ollama(system, user, temperature, want_json)
-        return self._openai(system, user, temperature, want_json)
+        return self._openai(system, user, temperature, want_json, careful)
 
-    def _openai(self, system, user, temperature, want_json) -> str:
+    def _openai(self, system, user, temperature, want_json, careful=False) -> str:
         body = {"model": self.model, "temperature": temperature,
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if want_json:
             body["response_format"] = {"type": "json_object"}
         body.update(self.extra or {})
+        if careful and "reasoning_effort" in body:
+            body["reasoning_effort"] = "medium"    # fact-checking gets more thinking than drafting
+            if "max_completion_tokens" in body:
+                body["max_completion_tokens"] = max(body["max_completion_tokens"], 4500)   # room for the thinking
         url = self.base_url.rstrip("/") + "/chat/completions"
         headers = {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"}
         for attempt in range(4):
@@ -130,16 +134,21 @@ class Chain:
     def __bool__(self) -> bool:
         return bool(self.providers)
 
-    def ask_json(self, system: str, user: str, temperature: float = 0.3) -> dict:
+    def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False) -> dict:
         errors = []
         for p in self.providers:
-            try:
-                reply = p.chat(system, user, temperature)
-                self.last_raw = reply
-                data = parse_json(reply)
-                self.used = f"{p.name}:{p.model}"
-                return data
-            except (LLMError, requests.RequestException, ValueError) as exc:
-                log.warning("provider %s failed: %s", p.name, exc)
-                errors.append(f"{p.name}: {exc}")
+            for _try in range(2):              # one retry on the same provider for a broken or cut-off reply
+                try:
+                    reply = p.chat(system, user, temperature, careful=careful)
+                    self.last_raw = reply
+                    data = parse_json(reply)
+                    self.used = f"{p.name}:{p.model}"
+                    return data
+                except ValueError as exc:
+                    log.warning("provider %s returned unreadable JSON: %s", p.name, exc)
+                    errors.append(f"{p.name}: {exc}")
+                except (LLMError, requests.RequestException) as exc:
+                    log.warning("provider %s failed: %s", p.name, exc)
+                    errors.append(f"{p.name}: {exc}")
+                    break
         raise LLMError("all providers failed: " + " | ".join(errors) if errors else "no provider available")

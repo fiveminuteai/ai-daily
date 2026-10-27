@@ -1,0 +1,732 @@
+{
+  "checked": 64,
+  "ok": 53,
+  "repaired": 5,
+  "dropped": 15,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic files S‑1 revealing $3.1 billion monthly compute spend and exec pay",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "highly dependent on the continued service",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Anthropic’s S‑1 shows co‑founders earning $18 million and $16.4 million, a $3.1 billion per‑month compute contract with SpaceX, and risk disclosures about possible catastrophic AI harm and sentient AI systems",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Anthropic’s S‑1 shows top‑executive pay, massive compute spend, $16.3 billion H1 revenue and unique AI risk warnings.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'H1' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "OpenAI released three AI‑generated discoveries and set up volunteer academic groups to help explain the computer‑science and physics results while publishing the math output directly.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Unlimited OCR 2 uses SR‑SWA to keep compute steady while parsing documents of any length, released 27 Oct 2026.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Police are deploying AI‑driven license‑plate readers to flag and stop drivers for perceived suspicious travel patterns, sparking civil‑rights concerns.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Adding AI agents to a loosely defined project can accelerate errors rather than progress.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic filed its S‑1 prospectus on Monday, 26 October 2026, announcing a public listing under the ticker “ANT”.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The filing lists sibling co‑founders Dario Amodei and Daniela Amodei as the highest‑paid executives, with compensation of nearly $18 million and $16.4 million respectively.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The company frames these leaders as critical to its mission.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The prospectus reveals $2.75 million spent on personal security services for Dario and $1.29 million for Daniela, plus a $97,055 private‑jet allowance for Dario.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic also committed roughly $3.1 billion per month to SpaceX for compute resources.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Revenue rose to $16.3 billion in the first half of 2026, while operating loss narrowed to $693 million and net loss reached $80.7 billion due to accounting adjustments.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The filing notes over 11,900 customers spend at least $100 k annually, 1,900 spend $1 M, and about 250 spend $10 M or more.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '100 thousand' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "An S‑1 must disclose risks, and Anthropic listed unusual factors such as potential “catastrophic” AI harm and the possibility that its Claude system could develop forms of sentience, risks not typical for most tech IPOs.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "These disclosures aim to inform investors about regulatory and liability challenges that could affect the company’s valuation.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic files S‑1 showing exec pay and compute spend",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI announced three new discoveries in mathematics, computer science, and physics on 26 October 2026, and introduced a new collaboration model that uses external academic shepherds to guide the release of the results.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The math result will be released as raw AI output for researchers to interpret, while the computer‑science and physics results will be overseen by volunteer groups that will help explain and publish the findings.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI emphasized that participants will not sign nondisclosure agreements and will receive recognition for their work, but OpenAI will not claim academic credit.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The computer‑science discovery includes a natural‑language proof and a Lean formalization that have been posted publicly on OpenAI’s GitHub repository.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The physics discovery concerns a new proof of local smoothing for the Euclidean wave equation, which also resolves the Kakeya maximal and dimension conjectures and Stein’s spherical restriction estimates across the conjectured range.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI outlined four principles for the collaborations: transparency, no academic credit for OpenAI, recognition for the external group, and independence of participants, all intended to foster open scientific dialogue.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI’s approach builds on earlier releases of hundreds of AI‑generated manuscripts that claimed solutions to long‑standing math problems, but this time the company is testing a more guided release strategy based on feedback from the academic community.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "By providing raw AI output for the math result and structured support for the other fields, OpenAI aims to let experts validate and extend the work while maintaining openness and avoiding proprietary claims.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This experiment reflects broader industry discussions about how to responsibly share powerful AI‑generated research.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI shares three new scientific discoveries with academic shepherds",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "On 27 October 2026 Baidu released Unlimited OCR 2, a model for image‑to‑text conversion that can parse documents of unlimited length.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The release was announced on Hugging Face model cards and accompanied by a new benchmark called MarathonDocBench for ultra‑long document parsing.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The model is available through ModelScope, Baidu Cloud and a public demo on Hugging Face Spaces.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Unlimited OCR 2 uses Sparse Reference Sliding Window Attention (SR‑SWA), which reduces the interaction between text and visual tokens to a fixed set of references, such as 512 tokens, regardless of document size.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This design keeps per‑step decoding latency and memory use almost constant as the document grows, unlike traditional attention that scales quadratically.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The model builds on the earlier Unlimited‑OCR 1.0 and adds support for training with ms‑swift and inference with vLLM, expanding its deployment options.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The accompanying paper was posted on arXiv on 23 June 2026, providing technical details of the architecture.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Optical character recognition (OCR) traditionally struggles with very long documents because attention mechanisms become too costly as token counts rise.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Optical' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "By fixing the number of reference tokens, SR‑SWA allows the model to handle arbitrarily long inputs without a memory explosion, enabling new use cases such as parsing multi‑page contracts or books in a single pass.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This approach differs from standard transformers that use full self‑attention over all tokens and a fixed context window.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Unlimited OCR 2 introduces sparse reference sliding window attention",
+      "sources": [
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Law enforcement agencies in the United States have begun using AI‑enhanced automated license plate readers (ALPRs) to stop drivers for alleged “suspicious” travel patterns, according to an ACLU blog post published on 27 October 2026.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The post describes a September 2025 incident involving Grace Knowles, a woman in her 20s from northern Virginia, who was pulled over after her plate was flagged while she was on a road trip across several states.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The officer identified himself as an FBI special agent working on a human‑and‑drug‑trafficking project and cited the AI system’s alert as the reason for the stop.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The AI tool analyses data from ALPR cameras mounted on highway signs and other locations, creating a heat‑map of vehicle movements across the United States.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "In Knowles’s case, the officer showed her a map with circles indicating her recent locations and a photo of her license plate when he clicked a point.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Companies such as Flock Safety and Axon supply these ALPR systems, which record plate numbers, timestamps, and GPS coordinates for every passing vehicle.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'GPS' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Privacy advocates note that the technology captures location data on millions of people who are not suspected of any crime, often without a warrant, probable cause, or reasonable suspicion, and that errors and misuse have been reported.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "ALPR technology has been used for years to aid investigations, but the addition of AI analytics now enables real‑time pattern detection and automated alerts.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The ACLU warns that such practices could increase encounters that are “fraught, frightening and dangerous” for ordinary drivers, especially as public opposition grows; a YouGov survey in August found 46 % of respondents opposed the widespread use of these systems.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The debate reflects broader concerns about surveillance, privacy, and the balance between law‑enforcement tools and civil liberties.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Police use AI‑driven license plate readers to flag drivers",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Frederick P. Brooks Jr.'s observation that adding people to a delayed software project makes it later, first stated in 1975, is revisited in a 27 October 2026 discussion about AI agents and large language models.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The author notes that four engineers struggled to connect a laptop to a screen, prompting a reminder of Brooks's law in a modern context.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The piece asks whether the law still applies when autonomous agents replace human developers.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The author argues that AI agents eliminate some traditional bottlenecks such as onboarding time, stand‑up meetings, and coffee breaks, because an agent can be ready in milliseconds and never needs a break.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "However, the “Baby Problem” persists: nine agents cannot produce a baby in one month, illustrating that sequential tasks remain sequential.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Overhead shifts from people management to agent orchestration, requiring clear definitions of “done,” code review, hallucination detection, and integration of outputs.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Throwing nine autonomous agents at a codebase without precise coordination leads them to overwrite each other's work rapidly.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Brooks's law originated from the IBM OS/360 project, where adding staff to a late schedule increased delays, a principle still taught in software engineering.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "In 2026, the rise of AI assistants has changed how teams operate, but the core insight—that more parallel effort does not always speed up a project—remains relevant.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The article suggests updating the law to reflect unclear requirements when using AI agents.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Brooks’s law in the age of AI agents",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Investors see the scale of Anthropic’s spending and executive compensation, which signals both the company’s growth ambitions and the financial pressures of sustaining large‑scale AI models, influencing valuation and market dynamics",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "The filing’s unusual risk warnings about catastrophic AI outcomes and potential sentience could affect regulatory scrutiny and liability exposure, shaping how companies manage AI safety and how regulators approach future AI IPOs",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "diagram",
+      "text": "Token embeddings → SR‑SWA reference set (fixed size) → Dense feed‑forward layer → Output layer",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "a step could not be traced to the source"
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Anthropic filed its S‑1 prospectus on Monday, 26 October 2026, announcing a public listing under the ticker “ANT”.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The sources do not specify the filing date as Monday, 26 October 2026."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "An S‑1 must disclose risks, and Anthropic listed unusual factors such as potential “catastrophic” AI harm and the possibility that its Claude system could develop forms of sentience, risks not typical for most tech IPOs.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim adds that such risks are “not typical for most tech IPOs,” which is not stated in the sources."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "These disclosures aim to inform investors about regulatory and liability challenges that could affect the company’s valuation.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The sources do not say the disclosures aim to inform investors about regulatory and liability challenges affecting valuation."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "OpenAI announced three new discoveries in mathematics, computer science, and physics on 26 October 2026, and introduced a new collaboration model that uses external academic shepherds to guide the release of the results.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source texts do not provide the specific announcement date of 26 October 2026."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "This experiment reflects broader industry discussions about how to responsibly share powerful AI‑generated research.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The sources do not mention broader industry discussions about responsibly sharing AI‑generated research."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "By fixing the number of reference tokens, SR‑SWA allows the model to handle arbitrarily long inputs without a memory explosion, enabling new use cases such as parsing multi‑page contracts or books in a single pass.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes SR‑SWA fixing reference token count and constant memory but does not mention specific new use cases such as parsing multi‑page contracts or books."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "This approach differs from standard transformers that use full self‑attention over all tokens and a fixed context window.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that this approach differs from standard transformers using full self‑attention and a fixed context window."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Law enforcement agencies in the United States have begun using AI‑enhanced automated license plate readers (ALPRs) to stop drivers for alleged “suspicious” travel patterns, according to an ACLU blog post published on 27 October 2026.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not provide the publication date of the ACLU blog post, so the claim that it was published on 27 October 2026 is not supported."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Frederick P. Brooks Jr.'s observation that adding people to a delayed software project makes it later, first stated in 1975, is revisited in a 27 October 2026 discussion about AI agents and large language models.",
+      "sources": [
+        "S10"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not mention a specific 27 October 2026 discussion; it only references a 2026 update without that exact date."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 9,
+  "date": "2026-10-28",
+  "slug": "2026-10-28-anthropic-files-s-1-revealing-3-1",
+  "model": "groq:openai/gpt-oss-120b"
+}
