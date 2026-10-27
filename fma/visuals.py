@@ -157,19 +157,35 @@ def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: 
     d.rectangle([0, 0, 14, H], fill=accent)
     d.text((80, 70), site_name.upper(), font=_font("sans_bold", 30), fill=accent)
     d.text((80, 112), f"{date_label}  ·  {kicker}", font=_font("sans", 28), fill=muted)
-    size = 74
-    while size > 44:
+    def wrap_px(text: str, font, max_w: float) -> list[str]:
+        lines, cur = [], ""
+        for word in text.split():
+            trial = f"{cur} {word}".strip()
+            if d.textlength(trial, font=font) <= max_w or not cur:
+                cur = trial
+            else:
+                lines.append(cur)
+                cur = word
+        return lines + ([cur] if cur else [])
+
+    size = 76
+    while True:
         f = _font("serif", size)
-        width_chars = max(12, int(1040 / (size * 0.52)))
-        lines = textwrap.wrap(headline, width=width_chars)
-        if len(lines) <= 4:
+        lines = wrap_px(headline, f, 1000)
+        if len(lines) <= 4 or size <= 44:
             break
-        size -= 6
-    lines = lines[:4]
+        size -= 4
+    if len(lines) > 4:
+        lines = lines[:4]
+        lines[-1] = lines[-1].rstrip(" ,.;:") + "…"
     y = 210
     for line in lines:
         d.text((80, y), line, font=f, fill=ink)
         y += int(size * 1.18)
     d.text((80, H - 80), "Every claim linked to its source.", font=_font("sans", 26), fill=muted)
+    # brand mark: a clock face with the first five minutes filled in
+    cx, cy, r = W - 110, H - 105, 44
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=accent, width=7)
+    d.pieslice([cx - r + 3, cy - r + 3, cx + r - 3, cy + r - 3], start=-90, end=-60, fill=accent)
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)
