@@ -91,12 +91,24 @@ def prepare(post: dict, site: dict) -> dict:
             svg = dual(bar_chart_svg if kind == "chart" else flow_svg, obj, label)
             sections[-1]["figures"].append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else "the steps described"})
     quote = post.get("quote")
+    topic_list = list(dict.fromkeys(s.get("category") for s in post["sections"] if s.get("category") in CAT_LABEL))
+    sec_ids = [(s.get("category"), {i for p in s["paragraphs"] for i in re.findall(r"S\d+", p)}) for s in post["sections"]]
+
+    def topic_of(text: str) -> str:
+        ids = set(re.findall(r"S\d+", text))
+        best = max(sec_ids, key=lambda c: len(c[1] & ids), default=(None, set()))
+        return best[0] if best[0] and best[1] & ids else (topic_list[0] if topic_list else "research")
+
+    head_a, head_b = split_headline(post["headline"])
     return {
         **post,
         "date_long": fmt_date(post["date"]), "date_short": fmt_date(post["date"], "short"),
         "dek_html": r(post["dek"]),
-        "what_html": [r(b) for b in post["what_happened"]],
-        "what_html_home": [render_text(b, numbers, f"posts/{post['slug']}/") for b in post["what_happened"]],
+        "what_post": [{"html": r(b), "topic": topic_of(b)} for b in post["what_happened"]],
+        "what_home": [{"html": render_text(b, numbers, f"posts/{post['slug']}/"), "topic": topic_of(b)}
+                      for b in post["what_happened"]],
+        "head_a": head_a, "head_b": head_b, "topic_list": topic_list,
+        "date_day": datetime.fromisoformat(post["date"]).strftime("%a %d"),
         "sections_r": sections,
         "why_html": [{"html": r(w["text"]), "speculative": w["speculative"]} for w in post["why_it_matters"]],
         "quote_r": {**quote, "source_n": numbers.get(quote["source"])} if quote else None,
@@ -107,6 +119,30 @@ def prepare(post: dict, site: dict) -> dict:
         "url_path": f"posts/{post['slug']}/",
         "dek_plain": re.sub(r"\s*\[S\d+\]", "", post["dek"]),
     }
+
+
+def split_headline(h: str) -> tuple[str, str]:
+    """Split a headline so its second clause can carry the colour gradient."""
+    for sep in (", and ", ", as ", "; ", ", ", " as ", " while "):
+        i = h.rfind(sep)
+        if 12 <= i <= len(h) - 10:
+            cut = i + (1 if sep.startswith((",", ";")) else 0)
+            return h[:cut].strip(), h[cut:].strip()
+    words = h.split()
+    if len(words) >= 5:
+        return " ".join(words[:-2]), " ".join(words[-2:])
+    return h, ""
+
+
+TOPICS = ["models", "research", "products", "tools", "policy", "impact"]
+TOPIC_BLURBS = {
+    "models": "New AI models, what they can do and how they compare.",
+    "research": "Papers and findings, explained without the jargon.",
+    "products": "AI features arriving in apps and services people use.",
+    "tools": "Open-source projects, libraries and developer tools.",
+    "policy": "Laws, regulation, safety, lawsuits and the money behind AI companies.",
+    "impact": "What AI is changing at work, in health, schools and society.",
+}
 
 
 def dual(fn, *args) -> Markup:
@@ -136,7 +172,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
 
     env = Environment(loader=FileSystemLoader(config.SITE_DIR / "templates"), autoescape=select_autoescape(["html", "xml"]),
                       trim_blocks=True, lstrip_blocks=True)
-    env.globals.update(site=site, base=base, origin=origin, year=datetime.now(timezone.utc).year, tag_slug=tag_slug)
+    env.globals.update(site=site, base=base, origin=origin, year=datetime.now(timezone.utc).year, tag_slug=tag_slug,
+                       labels=CAT_LABEL, topics=TOPICS, topic_blurbs=TOPIC_BLURBS, nav="")
 
     posts = [prepare(p, site) for p in load_posts(content_dir)]
     tags: dict[str, list[dict]] = {}
@@ -151,7 +188,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
 
     og_card(out_dir / "og/default.png", site["tagline"], site["name"], "Daily", "One post a day")
     for i, p in enumerate(posts):
-        og_card(out_dir / f"og/{p['slug']}.png", p["headline"], site["name"], p["date_short"], f"{p['reading_minutes']} min read")
+        og_card(out_dir / f"og/{p['slug']}.png", p["headline"], site["name"], p["date_short"], f"{p['reading_minutes']} min read",
+                topics=p["topic_list"])
         newer = posts[i - 1] if i > 0 else None
         older = posts[i + 1] if i + 1 < len(posts) else None
         write(f"posts/{p['slug']}/index.html", env.get_template("post.html").render(
@@ -166,33 +204,43 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                 og_image=f"{base}og/{p['slug']}.png", canonical=f"{p['url_path']}verification/", og_type="article"))
 
     write("index.html", env.get_template("index.html").render(
-        latest=posts[0] if posts else None, earlier=posts[1:13], page_title=None, description=site["tagline"],
+        latest=posts[0] if posts else None, week=posts[:7], page_title=None, description=site["tagline"],
         og_image=f"{base}og/{posts[0]['slug']}.png" if posts else f"{base}og/default.png", canonical="", og_type="website"))
     by_month: dict[str, list[dict]] = {}
     for p in posts:
         by_month.setdefault(datetime.fromisoformat(p["date"]).strftime("%B %Y"), []).append(p)
     write("archive/index.html", env.get_template("archive.html").render(
-        months=by_month, count=len(posts), page_title="Archive", description=f"Every {site['name']} post.",
+        months=by_month, count=len(posts), page_title="Archive", description=f"Every {site['name']} post.", nav="archive",
         og_image=f"{base}og/default.png", canonical="archive/", og_type="website"))
-    tag_list = sorted(tags.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+    other = sorted(((t, ps) for t, ps in tags.items() if t not in CAT_LABEL), key=lambda kv: (-len(kv[1]), kv[0]))
     write("tags/index.html", env.get_template("tags.html").render(
-        tags=tag_list, page_title="Tags", description="Posts by topic.", og_image=f"{base}og/default.png",
-        canonical="tags/", og_type="website", labels=CAT_LABEL))
+        tag_map=tags, other_tags=other, page_title="Topics", description="Posts by topic.", nav="topics",
+        og_image=f"{base}og/default.png", canonical="tags/", og_type="website"))
+    for t in TOPICS:
+        tags.setdefault(t, [])
     for t, ps in tags.items():
         write(f"tags/{tag_slug(t)}/index.html", env.get_template("tag.html").render(
-            tag=t, label=CAT_LABEL.get(t, t), posts=ps, page_title=f"Tag: {CAT_LABEL.get(t, t)}",
+            tag=t, label=CAT_LABEL.get(t, t), posts=ps, page_title=CAT_LABEL.get(t, f"Tag: {t}"), nav="topics",
             description=f"{site['name']} posts tagged {t}.", og_image=f"{base}og/default.png",
             canonical=f"tags/{tag_slug(t)}/", og_type="website"))
     write("about/index.html", env.get_template("about.html").render(
         page_title="How this blog is made", description="Five Minute AI is AI-assisted and generated automatically from linked sources.",
-        og_image=f"{base}og/default.png", canonical="about/", og_type="website",
+        og_image=f"{base}og/default.png", canonical="about/", og_type="website", nav="about",
         sources=config.sources_config()["sources"], providers=site.get("providers", [])))
+    write("search/index.html", env.get_template("search.html").render(
+        page_title="Search", description=f"Search every {site['name']} post.", nav="search",
+        og_image=f"{base}og/default.png", canonical="search/", og_type="website"))
+    index = [{"u": f"{base}{p['url_path']}", "t": p["headline"], "d": p["dek_plain"], "date": p["date"],
+              "ds": p["date_short"], "x": " ".join([s["title"] for s in p["sections"]] +
+                                                    [CITE_RE.sub("", t) for s in p["sections"] for t in s["paragraphs"]])}
+             for p in posts]
+    write("search.json", json.dumps(index, ensure_ascii=False, separators=(",", ":")))
     write("404.html", env.get_template("404.html").render(page_title="Not found", description=site["tagline"],
                                                            og_image=f"{base}og/default.png", canonical="", og_type="website"))
     write("feed.xml", env.get_template("feed.xml").render(
         posts=posts[:20], now=format_datetime(datetime.now(timezone.utc)),
         rfc=lambda iso: format_datetime(datetime.fromisoformat(iso).replace(hour=6, tzinfo=timezone.utc))))
-    urls = ["", "archive/", "tags/", "about/"] + [p["url_path"] for p in posts] + [f"tags/{tag_slug(t)}/" for t in tags]
+    urls = ["", "archive/", "tags/", "about/", "search/"] + [p["url_path"] for p in posts] + [f"tags/{tag_slug(t)}/" for t in tags]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "\n".join(f"  <url><loc>{html.escape(origin + base + u)}</loc></url>" for u in urls) + "\n</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {origin}{base}sitemap.xml\n")

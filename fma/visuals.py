@@ -57,7 +57,7 @@ def timeline_svg(entries: list[dict], tz: str = "Asia/Kolkata", W: int = WIDE) -
         clock = t.strftime("%H:%M") if t else ""
         out.append(f'<text class="viz-time" x="{axis - 16}" y="{y + 4}" text-anchor="end">{esc(clock)}</text>')
         out.append(f'<text class="viz-small" x="{axis - 16}" y="{y + 22}" text-anchor="end">{esc(day)}</text>')
-        out.append(f'<circle class="viz-dot" cx="{axis}" cy="{y}" r="6"/>')
+        out.append(f'<circle class="viz-dot" data-topic="{esc(e.get("category", ""))}" cx="{axis}" cy="{y}" r="6"/>')
         lines = _wrap(e["title"], chars, 2)
         for k, line in enumerate(lines):
             out.append(f'<text class="viz-label" x="{text_x}" y="{y + 5 + k * 20}">{esc(line)}</text>')
@@ -129,7 +129,7 @@ def flow_svg(diagram: dict, source_label: str = "", W: int = WIDE) -> str:
 # ---------------------------------------------------------------- Open Graph card (PNG; social sites don't render SVG)
 
 FONT_CANDIDATES = {
-    "serif": ["C:/Windows/Fonts/georgiab.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    "serif": [str(Path(__file__).resolve().parent.parent / "site/static/fonts/BricolageGrotesque-Bold.ttf"),"C:/Windows/Fonts/georgiab.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
               "/System/Library/Fonts/Supplemental/Georgia Bold.ttf"],
     "sans": ["C:/Windows/Fonts/segoeui.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
              "/System/Library/Fonts/Supplemental/Arial.ttf"],
@@ -147,14 +147,30 @@ def _font(kind: str, size: int):
     return ImageFont.load_default(size=size)
 
 
-def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: str = "5 min read") -> None:
+TOPIC_RGB = {"models": (139, 156, 255), "research": (79, 209, 197), "products": (255, 184, 107),
+             "tools": (199, 146, 234), "policy": (255, 122, 147), "impact": (123, 228, 149)}
+
+
+def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: str = "5 min read",
+            topics: list[str] | None = None) -> None:
     from PIL import Image, ImageDraw
 
     W, H = 1200, 630
-    bg, ink, muted, accent = (20, 20, 19), (240, 237, 230), (160, 155, 145), (232, 121, 72)
+    bg, ink, muted, accent = (11, 16, 34), (237, 240, 250), (149, 160, 196), (255, 184, 107)
     img = Image.new("RGB", (W, H), bg)
     d = ImageDraw.Draw(img)
-    d.rectangle([0, 0, 14, H], fill=accent)
+    # a soft glow in the corner, then a stripe of today's topic colours along the top
+    glow = Image.new("RGB", (W, H), bg)
+    gd = ImageDraw.Draw(glow)
+    for k in range(18, 0, -1):
+        c = tuple(int(bg[j] + (TOPIC_RGB["models"][j] - bg[j]) * 0.22 * (1 - k / 18)) for j in range(3))
+        gd.ellipse([W - 520 - k * 18, -380 - k * 14, W + 260 + k * 18, 300 + k * 14], fill=c)
+    img = Image.blend(img, glow, 1.0)
+    d = ImageDraw.Draw(img)
+    cols = [TOPIC_RGB[t] for t in (topics or []) if t in TOPIC_RGB] or list(TOPIC_RGB.values())
+    seg = W / len(cols)
+    for n, c in enumerate(cols):
+        d.rectangle([int(n * seg), 0, int((n + 1) * seg), 10], fill=c)
     d.text((80, 70), site_name.upper(), font=_font("sans_bold", 30), fill=accent)
     d.text((80, 112), f"{date_label}  ·  {kicker}", font=_font("sans", 28), fill=muted)
     def wrap_px(text: str, font, max_w: float) -> list[str]:
@@ -186,6 +202,6 @@ def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: 
     # brand mark: a clock face with the first five minutes filled in
     cx, cy, r = W - 110, H - 105, 44
     d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=accent, width=7)
-    d.pieslice([cx - r + 3, cy - r + 3, cx + r - 3, cy + r - 3], start=-90, end=-60, fill=accent)
+    d.pieslice([cx - r + 3, cy - r + 3, cx + r - 3, cy + r - 3], start=-90, end=-60, fill=TOPIC_RGB["policy"])
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)

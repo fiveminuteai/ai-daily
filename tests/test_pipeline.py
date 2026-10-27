@@ -127,6 +127,15 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     for p in ["index.html", "archive/index.html", "tags/index.html", "tags/models/index.html", "about/index.html",
               "404.html", "sitemap.xml", "robots.txt", f"posts/{post_dirs[0].name}/verification/index.html"]:
         assert (out / p).exists(), p
+    assert "The 30-second version" in page and 'data-topic="models"' in page
+    assert "\u00c2" not in page
+    home = (out / "index.html").read_text(encoding="utf-8")
+    assert 'id="field"' in home and "This week in AI" in home and 'data-filter="policy"' in home
+    assert '<span class="glow">' in home
+    idx = json.loads((out / "search.json").read_text(encoding="utf-8"))
+    assert idx[0]["t"].startswith("Acme releases Nova-2") and "87.5%" in idx[0]["x"] and "[S1]" not in idx[0]["x"]
+    assert (out / "search/index.html").exists() and (out / "tags/impact/index.html").exists()
+    assert (out / "assets/fonts/BricolageGrotesque-Bold.ttf").exists()
     feed = ElementTree.parse(out / "feed.xml").getroot()
     item = feed.find("channel/item")
     assert item.find("title").text.startswith("Acme releases Nova-2")

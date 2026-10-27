@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% block main %}
-<div class="wrap-narrow page">
-  <p class="kicker"><a href="{{ base }}tags/">Tags</a></p>
-  <h1 class="page-title">{{ label }}</h1>
-  <ul class="post-list">
+<div class="wrap-narrow page" {% if tag in labels %}data-topic="{{ tag }}"{% endif %}>
+  <p class="kicker"><a href="{{ base }}tags/">Topics</a></p>
+  <h1 class="page-title">{% if tag in labels %}<span class="chip" style="font-size:.9rem;vertical-align:middle;margin-right:10px"></span>{% endif %}{{ label }}</h1>
+  {% if tag in topic_blurbs %}<p class="muted">{{ topic_blurbs[tag] }}</p>{% endif %}
+  <ul class="rows">
     {% for p in posts %}
-    <li>
-      <time datetime="{{ p.date }}">{{ p.date_short }}</time>
-      <div><a href="{{ base }}{{ p.url_path }}">{{ p.headline }}</a><p>{{ p.dek_plain }}</p></div>
-    </li>
+    <li><a href="{{ base }}{{ p.url_path }}"><time datetime="{{ p.date }}">{{ p.date_short }}</time><div><b>{{ p.headline }}</b><p>{{ p.dek_plain }}</p></div></a></li>
     {% endfor %}
   </ul>
 </div>

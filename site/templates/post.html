@@ -1,34 +1,29 @@
 {% extends "base.html" %}
 {% block main %}
 <div class="progress" aria-hidden="true"><span></span></div>
-<script>
-(function(){var bar=document.querySelector(".progress span"),art,t=0;function u(){t=0;art=art||document.querySelector(".post");if(!art)return;var r=art.getBoundingClientRect(),h=r.height-innerHeight,p=h>0?Math.min(1,Math.max(0,-r.top/h)):1;bar.style.transform="scaleX("+p+")";}addEventListener("scroll",function(){if(!t){t=requestAnimationFrame(u)}},{passive:true});addEventListener("load",u);})();
-</script>
 <article class="post wrap-narrow">
   <header class="post-head">
-    <p class="kicker"><time datetime="{{ post.date }}">{{ post.date_long }}</time><span class="dot">·</span>{{ post.reading_minutes }} min read</p>
-    <h1 class="headline">{{ post.headline }}</h1>
+    <p class="kicker"><span class="badge">{{ post.reading_minutes }} min read</span><time datetime="{{ post.date }}">{{ post.date_long }}</time></p>
+    <h1 class="headline">{{ post.head_a }}{% if post.head_b %} <span class="glow">{{ post.head_b }}</span>{% endif %}</h1>
     <p class="dek">{{ post.dek_html }}</p>
-    <p class="byline">By <strong>{{ post.byline }}</strong> <span class="muted">· AI-assisted, every claim sourced</span></p>
-    <ul class="tag-row" aria-label="Tags">
-      {% for t in post.tags %}<li><a class="tag" href="{{ base }}tags/{{ tag_slug(t) }}/">{{ t }}</a></li>{% endfor %}
+    <p class="byline">By <strong>{{ post.byline }}</strong> · AI-assisted, every claim sourced and checked</p>
+    <ul class="tag-row" aria-label="Topics">
+      {% for t in post.tags %}<li><a class="tag" {% if t in labels %}data-topic="{{ t }}"{% endif %} href="{{ base }}tags/{{ tag_slug(t) }}/">{{ labels.get(t, t) }}</a></li>{% endfor %}
     </ul>
   </header>
 
-  <section class="what" aria-labelledby="what-h">
-    <h2 id="what-h" class="eyebrow">What happened</h2>
-    <ol class="what-list">
-      {% for b in post.what_html %}<li>{{ b }}</li>{% endfor %}
-    </ol>
+  <section class="thirty" aria-labelledby="thirty-h">
+    <h2 id="thirty-h" class="eyebrow">The 30-second version</h2>
+    <ol>{% for b in post.what_post %}<li data-topic="{{ b.topic }}">{{ b.html }}</li>{% endfor %}</ol>
   </section>
 
   {% if post.timeline_svg %}
-  <figure class="figure">{{ post.timeline_svg }}</figure>
+  <figure class="figure">{{ post.timeline_svg }}<figcaption>Times are when each source published, in India time.</figcaption></figure>
   {% endif %}
 
   {% for s in post.sections_r %}
-  <section class="story" aria-labelledby="s{{ loop.index }}">
-    <p class="story-cat">{{ s.label }}</p>
+  <section class="story" data-topic="{{ s.category }}" aria-labelledby="s{{ loop.index }}">
+    <span class="chip">{{ s.label }}</span>
     <h2 id="s{{ loop.index }}">{{ s.title }}</h2>
     {% for p in s.html %}<p>{{ p }}</p>{% endfor %}
     {% for f in s.figures %}
@@ -68,4 +63,9 @@
     {% if newer %}<a class="pager-next" href="{{ base }}{{ newer.url_path }}"><span class="muted">Next day</span>{{ newer.headline }}</a>{% endif %}
   </nav>
 </article>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var bar=document.querySelector(".progress span"),art=document.querySelector(".post"),t=0;if(!bar||!art)return;function u(){t=0;var r=art.getBoundingClientRect(),h=r.height-innerHeight,p=h>0?Math.min(1,Math.max(0,-r.top/h)):1;bar.style.transform="scaleX("+p+")"}addEventListener("scroll",function(){if(!t)t=requestAnimationFrame(u)},{passive:true});u();})();
+</script>
 {% endblock %}

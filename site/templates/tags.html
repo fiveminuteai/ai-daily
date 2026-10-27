@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block main %}
-<div class="wrap-narrow page">
-  <h1 class="page-title">Tags</h1>
+<div class="wrap page">
+  <h1 class="page-title">Topics</h1>
+  <p class="muted">Every story is filed under one of six sections, each with its own colour. Tags below them name the companies and themes.</p>
+  <div class="cards" style="--n: 3">
+    {% for t in topics %}
+    <a class="card" data-topic="{{ t }}" href="{{ base }}tags/{{ t }}/"><span class="chip">{{ labels[t] }}</span><b>{{ topic_blurbs[t] }}</b><span class="muted" style="display:block;margin-top:10px;font-size:.88rem">{{ (tag_map.get(t) or [])|length }} post{{ "" if (tag_map.get(t) or [])|length == 1 else "s" }}</span></a>
+    {% endfor %}
+  </div>
+  {% if other_tags %}
+  <h2 class="section-title" style="margin-top:56px">More tags</h2>
   <ul class="tag-cloud">
-    {% for t, ps in tags %}
-    <li><a class="tag tag-lg" href="{{ base }}tags/{{ tag_slug(t) }}/">{{ labels.get(t, t) }} <span class="count">{{ ps|length }}</span></a></li>
+    {% for t, ps in other_tags %}
+    <li><a class="tag tag-lg" href="{{ base }}tags/{{ tag_slug(t) }}/">{{ t }} <span class="count">{{ ps|length }}</span></a></li>
     {% endfor %}
   </ul>
+  {% endif %}
 </div>
 {% endblock %}

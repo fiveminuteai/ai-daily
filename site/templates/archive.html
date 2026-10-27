@@ -2,15 +2,13 @@
 {% block main %}
 <div class="wrap-narrow page">
   <h1 class="page-title">Archive</h1>
-  <p class="muted">{{ count }} post{{ "" if count == 1 else "s" }} so far, newest first.</p>
+  <p class="muted">{{ count }} post{{ "" if count == 1 else "s" }} so far, newest first. Looking for something? <a href="{{ base }}search/">Search every post</a>.</p>
   {% for month, ps in months.items() %}
-  <h2 class="eyebrow month">{{ month }}</h2>
-  <ul class="post-list">
+  <h2 class="eyebrow" style="margin-top:48px">{{ month }}</h2>
+  <ul class="rows">
     {% for p in ps %}
-    <li>
-      <time datetime="{{ p.date }}">{{ p.date_short }}</time>
-      <div><a href="{{ base }}{{ p.url_path }}">{{ p.headline }}</a><p>{{ p.dek_plain }}</p></div>
-    </li>
+    <li><a href="{{ base }}{{ p.url_path }}"><time datetime="{{ p.date }}">{{ p.date_short }}</time>
+      <div><b>{{ p.headline }}</b><span class="dots" aria-hidden="true">{% for t in p.topic_list %}<i data-topic="{{ t }}"></i>{% endfor %}</span><p>{{ p.dek_plain }}</p></div></a></li>
     {% endfor %}
   </ul>
   {% endfor %}

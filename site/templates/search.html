@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap-narrow page">
+  <h1 class="page-title">Search</h1>
+  <p class="muted">Every post, searched right here in your browser. Nothing you type leaves this page.</p>
+  <div class="search-box">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Try “open-source”, “regulation”, “Gemini”…" aria-label="Search posts" autocomplete="off">
+  </div>
+  <p class="search-status" id="status" aria-live="polite"></p>
+  <ul class="rows" id="results"></ul>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){var q=document.getElementById("q"),out=document.getElementById("results"),st=document.getElementById("status"),idx=null;
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function hi(s,terms){var h=esc(s);terms.forEach(function(t){if(t.length<2)return;h=h.replace(new RegExp("("+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>")});return h}
+function run(){var v=q.value.trim().toLowerCase();if(!idx)return;var terms=v.split(/\s+/).filter(Boolean);out.innerHTML="";
+if(!terms.length){st.textContent=idx.length+" posts. Type to search.";return}
+var hits=idx.map(function(p){var s=0,hay=(p.t+" "+p.d+" "+p.x).toLowerCase();for(var i=0;i<terms.length;i++){if(hay.indexOf(terms[i])<0)return null;if(p.t.toLowerCase().indexOf(terms[i])>=0)s+=5;if(p.d.toLowerCase().indexOf(terms[i])>=0)s+=2;s+=1}return{p:p,s:s}}).filter(Boolean).sort(function(a,b){return b.s-a.s||(a.p.date<b.p.date?1:-1)});
+st.textContent=hits.length?hits.length+(hits.length===1?" post":" posts")+" found":"No posts match that yet.";
+hits.slice(0,30).forEach(function(h){var li=document.createElement("li");li.innerHTML='<a href="'+h.p.u+'"><time>'+esc(h.p.ds)+'</time><div><b>'+hi(h.p.t,terms)+'</b><p>'+hi(h.p.d,terms)+'</p></div></a>';out.appendChild(li)})}
+fetch("{{ base }}search.json").then(function(r){return r.json()}).then(function(j){idx=j;var m=location.search.match(/[?&]q=([^&]*)/);if(m)q.value=decodeURIComponent(m[1].replace(/\+/g," "));run()}).catch(function(){st.textContent="Search couldn't load. Try the archive instead."});
+q.addEventListener("input",run);q.focus();})();
+</script>
+{% endblock %}
