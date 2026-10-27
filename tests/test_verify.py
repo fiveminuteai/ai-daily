@@ -143,3 +143,16 @@ def test_section_with_too_little_verified_text_is_removed():
     d["sections"][2]["paragraphs"] = ["Researchers at MIT built a robot [S3]. It costs $5 [S3]."]
     post, _ = verify_draft(d, SOURCES)
     assert len(post["sections"]) == 2
+
+
+def test_middle_initial_does_not_split_a_sentence():
+    assert split_sentences("Frederick P. Brooks wrote it [S1]. It aged well [S1].") == \
+        ["Frederick P. Brooks wrote it [S1].", "It aged well [S1]."]
+
+
+def test_title_case_headline_is_sentence_cased_but_names_still_checked():
+    v = Verifier(SOURCES)
+    h, problems = v.headline("Acme Releases Nova-2 For Phones And Laptops")
+    assert h == "Acme releases Nova-2 for phones and laptops" and not problems
+    _, problems = v.headline("Acme Releases Nova-2 With Globex")
+    assert problems and "Globex" in problems[0]

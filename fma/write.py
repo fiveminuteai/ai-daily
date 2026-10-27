@@ -107,7 +107,9 @@ def build_prompt(stories: list[Story], date_label: str, feedback: str = "") -> t
 SECTION_SCHEMA = """{
   "title": "short plain section title, sentence case",
   "category": "models|architecture|research|products|tools|policy|impact",
-  "paragraphs": ["2 or 3 paragraphs, every sentence cited [S1]"],
+  "what": "paragraph 1, 60 to 80 words: what happened, who did it, when. Every sentence cited [S1]",
+  "details": "paragraph 2, 60 to 80 words: the specifics, numbers and names from the sources. Every sentence cited",
+  "context": "paragraph 3, 50 to 70 words: background a non-specialist needs, in plain English. Every sentence cited",
   "bullet": "one sentence under 30 words summing up this story for the 30-second version, cited",
   "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
   "chart": {"title": "string", "unit": "e.g. %", "source": "S2", "bars": [{"label": "string", "value": 0.0}]} or null,
@@ -125,7 +127,8 @@ FINAL_SCHEMA = """{
 def section_prompt(block: str, n: int, total: int, date_label: str, feedback: str) -> str:
     rules = RULES.format(hype=", ".join(HYPE_WORDS), baseline="; ".join(BASELINE_BLOCKS))
     p = (f"Today is {date_label}. This is story {n} of {total} in today's post. Write ONE section about it.\n\n"
-         f"{rules}\n\nFor this section: 180 to 230 words in 2 or 3 paragraphs (count them; shorter is a failure). "
+         f"{rules}\n\nFor this section: three paragraphs, 'what', 'details' and 'context', 180 to 230 words in total. "
+         f"Each paragraph has at least three full sentences; a short paragraph is a failure. "
          f"The rules about the headline, 'what_happened' and 'why_it_matters' are handled separately; ignore them.\n\n"
          f"Reply with JSON in exactly this shape:\n{SECTION_SCHEMA}\n\n")
     if feedback:
@@ -163,6 +166,8 @@ def draft_post(chain, stories: list[Story], date_label: str, feedback: str = "",
             continue
         if not isinstance(sec, dict):
             continue
+        if not sec.get("paragraphs"):
+            sec["paragraphs"] = [sec[k] for k in ("what", "details", "context") if isinstance(sec.get(k), str) and sec[k].strip()]
         sec["story"] = n
         sections.append(sec)
         for k in extras:

@@ -74,7 +74,9 @@ def corpus(src: dict) -> str:
 def split_sentences(text: str) -> list[str]:
     protected = text
     for a in ABBREV:
-        protected = protected.replace(a, a.replace(".", "․"))
+        protected = protected.replace(a, a.replace(".", "\u2024"))
+    # a middle initial ("Frederick P. Brooks") doesn't end a sentence
+    protected = re.sub(r"\b([A-Z][a-z]+ [A-Z])\.(?= [A-Z])", "\\1\u2024", protected)
     parts = re.split(r"(?<=[.!?])\s+(?=[\[\"“(A-Z0-9])", protected.strip())
     out: list[str] = []
     for p in parts:
@@ -151,11 +153,19 @@ def name_ok(word: str, text_norm: str) -> bool:
 
 
 def in_vocab(w: str, vocab: set[str]) -> bool:
-    """Is this an ordinary word from the day's sources, allowing simple endings (fine/fined, say/says)?"""
-    stems = {w, w + "s", w + "d", w + "ed", w + "es", w + "ing", w.rstrip("s"), w[:-1] + "ies" if w.endswith("y") else w}
-    if w.endswith("e"):
-        stems.add(w[:-1] + "ing")
-    return bool(stems & vocab)
+    """Is this an ordinary word from the day's sources, allowing simple endings (reveal/reveals/revealed/revealing)?"""
+    bases = {w}
+    for suf in ("ing", "ies", "es", "ed", "s", "d"):
+        if w.endswith(suf) and len(w) - len(suf) >= 3:
+            bases.add(w[: -len(suf)] + ("y" if suf == "ies" else ""))
+    forms = set()
+    for b in bases:
+        forms |= {b, b + "s", b + "es", b + "d", b + "ed", b + "ing", b + "e", b + "er"}
+        if b.endswith("e"):
+            forms.add(b[:-1] + "ing")
+        if b.endswith("y"):
+            forms |= {b[:-1] + "ies", b[:-1] + "ied"}
+    return bool(forms & vocab)
 
 
 def is_title_case(text: str) -> bool:
@@ -196,6 +206,7 @@ class Verifier:
         self.sources = {s["id"]: s for s in sources}
         self.corpora = {s["id"]: corpus(s) for s in sources}
         self.vocab = set(re.findall(r"[a-z][a-z'\-]+", " ".join(self.corpora.values())))
+        self.raw = " ".join(f"{s.get('title', '')}. {s.get('text', '')}" for s in sources)   # original capitalisation
         self.max_quotes = max_quotes
         self.quotes_used = 0
         self.log: list[dict] = []
@@ -328,7 +339,7 @@ class Verifier:
         """Titles must use only names found in that section's sources; otherwise fall back to the lead source's title."""
         ids = list(dict.fromkeys(i for p in paras for i in cites(p)))
         ids = list(dict.fromkeys(ids + [k for i in ids for k in self.story_ids(i)]))
-        title = plain(section.get("title", ""))
+        title = self.sentence_case(plain(section.get("title", "")))
         problems = check_sentence(title + "".join(f"[{i}]" for i in ids), ids, self.corpora, self.vocab) if title else ["empty"]
         self.log.append({"where": "section title", "text": title, "sources": ids,
                          "status": "dropped" if problems else "ok", "problems": problems})
@@ -337,17 +348,36 @@ class Verifier:
         lead = self.sources.get(ids[0], {}).get("title", "") if ids else ""
         return (lead[:90].rsplit(" ", 1)[0] + "…") if len(lead) > 90 else lead
 
+    def sentence_case(self, text: str) -> str:
+        """Turn 'Anthropic's IPO Filing Reveals High Costs' into 'Anthropic's IPO filing reveals high costs'.
+        A capitalised word is lowered only if it is an ordinary word in today's sources and the sources never
+        capitalise it mid-sentence. Anything else keeps its capital and must pass the name check."""
+        if not is_title_case(text):
+            return text
+        words = text.split(" ")
+        for n, w in enumerate(words[1:], 1):
+            core = re.sub(r"[^\w'’\-]", "", w).removesuffix("'s").removesuffix("’s")
+            if not core or not core[0].isupper() or any(c.isupper() or c.isdigit() for c in core[1:]):
+                continue
+            low = core.lower()
+            ordinary = in_vocab(low, self.vocab) or low in COMMON_STARTERS
+            capitalised_in_sources = re.search(r"[a-z,;] " + re.escape(core) + r"\b", self.raw) is not None
+            if ordinary and not capitalised_in_sources:
+                words[n] = w.replace(core, low, 1)
+        return " ".join(words)
+
     def headline(self, h: str) -> tuple[str, list[str]]:
         all_ids = list(self.corpora)
         problems = []
-        p = plain(h)
+        p = self.sentence_case(plain(h))
         text = " ".join(self.corpora.values())
         for num, pct, mult in numbers_in(p):
             if not number_ok(num, pct, mult, text):
                 problems.append(f"number '{num}' not in any source")
-        for word, _ in names_in(p):
-            if not name_ok(word, text) and word.lower() not in self.vocab:
-                problems.append(f"name '{word}' not in any source")
+        for word, start in names_in(p):
+            if name_ok(word, text) or (start and (in_vocab(word.lower(), self.vocab) or word.lower() in COMMON_STARTERS)):
+                continue
+            problems.append(f"name '{word}' not in any source")
         self.log.append({"where": "headline", "text": p, "sources": all_ids,
                          "status": "dropped" if problems else "ok", "problems": problems})
         return p, problems
