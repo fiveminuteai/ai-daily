@@ -13,7 +13,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
 from . import config
-from .visuals import CAT_LABEL, bar_chart_svg, flow_svg, og_card, timeline_svg
+from .verify import CITE_RE, cites, split_sentences
+from .visuals import CAT_LABEL, NARROW, WIDE, bar_chart_svg, flow_svg, og_card, timeline_svg
 
 CITE_GROUP = re.compile(r"((?:\[S\d+\])+)")
 
@@ -23,17 +24,28 @@ def base_path(base_url: str) -> str:
     return p if p.endswith("/") else p + "/"
 
 
-def render_text(text: str, numbers: dict[str, int]) -> Markup:
-    """Escape text and turn [S1][S3] markers into superscript links to the source list."""
+def _render_markers(text: str, numbers: dict[str, int], href: str) -> str:
     out = []
     for part in CITE_GROUP.split(text):
         ids = re.findall(r"S\d+", part) if CITE_GROUP.fullmatch(part or "") else None
         if ids:
-            links = ",".join(f'<a href="#src-{i}" aria-label="Source {numbers.get(i, "?")}">{numbers.get(i, "?")}</a>' for i in ids)
+            links = ",".join(f'<a href="{href}#src-{i}" aria-label="Source {numbers.get(i, "?")}">{numbers.get(i, "?")}</a>' for i in ids)
             out.append(f'<sup class="cite">{links}</sup>')
         else:
             out.append(html.escape(part))
-    return Markup("".join(out))
+    return "".join(out)
+
+
+def render_text(text: str, numbers: dict[str, int], href: str = "") -> Markup:
+    """Escape text and turn [S1][S3] markers into superscript links to the source list. When consecutive
+    sentences cite the same sources, the superscript is shown once, at the end of the run."""
+    sents = split_sentences(text)
+    keys = [tuple(cites(s)) for s in sents]
+    out = []
+    for n, s in enumerate(sents):
+        last_of_run = n == len(sents) - 1 or keys[n + 1] != keys[n]
+        out.append(_render_markers(s if last_of_run else CITE_RE.sub("", s), numbers, href))
+    return Markup(" ".join(out))
 
 
 def fmt_date(iso: str, style: str = "long") -> str:
@@ -67,8 +79,8 @@ def prepare(post: dict, site: dict) -> dict:
             obj = post.get(kind)
             if obj and kind not in placed and obj["source"] in ids:
                 label = src_by_id.get(obj["source"], {}).get("publisher", "the source")
-                svg = bar_chart_svg(obj, label) if kind == "chart" else flow_svg(obj, label)
-                figs.append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"])})
+                svg = dual(bar_chart_svg if kind == "chart" else flow_svg, obj, label)
+                figs.append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else "the steps described"})
                 placed.add(kind)
         sections.append({**s, "label": CAT_LABEL.get(s.get("category"), s.get("category", "").title()),
                          "html": [r(p) for p in s["paragraphs"]], "figures": figs})
@@ -76,24 +88,30 @@ def prepare(post: dict, site: dict) -> dict:
         obj = post.get(kind)
         if obj and kind not in placed and sections:
             label = src_by_id.get(obj["source"], {}).get("publisher", "the source")
-            svg = bar_chart_svg(obj, label) if kind == "chart" else flow_svg(obj, label)
-            sections[-1]["figures"].append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"])})
+            svg = dual(bar_chart_svg if kind == "chart" else flow_svg, obj, label)
+            sections[-1]["figures"].append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else "the steps described"})
     quote = post.get("quote")
     return {
         **post,
         "date_long": fmt_date(post["date"]), "date_short": fmt_date(post["date"], "short"),
         "dek_html": r(post["dek"]),
         "what_html": [r(b) for b in post["what_happened"]],
+        "what_html_home": [render_text(b, numbers, f"posts/{post['slug']}/") for b in post["what_happened"]],
         "sections_r": sections,
         "why_html": [{"html": r(w["text"]), "speculative": w["speculative"]} for w in post["why_it_matters"]],
         "quote_r": {**quote, "source_n": numbers.get(quote["source"])} if quote else None,
-        "timeline_svg": Markup(timeline_svg(post.get("timeline", []), site.get("timezone", "Asia/Kolkata")))
+        "timeline_svg": dual(timeline_svg, post.get("timeline", []), site.get("timezone", "Asia/Kolkata"))
         if len(post.get("timeline", [])) >= 2 else None,
         "sources_r": [{**s, "n": n, "date": fmt_date(s["published"][:10], "short") if s.get("published") else ""}
                       for n, s in enumerate(post["sources"], 1)],
         "url_path": f"posts/{post['slug']}/",
         "dek_plain": re.sub(r"\s*\[S\d+\]", "", post["dek"]),
     }
+
+
+def dual(fn, *args) -> Markup:
+    """Draw a visual twice: a wide layout for desktop and a narrow one for phones (CSS shows one)."""
+    return Markup(f'<div class="viz-wide">{fn(*args, W=WIDE)}</div><div class="viz-narrow">{fn(*args, W=NARROW)}</div>')
 
 
 def tag_slug(tag: str) -> str:

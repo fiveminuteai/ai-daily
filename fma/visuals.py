@@ -25,7 +25,10 @@ def _wrap(text: str, width: int, max_lines: int) -> list[str]:
     return lines
 
 
-def timeline_svg(entries: list[dict], tz: str = "Asia/Kolkata") -> str:
+WIDE, NARROW = 640, 360     # two layouts: desktop column and phone width, so text stays readable on both
+
+
+def timeline_svg(entries: list[dict], tz: str = "Asia/Kolkata", W: int = WIDE) -> str:
     """entries: [{time: iso, title, publisher, category}] -> vertical timeline, oldest first."""
     zone = ZoneInfo(tz)
     rows = []
@@ -36,25 +39,30 @@ def timeline_svg(entries: list[dict], tz: str = "Asia/Kolkata") -> str:
             t = None
         rows.append((t, e))
     rows.sort(key=lambda r: r[0] or datetime.max.replace(tzinfo=zone))
-    W, top, row_h = 640, 56, 84
-    H = top + row_h * len(rows) + 8
-    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="tl-t tl-d" xmlns="http://www.w3.org/2000/svg">',
-           '<title id="tl-t">When today\'s stories broke</title>',
-           f'<desc id="tl-d">Timeline of the {len(rows)} stories in this post, by the time each source published, in India time.</desc>',
+    narrow = W < 500
+    axis = 82 if narrow else 132          # x of the vertical line
+    text_x = axis + 18
+    chars = int((W - text_x) / 8.4)       # ~8.4 units per character at 15.5px
+    top, row_h = 52, 84 if not narrow else 92
+    H = top + row_h * len(rows) + 4
+    uid = f"tl{W}"
+    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="{uid}-t {uid}-d" xmlns="http://www.w3.org/2000/svg">',
+           f'<title id="{uid}-t">When today\'s stories broke</title>',
+           f'<desc id="{uid}-d">Timeline of the {len(rows)} stories in this post, by the time each source published, in India time.</desc>',
            f'<text class="viz-kicker" x="0" y="20">WHEN TODAY\'S STORIES BROKE · IST</text>',
-           f'<line class="viz-rule" x1="132" y1="{top - 10}" x2="132" y2="{H - 14}"/>']
+           f'<line class="viz-rule" x1="{axis}" y1="{top - 10}" x2="{axis}" y2="{H - 14}"/>']
     for n, (t, e) in enumerate(rows):
         y = top + n * row_h + 14
-        day = t.strftime("%a %d %b") if t else "date n/a"
+        day = (t.strftime("%d %b") if narrow else t.strftime("%a %d %b")).lstrip("0") if t else "n/a"
         clock = t.strftime("%H:%M") if t else ""
-        out.append(f'<text class="viz-time" x="116" y="{y + 4}" text-anchor="end">{esc(clock)}</text>')
-        out.append(f'<text class="viz-small" x="116" y="{y + 22}" text-anchor="end">{esc(day)}</text>')
-        out.append(f'<circle class="viz-dot" cx="132" cy="{y}" r="6"/>')
-        lines = _wrap(e["title"], 52, 2)
+        out.append(f'<text class="viz-time" x="{axis - 16}" y="{y + 4}" text-anchor="end">{esc(clock)}</text>')
+        out.append(f'<text class="viz-small" x="{axis - 16}" y="{y + 22}" text-anchor="end">{esc(day)}</text>')
+        out.append(f'<circle class="viz-dot" cx="{axis}" cy="{y}" r="6"/>')
+        lines = _wrap(e["title"], chars, 2)
         for k, line in enumerate(lines):
-            out.append(f'<text class="viz-label" x="152" y="{y + 5 + k * 20}">{esc(line)}</text>')
+            out.append(f'<text class="viz-label" x="{text_x}" y="{y + 5 + k * 20}">{esc(line)}</text>')
         meta = f'{CAT_LABEL.get(e.get("category"), "")} · {e.get("publisher", "")}'.strip(" ·")
-        out.append(f'<text class="viz-small" x="152" y="{y + 5 + len(lines) * 20 + 2}">{esc(meta)}</text>')
+        out.append(f'<text class="viz-small" x="{text_x}" y="{y + 5 + len(lines) * 20 + 2}">{esc(_wrap(meta, chars + 8, 1)[0])}</text>')
     out.append("</svg>")
     return "\n".join(out)
 
@@ -63,48 +71,57 @@ def _fmt(v: float) -> str:
     return f"{v:,.2f}".rstrip("0").rstrip(".") if v % 1 else f"{int(v):,}"
 
 
-def bar_chart_svg(chart: dict, source_label: str) -> str:
+def bar_chart_svg(chart: dict, source_label: str = "", W: int = WIDE) -> str:
     bars = chart["bars"][:8]
-    W, left, right, top, bh, gap = 640, 190, 70, 52, 26, 14
-    H = top + len(bars) * (bh + gap) + 34
+    narrow = W < 500
+    left, right, top, bh, gap = (118 if narrow else 190), (62 if narrow else 70), 52, 26, 14
+    H = top + len(bars) * (bh + gap) + (20 if chart.get("unit") not in ("", "%", None) else -gap + 4)
     vmax = max(b["value"] for b in bars) or 1
     span = W - left - right
     unit = chart.get("unit", "")
-    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="bc-t" xmlns="http://www.w3.org/2000/svg">',
-           f'<title id="bc-t">{esc(chart["title"])}</title>',
-           f'<text class="viz-kicker" x="0" y="20">{esc(chart["title"].upper())}</text>']
+    uid = f"bc{W}"
+    title_lines = _wrap(chart["title"].upper(), 40 if narrow else 70, 2)
+    shift = 18 * (len(title_lines) - 1)
+    top += shift
+    H += shift
+    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="{uid}-t" xmlns="http://www.w3.org/2000/svg">',
+           f'<title id="{uid}-t">{esc(chart["title"])}</title>']
+    out += [f'<text class="viz-kicker" x="0" y="{20 + 18 * k}">{esc(t)}</text>' for k, t in enumerate(title_lines)]
     top_val = max(b["value"] for b in bars)
     for n, b in enumerate(bars):
         y = top + n * (bh + gap)
         w = max(3, span * b["value"] / vmax)
         cls = "viz-bar-hi" if b["value"] == top_val else "viz-bar"
-        out.append(f'<text class="viz-label" x="{left - 12}" y="{y + bh / 2 + 5}" text-anchor="end">{esc(_wrap(b["label"], 24, 1)[0])}</text>')
+        out.append(f'<text class="viz-label" x="{left - 12}" y="{y + bh / 2 + 5}" text-anchor="end">{esc(_wrap(b["label"], 13 if narrow else 24, 1)[0])}</text>')
         out.append(f'<rect class="{cls}" x="{left}" y="{y}" width="{w:.1f}" height="{bh}" rx="3"/>')
         out.append(f'<text class="viz-time" x="{left + w + 8:.1f}" y="{y + bh / 2 + 5}">{esc(_fmt(b["value"]))}{esc(unit if unit in ("%",) else "")}</text>')
-    unit_note = f" · unit: {unit}" if unit and unit != "%" else ""
-    out.append(f'<text class="viz-small" x="0" y="{H - 8}">Figures as reported by {esc(source_label)}{esc(unit_note)}</text>')
+    if unit and unit != "%":
+        out.append(f'<text class="viz-small" x="0" y="{H - 8}">Unit: {esc(unit)}</text>')
     out.append("</svg>")
     return "\n".join(out)
 
 
-def flow_svg(diagram: dict, source_label: str) -> str:
+def flow_svg(diagram: dict, source_label: str = "", W: int = WIDE) -> str:
     steps = diagram["steps"]
-    W, bw, bh, gap, top = 640, 440, 48, 30, 44
+    narrow = W < 500
+    bw, bh, gap = (W - 8 if narrow else 440), 48, 30
     x = (W - bw) / 2
-    H = top + len(steps) * (bh + gap) + 10
-    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="fl-t" xmlns="http://www.w3.org/2000/svg">',
-           f'<title id="fl-t">{esc(diagram["title"])}</title>',
-           '<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
-           '<path class="viz-arrow" d="M0 0 L10 5 L0 10 z"/></marker></defs>',
-           f'<text class="viz-kicker" x="0" y="20">{esc(diagram["title"].upper())}</text>']
+    uid = f"fl{W}"
+    title_lines = _wrap(diagram["title"].upper(), 40 if narrow else 70, 2)
+    top = 44 + 18 * (len(title_lines) - 1)
+    H = top + len(steps) * (bh + gap) - gap + 4
+    out = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="{uid}-t" xmlns="http://www.w3.org/2000/svg">',
+           f'<title id="{uid}-t">{esc(diagram["title"])}</title>',
+           f'<defs><marker id="{uid}-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+           '<path class="viz-arrow" d="M0 0 L10 5 L0 10 z"/></marker></defs>']
+    out += [f'<text class="viz-kicker" x="0" y="{20 + 18 * k}">{esc(t)}</text>' for k, t in enumerate(title_lines)]
     for n, s in enumerate(steps):
         y = top + n * (bh + gap)
         out.append(f'<rect class="viz-box{" viz-box-hi" if n == len(steps) - 1 else ""}" x="{x}" y="{y}" width="{bw}" height="{bh}" rx="10"/>')
-        out.append(f'<text class="viz-small" x="{x + 16}" y="{y + bh / 2 + 5}">{n + 1:02d}</text>')
-        out.append(f'<text class="viz-label" x="{W / 2}" y="{y + bh / 2 + 6}" text-anchor="middle">{esc(_wrap(s, 44, 1)[0])}</text>')
+        out.append(f'<text class="viz-small" x="{x + 14}" y="{y + bh / 2 + 5}">{n + 1:02d}</text>')
+        out.append(f'<text class="viz-label" x="{W / 2 + (10 if narrow else 0)}" y="{y + bh / 2 + 6}" text-anchor="middle">{esc(_wrap(s, 36 if narrow else 44, 1)[0])}</text>')
         if n < len(steps) - 1:
-            out.append(f'<line class="viz-rule" x1="{W / 2}" y1="{y + bh + 3}" x2="{W / 2}" y2="{y + bh + gap - 5}" marker-end="url(#arrow)"/>')
-    out.append(f'<text class="viz-small" x="0" y="{H - 2}">Based on {esc(source_label)}</text>')
+            out.append(f'<line class="viz-rule" x1="{W / 2}" y1="{y + bh + 3}" x2="{W / 2}" y2="{y + bh + gap - 5}" marker-end="url(#{uid}-arrow)"/>')
     out.append("</svg>")
     return "\n".join(out)
 

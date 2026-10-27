@@ -1,4 +1,4 @@
-﻿# Where Five Minute AI looks for news. Edit this file to add or remove sources.
+# Where Five Minute AI looks for news. Edit this file to add or remove sources.
 #
 # kind:     rss | hn | hf_papers | github
 # weight:   how much one item from this source counts when ranking (1.0 = normal)

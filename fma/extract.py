@@ -1,4 +1,4 @@
-﻿"""Pull readable text out of an article page. This text is what the writer reads and what the
+"""Pull readable text out of an article page. This text is what the writer reads and what the
 verifier checks every claim against, so it only ever comes from the linked page itself."""
 from __future__ import annotations
 

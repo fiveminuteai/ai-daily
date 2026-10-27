@@ -1,0 +1,46 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "fma/**", "config/**", "content/**", "tests/**", "requirements.txt", ".github/workflows/deploy.yml"]
+  workflow_dispatch:
+  workflow_call:              # used by the daily workflow right after it commits a post
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main           # when called from the daily run, pick up the post it just pushed
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - run: python -m fma build
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

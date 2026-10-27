@@ -1,0 +1,58 @@
+name: Daily post
+
+on:
+  schedule:
+    - cron: "15 0 * * *"      # 00:15 UTC = 05:45 India time, every day
+  workflow_dispatch:          # "Run workflow" button for a manual run
+
+permissions:
+  contents: write             # commit the new post
+  pages: write                # deploy the site
+  id-token: write
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      published: ${{ steps.run.outputs.published }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      # The generator already retries the writing step once and skips the day cleanly if the
+      # retry fails too. This outer retry covers a crash (network outage, provider down): one more
+      # try after two minutes, then a clean skip with a warning instead of a red run.
+      - name: Write today's post
+        id: run
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          python -m fma daily || { sleep 120; python -m fma daily; } || {
+            echo "::warning::Skipped today: the generator crashed twice. Nothing was published."
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          }
+
+      - name: Commit the post
+        if: steps.run.outputs.published == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content data
+          git commit -m "Post for $(TZ=Asia/Kolkata date +%F)"
+          git push
+
+  deploy:
+    needs: generate
+    if: needs.generate.outputs.published == 'true'
+    uses: ./.github/workflows/deploy.yml

@@ -1,4 +1,4 @@
-﻿"""One day's run: fetch -> rank -> extract -> write -> verify -> gate -> save. All or nothing."""
+"""One day's run: fetch -> rank -> extract -> write -> verify -> gate -> save. All or nothing."""
 from __future__ import annotations
 
 import json

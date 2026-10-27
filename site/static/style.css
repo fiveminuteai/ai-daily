@@ -87,6 +87,9 @@ code { font: .85em var(--mono); background: var(--sunken); padding: .1em .35em; 
   .nav a { padding: 10px 8px; }
 }
 
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 6; pointer-events: none; }
+.progress span { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); will-change: transform; }
+
 /* ---------- type */
 .kicker { font: 600 .78rem/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 var(--s4); display: flex; flex-wrap: wrap; align-items: center; gap: 0 2px; }
 .kicker a { text-decoration: none; }
@@ -104,8 +107,19 @@ code { font: .85em var(--mono); background: var(--sunken); padding: .1em .35em; 
 /* ---------- home */
 .intro { padding: var(--s6) 0 0; }
 .intro-line { font: 500 .95rem/1.4 var(--sans); color: var(--muted); margin: 0; }
-.lead-card { padding: var(--s6) 0 var(--s7); border-bottom: 1px solid var(--rule); max-width: 860px; }
-.lead-what { margin: var(--s6) 0 var(--s6); padding: var(--s5); background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); max-width: 760px; }
+.lead-card { padding: var(--s6) 0 var(--s7); border-bottom: 1px solid var(--rule); }
+.lead-what { margin: var(--s6) 0; padding: var(--s5); background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); }
+.lead-inside { margin: 0; padding: 0; list-style: none; font: 500 .9rem/1.4 var(--sans); }
+.lead-inside li { display: grid; grid-template-columns: 128px 1fr; gap: var(--s3); padding: 10px 0; border-top: 1px solid var(--rule); }
+.lead-inside li:first-child { border-top: 0; }
+.lead-inside span { color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding-top: 2px; }
+.lead-inside a { text-decoration: none; }
+.lead-side { display: none; }
+@media (min-width: 980px) {
+  .lead-card { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--s8); align-items: start; }
+  .lead-side { display: block; position: sticky; top: 92px; padding-top: 42px; }
+  .lead-side .eyebrow { margin-bottom: var(--s3); }
+}
 .button { display: inline-flex; align-items: center; gap: 10px; font: 600 1rem/1 var(--sans); text-decoration: none; background: var(--ink); color: var(--bg); padding: 15px 22px; border-radius: 999px; transition: transform .12s var(--ease), background .15s var(--ease); }
 .button:hover { color: var(--bg); background: var(--accent); }
 .button:active { transform: scale(.98); }
@@ -155,6 +169,8 @@ code { font: .85em var(--mono); background: var(--sunken); padding: .1em .35em; 
 .figure { margin: var(--s6) 0; padding: var(--s5) var(--s4) var(--s4); background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); }
 @media (min-width: 720px) { .figure { padding: var(--s5) var(--s5) var(--s4); } }
 .figure svg { display: block; width: 100%; height: auto; }
+.viz-narrow { display: none; }
+@media (max-width: 560px) { .viz-wide { display: none; } .viz-narrow { display: block; } }
 .figure figcaption { font: 400 .8rem/1.5 var(--sans); color: var(--muted); margin-top: var(--s3); }
 .viz { font-family: var(--sans); }
 .viz-kicker { font: 700 13px var(--sans); letter-spacing: .1em; fill: var(--accent-ink); }
@@ -163,7 +179,7 @@ code { font: .85em var(--mono); background: var(--sunken); padding: .1em .35em; 
 .viz-small { font: 400 13px var(--sans); fill: var(--muted); }
 .viz-rule { stroke: var(--rule-strong); stroke-width: 2; }
 .viz-dot { fill: var(--bg); stroke: var(--accent); stroke-width: 3; }
-.viz-bar { fill: var(--rule-strong); }
+.viz-bar { fill: color-mix(in srgb, var(--muted) 45%, var(--surface)); }
 .viz-bar-hi { fill: var(--accent); }
 .viz-box { fill: var(--sunken); stroke: var(--rule-strong); stroke-width: 1.2; }
 .viz-box-hi { fill: var(--accent-soft); stroke: var(--accent); }
@@ -224,7 +240,7 @@ code { font: .85em var(--mono); background: var(--sunken); padding: .1em .35em; 
 
 /* ---------- footer */
 .footer { border-top: 1px solid var(--rule); padding: var(--s6) 0 var(--s7); font: 400 .88rem/1.6 var(--sans); color: var(--ink-2); }
-.footer p { margin: 0 0 var(--s2); max-width: 680px; }
+.footer p { margin: 0 0 var(--s2); max-width: 760px; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 @media print { .masthead, .footer, .pager, .theme-toggle { display: none; } body { background: #fff; color: #000; } }
