@@ -143,3 +143,14 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     assert item.find("link").text.endswith(f"/ai-daily/posts/{post_dirs[0].name}/")
     encoded = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
     assert "87.5% on the MMLU benchmark" in encoded and encoded.count("<li>") >= 3
+
+
+def test_editorial_correction_removes_and_logs(proj, fake_web):
+    from fma.pipeline import remove_sentences
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    removed = remove_sentences(proj, "2026-10-27", ["DataCorp said it would appeal"], "test reason")
+    assert len(removed) == 1
+    post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
+    assert "appeal" not in json.dumps(post["sections"])
+    rep = json.loads((proj / "content/reports/2026-10-27.json").read_text(encoding="utf-8"))
+    assert rep["entries"][-1]["where"] == "editorial review" and "test reason" in rep["entries"][-1]["problems"][0]

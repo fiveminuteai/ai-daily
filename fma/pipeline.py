@@ -176,6 +176,47 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     return Result("skipped", f"gate failed after retries: {last_fail}")
 
 
+def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str) -> list[str]:
+    """Editorial correction by removal only (removing never adds a claim). Each removal is appended to the post's
+    public verification log with the reason. Returns the sentences removed."""
+    post_path, rep_path = root / "content/posts" / f"{date}.json", root / "content/reports" / f"{date}.json"
+    post, report = load_json(post_path, None), load_json(rep_path, {"entries": []})
+    if post is None:
+        raise SystemExit(f"no post for {date}")
+    removed: list[str] = []
+
+    def norm_start(s: str) -> str:
+        return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+
+    def keep(text: str) -> str:
+        out = []
+        for s in split_sentences(text):
+            hit = next((p for p in prefixes if norm_start(re.sub(r"\[S\d+\]", "", s)).startswith(norm_start(p))), None)
+            if hit:
+                removed.append(s)
+            else:
+                out.append(s)
+        return " ".join(out)
+
+    post["dek"] = keep(post["dek"])
+    post["what_happened"] = [x for x in (keep(b) for b in post["what_happened"]) if x]
+    post["sections"] = [{**s, "paragraphs": [x for x in (keep(p) for p in s["paragraphs"]) if x]} for s in post["sections"]]
+    post["why_it_matters"] = [{**w, "text": keep(w["text"])} for w in post["why_it_matters"] if keep(w["text"])]
+    removed = list(dict.fromkeys(removed))
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for s in removed:
+        report.setdefault("entries", []).append({"where": "editorial review", "text": re.sub(r"\[S\d+\]", "", s),
+                                                 "sources": cites(s), "status": "dropped",
+                                                 "problems": [f"removed in editorial review on {stamp}: {reason}"]})
+    report["dropped"] = report.get("dropped", 0) + len(removed)
+    post["verification"]["dropped"] = post["verification"].get("dropped", 0) + len(removed)
+    post["word_count"] = word_count(post)
+    post["reading_minutes"] = max(1, round(post["word_count"] / 200))
+    post_path.write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")
+    rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return removed
+
+
 def _dump_rejected(root: Path, date: str, attempt: int, chain, draft, post, report, fails) -> None:
     """Keep every attempt's raw reply and verification report under logs/ (never content/) for diagnosis."""
     try:

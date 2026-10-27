@@ -36,6 +36,10 @@ def main(argv=None) -> int:
     b = sub.add_parser("build")
     b.add_argument("--base-url")
     sub.add_parser("candidates")
+    c = sub.add_parser("correct", help="remove a sentence from a post and log the correction publicly")
+    c.add_argument("date")
+    c.add_argument("--remove", action="append", required=True, help="the start of the sentence to remove (repeatable)")
+    c.add_argument("--reason", required=True)
     args = ap.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     if hasattr(sys.stdout, "reconfigure"):
@@ -46,6 +50,13 @@ def main(argv=None) -> int:
         out = build(base_url=args.base_url)
         print(f"built {out}")
         return 0
+
+    if args.cmd == "correct":
+        from .pipeline import remove_sentences
+        removed = remove_sentences(config.ROOT, args.date, args.remove, args.reason)
+        for s in removed:
+            print("removed:", s)
+        return 0 if len(removed) == len(args.remove) else 1
 
     if args.cmd == "candidates":
         from datetime import datetime, timezone

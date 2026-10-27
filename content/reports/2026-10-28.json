@@ -2,7 +2,7 @@
   "checked": 64,
   "ok": 53,
   "repaired": 5,
-  "dropped": 15,
+  "dropped": 20,
   "entries": [
     {
       "where": "headline",
@@ -719,6 +719,61 @@
       "status": "dropped",
       "problems": [
         "model check: The source does not mention a specific 27 October 2026 discussion; it only references a 2026 update without that exact date."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "The physics discovery concerns a new proof of local smoothing for the Euclidean wave equation, which also resolves the Kakeya maximal and dimension conjectures and Stein’s spherical restriction estimates across the conjectured range.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "removed in editorial review on 2026-10-27: the source does not say this proof is the physics result; it is listed among OpenAI's results on GitHub, so the attribution was wrong"
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "The model builds on the earlier Unlimited‑OCR 1.0 and adds support for training with ms‑swift and inference with vLLM, expanding its deployment options.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "removed in editorial review on 2026-10-27: per the model card's release log, ms-swift training and vLLM inference support arrived in June-July 2026 for the first Unlimited-OCR, not with version 2"
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "The accompanying paper was posted on arXiv on 23 June 2026, providing technical details of the architecture.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "removed in editorial review on 2026-10-27: per the model card's release log, the 23 June 2026 arXiv paper is for the first Unlimited-OCR, not version 2"
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "The author notes that four engineers struggled to connect a laptop to a screen, prompting a reminder of Brooks's law in a modern context.",
+      "sources": [
+        "S10"
+      ],
+      "status": "dropped",
+      "problems": [
+        "removed in editorial review on 2026-10-27: the source says four people, not four engineers"
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "In 2026, the rise of AI assistants has changed how teams operate, but the core insight—that more parallel effort does not always speed up a project—remains relevant.",
+      "sources": [
+        "S10"
+      ],
+      "status": "dropped",
+      "problems": [
+        "removed in editorial review on 2026-10-27: the source does not say this"
       ]
     }
   ],

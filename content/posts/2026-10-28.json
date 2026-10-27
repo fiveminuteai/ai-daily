@@ -34,7 +34,7 @@
       "category": "research",
       "paragraphs": [
         "The math result will be released as raw AI output for researchers to interpret, while the computer‑science and physics results will be overseen by volunteer groups that will help explain and publish the findings[S4][S5]. OpenAI emphasized that participants will not sign nondisclosure agreements and will receive recognition for their work, but OpenAI will not claim academic credit[S4].",
-        "The computer‑science discovery includes a natural‑language proof and a Lean formalization that have been posted publicly on OpenAI’s GitHub repository[S4][S5]. The physics discovery concerns a new proof of local smoothing for the Euclidean wave equation, which also resolves the Kakeya maximal and dimension conjectures and Stein’s spherical restriction estimates across the conjectured range[S5]. OpenAI outlined four principles for the collaborations: transparency, no academic credit for OpenAI, recognition for the external group, and independence of participants, all intended to foster open scientific dialogue[S4].",
+        "The computer‑science discovery includes a natural‑language proof and a Lean formalization that have been posted publicly on OpenAI’s GitHub repository[S4][S5]. OpenAI outlined four principles for the collaborations: transparency, no academic credit for OpenAI, recognition for the external group, and independence of participants, all intended to foster open scientific dialogue[S4].",
         "OpenAI’s approach builds on earlier releases of hundreds of AI‑generated manuscripts that claimed solutions to long‑standing math problems, but this time the company is testing a more guided release strategy based on feedback from the academic community[S4][S5]. By providing raw AI output for the math result and structured support for the other fields, OpenAI aims to let experts validate and extend the work while maintaining openness and avoiding proprietary claims[S4]."
       ]
     },
@@ -44,7 +44,7 @@
       "category": "architecture",
       "paragraphs": [
         "On 27 October 2026 Baidu released Unlimited OCR 2, a model for image‑to‑text conversion that can parse documents of unlimited length[S6]. The release was announced on Hugging Face model cards and accompanied by a new benchmark called MarathonDocBench for ultra‑long document parsing[S6]. The model is available through ModelScope, Baidu Cloud and a public demo on Hugging Face Spaces[S6].",
-        "Unlimited OCR 2 uses Sparse Reference Sliding Window Attention (SR‑SWA), which reduces the interaction between text and visual tokens to a fixed set of references, such as 512 tokens, regardless of document size[S6]. This design keeps per‑step decoding latency and memory use almost constant as the document grows, unlike traditional attention that scales quadratically[S6]. The model builds on the earlier Unlimited‑OCR 1.0 and adds support for training with ms‑swift and inference with vLLM, expanding its deployment options[S6]. The accompanying paper was posted on arXiv on 23 June 2026, providing technical details of the architecture[S6]."
+        "Unlimited OCR 2 uses Sparse Reference Sliding Window Attention (SR‑SWA), which reduces the interaction between text and visual tokens to a fixed set of references, such as 512 tokens, regardless of document size[S6]. This design keeps per‑step decoding latency and memory use almost constant as the document grows, unlike traditional attention that scales quadratically[S6]."
       ]
     },
     {
@@ -62,9 +62,9 @@
       "title": "Brooks’s law in the age of AI agents",
       "category": "tools",
       "paragraphs": [
-        "The author notes that four engineers struggled to connect a laptop to a screen, prompting a reminder of Brooks's law in a modern context[S10]. The piece asks whether the law still applies when autonomous agents replace human developers[S10].",
+        "The piece asks whether the law still applies when autonomous agents replace human developers[S10].",
         "The author argues that AI agents eliminate some traditional bottlenecks such as onboarding time, stand‑up meetings, and coffee breaks, because an agent can be ready in milliseconds and never needs a break[S10]. However, the “Baby Problem” persists: nine agents cannot produce a baby in one month, illustrating that sequential tasks remain sequential[S10]. Overhead shifts from people management to agent orchestration, requiring clear definitions of “done,” code review, hallucination detection, and integration of outputs[S10]. Throwing nine autonomous agents at a codebase without precise coordination leads them to overwrite each other's work rapidly[S10].",
-        "Brooks's law originated from the IBM OS/360 project, where adding staff to a late schedule increased delays, a principle still taught in software engineering[S10]. In 2026, the rise of AI assistants has changed how teams operate, but the core insight—that more parallel effort does not always speed up a project—remains relevant[S10]. The article suggests updating the law to reflect unclear requirements when using AI agents[S10]."
+        "Brooks's law originated from the IBM OS/360 project, where adding staff to a late schedule increased delays, a principle still taught in software engineering[S10]. The article suggests updating the law to reflect unclear requirements when using AI agents[S10]."
       ]
     }
   ],
@@ -184,10 +184,10 @@
     "checked": 64,
     "ok": 53,
     "repaired": 5,
-    "dropped": 15,
+    "dropped": 20,
     "layer1_done": true,
     "layer2_done": true
   },
-  "word_count": 1117,
-  "reading_minutes": 6
+  "word_count": 988,
+  "reading_minutes": 5
 }

@@ -21,3 +21,5 @@ def test_split_headline():
     assert split_headline("Acme releases Nova-2 as the EU fines DataCorp") == ("Acme releases Nova-2", "as the EU fines DataCorp")
     assert split_headline("Anthropic files to go public, OpenAI ships GPT-6.1") == ("Anthropic files to go public,", "OpenAI ships GPT-6.1")
     assert split_headline("Short one") == ("Short one", "")
+    assert split_headline("Anthropic files S-1 revealing $3.1 billion monthly compute spend") == (
+        "Anthropic files S-1 revealing $3.1 billion monthly compute spend", "")

@@ -128,10 +128,7 @@ def split_headline(h: str) -> tuple[str, str]:
         if 12 <= i <= len(h) - 10:
             cut = i + (1 if sep.startswith((",", ";")) else 0)
             return h[:cut].strip(), h[cut:].strip()
-    words = h.split()
-    if len(words) >= 5:
-        return " ".join(words[:-2]), " ".join(words[-2:])
-    return h, ""
+    return h, ""                        # no natural break: no gradient rather than an odd emphasis
 
 
 TOPICS = ["models", "architecture", "research", "products", "tools", "policy", "impact"]
