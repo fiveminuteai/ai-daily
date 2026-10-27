@@ -443,15 +443,28 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     for w in post["why_it_matters"]:
         if not w["speculative"]:
             collect(w["text"], "why_it_matters")
-    used = sorted({i for _, s, _ in sentences for i in cites(s)}, key=lambda x: int(x[1:]))
-    src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}\n{by_id[i]['text'][:2600]}" for i in used if i in by_id)
-    claims = "\n".join(f"{k}: {s}" for k, s, _ in sentences)
-    prompt = (f"For each claim, decide whether the cited source text supports it. A claim is unsupported if it "
-              f"states something the source does not say, gets a number, name or date wrong, or attributes something "
-              f"to the wrong party. Paraphrase is fine. Reply as {{\"unsupported\": [{{\"id\": \"C3\", \"reason\": \"...\"}}]}} "
-              f"with an empty list if all are supported.\n\nCLAIMS\n{claims}\n\nSOURCES\n{src_block}")
-    result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0)
-    bad = {str(x.get("id")): str(x.get("reason", "")) for x in result.get("unsupported", []) if isinstance(x, dict)}
+    # One check per story, with only that story's sources: small prompts fit tight per-minute token limits and
+    # keep the checker focused. Claims citing several stories go with the first story they cite.
+    groups: dict = {}
+    for k, s, _ in sentences:
+        ids = cites(s)
+        story = by_id.get(ids[0], {}).get("story") if ids else None
+        groups.setdefault(story, []).append((k, s))
+    bad: dict[str, str] = {}
+    for story, items in groups.items():
+        used = sorted({i for _, s in items for i in cites(s)}, key=lambda x: int(x[1:]))
+        src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}\n{by_id[i]['text'][:2600]}"
+                                for i in used if i in by_id)
+        claims = "\n".join(f"{k}: {s}" for k, s in items)
+        prompt = (f"For each claim, decide whether the cited source text supports it. A claim is unsupported if it "
+                  f"states something the source does not say, gets a number, name or date wrong, or attributes something "
+                  f"to the wrong party. Paraphrase and summary are fine; only flag real errors. "
+                  f"Reply as {{\"unsupported\": [{{\"id\": \"C3\", \"reason\": \"...\"}}]}} "
+                  f"with an empty list if all are supported.\n\nCLAIMS\n{claims}\n\nSOURCES\n{src_block}")
+        result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0)
+        ids_here = {k for k, _ in items}
+        bad.update({str(x.get("id")): str(x.get("reason", "")) for x in result.get("unsupported", [])
+                    if isinstance(x, dict) and str(x.get("id")) in ids_here})
     drop = {s: bad[k] for k, s, _ in sentences if k in bad}
 
     def filt(text: str) -> str:

@@ -28,6 +28,15 @@ class Provider:
     key_env: str | None = None
     local: bool = False
     timeout: float = 1800.0
+    min_interval_s: float = 0.0     # pace calls to stay under a per-minute token limit (Groq free plan)
+    extra: dict | None = None       # provider-specific request fields, e.g. {"reasoning_effort": "low"}
+    _last_call: float = 0.0
+
+    def _pace(self) -> None:
+        wait = self._last_call + self.min_interval_s - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        self._last_call = time.monotonic()
 
     @property
     def key(self) -> str | None:
@@ -51,15 +60,21 @@ class Provider:
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if want_json:
             body["response_format"] = {"type": "json_object"}
+        body.update(self.extra or {})
         url = self.base_url.rstrip("/") + "/chat/completions"
         headers = {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"}
-        for attempt in range(3):
+        for attempt in range(4):
+            self._pace()
             r = requests.post(url, json=body, headers=headers, timeout=self.timeout)
             if r.status_code == 400 and "response_format" in body:
                 body.pop("response_format")   # some models reject JSON mode; the prompt still asks for JSON
                 continue
-            if r.status_code in (429, 500, 502, 503, 504) and attempt < 2:
-                time.sleep(20 * (attempt + 1))
+            if r.status_code in (429, 500, 502, 503, 504) and attempt < 3:
+                try:
+                    wait = float(r.headers.get("retry-after", 0))
+                except ValueError:
+                    wait = 0
+                time.sleep(min(90.0, max(wait + 1, 20 * (attempt + 1))))
                 continue
             if not r.ok:
                 raise LLMError(f"{self.name} HTTP {r.status_code}: {r.text[:300]}")
@@ -87,7 +102,8 @@ def providers_from_config(site_cfg: dict, only: str | None = None) -> list[Provi
         if only and p["name"] != only:
             continue
         out.append(Provider(name=p["name"], base_url=p["base_url"], model=p["model"],
-                            key_env=p.get("key_env"), local=bool(p.get("local", False))))
+                            key_env=p.get("key_env"), local=bool(p.get("local", False)),
+                            min_interval_s=float(p.get("min_interval_s", 0)), extra=p.get("extra")))
     return out
 
 

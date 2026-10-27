@@ -26,8 +26,11 @@ pipeline:
 # Model providers, tried in order. A provider is used only if its key is set in the environment.
 # Keys live in GitHub secrets or local environment variables, never in this file.
 providers:
+  # Groq free plan (chosen 28 Oct 2026). Limits read from console.groq.com/docs/rate-limits that day:
+  # gpt-oss-120b 30 requests/min, 1K/day, 8K tokens/min, 200K tokens/day. A post uses ~12 calls and ~50K tokens,
+  # so calls are spaced 30 s apart and reasoning is kept short.
+  - {name: groq, base_url: "https://api.groq.com/openai/v1/", model: openai/gpt-oss-120b, key_env: GROQ_API_KEY,
+     min_interval_s: 30, extra: {reasoning_effort: low, max_completion_tokens: 2500}}
   - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.8-flash, key_env: GEMINI_API_KEY}
-  - {name: gemini-lite, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.5-flash-lite, key_env: GEMINI_API_KEY}
-  - {name: groq, base_url: "https://api.groq.com/openai/v1/", model: openai/gpt-oss-120b, key_env: GROQ_API_KEY}
   - {name: openrouter, base_url: "https://openrouter.ai/api/v1/", model: "openai/gpt-oss-120b:free", key_env: OPENROUTER_API_KEY}
   - {name: ollama, base_url: "http://localhost:11434", model: "qwen2.5:14b", key_env: null, local: true}
