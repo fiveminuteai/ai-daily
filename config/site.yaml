@@ -11,6 +11,18 @@ timezone: Asia/Kolkata        # post dates follow this timezone
 # Set to true to stop daily posts without touching the workflow.
 paused: false
 
+# Who reads this, and what they find interesting. The daily editor pass uses this to pick stories.
+audience:
+  description: >-
+    Smart working professionals in India, mostly in tech and cybersecurity, who use AI tools at work but are not AI
+    researchers. They read on their phones in the morning.
+  interests:
+    - "Big launches and wow demos: new models, world simulators, surprising new capabilities"
+    - "Tools we can use at work: AI features arriving in apps people already use"
+    - "Big-tech moves and controversy: company shake-ups, money, lawsuits, copyright, policy fights"
+    - "Security and India: AI in cybersecurity, Indian AI companies, policy and talent"
+  editor_weight: 1.5          # how much the editor's interest score counts against the importance score
+
 pipeline:
   lookback_hours: 40          # only consider items published in this window
   stories_per_post: 5         # 3-5 sections

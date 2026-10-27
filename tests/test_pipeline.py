@@ -44,7 +44,8 @@ def test_publishes_a_verified_post(proj, fake_web):
     hist = json.loads((proj / "data/history.json").read_text(encoding="utf-8"))
     assert hist[-1]["date"] == "2026-10-27" and "acme.example/nova-2" in hist[-1]["urls"]
     # the prompt carried the fetched article text, not just headlines; the old story was excluded
-    assert "87.5% on the MMLU benchmark" in chain.prompts[0] and "Old story" not in chain.prompts[0]
+    assert chain.prompts[0].startswith("READERS:")                 # the editor pass ran first
+    assert "87.5% on the MMLU benchmark" in chain.prompts[1] and "Old story" not in " ".join(chain.prompts)
 
 
 def test_second_run_same_day_is_skipped(proj, fake_web):

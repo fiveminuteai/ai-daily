@@ -82,6 +82,8 @@ class FakeChain:
         self.prompts.append(user)
         if user.startswith("Fact-check each claim"):
             return self._check_reply(user)
+        if user.startswith("READERS:"):          # editor pass: neutral scores, keeps the canned replies in order
+            return {"scores": []}
         if not self.replies:
             raise RuntimeError("no more replies")
         r = self.replies.pop(0)

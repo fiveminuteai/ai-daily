@@ -12,6 +12,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import config
+from .editor import apply_editor
 from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
@@ -137,6 +138,7 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     log.info("fetched %d items: %s", len(items), stats)
     history = load_json(data_dir / "history.json", [])
     ranked = rank(items, srcs, pipe, history, now, date)
+    ranked = apply_editor(chain, ranked, site.get("audience", {}))
     want = int(pipe.get("stories_per_post", 5))
     candidates = pick_lineup(ranked, n=want + 2)
     for st in candidates:

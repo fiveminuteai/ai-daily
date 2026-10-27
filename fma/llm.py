@@ -31,6 +31,7 @@ class Provider:
     min_interval_s: float = 0.0     # pace calls to stay under a per-minute token limit (Groq free plan)
     extra: dict | None = None       # provider-specific request fields, e.g. {"reasoning_effort": "low"}
     _last_call: float = 0.0
+    exhausted: bool = False         # hit a daily limit during this run; skipped from then on
 
     def _pace(self) -> None:
         wait = self._last_call + self.min_interval_s - time.monotonic()
@@ -78,7 +79,13 @@ class Provider:
                     wait = float(r.headers.get("retry-after", 0))
                 except ValueError:
                     wait = 0
-                time.sleep(min(90.0, max(wait + 1, 20 * (attempt + 1))))
+                daily = r.status_code == 429 and ("per day" in r.text.lower() or "quota" in r.text.lower() or wait > 120)
+                if daily:                         # a daily cap won't clear in minutes: hand over to the next provider
+                    self.exhausted = True
+                    raise LLMError(f"{self.name} daily limit reached (HTTP 429)")
+                pause = min(90.0, max(wait + 1, 20 * (attempt + 1)))
+                log.warning("%s HTTP %s, waiting %.0fs before retrying", self.name, r.status_code, pause)
+                time.sleep(pause)
                 continue
             if not r.ok:
                 raise LLMError(f"{self.name} HTTP {r.status_code}: {r.text[:300]}")
@@ -137,9 +144,13 @@ class Chain:
     def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False) -> dict:
         errors = []
         for p in self.providers:
+            if p.exhausted:
+                continue
             for _try in range(2):              # one retry on the same provider for a broken or cut-off reply
                 try:
+                    t0 = time.monotonic()
                     reply = p.chat(system, user, temperature, careful=careful)
+                    log.info("%s answered in %.0fs", p.name, time.monotonic() - t0)
                     self.last_raw = reply
                     data = parse_json(reply)
                     self.used = f"{p.name}:{p.model}"

@@ -32,6 +32,7 @@ class Story:
 
     items: list[Item]
     score: float = 0.0
+    interest: float | None = None   # the editor pass's 0-10 rating, when it ran
     category: str = "products"
 
     @property
