@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 from .models import Story
 
@@ -106,10 +107,26 @@ def draft_post(chain, stories: list[Story], date_label: str, feedback: str = "")
     return normalise_draft(draft), sources
 
 
+def fix_citations(text: str) -> str:
+    """Rewrite citation styles models often use ([S1, S2], (S1), [S1 S2], 【S1】) into [S1][S2]."""
+    text = re.sub(r"[【\[(]\s*((?:S\d+\s*[,;/&]?\s*(?:and\s+)?)+)\s*[】\])]",
+                  lambda m: "".join(f"[{s}]" for s in re.findall(r"S\d+", m.group(1))), str(text))
+    return re.sub(r"\s+(?=\[S\d+\])", "", text)
+
+
 def normalise_draft(d: dict) -> dict:
     """Coerce the model's reply into the expected shape so later steps never trip on a missing key."""
     def as_list(x):
-        return x if isinstance(x, list) else ([] if x in (None, "") else [x])
+        if isinstance(x, list):
+            return [fix_citations(i) if isinstance(i, str) else i for i in x]
+        return [] if x in (None, "") else [fix_citations(x) if isinstance(x, str) else x]
+    d = {**d, "dek": fix_citations(d.get("dek") or ""), "headline": str(d.get("headline") or "")}
+    if isinstance(d.get("sections"), list):
+        d["sections"] = [{**s, "paragraphs": as_list(s.get("paragraphs") or s.get("body"))} if isinstance(s, dict) else s
+                         for s in d["sections"]]
+    if isinstance(d.get("why_it_matters"), list):
+        d["why_it_matters"] = [{**w, "text": fix_citations(w.get("text", ""))} if isinstance(w, dict) else w
+                               for w in d["why_it_matters"]]
 
     out = {
         "headline": str(d.get("headline") or "").strip(),

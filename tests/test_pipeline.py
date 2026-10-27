@@ -25,7 +25,8 @@ def run(proj, http, chain, **kw):
 
 
 def files(proj):
-    return sorted(p.relative_to(proj).as_posix() for p in proj.rglob("*.json"))
+    """Published state only: diagnostics under logs/ are allowed on a skipped day."""
+    return sorted(p.relative_to(proj).as_posix() for d in ("content", "data") for p in (proj / d).rglob("*.json"))
 
 
 def test_publishes_a_verified_post(proj, fake_web):

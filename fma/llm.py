@@ -109,6 +109,7 @@ class Chain:
     def __init__(self, providers: list[Provider]):
         self.providers = [p for p in providers if p.available()]
         self.used: str | None = None
+        self.last_raw: str = ""
 
     def __bool__(self) -> bool:
         return bool(self.providers)
@@ -118,6 +119,7 @@ class Chain:
         for p in self.providers:
             try:
                 reply = p.chat(system, user, temperature)
+                self.last_raw = reply
                 data = parse_json(reply)
                 self.used = f"{p.name}:{p.model}"
                 return data

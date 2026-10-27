@@ -180,6 +180,7 @@ code { font: .85em var(--mono); background: var(--surface-2); padding: .1em .35e
 .post .thirty { margin: 0 0 var(--s6); }
 
 .story { margin: var(--s8) 0 0; }
+.story h2, .thirty, .sources { scroll-margin-top: 88px; }
 .story h2 { font: 700 clamp(1.5rem, 3.2vw, 1.95rem)/1.18 var(--display); letter-spacing: -.025em; margin: var(--s3) 0 var(--s4); text-wrap: balance; }
 .story p, .why p { margin: 0 0 var(--s4); max-width: 68ch; text-wrap: pretty; }
 .cite { font: 700 .66em/1 var(--text); vertical-align: super; margin-left: 1px; white-space: nowrap; }

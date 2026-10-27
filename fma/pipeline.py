@@ -122,6 +122,7 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     recent = recent_posts(posts_dir)
     feedback, last_fail = "", ""
     for attempt in range(1, int(pipe.get("attempts", 2)) + 1):
+        draft = None
         try:
             draft, sources = draft_post(chain, lineup, date_label, feedback)
             verified, report = verify_draft(draft, sources, max_quotes=int(pipe.get("max_quotes", 1)))
@@ -132,6 +133,7 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day
             log.exception("attempt %d crashed", attempt)
             fails, post, report = [f"attempt crashed: {type(exc).__name__}: {exc}"], None, None
+        _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
         if not fails:
             return _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn)
         last_fail = "; ".join(fails)
@@ -143,6 +145,18 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
                 feedback += "\n- These sentences failed source checks and were removed; don't repeat the errors:\n" + \
                     "\n".join(f"  * {e['text'][:160]} ({'; '.join(e['problems'])})" for e in dropped)
     return Result("skipped", f"gate failed after retries: {last_fail}")
+
+
+def _dump_rejected(root: Path, date: str, attempt: int, chain, draft, post, report, fails) -> None:
+    """Keep every attempt's raw reply and verification report under logs/ (never content/) for diagnosis."""
+    try:
+        d = root / "logs" / "attempts"
+        d.mkdir(parents=True, exist_ok=True)
+        (d / f"{date}-attempt{attempt}.json").write_text(json.dumps(
+            {"fails": fails, "raw_reply": getattr(chain, "last_raw", ""), "draft": draft, "post": post, "report": report},
+            ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    except Exception:  # noqa: BLE001 - diagnostics must never break a run
+        log.exception("could not write attempt log")
 
 
 def _yaml(path: Path) -> dict:
