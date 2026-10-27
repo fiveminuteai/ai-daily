@@ -120,7 +120,7 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     page = (post_dirs[0] / "index.html").read_text(encoding="utf-8")
     assert '<sup class="cite"><a href="#src-S1"' in page and 'id="src-S1"' in page
     assert "[S1]" not in page                                   # markers never leak into the page
-    assert "<svg class=\"viz\"" in page and "Our read · speculation" in page
+    assert "<svg class=\"viz\"" in page and "Our read · analysis, not reported fact" in page
     assert "By <strong>Sai Pavan UE</strong>" in page
     assert 'property="og:image" content="https://saipavan333.github.io/ai-daily/og/' in page
     assert not re.search(r'<script[^>]+src="https?://', page)    # no third-party scripts
@@ -141,3 +141,5 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     item = feed.find("channel/item")
     assert item.find("title").text.startswith("Acme releases Nova-2")
     assert item.find("link").text.endswith(f"/ai-daily/posts/{post_dirs[0].name}/")
+    encoded = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
+    assert "87.5% on the MMLU benchmark" in encoded and encoded.count("<li>") >= 3

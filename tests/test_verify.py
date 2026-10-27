@@ -156,3 +156,10 @@ def test_title_case_headline_is_sentence_cased_but_names_still_checked():
     assert h == "Acme releases Nova-2 for phones and laptops" and not problems
     _, problems = v.headline("Acme Releases Nova-2 With Globex")
     assert problems and "Globex" in problems[0]
+
+
+def test_number_shorthand_is_a_unit_not_a_name():
+    v = Verifier(SOURCES)
+    assert v.sentence("DataCorp was fined 300 M euros [S2].", "x", [])
+    assert v.sentence("DataCorp was fined 300 B euros [S2].", "x", []) is None
+    assert v.sentence("Nova-2 Mini weighs 3B parameters [S4].", "x", [])

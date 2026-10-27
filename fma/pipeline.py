@@ -49,7 +49,7 @@ def recent_posts(posts_dir: Path, limit: int = 10) -> list[dict]:
 
 
 def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: str, report: dict) -> dict:
-    texts = [verified["dek"], *verified["what_happened"], *[w["text"] for w in verified["why_it_matters"]]]
+    texts = [verified["dek"], *verified["what_happened"][:3], *[w["text"] for w in verified["why_it_matters"]]]
     for s in verified["sections"]:
         texts.extend(s["paragraphs"])
     used = {i for t in texts for i in cites(t)}
@@ -76,7 +76,7 @@ def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: 
     post = {
         "date": date, "slug": f"{date}-{slugify(verified['headline'])}", "headline": verified["headline"],
         "dek": verified["dek"], "byline": site["byline"], "tags": tags,
-        "what_happened": verified["what_happened"], "sections": verified["sections"],
+        "what_happened": verified["what_happened"][:3], "sections": verified["sections"],
         "why_it_matters": verified["why_it_matters"], "quote": verified.get("quote"),
         "chart": verified.get("chart"), "diagram": verified.get("diagram"), "timeline": timeline,
         "visuals": visuals, "sources": src_list, "model": model,

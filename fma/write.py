@@ -31,6 +31,8 @@ RULES = """Rules, all mandatory:
 7. Headline: specific and plain, under 80 characters, sentence case (only names capitalised), no colon-bait,
    no question. Section titles are sentence case too.
    The publisher of a source is not always the maker of the thing: say who made or announced it as the source says.
+   The date in each source header is when that page was published, not when the event happened: only state a date
+   if the article text itself gives it. Background and context must also come from the sources.
 8. "chart": include only if one source gives two or more directly comparable numbers (benchmark scores, prices,
    sizes). Each bar's value must be a number printed in that source. Otherwise null.
 9. "diagram": optional. Up to 5 short steps (under 6 words each) that show how something in one story works,
@@ -181,7 +183,7 @@ def draft_post(chain, stories: list[Story], date_label: str, feedback: str = "",
     norm = normalise_draft({"sections": sections})["sections"]
     final = chain.ask_json(SYSTEM, final_prompt(norm, date_label, feedback), temperature=0.3) if norm else {}
     draft = {**(final if isinstance(final, dict) else {}), "sections": sections,
-             "what_happened": [s.get("bullet", "") for s in sections[:3]], **extras}
+             "what_happened": [s.get("bullet", "") for s in sections], **extras}   # spares: the first 3 that verify are used
     return normalise_draft(draft), sources
 
 

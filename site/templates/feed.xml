@@ -17,9 +17,9 @@
     {% for t in p.tags %}<category>{{ t }}</category>{% endfor %}
     <description>{{ p.dek_plain }}</description>
     <content:encoded><![CDATA[
-<p><strong>What happened</strong></p><ul>{% for b in p.what_html %}<li>{{ b }}</li>{% endfor %}</ul>
+<p><strong>The 30-second version</strong></p><ul>{% for b in p.what_post %}<li>{{ b.html }}</li>{% endfor %}</ul>
 {% for s in p.sections_r %}<h2>{{ s.title }}</h2>{% for para in s.html %}<p>{{ para }}</p>{% endfor %}{% endfor %}
-<h2>Why it matters</h2>{% for w in p.why_html %}<p>{% if w.speculative %}<em>Our read, speculation: </em>{% endif %}{{ w.html }}</p>{% endfor %}
+<h2>Why it matters</h2>{% for w in p.why_html %}<p>{% if w.speculative %}<em>Our read (analysis): </em>{% endif %}{{ w.html }}</p>{% endfor %}
 <h2>Sources</h2><ol>{% for s in p.sources_r %}<li><a href="{{ s.url }}">{{ s.title }}</a> ({{ s.publisher }})</li>{% endfor %}</ol>
 <p><a href="{{ origin }}{{ base }}{{ p.url_path }}">Read on the site, with charts and the verification log.</a></p>
 ]]></content:encoded>

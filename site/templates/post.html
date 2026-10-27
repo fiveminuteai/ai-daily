@@ -41,7 +41,7 @@
   <section class="why" aria-labelledby="why-h">
     <h2 id="why-h" class="eyebrow">Why it matters</h2>
     {% for w in post.why_html %}
-    <p{% if w.speculative %} class="spec"{% endif %}>{% if w.speculative %}<span class="spec-label">Our read · speculation</span>{% endif %}{{ w.html }}</p>
+    <p{% if w.speculative %} class="spec"{% endif %}>{% if w.speculative %}<span class="spec-label">Our read · analysis, not reported fact</span>{% endif %}{{ w.html }}</p>
     {% endfor %}
   </section>
 

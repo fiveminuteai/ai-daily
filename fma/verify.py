@@ -35,7 +35,10 @@ through toward towards per unlike like rather whether either neither nor just mu
 someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long""".split())
 MULTIPLIERS = {"trillion": ["trillion", "tn", "t"], "billion": ["billion", "bn", "b"],
                "million": ["million", "mn", "m"], "thousand": ["thousand", "k"]}
-NUM_RE = re.compile(r"(?<![\w.])[$€£₹]?(\d+(?:[.,]\d+)*)(\s?%)?(?:\s?(trillion|billion|million|thousand)\b)?", re.I)
+NUM_RE = re.compile(r"(?<![\w.])[$€£₹]?(\d+(?:[.,]\d+)*)(\s?%)?"
+                    r"(?:\s?(trillion|billion|million|thousand|tn|bn|mn|[TBMK])(?![\w-]))?", re.I)
+MULT_ALIAS = {"tn": "trillion", "t": "trillion", "bn": "billion", "b": "billion", "mn": "million", "m": "million",
+              "k": "thousand"}
 QUOTE_RE = re.compile(r"[\"“”]([^\"“”]{3,}?)[\"“”]")
 WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9.\-+&'’]*[A-Za-z0-9+]|[A-Za-z0-9]")
 
@@ -113,8 +116,14 @@ def numbers_in(text: str) -> list[tuple[str, str, str]]:
     out = []
     for m in NUM_RE.finditer(text):
         num = m.group(1).replace(",", "")
-        out.append((num, (m.group(2) or "").strip(), (m.group(3) or "").lower()))
+        mult = (m.group(3) or "").lower()
+        out.append((num, (m.group(2) or "").strip(), MULT_ALIAS.get(mult, mult)))
     return out
+
+
+def strip_number_units(text: str) -> str:
+    """Remove the unit letter in '$18 M' / '3.1B' so it isn't mistaken for a name."""
+    return re.sub(r"(\d)\s?[TBMK]\b", r"\1", text)
 
 
 def number_ok(num: str, pct: str, mult: str, text_norm: str) -> bool:
@@ -187,7 +196,7 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
     for num, pct, mult in numbers_in(p):
         if not number_ok(num, pct, mult, text):
             problems.append(f"number '{num}{pct}{(' ' + mult) if mult else ''}' not in cited source")
-    for word, at_start in names_in(p):
+    for word, at_start in names_in(strip_number_units(p)):
         if name_ok(word, text):
             continue
         if (at_start or titled) and (in_vocab(word.lower(), vocab) or word.lower() in COMMON_STARTERS) \
@@ -404,7 +413,9 @@ def verify_draft(draft: dict, sources: list[dict], max_quotes: int = 1) -> tuple
     for n, w in enumerate(draft.get("why_it_matters", [])):
         t = v.paragraph(w.get("text", ""), f"why_it_matters[{n}]")
         if t:
-            post["why_it_matters"].append({"text": t, "speculative": bool(w.get("speculative"))})
+            # "why it matters" is analysis by nature: always shown labelled as our read; its names and numbers
+            # were still checked above
+            post["why_it_matters"].append({"text": t, "speculative": True})
     post["chart"] = v.chart(draft.get("chart"))
     post["diagram"] = v.diagram(draft.get("diagram"))
     report = summarise(v.log)
