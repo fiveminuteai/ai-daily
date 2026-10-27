@@ -64,7 +64,7 @@ rows.forEach(function(r){var show=f==="all"||(" "+r.dataset.topics+" ").indexOf(
    Pauses when hidden or scrolled away; reduced-motion visitors get one settled frame. */
 (function(){var cv=document.getElementById("field");if(!cv)return;var x=cv.getContext("2d"),W=0,H=0,P=[],mx=-1e5,my=-1e5,t=40,dpr=1,running=false,visible=true;
 function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
-function palette(){var c=(cv.dataset.colors||"models,research,products,tools,policy,impact").split(",");return c.map(function(n){return css("--"+n)||"#8B9CFF"})}
+function palette(){var c=(cv.dataset.colors||"models,architecture,research,products,tools,policy,impact").split(",");return c.map(function(n){return css("--"+n)||"#8B9CFF"})}
 var cols=palette(),bg=css("--bg");
 function size(){var r=cv.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
 var n=Math.round(Math.min(1100,r.width*r.height/900));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,c:cols[i%cols.length]});x.fillStyle=bg;x.fillRect(0,0,W,H);for(var k=0;k<380;k++)step(true)}

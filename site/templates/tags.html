@@ -2,7 +2,7 @@
 {% block main %}
 <div class="wrap page">
   <h1 class="page-title">Topics</h1>
-  <p class="muted">Every story is filed under one of six sections, each with its own colour. Tags below them name the companies and themes.</p>
+  <p class="muted">Every story is filed under one of seven sections, each with its own colour. Tags below them name the companies and themes.</p>
   <div class="cards" style="--n: 3">
     {% for t in topics %}
     <a class="card" data-topic="{{ t }}" href="{{ base }}tags/{{ t }}/"><span class="chip">{{ labels[t] }}</span><b>{{ topic_blurbs[t] }}</b><span class="muted" style="display:block;margin-top:10px;font-size:.88rem">{{ (tag_map.get(t) or [])|length }} post{{ "" if (tag_map.get(t) or [])|length == 1 else "s" }}</span></a>

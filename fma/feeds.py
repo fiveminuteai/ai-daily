@@ -116,6 +116,7 @@ def _item(src: dict, title: str, url: str, published, summary: str = "", points:
         summary=summary, category=src.get("category", "products"), weight=float(src.get("weight", 1.0)),
         primary=bool(src.get("primary", False)), points=points, comments_url=comments_url,
         outlet=src.get("outlet", ""), strict_match=bool(src.get("strict_match", False)),
+        max_age_h=int(src.get("lookback_hours", 0)),
     )
 
 
@@ -176,7 +177,29 @@ def fetch_github(src: dict, http: Http, now: datetime | None = None, **_) -> lis
     return out
 
 
-FETCHERS = {"rss": fetch_rss, "hn": fetch_hn, "hf_papers": fetch_hf_papers, "github": fetch_github}
+SKIP_MODEL = re.compile(r"gguf|gptq|awq|exl2|mlx|-bnb|quantized|uncensored|abliterated|comfy|lora|merge", re.I)
+
+
+def fetch_hf_models(src: dict, http: Http, now: datetime | None = None, **_) -> list[Item]:
+    """New, popular model repositories. The model card (README) is the primary source for how the model is built."""
+    now = now or datetime.now(timezone.utc)
+    r = http.get(src["url"])
+    r.raise_for_status()
+    out = []
+    for m in r.json():
+        mid = m.get("id") or m.get("modelId") or ""
+        created = parse_date(m.get("createdAt"))
+        if not mid or SKIP_MODEL.search(mid) or not created or created < now - timedelta(days=7):
+            continue
+        if int(m.get("likes") or 0) < int(src.get("min_likes", 150)):
+            continue
+        task = (m.get("pipeline_tag") or "").replace("-", " ")
+        out.append(_item(src, f"New on Hugging Face: {mid}" + (f" ({task})" if task else ""), f"https://huggingface.co/{mid}",
+                         created, task, points=int(m.get("likes") or 0)))
+    return out
+
+
+FETCHERS = {"rss": fetch_rss, "hn": fetch_hn, "hf_papers": fetch_hf_papers, "github": fetch_github, "hf_models": fetch_hf_models}
 
 
 def fetch_all(cfg: dict, http: Http, now: datetime | None = None) -> tuple[list[Item], dict]:

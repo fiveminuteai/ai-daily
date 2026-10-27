@@ -77,13 +77,20 @@ def cluster(items: list[Item]) -> list[Story]:
 
 
 def guess_category(story: Story, hints: dict[str, list[str]]) -> str:
-    if all(i.category == "research" for i in story.items):
-        return "research"       # papers stay papers, whatever words their titles use
+    if all(i.category in ("research", "architecture") for i in story.items):
+        # papers and model cards: Architecture if the title is about how a model is built, else Research
+        text = " ".join(i.title for i in story.items)
+        arch = hints.get("architecture", [])
+        if any(re.search(r"(?<!\w)" + re.escape(w) + r"(?!\w)", text, 0 if w != w.lower() else re.I) for w in arch)                 or any(i.category == "architecture" for i in story.items):
+            return "architecture"
+        return "research"
     text = " ".join(i.title for i in story.items)
     best, best_n = None, 0
     for cat, words in hints.items():
         # hints written with capitals (EU, IPO, "AI Act") match case-sensitively
         n = sum(1 for w in words if re.search(r"(?<!\w)" + re.escape(w) + r"(?!\w)", text, 0 if w != w.lower() else re.I))
+        if cat == "architecture":
+            n *= 0.5        # in news headlines these words are often incidental; papers and model cards are handled above
         if n > best_n:
             best, best_n = cat, n
     if best:
@@ -101,7 +108,7 @@ def score_story(story: Story, now: datetime, half_life_h: float = 18.0) -> float
         best = max(best, it.weight * (0.4 + 0.6 * recency))
     outlets = len(story.publishers)
     coverage = 0.9 * math.log2(outlets) if outlets > 1 else 0.0
-    points = max((i.points for i in story.items if i.source_id in ("hn", "hf-papers")), default=0)
+    points = max((i.points for i in story.items if i.source_id in ("hn", "hf-papers", "hf-models")), default=0)
     stars = max((i.points for i in story.items if i.source_id == "github"), default=0)
     attention = 0.35 * math.log10(1 + points) + 0.15 * math.log10(1 + stars)
     return round(best + coverage + attention, 4)
@@ -127,8 +134,9 @@ def already_covered(story: Story, history: list[dict], today: str, dedupe_days: 
 
 def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: datetime, today: str) -> list[Story]:
     """Return candidate stories, best first, with old and already-covered stories removed."""
-    lookback = now - timedelta(hours=int(pipe.get("lookback_hours", 40)))
-    fresh = [i for i in items if i.published is None or i.published >= lookback]
+    default_h = int(pipe.get("lookback_hours", 40))
+    fresh = [i for i in items
+             if i.published is None or i.published >= now - timedelta(hours=i.max_age_h or default_h)]
     stories = cluster(fresh)
     hints = cfg.get("category_hints", {})
     demote = [re.compile(p, re.I) for p in cfg.get("demote_patterns", [])]
@@ -143,6 +151,8 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
             st.score = round(st.score * 0.5, 4)
         if any(i.primary and p.search(i.title) for i in st.items for p in boost):
             st.score = round(st.score + 0.6, 4)
+        if st.category == "architecture":
+            st.score = round(st.score + 0.25, 4)   # a real architecture development should make the cut
         out.append(st)
     out.sort(key=lambda s: s.score, reverse=True)
     return out

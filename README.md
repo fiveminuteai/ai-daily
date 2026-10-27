@@ -36,6 +36,22 @@ Visuals (a timeline of when the day's stories broke, bar charts of numbers from 
 SVGs drawn by the site from verified data, in a wide and a narrow layout. No images are copied from sources.
 Share cards (Open Graph PNGs) are generated with Pillow.
 
+## Design
+
+"Night Signal", picked by Sai Pavan from three rendered directions (screenshots in `docs/design/`).
+
+- Dark-first deep navy with a separately built light theme (toggle in the header, remembered per browser).
+- One colour per topic, used everywhere a story appears: Models `#8B9CFF`, Research `#4FD1C5`, Products
+  `#FFB86B`, Tools `#C792EA`, Policy & safety `#FF7A93`, Real-world impact `#7BE495` (darker variants in light mode).
+  All text colours pass WCAG AA (4.5:1) on both backgrounds.
+- Headlines in Bricolage Grotesque Bold (SIL Open Font License, self-hosted from `site/static/fonts/`, licence
+  alongside). Body text uses the reader's own system UI font at 17-18px with a ~68-character line.
+- Signature moment: the home-page "signal field", a canvas flow field drawn in the colours of today's topics that
+  bends around the cursor. It pauses off-screen and shows a still frame for reduced-motion visitors.
+- Every post opens with "The 30-second version", carries a reading-time badge and a reading-progress bar, and ends with
+  numbered sources and a link to its verification log.
+- Search runs entirely in the browser over `search.json`; nothing typed leaves the page.
+
 ## Model choice, and what it costs
 
 | Route | Cost | Used when |

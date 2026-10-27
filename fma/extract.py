@@ -40,6 +40,14 @@ def extract_item(item: Item, http: Http) -> str:
     url = arxiv_abs_url(item.url)
     if "github.com" in url:
         return _github_text(item, http)
+    m = re.match(r"https://huggingface\.co/([^/]+/[^/#?]+)$", url)
+    if m:                                   # a model page: read its model card in plain markdown
+        try:
+            r = http.get(f"https://huggingface.co/{m.group(1)}/raw/main/README.md")
+            if r.status_code == 200 and len(r.text) > 200:
+                return _strip_front_matter(r.text)[:MAX_CHARS]
+        except Exception:  # noqa: BLE001
+            pass
     try:
         r = http.get(url)
         if r.status_code == 200 and "html" in r.headers.get("content-type", "html"):
@@ -49,6 +57,13 @@ def extract_item(item: Item, http: Http) -> str:
     except Exception as exc:  # noqa: BLE001
         log.info("extract failed for %s: %s", url, exc)
     return strip_html(item.summary)[:MAX_CHARS]
+
+
+def _strip_front_matter(md: str) -> str:
+    md = re.sub(r"^---\n.*?\n---\n", "", md, flags=re.S)
+    md = re.sub(r"<[^>]+>", " ", md)                 # inline HTML badges
+    md = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", md)      # images
+    return re.sub(r"\n{3,}", "\n\n", md).strip()
 
 
 def _github_text(item: Item, http: Http) -> str:

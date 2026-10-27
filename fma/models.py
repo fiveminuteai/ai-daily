@@ -23,6 +23,7 @@ class Item:
     text: str = ""           # full article text once extracted
     outlet: str = ""         # who counts as the publisher for "how many outlets covered it" (arXiv lists = one)
     strict_match: bool = False  # only cluster by URL or near-identical title (paper feeds)
+    max_age_h: int = 0       # per-source freshness window; 0 = use the pipeline default
 
 
 @dataclass

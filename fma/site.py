@@ -80,7 +80,7 @@ def prepare(post: dict, site: dict) -> dict:
             if obj and kind not in placed and obj["source"] in ids:
                 label = src_by_id.get(obj["source"], {}).get("publisher", "the source")
                 svg = dual(bar_chart_svg if kind == "chart" else flow_svg, obj, label)
-                figs.append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else "the steps described"})
+                figs.append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else ("the design described" if obj.get("kind") == "compare" else "the steps described")})
                 placed.add(kind)
         sections.append({**s, "label": CAT_LABEL.get(s.get("category"), s.get("category", "").title()),
                          "html": [r(p) for p in s["paragraphs"]], "figures": figs})
@@ -89,7 +89,7 @@ def prepare(post: dict, site: dict) -> dict:
         if obj and kind not in placed and sections:
             label = src_by_id.get(obj["source"], {}).get("publisher", "the source")
             svg = dual(bar_chart_svg if kind == "chart" else flow_svg, obj, label)
-            sections[-1]["figures"].append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else "the steps described"})
+            sections[-1]["figures"].append({"svg": Markup(svg), "caption": obj["title"], "source_n": numbers.get(obj["source"]), "kind_text": "figures" if kind == "chart" else ("the design described" if obj.get("kind") == "compare" else "the steps described")})
     quote = post.get("quote")
     topic_list = list(dict.fromkeys(s.get("category") for s in post["sections"] if s.get("category") in CAT_LABEL))
     sec_ids = [(s.get("category"), {i for p in s["paragraphs"] for i in re.findall(r"S\d+", p)}) for s in post["sections"]]
@@ -134,9 +134,10 @@ def split_headline(h: str) -> tuple[str, str]:
     return h, ""
 
 
-TOPICS = ["models", "research", "products", "tools", "policy", "impact"]
+TOPICS = ["models", "architecture", "research", "products", "tools", "policy", "impact"]
 TOPIC_BLURBS = {
     "models": "New AI models, what they can do and how they compare.",
+    "architecture": "How models are built: attention, mixture-of-experts, long context, reasoning, efficiency.",
     "research": "Papers and findings, explained without the jargon.",
     "products": "AI features arriving in apps and services people use.",
     "tools": "Open-source projects, libraries and developer tools.",

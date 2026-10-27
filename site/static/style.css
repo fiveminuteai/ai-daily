@@ -11,8 +11,8 @@
 
 :root {
   --bg: #0B1022; --bg-2: #0F1530; --surface: #141C3A; --surface-2: #1A2347; --line: #243058; --line-2: #2F3C6B;
-  --ink: #EDF0FA; --ink-2: #C3CAE2; --muted: #95A0C4; --faint: #6E79A0;
-  --models: #8B9CFF; --research: #4FD1C5; --products: #FFB86B; --tools: #C792EA; --policy: #FF7A93; --impact: #7BE495;
+  --ink: #EDF0FA; --ink-2: #C3CAE2; --muted: #95A0C4; --faint: #7E89B0;
+  --models: #8B9CFF; --architecture: #F4D35E; --research: #4FD1C5; --products: #FFB86B; --tools: #C792EA; --policy: #FF7A93; --impact: #7BE495;
   --accent: #FFB86B; --accent-2: #FF7A93; --ok: #7BE495; --warn: #FFC870; --bad: #FF8FA3;
   --on-accent: #0B1022;
   --hero-scrim: linear-gradient(90deg, rgba(11,16,34,.97) 0%, rgba(11,16,34,.86) 46%, rgba(11,16,34,.18) 100%);
@@ -28,8 +28,8 @@
 }
 :root[data-theme="light"] {
   --bg: #F6F7FB; --bg-2: #EEF0F7; --surface: #FFFFFF; --surface-2: #F3F5FB; --line: #E2E6F0; --line-2: #CFD5E5;
-  --ink: #0E1430; --ink-2: #39415E; --muted: #5B6482; --faint: #8189A3;
-  --models: #4A55D0; --research: #0B7F77; --products: #B65307; --tools: #8236BB; --policy: #C92A55; --impact: #23803F;
+  --ink: #0E1430; --ink-2: #39415E; --muted: #5B6482; --faint: #626A87;
+  --models: #4A55D0; --architecture: #7D5E00; --research: #0B7F77; --products: #B65307; --tools: #8236BB; --policy: #C92A55; --impact: #23803F;
   --accent: #B65307; --accent-2: #C92A55; --ok: #23803F; --warn: #8A5A00; --bad: #B4233F;
   --on-accent: #FFFFFF;
   --hero-scrim: linear-gradient(90deg, rgba(246,247,251,.97) 0%, rgba(246,247,251,.9) 46%, rgba(246,247,251,.25) 100%);
@@ -57,7 +57,7 @@ code { font: .85em var(--mono); background: var(--surface-2); padding: .1em .35e
 @media (min-width: 720px) { .wrap, .wrap-narrow { padding: 0 var(--s6); } }
 
 /* topic colour plumbing: any element with data-topic gets --c */
-[data-topic="models"] { --c: var(--models); } [data-topic="research"] { --c: var(--research); }
+[data-topic="models"] { --c: var(--models); } [data-topic="architecture"] { --c: var(--architecture); } [data-topic="research"] { --c: var(--research); }
 [data-topic="products"] { --c: var(--products); } [data-topic="tools"] { --c: var(--tools); }
 [data-topic="policy"] { --c: var(--policy); } [data-topic="impact"] { --c: var(--impact); }
 

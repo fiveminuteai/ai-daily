@@ -13,7 +13,7 @@ import re
 import unicodedata
 from datetime import datetime
 
-from .write import HYPE_WORDS
+from .write import BASELINE_BLOCKS, HYPE_WORDS
 
 CITE_RE = re.compile(r"\[(S\d+)\]")
 ABBREV = ["U.S.", "U.K.", "U.N.", "e.g.", "i.e.", "Dr.", "Mr.", "Ms.", "Mrs.", "Inc.", "Corp.", "Ltd.", "vs.", "No.",
@@ -280,7 +280,18 @@ class Verifier:
         status = "ok" if len(good) == len(steps) and len(good) >= 3 else "dropped"
         self.log.append({"where": "diagram", "text": " → ".join(steps), "sources": [sid], "status": status,
                          "problems": [] if status == "ok" else ["a step could not be traced to the source"]})
-        return {"title": d.get("title", ""), "source": sid, "steps": good} if status == "ok" else None
+        if status != "ok":
+            return None
+        out = {"title": d.get("title", ""), "source": sid, "steps": good, "kind": "flow"}
+        if d.get("kind") == "compare":
+            allowed = {b.lower(): b for b in BASELINE_BLOCKS}
+            base = [allowed[str(b).strip().lower()] for b in d.get("baseline", []) if str(b).strip().lower() in allowed][:5]
+            if len(base) >= 2:
+                out.update(kind="compare", baseline=base)
+            else:
+                self.log.append({"where": "diagram", "text": "standard-transformer side", "sources": [], "status": "dropped",
+                                 "problems": ["baseline blocks not from the allowed list; drawn as a plain flow"]})
+        return out
 
     def section_title(self, section: dict, paras: list[str]) -> str:
         """Titles must use only names found in that section's sources; otherwise fall back to the lead source's title."""

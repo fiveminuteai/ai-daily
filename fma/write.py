@@ -31,7 +31,14 @@ RULES = """Rules, all mandatory:
 8. "chart": include only if one source gives two or more directly comparable numbers (benchmark scores, prices,
    sizes). Each bar's value must be a number printed in that source. Otherwise null.
 9. "diagram": optional. Up to 5 short steps (under 6 words each) that show how something in one story works,
-   taken from that story's source. Otherwise null."""
+   taken from that story's source. Otherwise null.
+10. Architecture stories (how a model is built: attention changes, mixture-of-experts, state-space or hybrid layers,
+   long context, reasoning or test-time compute, multimodal design, quantisation, distillation, training recipes):
+   use category "architecture". Explain the idea in plain English first, then what is actually new compared with a
+   standard transformer. Attribute performance claims to whoever makes them ("the model card says...") and say when
+   nobody has checked them independently. If the source describes the design, set "diagram" with
+   "kind": "compare", "steps" = 3 to 5 blocks of the new design using the source's own terms, and "baseline" = the
+   matching blocks of a standard transformer chosen ONLY from this list: {baseline}."""
 
 SCHEMA = """{
   "headline": "string",
@@ -39,15 +46,22 @@ SCHEMA = """{
   "tags": ["2 to 5 lowercase topic tags, e.g. openai, open-source, regulation"],
   "what_happened": ["bullet with citation [S1]", "...", "..."],
   "sections": [
-    {"story": 1, "title": "short plain section title", "category": "models|research|products|tools|policy|impact",
+    {"story": 1, "title": "short plain section title", "category": "models|architecture|research|products|tools|policy|impact",
      "paragraphs": ["paragraph text, every sentence cited [S1]", "..."]}
   ],
   "why_it_matters": [{"text": "sentence(s) with citations", "speculative": false}],
   "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
   "chart": {"title": "string", "unit": "e.g. % or $ per million tokens", "source": "S2",
             "bars": [{"label": "string", "value": 0.0}]} or null,
-  "diagram": {"title": "string", "source": "S5", "steps": ["...", "..."]} or null
+  "diagram": {"title": "string", "source": "S5", "kind": "flow|compare", "steps": ["...", "..."],
+              "baseline": ["only for compare"]} or null
 }"""
+
+# The only blocks the "standard transformer" side of a comparison diagram may use. This side isn't checked against
+# a source (it's general background), so it's limited to textbook names.
+BASELINE_BLOCKS = ["Token embeddings", "Self-attention over all tokens", "Dense feed-forward layer",
+                   "Every parameter used per token", "Fixed context window", "Text-only input", "Full-precision weights",
+                   "One answer per pass", "Output layer"]
 
 
 def number_sources(stories: list[Story], lead_chars: int = 2600, other_chars: int = 1100, per_story: int = 3):
@@ -78,7 +92,7 @@ def number_sources(stories: list[Story], lead_chars: int = 2600, other_chars: in
 def build_prompt(stories: list[Story], date_label: str, feedback: str = "") -> tuple[list[dict], str]:
     sources, block = number_sources(stories)
     prompt = (f"Today is {date_label}. Write today's post from the {len(stories)} stories below, one section per story, "
-              f"most important first.\n\n{RULES.format(hype=', '.join(HYPE_WORDS))}\n\n"
+              f"most important first.\n\n{RULES.format(hype=', '.join(HYPE_WORDS), baseline='; '.join(BASELINE_BLOCKS))}\n\n"
               f"Reply with JSON in exactly this shape:\n{SCHEMA}\n\n")
     if feedback:
         prompt += f"Your previous attempt was rejected for these reasons; fix them:\n{feedback}\n\n"

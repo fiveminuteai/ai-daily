@@ -17,6 +17,7 @@ sources:
   - {id: msr,         name: Microsoft Research, kind: rss, url: "https://www.microsoft.com/en-us/research/feed/",          weight: 1.0, category: research, primary: true, ai_filter: true}
   - {id: nvidia,      name: NVIDIA blog,        kind: rss, url: "https://blogs.nvidia.com/feed/",                          weight: 0.9, category: products, primary: true, ai_filter: true}
   - {id: aws-ml,      name: AWS Machine Learning, kind: rss, url: "https://aws.amazon.com/blogs/machine-learning/feed/",    weight: 0.6, category: products, primary: true}
+  - {id: google-research, name: Google Research, kind: rss, url: "https://research.google/blog/rss/",              weight: 1.2, category: research, primary: true}
   - {id: hf-blog,     name: Hugging Face blog,  kind: rss, url: "https://huggingface.co/blog/feed.xml",                    weight: 1.1, category: tools,    primary: true}
 
   # --- Research ---
@@ -24,6 +25,12 @@ sources:
   - {id: arxiv-ai,    name: arXiv cs.AI,        kind: rss, url: "https://rss.arxiv.org/rss/cs.AI",                         weight: 0.15, category: research, primary: true, max_items: 60, outlet: arXiv, strict_match: true}
   - {id: arxiv-cl,    name: arXiv cs.CL,        kind: rss, url: "https://rss.arxiv.org/rss/cs.CL",                         weight: 0.15, category: research, primary: true, max_items: 60, outlet: arXiv, strict_match: true}
   - {id: arxiv-lg,    name: arXiv cs.LG,        kind: rss, url: "https://rss.arxiv.org/rss/cs.LG",                         weight: 0.15, category: research, primary: true, max_items: 60, outlet: arXiv, strict_match: true}
+
+  # --- Model architecture: model cards, technical write-ups ---
+  # New models' own cards on Hugging Face (trending, created in the last 7 days, quantised repacks skipped).
+  - {id: hf-models,   name: Hugging Face model cards, kind: hf_models, url: "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=40&full=true", weight: 0.9, category: architecture, primary: true, min_likes: 150, lookback_hours: 96}
+  - {id: raschka,     name: Ahead of AI (Sebastian Raschka), kind: rss, url: "https://magazine.sebastianraschka.com/feed", weight: 1.0, category: architecture}
+  - {id: lilianweng,  name: Lil'Log (Lilian Weng), kind: rss, url: "https://lilianweng.github.io/index.xml", weight: 1.0, category: architecture}
 
   # --- Reputable tech news ---
   - {id: verge-ai,    name: The Verge,          kind: rss, url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", weight: 1.1, category: products}
@@ -36,7 +43,7 @@ sources:
   - {id: venturebeat, name: VentureBeat,        kind: rss, url: "https://venturebeat.com/category/ai/feed/",               weight: 0.9, category: products, enabled: false}
 
   # --- Community signals ---
-  - {id: hn,          name: Hacker News,        kind: hn,  url: "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=60", weight: 1.0, category: tools, ai_filter: true}
+  - {id: hn,          name: Hacker News,        kind: hn,  url: "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=60", weight: 0.8, category: tools, ai_filter: true}
   - {id: github,      name: GitHub,             kind: github, url: "https://api.github.com/search/repositories", weight: 0.5, category: tools, min_stars: 150}
 
 # Words that mark an item as AI-related (used where ai_filter is true). Matched as whole words, case-insensitive.
@@ -59,11 +66,17 @@ boost_patterns:
   - "^(announcing|meet) "
   - "\\b(releases?|launch(es)?|now available|open[- ]sourc(es|ing)|open weights?)\\b"
 
-# Words in a title that hint at the section an item belongs to.
+# Words in a title that hint at the section an item belongs to. Architecture is checked first for papers,
+# so a paper about a new attention scheme lands under Architecture rather than generic Research.
 category_hints:
+  architecture: [architecture, transformer, transformers, attention, mixture-of-experts, MoE, experts, state-space, SSM, Mamba,
+                 hybrid, long-context, "context window", "linear attention", "sparse attention", recurrent, quantization,
+                 quantisation, quantized, distillation, distilled, pruning, "test-time compute", "test-time", "reasoning model",
+                 tokenizer, "KV cache", "speculative decoding", "model card", "technical report", pretraining, "training recipe",
+                 multimodal, "small model", "small language model", parameters, "diffusion language"]
+  policy:   [law, "AI Act", security, vulnerability, exposure, leak, leaked, breach, exploit, regulation, regulator, senate, congress, EU, court, lawsuit, ban, safety, copyright, policy, government, IPO, S-1, prospectus]
   models:   [release, releases, launches, launch, model, models, open-weight, weights, benchmark, GPT, Gemini, Claude, Llama, Qwen]
   research: [paper, study, researchers, arxiv, dataset, discovery, breakthrough, method]
   products: [app, feature, available, rolls, rollout, pricing, subscription, assistant, Siri, Copilot]
   tools:    [open-source, library, framework, SDK, repo, GitHub, API, tool, toolkit]
-  policy:   [law, "AI Act", regulation, regulator, senate, congress, EU, court, lawsuit, ban, safety, copyright, policy, government, IPO, S-1, prospectus]
   impact:   [jobs, workers, schools, hospital, health, climate, energy, students, economy]

@@ -9,8 +9,8 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-CAT_LABEL = {"models": "Models", "research": "Research", "products": "Products", "tools": "Tools",
-             "policy": "Policy & safety", "impact": "Real-world impact"}
+CAT_LABEL = {"models": "Models", "architecture": "Architecture", "research": "Research", "products": "Products",
+             "tools": "Tools", "policy": "Policy & safety", "impact": "Real-world impact"}
 
 
 def esc(s) -> str:
@@ -101,7 +101,49 @@ def bar_chart_svg(chart: dict, source_label: str = "", W: int = WIDE) -> str:
     return "\n".join(out)
 
 
+def compare_svg(diagram: dict, W: int = WIDE) -> str:
+    """Block diagram: a standard transformer (muted, left or top) next to the new design (topic colour)."""
+    base, new = diagram["baseline"], diagram["steps"]
+    narrow = W < 500
+    bh, gap = 44, 12
+    uid = f"cmp{W}"
+    title_lines = _wrap(diagram["title"].upper(), 40 if narrow else 70, 2)
+    top = 44 + 18 * (len(title_lines) - 1)
+    out = []
+
+    def column(x, y, w, label, blocks, hi):
+        out.append(f'<text class="viz-small" x="{x}" y="{y - 10}">{esc(label)}</text>')
+        for n, b in enumerate(blocks):
+            yy = y + n * (bh + gap)
+            out.append(f'<rect class="viz-box{" viz-box-hi" if hi else ""}" x="{x}" y="{yy}" width="{w}" height="{bh}" rx="9"/>')
+            out.append(f'<text class="viz-label" x="{x + w / 2}" y="{yy + bh / 2 + 6}" text-anchor="middle">'
+                       f'{esc(_wrap(b, int(w / 8.6), 1)[0])}</text>')
+        return y + len(blocks) * (bh + gap) - gap
+
+    if narrow:
+        y1 = column(0, top + 18, W, "STANDARD TRANSFORMER", base, False)
+        mid = y1 + 26
+        out.append(f'<line class="viz-rule" x1="{W / 2}" y1="{y1 + 6}" x2="{W / 2}" y2="{mid + 6}" marker-end="url(#{uid}-a)"/>')
+        y2 = column(0, mid + 36, W, "WHAT THIS DESIGN DOES", new, True)
+        H = y2 + 6
+    else:
+        cw = (W - 70) / 2
+        y1 = column(0, top + 18, cw, "STANDARD TRANSFORMER", base, False)
+        y2 = column(cw + 70, top + 18, cw, "WHAT THIS DESIGN DOES", new, True)
+        ym = top + 18 + bh / 2
+        out.append(f'<line class="viz-rule" x1="{cw + 12}" y1="{ym}" x2="{cw + 56}" y2="{ym}" marker-end="url(#{uid}-a)"/>')
+        H = max(y1, y2) + 6
+    head = [f'<svg class="viz" viewBox="0 0 {W} {H}" role="img" aria-labelledby="{uid}-t" xmlns="http://www.w3.org/2000/svg">',
+            f'<title id="{uid}-t">{esc(diagram["title"])}: a standard transformer compared with the new design</title>',
+            f'<defs><marker id="{uid}-a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+            '<path class="viz-arrow" d="M0 0 L10 5 L0 10 z"/></marker></defs>']
+    head += [f'<text class="viz-kicker" x="0" y="{20 + 18 * k}">{esc(t)}</text>' for k, t in enumerate(title_lines)]
+    return "\n".join(head + out + ["</svg>"])
+
+
 def flow_svg(diagram: dict, source_label: str = "", W: int = WIDE) -> str:
+    if diagram.get("kind") == "compare" and diagram.get("baseline"):
+        return compare_svg(diagram, W=W)
     steps = diagram["steps"]
     narrow = W < 500
     bw, bh, gap = (W - 8 if narrow else 440), 48, 30
@@ -147,7 +189,7 @@ def _font(kind: str, size: int):
     return ImageFont.load_default(size=size)
 
 
-TOPIC_RGB = {"models": (139, 156, 255), "research": (79, 209, 197), "products": (255, 184, 107),
+TOPIC_RGB = {"models": (139, 156, 255), "architecture": (244, 211, 94), "research": (79, 209, 197), "products": (255, 184, 107),
              "tools": (199, 146, 234), "policy": (255, 122, 147), "impact": (123, 228, 149)}
 
 
