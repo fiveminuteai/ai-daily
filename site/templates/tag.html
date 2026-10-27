@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap-narrow page">
+  <p class="kicker"><a href="{{ base }}tags/">Tags</a></p>
+  <h1 class="page-title">{{ label }}</h1>
+  <ul class="post-list">
+    {% for p in posts %}
+    <li>
+      <time datetime="{{ p.date }}">{{ p.date_short }}</time>
+      <div><a href="{{ base }}{{ p.url_path }}">{{ p.headline }}</a><p>{{ p.dek_plain }}</p></div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

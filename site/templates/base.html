@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page_title %}{{ page_title }} · {% endif %}{{ site.name }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ origin }}{{ base }}{{ canonical }}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ page_title or site.name }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:url" content="{{ origin }}{{ base }}{{ canonical }}">
+<meta property="og:image" content="{{ origin }}{{ og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title or site.name }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ origin }}{{ og_image }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}feed.xml">
+<link rel="icon" href="{{ base }}assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{ base }}assets/style.css">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="brand" href="{{ base }}" aria-label="{{ site.name }} home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" class="mark-ring"/><path d="M16 16 L16 3 A13 13 0 0 1 27.26 9.5 Z" class="mark-wedge"/></svg>
+      <span>{{ site.name }}</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="{{ base }}archive/">Archive</a>
+      <a href="{{ base }}tags/" class="nav-wide">Tags</a>
+      <a href="{{ base }}about/"><span class="nav-wide">How it's made</span><span class="nav-short">About</span></a>
+      <a href="{{ base }}feed.xml" class="nav-rss" aria-label="RSS feed"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19a1.5 1.5 0 1 1 0-.01M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/></svg><span>RSS</span></a>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" class="fill"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="footer">
+  <div class="wrap footer-row">
+    <p><strong>{{ site.name }}</strong> is AI-assisted and generated automatically from the sources linked in every post. <a href="{{ base }}about/">How it's made</a>.</p>
+    <p class="muted">No ads, no trackers, no cookies. <a href="{{ base }}feed.xml">Subscribe by RSS</a> · <a href="{{ site.repo_url }}">Source code</a></p>
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement,cur=r.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),next=cur==="dark"?"light":"dark";r.dataset.theme=next;try{localStorage.setItem("theme",next)}catch(e){}});})();
+</script>
+</body>
+</html>

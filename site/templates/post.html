@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="post wrap-narrow">
+  <header class="post-head">
+    <p class="kicker"><time datetime="{{ post.date }}">{{ post.date_long }}</time><span class="dot">·</span>{{ post.reading_minutes }} min read</p>
+    <h1 class="headline">{{ post.headline }}</h1>
+    <p class="dek">{{ post.dek_html }}</p>
+    <p class="byline">By <strong>{{ post.byline }}</strong> <span class="muted">· AI-assisted, every claim linked to its source</span></p>
+    <ul class="tag-row" aria-label="Tags">
+      {% for t in post.tags %}<li><a class="tag" href="{{ base }}tags/{{ tag_slug(t) }}/">{{ t }}</a></li>{% endfor %}
+    </ul>
+  </header>
+
+  <section class="what" aria-labelledby="what-h">
+    <h2 id="what-h" class="eyebrow">What happened</h2>
+    <ol class="what-list">
+      {% for b in post.what_html %}<li>{{ b }}</li>{% endfor %}
+    </ol>
+  </section>
+
+  {% if post.timeline_svg %}
+  <figure class="figure">{{ post.timeline_svg }}</figure>
+  {% endif %}
+
+  {% for s in post.sections_r %}
+  <section class="story" aria-labelledby="s{{ loop.index }}">
+    <p class="story-cat">{{ s.label }}</p>
+    <h2 id="s{{ loop.index }}">{{ s.title }}</h2>
+    {% for p in s.html %}<p>{{ p }}</p>{% endfor %}
+    {% for f in s.figures %}
+    <figure class="figure">{{ f.svg }}<figcaption>Chart drawn by {{ site.name }} from figures in source <a href="#src-{{ post.sources[f.source_n - 1].id }}">{{ f.source_n }}</a>.</figcaption></figure>
+    {% endfor %}
+    {% if loop.first and post.quote_r %}
+    <blockquote class="pull">
+      <p>“{{ post.quote_r.text }}”</p>
+      <footer>{{ post.quote_r.speaker }}<sup class="cite"><a href="#src-{{ post.quote_r.source }}">{{ post.quote_r.source_n }}</a></sup></footer>
+    </blockquote>
+    {% endif %}
+  </section>
+  {% endfor %}
+
+  <section class="why" aria-labelledby="why-h">
+    <h2 id="why-h" class="eyebrow">Why it matters</h2>
+    {% for w in post.why_html %}
+    <p{% if w.speculative %} class="spec"{% endif %}>{% if w.speculative %}<span class="spec-label">Our read · speculation</span>{% endif %}{{ w.html }}</p>
+    {% endfor %}
+  </section>
+
+  <section class="sources" aria-labelledby="src-h">
+    <h2 id="src-h" class="eyebrow">Sources</h2>
+    <ol class="source-list">
+      {% for s in post.sources_r %}
+      <li id="src-{{ s.id }}"><span class="src-n">{{ s.n }}</span><span><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a><span class="src-meta">{{ s.publisher }}{% if s.date %} · {{ s.date }}{% endif %}</span></span></li>
+      {% endfor %}
+    </ol>
+    <p class="verify-note">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>
+      <span>Verified automatically: {{ post.verification.checked }} statements were checked against the source text and {{ post.verification.dropped }} that couldn't be confirmed were removed before publishing. <a href="{{ base }}{{ post.url_path }}verification/">See the log</a>.</span>
+    </p>
+  </section>
+
+  <nav class="pager" aria-label="More posts">
+    {% if older %}<a class="pager-prev" href="{{ base }}{{ older.url_path }}"><span class="muted">Previous day</span>{{ older.headline }}</a>{% else %}<span></span>{% endif %}
+    {% if newer %}<a class="pager-next" href="{{ base }}{{ newer.url_path }}"><span class="muted">Next day</span>{{ newer.headline }}</a>{% endif %}
+  </nav>
+</article>
+{% endblock %}

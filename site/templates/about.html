@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="wrap-narrow page prose">
+  <p class="kicker">About</p>
+  <h1 class="page-title">How this blog is made</h1>
+  <p class="lede">{{ site.name }} is AI-assisted. Every post is generated automatically from public sources, and every post links to all of them. {{ site.byline }} set it up, chose the sources and wrote the rules it follows, but does not hand-edit the daily posts.</p>
+
+  <h2>The daily run</h2>
+  <ol class="steps">
+    <li><strong>Collect.</strong> Early each morning (India time) a scheduled job reads the public feeds listed below: AI lab blogs, arXiv, Hugging Face, tech news sites, Hacker News and new GitHub projects.</li>
+    <li><strong>Rank.</strong> Stories are grouped when several outlets cover the same event, then scored on how recent they are, how many independent outlets covered them and how much attention they got. Anything covered in the last two weeks is skipped, so you never read yesterday's news twice.</li>
+    <li><strong>Read.</strong> For the top stories, the job fetches the linked pages and keeps their text. That text is the only material the writer is allowed to use.</li>
+    <li><strong>Write.</strong> A language model drafts the post in plain language, and must cite a source on every sentence.</li>
+    <li><strong>Verify.</strong> A program then checks every number and every name in every sentence against the text of the source it cites. A second pass has the model re-read each sentence next to its source and flag anything the source doesn't support. Whatever can't be confirmed is deleted, not reworded. Each post links to its own verification log.</li>
+    <li><strong>Gate.</strong> The post is published only if it is the right length, has its three "what happened" bullets and at least three stories, contains no hype words, every source link resolves, every image exists, and it isn't a repeat of a recent post. If the first draft fails, the job tries once more. If that fails too, there is no post that day. A missing day is better than a wrong one.</li>
+  </ol>
+
+  <h2>House rules</h2>
+  <ul>
+    <li>Facts in the sections, opinion only in "Why it matters", and opinion is labelled <em>speculation</em>.</li>
+    <li>At most one short direct quote per post, copied word for word.</li>
+    <li>Charts and diagrams are drawn by this site from numbers in the sources. No images are copied from anyone.</li>
+    <li>No ads, no trackers, no cookies, no third-party scripts. The theme choice is stored only in your own browser.</li>
+  </ul>
+
+  <h2>What the checks can't catch</h2>
+  <p>The verifier confirms that each number and name appears in the cited source, and the model pass looks for claims the source doesn't support. Neither can tell you whether the source itself is right, and a sentence can use correct words and still put them together in a misleading way. If you spot an error, the source links are there so you can check it yourself, and corrections are welcome on <a href="{{ site.repo_url }}/issues">GitHub</a>.</p>
+
+  <h2>Models used</h2>
+  <p>The daily job uses the free tier of a hosted model when a key is configured, falling back through the list below. Each post's verification log names the model that wrote it.</p>
+  <ul class="compact">
+    {% for p in providers %}<li><code>{{ p.model }}</code> <span class="muted">via {{ p.name }}</span></li>{% endfor %}
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="compact source-cfg">
+    {% for s in sources if s.enabled is not sameas false %}<li><a href="{{ s.url }}" rel="noopener">{{ s.name }}</a></li>{% endfor %}
+  </ul>
+  <p class="muted">The list lives in <code>config/sources.yaml</code> in the <a href="{{ site.repo_url }}">source repository</a>.</p>
+</article>
+{% endblock %}

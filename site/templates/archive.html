@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap-narrow page">
+  <h1 class="page-title">Archive</h1>
+  <p class="muted">{{ count }} post{{ "" if count == 1 else "s" }} so far, newest first.</p>
+  {% for month, ps in months.items() %}
+  <h2 class="eyebrow month">{{ month }}</h2>
+  <ul class="post-list">
+    {% for p in ps %}
+    <li>
+      <time datetime="{{ p.date }}">{{ p.date_short }}</time>
+      <div><a href="{{ base }}{{ p.url_path }}">{{ p.headline }}</a><p>{{ p.dek_plain }}</p></div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+# Site and pipeline settings for Five Minute AI.
+
+name: Five Minute AI
+tagline: The day in AI, sourced and short. One post a day, about five minutes.
+byline: Sai Pavan UE
+base_url: https://saipavan333.github.io/ai-daily/   # full public URL, ending in /
+repo_url: https://github.com/saipavan333/ai-daily
+language: en
+timezone: Asia/Kolkata        # post dates follow this timezone
+
+# Set to true to stop daily posts without touching the workflow.
+paused: false
+
+pipeline:
+  lookback_hours: 40          # only consider items published in this window
+  stories_per_post: 5         # 3-5 sections
+  min_stories: 3
+  dedupe_days: 14             # never re-cover a URL seen in this many days
+  similar_title_days: 3       # never re-cover a near-identical story from the last N days
+  words_min: 880
+  words_max: 1150
+  max_quotes: 1
+  llm_check: true             # second verification layer: the model re-reads sources and flags unsupported sentences
+  attempts: 2                 # first try + one retry, then skip the day
+
+# Model providers, tried in order. A provider is used only if its key is set in the environment.
+# Keys live in GitHub secrets or local environment variables, never in this file.
+providers:
+  - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.8-flash, key_env: GEMINI_API_KEY}
+  - {name: gemini-lite, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.5-flash-lite, key_env: GEMINI_API_KEY}
+  - {name: groq, base_url: "https://api.groq.com/openai/v1/", model: openai/gpt-oss-120b, key_env: GROQ_API_KEY}
+  - {name: openrouter, base_url: "https://openrouter.ai/api/v1/", model: "openai/gpt-oss-120b:free", key_env: OPENROUTER_API_KEY}
+  - {name: ollama, base_url: "http://localhost:11434", model: "qwen2.5:14b", key_env: null, local: true}

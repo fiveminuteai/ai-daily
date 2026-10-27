@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap">
+  <section class="intro">
+    <p class="intro-line">{{ site.tagline }}</p>
+  </section>
+  {% if latest %}
+  <article class="lead-card">
+    <p class="kicker"><span class="today">Today</span><time datetime="{{ latest.date }}">{{ latest.date_long }}</time><span class="dot">·</span>{{ latest.reading_minutes }} min read</p>
+    <h1 class="headline headline-xl"><a href="{{ base }}{{ latest.url_path }}">{{ latest.headline }}</a></h1>
+    <p class="dek">{{ latest.dek_plain }}</p>
+    <div class="lead-what">
+      <h2 class="eyebrow">What happened</h2>
+      <ol class="what-list">
+        {% for b in latest.what_html %}<li>{{ b }}</li>{% endfor %}
+      </ol>
+    </div>
+    <a class="button" href="{{ base }}{{ latest.url_path }}">Read today's post <span aria-hidden="true">→</span></a>
+  </article>
+  {% else %}
+  <p class="empty">The first post is on its way. Check back tomorrow morning.</p>
+  {% endif %}
+
+  {% if earlier %}
+  <section class="earlier" aria-labelledby="earlier-h">
+    <h2 id="earlier-h" class="eyebrow">Earlier</h2>
+    <ul class="post-list">
+      {% for p in earlier %}
+      <li>
+        <time datetime="{{ p.date }}">{{ p.date_short }}</time>
+        <div><a href="{{ base }}{{ p.url_path }}">{{ p.headline }}</a><p>{{ p.dek_plain }}</p></div>
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a class="more" href="{{ base }}archive/">Full archive →</a></p>
+  </section>
+  {% endif %}
+</div>
+{% endblock %}

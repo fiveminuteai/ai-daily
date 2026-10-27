@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+  <title>{{ site.name }}</title>
+  <link>{{ origin }}{{ base }}</link>
+  <description>{{ site.tagline }}</description>
+  <language>{{ site.language }}</language>
+  <lastBuildDate>{{ now }}</lastBuildDate>
+  <atom:link href="{{ origin }}{{ base }}feed.xml" rel="self" type="application/rss+xml"/>
+  {% for p in posts %}
+  <item>
+    <title>{{ p.headline }}</title>
+    <link>{{ origin }}{{ base }}{{ p.url_path }}</link>
+    <guid isPermaLink="true">{{ origin }}{{ base }}{{ p.url_path }}</guid>
+    <pubDate>{{ rfc(p.date) }}</pubDate>
+    <dc:creator>{{ p.byline }}</dc:creator>
+    {% for t in p.tags %}<category>{{ t }}</category>{% endfor %}
+    <description>{{ p.dek_plain }}</description>
+    <content:encoded><![CDATA[
+<p><strong>What happened</strong></p><ul>{% for b in p.what_html %}<li>{{ b }}</li>{% endfor %}</ul>
+{% for s in p.sections_r %}<h2>{{ s.title }}</h2>{% for para in s.html %}<p>{{ para }}</p>{% endfor %}{% endfor %}
+<h2>Why it matters</h2>{% for w in p.why_html %}<p>{% if w.speculative %}<em>Our read, speculation: </em>{% endif %}{{ w.html }}</p>{% endfor %}
+<h2>Sources</h2><ol>{% for s in p.sources_r %}<li><a href="{{ s.url }}">{{ s.title }}</a> ({{ s.publisher }})</li>{% endfor %}</ol>
+<p><a href="{{ origin }}{{ base }}{{ p.url_path }}">Read on the site, with charts and the verification log.</a></p>
+]]></content:encoded>
+  </item>
+  {% endfor %}
+</channel>
+</rss>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap-narrow page">
+  <h1 class="page-title">Tags</h1>
+  <ul class="tag-cloud">
+    {% for t, ps in tags %}
+    <li><a class="tag tag-lg" href="{{ base }}tags/{{ tag_slug(t) }}/">{{ labels.get(t, t) }} <span class="count">{{ ps|length }}</span></a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
