@@ -150,6 +150,19 @@ def name_ok(word: str, text_norm: str) -> bool:
     return re.search(r"(?<![a-z0-9])" + re.escape(w) + r"(?![a-z0-9])", text_norm) is not None
 
 
+def in_vocab(w: str, vocab: set[str]) -> bool:
+    """Is this an ordinary word from the day's sources, allowing simple endings (fine/fined, say/says)?"""
+    stems = {w, w + "s", w + "d", w + "ed", w + "es", w + "ing", w.rstrip("s"), w[:-1] + "ies" if w.endswith("y") else w}
+    if w.endswith("e"):
+        stems.add(w[:-1] + "ing")
+    return bool(stems & vocab)
+
+
+def is_title_case(text: str) -> bool:
+    words = [w for w in re.findall(r"[A-Za-z][A-Za-z'’\-]*", text) if len(w) > 3]
+    return len(words) >= 3 and sum(w[0].isupper() for w in words) / len(words) > 0.6
+
+
 def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab: set[str]) -> list[str]:
     """Return a list of problems; empty means verified."""
     if not ids:
@@ -159,6 +172,7 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
         return [f"cites unknown source {','.join(missing)}"]
     text = " ".join(corpora[i] for i in ids)
     p = plain(sentence)
+    titled = is_title_case(p)            # "Anthropic Files IPO, Revealing High Costs": capitals aren't names here
     problems = []
     for num, pct, mult in numbers_in(p):
         if not number_ok(num, pct, mult, text):
@@ -166,7 +180,7 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
     for word, at_start in names_in(p):
         if name_ok(word, text):
             continue
-        if at_start and (word.lower() in vocab or word.lower() in COMMON_STARTERS) \
+        if (at_start or titled) and (in_vocab(word.lower(), vocab) or word.lower() in COMMON_STARTERS) \
                 and not any(c.isdigit() for c in word) and not any(c.isupper() for c in word[1:]):
             continue                      # ordinary word that just starts the sentence
         problems.append(f"name '{word}' not in cited source")
@@ -190,8 +204,25 @@ class Verifier:
         story = self.sources.get(sid, {}).get("story")
         return [k for k, s in self.sources.items() if s.get("story") == story]
 
+    def auto_cite(self, s: str) -> list[str]:
+        """For an uncited sentence with checkable facts, find the one story whose sources contain all of them."""
+        p = plain(s)
+        if not numbers_in(p) and not [w for w, start in names_in(p) if not start]:
+            return []                     # nothing checkable: don't guess a source
+        stories = list(dict.fromkeys(src.get("story") for src in self.sources.values()))
+        for st in stories:
+            ids = [k for k, src in self.sources.items() if src.get("story") == st]
+            if not check_sentence(s, ids, self.corpora, self.vocab):
+                cur = []
+                for k in ids:               # smallest prefix of the story's sources that covers the facts
+                    cur.append(k)
+                    if not check_sentence(s, cur, self.corpora, self.vocab):
+                        return cur
+                return ids
+        return []
+
     def sentence(self, s: str, where: str, fallback_ids: list[str]) -> str | None:
-        ids = cites(s) or list(fallback_ids)
+        ids = cites(s) or list(fallback_ids) or self.auto_cite(s)
         problems = check_sentence(s, ids, self.corpora, self.vocab)
         repaired = False
         if problems and ids and not problems[0].startswith(("no citation", "cites unknown")) \

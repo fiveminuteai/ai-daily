@@ -28,7 +28,9 @@ RULES = """Rules, all mandatory:
 6. Length: each section body 170 to 230 words (2 or 3 paragraphs). "what_happened" is exactly 3 bullets,
    each under 30 words. "why_it_matters" is 2 or 3 items of 30 to 60 words. The whole post must land between
    950 and 1100 words. Count carefully: too short is a failure.
-7. Headline: specific and plain, under 80 characters, no colon-bait, no question.
+7. Headline: specific and plain, under 80 characters, sentence case (only names capitalised), no colon-bait,
+   no question. Section titles are sentence case too.
+   The publisher of a source is not always the maker of the thing: say who made or announced it as the source says.
 8. "chart": include only if one source gives two or more directly comparable numbers (benchmark scores, prices,
    sizes). Each bar's value must be a number printed in that source. Otherwise null.
 9. "diagram": optional. Up to 5 short steps (under 6 words each) that show how something in one story works,
@@ -65,8 +67,9 @@ BASELINE_BLOCKS = ["Token embeddings", "Self-attention over all tokens", "Dense 
                    "One answer per pass", "Output layer"]
 
 
-def number_sources(stories: list[Story], lead_chars: int = 2600, other_chars: int = 1100, per_story: int = 3):
-    """Assign S1..Sn ids. Returns (sources list, prompt block)."""
+def number_sources(stories: list[Story], lead_chars: int = 2600, other_chars: int = 1100, per_story: int = 3,
+                   per_block: bool = False):
+    """Assign S1..Sn ids. Returns (sources list, prompt block) or, with per_block, (sources, [block per story])."""
     sources, blocks, sid = [], [], 0
     for n, st in enumerate(stories, 1):
         ordered = [st.lead] + [i for i in st.items if i is not st.lead]
@@ -87,7 +90,7 @@ def number_sources(stories: list[Story], lead_chars: int = 2600, other_chars: in
             date = it.published.strftime("%d %B %Y") if it.published else "unknown date"
             lines.append(f"[{src['id']}] {it.source_name} — \"{it.title}\" ({date})\n{body[:limit]}")
         blocks.append("\n\n".join(lines))
-    return sources, "\n\n".join(blocks)
+    return (sources, blocks) if per_block else (sources, "\n\n".join(blocks))
 
 
 def build_prompt(stories: list[Story], date_label: str, feedback: str = "") -> tuple[list[dict], str]:
@@ -101,9 +104,79 @@ def build_prompt(stories: list[Story], date_label: str, feedback: str = "") -> t
     return sources, prompt
 
 
-def draft_post(chain, stories: list[Story], date_label: str, feedback: str = "") -> tuple[dict, list[dict]]:
-    sources, prompt = build_prompt(stories, date_label, feedback)
-    draft = chain.ask_json(SYSTEM, prompt, temperature=0.3)
+SECTION_SCHEMA = """{
+  "title": "short plain section title, sentence case",
+  "category": "models|architecture|research|products|tools|policy|impact",
+  "paragraphs": ["2 or 3 paragraphs, every sentence cited [S1]"],
+  "bullet": "one sentence under 30 words summing up this story for the 30-second version, cited",
+  "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
+  "chart": {"title": "string", "unit": "e.g. %", "source": "S2", "bars": [{"label": "string", "value": 0.0}]} or null,
+  "diagram": {"title": "string", "source": "S5", "kind": "flow|compare", "steps": ["..."], "baseline": ["..."]} or null
+}"""
+
+FINAL_SCHEMA = """{
+  "headline": "string",
+  "dek": "one sentence summing up the day, with citations copied from the sections",
+  "tags": ["2 to 5 lowercase topic tags, e.g. openai, open-source, regulation"],
+  "why_it_matters": [{"text": "30 to 60 words, with citations", "speculative": false}]
+}"""
+
+
+def section_prompt(block: str, n: int, total: int, date_label: str, feedback: str) -> str:
+    rules = RULES.format(hype=", ".join(HYPE_WORDS), baseline="; ".join(BASELINE_BLOCKS))
+    p = (f"Today is {date_label}. This is story {n} of {total} in today's post. Write ONE section about it.\n\n"
+         f"{rules}\n\nFor this section: 180 to 230 words in 2 or 3 paragraphs (count them; shorter is a failure). "
+         f"The rules about the headline, 'what_happened' and 'why_it_matters' are handled separately; ignore them.\n\n"
+         f"Reply with JSON in exactly this shape:\n{SECTION_SCHEMA}\n\n")
+    if feedback:
+        p += f"An earlier attempt at today's post was rejected for these reasons; avoid them:\n{feedback}\n\n"
+    return p + f"SOURCES\n\n{block}"
+
+
+def final_prompt(sections: list[dict], date_label: str, feedback: str) -> str:
+    body = "\n\n".join(f"SECTION {n} ({s.get('category')}): {s.get('title')}\n" + "\n".join(s.get("paragraphs", []))
+                       for n, s in enumerate(sections, 1))
+    p = (f"Today is {date_label}. Below are today's sections. Write the headline, a one-sentence dek, 2 to 5 tags "
+         f"and 2 or 3 'why it matters' items. Use only facts from the sections and keep their [S#] citations on "
+         f"every sentence. Headline: under 80 characters, sentence case, about the most important story, no question, "
+         f"no hype. 'Why it matters' explains consequences for ordinary people and companies; mark any prediction "
+         f"or opinion as \"speculative\": true. Never use these words: {', '.join(HYPE_WORDS)}.\n\n"
+         f"Reply with JSON in exactly this shape:\n{FINAL_SCHEMA}\n\n")
+    if feedback:
+        p += f"An earlier attempt was rejected for these reasons; avoid them:\n{feedback}\n\n"
+    return p + f"SECTIONS\n\n{body}"
+
+
+def draft_post(chain, stories: list[Story], date_label: str, feedback: str = "", mode: str = "sections"):
+    """Write the post. "sections" mode asks for one section per call (better length control and attribution,
+    especially for small local models), then one short call for headline, dek and 'why it matters'."""
+    if mode == "single":
+        sources, prompt = build_prompt(stories, date_label, feedback)
+        return normalise_draft(chain.ask_json(SYSTEM, prompt, temperature=0.3)), sources
+    sources, blocks = number_sources(stories, per_block=True)
+    sections, extras, last_error = [], {"quote": None, "chart": None, "diagram": None}, None
+    for n, block in enumerate(blocks, 1):
+        try:
+            sec = chain.ask_json(SYSTEM, section_prompt(block, n, len(blocks), date_label, feedback), temperature=0.3)
+        except Exception as exc:  # noqa: BLE001 - one story failing shouldn't sink the others
+            last_error = exc
+            continue
+        if not isinstance(sec, dict):
+            continue
+        sec["story"] = n
+        sections.append(sec)
+        for k in extras:
+            v = sec.get(k)
+            if isinstance(v, dict) and extras[k] is None:
+                extras[k] = v
+            elif k == "diagram" and isinstance(v, dict) and str(sec.get("category")).lower() == "architecture":
+                extras[k] = v                        # an architecture diagram wins over a generic one
+    if not sections and last_error is not None:
+        raise last_error                     # every call failed: report the real reason, not "0 sections"
+    norm = normalise_draft({"sections": sections})["sections"]
+    final = chain.ask_json(SYSTEM, final_prompt(norm, date_label, feedback), temperature=0.3) if norm else {}
+    draft = {**(final if isinstance(final, dict) else {}), "sections": sections,
+             "what_happened": [s.get("bullet", "") for s in sections[:3]], **extras}
     return normalise_draft(draft), sources
 
 

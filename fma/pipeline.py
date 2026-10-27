@@ -124,7 +124,7 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     for attempt in range(1, int(pipe.get("attempts", 2)) + 1):
         draft = None
         try:
-            draft, sources = draft_post(chain, lineup, date_label, feedback)
+            draft, sources = draft_post(chain, lineup, date_label, feedback, mode=pipe.get("write_mode", "sections"))
             verified, report = verify_draft(draft, sources, max_quotes=int(pipe.get("max_quotes", 1)))
             if pipe.get("llm_check", True):
                 verified, report = llm_check(chain, verified, sources, report)

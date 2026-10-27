@@ -65,9 +65,22 @@ def test_fact_in_sibling_source_is_recited():
     assert log["status"] == "repaired"
 
 
+def test_uncited_sentence_is_auto_cited_only_from_evidence():
+    v = Verifier(SOURCES)
+    assert v.sentence("Acme released Nova-2 for 40 countries.", "x", []) == "Acme released Nova-2 for 40 countries[S1]."
+    assert v.log[-1]["status"] == "repaired"
+    assert v.sentence("Acme released Nova-2 in 50 countries.", "x", []) is None      # wrong number: no source fits
+    assert v.sentence("This matters a lot.", "x", []) is None                        # nothing checkable: no guessing
+
+
+def test_title_case_heading_is_not_mistaken_for_names():
+    v = Verifier(SOURCES)
+    assert v.sentence("Regulators Fine DataCorp Over Training Data [S2].", "x", [])
+    assert v.sentence("Regulators Fine Globex Over Training Data [S2].", "x", []) is None
+
+
 def test_uncited_sentence_is_dropped_unless_paragraph_has_citations():
     v = Verifier(SOURCES)
-    assert v.sentence("Acme released Nova-2.", "x", []) is None
     para = v.paragraph("Acme released Nova-2. It scores 87.5% on MMLU [S1].", "x")
     assert para == "Acme released Nova-2[S1]. It scores 87.5% on MMLU[S1]."
     assert split_sentences(para) == ["Acme released Nova-2[S1].", "It scores 87.5% on MMLU[S1]."]

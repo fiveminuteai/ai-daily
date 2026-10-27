@@ -149,6 +149,24 @@ def good_draft() -> dict:
     }
 
 
+def replies(d: dict, n_stories: int = 3) -> list[dict]:
+    """Turn a whole-post draft into what the model returns in section-by-section mode:
+    one reply per story, then the headline/dek/why reply."""
+    out = []
+    for i in range(n_stories):
+        if i < len(d["sections"]):
+            s = d["sections"][i]
+            sec = {"title": s["title"], "category": s["category"], "paragraphs": s["paragraphs"],
+                   "bullet": d["what_happened"][i] if i < len(d["what_happened"]) else ""}
+            if i == 0:
+                sec.update(quote=d.get("quote"), chart=d.get("chart"), diagram=d.get("diagram"))
+            out.append(sec)
+        else:
+            out.append({})
+    out.append({"headline": d["headline"], "dek": d["dek"], "tags": d["tags"], "why_it_matters": d["why_it_matters"]})
+    return out
+
+
 @pytest.fixture
 def fake_web():
     feed = rss([
