@@ -79,7 +79,10 @@ class Provider:
                     wait = float(r.headers.get("retry-after", 0))
                 except ValueError:
                     wait = 0
-                daily = r.status_code == 429 and ("per day" in r.text.lower() or "quota" in r.text.lower() or wait > 120)
+                low = r.text.lower().replace(" ", "")
+                # only an explicit per-day cap counts as daily; per-minute quota messages also say "quota"
+                daily = r.status_code == 429 and ("perday" in low or "tokensperday" in low or "requestsperday" in low
+                                                  or wait > 600)
                 if daily:                         # a daily cap won't clear in minutes: hand over to the next provider
                     self.exhausted = True
                     raise LLMError(f"{self.name} daily limit reached (HTTP 429)")

@@ -65,3 +65,30 @@ def test_hn_credits_the_linked_site():
                                                 "created_at_i": int(NOW.timestamp())}]})
     items = fetch_hn({"id": "hn", "name": "Hacker News", "url": "https://hn"}, FakeHttp({"https://hn": hn}))
     assert items[0].source_name == "gizmodo.com (via Hacker News)" and items[1].source_name == "Hacker News"
+
+
+def test_rate_limit_kinds(monkeypatch):
+    """A per-minute 429 waits and retries on the same provider; a per-day 429 hands over at once."""
+    import fma.llm as llm
+
+    class R:
+        def __init__(self, code, text, headers=None):
+            self.status_code, self.text, self.headers, self.ok = code, text, headers or {}, code < 400
+
+        def json(self):
+            return {"choices": [{"message": {"content": "{\"ok\": true}"}}]}
+
+    seq = [R(429, '{"error": {"message": "You exceeded your current quota, requests per minute"}}'), R(200, "")]
+    monkeypatch.setattr(llm.requests, "post", lambda *a, **k: seq.pop(0))
+    monkeypatch.setattr(llm.time, "sleep", lambda s: None)
+    p = llm.Provider("g", "https://x/", "m", key_env="PATH")
+    assert p.chat("s", "u") == '{"ok": true}' and not p.exhausted
+
+    monkeypatch.setattr(llm.requests, "post", lambda *a, **k: R(429, "Limit reached on tokens per day (TPD)"))
+    p2 = llm.Provider("q", "https://x/", "m", key_env="PATH")
+    try:
+        p2.chat("s", "u")
+        raise AssertionError("should have raised")
+    except llm.LLMError:
+        pass
+    assert p2.exhausted
