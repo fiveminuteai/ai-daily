@@ -77,3 +77,18 @@ def test_check_images(tmp_path):
     (tmp_path / "og/a.png").write_bytes(b"png")
     page = '<meta property="og:image" content="https://x.github.io/ai-daily/og/a.png"><img src="/ai-daily/og/missing.png">'
     assert check_images(page, tmp_path, "/ai-daily/") == ["/ai-daily/og/missing.png"]
+
+
+def test_summary_fallbacks_use_verified_sentences_in_section_order():
+    from fma.pipeline import fill_summary
+    srcs = [{"id": "S1", "story": 1}, {"id": "S2", "story": 2}, {"id": "S3", "story": 3}]
+    v = {"dek": "", "what_happened": ["Story three bullet[S3].", "Story two bullet[S2]."],
+         "sections": [{"paragraphs": ["Lead fact one[S1]. More[S1]."]}, {"paragraphs": ["Two[S2]."]},
+                      {"paragraphs": ["Three[S3]."]}]}
+    out = fill_summary(v, srcs)
+    assert out["what_happened"] == ["Lead fact one[S1].", "Story two bullet[S2].", "Story three bullet[S3]."]
+    assert out["dek"] == "Lead fact one[S1]."
+
+
+def test_missing_dek_fails_gate():
+    assert "no dek" in run_gate(post(dek=""), REPORT, PIPE, [], skip_links=True)

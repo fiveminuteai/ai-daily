@@ -16,7 +16,7 @@ from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
 from .rank import history_entry, pick_lineup, rank
-from .verify import cites, llm_check, verify_draft
+from .verify import cites, llm_check, split_sentences, verify_draft
 from .write import draft_post
 
 log = logging.getLogger(__name__)
@@ -48,7 +48,36 @@ def recent_posts(posts_dir: Path, limit: int = 10) -> list[dict]:
     return [load_json(f, {}) for f in files]
 
 
+def fill_summary(verified: dict, sources: list[dict]) -> dict:
+    """Make the top of the post complete using only sentences that already passed verification:
+    one 30-second bullet per top-three story, in section order, and a dek. If the model's own bullet or dek was cut,
+    the first verified sentence of that story stands in."""
+    story_of = {s["id"]: s.get("story") for s in sources}
+
+    def story(text: str):
+        ids = cites(text)
+        return story_of.get(ids[0]) if ids else None
+
+    def first_sentence(section: dict) -> str:
+        for p in section.get("paragraphs", []):
+            sents = split_sentences(p)
+            if sents:
+                return sents[0]
+        return ""
+
+    bullets = []
+    for sec in verified["sections"][:3]:
+        st = story(" ".join(sec["paragraphs"]))
+        own = next((b for b in verified["what_happened"] if story(b) == st and b not in bullets), None)
+        pick = own or first_sentence(sec)
+        if pick:
+            bullets.append(pick)
+    dek = verified["dek"] or (first_sentence(verified["sections"][0]) if verified["sections"] else "")
+    return {**verified, "what_happened": bullets, "dek": dek}
+
+
 def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: str, report: dict) -> dict:
+    verified = fill_summary(verified, sources)
     texts = [verified["dek"], *verified["what_happened"][:3], *[w["text"] for w in verified["why_it_matters"]]]
     for s in verified["sections"]:
         texts.extend(s["paragraphs"])

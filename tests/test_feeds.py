@@ -56,3 +56,12 @@ def test_hn_and_hf_papers_parsers():
                                        "paper": {"id": "2610.01234", "title": "A Paper", "summary": "Abs.", "upvotes": 33}}])
     items = fetch_hf_papers({"id": "hf-papers", "name": "HF", "url": "https://hf"}, FakeHttp({"https://hf": hf}))
     assert items[0].url == "https://arxiv.org/abs/2610.01234" and items[0].points == 33
+
+
+def test_hn_credits_the_linked_site():
+    hn = FakeResponse(200, json_data={"hits": [{"title": "Police use AI", "url": "https://www.gizmodo.com/x", "points": 9,
+                                                "objectID": "1", "created_at_i": int(NOW.timestamp())},
+                                               {"title": "Ask HN: thing", "url": None, "points": 9, "objectID": "2",
+                                                "created_at_i": int(NOW.timestamp())}]})
+    items = fetch_hn({"id": "hn", "name": "Hacker News", "url": "https://hn"}, FakeHttp({"https://hn": hn}))
+    assert items[0].source_name == "gizmodo.com (via Hacker News)" and items[1].source_name == "Hacker News"

@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 import requests
+from urllib.parse import urlparse
 from lxml import etree
 
 from .models import Item
@@ -136,9 +137,12 @@ def fetch_hn(src: dict, http: Http, **_) -> list[Item]:
     for h in r.json().get("hits", []):
         url = h.get("url") or f"https://news.ycombinator.com/item?id={h.get('objectID')}"
         published = datetime.fromtimestamp(h["created_at_i"], tz=timezone.utc) if h.get("created_at_i") else None
-        out.append(_item(src, h.get("title") or "", url, published, "",
-                         points=int(h.get("points") or 0),
-                         comments_url=f"https://news.ycombinator.com/item?id={h.get('objectID')}"))
+        it = _item(src, h.get("title") or "", url, published, "", points=int(h.get("points") or 0),
+                   comments_url=f"https://news.ycombinator.com/item?id={h.get('objectID')}")
+        domain = urlparse(url).netloc.lower().removeprefix("www.")
+        if domain != "news.ycombinator.com":
+            it.source_name = f"{domain} (via Hacker News)"   # credit the site that wrote it; HN only pointed to it
+        out.append(it)
     return out
 
 

@@ -74,7 +74,7 @@ category_hints:
                  quantisation, quantized, distillation, distilled, pruning, "test-time compute", "test-time", "reasoning model",
                  tokenizer, "KV cache", "speculative decoding", "model card", "technical report", pretraining, "training recipe",
                  multimodal, "small model", "small language model", parameters, "diffusion language"]
-  policy:   [law, "AI Act", security, vulnerability, exposure, leak, leaked, breach, exploit, regulation, regulator, senate, congress, EU, court, lawsuit, ban, safety, copyright, policy, government, IPO, S-1, prospectus]
+  policy:   [law, "AI Act", police, surveillance, privacy, security, vulnerability, exposure, leak, leaked, breach, exploit, regulation, regulator, senate, congress, EU, court, lawsuit, ban, safety, copyright, policy, government, IPO, S-1, prospectus]
   models:   [release, releases, launches, launch, model, models, open-weight, weights, benchmark, GPT, Gemini, Claude, Llama, Qwen]
   research: [paper, study, researchers, arxiv, dataset, discovery, breakthrough, method]
   products: [app, feature, available, rolls, rollout, pricing, subscription, assistant, Siri, Copilot]

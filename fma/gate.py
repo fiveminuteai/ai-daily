@@ -79,6 +79,8 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
     n = word_count(post)
     if not pipe.get("words_min", 880) <= n <= pipe.get("words_max", 1150):
         fails.append(f"word count {n} outside {pipe.get('words_min', 880)}-{pipe.get('words_max', 1150)}")
+    if not post.get("dek"):
+        fails.append("no dek")
     if not post.get("headline") or report.get("headline_problems"):
         fails.append(f"headline not verified: {report.get('headline_problems')}")
     if len(post.get("what_happened", [])) != 3:
