@@ -93,7 +93,9 @@ class Provider:
             if not r.ok:
                 raise LLMError(f"{self.name} HTTP {r.status_code}: {r.text[:300]}")
             try:
-                return r.json()["choices"][0]["message"]["content"] or ""
+                data = r.json()
+                log.info("%s used %s tokens", self.name, (data.get("usage") or {}).get("total_tokens", "?"))
+                return data["choices"][0]["message"]["content"] or ""
             except (KeyError, IndexError, ValueError) as exc:
                 raise LLMError(f"{self.name} bad response: {r.text[:300]}") from exc
         raise LLMError(f"{self.name}: gave up after retries")
