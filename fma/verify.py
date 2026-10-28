@@ -524,7 +524,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         room = max(2600, 7000 // max(1, len(used)))    # a fixed text budget shared out; fits per-minute limits
         src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}{pub_label(by_id[i])}\n"
                                 f"{by_id[i]['text'][:room]}" for i in used if i in by_id)
-        corpus_here = " ".join(corpus(by_id[i]) for i in used if i in by_id)
+        corpus_here = " ".join(corpus(by_id[i]) + " " + norm(pub_label(by_id[i])) for i in used if i in by_id)
         for start in range(0, len(items), 6):          # small batches keep each reply short
             batch = items[start:start + 6]
             claims = "\n".join(f"{k}: {plain(s)}" for k, s in batch)

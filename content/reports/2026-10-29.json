@@ -1,0 +1,868 @@
+{
+  "checked": 65,
+  "ok": 57,
+  "repaired": 9,
+  "dropped": 19,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "our strongest model with state-of-the-art cybersecurity and long horizon capabilities",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "DeepMind unveiled Gemini 4 Carbon, the top‑scoring model on the v5.0 AI Index and a leader on security benchmarks, while Google also rolled out Gmail‑sourced autofill in Chrome and OpenAI expanded into ServiceNow and Oracle workflows",
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google’s Gemini 4 Carbon tops AI security benchmarks and launches with limited access for cyber‑defense partners.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Chrome’s new AI‑driven autofill pulls relevant details from Gmail to auto‑populate web forms, with encryption and user controls.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "OpenAI’s models are now integrated into ServiceNow and Oracle products, letting employees handle tickets, develop code and assess security within ChatGPT.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Anthropic’s new reporting suite gives enterprises detailed cost and workflow insights to manage rapidly rising AI spend.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Cursor's Agent SDK lets teams code, test, and deploy custom development agents in a single step, streamlining workflow automation.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google DeepMind announced Gemini 4 Carbon on 28 October 2026 as its newest frontier model.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The model is positioned as the company’s strongest offering, emphasizing advanced cybersecurity and long‑horizon reasoning capabilities.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It follows the Gemini 4 Argon release two weeks earlier and will initially be provided to a limited set of cyber‑defense partners through the Fairwind Program.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Gemini 4 Carbon achieved the top rank on the v5.0 Artificial Analysis Intelligence Index with a score of 59, surpassing competitors such as Claude Opus 5.5 and GPT‑6 Astra.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "On the SEC‑bench Pro vulnerability‑finding benchmark it scored 88.2%, while it reached 54.8% on ExploitGym and 71.0% on CWE‑bench for patching tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Internally the model reduced misalignment and fabrication rates in live coding tests and can run for days on complex, multi‑step engineering problems.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Pricing mirrors Argon at $2 per million input tokens, $10 per million output tokens, with cached input tokens discounted by 95%.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The model builds on Gemini 4 Argon’s architecture but adds stronger safeguards and longer context handling to support sustained agentic workflows.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google is engaging with the U.S. government’s voluntary pre‑release testing to refine guardrails before broader release to developers and consumers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This incremental rollout reflects a cautious approach to deploying powerful AI in security‑sensitive environments.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google DeepMind unveils Gemini 4 Carbon",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google announced that Chrome will now use its Gemini‑powered Personal Intelligence to pull information from users' Gmail when filling online forms.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The feature launches on Wednesday for desktop users in the United States and for iOS and Android Chrome apps that include Gemini.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'United' not in cited source",
+        "name 'States' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Users can enable or disable the enhanced autofill in Chrome settings.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The updated autofill can suggest data such as flight confirmation numbers, membership IDs, tracking numbers, order numbers, addresses, phone numbers, and credit‑card details by scanning relevant emails.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It builds on earlier enhancements that already drew names, passport numbers, email addresses, and physical addresses from Google Accounts and Google Wallet.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "All suggested data remains encrypted and users retain control over what the feature can access.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Autofill has long helped users avoid typing repetitive information, but it traditionally relied on data stored locally or in basic account profiles.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "By linking to Gmail, Chrome leverages the large amount of transactional information most people receive by email, similar to how Apple auto‑fills verification codes from SMS messages.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'SMS' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "This move deepens Chrome's integration into Google's broader AI ecosystem, encouraging users to stay within the platform.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Chrome adds Gmail‑sourced autofill",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "OpenAI announced expanded integrations with ServiceNow and Oracle on 27 and 28 October 2026 respectively, bringing its models into enterprise workflow tools.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The partnerships add ChatGPT, Codex and other OpenAI models to ServiceNow products and to Oracle applications accessed through ChatGPT.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Both companies say the goal is to let employees use AI for development, security and routine tasks without leaving their core platforms.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "ServiceNow will embed OpenAI models and agents across its workflow suite, enabling users to query incidents, assess change risk and update records directly inside ChatGPT.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The integration uses ServiceNow’s Action Fabric to enforce existing business rules and permissions, so actions respect each organization’s configuration.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "A preview also lets on‑call engineers view alerts and assign work within the chat interface.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Oracle’s tie‑up brings its applications and data into ChatGPT and powers new Oracle services with OpenAI models, extending ChatGPT Work and Codex to its 130,000 active ChatGPT users and 95,000 Codex users.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Oracle’s recruiting team reports that tasks that once required two to four days now take 15–20 minutes with ChatGPT Work.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Enterprise software often requires users to switch between multiple tools, which can slow down incident response and development cycles.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "By embedding AI directly into workflow platforms, companies aim to reduce context switching and automate routine steps, making processes faster and more consistent.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "OpenAI’s models provide natural‑language understanding and code generation capabilities that can be applied to tasks such as ticket triage, code scaffolding and security risk assessment.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI models added to ServiceNow and Oracle workflows",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic announced a suite of reporting tools on Wednesday to let enterprise managers see how much token spend costs and where workflows break down.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The features let teams view production, cost and recommendations for improvement.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic also introduced pooled group budgets to help control token usage.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The new tools draw on internal analytics and employee surveys to break down a team’s work over a chosen date range.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Reports show what was produced, the monetary cost and points where processes failed, and they do not use the data for model training by default.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic’s move follows strong financial results, including operating profit in Q2 and 900% net revenue retention from Q3 2025 to Q3 2026.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Enterprise customers have been demanding clearer ROI on AI tools as many Fortune 500 firms see limited gains.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'ROI' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "A recent Jellyfish survey of 276,000 developers found Anthropic’s Claude Code responsible for about a third of proposed code changes and its spending now equals roughly 2% of total engineering cost, up 10‑fold this year.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The reporting suite aims to help CFOs manage this rapid cost growth.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic adds reporting tools for enterprise AI spend",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Cursor announced the Agent SDK on 28 October 2026, a framework for building software‑development agents in code.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The SDK lets teams create agents that react to events such as pull‑request submissions, compliance checks, or incident investigations.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Teams can deploy these agents to Cursor infrastructure with a single command, treating them like any other software project.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The Agent SDK provides templates and integrates with GitHub, GitLab, and Bitbucket, enabling agents to assess change risk, route reviews, and automatically approve compliant updates.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "A Cursor team built a knowledge‑base reviewer called kb‑reviewer in about a day; it now runs on every PR, flags contradictions, cites source notes, and prompts engineers to resolve issues.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The platform also supports handing tasks to specialized sub‑agents, parallel execution, built‑in evals, and event replay for reliable workflow testing.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Software teams often rely on generic tools or custom scripts to automate repetitive development tasks, which can be misaligned with their unique processes.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "By exposing a programmable SDK, Cursor allows teams to codify their own policies and integrate automation directly into existing version‑control events, reducing friction and increasing consistency across the development lifecycle.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This approach mirrors broader trends toward infrastructure‑as‑code for DevOps pipelines.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'DevOps' not in cited source"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Cursor releases Agent SDK",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Gemini 4 Carbon’s high scores on vulnerability‑finding and patching benchmarks mean it can help organizations detect and fix security flaws faster, reducing breach risk and potential downtime for businesses that adopt it through the limited Fairwind Program.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Chrome’s new Gmail‑linked autofill pulls transaction details directly from users’ inboxes, cutting the time spent typing repetitive information and keeping data encrypted, which streamlines online shopping and travel bookings for everyday users.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "net revenue retention: 9",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "value or label not in chart source"
+      ]
+    },
+    {
+      "where": "chart",
+      "text": "spending growth: 10",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "OpenAI’s models are now integrated into ServiceNow and Oracle products, letting employees handle tickets, develop code and assess security within ChatGPT.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"ServiceNow will bring OpenAI models and agents into workflows from development to security, expanding ChatGPT Work and Codex to employees. Oracle is bringing its applications into ChatGPT, powering ne\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Google DeepMind announced Gemini 4 Carbon on 28 October 2026 as its newest frontier model.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"(published 28 October 2026) Today, we’re announcing the next frontier model: Gemini 4 Carbon\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Gemini 4 Carbon achieved the top rank on the v5.0 Artificial Analysis Intelligence Index with a score of 59, surpassing competitors such as Claude Opus 5.5 and GPT‑6 Astra.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Carbon ranks #1 on the recently updated v5.0 of Artificial Analysis Intelligence Index at 59, with Claude Opus 5.5 and GPT‑6 Astra trailing behind.\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "The model builds on Gemini 4 Argon’s architecture but adds stronger safeguards and longer context handling to support sustained agentic workflows.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms building on Argon and stronger safeguards but does not mention longer context handling."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Autofill has long helped users avoid typing repetitive information, but it traditionally relied on data stored locally or in basic account profiles.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources discuss new AI-powered autofill but do not state that autofill traditionally relied on locally stored data or basic account profiles."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "OpenAI announced expanded integrations with ServiceNow and Oracle on 27 and 28 October 2026 respectively, bringing its models into enterprise workflow tools.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"OpenAI — OpenAI and ServiceNow expand partnership across enterprise workflows (published 28 October 2026); OpenAI expands partnership with Oracle to bring its apps to ChatGPT (published 27 October 202\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Both companies say the goal is to let employees use AI for development, security and routine tasks without leaving their core platforms.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"ServiceNow will bring OpenAI models and agents into workflows from development to security, and expand ChatGPT Work and Codex to employees. Our goal is to make Oracle software easier to discover, use,\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Enterprise software often requires users to switch between multiple tools, which can slow down incident response and development cycles.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source sentence mentions users switching between multiple tools or the resulting slowdown."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "By embedding AI directly into workflow platforms, companies aim to reduce context switching and automate routine steps, making processes faster and more consistent.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources describe embedding AI in workflows but do not explicitly state the goal of reducing context switching and automating routine steps to make processes faster and more consistent."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "OpenAI’s models provide natural‑language understanding and code generation capabilities that can be applied to tasks such as ticket triage, code scaffolding and security risk assessment.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not contain a statement that OpenAI models provide natural‑language understanding and code generation for ticket triage, code scaffolding, or security risk assessment."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "The reporting suite aims to help CFOs manage this rapid cost growth.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says the suite helps customers understand token spend, but does not specifically state it aims to help CFOs manage rapid cost growth."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Cursor announced the Agent SDK on 28 October 2026, a framework for building software‑development agents in code.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"The Agent SDK (published 28 October 2026)\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Software teams often rely on generic tools or custom scripts to automate repetitive development tasks, which can be misaligned with their unique processes.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention teams relying on generic tools or misaligned custom scripts."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "By exposing a programmable SDK, Cursor allows teams to codify their own policies and integrate automation directly into existing version‑control events, reducing friction and increasing consistency across the development lifecycle.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows SDK lets agents react to events and follow policies, but does not state it reduces friction or increases consistency."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "Google DeepMind calls Gemini 4 Carbon its strongest model, with state‑of‑the‑art cybersecurity and long‑horizon capabilities.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: opening sentence named the model only as 'the model'; source wording restored. Was: The model is positioned as the company’s strongest offering, emphasizing advanced cybersecurity and long‑horizon reasoning capabilities."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "Google calls this a deliberate approach to rollout.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: 'cautious approach' was our characterisation; replaced with Google's own words from S1. Was: This incremental rollout reflects a cautious approach to deploying powerful AI in security‑sensitive environments."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "TechCrunch notes the update could give users another reason to stay in Google’s AI ecosystem.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: TechCrunch's 'could' was stated as fact; attribution and hedge restored. Was: This move deepens Chrome's integration into Google's broader AI ecosystem, encouraging users to stay within the platform."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "Oracle’s tie‑up brings its applications and data into ChatGPT and powers new Oracle services with OpenAI models; Oracle already reports 130,000 active ChatGPT users and more than 95,000 active Codex users.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: the user counts are Oracle's existing users, not people the deal extends access to. Was: Oracle’s tie‑up brings its applications and data into ChatGPT and powers new Oracle services with OpenAI models, extending ChatGPT Work and Codex to its 130,000 active ChatGPT users and 95,000 Codex users."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "A Jellyfish report covering 276,000 of its customers found Claude Code and other tools built on Anthropic models behind nearly a third of proposed code changes, with spending on them up 10‑fold this year to about 2% of total engineering cost.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: source says 276,000 customers (not developers) and credits Claude Code and other Anthropic-based tools together. Was: A recent Jellyfish survey of 276,000 developers found Anthropic’s Claude Code responsible for about a third of proposed code changes and its spending now equals roughly 2% of total engineering cost, up 10‑fold this year."
+      ]
+    },
+    {
+      "where": "editorial review",
+      "text": "Cursor’s new Agent SDK lets teams create agents",
+      "sources": [],
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-28: opening sentence named the product only as 'the SDK'. Was: The SDK lets teams create agents"
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 14,
+  "date": "2026-10-29",
+  "slug": "2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+  "model": "groq:openai/gpt-oss-120b"
+}
