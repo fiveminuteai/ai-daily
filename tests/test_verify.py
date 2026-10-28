@@ -179,3 +179,23 @@ def test_evidence_tolerates_small_differences_but_not_scattered_words():
     assert evidence_found("“The European Commission fined DataCorp 300 million euros on Monday”", c)
     assert evidence_found("Commission fined DataCorp 300 million euros Monday for training models on photos", c)
     assert not evidence_found("DataCorp fined the European Commission over Monday photos in court", c)
+
+
+def test_evidence_joined_out_of_order_and_markdown_links():
+    from fma.verify import evidence_found, norm
+    c = norm("Genie 4 allows free-form edits, like changing the weather in real time. It can maintain a consistent "
+             "scene for up to two minutes, double its predecessor's limit. Unrelated filler text follows here. "
+             "Our model is now available at [ModelScope](https://modelscope.cn/models/x/unlimited-ocr-2). Thanks.")
+    assert evidence_found("It can maintain a consistent scene for up to two minutes, double its predecessor’s limit. "
+                          "It also allows free‑form edits, like changing the weather in real time.", c)
+    assert evidence_found("It can maintain a consistent scene for up to two minutes, double its predecessor’s limit. "
+                          "Genie 4 allows free‑form edits, like changing the weather in real time.", c)
+    assert evidence_found("Our model is now available at ModelScope.", c)
+    assert not evidence_found("It can maintain a scene. Our model is now sold exclusively at ModelScope stores worldwide.", c)
+
+
+def test_ordinary_word_starting_a_sentence_is_not_a_name():
+    from fma.verify import check_sentence, corpus
+    cor = {"S1": corpus({"title": "OCR", "text": "OCR systems read pages one at a time and memory grows."})}
+    assert check_sentence("Traditional OCR systems read pages one at a time [S1].", ["S1"], cor, set()) == []
+    assert check_sentence("Zorblax OCR systems read pages one at a time [S1].", ["S1"], cor, set()) != []

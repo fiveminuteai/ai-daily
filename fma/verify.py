@@ -32,7 +32,15 @@ such other another under over about according last next first second third earli
 experts analysts users people researchers companies developers engineers officials regulators workers customers
 the investors employees governments lawmakers until within without during between among across against despite into
 through toward towards per unlike like rather whether either neither nor just much any every none nothing something
-someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long""".split())
+someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long
+offline online""".split())
+# Endings that mark an ordinary English word ("Traditional", "Recent", "Providing") rather than a product or person.
+ORDINARY_ENDINGS = ("ing", "ed", "al", "ly", "ent", "ant", "ive", "ion", "ions", "ous", "ful", "less", "able", "ible",
+                    "ity", "ness", "ment", "ments", "ance", "ence", "ary", "ory", "ise", "ize", "ised", "ized")
+
+
+def looks_ordinary(w: str) -> bool:
+    return w.isalpha() and len(w) >= 5 and w[1:].islower() and w.lower().endswith(ORDINARY_ENDINGS)
 MULTIPLIERS = {"trillion": ["trillion", "tn", "t"], "billion": ["billion", "bn", "b"],
                "million": ["million", "mn", "m"], "thousand": ["thousand", "k"]}
 NUM_RE = re.compile(r"(?<![\w.])[$€£₹]?(\d+(?:[.,]\d+)*)(\s?%)?"
@@ -199,7 +207,8 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
     for word, at_start in names_in(strip_number_units(p)):
         if name_ok(word, text):
             continue
-        if (at_start or titled) and (in_vocab(word.lower(), vocab) or word.lower() in COMMON_STARTERS) \
+        if (at_start or titled) and (in_vocab(word.lower(), vocab) or word.lower() in COMMON_STARTERS
+                                     or (at_start and looks_ordinary(word))) \
                 and not any(c.isdigit() for c in word) and not any(c.isupper() for c in word[1:]):
             continue                      # ordinary word that just starts the sentence
         problems.append(f"name '{word}' not in cited source")
@@ -443,8 +452,11 @@ def evidence_found(quote: str, corpus_norm: str, need: float = 0.85) -> bool:
     """The checker's quote must really be in the source. Each piece (split on '...') must have at least 85% of its
     words together in one short stretch of the source, so small differences in punctuation, quote marks or a
     dropped word don't matter, but a sentence assembled from scattered words or invented outright doesn't pass."""
+    corpus_norm = re.sub(r"\]\([^)\s]*\)", "]", corpus_norm)        # markdown [text](url) -> [text]
+    corpus_norm = re.sub(r"https?://\S+", " ", corpus_norm)
     ctoks = TOKEN_RE.findall(corpus_norm)
-    pieces = [TOKEN_RE.findall(norm(p)) for p in re.split(r"\.\.\.|…", quote)]
+    # checkers often join two source sentences, sometimes out of order, so each sentence is looked up on its own
+    pieces = [TOKEN_RE.findall(norm(p)) for p in re.split(r"\.\.\.|…|;|,\s+(?:and|but|while)\s+|(?<=[.!?])\s+(?=[A-Z\[\"“])", quote)]
     pieces = [p for p in pieces if len(p) >= 4] or [TOKEN_RE.findall(norm(quote))]
     if not pieces or not pieces[0]:
         return False
@@ -470,6 +482,15 @@ def evidence_found(quote: str, corpus_norm: str, need: float = 0.85) -> bool:
         if not ok:
             return False
     return True
+
+
+def pub_label(src: dict) -> str:
+    """' (published 27 October 2026)': lets the checker confirm a date that comes from the feed, not the article."""
+    try:
+        d = datetime.fromisoformat(src.get("published") or "")
+    except ValueError:
+        return ""
+    return f" (published {d.day} {d.strftime('%B %Y')})"
 
 
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
@@ -500,8 +521,9 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     bad: dict[str, str] = {}
     for story, items in groups.items():
         used = sorted({i for _, s in items for i in cites(s)}, key=lambda x: int(x[1:]))
-        src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}\n{by_id[i]['text'][:2600]}"
-                                for i in used if i in by_id)
+        room = max(2600, 7000 // max(1, len(used)))    # a fixed text budget shared out; fits per-minute limits
+        src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}{pub_label(by_id[i])}\n"
+                                f"{by_id[i]['text'][:room]}" for i in used if i in by_id)
         corpus_here = " ".join(corpus(by_id[i]) for i in used if i in by_id)
         for start in range(0, len(items), 6):          # small batches keep each reply short
             batch = items[start:start + 6]
