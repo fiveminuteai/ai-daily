@@ -124,7 +124,8 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     assert "<svg class=\"viz\"" in page and "Our read · analysis, not reported fact" in page
     assert "By <strong>Sai Pavan UE</strong>" in page
     assert 'property="og:image" content="https://saipavan333.github.io/ai-daily/og/' in page
-    assert not re.search(r'<script[^>]+src="https?://', page)    # no third-party scripts
+    outside = re.findall(r'<script[^>]+src="(https?://[^"]+)"', page)
+    assert all(u == "https://gc.zgo.at/count.js" for u in outside)   # the only outside script is the cookie-free visit counter
     assert (out / "og" / f"{post_dirs[0].name}.png").stat().st_size > 5000
     for p in ["index.html", "archive/index.html", "tags/index.html", "tags/models/index.html", "about/index.html",
               "404.html", "sitemap.xml", "robots.txt", f"posts/{post_dirs[0].name}/verification/index.html"]:

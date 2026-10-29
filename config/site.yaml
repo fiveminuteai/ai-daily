@@ -6,6 +6,7 @@ byline: Sai Pavan UE
 base_url: https://saipavan333.github.io/ai-daily/   # full public URL, ending in /
 repo_url: https://github.com/saipavan333/ai-daily
 language: en
+goatcounter: fiveminuteai   # private, cookie-free visit counts (dashboard: fiveminuteai.goatcounter.com); remove to turn off
 timezone: Asia/Kolkata        # post dates follow this timezone
 
 # Set to true to stop daily posts without touching the workflow.

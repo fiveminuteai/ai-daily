@@ -1,7 +1,7 @@
 # Five Minute AI
 
 A daily, five-minute read on what happened in AI, written automatically from public sources, with every
-claim linked to the source it came from. Free to read, free to run, no ads, no trackers.
+claim linked to the source it came from. Free to read, free to run, no ads, no cookies, anonymous visit counts only (GoatCounter).
 
 Live site: https://saipavan333.github.io/ai-daily/ · RSS: https://saipavan333.github.io/ai-daily/feed.xml
 

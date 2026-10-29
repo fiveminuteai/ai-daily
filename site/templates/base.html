@@ -53,12 +53,13 @@
 <footer class="footer">
   <div class="wrap">
     <p><strong>{{ site.name }}</strong> is AI-assisted and generated automatically from the sources linked in every post, then checked line by line against them. <a href="{{ base }}about/">How it's made</a>.</p>
-    <p class="muted">No ads, no trackers, no cookies. Follow along with the <a href="{{ base }}feed.xml">RSS feed</a> in any reader. <a href="{{ site.repo_url }}">Source code</a>.</p>
+    <p class="muted">No ads, no cookies. Anonymous visit counts only. Follow along with the <a href="{{ base }}feed.xml">RSS feed</a> in any reader. <a href="{{ site.repo_url }}">Source code</a>.</p>
   </div>
 </footer>
 <script>
 (function(){var b=document.querySelector(".theme-toggle");if(!b)return;b.addEventListener("click",function(){var r=document.documentElement,next=r.dataset.theme==="light"?"dark":"light";r.dataset.theme=next;try{localStorage.setItem("theme",next)}catch(e){}document.dispatchEvent(new Event("themechange"))});})();
 </script>
 {% block scripts %}{% endblock %}
+{% if site.goatcounter %}<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>{% endif %}
 </body>
 </html>
