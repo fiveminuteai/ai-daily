@@ -3,7 +3,7 @@
 A daily, five-minute read on what happened in AI, written automatically from public sources, with every
 claim linked to the source it came from. Free to read, free to run, no ads, no cookies, anonymous visit counts only (GoatCounter).
 
-Live site: https://saipavan333.github.io/ai-daily/ · RSS: https://saipavan333.github.io/ai-daily/feed.xml
+Live site: https://fiveminuteai.net/ (old address saipavan333.github.io/ai-daily redirects) · RSS: https://fiveminuteai.net/feed.xml
 
 **Running it without help:** see [RUNBOOK.md](RUNBOOK.md), plain-English steps for every common situation.
 

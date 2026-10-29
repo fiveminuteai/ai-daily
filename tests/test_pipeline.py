@@ -123,7 +123,7 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     assert "[S1]" not in page                                   # markers never leak into the page
     assert "<svg class=\"viz\"" in page and "Our read · analysis, not reported fact" in page
     assert "By <strong>Sai Pavan UE</strong>" in page
-    assert 'property="og:image" content="https://saipavan333.github.io/ai-daily/og/' in page
+    assert 'property="og:image" content="https://fiveminuteai.net/og/' in page
     outside = re.findall(r'<script[^>]+src="(https?://[^"]+)"', page)
     assert all(u == "https://gc.zgo.at/count.js" for u in outside)   # the only outside script is the cookie-free visit counter
     assert (out / "og" / f"{post_dirs[0].name}.png").stat().st_size > 5000
@@ -142,7 +142,7 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     feed = ElementTree.parse(out / "feed.xml").getroot()
     item = feed.find("channel/item")
     assert item.find("title").text.startswith("Acme releases Nova-2")
-    assert item.find("link").text.endswith(f"/ai-daily/posts/{post_dirs[0].name}/")
+    assert item.find("link").text.endswith(f"fiveminuteai.net/posts/{post_dirs[0].name}/")
     encoded = item.find("{http://purl.org/rss/1.0/modules/content/}encoded").text
     assert "87.5% on the MMLU benchmark" in encoded and encoded.count("<li>") >= 3
 

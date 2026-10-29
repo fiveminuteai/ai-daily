@@ -4,7 +4,7 @@ Plain-English instructions for running the blog without any AI assistant. Nothin
 subscription. The daily post is written and published by GitHub's servers using the Groq and Gemini free tiers, with
 keys stored as GitHub secrets.
 
-Repo: https://github.com/saipavan333/ai-daily · Site: https://saipavan333.github.io/ai-daily/
+Repo: https://github.com/saipavan333/ai-daily · Site: https://fiveminuteai.net/
 
 ---
 

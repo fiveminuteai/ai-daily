@@ -3,7 +3,7 @@
 name: Five Minute AI
 tagline: The day in AI, sourced and short. One post a day, about five minutes.
 byline: Sai Pavan UE
-base_url: https://saipavan333.github.io/ai-daily/   # full public URL, ending in /
+base_url: https://fiveminuteai.net/   # full public URL, ending in /
 repo_url: https://github.com/saipavan333/ai-daily
 language: en
 goatcounter: fiveminuteai   # private, cookie-free visit counts (dashboard: fiveminuteai.goatcounter.com); remove to turn off
