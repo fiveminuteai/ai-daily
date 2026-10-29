@@ -7,6 +7,8 @@
   <ul class="rows">
     {% for p in posts %}
     <li><a href="{{ base }}{{ p.url_path }}"><time datetime="{{ p.date }}">{{ p.date_short }}</time><div><b>{{ p.headline }}</b><p>{{ p.dek_plain }}</p></div></a></li>
+    {% else %}
+    <li class="muted">No posts in this section yet. It fills in the first time a {{ label }} story makes the day's top five.</li>
     {% endfor %}
   </ul>
 </div>

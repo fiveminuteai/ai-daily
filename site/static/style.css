@@ -15,8 +15,8 @@
   --models: #8B9CFF; --architecture: #F4D35E; --research: #4FD1C5; --products: #FFB86B; --tools: #C792EA; --policy: #FF7A93; --impact: #7BE495;
   --accent: #FFB86B; --accent-2: #FF7A93; --ok: #7BE495; --warn: #FFC870; --bad: #FF8FA3;
   --on-accent: #0B1022;
-  --hero-scrim: linear-gradient(90deg, rgba(11,16,34,.97) 0%, rgba(11,16,34,.86) 46%, rgba(11,16,34,.18) 100%);
-  --hero-scrim-m: linear-gradient(180deg, rgba(11,16,34,.82) 0%, rgba(11,16,34,.95) 40%);
+  --hero-scrim: linear-gradient(90deg, rgba(11,16,34,.93) 0%, rgba(11,16,34,.66) 46%, rgba(11,16,34,0) 100%);
+  --hero-scrim-m: linear-gradient(180deg, rgba(11,16,34,.5) 0%, rgba(11,16,34,.74) 45%, rgba(11,16,34,.9) 100%);
   --shadow: 0 24px 60px -30px rgba(0,0,0,.6);
   --display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
   --text: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -32,8 +32,8 @@
   --models: #4A55D0; --architecture: #7D5E00; --research: #0B7F77; --products: #B65307; --tools: #8236BB; --policy: #C92A55; --impact: #23803F;
   --accent: #B65307; --accent-2: #C92A55; --ok: #23803F; --warn: #8A5A00; --bad: #B4233F;
   --on-accent: #FFFFFF;
-  --hero-scrim: linear-gradient(90deg, rgba(246,247,251,.97) 0%, rgba(246,247,251,.9) 46%, rgba(246,247,251,.25) 100%);
-  --hero-scrim-m: linear-gradient(180deg, rgba(246,247,251,.85) 0%, rgba(246,247,251,.96) 40%);
+  --hero-scrim: linear-gradient(90deg, rgba(246,247,251,.94) 0%, rgba(246,247,251,.7) 46%, rgba(246,247,251,0) 100%);
+  --hero-scrim-m: linear-gradient(180deg, rgba(246,247,251,.55) 0%, rgba(246,247,251,.78) 45%, rgba(246,247,251,.92) 100%);
   --shadow: 0 24px 60px -34px rgba(20,30,70,.35);
   color-scheme: light;
 }
@@ -280,3 +280,19 @@ mark { background: color-mix(in srgb, var(--products) 30%, transparent); color: 
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 @media print { .masthead, .footer, .pager, .theme-toggle, .progress { display: none; } body { background: #fff; color: #000; } }
+
+/* phones: blurring what sits behind a sticky bar is costly on every scroll frame; use a solid bar instead */
+@media (max-width: 900px) {
+  .masthead { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .thirty { background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+.card-empty { opacity: .62; }
+.card-empty:hover { opacity: .9; }
+/* small phones: the header row must fit 360px, or the whole page slides sideways */
+@media (max-width: 440px) {
+  .brand { font-size: 1.02rem; gap: 8px; }
+  .nav a { padding: 10px 5px; }
+  .masthead-row { gap: 6px; }
+  .theme-toggle { width: 36px; height: 36px; margin-left: 2px; }
+}
+html, body { overflow-x: clip; }

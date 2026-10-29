@@ -2,10 +2,11 @@
 {% block main %}
 <div class="wrap page">
   <h1 class="page-title">Topics</h1>
-  <p class="muted">Every story is filed under one of seven sections, each with its own colour. Tags below them name the companies and themes.</p>
+  <p class="muted">Every story is filed under one of seven sections, each with its own colour. A section fills in the first time one of its stories makes the day's top five, so quieter ones start empty. Tags below name the companies and themes.</p>
   <div class="cards" style="--n: 3">
     {% for t in topics %}
-    <a class="card" data-topic="{{ t }}" href="{{ base }}tags/{{ t }}/"><span class="chip">{{ labels[t] }}</span><b>{{ topic_blurbs[t] }}</b><span class="muted" style="display:block;margin-top:10px;font-size:.88rem">{{ (tag_map.get(t) or [])|length }} post{{ "" if (tag_map.get(t) or [])|length == 1 else "s" }}</span></a>
+    {% set n = (tag_map.get(t) or [])|length %}
+    <a class="card{{ ' card-empty' if not n }}" data-topic="{{ t }}" href="{{ base }}tags/{{ t }}/"><span class="chip">{{ labels[t] }}</span><b>{{ topic_blurbs[t] }}</b><span class="muted" style="display:block;margin-top:10px;font-size:.88rem">{% if n %}{{ n }} post{{ "" if n == 1 else "s" }}{% else %}No posts yet. Fills in when a {{ labels[t] }} story makes the day's top five.{% endif %}</span></a>
     {% endfor %}
   </div>
   {% if other_tags %}
