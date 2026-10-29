@@ -5,6 +5,8 @@ claim linked to the source it came from. Free to read, free to run, no ads, no c
 
 Live site: https://saipavan333.github.io/ai-daily/ · RSS: https://saipavan333.github.io/ai-daily/feed.xml
 
+**Running it without help:** see [RUNBOOK.md](RUNBOOK.md), plain-English steps for every common situation.
+
 ## How it works
 
 Every morning at 05:45 India time a GitHub Actions job runs `python -m fma daily`:
@@ -54,12 +56,16 @@ Share cards (Open Graph PNGs) are generated with Pillow.
 
 ## Model choice, and what it costs
 
-| Route | Cost | Used when |
-|---|---|---|
-| Google Gemini API free tier (`gemini-3.8-flash`, then `gemini-3.5-flash-lite`) via its OpenAI-compatible endpoint | Free, no card. One post uses 2-4 requests a day. | `GEMINI_API_KEY` secret is set (the default cloud route) |
-| Groq free plan (`openai/gpt-oss-120b`) | Free | `GROQ_API_KEY` secret is set; tried if Gemini fails |
-| OpenRouter `:free` models | Free (50 requests/day) | `OPENROUTER_API_KEY` secret is set |
-| Local Ollama `qwen2.5:14b` | Free, runs on your laptop | `scripts/run_local.ps1` |
+Providers are tried in the order listed in `config/site.yaml`; each is used only if its key is set.
+
+| Order | Route | Cost | Notes |
+|---|---|---|---|
+| 1 | Groq free plan (`openai/gpt-oss-120b`) | Free | 200K tokens a day, counted over a rolling 24 hours. One post uses about 50-100K, so a second run on the same day can hit the limit. Calls are spaced 30 s apart for the 8K tokens/min cap. |
+| 2 | Google Gemini API free tier (`gemini-3.8-flash`) via its OpenAI-compatible endpoint | Free, no card | Backup. Small daily cap that resets at Pacific midnight; often busy. |
+| 3 | OpenRouter `:free` models | Free (50 requests/day) | Only if `OPENROUTER_API_KEY` is set |
+| 4 | Local Ollama `qwen2.5:14b` | Free, runs on your laptop | `scripts/run_local.ps1` |
+
+Each model call logs the tokens it used, so a run's total is in the Actions log.
 
 Why not GitHub Models with the built-in `GITHUB_TOKEN`? It was the first choice, but GitHub retired GitHub Models
 on 30 July 2026 (see docs.github.com/en/github-models). Checked on 27 October 2026.
@@ -71,13 +77,14 @@ shown per project at aistudio.google.com/rate-limit.
 
 ## Setup (one time)
 
-1. Get a free Gemini API key at https://aistudio.google.com/apikey (Google account, no card).
-2. Store it as a repository secret, never in a file:
+1. Get a free Groq key at https://console.groq.com/keys and a free Gemini key at https://aistudio.google.com/apikey.
+2. Store each as a repository secret, never in a file:
    ```bash
+   gh secret set GROQ_API_KEY --repo saipavan333/ai-daily
    gh secret set GEMINI_API_KEY --repo saipavan333/ai-daily
    ```
    (`gh` prompts for the value, so it never lands in your shell history.)
-3. Optional backups: `GROQ_API_KEY`, `OPENROUTER_API_KEY`, set the same way.
+3. Optional backup: `OPENROUTER_API_KEY`, set the same way.
 4. Repo Settings → Pages → Source: **GitHub Actions**.
 
 ## Everyday operations
@@ -92,6 +99,8 @@ shown per project at aistudio.google.com/rate-limit.
 | Write a post on the laptop | `powershell -ExecutionPolicy Bypass -File scripts\run_local.ps1` (add `-NoPush` to look first) |
 | Preview the site locally | `python -m fma build --base-url http://localhost:8000/` then `python -m http.server 8000 -d public` |
 | See why a day was skipped | The Daily post run log ends with `SKIPPED <date>: <reason>` |
+| Fix a wrong sentence and log it publicly | `python -m fma correct <date> --remove "start of sentence" --reason "why"`, then commit |
+| See visitor numbers (private) | https://fiveminuteai.goatcounter.com |
 | Remove a post | Delete `content/posts/<date>.json` and `content/reports/<date>.json`, commit, push |
 
 GitHub disables scheduled workflows in public repos after 60 days without repository activity. The daily commit of
