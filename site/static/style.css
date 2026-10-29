@@ -110,8 +110,8 @@ code { font: .85em var(--mono); background: var(--surface-2); padding: .1em .35e
 .thirty li:first-child::before { top: 0; }
 
 /* ---------- home hero with the signal field */
-.hero-band { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(1100px 520px at 85% -10%, color-mix(in srgb, var(--models) 18%, transparent) 0%, transparent 60%), var(--bg); }
-.hero-band canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-band { position: relative; overflow: hidden; contain: paint; border-bottom: 1px solid var(--line); background: radial-gradient(1100px 520px at 85% -10%, color-mix(in srgb, var(--models) 18%, transparent) 0%, transparent 60%), var(--bg); }
+.hero-band canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .hero-band .scrim { position: absolute; inset: 0; background: var(--hero-scrim); pointer-events: none; }
 @media (max-width: 900px) { .hero-band .scrim { background: var(--hero-scrim-m); } }
 .hero { position: relative; padding: var(--s7) 0 var(--s8); max-width: 680px; }
