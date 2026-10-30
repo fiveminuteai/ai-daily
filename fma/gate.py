@@ -5,6 +5,8 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from requests.exceptions import Timeout
+
 from .rank import jaccard, tokens
 from .verify import plain
 from .write import HYPE_WORDS
@@ -39,6 +41,18 @@ def check_links(urls: list[str], http) -> dict[str, str]:
             if r.status_code < 400 or r.status_code in REACHABLE:
                 return u, None
             return u, f"HTTP {r.status_code}"
+        except Timeout:
+            # A slow answer is not a missing page: news sites throttle cloud servers like GitHub's,
+            # while the same link loads fine elsewhere. The link came from the site's own feed
+            # minutes earlier, so only a real error (404, DNS failure, refused connection) blocks.
+            try:
+                r = http.get(u, stream=True)
+                r.close()
+                return u, None if (r.status_code < 400 or r.status_code in REACHABLE) else f"HTTP {r.status_code}"
+            except Timeout:
+                return u, None
+            except Exception as exc:  # noqa: BLE001
+                return u, type(exc).__name__
         except Exception as exc:  # noqa: BLE001
             return u, type(exc).__name__
 

@@ -10,7 +10,7 @@ Repo: https://github.com/saipavan333/ai-daily · Site: https://fiveminuteai.net/
 
 ## 1. Did today's post go out?
 
-1. Open the site. The top story should carry today's date (posts go out at **05:45 IST**).
+1. Open the site. The top story should carry today's date (posts go out at **05:45 IST**; if GitHub drops that run, backups at 07:15 and 09:07 IST pick it up).
 2. If it doesn't, open **Actions → Daily post** in the repo and click today's run.
    - Green, and the "Write today's post" step ends with `PUBLISHED <post name>` → it worked; the site updates a
      minute or two later.
@@ -114,7 +114,7 @@ Make one change at a time, commit it, and check the next run.
 | What | Where |
 |---|---|
 | Code, posts, settings | GitHub repo `saipavan333/ai-daily` |
-| Daily schedule | `.github/workflows/daily.yml` (`cron: "15 0 * * *"` = 05:45 IST) |
+| Daily schedule | `.github/workflows/daily.yml` (`cron: "15 0 * * *"` = 05:45 IST, backups 07:15 and 09:07 IST) |
 | AI keys | Repo secrets (section 5) |
 | Groq usage and limits | https://console.groq.com |
 | Gemini usage and limits | https://aistudio.google.com |

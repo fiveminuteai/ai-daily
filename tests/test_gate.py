@@ -92,3 +92,23 @@ def test_summary_fallbacks_use_verified_sentences_in_section_order():
 
 def test_missing_dek_fails_gate():
     assert "no dek" in run_gate(post(dek=""), REPORT, PIPE, [], skip_links=True)
+
+
+def test_links_timeout_is_not_broken_but_dns_failure_is():
+    from requests.exceptions import ConnectionError, ReadTimeout
+
+    class SlowHttp:
+        def head(self, u):
+            if "dead" in u:
+                raise ConnectionError("no such host")
+            raise ReadTimeout()
+        def get(self, u, **kw):
+            if "slowget" in u:
+                raise ReadTimeout()
+            if "gone" in u:
+                return FakeResponse(404)
+            return FakeResponse(200)
+
+    bad = check_links(["https://slow.example/a", "https://slowget.example/b", "https://gone.example/c",
+                       "https://dead.example/d"], SlowHttp())
+    assert bad == {"https://gone.example/c": "HTTP 404", "https://dead.example/d": "ConnectionError"}
