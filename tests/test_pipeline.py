@@ -136,12 +136,13 @@ def test_site_build_renders_everything(proj, fake_web, tmp_path):
     assert "The 30-second version" in page and 'data-topic="models"' in page
     assert "\u00c2" not in page
     home = (out / "index.html").read_text(encoding="utf-8")
-    assert 'class="note"' in home and "Earlier this week" in home and 'data-filter="policy"' in home
-    assert 'id="field"' not in home and "glow" not in home          # the plain, human front page
+    assert 'id="field"' in home and "This week in AI" in home and 'data-filter="policy"' in home and 'class="note"' in home
+    assert '<span class="glow">' in home
     idx = json.loads((out / "search.json").read_text(encoding="utf-8"))
     assert idx[0]["t"].startswith("Acme releases Nova-2") and "87.5%" in idx[0]["x"] and "[S1]" not in idx[0]["x"]
     assert (out / "search/index.html").exists() and (out / "tags/impact/index.html").exists()
-    assert "No. 1 ·" in home                                      # issue number on the dateline
+    assert "<span>No. 1</span>" in home                              # issue number in the kicker
+    assert (out / "assets/fonts/BricolageGrotesque-Bold.ttf").exists()
     feed = ElementTree.parse(out / "feed.xml").getroot()
     item = feed.find("channel/item")
     assert item.find("title").text.startswith("Acme releases Nova-2")

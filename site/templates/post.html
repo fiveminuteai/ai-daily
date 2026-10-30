@@ -4,7 +4,7 @@
 <article class="post wrap-narrow">
   <header class="post-head">
     <p class="kicker"><span class="badge">{{ post.reading_minutes }} min read</span><time datetime="{{ post.date }}">{{ post.date_long }}</time></p>
-    <h1 class="headline">{{ post.headline }}</h1>
+    <h1 class="headline">{{ post.head_a }}{% if post.head_b %} <span class="glow">{{ post.head_b }}</span>{% endif %}</h1>
     <p class="dek">{{ post.dek_html }}</p>
     <p class="byline">By <strong>{{ post.byline }}</strong> · drafted with AI, every line checked against its source. The small numbers<sup class="cite"><a href="#src-h">1</a></sup> link to the source list at the bottom.</p>
     <ul class="tag-row" aria-label="Topics">

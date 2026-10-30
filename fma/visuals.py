@@ -171,7 +171,7 @@ def flow_svg(diagram: dict, source_label: str = "", W: int = WIDE) -> str:
 # ---------------------------------------------------------------- Open Graph card (PNG; social sites don't render SVG)
 
 FONT_CANDIDATES = {
-    "serif": ["C:/Windows/Fonts/georgiab.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    "serif": [str(Path(__file__).resolve().parent.parent / "site/static/fonts/BricolageGrotesque-Bold.ttf"), "C:/Windows/Fonts/georgiab.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
               "/System/Library/Fonts/Supplemental/Georgia Bold.ttf"],
     "sans": ["C:/Windows/Fonts/segoeui.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
              "/System/Library/Fonts/Supplemental/Arial.ttf"],
@@ -189,8 +189,8 @@ def _font(kind: str, size: int):
     return ImageFont.load_default(size=size)
 
 
-TOPIC_RGB = {"models": (58, 85, 176), "architecture": (135, 98, 0), "research": (29, 117, 106), "products": (164, 80, 26),
-             "tools": (116, 70, 163), "policy": (174, 47, 75), "impact": (44, 118, 58)}
+TOPIC_RGB = {"models": (139, 156, 255), "architecture": (244, 211, 94), "research": (79, 209, 197), "products": (255, 184, 107),
+             "tools": (199, 146, 234), "policy": (255, 122, 147), "impact": (123, 228, 149)}
 
 
 def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: str = "5 min read",
@@ -198,18 +198,23 @@ def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: 
     from PIL import Image, ImageDraw
 
     W, H = 1200, 630
-    # the site's "Morning Paper" colours: paper ground, ink text, terracotta accent
-    bg, ink, muted, accent = (250, 247, 242), (29, 26, 22), (103, 95, 84), (176, 67, 28)
+    bg, ink, muted, accent = (11, 16, 34), (237, 240, 250), (149, 160, 196), (255, 184, 107)
     img = Image.new("RGB", (W, H), bg)
     d = ImageDraw.Draw(img)
-    # a stripe of today's topic colours along the top, and a newspaper rule under the dateline
+    # a soft glow in the corner, then a stripe of today's topic colours along the top
+    glow = Image.new("RGB", (W, H), bg)
+    gd = ImageDraw.Draw(glow)
+    for k in range(18, 0, -1):
+        c = tuple(int(bg[j] + (TOPIC_RGB["models"][j] - bg[j]) * 0.22 * (1 - k / 18)) for j in range(3))
+        gd.ellipse([W - 520 - k * 18, -380 - k * 14, W + 260 + k * 18, 300 + k * 14], fill=c)
+    img = Image.blend(img, glow, 1.0)
+    d = ImageDraw.Draw(img)
     cols = [TOPIC_RGB[t] for t in (topics or []) if t in TOPIC_RGB] or list(TOPIC_RGB.values())
     seg = W / len(cols)
     for n, c in enumerate(cols):
         d.rectangle([int(n * seg), 0, int((n + 1) * seg), 10], fill=c)
     d.text((80, 70), site_name.upper(), font=_font("sans_bold", 30), fill=accent)
     d.text((80, 112), f"{date_label}  ·  {kicker}", font=_font("sans", 28), fill=muted)
-    d.rectangle([80, 165, W - 80, 167], fill=ink)
     def wrap_px(text: str, font, max_w: float) -> list[str]:
         lines, cur = [], ""
         for word in text.split():
@@ -240,7 +245,7 @@ def og_card(path: Path, headline: str, site_name: str, date_label: str, kicker: 
     d.text((80, H - 80), "Every claim linked to its source.", font=_font("sans", 26), fill=muted)
     # brand mark: a clock face with the first five minutes filled in
     cx, cy, r = W - 110, H - 105, 44
-    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=ink, width=6)
-    d.pieslice([cx - r + 3, cy - r + 3, cx + r - 3, cy + r - 3], start=-90, end=-60, fill=accent)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=accent, width=7)
+    d.pieslice([cx - r + 3, cy - r + 3, cx + r - 3, cy + r - 3], start=-90, end=-60, fill=TOPIC_RGB["policy"])
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path, "PNG", optimize=True)
