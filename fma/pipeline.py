@@ -18,7 +18,7 @@ from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
 from .rank import history_entry, pick_lineup, rank
-from .verify import cites, llm_check, mark_unused, norm, plain, split_sentences, verify_draft
+from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
 from .write import draft_post
 
 log = logging.getLogger(__name__)
@@ -220,18 +220,17 @@ def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str, su
     removed = list(dict.fromkeys(removed))
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     for s in removed:
-        entry = {"where": "editorial review", "text": re.sub(r"\[S\d+\]", "", s), "sources": cites(s),
-                 "status": "dropped", "problems": [f"removed in editorial review on {stamp}: {reason}"]}
+        problem = f"removed in editorial review on {stamp}: {reason}"
+        # the sentence's own "Confirmed" entry becomes "Removed", so the totals still add up after a correction
+        mark_dropped(report, plain(s), cites(s), problem)
         if suppress:
             digest = hashlib.sha256(plain(s).encode("utf-8")).hexdigest()
             withheld = {"text": f"[text withheld: {reason}]", "sha256": digest, "withheld": True}
-            for e in report.get("entries", []):          # the sentence's own earlier entries carry the words too
+            for e in report.get("entries", []):          # every entry that carries the words
                 if not e.get("withheld") and norm(plain(e.get("text", ""))) == norm(plain(s)):
                     e.update(withheld)
-            entry.update(withheld)
-        report.setdefault("entries", []).append(entry)
-    report["dropped"] = report.get("dropped", 0) + len(removed)
-    post["verification"]["dropped"] = post["verification"].get("dropped", 0) + len(removed)
+    for k in ("checked", "ok", "repaired", "dropped"):
+        post["verification"][k] = report.get(k, 0)
     post["word_count"] = word_count(post)
     post["reading_minutes"] = max(1, round(post["word_count"] / 200))
     post_path.write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")

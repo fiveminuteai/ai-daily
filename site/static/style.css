@@ -273,6 +273,12 @@ mark { background: color-mix(in srgb, var(--products) 30%, transparent); color: 
 .log-dropped .log-status { color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, transparent); }
 .log-dropped > p:not(.log-why) { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--bad) 60%, transparent); color: var(--muted); }
 .log-where { color: var(--muted); font-size: .8rem; }
+.log-unused .log-status { color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); }
+.log-unused > p { color: var(--muted); }
+.log-withheld > p:first-of-type { text-decoration: none; font-style: italic; }
+.log-unused-title { font: 600 1.3rem/1.2 var(--display); margin: var(--s7) 0 var(--s2); }
+.log-unused-title + .muted { font-size: .92rem; line-height: 1.5; }
+.log-ok .log-why, .log-repaired .log-why, .log-unused .log-why { color: var(--muted); }
 .log-why { color: var(--bad); font-size: .82rem; }
 
 /* ---------- footer */

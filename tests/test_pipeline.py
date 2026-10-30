@@ -158,7 +158,10 @@ def test_editorial_correction_removes_and_logs(proj, fake_web):
     post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
     assert "appeal" not in json.dumps(post["sections"])
     rep = json.loads((proj / "content/reports/2026-10-27.json").read_text(encoding="utf-8"))
-    assert rep["entries"][-1]["where"] == "editorial review" and "test reason" in rep["entries"][-1]["problems"][0]
+    hit = [e for e in rep["entries"] if any("editorial review" in p and "test reason" in p for p in e["problems"])]
+    assert len(hit) == 1 and hit[0]["status"] == "dropped"          # the sentence's own entry, not a duplicate
+    assert rep["ok"] + rep["repaired"] + rep["dropped"] == rep["checked"]
+    assert post["verification"]["dropped"] == rep["dropped"]
 
 
 def test_headings_get_capital_first_letter_and_short_forms():
@@ -191,8 +194,8 @@ def test_correction_with_suppress_withholds_the_words(proj, fake_web, tmp_path):
     post_text = (proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8")
     assert "appeal" not in rep_text and "appeal" not in post_text
     rep = json.loads(rep_text)
-    last = rep["entries"][-1]
-    assert last["where"] == "editorial review" and last["text"] == "[text withheld: legal request]"
+    last = next(e for e in rep["entries"] if any("editorial review" in p for p in e["problems"]))
+    assert last["status"] == "dropped" and last["text"] == "[text withheld: legal request]"
     assert last["sha256"] == hashlib.sha256(b"DataCorp said it would appeal the decision.").hexdigest()
     out = site_mod.build(content_dir=proj / "content", out_dir=tmp_path / "public")
     page = next((out / "posts").glob("*/verification/index.html")).read_text(encoding="utf-8")
