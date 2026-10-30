@@ -37,6 +37,7 @@ def main(argv=None) -> int:
     d.add_argument("--skip-links", action="store_true")
     b = sub.add_parser("build")
     b.add_argument("--base-url")
+    b.add_argument("--media", action="store_true", help="also make the day's Instagram carousel and Reel (needs ffmpeg)")
     sub.add_parser("candidates")
     c = sub.add_parser("correct", help="remove a sentence from a post and log the correction publicly")
     c.add_argument("date")
@@ -51,7 +52,7 @@ def main(argv=None) -> int:
     site = config.site_config()
 
     if args.cmd == "build":
-        out = build(base_url=args.base_url)
+        out = build(base_url=args.base_url, media_on=args.media)
         print(f"built {out}")
         return 0
 

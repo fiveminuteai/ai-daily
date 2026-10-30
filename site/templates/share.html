@@ -11,9 +11,29 @@
   <h1 class="page-title">{{ post.headline }}</h1>
   <p class="hint">Ready-made posts for today's issue. Tap <b>Copy</b>, open the app, paste. Every line comes from the checked post, so nothing here says more than the post does.{% if not latest %} This is the kit for {{ post.date_short }}; <a href="{{ base }}share/">today's kit is here</a>.{% endif %}</p>
 
+  {% if media.reel %}
   <section class="kit">
-    <h2>Instagram</h2>
-    <p class="muted">1. Save the image: long-press it and choose <b>Save</b>, or tap Download. 2. Post it and paste the caption.</p>
+    <h2>Instagram Reel</h2>
+    <p class="muted">Best reach. Save the video, post it as a Reel and paste the caption below. The music is original, made for this account, so it can't be muted or claimed.</p>
+    <video class="kit-reel" src="{{ base }}share/{{ post.date }}/{{ media.reel }}" controls playsinline preload="metadata" width="1080" height="1920"{% if media.slides %} poster="{{ base }}share/{{ post.date }}/carousel/{{ media.slides[0] }}"{% endif %}></video>
+    <p><a class="ghost" href="{{ base }}share/{{ post.date }}/{{ media.reel }}" download="fiveminuteai-{{ post.date }}-reel.mp4">Download Reel</a></p>
+  </section>
+  {% endif %}
+
+  {% if media.slides %}
+  <section class="kit">
+    <h2>Instagram carousel</h2>
+    <p class="muted">{{ media.slides | length }} slides. Save them all with one tap (a zip), or long-press each one. Post them in this order and paste the caption below.</p>
+    <div class="kit-slides">
+      {% for s in media.slides %}<img src="{{ base }}share/{{ post.date }}/carousel/{{ s }}" width="1080" height="1350" loading="lazy" alt="Slide {{ loop.index }}">{% endfor %}
+    </div>
+    <p><a class="ghost" href="{{ base }}share/{{ post.date }}/carousel.zip" download="fiveminuteai-{{ post.date }}-carousel.zip">Download all slides</a></p>
+  </section>
+  {% endif %}
+
+  <section class="kit">
+    <h2>{% if media.slides %}Single image and caption{% else %}Instagram{% endif %}</h2>
+    <p class="muted">{% if media.slides %}For a one-image post instead. The caption works for the Reel and the carousel too.{% else %}1. Save the image: long-press it and choose <b>Save</b>, or tap Download. 2. Post it and paste the caption.{% endif %}</p>
     <img class="kit-card" src="{{ base }}share/{{ post.date }}/instagram.png" width="1080" height="1350" alt="Instagram card: {{ post.headline }}">
     <p><a class="ghost" href="{{ base }}share/{{ post.date }}/instagram.png" download="fiveminuteai-{{ post.date }}.png">Download image</a></p>
     {{ kit_box("instagram", texts.instagram) }}

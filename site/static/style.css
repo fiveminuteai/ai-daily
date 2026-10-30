@@ -321,7 +321,22 @@ mark { background: color-mix(in srgb, var(--products) 30%, transparent); color: 
 html, body { overflow-x: clip; }
 
 /* ---------- share kit (unlisted page with ready-to-paste social posts) */
-.footer .follow a { color: var(--ink); font-weight: 600; }
+.footer .follow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: var(--s4) 0; }
+.footer .follow > span { color: var(--ink-2); font-weight: 600; margin-right: 4px; }
+.footer .follow a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; text-decoration: none; padding: 9px 14px; border: 1px solid var(--line-2); border-radius: 999px; transition: background .15s var(--ease), border-color .15s var(--ease); }
+.footer .follow a:hover { background: var(--surface); border-color: var(--accent); }
+.footer .follow .icon { width: 18px; height: 18px; }
+/* social icons in the masthead, after a thin divider */
+.nav-social { display: inline-flex; align-items: center; margin-left: 4px; padding-left: 6px; border-left: 1px solid var(--line); }
+.nav-social a { padding: 10px 8px; }
+.nav-social a:hover { color: var(--accent); }
+.footer-nav a { color: var(--ink-2); }
+/* small phones: the text links move to the footer so search, the social icons and the theme switch fit */
+@media (max-width: 520px) {
+  .nav .nav-text { display: none; }
+  .nav-social a { padding: 10px 7px; }
+  .theme-toggle { margin-left: 2px; }
+}
 .share .kit { margin: var(--s6) 0; padding-top: var(--s5); border-top: 1px solid var(--line); }
 .share .kit h2 { font: 700 1.35rem/1.2 var(--display); margin: 0 0 var(--s2); }
 .share .kit .muted { font-size: .92rem; line-height: 1.5; }
@@ -331,3 +346,6 @@ html, body { overflow-x: clip; }
 .kit-copy { min-width: 9rem; font: 700 .9rem/1 var(--text); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; transition: transform .12s var(--ease); }
 .kit-copy:active { transform: scale(.97); }
 .kit-copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.kit-reel { display: block; width: 100%; max-width: 320px; height: auto; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-sm); border: 1px solid var(--line); margin: var(--s3) 0 var(--s2); }
+.kit-slides { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; margin: var(--s3) 0 var(--s2); }
+.kit-slides img { flex: 0 0 auto; width: 70%; max-width: 280px; height: auto; scroll-snap-align: start; border-radius: var(--r-sm); border: 1px solid var(--line); }
