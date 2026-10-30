@@ -1,6 +1,6 @@
 {
-  "checked": 65,
-  "ok": 46,
+  "checked": 63,
+  "ok": 44,
   "repaired": 6,
   "dropped": 13,
   "entries": [
@@ -75,7 +75,7 @@
       "sources": [
         "S5"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -84,7 +84,7 @@
       "sources": [
         "S6"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -646,5 +646,6 @@
   "layer2_flagged": 10,
   "date": "2026-10-30",
   "slug": "2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
-  "model": "groq:openai/gpt-oss-120b"
+  "model": "groq:openai/gpt-oss-120b",
+  "unused": 2
 }

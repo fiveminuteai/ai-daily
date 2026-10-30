@@ -181,10 +181,11 @@
   "model": "groq:openai/gpt-oss-120b",
   "generated_at": "2026-10-28T21:09:05+00:00",
   "verification": {
-    "checked": 66,
-    "ok": 39,
+    "checked": 63,
+    "ok": 36,
     "repaired": 8,
     "dropped": 19,
+    "unused": 3,
     "layer1_done": true,
     "layer2_done": true
   },

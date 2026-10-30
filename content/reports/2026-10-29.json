@@ -1,6 +1,6 @@
 {
-  "checked": 66,
-  "ok": 39,
+  "checked": 63,
+  "ok": 36,
   "repaired": 8,
   "dropped": 19,
   "entries": [
@@ -81,7 +81,7 @@
       "sources": [
         "S8"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -90,7 +90,7 @@
       "sources": [
         "S9"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -551,7 +551,7 @@
       "sources": [
         "S9"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -686,5 +686,6 @@
   "layer2_flagged": 14,
   "date": "2026-10-29",
   "slug": "2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
-  "model": "groq:openai/gpt-oss-120b"
+  "model": "groq:openai/gpt-oss-120b",
+  "unused": 3
 }
