@@ -107,3 +107,21 @@ def test_lead_switches_to_readable_article_when_lab_page_is_empty():
     assert st.lead is news                              # the lab page came back nearly empty
     lab.text = "Full lab announcement. " * 60
     assert st.lead is lab                               # with readable text, the primary source leads again
+
+
+def test_outlet_read_through_two_feeds_counts_once_and_brain_implants_pass_the_ai_filter():
+    from fma import config
+    from fma.feeds import is_ai_related
+    url = "https://techcrunch.com/2026/10/30/neuralink-telepathy/"
+    a = Item(source_id="techcrunch", source_name="TechCrunch", title="Neuralink opens Telepathy to more patients", url=url,
+             published=NOW)
+    b = Item(source_id="techcrunch-all", source_name="TechCrunch", title="Neuralink opens Telepathy to more patients",
+             url=url, published=NOW)
+    (story,) = cluster([a, b])
+    assert story.publishers == {"TechCrunch"}
+    terms = config.sources_config()["ai_terms"]
+    assert is_ai_related("Neuralink says its brain-computer interface now types at 40 words a minute", terms)
+    assert not is_ai_related("The best electric toothbrush deals this week", terms)
+    names = [s["name"] for s in config.sources_config()["sources"]]
+    from fma.site import first_by_name
+    assert len({s["name"] for s in first_by_name(config.sources_config()["sources"])}) == len(set(names))

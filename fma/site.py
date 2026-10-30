@@ -165,6 +165,12 @@ def dual(fn, *args) -> Markup:
     return Markup(f'<div class="viz-wide">{fn(*args, W=WIDE)}</div><div class="viz-narrow">{fn(*args, W=NARROW)}</div>')
 
 
+def first_by_name(sources: list[dict]) -> list[dict]:
+    """Sources for the About page, one per outlet: an outlet read through two feeds is listed once."""
+    seen: set[str] = set()
+    return [s for s in sources if not (s["name"] in seen or seen.add(s["name"]))]
+
+
 def tag_slug(tag: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", tag.lower()).strip("-")
 
@@ -259,7 +265,7 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
     write("about/index.html", env.get_template("about.html").render(
         page_title="How this blog is made", description="Five Minute AI is AI-assisted and generated automatically from linked sources.",
         og_image=f"{base}og/default.png", canonical="about/", og_type="website", nav="about",
-        sources=config.sources_config()["sources"], providers=site.get("providers", [])))
+        sources=first_by_name(config.sources_config()["sources"]), providers=site.get("providers", [])))
     write("search/index.html", env.get_template("search.html").render(
         page_title="Search", description=f"Search every {site['name']} post.", nav="search",
         og_image=f"{base}og/default.png", canonical="search/", og_type="website"))

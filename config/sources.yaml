@@ -39,6 +39,12 @@ sources:
   - {id: mittr-ai,    name: MIT Technology Review, kind: rss, url: "https://www.technologyreview.com/topic/artificial-intelligence/feed", weight: 1.2, category: impact}
   - {id: wired-ai,    name: WIRED,              kind: rss, url: "https://www.wired.com/feed/tag/ai/latest/rss",            weight: 1.0, category: impact}
   - {id: ieee-ai,     name: IEEE Spectrum,      kind: rss, url: "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss", weight: 0.9, category: research}
+  # The same outlets' full tech feeds, kept to AI stories by ai_filter. They catch AI news filed outside the AI
+  # section (brain implants, chips, gadgets). Same names as above, so a story in both feeds counts as one outlet.
+  - {id: verge-all,   name: The Verge,          kind: rss, url: "https://www.theverge.com/rss/index.xml",                  weight: 0.9, category: products, ai_filter: true}
+  - {id: techcrunch-all, name: TechCrunch,      kind: rss, url: "https://techcrunch.com/feed/",                            weight: 0.9, category: products, ai_filter: true}
+  - {id: ars-all,     name: Ars Technica,       kind: rss, url: "https://feeds.arstechnica.com/arstechnica/index",         weight: 0.9, category: impact,   ai_filter: true}
+  - {id: engadget,    name: Engadget,           kind: rss, url: "https://www.engadget.com/rss.xml",                        weight: 0.8, category: products, ai_filter: true}
   # VentureBeat rate-limits automated readers (HTTP 429), so it is off for now.
   - {id: venturebeat, name: VentureBeat,        kind: rss, url: "https://venturebeat.com/category/ai/feed/",               weight: 0.9, category: products, enabled: false}
 
@@ -49,7 +55,8 @@ sources:
 # Words that mark an item as AI-related (used where ai_filter is true). Matched as whole words, case-insensitive.
 ai_terms: [AI, A.I., LLM, LLMs, GPT, ChatGPT, Gemini, Claude, Anthropic, OpenAI, DeepMind, Llama, Mistral, Qwen, DeepSeek,
   "machine learning", "deep learning", "neural", "language model", "language models", transformer, diffusion, agent, agents,
-  agentic, chatbot, Copilot, "artificial intelligence", inference, GPU, GPUs, "foundation model", multimodal, robotics, "AI safety"]
+  agentic, chatbot, Copilot, "artificial intelligence", inference, GPU, GPUs, "foundation model", multimodal, robotics, "AI safety",
+  Neuralink, "brain-computer interface", "brain-computer interfaces", BCI, "brain implant", "brain implants"]
 
 # Titles matching these patterns (regex, case-insensitive) are customer stories, tutorials or
 # marketing rather than news; their score is halved.
