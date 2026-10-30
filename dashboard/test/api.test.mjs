@@ -210,3 +210,23 @@ test("history marks the publishing run from the post's time, and earlier real ru
   assert.deepEqual(d.runs.map((r) => [r.id, r.outcome, r.noop]), [[3, "unknown", true], [2, "published", false], [1, "skipped", false]]);
   assert.equal(days.find((x) => x.date === "2026-10-29").status, "before");
 });
+
+test("local checkout only fills in files main doesn't have; main wins", async () => {
+  const { GitHub } = await import("../lib/github.js");
+  const remote = { "content/posts/2026-11-01.json": '{"date":"2026-11-01"}', "data/history.json": '["main"]' };
+  const fetchImpl = async (url) => {
+    const m = url.match(/contents\/(.+?)\?ref=main/);
+    if (url.includes("contents/data/social?")) return new Response(JSON.stringify([{ name: "2026-11-01.json" }]));
+    return m && remote[m[1]] ? new Response(remote[m[1]]) : new Response("{}", { status: 404 });
+  };
+  const local = {
+    file: async (p) => ({ "data/history.json": '["local"]', "data/social/2026-10-30.json": '{"date":"2026-10-30"}' }[p] ?? null),
+    list: async () => [{ name: "2026-10-30.json" }, { name: "2026-11-01.json" }],
+  };
+  const gh = new GitHub({ token: "t", repo: "o/r", fetchImpl, local });
+  assert.deepEqual(await gh.json("data/history.json"), ["main"]);
+  assert.deepEqual(await gh.json("content/posts/2026-11-01.json"), { date: "2026-11-01" });
+  assert.deepEqual(await gh.json("data/social/2026-10-30.json"), { date: "2026-10-30" });
+  assert.equal(await gh.json("data/runs/2026-10-29.json"), null);
+  assert.deepEqual((await gh.listDir("data/social")).map((f) => f.name), ["2026-11-01.json", "2026-10-30.json"]);
+});

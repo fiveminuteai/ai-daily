@@ -10,7 +10,7 @@ export class GitHubError extends Error {
 }
 
 export class GitHub {
-  // local: optional {file(path), list(path)} reading committed files from a local checkout (dev server only)
+  // local: optional {file(path), list(path)}: a local checkout used for files main doesn't have yet (dev server only)
   constructor({ token, repo, fetchImpl = globalThis.fetch.bind(globalThis), local = null }) {
     this.local = local;
     if (!/^[\w.-]+\/[\w.-]+$/.test(repo || "")) throw new Error("REPO must look like owner/name");
@@ -67,10 +67,11 @@ export class GitHub {
       () => this.req(this.r(`/actions/jobs/${job.id}/logs`), { raw: true }).catch(() => ""));
   }
 
-  /** A file on main as text, or null if it does not exist. */
-  file(path, ref = "main") {
-    if (this.local) return this.local.file(path);
-    return this.req(this.r(`/contents/${path}?ref=${ref}`), { accept: "application/vnd.github.raw+json", raw: true });
+  /** A file on main as text, or null if it does not exist. With a local checkout, a file main doesn't have yet
+   *  (one only on an unmerged branch) comes from the checkout; main always wins, so new posts still show. */
+  async file(path, ref = "main") {
+    const remote = await this.req(this.r(`/contents/${path}?ref=${ref}`), { accept: "application/vnd.github.raw+json", raw: true });
+    return remote ?? (this.local ? this.local.file(path) : null);
   }
 
   async json(path) {
@@ -82,9 +83,11 @@ export class GitHub {
   /** The file's metadata (with sha and base64 content), for an update. */
   fileMeta(path) { return this.req(this.r(`/contents/${path}?ref=main`)); }
 
-  listDir(path) {
-    if (this.local) return this.local.list(path);
-    return this.req(this.r(`/contents/${path}?ref=main`)).then((d) => (Array.isArray(d) ? d : []));
+  async listDir(path) {
+    const remote = await this.req(this.r(`/contents/${path}?ref=main`)).then((d) => (Array.isArray(d) ? d : []));
+    if (!this.local) return remote;
+    const names = new Set(remote.map((f) => f.name));
+    return [...remote, ...(await this.local.list(path)).filter((f) => !names.has(f.name))];
   }
 
   putFile(path, { content, sha, message }) {

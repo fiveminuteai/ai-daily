@@ -43,6 +43,22 @@ Where the numbers come from:
 
 Days before 31 Oct 2026 have no run summary: their ranking shows the post's sections instead of scores.
 
+## Host it on this laptop (before Cloudflare)
+
+One command from the repository folder. It uses your GitHub CLI login if you have one (otherwise it asks for the
+token), opens http://127.0.0.1:8788/ and keeps running until you close the window:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File dashboard\start.ps1
+```
+
+Add `-Live` when you want the buttons to really commit and start workflows; without it every button is a dry run.
+It only answers on this laptop (127.0.0.1): your phone can't reach it until it is on Cloudflare, and nothing on the
+network can reach it either. New daily posts appear by themselves because everything is read from GitHub; files that
+are only on this branch so far (the run summaries and the social queue) are read from this checkout until the branch
+is merged. The GitHub CLI token can do more than the dashboard needs; for anything past a few days, make the
+fine-grained token below and set `$env:GITHUB_TOKEN` before starting.
+
 ## Run it on your computer
 
 Needs Node 18 or newer. Nothing to install.

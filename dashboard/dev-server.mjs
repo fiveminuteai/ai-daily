@@ -22,8 +22,8 @@ const env = {
   DRY_RUN: process.env.DRY_RUN ?? "1", LOCAL_DEV: "1",
 };
 
-// LOCAL_FILES=.. reads committed files (posts, reports, data/) from a local checkout instead of GitHub's main branch,
-// so an unpushed branch can be previewed. Runs and logs still come from GitHub.
+// LOCAL_FILES=.. fills in files GitHub's main branch doesn't have yet (posts, reports, data/) from a local checkout,
+// so an unmerged branch can be previewed. Main always wins, so new daily posts still appear.
 const LOCAL_ROOT = process.env.LOCAL_FILES ? normalize(join(process.cwd(), process.env.LOCAL_FILES)) : "";
 const local = LOCAL_ROOT ? {
   file: (p) => readFile(join(LOCAL_ROOT, normalize(p)), "utf-8").catch(() => null),
@@ -59,6 +59,6 @@ const server = createServer(async (req, res) => {
 
 server.listen(PORT, "127.0.0.1", () => {
   console.log(`Five Minute AI dashboard: http://127.0.0.1:${PORT}/`);
-  if (LOCAL_ROOT) console.log(`Committed files from ${LOCAL_ROOT} (runs and logs from GitHub)`);
+  if (LOCAL_ROOT) console.log(`Files missing on main are read from ${LOCAL_ROOT}`);
   console.log(`GitHub token: ${env.GITHUB_TOKEN ? "set" : "NOT set (views will say so)"}; writes: ${["0", "false"].includes(env.DRY_RUN) ? "LIVE" : "dry run"}`);
 });
