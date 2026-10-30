@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block main %}
+{% set unused = report.entries|selectattr("status", "equalto", "unused")|list %}
 <div class="wrap-narrow page">
   <p class="kicker"><a href="{{ base }}{{ post.url_path }}">← Back to the post</a></p>
   <h1 class="page-title">Verification log</h1>
@@ -11,15 +12,28 @@
     <div><dt>Removed</dt><dd>{{ report.dropped }}</dd></div>
   </dl>
   <p class="muted">Written by <code>{{ report.model }}</code>. "Re-cited" means the fact was found in another source about the same story, and the citation was corrected. Removed statements never reached the post.</p>
-  <ul class="log">
-    {% for e in report.entries %}
-    <li class="log-{{ e.status }}">
-      <span class="log-status">{{ {"ok": "Confirmed", "repaired": "Re-cited", "dropped": "Removed"}[e.status] }}</span>
+  {% macro entry(e) %}
+    <li class="log-{{ e.status }}{% if e.withheld %} log-withheld{% endif %}">
+      <span class="log-status">{{ {"ok": "Confirmed", "repaired": "Re-cited", "dropped": "Removed", "unused": "Not used"}.get(e.status, e.status) }}</span>
       <span class="log-where">{{ e.where }}</span>
+      {% if e.withheld %}
+      <p><em>{{ e.text }}</em></p>
+      <p class="log-why">The wording is not reproduced here. For audit, the SHA-256 of the original sentence is <code style="overflow-wrap:anywhere">{{ e.sha256 }}</code>.</p>
+      {% else %}
       <p>{{ e.text }}</p>
+      {% endif %}
       {% if e.problems %}<p class="log-why">{{ e.problems|join("; ") }}</p>{% endif %}
     </li>
-    {% endfor %}
+  {% endmacro %}
+  <ul class="log">
+    {% for e in report.entries if e.status != "unused" %}{{ entry(e) }}{% endfor %}
   </ul>
+  {% if unused %}
+  <h2 class="log-unused-title">Checked but not used</h2>
+  <p class="muted">These {{ unused|length }} passed the checks but were left out of the final post (for example a spare summary bullet), so they are not counted above.</p>
+  <ul class="log">
+    {% for e in unused %}{{ entry(e) }}{% endfor %}
+  </ul>
+  {% endif %}
 </div>
 {% endblock %}

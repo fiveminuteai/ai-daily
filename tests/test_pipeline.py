@@ -170,3 +170,45 @@ def test_headings_get_capital_first_letter_and_short_forms():
     d = normalise_draft({"headline": "aws cuts prices", "sections": [{"title": "Nvidia beats the Sec", "paragraphs": ["x"]}]})
     assert d["headline"] == "AWS cuts prices"
     assert d["sections"][0]["title"] == "Nvidia beats the SEC"
+
+
+def test_headline_rejected_by_model_check_retries_then_skips(proj, fake_web):
+    chain = FakeChain(replies(good_draft()) + replies(good_draft()), flag_text={"[headline]": "joins two events"})
+    r = run(proj, fake_web, chain)
+    assert r.status == "skipped" and "headline not verified" in r.reason and "model check: joins two events" in r.reason
+    assert any("rejected" in p and "joins two events" in p for p in chain.prompts)   # the retry was told why
+    assert not (proj / "content/posts/2026-10-27.json").exists()
+
+
+def test_correction_with_suppress_withholds_the_words(proj, fake_web, tmp_path):
+    import hashlib
+
+    from fma.pipeline import remove_sentences
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    removed = remove_sentences(proj, "2026-10-27", ["DataCorp said it would appeal"], "legal request", suppress=True)
+    assert len(removed) == 1
+    rep_text = (proj / "content/reports/2026-10-27.json").read_text(encoding="utf-8")
+    post_text = (proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8")
+    assert "appeal" not in rep_text and "appeal" not in post_text
+    rep = json.loads(rep_text)
+    last = rep["entries"][-1]
+    assert last["where"] == "editorial review" and last["text"] == "[text withheld: legal request]"
+    assert last["sha256"] == hashlib.sha256(b"DataCorp said it would appeal the decision.").hexdigest()
+    out = site_mod.build(content_dir=proj / "content", out_dir=tmp_path / "public")
+    page = next((out / "posts").glob("*/verification/index.html")).read_text(encoding="utf-8")
+    assert "[text withheld: legal request]" in page and last["sha256"] in page and "appeal" not in page
+
+
+def test_verification_page_lists_unused_separately(proj, fake_web, tmp_path):
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    rp = proj / "content/reports/2026-10-27.json"
+    rep = json.loads(rp.read_text(encoding="utf-8"))
+    assert rep["ok"] + rep["repaired"] + rep["dropped"] == rep["checked"]
+    rep["entries"].append({"where": "what_happened[3]", "text": "A spare bullet nobody sees.", "sources": ["S1"],
+                           "status": "unused", "problems": []})
+    rp.write_text(json.dumps(rep), encoding="utf-8")
+    out = site_mod.build(content_dir=proj / "content", out_dir=tmp_path / "public")
+    page = next((out / "posts").glob("*/verification/index.html")).read_text(encoding="utf-8")
+    before, after = page.split("Checked but not used", 1)
+    assert "A spare bullet nobody sees." in after and "A spare bullet nobody sees." not in before
+    assert "Not used" in after

@@ -56,6 +56,8 @@ python -m fma correct 2026-10-29 --remove "Start of the wrong sentence" --reason
 git add content && git commit -m "Correction" && git push
 ```
 
+Add `--suppress` when the sentence must not stay public word for word (a legal complaint, possible defamation, or someone's private details): the log then shows `[text withheld: <reason>]` and a fingerprint (sha256) of the original instead of the sentence. Note the old wording stays in git history; for a serious legal case, ask for help scrubbing it (section 9).
+
 **To take a whole post down:** delete both `content/posts/<date>.json` and `content/reports/<date>.json`, then commit.
 
 ## 4. Change which AI writes the posts

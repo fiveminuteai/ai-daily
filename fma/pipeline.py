@@ -1,6 +1,7 @@
 """One day's run: fetch -> rank -> extract -> write -> verify -> gate -> save. All or nothing."""
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import re
@@ -17,7 +18,7 @@ from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
 from .rank import history_entry, pick_lineup, rank
-from .verify import cites, llm_check, split_sentences, verify_draft
+from .verify import cites, llm_check, mark_unused, norm, plain, split_sentences, verify_draft
 from .write import draft_post
 
 log = logging.getLogger(__name__)
@@ -79,7 +80,9 @@ def fill_summary(verified: dict, sources: list[dict]) -> dict:
 
 def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: str, report: dict) -> dict:
     verified = fill_summary(verified, sources)
-    texts = [verified["dek"], *verified["what_happened"][:3], *[w["text"] for w in verified["why_it_matters"]]]
+    verified = {**verified, "what_happened": verified["what_happened"][:3]}
+    mark_unused(report, verified)          # verified but not in the post: "unused", never "confirmed"
+    texts =[verified["dek"], *verified["what_happened"][:3], *[w["text"] for w in verified["why_it_matters"]]]
     for s in verified["sections"]:
         texts.extend(s["paragraphs"])
     used = {i for t in texts for i in cites(t)}
@@ -111,7 +114,8 @@ def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: 
         "chart": verified.get("chart"), "diagram": verified.get("diagram"), "timeline": timeline,
         "visuals": visuals, "sources": src_list, "model": model,
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "verification": {k: report.get(k) for k in ("checked", "ok", "repaired", "dropped", "layer1_done", "layer2_done")},
+        "verification": {k: report.get(k) for k in ("checked", "ok", "repaired", "dropped", "unused",
+                                                    "layer1_done", "layer2_done")},
     }
     post["word_count"] = word_count(post)
     post["reading_minutes"] = max(1, round(post["word_count"] / 200))
@@ -185,9 +189,11 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     return Result("skipped", f"gate failed after retries: {last_fail}")
 
 
-def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str) -> list[str]:
+def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str, suppress: bool = False) -> list[str]:
     """Editorial correction by removal only (removing never adds a claim). Each removal is appended to the post's
-    public verification log with the reason. Returns the sentences removed."""
+    public verification log with the reason. With suppress (legal, defamation or privacy reasons) the log keeps
+    "[text withheld: <reason>]" and a sha256 of the sentence's plain text instead of the words, and the words are
+    also scrubbed from the sentence's earlier log entries. Returns the sentences removed."""
     post_path, rep_path = root / "content/posts" / f"{date}.json", root / "content/reports" / f"{date}.json"
     post, report = load_json(post_path, None), load_json(rep_path, {"entries": []})
     if post is None:
@@ -214,9 +220,16 @@ def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str) ->
     removed = list(dict.fromkeys(removed))
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     for s in removed:
-        report.setdefault("entries", []).append({"where": "editorial review", "text": re.sub(r"\[S\d+\]", "", s),
-                                                 "sources": cites(s), "status": "dropped",
-                                                 "problems": [f"removed in editorial review on {stamp}: {reason}"]})
+        entry = {"where": "editorial review", "text": re.sub(r"\[S\d+\]", "", s), "sources": cites(s),
+                 "status": "dropped", "problems": [f"removed in editorial review on {stamp}: {reason}"]}
+        if suppress:
+            digest = hashlib.sha256(plain(s).encode("utf-8")).hexdigest()
+            withheld = {"text": f"[text withheld: {reason}]", "sha256": digest, "withheld": True}
+            for e in report.get("entries", []):          # the sentence's own earlier entries carry the words too
+                if not e.get("withheld") and norm(plain(e.get("text", ""))) == norm(plain(s)):
+                    e.update(withheld)
+            entry.update(withheld)
+        report.setdefault("entries", []).append(entry)
     report["dropped"] = report.get("dropped", 0) + len(removed)
     post["verification"]["dropped"] = post["verification"].get("dropped", 0) + len(removed)
     post["word_count"] = word_count(post)

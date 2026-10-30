@@ -439,6 +439,30 @@ def summarise(log: list[dict]) -> dict:
     return {"checked": len(log), **counts, "entries": log, "layer1_done": True, "layer2_done": False}
 
 
+def mark_unused(report: dict, post: dict) -> dict:
+    """A sentence that passed the checks but is not in the final post (an extra summary bullet, a replaced dek, a
+    section cut for length) is marked "unused", not "ok": the public log must never call text "confirmed" that the
+    reader can't see. Unused entries are left out of checked/ok/repaired, so confirmed + re-cited + removed = checked
+    counts only what is in the post. Chart and diagram entries are left alone."""
+    shown = [post.get("headline", ""), post.get("dek", ""), *post.get("what_happened", [])]
+    for sec in post.get("sections", []):
+        shown += [sec.get("title", ""), *sec.get("paragraphs", [])]
+    shown += [w.get("text", "") for w in post.get("why_it_matters", [])]
+    if post.get("quote"):
+        shown.append(post["quote"].get("text", ""))
+    hay = " ".join(norm(plain(t)) for t in shown)
+    report.setdefault("unused", 0)
+    for e in report.get("entries", []):
+        if e.get("where") in ("chart", "diagram") or e.get("status") not in ("ok", "repaired"):
+            continue
+        if norm(plain(e.get("text", ""))) not in hay:
+            report[e["status"]] = report.get(e["status"], 0) - 1
+            report["checked"] = report.get("checked", 0) - 1
+            e["status"] = "unused"
+            report["unused"] += 1
+    return report
+
+
 # ---------------------------------------------------------------- layer 2
 
 LLM_CHECK_SYSTEM = """You are a strict fact-checker. You compare sentences with the source text they cite.
@@ -512,28 +536,41 @@ def mark_dropped(report: dict, text: str, sources: list[str], problem: str) -> N
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
     """Ask the model which sentences their cited sources don't support, and drop those."""
     by_id = {s["id"]: s for s in sources}
-    sentences: list[tuple[str, str, str]] = []   # (key, sentence, location)
+    sentences: list[tuple[str, str, str]] = []   # (key, sentence, kind): kind is fact | analysis | headline
+    tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] "}
 
-    def collect(text: str, where: str):
+    def collect(text: str, kind: str = "fact"):
         for s in split_sentences(text):
-            sentences.append((f"C{len(sentences) + 1}", s, where))
+            sentences.append((f"C{len(sentences) + 1}", s, kind))
 
-    collect(post["dek"], "dek")
+    collect(post["dek"])
     for b in post["what_happened"]:
-        collect(b, "what_happened")
+        collect(b)
     for s in post["sections"]:
         for p in s["paragraphs"]:
-            collect(p, "sections")
+            collect(p)
     for w in post["why_it_matters"]:
-        if not w["speculative"]:
-            collect(w["text"], "why_it_matters")
+        # "why it matters" may judge or look ahead, but any fact it states must still be in the sources
+        collect(w["text"], "analysis" if w.get("speculative") else "fact")
+    # The headline is checked on its own, against the lead story's sources only, so names and numbers from two
+    # different stories can't be stitched into one false headline. A headline that already failed layer 1 is
+    # failing anyway and isn't sent.
+    lead_ids: list[str] = []
+    if post.get("headline") and not report.get("headline_problems"):
+        first = next((cites(p) for s in post["sections"] for p in s["paragraphs"] if cites(p)), [])
+        lead = by_id.get(first[0], {}).get("story") if first else None
+        lead_ids = [i for i, src in by_id.items() if first and src.get("story") == lead]
+        if lead_ids:
+            sentences.append((f"C{len(sentences) + 1}", post["headline"] + "".join(f"[{i}]" for i in lead_ids),
+                              "headline"))
+    kind_of = {k: kind for k, _, kind in sentences}
     # One check per story, with only that story's sources: small prompts fit tight per-minute token limits and
     # keep the checker focused. Claims citing several stories go with the first story they cite.
     groups: dict = {}
-    for k, s, _ in sentences:
+    for k, s, kind in sentences:
         ids = cites(s)
         story = by_id.get(ids[0], {}).get("story") if ids else None
-        groups.setdefault(story, []).append((k, s))
+        groups.setdefault(("headline",) if kind == "headline" else story, []).append((k, s))
     bad: dict[str, str] = {}
     for story, items in groups.items():
         used = sorted({i for _, s in items for i in cites(s)}, key=lambda x: int(x[1:]))
@@ -543,7 +580,19 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         corpus_here = " ".join(corpus(by_id[i]) + " " + norm(pub_label(by_id[i])) for i in used if i in by_id)
         for start in range(0, len(items), 6):          # small batches keep each reply short
             batch = items[start:start + 6]
-            claims = "\n".join(f"{k}: {plain(s)}" for k, s in batch)
+            claims = "\n".join(f"{k}: {tags[kind_of[k]]}{plain(s)}" for k, s in batch)
+            kinds = {kind_of[k] for k, _ in batch}
+            extra = ""
+            if "headline" in kinds:
+                extra += ("A claim starting [headline] is the post's headline: being short is fine, but every fact in it "
+                          "(who, what, which product, any number) must be supported by these sources, and it must not "
+                          "combine facts from different events.\n")
+            if "analysis" in kinds:
+                extra += ("A claim starting [analysis] is our commentary: a judgement, opinion or forward-looking "
+                          "statement (what could or may happen) is allowed and needs no evidence. But any fact it states "
+                          "as true now (who did what, numbers, names, dates) must be supported; copy the evidence for "
+                          "that fact. If it states no fact at all, mark it supported and copy the source sentence it "
+                          "builds on.\n")
             prompt = (
                 "Fact-check each claim against the SOURCES. For every claim, first copy the exact sentence or phrase from "
                 "the sources that supports it (word for word, at most 40 words), then decide whether that evidence says "
@@ -551,6 +600,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 "result or event than the claim says (for example the source's maths result described as the physics "
                 "result, or a version 1 date or feature given to version 2), if a number, name or date differs, if it "
                 "presents an older event as new, or if no evidence exists. Paraphrase is fine.\n"
+                f"{extra}"
                 "Reply as {\"checks\": [{\"id\": \"C1\", \"evidence\": \"exact words from the source\", "
                 "\"supported\": true, \"reason\": \"short reason\"}]} with one entry per claim.\n\n"
                 f"CLAIMS\n{claims}\n\nSOURCES\n{src_block}")
@@ -564,7 +614,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                     bad[k] = str(c.get("reason") or "not supported by the source")
                 elif not evidence_found(str(c.get("evidence", "")), corpus_here):
                     bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
-    drop = {s: bad[k] for k, s, _ in sentences if k in bad}
+    head_bad = [bad[k] for k, _, kind in sentences if kind == "headline" and k in bad]
+    drop = {s: bad[k] for k, s, kind in sentences if k in bad and kind != "headline"}
 
     def filt(text: str) -> str:
         return " ".join(s for s in split_sentences(text) if s not in drop)
@@ -577,6 +628,10 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     post["why_it_matters"] = [{**w, "text": filt(w["text"])} for w in post["why_it_matters"] if filt(w["text"])]
     for s, reason in drop.items():
         mark_dropped(report, plain(s), cites(s), f"model check: {reason}")
+    for reason in head_bad:
+        # the gate fails this attempt on any headline problem; the retry gets the reason as feedback
+        report.setdefault("headline_problems", []).append(f"model check: {reason}")
+        mark_dropped(report, post["headline"], lead_ids, f"model check: {reason}")
     report["layer2_done"] = True
-    report["layer2_flagged"] = len(drop)
+    report["layer2_flagged"] = len(drop) + len(head_bad)
     return post, report

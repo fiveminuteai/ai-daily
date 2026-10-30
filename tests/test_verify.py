@@ -1,3 +1,6 @@
+import json
+import re
+
 from conftest import ARTICLE_A, ARTICLE_B, ARTICLE_C, good_draft
 
 from fma.extract import html_to_text
@@ -211,3 +214,68 @@ def test_evidence_stitched_from_two_sentences_out_of_order():
     assert evidence_found("We’re going to invest to continue being the leader,\" and \"the deal is $15.3 billion", c)
     assert not evidence_found("Thrive Holdings has acquired ADT for $10 per share, and plans to fire half of ADT staff "
                               "within a year to cut costs sharply", c)
+
+
+# ---------------------------------------------------------------- headline and "why it matters" in the model check
+
+def _checked(chain):
+    from fma.verify import llm_check
+    post, report = verify_draft(good_draft(), SOURCES)
+    return llm_check(chain, post, SOURCES, report)
+
+
+def test_headline_is_model_checked_against_lead_story_sources_only():
+    from conftest import FakeChain
+    chain = FakeChain([])
+    _, report = _checked(chain)
+    assert not report["headline_problems"]
+    prompt = next(p for p in chain.prompts if "[headline]" in p)
+    claims, src = prompt.split("\n\nSOURCES\n", 1)
+    assert len(re.findall(r"^C\d+: ", claims, flags=re.M)) == 1    # the headline is checked on its own
+    headers = {ln.split("]")[0] + "]" for ln in src.splitlines() if ln.startswith("[S")}
+    assert headers == {"[S1]", "[S4]"}                         # story 1's sources, not S2/S3 from other stories
+
+
+def test_unsupported_headline_fails_the_gate():
+    from conftest import FakeChain
+
+    from fma.gate import run_gate
+    _, report = _checked(FakeChain([], flag_text={"[headline]": "joins two different events"}))
+    assert report["headline_problems"] == ["model check: joins two different events"]
+    head = next(e for e in report["entries"] if e["where"] == "headline")
+    assert head["status"] == "dropped"
+    assert report["ok"] + report["repaired"] + report["dropped"] == report["checked"]
+    fails = run_gate({"headline": "x"}, report, {}, [])
+    assert any(f.startswith("headline not verified") for f in fails)
+
+
+def test_why_it_matters_is_model_checked_and_unsupported_fact_dropped():
+    from conftest import FakeChain
+    chain = FakeChain([], flag_text={"Cheaper models that run on phones": "no source says this"})
+    post, report = _checked(chain)
+    joined = "\n".join(chain.prompts)
+    assert "[analysis] Cheaper models that run on phones" in joined and "is our commentary" in joined
+    texts = [w["text"] for w in post["why_it_matters"]]
+    assert len(texts) == 1 and "smaller version" in texts[0]
+    e = next(e for e in report["entries"] if e["text"].startswith("Cheaper models"))
+    assert e["status"] == "dropped" and "model check: no source says this" in e["problems"]
+
+
+# ---------------------------------------------------------------- verified but unused
+
+def test_verified_but_unused_sentences_are_not_confirmed():
+    from fma.pipeline import assemble
+    d = good_draft()
+    d["what_happened"].insert(1, "Nova-2 is available to developers in 40 countries [S1].")   # a spare bullet
+    post, report = verify_draft(d, SOURCES)
+    spare = next(e for e in report["entries"] if e["text"].startswith("Nova-2 is available"))
+    assert spare["status"] == "ok"
+    out = assemble("2026-10-27", post, SOURCES, {"byline": "x"}, "m", report)
+    assert "40 countries" not in " ".join(out["what_happened"])
+    assert spare["status"] == "unused"
+    assert report["unused"] == out["verification"]["unused"] >= 1
+    assert report["ok"] + report["repaired"] + report["dropped"] == report["checked"]
+    assert report["checked"] + report["unused"] == len(report["entries"])
+    for e in report["entries"]:                                 # everything still "ok" really is in the post
+        if e["status"] == "ok" and e["where"] not in ("chart", "diagram"):
+            assert e["text"].rstrip(".") in json.dumps(out, ensure_ascii=False).replace("\\", ""), e["text"]

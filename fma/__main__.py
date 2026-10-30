@@ -3,6 +3,7 @@
     python -m fma daily [--date YYYY-MM-DD] [--provider NAME] [--skip-links]   make today's post (or skip cleanly)
     python -m fma build [--base-url URL]                                        build the site into public/
     python -m fma candidates                                                    show today's ranked stories
+    python -m fma correct DATE --remove PREFIX --reason TEXT [--suppress]       remove a sentence, log it publicly
 """
 from __future__ import annotations
 
@@ -40,6 +41,8 @@ def main(argv=None) -> int:
     c.add_argument("date")
     c.add_argument("--remove", action="append", required=True, help="the start of the sentence to remove (repeatable)")
     c.add_argument("--reason", required=True)
+    c.add_argument("--suppress", action="store_true",
+                   help="legal, defamation or privacy: keep the words out of the public log (log keeps a sha256)")
     args = ap.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     if hasattr(sys.stdout, "reconfigure"):
@@ -53,7 +56,7 @@ def main(argv=None) -> int:
 
     if args.cmd == "correct":
         from .pipeline import remove_sentences
-        removed = remove_sentences(config.ROOT, args.date, args.remove, args.reason)
+        removed = remove_sentences(config.ROOT, args.date, args.remove, args.reason, suppress=args.suppress)
         for s in removed:
             print("removed:", s)
         return 0 if len(removed) == len(args.remove) else 1

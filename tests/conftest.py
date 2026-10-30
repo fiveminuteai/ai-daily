@@ -61,9 +61,10 @@ class FakeChain:
     """Returns queued JSON replies in order, like a model would. Fact-check prompts are answered automatically:
     every claim supported, with a real quote from the prompt's sources as evidence, except ids listed in `flags`."""
 
-    def __init__(self, replies: list[dict], flags: dict | None = None):
+    def __init__(self, replies: list[dict], flags: dict | None = None, flag_text: dict | None = None):
         self.replies = list(replies)
         self.flags = flags or {}
+        self.flag_text = flag_text or {}          # claim text containing the key -> flagged with that reason
         self.prompts: list[str] = []
         self.used = "fake:model"
 
@@ -71,12 +72,14 @@ class FakeChain:
         return True
 
     def _check_reply(self, user: str) -> dict:
-        ids = re.findall(r"^(C\d+): ", user, flags=re.M)
+        claims = dict(re.findall(r"^(C\d+): (.*)$", user, flags=re.M))
         src = user.split("\n\nSOURCES\n", 1)[1]
         first_text = [ln for ln in src.splitlines() if ln.strip() and not ln.startswith("[S")][0]
         evidence = " ".join(first_text.split()[:6])
-        return {"checks": [{"id": i, "evidence": evidence, "supported": i not in self.flags,
-                            "reason": self.flags.get(i, "ok")} for i in ids]}
+        reasons = {i: self.flags.get(i) or next((r for t, r in self.flag_text.items() if t in c), None)
+                   for i, c in claims.items()}
+        return {"checks": [{"id": i, "evidence": evidence, "supported": not reasons[i],
+                            "reason": reasons[i] or "ok"} for i in claims]}
 
     def ask_json(self, system, user, temperature=0.3, careful=False):
         self.prompts.append(user)
