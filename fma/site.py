@@ -175,7 +175,34 @@ def tag_slug(tag: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", tag.lower()).strip("-")
 
 
-def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url: str | None = None) -> Path:
+def social_media(folder: Path, post: dict, site: dict) -> dict:
+    """The day's Instagram carousel (slides plus a zip) and the Reel. Slow (about a minute for the Reel) and needs
+    ffmpeg, so only the deploy build makes them, and only for the newest post. A failure here never stops the site."""
+    import logging
+    import zipfile
+
+    from .carousel import carousel
+    from .reel import reel
+
+    out: dict = {}
+    try:
+        slides = carousel(folder / "carousel", post, site, fmt_date(post["date"]))
+        with zipfile.ZipFile(folder / "carousel.zip", "w", zipfile.ZIP_STORED) as z:
+            for s in slides:
+                z.write(s, f"fiveminuteai-{post['date']}-{s.name}")
+        out["slides"] = [s.name for s in slides]
+    except Exception as exc:  # noqa: BLE001
+        logging.getLogger(__name__).warning("carousel failed: %s", exc)
+    try:
+        reel(post, site, fmt_date(post["date"], "short"), folder / "reel.mp4")
+        out["reel"] = "reel.mp4"
+    except Exception as exc:  # noqa: BLE001
+        logging.getLogger(__name__).warning("reel failed: %s", exc)
+    return out
+
+
+def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url: str | None = None,
+          media_on: bool = False) -> Path:
     content_dir = content_dir or config.CONTENT_DIR
     out_dir = out_dir or config.OUT_DIR
     site = config.site_config()
@@ -234,8 +261,9 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
     for i, p in enumerate(posts[:7]):
         instagram_card(out_dir / f"share/{p['date']}/instagram.png", p, site["name"], p["date_long"], p["topic_list"])
         texts = share_texts(p, site)
+        media = social_media(out_dir / f"share/{p['date']}", p, site) if (i == 0 and media_on) else {}
         page = env.get_template("share.html").render(
-            post=p, texts=texts, x_len=x_length(texts["x"]), latest=i == 0, noindex=True,
+            post=p, texts=texts, x_len=x_length(texts["x"]), latest=i == 0, noindex=True, media=media,
             page_title=f"Share kit · {p['date_short']}", description="Ready-to-paste social posts for this issue.",
             og_image=f"{base}og/{p['slug']}.png", canonical=f"share/{p['date']}/", og_type="website")
         write(f"share/{p['date']}/index.html", page)

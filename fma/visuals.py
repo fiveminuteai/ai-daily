@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import textwrap
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -180,9 +181,32 @@ FONT_CANDIDATES = {
 }
 
 
+# Bundled variable fonts (SIL Open Font License, in fma/fonts with their licences), so images look the same on the
+# GitHub runner as on a laptop. Each kind is (file, weight); the optical size follows the point size.
+FONT_DIR = Path(__file__).resolve().parent / "fonts"
+BUNDLED = {"serif": ("BricolageGrotesque[opsz,wdth,wght].ttf", 700), "sans": ("Inter[opsz,wght].ttf", 400),
+           "sans_bold": ("Inter[opsz,wght].ttf", 650)}
+
+
+@lru_cache(maxsize=256)
 def _font(kind: str, size: int):
     from PIL import ImageFont
 
+    file, weight = BUNDLED[kind]
+    path = FONT_DIR / file
+    if path.exists():
+        try:
+            f = ImageFont.truetype(str(path), size)
+            axes = {a["name"]: (a["minimum"], a["maximum"]) for a in f.get_variation_axes()}
+            values = []
+            for name, (lo, hi) in axes.items():
+                want = {b"Weight": weight, b"Optical size": size * (0.6 if kind != "serif" else 1.0),
+                        b"Width": 100}.get(name, lo)
+                values.append(min(max(want, lo), hi))
+            f.set_variation_by_axes(values)
+            return f
+        except (OSError, ValueError):
+            pass
     for path in FONT_CANDIDATES[kind]:
         if Path(path).exists():
             return ImageFont.truetype(path, size)

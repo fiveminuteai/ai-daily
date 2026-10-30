@@ -51,4 +51,7 @@ def test_build_writes_an_unlisted_share_kit_and_social_links(tmp_path):
     assert "Disallow: /share/" in (out / "robots.txt").read_text(encoding="utf-8")
     home = (out / "index.html").read_text(encoding="utf-8")
     assert 'href="https://x.com/fiveminute_ai"' in home and "noindex" not in home
+    head = home.split("</header>")[0]
+    assert head.count('rel="me noopener"') == 3 and 'aria-label="Five Minute AI on Instagram"' in head   # top right
+    assert home.split("<footer")[1].count('rel="me noopener"') == 3                                      # and bottom
     assert "@fiveminute_ai" in (out / "about/index.html").read_text(encoding="utf-8")

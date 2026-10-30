@@ -30,7 +30,9 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
-      - run: python -m fma build
+      # the Instagram carousel and Reel for the newest post; the Reel is encoded with ffmpeg
+      - run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+      - run: python -m fma build --media
       - uses: actions/upload-pages-artifact@v5
         with:
           path: public
