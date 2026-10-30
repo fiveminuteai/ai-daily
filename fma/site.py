@@ -8,6 +8,7 @@ import shutil
 from datetime import datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
@@ -57,7 +58,6 @@ def _utc(iso: str) -> datetime:
 def local_day(iso: str, tz: str) -> str:
     """The calendar day of a timestamp in the site's timezone (an article from 03:00 India time is that day, not
     the previous UTC day)."""
-    from zoneinfo import ZoneInfo
     d = datetime.fromisoformat(iso)
     return (d.astimezone(ZoneInfo(tz)) if d.tzinfo else d).date().isoformat()
 
@@ -252,7 +252,7 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                                                            og_image=f"{base}og/default.png", canonical="", og_type="website"))
     write("feed.xml", env.get_template("feed.xml").render(
         posts=posts[:20], now=format_datetime(datetime.now(timezone.utc)),
-        rfc=lambda iso: format_datetime(_utc(iso))))
+        rfc=lambda iso: format_datetime(_utc(iso).astimezone(ZoneInfo(site.get("timezone", "Asia/Kolkata"))))))
     urls = (["", "archive/", "tags/", "about/", "search/"] + [p["url_path"] for p in posts]
             + [f"{p['url_path']}verification/" for p in posts if (content_dir / "reports" / f"{p['date']}.json").exists()]
             + [f"tags/{tag_slug(t)}/" for t in tags])

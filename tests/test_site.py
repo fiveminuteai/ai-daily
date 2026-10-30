@@ -34,3 +34,13 @@ def test_feed_time_source_day_and_tag_slugs():
     assert local_day("2026-10-29T10:00:00+00:00", "Asia/Kolkata") == "2026-10-29"
     tags = normalise_draft({"tags": ["AI Models", "ai-models", "++", "Open Weight", "Google"]})["tags"]
     assert tags == ["ai-models", "open-weight", "google"]
+
+
+def test_feed_has_a_browser_stylesheet_that_renders(tmp_path):
+    from lxml import etree
+    from fma import site as site_mod
+    out = site_mod.build(out_dir=tmp_path / "public")
+    feed = (out / "feed.xml").read_text(encoding="utf-8")
+    assert '<?xml-stylesheet type="text/xsl" href="/assets/feed.xsl"?>' in feed.splitlines()[1]
+    page = str(etree.XSLT(etree.parse(str(out / "assets/feed.xsl")))(etree.parse(str(out / "feed.xml"))))
+    assert "This is the RSS feed" in page and "feed.xml" in page
