@@ -122,5 +122,103 @@
     "sdk"
    ]
   ]
+ },
+ {
+  "date": "2026-10-30",
+  "slug": "2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+  "urls": [
+   "mistral.ai/news/mistral-large-4-oss",
+   "techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big",
+   "techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity",
+   "techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt",
+   "technologyreview.com/2026/10/29/1147824/monitor-ai-agents-actions-real-time",
+   "theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs"
+  ],
+  "tokens": [
+   "acquires",
+   "actions",
+   "adt",
+   "agents",
+   "aws",
+   "big",
+   "business",
+   "but",
+   "chats",
+   "cybersecurity",
+   "directly",
+   "docs",
+   "edit",
+   "files",
+   "gemini",
+   "generate",
+   "google",
+   "holdings",
+   "jassy",
+   "large",
+   "mistral",
+   "model",
+   "monitor",
+   "need",
+   "openai-backed",
+   "real",
+   "releases",
+   "releasing",
+   "says",
+   "spend",
+   "targeting",
+   "thrive",
+   "time",
+   "trillion-parameter",
+   "urgently",
+   "weights"
+  ],
+  "story_tokens": [
+   [
+    "cybersecurity",
+    "large",
+    "mistral",
+    "model",
+    "releases",
+    "releasing",
+    "targeting",
+    "trillion-parameter",
+    "weights"
+   ],
+   [
+    "chats",
+    "directly",
+    "docs",
+    "edit",
+    "files",
+    "gemini",
+    "generate",
+    "google"
+   ],
+   [
+    "aws",
+    "big",
+    "business",
+    "but",
+    "jassy",
+    "says",
+    "spend"
+   ],
+   [
+    "acquires",
+    "adt",
+    "holdings",
+    "openai-backed",
+    "thrive"
+   ],
+   [
+    "actions",
+    "agents",
+    "monitor",
+    "need",
+    "real",
+    "time",
+    "urgently"
+   ]
+  ]
  }
 ]
