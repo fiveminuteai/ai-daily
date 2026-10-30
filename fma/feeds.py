@@ -18,7 +18,7 @@ from .models import Item
 
 log = logging.getLogger(__name__)
 
-USER_AGENT = "Mozilla/5.0 (compatible; FiveMinuteAI/1.0; +https://github.com/saipavan333/ai-daily)"
+USER_AGENT = "Mozilla/5.0 (compatible; FiveMinuteAI/1.0; +https://github.com/fiveminuteai/ai-daily)"
 
 
 class Http:

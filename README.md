@@ -3,7 +3,7 @@
 A daily, five-minute read on what happened in AI, written automatically from public sources, with every
 claim linked to the source it came from. Free to read, free to run, no ads, no cookies, anonymous visit counts only (GoatCounter).
 
-Live site: https://fiveminuteai.net/ (old address saipavan333.github.io/ai-daily redirects) · RSS: https://fiveminuteai.net/feed.xml
+Live site: https://fiveminuteai.net/ · RSS: https://fiveminuteai.net/feed.xml
 
 **Running it without help:** see [RUNBOOK.md](RUNBOOK.md), plain-English steps for every common situation.
 
@@ -85,8 +85,8 @@ shown per project at aistudio.google.com/rate-limit.
 1. Get a free Groq key at https://console.groq.com/keys and a free Gemini key at https://aistudio.google.com/apikey.
 2. Store each as a repository secret, never in a file:
    ```bash
-   gh secret set GROQ_API_KEY --repo saipavan333/ai-daily
-   gh secret set GEMINI_API_KEY --repo saipavan333/ai-daily
+   gh secret set GROQ_API_KEY --repo fiveminuteai/ai-daily
+   gh secret set GEMINI_API_KEY --repo fiveminuteai/ai-daily
    ```
    (`gh` prompts for the value, so it never lands in your shell history.)
 3. Optional backup: `OPENROUTER_API_KEY`, set the same way.

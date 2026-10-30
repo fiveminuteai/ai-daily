@@ -4,7 +4,7 @@ Plain-English instructions for running the blog without any AI assistant. Nothin
 subscription. The daily post is written and published by GitHub's servers using the Groq and Gemini free tiers, with
 keys stored as GitHub secrets.
 
-Repo: https://github.com/saipavan333/ai-daily · Site: https://fiveminuteai.net/
+Repo: https://github.com/fiveminuteai/ai-daily · Site: https://fiveminuteai.net/
 
 ---
 
@@ -49,7 +49,7 @@ The site stays online with the posts it already has.
 **The proper way (logs the correction publicly on the post's verification page):** on a computer with Python:
 
 ```bash
-git clone https://github.com/saipavan333/ai-daily
+git clone https://github.com/fiveminuteai/ai-daily
 cd ai-daily
 pip install -r requirements.txt
 python -m fma correct 2026-10-29 --remove "Start of the wrong sentence" --reason "What was wrong"
@@ -78,7 +78,7 @@ Keys live only in GitHub secrets, never in a file or a chat message.
 
 - **Web:** repo **Settings → Secrets and variables → Actions → New repository secret**. Names in use:
   `GROQ_API_KEY`, `GEMINI_API_KEY`, optionally `OPENROUTER_API_KEY`.
-- **Command line:** `gh secret set GROQ_API_KEY --repo saipavan333/ai-daily` (it asks for the value).
+- **Command line:** `gh secret set GROQ_API_KEY --repo fiveminuteai/ai-daily` (it asks for the value).
 
 Where to get them: Groq at https://console.groq.com/keys, Gemini at https://aistudio.google.com/apikey.
 
@@ -107,7 +107,7 @@ To add one, copy a line and change the name and RSS URL.
 
 Paste this, plus the error text, into ChatGPT, Gemini, Copilot or any other assistant:
 
-> I run a static Python blog generator on GitHub Actions (repo github.com/saipavan333/ai-daily, public).
+> I run a static Python blog generator on GitHub Actions (repo github.com/fiveminuteai/ai-daily, public).
 > The daily workflow is `.github/workflows/daily.yml` and runs `python -m fma daily`. Settings are in
 > `config/site.yaml`. Here is the error from the run log: … What is the smallest change that fixes it?
 
@@ -117,7 +117,7 @@ Make one change at a time, commit it, and check the next run.
 
 | What | Where |
 |---|---|
-| Code, posts, settings | GitHub repo `saipavan333/ai-daily` |
+| Code, posts, settings | GitHub repo `fiveminuteai/ai-daily` |
 | Daily schedule | `.github/workflows/daily.yml` (`cron: "15 0 * * *"` = 05:45 IST, backups 07:15 and 09:07 IST) |
 | AI keys | Repo secrets (section 5) |
 | Groq usage and limits | https://console.groq.com |
