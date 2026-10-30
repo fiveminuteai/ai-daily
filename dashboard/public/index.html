@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0B1022">
+  <title>Five Minute AI · Control</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="#today" aria-label="Five Minute AI control, today">
+        <img src="icon.svg" alt="" width="28" height="28">
+        <span class="brand-name">Five Minute AI</span>
+        <span class="brand-tag">Control</span>
+      </a>
+      <nav class="tabs" aria-label="Sections">
+        <a href="#today" data-tab="today">Today</a>
+        <a href="#history" data-tab="history">History</a>
+        <a href="#social" data-tab="social">Social <span class="count" id="social-count" hidden></span></a>
+        <a href="#stats" data-tab="stats">Stats</a>
+        <a href="#controls" data-tab="controls">Controls</a>
+      </nav>
+      <div class="mode" id="mode" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div id="view" class="view" aria-busy="true">
+      <div class="loading"><span class="spinner" aria-hidden="true"></span> Loading…</div>
+    </div>
+  </main>
+
+  <nav class="dock" aria-label="Sections">
+    <a href="#today" data-tab="today"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg><span>Today</span></a>
+    <a href="#history" data-tab="history"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>History</span></a>
+    <a href="#social" data-tab="social"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/></svg><span>Social</span><b class="count" id="social-count-m" hidden></b></a>
+    <a href="#stats" data-tab="stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><span>Stats</span></a>
+    <a href="#controls" data-tab="controls"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><span>Controls</span></a>
+  </nav>
+
+  <dialog id="confirm" aria-labelledby="confirm-title">
+    <div class="dlg">
+      <h2 id="confirm-title"></h2>
+      <div id="confirm-body"></div>
+      <div class="dlg-actions">
+        <button type="button" class="btn ghost" id="confirm-cancel">Cancel</button>
+        <button type="button" class="btn primary" id="confirm-ok">Confirm</button>
+      </div>
+    </div>
+  </dialog>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+</body>
+</html>

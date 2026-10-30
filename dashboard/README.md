@@ -10,6 +10,9 @@ from your phone or desktop. It is free to host (Cloudflare Pages + Cloudflare Ac
 - **History**: the last 21 days as a strip and a timeline of runs and deploys, problems in red, every run linked to
   its GitHub Actions log.
 - **Social**: the day's Instagram carousel, X post and LinkedIn text with Approve / Edit / Skip.
+- **Stats**: followers and reach across the website, Instagram, X and LinkedIn: one tile per platform with its
+  7-day change, website visitors per day, where readers came from, the most-read pages, and Instagram reach, views,
+  likes, saves and shares per post.
 - **Controls**: pause / resume daily posts, rerun today, retry the deploy.
 
 **Every write is a dry run until you turn it on** (`DRY_RUN=0`). In a dry run the dashboard shows the exact request
@@ -40,6 +43,7 @@ Where the numbers come from:
 | Publish, deploy | the daily run's jobs and steps; `deploy.yml` runs after the post |
 | Social | `data/social/<date>.json`, built by `python -m fma.social_queue build` from `share_texts()` |
 | History | `daily.yml` and `deploy.yml` runs, `content/posts/`, `data/history.json` |
+| Stats | `data/stats/<date>.json` (`collect-stats.yml`, daily) and `data/stats/manual.json` (typed in) |
 
 Days before 31 Oct 2026 have no run summary: their ranking shows the post's sections instead of scores.
 
@@ -58,6 +62,24 @@ network can reach it either. New daily posts appear by themselves because everyt
 are only on this branch so far (the run summaries and the social queue) are read from this checkout until the branch
 is merged. The GitHub CLI token can do more than the dashboard needs; for anything past a few days, make the
 fine-grained token below and set `$env:GITHUB_TOKEN` before starting.
+
+## Turn on the Stats tab
+
+A workflow (`.github/workflows/collect-stats.yml`) runs every day at 23:30 India time, runs
+`python -m fma.stats collect` and commits `data/stats/<date>.json`. A platform whose secret is missing shows as
+"not connected"; one that fails shows the error (an expired token reads "HTTP 400" or "HTTP 401"). Add the secrets
+under GitHub → the repository → Settings → Secrets and variables → Actions:
+
+| Secret | Where it comes from | Cost |
+| --- | --- | --- |
+| `GOATCOUNTER_TOKEN` | fiveminuteai.goatcounter.com → your username (top menu) → **API** → create a key that can read statistics | free |
+| `INSTAGRAM_TOKEN` | the Meta developer app (the same one Instagram auto-posting will use): Instagram → API setup with Instagram login → add the @fiveminute_ai account → **Generate token**, with `instagram_business_basic` and `instagram_business_manage_insights` | free |
+
+The Instagram token lasts 60 days. Regenerate it in the Meta app and update the secret before then (a calendar
+reminder at 50 days); the Stats tab says so when it has expired. X (paid API) and LinkedIn (page stats need Community
+Management approval) have no free stats API: type their numbers into the form on the Stats tab once a week. They
+are saved to `data/stats/manual.json` (in dry run they are only shown, not saved). To try it at once instead of
+waiting for 23:30: Actions → Collect stats → Run workflow.
 
 ## Run it on your computer
 

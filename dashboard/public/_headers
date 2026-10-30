@@ -1,0 +1,6 @@
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' https://fiveminuteai.net data:; style-src 'self'; style-src-attr 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: noindex, nofollow

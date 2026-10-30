@@ -91,7 +91,7 @@ export class GitHub {
   }
 
   putFile(path, { content, sha, message }) {
-    return this.req(this.r(`/contents/${path}`), { method: "PUT", body: { message, content: b64encode(content), sha, branch: "main" } });
+    return this.req(this.r(`/contents/${path}`), { method: "PUT", body: { message, content: b64encode(content), ...(sha ? { sha } : {}), branch: "main" } });
   }
 
   dispatch(workflow, inputs = {}) {

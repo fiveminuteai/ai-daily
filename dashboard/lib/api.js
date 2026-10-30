@@ -41,10 +41,12 @@ export async function handle(request, env = {}, { fetchImpl, local } = {}) {
     if (key === "GET day") return json(await day(ctx, url.searchParams.get("date")));
     if (key === "GET history") return json(await history(ctx));
     if (key === "GET social") return json(await social(ctx));
+    if (key === "GET stats") return json(await stats(ctx));
     if (key === "POST control/pause") return json(await pause(ctx, await body(request)));
     if (key === "POST control/rerun") return json(await dispatch(ctx, WORKFLOWS.daily, {}, "Rerun today's daily post"));
     if (key === "POST control/redeploy") return json(await dispatch(ctx, WORKFLOWS.deploy, {}, "Retry the site deploy"));
     if (key === "POST social/action") return json(await socialAction(ctx, await body(request)));
+    if (key === "POST stats/manual") return json(await manualStats(ctx, await body(request)));
     return json({ error: "not_found" }, 404);
   } catch (err) {
     if (err instanceof GitHubError) return json({ error: "github", message: err.message }, err.status === 401 ? 502 : 502);
@@ -225,4 +227,51 @@ async function socialAction(ctx, { item_id, action, text }) {
   const inputs = { item_id, action, ...(text ? { text } : {}) };
   const what = `${action === "approve" ? "Approve" : "Skip"} ${item_id}${text ? " with edited text" : ""}`;
   return dispatch(ctx, WORKFLOWS.social, inputs, what);
+}
+
+// ---------- stats ----------
+
+const MANUAL = "data/stats/manual.json";
+const MANUAL_FIELDS = ["followers", "impressions", "engagements"];
+
+async function stats({ gh }) {
+  const dates = (await gh.listDir("data/stats")).map((f) => f.name).filter((n) => /^\d{4}-\d\d-\d\d\.json$/.test(n))
+    .sort().slice(-30);
+  const [days, manual] = await Promise.all([
+    Promise.all(dates.map((f) => gh.json(`data/stats/${f}`))),
+    gh.json(MANUAL),
+  ]);
+  return { days: days.filter(Boolean), manual: manual || { x: [], linkedin: [] } };
+}
+
+/** Add or replace one day's typed-in numbers for X or LinkedIn in data/stats/manual.json. */
+export function mergeManual(current, { platform, date, ...nums }) {
+  const out = { x: [], linkedin: [], ...(current || {}) };
+  const entry = { date, ...Object.fromEntries(MANUAL_FIELDS.filter((k) => nums[k] != null).map((k) => [k, nums[k]])) };
+  out[platform] = [...(out[platform] || []).filter((e) => e.date !== date), entry].sort((a, b) => a.date.localeCompare(b.date));
+  return out;
+}
+
+async function manualStats({ gh, dryRun, repo }, input) {
+  const { platform, date } = input || {};
+  if (!["x", "linkedin"].includes(platform)) throw new BadInput("platform must be x or linkedin");
+  if (!DATE_RE.test(date || "")) throw new BadInput("date must be YYYY-MM-DD");
+  const nums = {};
+  for (const k of MANUAL_FIELDS) {
+    const v = input[k];
+    if (v == null || v === "") continue;
+    if (!Number.isInteger(v) || v < 0 || v > 1e9) throw new BadInput(`${k} must be a whole number`);
+    nums[k] = v;
+  }
+  if (!Object.keys(nums).length) throw new BadInput("enter at least one number");
+  const what = `Save ${platform === "x" ? "X" : "LinkedIn"} numbers for ${date}`;
+  const message = `${what} (from the control dashboard)`;
+  const request = { method: "PUT", path: `/repos/${repo}/contents/${MANUAL}`, message, entry: { date, ...nums } };
+  if (dryRun) return { dryRun: true, done: false, what, request, entry: { date, ...nums } };
+  if (!gh) throw new BadInput("No GITHUB_TOKEN set.");
+  const meta = await gh.fileMeta(MANUAL);               // null when the file doesn't exist yet
+  const current = meta ? JSON.parse(b64decode(meta.content)) : null;
+  const next = mergeManual(current, { platform, date, ...nums });
+  await gh.putFile(MANUAL, { content: `${JSON.stringify(next, null, 1)}\n`, sha: meta?.sha, message });
+  return { dryRun: false, done: true, what, request, entry: { date, ...nums } };
 }

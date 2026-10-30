@@ -230,3 +230,58 @@ test("local checkout only fills in files main doesn't have; main wins", async ()
   assert.equal(await gh.json("data/runs/2026-10-29.json"), null);
   assert.deepEqual((await gh.listDir("data/social")).map((f) => f.name), ["2026-11-01.json", "2026-10-30.json"]);
 });
+
+// ---------- stats ----------
+
+test("stats: snapshots in date order plus manual numbers", async () => {
+  const files = { "data/stats/2026-10-31.json": { date: "2026-10-31" }, "data/stats/2026-10-30.json": { date: "2026-10-30" },
+                  "data/stats/manual.json": { x: [{ date: "2026-10-31", followers: 12 }], linkedin: [] } };
+  const fetchImpl = async (url) => {
+    if (url.includes("contents/data/stats?")) {
+      return new Response(JSON.stringify(Object.keys(files).map((k) => ({ name: k.split("/").pop() }))));
+    }
+    const m = url.match(/contents\/(.+?)\?ref=main/);
+    return files[m?.[1]] ? new Response(JSON.stringify(files[m[1]])) : new Response("{}", { status: 404 });
+  };
+  const r = await (await handle(req("stats"), { ...LOCAL, GITHUB_TOKEN: "t" }, { fetchImpl })).json();
+  assert.deepEqual(r.days.map((d) => d.date), ["2026-10-30", "2026-10-31"]);
+  assert.equal(r.manual.x[0].followers, 12);
+});
+
+test("manual numbers: validated, dry run by default, live writes merge by date", async () => {
+  const env = { ...LOCAL, GITHUB_TOKEN: "t" };
+  const status = async (b) => (await handle(post("stats/manual", b), env, { fetchImpl: noFetch })).status;
+  assert.equal(await status({ platform: "tiktok", date: "2026-10-31", followers: 1 }), 400);
+  assert.equal(await status({ platform: "x", date: "31/10", followers: 1 }), 400);
+  assert.equal(await status({ platform: "x", date: "2026-10-31", followers: -1 }), 400);
+  assert.equal(await status({ platform: "x", date: "2026-10-31", followers: 1.5 }), 400);
+  assert.equal(await status({ platform: "x", date: "2026-10-31" }), 400);
+  const dry = await (await handle(post("stats/manual", { platform: "x", date: "2026-10-31", followers: 14 }), env, { fetchImpl: noFetch })).json();
+  assert.equal(dry.dryRun, true);
+  assert.deepEqual(dry.entry, { date: "2026-10-31", followers: 14 });
+
+  const existing = { x: [{ date: "2026-10-30", followers: 10 }, { date: "2026-10-31", followers: 11 }], linkedin: [] };
+  let put = null;
+  const fetchImpl = async (url, init) => {
+    if (init.method === "PUT") { put = JSON.parse(init.body); return new Response("{}"); }
+    return new Response(JSON.stringify({ sha: "s1", content: Buffer.from(JSON.stringify(existing)).toString("base64") }));
+  };
+  const live = await (await handle(post("stats/manual", { platform: "x", date: "2026-10-31", followers: 14, impressions: 900 }),
+    { ...env, DRY_RUN: "0" }, { fetchImpl })).json();
+  assert.equal(live.done, true);
+  assert.equal(put.sha, "s1");
+  const saved = JSON.parse(Buffer.from(put.content, "base64").toString());
+  assert.deepEqual(saved.x, [{ date: "2026-10-30", followers: 10 }, { date: "2026-10-31", followers: 14, impressions: 900 }]);
+});
+
+test("manual numbers: the first save creates the file without a sha", async () => {
+  let put = null;
+  const fetchImpl = async (url, init) => {
+    if (init.method === "PUT") { put = JSON.parse(init.body); return new Response("{}"); }
+    return new Response("{}", { status: 404 });
+  };
+  await handle(post("stats/manual", { platform: "linkedin", date: "2026-10-31", followers: 30 }),
+    { ...LOCAL, GITHUB_TOKEN: "t", DRY_RUN: "0" }, { fetchImpl });
+  assert.equal("sha" in put, false);
+  assert.deepEqual(JSON.parse(Buffer.from(put.content, "base64").toString()).linkedin, [{ date: "2026-10-31", followers: 30 }]);
+});
