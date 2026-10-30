@@ -16,6 +16,7 @@ from markupsafe import Markup
 
 from . import config
 from .verify import CITE_RE, cites, split_sentences
+from .social import instagram_card, share_texts, x_length
 from .visuals import CAT_LABEL, NARROW, WIDE, bar_chart_svg, flow_svg, og_card, timeline_svg
 
 CITE_GROUP = re.compile(r"((?:\[S\d+\])+)")
@@ -222,6 +223,19 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                 description="Every sentence the verifier checked for this post, and what it removed.",
                 og_image=f"{base}og/{p['slug']}.png", canonical=f"{p['url_path']}verification/", og_type="article"))
 
+    # share kits for the last week: ready-to-paste posts and an Instagram card. Unlisted pages (noindex, not in the
+    # sitemap); share/ always holds today's
+    for i, p in enumerate(posts[:7]):
+        instagram_card(out_dir / f"share/{p['date']}/instagram.png", p, site["name"], p["date_long"], p["topic_list"])
+        texts = share_texts(p, site)
+        page = env.get_template("share.html").render(
+            post=p, texts=texts, x_len=x_length(texts["x"]), latest=i == 0, noindex=True,
+            page_title=f"Share kit · {p['date_short']}", description="Ready-to-paste social posts for this issue.",
+            og_image=f"{base}og/{p['slug']}.png", canonical=f"share/{p['date']}/", og_type="website")
+        write(f"share/{p['date']}/index.html", page)
+        if i == 0:
+            write("share/index.html", page)
+
     write("index.html", env.get_template("index.html").render(
         latest=posts[0] if posts else None, week=posts[:7], page_title=None, description=site["tagline"],
         og_image=f"{base}og/{posts[0]['slug']}.png" if posts else f"{base}og/default.png", canonical="", og_type="website"))
@@ -264,5 +278,5 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
             + [f"tags/{tag_slug(t)}/" for t in tags])
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "\n".join(f"  <url><loc>{html.escape(origin + base + u)}</loc></url>" for u in urls) + "\n</urlset>\n")
-    write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {origin}{base}sitemap.xml\n")
+    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: {base}share/\nSitemap: {origin}{base}sitemap.xml\n")
     return out_dir

@@ -6,7 +6,8 @@
 <title>{% if page_title %}{{ page_title }} · {% endif %}{{ site.name }}</title>
 <meta name="description" content="{{ description }}">
 <link rel="canonical" href="{{ origin }}{{ base }}{{ canonical }}">
-<meta name="color-scheme" content="dark light">
+{% if noindex %}<meta name="robots" content="noindex">
+{% endif %}<meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0B1022">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ page_title or site.name }}">
@@ -51,6 +52,7 @@
 <footer class="footer">
   <div class="wrap">
     <p><strong>{{ site.name }}</strong> is made by {{ site.byline }} in India. An AI model drafts each post from the sources linked in it, and every line is checked against those sources before it's published. <a href="{{ base }}about/">How it's made</a> · <a href="{{ site.repo_url }}/issues">Report a mistake</a>.</p>
+    {% if site.social %}<p class="follow">Follow:{% for s in site.social %} <a href="{{ s.url }}" rel="me noopener">{{ s.name }}</a>{% if not loop.last %} ·{% endif %}{% endfor %}</p>{% endif %}
     <p class="muted">No ads, no cookies. Anonymous visit counts only. <a href="{{ site.repo_url }}">Source code</a>.</p>
   </div>
 </footer>

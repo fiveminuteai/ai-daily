@@ -26,6 +26,11 @@
   <h2>What the checks can't catch</h2>
   <p>The verifier confirms that each number and name appears in the cited source, and the model pass looks for claims the source doesn't support. Neither can tell you whether the source itself is right, and a sentence can use correct words and still put them together in a misleading way. If you spot an error, the source links are there so you can check it yourself, and corrections are welcome on <a href="{{ site.repo_url }}/issues">GitHub</a>.</p>
 
+  {% if site.social %}
+  <h2>Follow</h2>
+  <p>The daily headline also goes out on {% for s in site.social %}<a href="{{ s.url }}" rel="me noopener">{{ s.name }}</a> ({{ s.handle }}){% if loop.revindex == 2 %} and {% elif not loop.last %}, {% endif %}{% endfor %}.</p>
+  {% endif %}
+
   <h2>Models used</h2>
   <p>The daily job uses the free tier of a hosted model when a key is configured, falling back through the list below. Each post's verification log names the model that wrote it.</p>
   <ul class="compact">

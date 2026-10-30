@@ -9,6 +9,12 @@ language: en
 goatcounter: fiveminuteai   # private, cookie-free visit counts (dashboard: fiveminuteai.goatcounter.com); remove to turn off
 timezone: Asia/Kolkata        # post dates follow this timezone
 
+# Social accounts, shown in the footer and on the About page
+social:
+  - {name: Instagram, handle: "@fiveminute_ai", url: "https://www.instagram.com/fiveminute_ai/"}
+  - {name: LinkedIn, handle: Five Minute AI, url: "https://www.linkedin.com/company/fiveminuteai/"}
+  - {name: X, handle: "@fiveminute_ai", url: "https://x.com/fiveminute_ai"}
+
 # Set to true to stop daily posts without touching the workflow.
 paused: false
 

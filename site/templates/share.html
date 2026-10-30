@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block main %}
+{% macro kit_box(id, text) %}
+<div class="kit-box">
+  <textarea id="kit-{{ id }}" readonly rows="{{ [text.count('\n') + 3, 14] | min }}">{{ text }}</textarea>
+  <button class="kit-copy" type="button" data-for="kit-{{ id }}">Copy</button>
+</div>
+{% endmacro %}
+<article class="wrap-narrow page share">
+  <p class="kicker">Share kit · {{ post.date_short }}</p>
+  <h1 class="page-title">{{ post.headline }}</h1>
+  <p class="hint">Ready-made posts for today's issue. Tap <b>Copy</b>, open the app, paste. Every line comes from the checked post, so nothing here says more than the post does.{% if not latest %} This is the kit for {{ post.date_short }}; <a href="{{ base }}share/">today's kit is here</a>.{% endif %}</p>
+
+  <section class="kit">
+    <h2>Instagram</h2>
+    <p class="muted">1. Save the image: long-press it and choose <b>Save</b>, or tap Download. 2. Post it and paste the caption.</p>
+    <img class="kit-card" src="{{ base }}share/{{ post.date }}/instagram.png" width="1080" height="1350" alt="Instagram card: {{ post.headline }}">
+    <p><a class="ghost" href="{{ base }}share/{{ post.date }}/instagram.png" download="fiveminuteai-{{ post.date }}.png">Download image</a></p>
+    {{ kit_box("instagram", texts.instagram) }}
+  </section>
+
+  <section class="kit">
+    <h2>LinkedIn</h2>
+    <p class="muted">Post from the Five Minute AI page: on the page, <b>Create → Start a post</b>, check the poster says Five Minute AI, paste. The link preview appears by itself.</p>
+    {{ kit_box("linkedin", texts.linkedin) }}
+  </section>
+
+  <section class="kit">
+    <h2>X</h2>
+    <p class="muted">{{ x_len }} of 280 characters (X counts the link as 23).</p>
+    {{ kit_box("x", texts.x) }}
+  </section>
+
+  <p class="muted"><a href="{{ base }}{{ post.url_path }}">Open the post</a></p>
+</article>
+{% endblock %}
+{% block scripts %}
+<script>
+function fitKit(){document.querySelectorAll(".kit-box textarea").forEach(function(t){t.style.height="auto";t.style.height=t.scrollHeight+2+"px"})}
+fitKit();addEventListener("resize",fitKit);
+document.querySelectorAll(".kit-copy").forEach(function(b){b.addEventListener("click",function(){
+  var t=document.getElementById(b.dataset.for),done=function(m){b.textContent=m;setTimeout(function(){b.textContent="Copy"},1800)};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t.value).then(function(){done("Copied")},function(){t.select();done("Selected, copy it")})}
+  else{t.focus();t.select();try{document.execCommand("copy");done("Copied")}catch(e){done("Selected, copy it")}}
+})});
+</script>
+{% endblock %}
