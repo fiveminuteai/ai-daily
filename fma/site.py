@@ -1,6 +1,7 @@
 """Static site builder: posts, archive, tags, about, verification logs, RSS, sitemap, Open Graph cards."""
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -185,7 +186,10 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
 
     env = Environment(loader=FileSystemLoader(config.SITE_DIR / "templates"), autoescape=select_autoescape(["html", "xml"]),
                       trim_blocks=True, lstrip_blocks=True)
-    env.globals.update(site=site, base=base, origin=origin, year=datetime.now(timezone.utc).year, tag_slug=tag_slug,
+    # a fingerprint in the stylesheet URL, so browsers fetch the new file the moment the design changes
+    # instead of mixing new pages with a cached old stylesheet (GitHub Pages lets browsers cache it 10 minutes)
+    asset_v = hashlib.sha256((config.SITE_DIR / "static" / "style.css").read_bytes()).hexdigest()[:10]
+    env.globals.update(asset_v=asset_v, site=site, base=base, origin=origin, year=datetime.now(timezone.utc).year, tag_slug=tag_slug,
                        labels=CAT_LABEL, topics=TOPICS, topic_blurbs=TOPIC_BLURBS, nav="")
 
     posts = [prepare(p, site) for p in load_posts(content_dir)]
