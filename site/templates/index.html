@@ -1,38 +1,51 @@
 {% extends "base.html" %}
 {% block main %}
 {% if latest %}
-<section class="hero-band" aria-labelledby="today-h">
-  <canvas id="field" aria-hidden="true" data-colors="{{ latest.topic_list|join(',') }}"></canvas>
-  <div class="scrim"></div>
+<section class="front" aria-labelledby="today-h">
   <div class="wrap">
+    <p class="dateline"><time datetime="{{ latest.date }}">{{ latest.date_long }}</time><span>No. {{ latest.issue }} · {{ latest.reading_minutes }}-minute read</span></p>
+    <p class="intro">One short post every morning on the day's biggest AI news. Each line links to the article it came from, so you can check it yourself.</p>
     <div class="hero">
-      <p class="kicker"><span class="badge">{{ latest.reading_minutes }} min read</span><time datetime="{{ latest.date }}">{{ latest.date_long }}</time></p>
-      <h1 id="today-h" class="headline"><a href="{{ base }}{{ latest.url_path }}">{{ latest.head_a }}{% if latest.head_b %} <span class="glow">{{ latest.head_b }}</span>{% endif %}</a></h1>
-      <p class="dek">{{ latest.dek_plain }}</p>
-      <div class="thirty">
-        <h2 class="eyebrow">The 30-second version</h2>
-        <ol>{% for b in latest.what_home %}<li data-topic="{{ b.topic }}">{{ b.html }}</li>{% endfor %}</ol>
+      <div>
+        <h1 id="today-h" class="headline"><a href="{{ base }}{{ latest.url_path }}">{{ latest.headline }}</a></h1>
+        <p class="dek">{{ latest.dek_plain }}</p>
+        <div class="thirty">
+          <h2 class="eyebrow">The 30-second version</h2>
+          <p class="hint">Short on time? Today in three lines. The small numbers link to the sources.</p>
+          <ol>{% for b in latest.what_home %}<li data-topic="{{ b.topic }}">{{ b.html }}</li>{% endfor %}</ol>
+        </div>
+        <div class="button-row">
+          <a class="button" href="{{ base }}{{ latest.url_path }}">Read today's post <span aria-hidden="true">→</span></a>
+          <a class="ghost" href="{{ base }}about/">How each post is checked</a>
+        </div>
       </div>
-      <div class="button-row">
-        <a class="button" href="{{ base }}{{ latest.url_path }}">Read today's post <span aria-hidden="true">→</span></a>
-        <a class="ghost" href="{{ base }}about/">How it's checked</a>
-      </div>
+      <aside class="note" aria-label="A note from the editor">
+        <div class="note-head"><span class="monogram" aria-hidden="true">SP</span><div><b>{{ site.byline }}</b><span>Built and runs Five Minute AI</span></div></div>
+        <p>I made this because I wanted one short, honest read on AI each morning, without the hype.</p>
+        <p>A program collects the news and an AI model writes the first draft. Then my code checks every sentence against the article it cites, and anything it can't confirm is cut before the post goes out.</p>
+        <p>If you spot a mistake, tell me and I'll fix it in the open.</p>
+        <p class="sign">Pavan</p>
+        <p class="note-links"><a href="{{ base }}about/">How it works</a><a href="{{ site.repo_url }}/issues">Report a mistake</a></p>
+      </aside>
     </div>
   </div>
-  <p class="field-hint" aria-hidden="true">Move your cursor through the field</p>
 </section>
 
 <div class="wrap">
-  <div class="cards" style="--n: {{ latest.sections_r|length if latest.sections_r|length < 5 else 4 }}">
-    {% for s in latest.sections_r %}
-    <a class="card" data-topic="{{ s.category }}" href="{{ base }}{{ latest.url_path }}#s{{ loop.index }}"><span class="chip">{{ s.label }}</span><b>{{ s.title }}</b></a>
-    {% endfor %}
-  </div>
+  <section class="today" aria-labelledby="today-stories-h">
+    <h2 id="today-stories-h" class="eyebrow">In today's post</h2>
+    <p class="hint">The stories covered today. Tap one to jump straight to it.</p>
+    <div class="cards" style="--n: {{ latest.sections_r|length }}">
+      {% for s in latest.sections_r %}
+      <a class="card" data-topic="{{ s.category }}" href="{{ base }}{{ latest.url_path }}#s{{ loop.index }}"><span class="chip">{{ s.label }}</span><b>{{ s.title }}</b></a>
+      {% endfor %}
+    </div>
+  </section>
 
   <section class="week" aria-labelledby="week-h">
     <div class="week-head">
-      <h2 id="week-h">This week in AI</h2>
-      <a class="more" href="{{ base }}archive/">Full archive →</a>
+      <div><h2 id="week-h">Earlier this week</h2><p class="hint" style="margin:6px 0 0">One post a day. Use the topics to see only what you follow.</p></div>
+      <a class="more" href="{{ base }}archive/">All posts →</a>
     </div>
     <div class="filters" role="group" aria-label="Filter by topic">
       <button type="button" aria-pressed="true" data-filter="all">All</button>
@@ -60,36 +73,5 @@
 bs.forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.filter,n=0;bs.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
 rows.forEach(function(r){var show=f==="all"||(" "+r.dataset.topics+" ").indexOf(" "+f+" ")>=0;r.hidden=!show;if(show)n++});if(empty)empty.hidden=n>0;});});})();
 
-/* Signature: the signal field. Streamlines in today's topic colours flow across the hero; the cursor bends them.
-   Built to stay out of the way of scrolling: one path per colour per frame, and on phones a 1x canvas,
-   ~300 particles, 30 frames a second, no warm-up burst on load, and a full pause while the page is being
-   scrolled or touched. Pauses when hidden or scrolled away; reduced-motion visitors get one settled frame. */
-(function(){var cv=document.getElementById("field");if(!cv)return;var x=cv.getContext("2d"),W=0,H=0,P=[],mx=-1e5,my=-1e5,t=40,dpr=1,running=false,visible=true,lastW=0,lt=false,phone=false,busyUntil=0,lastDraw=0;
-function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
-function palette(){var c=(cv.dataset.colors||"models,architecture,research,products,tools,policy,impact").split(",");return c.map(function(n){return css("--"+n)||"#8B9CFF"})}
-var cols=palette(),bg=css("--bg");
-function size(force){var r=cv.getBoundingClientRect();if(!force&&Math.abs(r.width-lastW)<1&&P.length)return;lastW=r.width;
-phone=r.width<700||matchMedia("(pointer: coarse)").matches;dpr=phone?1:Math.min(2,window.devicePixelRatio||1);W=cv.width=Math.max(1,r.width*dpr);H=cv.height=Math.max(1,r.height*dpr);
-var n=Math.round(phone?Math.min(300,r.width*r.height/1300):Math.min(1100,r.width*r.height/900));P=[];
-for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,c:i%cols.length});
-lt=document.documentElement.dataset.theme==="light";x.globalAlpha=1;x.fillStyle=bg;x.fillRect(0,0,W,H);x.lineCap="round";
-if(!phone)for(var k=0;k<120;k++)step();else for(var k=0;k<40;k++)step()}
-function step(){t+=phone?.032:.016;x.fillStyle=bg;x.globalAlpha=phone?(lt?.08:.06):(lt?.04:.03);x.fillRect(0,0,W,H);x.globalAlpha=lt?.85:.95;x.lineWidth=(lt?1.9:1.7)*dpr;var R=170*dpr,R2=R*R,sp=(phone?3.2:1.7)*dpr;
-for(var c=0;c<cols.length;c++){x.strokeStyle=cols[c];x.beginPath();
-for(var i=c;i<P.length;i+=cols.length){var p=P[i],a=Math.sin(p.x*.0016/dpr+t*.15)*1.4+Math.cos(p.y*.0021/dpr-t*.1)*1.2,dx=Math.cos(a),dy=Math.sin(a),ex=p.x-mx,ey=p.y-my,d2=ex*ex+ey*ey;
-if(d2<R2){var k=(R2-d2)/R2;dx+=-ey/(R*.6)*k;dy+=ex/(R*.6)*k}var nx=p.x+dx*sp,ny=p.y+dy*sp;x.moveTo(p.x,p.y);x.lineTo(nx,ny);p.x=nx;p.y=ny;
-if(p.x<0||p.x>W||p.y<0||p.y>H||Math.random()<.004){p.x=Math.random()*W;p.y=Math.random()*H}}x.stroke()}x.globalAlpha=1}
-function loop(now){if(!running)return;requestAnimationFrame(loop);if(document.hidden||!visible||now<busyUntil)return;if(phone&&now-lastDraw<31)return;lastDraw=now;step()}
-function busy(){busyUntil=performance.now()+260}
-addEventListener("scroll",busy,{passive:true});addEventListener("touchstart",busy,{passive:true});addEventListener("touchmove",busy,{passive:true});
-cv.parentElement.addEventListener("pointermove",function(e){if(e.pointerType!=="mouse")return;var r=cv.getBoundingClientRect();mx=(e.clientX-r.left)*dpr;my=(e.clientY-r.top)*dpr});
-cv.parentElement.addEventListener("pointerleave",function(){mx=my=-1e5});
-var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
-if("IntersectionObserver"in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe(cv);
-var rt;addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(function(){size(false)},200)});
-function retheme(){cols=palette();bg=css("--bg");size(true)}
-if("MutationObserver"in window)new MutationObserver(retheme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
-function start(){size(true);if(!still){running=true;requestAnimationFrame(loop)}}
-if(document.readyState==="complete")setTimeout(start,50);else addEventListener("load",function(){setTimeout(start,50)})})();
 </script>
 {% endblock %}

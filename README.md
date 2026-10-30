@@ -40,16 +40,21 @@ Share cards (Open Graph PNGs) are generated with Pillow.
 
 ## Design
 
-"Night Signal", picked by Sai Pavan from three rendered directions (screenshots in `docs/design/`).
+"Morning Paper" (30 Oct 2026), replacing the earlier dark "Night Signal" look after readers said it felt
+machine-made and hard to follow.
 
-- Dark-first deep navy with a separately built light theme (toggle in the header, remembered per browser).
-- One colour per topic, used everywhere a story appears: Models `#8B9CFF`, Research `#4FD1C5`, Products
-  `#FFB86B`, Tools `#C792EA`, Policy & safety `#FF7A93`, Real-world impact `#7BE495` (darker variants in light mode).
-  All text colours pass WCAG AA (4.5:1) on both backgrounds.
-- Headlines in Bricolage Grotesque Bold (SIL Open Font License, self-hosted from `site/static/fonts/`, licence
-  alongside). Body text uses the reader's own system UI font at 17-18px with a ~68-character line.
-- Signature moment: the home-page "signal field", a canvas flow field drawn in the colours of today's topics that
-  bends around the cursor. It pauses off-screen and shows a still frame for reduced-motion visitors.
+- Paper-toned light theme and a warm charcoal dark theme. The first visit follows the device's light/dark setting;
+  the header toggle overrides it and is remembered per browser.
+- Headlines in the reader's own serif (Iowan Old Style, Charter, Sitka, Cambria or Georgia), body text in the system
+  UI font. No web fonts are downloaded.
+- One terracotta accent. One muted colour per topic (Models, Research, Products, Tools, Policy & safety, Real-world
+  impact). All text colours pass WCAG AA: at least 4.8:1 on both backgrounds.
+- The front page reads like a dateline paper: date and issue number, a one-line explanation of the site, the headline,
+  and a signed note from Sai Pavan saying who runs it and how posts are checked. Every section starts with a one-line
+  hint saying what it is for.
+- Sizes are in rem, and the root size grows on monitors 1600px and wider, so the page fills big screens.
+- No animation, and nothing on the page needs JavaScript to lay out (scripts only run the topic filter, the theme
+  toggle and the reading-progress bar), so it renders the same on locked-down office networks.
 - Every post opens with "The 30-second version", carries a reading-time badge and a reading-progress bar, and ends with
   numbered sources and a link to its verification log.
 - Search runs entirely in the browser over `search.json`; nothing typed leaves the page.

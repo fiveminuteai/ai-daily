@@ -189,6 +189,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                        labels=CAT_LABEL, topics=TOPICS, topic_blurbs=TOPIC_BLURBS, nav="")
 
     posts = [prepare(p, site) for p in load_posts(content_dir)]
+    for i, p in enumerate(posts):
+        p["issue"] = len(posts) - i                    # "No. 2" on the front page: posts so far, oldest is No. 1
     tags: dict[str, list[dict]] = {}
     for p in posts:
         for t in p["tags"]:

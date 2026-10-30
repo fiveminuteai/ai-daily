@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.language }}" data-theme="dark">
+<html lang="{{ site.language }}" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,8 @@
 <meta name="description" content="{{ description }}">
 <link rel="canonical" href="{{ origin }}{{ base }}{{ canonical }}">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#0B1022">
+<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16130F" media="(prefers-color-scheme: dark)">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ page_title or site.name }}">
 <meta property="og:description" content="{{ description }}">
@@ -22,9 +23,9 @@
 <meta name="twitter:image" content="{{ origin }}{{ og_image }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}feed.xml">
 <link rel="icon" href="{{ base }}assets/icon.svg" type="image/svg+xml">
-<link rel="preload" href="{{ base }}assets/fonts/BricolageGrotesque-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="{{ base }}assets/style.css">
-<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>/* a saved choice wins; otherwise follow the device setting */
+var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -52,7 +53,7 @@
 </main>
 <footer class="footer">
   <div class="wrap">
-    <p><strong>{{ site.name }}</strong> is AI-assisted and generated automatically from the sources linked in every post, then checked line by line against them. <a href="{{ base }}about/">How it's made</a>.</p>
+    <p><strong>{{ site.name }}</strong> is made by {{ site.byline }} in India. An AI model drafts each post from the sources linked in it, and every line is checked against those sources before it's published. <a href="{{ base }}about/">How it's made</a> · <a href="{{ site.repo_url }}/issues">Report a mistake</a>.</p>
     <p class="muted">No ads, no cookies. Anonymous visit counts only. Follow along with the <a href="{{ base }}feed.xml">RSS feed</a> in any reader. <a href="{{ site.repo_url }}">Source code</a>.</p>
   </div>
 </footer>

@@ -4,9 +4,9 @@
 <article class="post wrap-narrow">
   <header class="post-head">
     <p class="kicker"><span class="badge">{{ post.reading_minutes }} min read</span><time datetime="{{ post.date }}">{{ post.date_long }}</time></p>
-    <h1 class="headline">{{ post.head_a }}{% if post.head_b %} <span class="glow">{{ post.head_b }}</span>{% endif %}</h1>
+    <h1 class="headline">{{ post.headline }}</h1>
     <p class="dek">{{ post.dek_html }}</p>
-    <p class="byline">By <strong>{{ post.byline }}</strong> · AI-assisted, every claim sourced and checked</p>
+    <p class="byline">By <strong>{{ post.byline }}</strong> · drafted with AI, every line checked against its source. The small numbers<sup class="cite"><a href="#src-h">1</a></sup> link to the source list at the bottom.</p>
     <ul class="tag-row" aria-label="Topics">
       {% for t in post.tags %}<li><a class="tag" {% if t in labels %}data-topic="{{ t }}"{% endif %} href="{{ base }}tags/{{ tag_slug(t) }}/">{{ labels.get(t, t) }}</a></li>{% endfor %}
     </ul>
@@ -14,6 +14,7 @@
 
   <section class="thirty" aria-labelledby="thirty-h">
     <h2 id="thirty-h" class="eyebrow">The 30-second version</h2>
+    <p class="hint">Short on time? Today in three lines. The full stories follow below.</p>
     <ol>{% for b in post.what_post %}<li data-topic="{{ b.topic }}">{{ b.html }}</li>{% endfor %}</ol>
   </section>
 
@@ -40,6 +41,7 @@
 
   <section class="why" aria-labelledby="why-h">
     <h2 id="why-h" class="eyebrow">Why it matters</h2>
+    <p class="hint">What today's news could mean for you. This part is our reading of the news, not reported fact.</p>
     {% for w in post.why_html %}
     <p{% if w.speculative %} class="spec"{% endif %}>{% if w.speculative %}<span class="spec-label">Our read · analysis, not reported fact</span>{% endif %}{{ w.html }}</p>
     {% endfor %}
@@ -47,6 +49,7 @@
 
   <section class="sources" aria-labelledby="src-h">
     <h2 id="src-h" class="eyebrow">Sources</h2>
+    <p class="hint">Every number in the text points to one of these articles. Open any of them to check a claim.</p>
     <ol class="source-list">
       {% for s in post.sources_r %}
       <li id="src-{{ s.id }}"><span class="src-n">{{ s.n }}</span><span><a href="{{ s.url }}" rel="noopener">{{ s.title }}</a><span class="src-meta">{{ s.publisher }}{% if s.date %} · {{ s.date }}{% endif %}</span></span></li>
