@@ -194,6 +194,27 @@ def fix_citations(text: str) -> str:
     return re.sub(r"\s+(?=\[S\d+\])", "", text)
 
 
+# Short forms models sometimes write as ordinary words ("Aws"). Only these exact words are touched.
+ACRONYMS = {w.lower(): w for w in ("AI", "AGI", "AWS", "API", "APIs", "CEO", "CFO", "CPU", "CPUs", "EU", "FTC", "GPU",
+                                   "GPUs", "IBM", "IPO", "LLM", "LLMs", "NHS", "SEC", "TPU", "TPUs", "UK", "UN", "US",
+                                   "USA", "UAE", "AMD", "TSMC", "SaaS")}
+
+
+def tidy_heading(text: str) -> str:
+    """Sentence-case safety net for headings: capital first letter, known short forms in capitals.
+    Anything else the model wrote (brand names like iPhone or OpenAI, a word like "us") is left alone."""
+    text = text.strip()
+    first = re.match(r"[A-Za-z]+", text)
+    if first and first[0].lower() in ACRONYMS:                       # "aws cuts prices" -> "AWS cuts prices"
+        text = ACRONYMS[first[0].lower()] + text[first.end():]
+    text = re.sub(r"\b[A-Za-z]+\b",
+                  lambda m: ACRONYMS[m[0].lower()] if m[0].lower() in ACRONYMS and m[0] != m[0].lower() else m[0],
+                  text)
+    if text[:1].islower() and not re.match(r"[a-z]+[A-Z]", text):  # leave iPhone, eBay as written
+        text = text[0].upper() + text[1:]
+    return text
+
+
 def normalise_draft(d: dict) -> dict:
     """Coerce the model's reply into the expected shape so later steps never trip on a missing key."""
     def as_list(x):
@@ -209,7 +230,7 @@ def normalise_draft(d: dict) -> dict:
                                for w in d["why_it_matters"]]
 
     out = {
-        "headline": str(d.get("headline") or "").strip(),
+        "headline": tidy_heading(str(d.get("headline") or "")),
         "dek": str(d.get("dek") or "").strip(),
         "tags": [str(t).strip().lower().replace(" ", "-") for t in as_list(d.get("tags")) if str(t).strip()][:5],
         "what_happened": [str(b).strip() for b in as_list(d.get("what_happened")) if str(b).strip()],
@@ -223,7 +244,7 @@ def normalise_draft(d: dict) -> dict:
         if not isinstance(s, dict):
             continue
         paras = [str(p).strip() for p in as_list(s.get("paragraphs") or s.get("body")) if str(p).strip()]
-        out["sections"].append({"story": s.get("story"), "title": str(s.get("title") or "").strip(),
+        out["sections"].append({"story": s.get("story"), "title": tidy_heading(str(s.get("title") or "")),
                                 "category": str(s.get("category") or "products").strip().lower(), "paragraphs": paras})
     for w in as_list(d.get("why_it_matters")):
         if isinstance(w, dict):

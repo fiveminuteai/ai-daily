@@ -156,3 +156,14 @@ def test_editorial_correction_removes_and_logs(proj, fake_web):
     assert "appeal" not in json.dumps(post["sections"])
     rep = json.loads((proj / "content/reports/2026-10-27.json").read_text(encoding="utf-8"))
     assert rep["entries"][-1]["where"] == "editorial review" and "test reason" in rep["entries"][-1]["problems"][0]
+
+
+def test_headings_get_capital_first_letter_and_short_forms():
+    from fma.write import normalise_draft, tidy_heading
+    assert tidy_heading("Aws aims for trillion‑dollar revenue") == "AWS aims for trillion‑dollar revenue"
+    assert tidy_heading("need real‑time monitoring for AI agents") == "Need real‑time monitoring for AI agents"
+    assert tidy_heading("  Eu fines OpenAI over Gpus  ") == "EU fines OpenAI over GPUs"
+    assert tidy_heading("iPhone gets Ai features from us partners") == "iPhone gets AI features from us partners"
+    d = normalise_draft({"headline": "aws cuts prices", "sections": [{"title": "Nvidia beats the Sec", "paragraphs": ["x"]}]})
+    assert d["headline"] == "AWS cuts prices"
+    assert d["sections"][0]["title"] == "Nvidia beats the SEC"
