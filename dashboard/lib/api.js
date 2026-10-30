@@ -16,23 +16,32 @@ const WORKFLOWS = { daily: "daily.yml", deploy: "deploy.yml", social: "publish-s
 const DATE_RE = /^\d{4}-\d\d-\d\d$/;
 const ITEM_RE = /^\d{4}-\d\d-\d\d-(instagram|x|linkedin)$/;
 
-export async function handle(request, env = {}, { fetchImpl, local } = {}) {
+// desktop: {handle(key, body, query)} from desktop/local-api.mjs: mail, accounts, roadmap, credentials. Only the
+// desktop app passes it, and only with LOCAL_DEV (127.0.0.1); on Cloudflare every /api/local/* route is a 404.
+export async function handle(request, env = {}, { fetchImpl, local, desktop } = {}) {
   const url = new URL(request.url);
   const route = url.pathname.replace(/^\/api\/?/, "").replace(/\/$/, "");
   try {
     const who = await authorize(request, env, fetchImpl);
     if (!who) return json({ error: "forbidden", message: "Sign in through Cloudflare Access with an allowed email." }, 403);
-    if (request.method === "POST") {
+    if (request.method !== "GET") {
       const bad = checkWrite(request, url);
       if (bad) return json({ error: "bad_request", message: bad }, 400);
     }
     const dryRun = !["0", "false"].includes(String(env.DRY_RUN ?? "").toLowerCase());
     const repo = env.REPO || "fiveminuteai/ai-daily";
     const gh = env.GITHUB_TOKEN ? new GitHub({ token: env.GITHUB_TOKEN, repo, fetchImpl, local: env.LOCAL_DEV === "1" ? local : null }) : null;
-    const ctx = { env, gh, dryRun, repo, who, url };
+    const isDesktop = Boolean(desktop) && env.LOCAL_DEV === "1";
+    const ctx = { env, gh, dryRun, repo, who, url, isDesktop, fetchImpl };
 
     const key = `${request.method} ${route}`;
     if (key === "GET status") return json(await status(ctx));
+    if (route.startsWith("local/")) {
+      if (!isDesktop) return json({ error: "not_found" }, 404);
+      return json(await desktop.handle(key.replace(" local/", " "), request.method === "GET" ? null : await body(request),
+        url.searchParams));
+    }
+    if (key === "GET media") return json(await media(ctx, url.searchParams.get("date")));
     if (request.method === "GET" && !gh) {
       return json({ error: "no_token", message: "No GITHUB_TOKEN is set, so there is no GitHub data to show. "
         + "Locally: set the GITHUB_TOKEN environment variable before starting the dev server. "
@@ -47,10 +56,12 @@ export async function handle(request, env = {}, { fetchImpl, local } = {}) {
     if (key === "POST control/redeploy") return json(await dispatch(ctx, WORKFLOWS.deploy, {}, "Retry the site deploy"));
     if (key === "POST social/action") return json(await socialAction(ctx, await body(request)));
     if (key === "POST stats/manual") return json(await manualStats(ctx, await body(request)));
+    if (key === "POST social/schedule") return json(await schedule(ctx, await body(request)));
     return json({ error: "not_found" }, 404);
   } catch (err) {
     if (err instanceof GitHubError) return json({ error: "github", message: err.message }, err.status === 401 ? 502 : 502);
-    if (err instanceof BadInput) return json({ error: "bad_request", message: err.message }, 400);
+    if (err instanceof BadInput || err?.badInput) return json({ error: "bad_request", message: err.message }, 400);
+    if (err?.userMessage) return json({ error: err.code || "failed", message: err.userMessage }, err.status || 502);
     return json({ error: "internal", message: "Something went wrong in the dashboard API." }, 500);
   }
 }
@@ -133,8 +144,9 @@ async function readPaused(gh) {
   return /^paused:\s*true\b/m.test(yaml || "");
 }
 
-async function status({ gh, dryRun, repo, who }) {
-  const base = { repo, dryRun, user: who.email, today: todayIst(), configured: Boolean(gh), localFiles: Boolean(gh?.local) };
+async function status({ gh, dryRun, repo, who, isDesktop }) {
+  const base = { repo, dryRun, user: who.email, today: todayIst(), configured: Boolean(gh), localFiles: Boolean(gh?.local),
+                 desktop: isDesktop };
   if (!gh) return { ...base, paused: null, message: "No GITHUB_TOKEN set." };
   return { ...base, paused: await readPaused(gh) };
 }
@@ -274,4 +286,52 @@ async function manualStats({ gh, dryRun, repo }, input) {
   const next = mergeManual(current, { platform, date, ...nums });
   await gh.putFile(MANUAL, { content: `${JSON.stringify(next, null, 1)}\n`, sha: meta?.sha, message });
   return { dryRun: false, done: true, what, request, entry: { date, ...nums } };
+}
+
+// ---------- media (the blog session's carousel and Reel on the live share page) ----------
+
+const SITE = "https://fiveminuteai.net/";
+
+/** Slides and Reel for a day, read from its public share page (only the newest post has them). */
+export function parseShareMedia(html, date) {
+  const base = `${SITE}share/${date}/`;
+  const slides = [...new Set([...String(html).matchAll(/src="[^"]*?\/share\/\d{4}-\d\d-\d\d\/carousel\/(\d{2}\.jpg)"/g)].map((m) => m[1]))]
+    .sort().map((f) => `${base}carousel/${f}`);
+  const reel = /\/share\/\d{4}-\d\d-\d\d\/reel\.mp4/.test(html) ? `${base}reel.mp4` : null;
+  const card = /instagram\.png/.test(html) ? `${base}instagram.png` : null;
+  return { date, slides, reel, card, page: base, zip: /carousel\.zip/.test(html) ? `${base}carousel.zip` : null };
+}
+
+async function media({ fetchImpl = globalThis.fetch.bind(globalThis) }, date) {
+  if (!DATE_RE.test(date || "")) throw new BadInput("date must be YYYY-MM-DD");
+  const res = await fetchImpl(`${SITE}share/${date}/`, { headers: { "User-Agent": "fiveminuteai-dashboard" } });
+  if (res.status === 404) return { date, slides: [], reel: null, card: null, page: null, zip: null };
+  if (!res.ok) throw Object.assign(new Error(), { userMessage: `The share page answered ${res.status}.`, status: 502 });
+  return parseShareMedia(await res.text(), date);
+}
+
+// ---------- scheduling ----------
+
+/** Plan (dry run) or write a time for one queue item; the publish-social workflow will post at that time. */
+async function schedule({ gh, dryRun, repo }, { item_id, at }) {
+  if (!ITEM_RE.test(item_id || "")) throw new BadInput("unknown item id");
+  const when = at === null ? null : Date.parse(at || "");
+  if (at !== null && (!Number.isFinite(when) || when < Date.now() - 60e3 || when > Date.now() + 14 * 864e5)) {
+    throw new BadInput("pick a time in the next 14 days");
+  }
+  const iso = at === null ? null : new Date(when).toISOString();
+  const path = `data/social/${item_id.slice(0, 10)}.json`;
+  const what = iso ? `Schedule ${item_id} for ${iso}` : `Unschedule ${item_id}`;
+  const request = { method: "PUT", path: `/repos/${repo}/contents/${path}`, item: item_id, scheduled_at: iso };
+  if (dryRun) return { dryRun: true, done: false, what, request };
+  if (!gh) throw new BadInput("No GITHUB_TOKEN set.");
+  const meta = await gh.fileMeta(path);
+  if (!meta) throw new BadInput(`no social queue for ${item_id.slice(0, 10)}`);
+  const queue = JSON.parse(b64decode(meta.content));
+  const item = queue.items.find((i) => i.id === item_id);
+  if (!item) throw new BadInput(`no item ${item_id}`);
+  item.scheduled_at = iso;
+  await gh.putFile(path, { content: `${JSON.stringify(queue, null, 1)}
+`, sha: meta.sha, message: `${what} (from the control app)` });
+  return { dryRun: false, done: true, what, request };
 }

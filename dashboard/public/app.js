@@ -3,7 +3,8 @@
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const view = $("#view");
-const state = { status: null, days: new Map(), history: null, social: null, decisions: new Map(), edits: new Map(), lastResult: null };
+const state = { status: null, days: new Map(), history: null, social: null, decisions: new Map(), edits: new Map(), schedules: new Map(),
+                lastResult: null, media: new Map(), mail: null, accounts: null, roadmap: null, info: null };
 const CATS = new Set(["models", "architecture", "research", "products", "tools", "policy", "impact"]);
 const SITE = "https://fiveminuteai.net/";
 
@@ -48,6 +49,11 @@ const ICON = {
   left: '<path d="M15 5l-7 7 7 7"/>', right: '<path d="M9 5l7 7-7 7"/>',
   warn: '<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.01"/>',
   ext: '<path d="M14 5h5v5M19 5l-8 8M10 6H5v13h13v-5"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/>',
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  github: '<path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+  chart: '<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',
   copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
 };
 const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
@@ -76,11 +82,12 @@ function toast(html, kind = "") {
   setTimeout(() => el.remove(), 6000);
 }
 
-function confirmDialog(title, bodyHtml, okLabel = "Confirm") {
+function confirmDialog(title, bodyHtml, okLabel = "Confirm", danger = false) {
   const dlg = $("#confirm");
   $("#confirm-title").textContent = title;
   $("#confirm-body").innerHTML = bodyHtml;
   $("#confirm-ok").textContent = okLabel;
+  $("#confirm-ok").className = `btn ${danger ? "danger-solid" : "primary"}`;
   return new Promise((resolve) => {
     const done = (v) => { dlg.close(); cleanup(); resolve(v); };
     const ok = () => done(true), cancel = () => done(false);
@@ -113,21 +120,25 @@ function problem(err, what) {
 function renderMode() {
   const s = state.status;
   if (!s) return;
-  $("#mode").innerHTML = [
+  document.body.dataset.desktop = s.desktop ? "1" : "0";
+  const pills = [
     s.paused ? `<span class="pill paused"><span class="dot d-bad"></span>Paused</span>` : "",
-    s.localFiles ? `<span class="pill local" title="Committed files read from a local checkout">Local files</span>` : "",
+    s.localFiles ? `<span class="pill local" title="Files not on main yet are read from this computer's checkout">Local files</span>` : "",
     s.dryRun ? `<span class="pill dry" title="Writes are only described, never sent to GitHub">Dry run</span>`
              : `<span class="pill live" title="Writes are sent to GitHub">Live</span>`,
   ].join("");
+  $("#mode").innerHTML = pills;
+  $("#side-mode").innerHTML = `<div class="side-pills">${pills}</div>
+    <p class="side-note">${s.desktop ? "Desktop app" : "Web"} · ${s.configured ? "GitHub connected" : "GitHub not connected"}</p>`;
+}
+
+function setCount(name, n) {
+  document.querySelectorAll(`[data-count="${name}"]`).forEach((el) => { el.hidden = !n; el.textContent = n > 99 ? "99+" : n; });
 }
 
 function renderCounts() {
-  const n = (state.social?.days || []).flatMap((d) => d.items).filter((i) => itemStatus(i) === "pending").length;
-  for (const id of ["#social-count", "#social-count-m"]) {
-    const el = $(id);
-    el.hidden = !n;
-    el.textContent = n;
-  }
+  setCount("posts", (state.social?.days || []).flatMap((d) => d.items).filter((i) => itemStatus(i) === "pending").length);
+  if (state.mail?.connected) setCount("mail", state.mail.unread || 0);
 }
 
 // ---------- today ----------
@@ -383,37 +394,26 @@ function itemCard(i) {
     <div class="item-head"><span class="picon p-${esc(i.platform)}">${svg(i.platform)}</span><span class="plat">${esc(PLAT[i.platform])}</span>
       <span class="muted" style="font-size:12.5px">${esc(i.kind)}</span>${tag(st)}</div>
     <div class="how ${i.posting === "paid" ? "paid" : ""}" title="${esc(i.note)}"><span><b>${esc(howTitle)}</b> · ${esc(howNote)}</span></div>
-    ${i.media?.length ? `<div class="shot"><img src="${esc(safeUrl(i.media[0]))}" alt="Instagram card for ${esc(i.id.slice(0, 10))}" loading="lazy" width="1080" height="1350"></div>` : ""}
+    ${(() => {
+      // the day's real carousel when the share page has one, else the single card from the queue
+      const slides = i.platform === "instagram" ? state.media.get(i.id.slice(0, 10))?.slides : null;
+      const src = slides?.length ? slides[0] : i.media?.[0];
+      return src ? `<div class="shot"><img src="${esc(safeUrl(src))}" alt="Instagram ${slides?.length ? "carousel cover" : "card"} for ${esc(i.id.slice(0, 10))}" loading="lazy" width="1080" height="1350">
+        ${slides?.length ? `<span class="shot-tag">Carousel · ${slides.length} slides</span>` : ""}</div>` : "";
+    })()}
     <div class="preview ${edited ? "edited" : ""}" data-preview>${esc(text)}</div>
     ${i.platform === "x" ? `<div class="counter ${xLen(text) > 280 ? "over" : ""}">${xLen(text)} / 280</div>` : ""}
+    ${(() => {
+      const at = state.schedules.has(i.id) ? state.schedules.get(i.id) : i.scheduled_at;
+      return st === "pending" ? `<div class="sched">${svg("calendar")}<span>${at ? `Posts ${esc(whenText(at))}` : "Not scheduled: posts when approved"}</span>
+        <button class="linkbtn" data-act="schedule">${at ? "Change" : "Schedule"}</button></div>` : "";
+    })()}
     <div class="actions">
       <button class="btn ok" data-act="approve" ${st !== "pending" ? "disabled" : ""}>Approve</button>
       <button class="btn" data-act="edit" ${st !== "pending" ? "disabled" : ""}>Edit</button>
       <button class="btn ghost" data-act="skip" ${st !== "pending" ? "disabled" : ""}>Skip</button>
       ${i.platform === "linkedin" ? `<button class="btn ghost" data-act="copy" aria-label="Copy LinkedIn text">${svg("copy")}Copy</button>` : ""}
     </div></article>`;
-}
-
-async function renderSocial() {
-  try {
-    state.social = state.social || await api("social");
-  } catch (err) {
-    view.innerHTML = problem(err, "the social queue");
-    return;
-  }
-  renderCounts();
-  const days = state.social.days;
-  view.innerHTML = `
-    <div class="section-title" style="margin-top:0"><h1 style="font-size:clamp(26px,3.6vw,36px)">Social queue</h1>
-      <span class="muted">${state.status?.dryRun ? "Dry run: approving only shows what would be posted" : "Live"}</span></div>
-    ${days.length ? days.map((d) => `<section class="sday">
-      <div class="sday-head"><div><span class="eyebrow">${esc(longDate(d.date))}</span><h2>${esc(plain(d.headline))}</h2></div>
-        <a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener noreferrer" class="btn ghost">Read the post ${svg("ext")}</a></div>
-      <div class="queue">${d.items.map(itemCard).join("")}</div></section>`).join("")
-      : `<div class="banner">${svg("warn")}<div><h2>Nothing in the queue</h2><p>The daily run writes <code>data/social/&lt;date&gt;.json</code> next to each new post. None are on main yet.</p></div></div>`}`;
-  view.querySelectorAll(".shot img").forEach((img) => img.addEventListener("error", () => {
-    img.parentElement.innerHTML = `<div class="missing">Card not on the live site yet</div>`;
-  }, { once: true }));
 }
 
 function findItem(id) {
@@ -444,6 +444,29 @@ async function onItemAction(btn) {
     btn.textContent = "Save";
     btn.dataset.act = "save";
     ta.focus();
+    return;
+  }
+  if (act === "schedule") {
+    const box = el.querySelector(".sched");
+    const at = state.schedules.has(item.id) ? state.schedules.get(item.id) : item.scheduled_at;
+    const local = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60e3).toISOString().slice(0, 16);
+    const def = at ? new Date(at) : new Date(Date.now() + 3600e3);
+    box.innerHTML = `${svg("calendar")}<input type="datetime-local" aria-label="Post at" value="${local(def)}" min="${local(new Date())}" max="${local(new Date(Date.now() + 14 * 864e5))}">
+      <button class="linkbtn" data-act="schedule-save">Set</button>${at ? `<button class="linkbtn" data-act="schedule-clear">Clear</button>` : ""}`;
+    box.querySelector("input").focus();
+    return;
+  }
+  if (act === "schedule-save" || act === "schedule-clear") {
+    const input = el.querySelector(".sched input");
+    const at = act === "schedule-clear" ? null : new Date(input.value).toISOString();
+    try {
+      const r = await api("social/schedule", { method: "POST", body: { item_id: item.id, at } });
+      state.schedules.set(item.id, at);
+      el.outerHTML = itemCard(item);
+      toast(r.dryRun ? `<b>Dry run.</b> ${esc(r.what)}: not saved.` : `${esc(r.what)}.`, r.dryRun ? "dry" : "");
+    } catch (err) {
+      toast(`<b>Failed.</b> ${esc(err.message)}`, "err");
+    }
     return;
   }
   if (act === "save") {
@@ -619,7 +642,7 @@ async function renderStats() {
     <div class="section-title" style="margin-top:0"><h1 style="font-size:clamp(26px,3.6vw,36px)">Stats</h1>
       <span class="muted">${latest.date ? `Collected ${esc(fmtDay(latest.date))}, 23:30 IST daily` : "Collected daily at 23:30 IST once the secrets are set"}</span></div>
     <div class="ptiles">${PLATFORMS.map((p) => platformTile(st, p)).join("")}</div>
-    <div class="stages top">
+    <div class="stages align-top">
       <section class="card two-thirds"><div class="card-head"><h3>Website visitors per day</h3><span class="muted" style="font-size:13px">GoatCounter</span></div>
         ${web ? visitsChart(web.daily) : `<p class="empty">Connect GoatCounter to see daily visits.</p>`}</section>
       <section class="card third"><div class="card-head"><h3>Where readers came from</h3><span class="muted" style="font-size:13px">7 days</span></div>
@@ -675,6 +698,306 @@ function wireTips() {
     g.addEventListener("pointerdown", (e) => show(g, e.clientX, e.clientY));
     g.addEventListener("pointerleave", () => { tip.hidden = true; g.classList.remove("on"); });
   });
+}
+
+// ---------- shared helpers for the desktop screens ----------
+function whenText(iso) {
+  return new Date(iso).toLocaleString("en-GB", { ...IST, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+}
+function ago(iso) {
+  const s = (Date.now() - Date.parse(iso)) / 1000;
+  if (!Number.isFinite(s)) return "";
+  if (s < 3600) return `${Math.max(1, Math.round(s / 60))} min ago`;
+  if (s < 86400) return `${Math.round(s / 3600)} h ago`;
+  return new Date(iso).toLocaleDateString("en-GB", { ...IST, day: "numeric", month: "short" });
+}
+async function copyText(text, label = "Copied.") {
+  try { await navigator.clipboard.writeText(text); toast(esc(label)); } catch { toast("Copy failed: select the text by hand.", "err"); }
+}
+const pageHead = (title, right = "") => `<div class="section-title" style="margin-top:0"><h1 class="page-h">${esc(title)}</h1>${right}</div>`;
+
+// ---------- posts: media, social queue, blog posts ----------
+async function renderPosts() {
+  try {
+    [state.social, state.history] = await Promise.all([state.social || api("social"), state.history || api("history")]);
+  } catch (err) {
+    view.innerHTML = problem(err, "posts");
+    return;
+  }
+  renderCounts();
+  const posts = state.history.days.filter((d) => d.post);
+  const newest = posts[0]?.date;
+  let media = newest ? state.media.get(newest) : null;
+  if (newest && !media) {
+    media = await api(`media?date=${newest}`).catch(() => null);
+    if (media) state.media.set(newest, media);
+  }
+  const days = state.social.days;
+  view.innerHTML = `
+    ${pageHead("Posts", `<span class="muted">${state.status?.dryRun ? "Dry run: approving and scheduling only show what would happen" : "Live"}</span>`)}
+    <section class="card media-card">
+      <div class="card-head"><h3>Instagram media${newest ? ` · ${esc(shortDate(newest))}` : ""}</h3>
+        ${media?.page ? `<span class="head-links"><a href="${esc(safeUrl(media.page))}" target="_blank" rel="noopener noreferrer">Share kit ${svg("ext")}</a>${media.zip ? `<a href="${esc(safeUrl(media.zip))}">Slides (zip)</a>` : ""}</span>` : ""}</div>
+      ${media && (media.slides.length || media.reel) ? `<div class="media">
+        ${media.slides.length ? `<div class="slides" role="list" aria-label="Carousel, ${media.slides.length} slides">${media.slides.map((u, n) =>
+          `<a role="listitem" href="${esc(safeUrl(u))}" target="_blank" rel="noopener noreferrer" class="slide"><img src="${esc(safeUrl(u))}" alt="Slide ${n + 1}" loading="lazy" width="1080" height="1350"><span>${n + 1}</span></a>`).join("")}</div>` : ""}
+        ${media.reel ? `<figure class="reel"><video src="${esc(safeUrl(media.reel))}" controls preload="metadata" playsinline ${media.slides[0] ? `poster="${esc(safeUrl(media.slides[0]))}"` : ""}></video><figcaption>Reel · original music</figcaption></figure>` : ""}
+      </div><p class="note">Made by the blog pipeline on every deploy, for the newest post. Instagram posting turns on once the Meta app exists.</p>`
+      : `<p class="empty">${newest ? "No carousel or Reel on the share page yet: the deploy makes them for the newest post." : "No posts yet."}</p>`}
+    </section>
+    <div class="section-title"><h2>Social queue</h2><span class="muted">Approve, edit, skip or schedule each post</span></div>
+    ${days.length ? days.map((d) => `<section class="sday">
+      <div class="sday-head"><div><span class="eyebrow">${esc(longDate(d.date))}</span><h2>${esc(plain(d.headline))}</h2></div>
+        <a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener noreferrer" class="btn ghost">Read the post ${svg("ext")}</a></div>
+      <div class="queue">${d.items.map(itemCard).join("")}</div></section>`).join("")
+      : `<div class="banner">${svg("warn")}<div><h2>Nothing in the queue</h2><p>The daily run writes <code>data/social/&lt;date&gt;.json</code> next to each new post.</p></div></div>`}
+    <div class="section-title"><h2>Blog posts</h2><span class="muted">${posts.length} in the last three weeks</span></div>
+    <section class="card"><ul class="postlist">${posts.map((d) => `<li>
+      <span class="pdate">${esc(shortDate(d.date))}</span>
+      <a class="ptitle" href="${SITE}posts/${esc(encodeURIComponent(d.slug))}/" target="_blank" rel="noopener noreferrer">${esc(plain(d.title))}</a>
+      <span class="plinks"><a href="#today/${esc(d.date)}">Pipeline</a><a href="${SITE}share/${esc(d.date)}/" target="_blank" rel="noopener noreferrer">Share kit</a></span></li>`).join("")
+      || `<li class="empty">No posts yet.</li>`}</ul></section>`;
+  view.querySelectorAll(".shot img, .slide img").forEach((img) => img.addEventListener("error", () => {
+    img.closest(".shot, .slide").classList.add("missing-img");
+  }, { once: true }));
+}
+
+// ---------- mail ----------
+async function renderMail(refresh = false) {
+  if (refresh) view.querySelector("[data-mail-refresh]")?.setAttribute("disabled", "");
+  try {
+    state.mail = (!refresh && state.mail) || await api(`local/mail${refresh ? "?refresh=1" : ""}`);
+  } catch (err) {
+    view.innerHTML = pageHead("Mail") + problem(err, "mail");
+    return;
+  }
+  const m = state.mail;
+  renderCounts();
+  if (!m.connected) {
+    view.innerHTML = `${pageHead("Mail")}
+      <section class="card setup-card"><div class="card-head"><h3>Connect hello@fiveminuteai.net</h3>${tag("pending")}</div>
+        <p class="note" style="margin:0 0 var(--s4)">The app reads the inbox with a Zoho <b>app password</b> (not your login password), kept in Windows Credential Manager. It only reads: nothing is sent, deleted or marked as read.</p>
+        <ol class="steps">
+          <li>In Zoho Mail: your profile → <b>My Account</b> → <b>Security</b> → <b>App Passwords</b> → generate one named "Five Minute AI app". Turn on IMAP access in Mail settings if it is off.</li>
+          <li>In PowerShell, run this. It asks for the password; paste the app password (nothing shows on screen):
+            <div class="cmd"><code>${esc(m.add)}</code><button class="btn ghost" data-copy="${esc(m.add)}" data-copy-label="Command copied.">${svg("copy")}Copy</button></div></li>
+          <li>Come back and press <b>Check again</b>.</li>
+        </ol>
+        <div class="actions"><button class="btn primary" data-mail-refresh>Check again</button>
+          <a class="btn ghost" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+      </section>`;
+    return;
+  }
+  view.innerHTML = `${pageHead("Mail", `<span class="muted">${esc(m.account)} · checked ${esc(ago(m.fetched))}</span>`)}
+    <div class="mail-bar">
+      <div class="big"><div><b>${num(m.unread)}</b><span>unread</span></div><div><b>${num(m.total)}</b><span>in ${esc(m.folder.toLowerCase())}</span></div></div>
+      <div class="actions"><button class="btn" data-mail-refresh>Refresh</button>
+        <a class="btn primary" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+    </div>
+    <section class="card mail-list">${m.messages.length ? `<ul>${m.messages.map((x) => `<li class="${x.unread ? "unread" : ""}">
+      <span class="mdot" aria-label="${x.unread ? "Unread" : "Read"}"></span>
+      <span class="mfrom" title="${esc(x.from.email)}">${esc(x.from.name || x.from.email || "(unknown)")}</span>
+      <span class="msubj">${x.flagged ? `<b class="flag" aria-label="Flagged">★</b>` : ""}${esc(x.subject)}</span>
+      <time datetime="${esc(x.date || "")}">${x.date ? esc(ago(x.date)) : ""}</time></li>`).join("")}</ul>`
+      : `<p class="empty">The inbox is empty.</p>`}</section>
+    <p class="note">Read-only: open Zoho Mail to reply. The newest ${m.messages.length} messages are shown; nothing is downloaded beyond sender, subject and date.</p>`;
+}
+
+// ---------- accounts and passwords ----------
+async function renderAccounts() {
+  try {
+    state.accounts = state.accounts || await api("local/accounts");
+  } catch (err) {
+    view.innerHTML = pageHead("Accounts") + problem(err, "accounts");
+    return;
+  }
+  const { accounts, vault } = state.accounts;
+  const icon = (k) => ({ web: "deploy", github: "github", mail: "mail", chart: "chart", lock: "lock", write: "write" }[k] || k);
+  view.innerHTML = `${pageHead("Accounts", `<span class="muted">${accounts.length} accounts · passwords stay in Bitwarden</span>`)}
+    <div class="acct-grid">${accounts.map((a) => `<section class="card acct" data-acct="${esc(a.id)}">
+      <div class="acct-head"><span class="picon p-${esc(["instagram", "x", "linkedin"].includes(a.id) ? a.id : "web")}">${svg(icon(a.icon))}</span>
+        <div><h3>${esc(a.name)}</h3><p class="handle">${esc(a.handle)}</p></div>
+        <span class="status-tag ${a.status === "live" ? "t-ok" : "t-pending"}">${a.status === "live" ? "Live" : "Planned"}</span></div>
+      ${a.todo ? `<p class="todo">${svg("warn")}<span>${esc(a.todo)}</span></p>` : ""}
+      ${a.renews ? `<p class="muted small">Renew by ${esc(new Date(`${a.renews}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }))}</p>` : ""}
+      <div class="links">${a.links.map(([label, url]) => `<a href="${esc(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${esc(label)} ${svg("ext")}</a>`).join("")}</div>
+      ${a.vault ? `<div class="vault">${svg("lock")}<span class="vault-txt">Bitwarden item <b>${esc(a.vault)}</b></span>
+        <span class="vault-btns"><button class="linkbtn" data-copy="${esc(a.vault)}" data-copy-label="Item name copied: paste it into Bitwarden's search.">Copy name</button>
+        <a class="linkbtn" href="${esc(safeUrl(vault))}" target="_blank" rel="noopener noreferrer">Open vault</a></span></div>` : ""}
+      <label class="notes"><span>Notes (this computer only; no passwords)</span>
+        <textarea data-note="${esc(a.id)}" rows="2" maxlength="4000" placeholder="2FA method, recovery steps, who has access…">${esc(a.notes)}</textarea></label>
+    </section>`).join("")}</div>`;
+}
+
+view.addEventListener("change", async (e) => {
+  const ta = e.target.closest("textarea[data-note]");
+  if (!ta) return;
+  // same rule as the server (desktop/local-api.mjs), checked here first so the refusal is instant
+  if (/(password|passwd|pwd|secret|token|api[ _-]?key)\s*[:=]\s*\S{6,}/i.test(ta.value)) {
+    ta.classList.add("refused");
+    toast("<b>Not saved.</b> That looks like a password or key. Keep those in Bitwarden, not in notes.", "err");
+    return;
+  }
+  try {
+    await api("local/accounts/notes", { method: "POST", body: { id: ta.dataset.note, notes: ta.value } });
+    const a = state.accounts?.accounts.find((x) => x.id === ta.dataset.note);
+    if (a) a.notes = ta.value.trim();
+    ta.classList.remove("refused");
+    toast("Note saved on this computer.");
+  } catch (err) {
+    ta.classList.add("refused");
+    toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
+  }
+});
+
+// ---------- roadmap ----------
+const COLS = [["ideas", "Ideas"], ["next", "Next"], ["doing", "Doing"], ["done", "Done"]];
+
+async function saveRoadmap(next, msg) {
+  const prev = state.roadmap;
+  state.roadmap = next;
+  renderRoadmapBoard();
+  try {
+    state.roadmap = await api("local/roadmap", { method: "POST", body: next });
+    if (msg) toast(esc(msg));
+  } catch (err) {
+    state.roadmap = prev;
+    renderRoadmapBoard();
+    toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
+  }
+}
+
+async function renderRoadmap() {
+  try {
+    state.roadmap = state.roadmap || await api("local/roadmap");
+  } catch (err) {
+    view.innerHTML = pageHead("Roadmap") + problem(err, "the roadmap");
+    return;
+  }
+  view.innerHTML = `${pageHead("Roadmap", `<span class="muted">Saved on this computer</span>`)}
+    <form class="card addcard" id="card-form" autocomplete="off">
+      <label class="grow"><span>New card</span><input name="title" maxlength="200" placeholder="What needs doing?" required></label>
+      <label><span>Column</span><select name="column">${COLS.map(([k, l]) => `<option value="${k}" ${k === "next" ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+      <label><span>Tag</span><input name="tag" maxlength="30" placeholder="e.g. instagram"></label>
+      <button class="btn primary" type="submit">Add</button>
+    </form>
+    <div class="board" id="board"></div>`;
+  $("#card-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const title = String(f.get("title") || "").trim();
+    if (!title) return;
+    const now = new Date().toISOString();
+    const card = { id: `c${Math.random().toString(36).slice(2, 10)}`, column: f.get("column"), title, note: "", tag: String(f.get("tag") || "").trim(), created: now, updated: now };
+    e.target.reset();
+    saveRoadmap({ ...state.roadmap, cards: [card, ...state.roadmap.cards] }, "Card added.");
+  });
+  renderRoadmapBoard();
+}
+
+function renderRoadmapBoard() {
+  const board = $("#board");
+  if (!board || !state.roadmap) return;
+  const cards = state.roadmap.cards;
+  board.innerHTML = COLS.map(([k, label], ci) => {
+    const list = cards.filter((c) => c.column === k);
+    return `<section class="col col-${k}" aria-label="${label}"><h3>${label} <span>${list.length}</span></h3>
+      ${list.map((c) => `<article class="rcard" data-id="${esc(c.id)}">
+        <p class="rtitle">${esc(c.title)}</p>${c.note ? `<p class="rnote">${esc(c.note)}</p>` : ""}
+        <div class="rfoot">${c.tag ? `<span class="rtag">${esc(c.tag)}</span>` : "<span></span>"}
+          <span class="rbtns">
+            <button class="ib" data-card="left" data-id="${esc(c.id)}" ${ci === 0 ? "disabled" : ""} aria-label="Move to ${ci ? COLS[ci - 1][1] : ""}">${svg("left")}</button>
+            <button class="ib" data-card="right" data-id="${esc(c.id)}" ${ci === COLS.length - 1 ? "disabled" : ""} aria-label="Move to ${COLS[ci + 1]?.[1] || ""}">${svg("right")}</button>
+            <button class="ib" data-card="edit" data-id="${esc(c.id)}" aria-label="Edit">${svg("write")}</button>
+            <button class="ib danger" data-card="delete" data-id="${esc(c.id)}" aria-label="Delete">${svg("x")}</button></span></div>
+      </article>`).join("") || `<p class="empty small">Nothing here.</p>`}</section>`;
+  }).join("");
+}
+
+async function onCardAction(btn) {
+  const cards = state.roadmap.cards;
+  const c = cards.find((x) => x.id === btn.dataset.id);
+  if (!c) return;
+  const ci = COLS.findIndex(([k]) => k === c.column);
+  const act = btn.dataset.card;
+  if (act === "left" || act === "right") {
+    const to = COLS[ci + (act === "left" ? -1 : 1)]?.[0];
+    if (!to) return;
+    return saveRoadmap({ ...state.roadmap, cards: cards.map((x) => (x.id === c.id ? { ...x, column: to } : x)) });
+  }
+  if (act === "delete") {
+    if (!await confirmDialog("Delete this card?", `<p>${esc(c.title)}</p>`, "Delete", true)) return;
+    return saveRoadmap({ ...state.roadmap, cards: cards.filter((x) => x.id !== c.id) }, "Card deleted.");
+  }
+  if (act === "edit") {
+    const el = btn.closest(".rcard");
+    el.innerHTML = `<label class="sr">Title</label><input class="rin" name="title" value="${esc(c.title)}" maxlength="200">
+      <textarea class="rin" name="note" rows="3" maxlength="2000" placeholder="Notes">${esc(c.note)}</textarea>
+      <input class="rin" name="tag" value="${esc(c.tag)}" maxlength="30" placeholder="Tag">
+      <div class="rfoot"><span></span><span class="rbtns"><button class="linkbtn" data-card="cancel" data-id="${esc(c.id)}">Cancel</button>
+        <button class="btn primary sm" data-card="save" data-id="${esc(c.id)}">Save</button></span></div>`;
+    el.querySelector("input").focus();
+    return;
+  }
+  if (act === "cancel") return renderRoadmapBoard();
+  if (act === "save") {
+    const el = btn.closest(".rcard");
+    const v = (n) => el.querySelector(`[name="${n}"]`).value.trim();
+    if (!v("title")) return toast("A card needs a title.", "err");
+    return saveRoadmap({ ...state.roadmap, cards: cards.map((x) => (x.id === c.id ? { ...x, title: v("title"), note: v("note"), tag: v("tag") } : x)) }, "Card saved.");
+  }
+}
+
+// ---------- settings ----------
+async function renderSettings() {
+  try {
+    state.info = await api("local/info");
+  } catch (err) {
+    view.innerHTML = pageHead("Settings") + problem(err, "settings");
+    return;
+  }
+  const i = state.info, s = state.status || {};
+  view.innerHTML = `${pageHead("Settings")}
+    <section class="card"><div class="card-head"><h3>Connections</h3><span class="muted small">Windows Credential Manager</span></div>
+      <p class="note" style="margin:0 0 var(--s4)">Secrets are kept by Windows, not by this app: never in its files, logs or git. Each command asks for the secret itself.</p>
+      <div class="creds">${i.credentials.map((c) => `<div class="cred">
+        <div><b>${esc(c.label)}</b><span class="muted small">For ${esc(c.why)}</span></div>
+        ${c.stored ? tag("ok") : `<span class="status-tag t-pending">Not stored</span>`}
+        <div class="cmd"><code>${esc(c.stored ? c.remove : c.add)}</code><button class="btn ghost" data-copy="${esc(c.stored ? c.remove : c.add)}" data-copy-label="Command copied.">${svg("copy")}Copy</button></div>
+      </div>`).join("")}</div>
+      <p class="note">Without a stored GitHub token the app uses your GitHub CLI login (<code>gh auth login</code>). Restart the app after changing one.</p></section>
+    <div class="stages align-top">
+      <section class="card"><div class="card-head"><h3>Bitwarden</h3>${i.bitwarden.cli ? tag(i.bitwarden.status === "unlocked" ? "ok" : "pending") : `<span class="status-tag t-skipped">Web vault</span>`}</div>
+        <p class="note" style="margin:0">${i.bitwarden.cli ? `Bitwarden CLI found, vault ${esc(i.bitwarden.status)}. The app never reads items from it.`
+          : `Accounts link into your Bitwarden web vault; the app never sees a password. Optional: the Bitwarden CLI (<code>winget install Bitwarden.CLI</code>) lets this screen show whether the vault is locked.`}</p></section>
+      <section class="card"><div class="card-head"><h3>Mail server</h3></div>
+        <form class="mform" id="mail-settings"><label>IMAP host<input name="imapHost" value="${esc(i.settings.imapHost)}"></label>
+          <label>Webmail link<input name="mailWeb" value="${esc(i.settings.mailWeb)}"></label>
+          <button class="btn" type="submit">Save</button></form>
+        <p class="note">India accounts use imap.zoho.in and mail.zoho.in; others imap.zoho.com and mail.zoho.com.</p></section>
+      <section class="card"><div class="card-head"><h3>This app</h3></div>
+        <dl class="kv"><dt>Writes</dt><dd>${s.dryRun ? "Dry run. For live, start <b>Five Minute AI (live)</b> from the Start menu." : "Live"}</dd>
+          <dt>Data folder</dt><dd class="mono">${esc(i.dataDir)}</dd>
+          <dt>Repository</dt><dd class="mono">${esc(s.repo || "")}</dd>
+          <dt>GitHub</dt><dd>${s.configured ? "Connected" : "Not connected"}</dd></dl></section>
+    </div>`;
+  $("#mail-settings").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    try {
+      await api("local/settings", { method: "POST", body: { imapHost: f.get("imapHost").trim(), mailWeb: f.get("mailWeb").trim() } });
+      state.mail = null;
+      toast("Mail settings saved.");
+    } catch (err) {
+      toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
+    }
+  });
+}
+
+// ---------- more (phone) ----------
+function renderMore() {
+  const items = [...document.querySelectorAll(".side-nav a")].filter((a) => !(a.hasAttribute("data-desk") && document.body.dataset.desktop !== "1"));
+  view.innerHTML = `${pageHead("Everything")}<nav class="more-list">${items.map((a) => `<a href="${a.getAttribute("href")}">${a.querySelector("svg").outerHTML}<span>${esc([...a.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join("").trim())}</span>${svg("right")}</a>`).join("")}</nav>`;
 }
 
 // ---------- controls ----------
@@ -739,7 +1062,9 @@ async function onControl(btn) {
 async function route() {
   clearTimeout(timer);
   const [tab = "today", arg] = location.hash.replace(/^#/, "").split("/");
-  const name = ["today", "history", "social", "stats", "controls"].includes(tab) ? tab : "today";
+  const desk = ["mail", "accounts", "roadmap", "settings"];
+  const all = ["today", "history", "posts", "stats", "controls", "more", ...(state.status?.desktop ? desk : [])];
+  const name = tab === "social" ? "posts" : all.includes(tab) ? tab : "today";
   document.querySelectorAll("[data-tab]").forEach((a) => {
     if (a.dataset.tab === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
@@ -749,8 +1074,13 @@ async function route() {
   const date = /^\d{4}-\d\d-\d\d$/.test(arg || "") ? arg : null;
   if (name === "today") await renderToday(date);
   else if (name === "history") await renderHistory();
-  else if (name === "social") await renderSocial();
+  else if (name === "posts") await renderPosts();
   else if (name === "stats") await renderStats();
+  else if (name === "mail") await renderMail();
+  else if (name === "accounts") await renderAccounts();
+  else if (name === "roadmap") await renderRoadmap();
+  else if (name === "settings") await renderSettings();
+  else if (name === "more") renderMore();
   else renderControls();
   view.setAttribute("aria-busy", "false");
 }
@@ -761,7 +1091,14 @@ view.addEventListener("click", (e) => {
   if (t.dataset.jump) { document.getElementById(t.dataset.jump)?.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
   if (t.dataset.act) { onItemAction(t); return; }
   if (t.dataset.control) { onControl(t); return; }
-  if (t.hasAttribute("data-retry")) { state.history = null; state.social = null; state.stats = null; state.days.clear(); route(); }
+  if (t.dataset.card) { onCardAction(t); return; }
+  if (t.dataset.copy != null) { copyText(t.dataset.copy, t.dataset.copyLabel || "Copied."); return; }
+  if (t.dataset.mailRefresh != null) { renderMail(true); return; }
+  if (t.hasAttribute("data-retry")) {
+    Object.assign(state, { history: null, social: null, stats: null, mail: null, accounts: null, roadmap: null, info: null });
+    state.days.clear();
+    route();
+  }
 });
 let resizeTimer = null;
 window.addEventListener("resize", () => {
@@ -782,4 +1119,8 @@ window.addEventListener("hashchange", () => { $("#tip").hidden = true; route(); 
   renderMode();
   route();
   if (state.status.configured) api("social").then((s) => { state.social = state.social || s; renderCounts(); }).catch(() => {});
+  if (state.status.desktop) {
+    api("local/mail").then((m) => { state.mail = state.mail || m; renderCounts(); }).catch(() => {});
+    setInterval(() => fetch("/api/ping", { cache: "no-store" }).catch(() => {}), 60e3);   // keeps the desktop server running
+  }
 })();

@@ -1,22 +1,73 @@
-# Five Minute AI control dashboard
+# Five Minute AI control app
 
-A private page that shows every step of the daily post and lets you approve social posts and run the controls,
-from your phone or desktop. It is free to host (Cloudflare Pages + Cloudflare Access) and has no dependencies.
+One place to run Five Minute AI: a Windows desktop app (and, later, the same screens on your phone through
+Cloudflare). Free, no dependencies, nothing downloaded.
 
-- **Today**: the day's pipeline as eight stages: collect, rank, write, verify (layer 1 + layer 2), gate, publish,
-  deploy, social. Each shows status, time and its numbers: items per source, the stories picked and their scores,
-  sentences checked / confirmed / repaired / removed, why the gate failed, the deploy result. Arrows step back
-  through earlier days.
-- **History**: the last 21 days as a strip and a timeline of runs and deploys, problems in red, every run linked to
-  its GitHub Actions log.
-- **Social**: the day's Instagram carousel, X post and LinkedIn text with Approve / Edit / Skip.
-- **Stats**: followers and reach across the website, Instagram, X and LinkedIn: one tile per platform with its
-  7-day change, website visitors per day, where readers came from, the most-read pages, and Instagram reach, views,
-  likes, saves and shares per post.
-- **Controls**: pause / resume daily posts, rerun today, retry the deploy.
+| Section | What it does |
+| --- | --- |
+| **Today** | The day's pipeline as eight stages (collect, rank, write, verify layer 1 + 2, gate, publish, deploy, social) with status, timings and numbers: items per source, stories picked and their scores, sentences checked / confirmed / repaired / removed, why the gate failed, the deploy result. |
+| **History** | The last 21 days as a strip and a timeline of runs and deploys, problems in red, each run linked to its GitHub Actions log. |
+| **Controls** | Pause / resume daily posts, rerun today, retry the deploy. |
+| **Posts** | The newest post's Instagram carousel and Reel (made by the blog pipeline), the social queue (Instagram, X, LinkedIn) with Approve / Edit / Skip / Schedule, and every blog post with its share kit. |
+| **Stats** | Website, Instagram, X and LinkedIn numbers: followers, 7-day change, visitors per day, referrers, most-read pages, Instagram reach per post. |
+| **Mail** (desktop) | The hello@fiveminuteai.net inbox, read-only: sender, subject, date, unread count. Replies happen in Zoho Mail. |
+| **Accounts** (desktop) | Every account (site, GitHub, Instagram, X, LinkedIn, Zoho, GoatCounter, domain, model providers, Cloudflare, Bitwarden): handle, status, links, what is still to do, which Bitwarden item holds its password, private notes. |
+| **Roadmap** (desktop) | A board (Ideas, Next, Doing, Done) for future work, kept on this computer. |
+| **Settings** (desktop) | Which connections are stored in Windows Credential Manager (with the exact command to add or remove each), Bitwarden status, mail server. |
 
-**Every write is a dry run until you turn it on** (`DRY_RUN=0`). In a dry run the dashboard shows the exact request
-it would send to GitHub and sends nothing.
+**Every write is a dry run until you turn it on.** In a dry run the app shows the exact request it would send to
+GitHub and sends nothing. The Start-menu entry **Five Minute AI (live)** turns writes on.
+
+## The desktop app
+
+### Install (once, about 10 seconds, no admin rights)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File dashboard\desktop\install.ps1
+```
+
+It adds **Five Minute AI** and **Five Minute AI (live)** to the Start menu and a desktop shortcut. Needs Node.js 18+
+(already on this computer). Remove with `dashboard\desktop\uninstall.ps1` (keeps your roadmap and notes unless you
+pass `-RemoveData`). Run install.ps1 again if the folder moves (for example after the branch is merged and you use the
+main `ai-daily` folder instead of `ai-daily-dashboard`).
+
+Opening it starts a small local server (127.0.0.1:8788; nothing else on the network can reach it) and a Microsoft
+Edge app window with its own icon and no browser bars. Closing the window stops the server within about 5 minutes.
+
+### Connect your accounts
+
+Secrets live in **Windows Credential Manager** or **Bitwarden**, never in the app's files, logs or git. Each command
+asks for the secret itself, so it never shows on screen:
+
+| What | Command | Without it |
+| --- | --- | --- |
+| GitHub (fine-grained token, `fiveminuteai/ai-daily` only, Actions + Contents read/write) | `cmdkey /generic:FiveMinuteAI/github /user:github /pass` | the app uses your GitHub CLI login (`gh auth login`) |
+| Zoho Mail app password (Zoho: My Account → Security → App Passwords; IMAP on in Mail settings) | `cmdkey /generic:FiveMinuteAI/zoho /user:hello@fiveminuteai.net /pass` | Mail shows these steps |
+
+Restart the app after adding one. Remove with `cmdkey /delete:FiveMinuteAI/github` (or `zoho`). The Settings screen
+shows which are stored and copies these commands. Mail assumes a Zoho India account (`imap.zoho.in`); change it in
+Settings if yours is on zoho.com.
+
+**Passwords:** the app never reads, stores or shows a password. Each account names its Bitwarden item, with buttons to
+copy that name and open your vault. Account notes refuse anything that looks like a password or key. If you install
+the Bitwarden CLI (`winget install Bitwarden.CLI`), Settings also shows whether the vault is locked.
+
+### Where things are kept
+
+| Data | Where |
+| --- | --- |
+| Roadmap, account notes, mail settings | `%APPDATA%\FiveMinuteAI\*.json` (this computer only) |
+| App log (start/stop lines, no secrets) | `%APPDATA%\FiveMinuteAI\app.log` |
+| App window profile | `%LOCALAPPDATA%\FiveMinuteAI\window` |
+| Secrets | Windows Credential Manager (`FiveMinuteAI/*`) and Bitwarden |
+| Pipeline data, social queue, stats | the GitHub repository, as before |
+
+### Why an Edge app window, not Electron or Tauri
+
+It reuses the whole tested web app as it is, needs nothing downloaded, and uses very little memory and CPU (Edge is
+already on every Windows 11 machine). The cost is that it is not a single `.exe`. If you want one later, Tauri can wrap
+the same files into a ~10 MB installer: Rust is already installed, but it needs about 300 MB of packages downloaded
+first, so that step waits for your OK.
 
 ## How it fits together
 
@@ -192,18 +243,24 @@ Optional: Pages project → Settings → General → **Access policy** → enabl
   - LinkedIn company page: needs Community Management API approval, so it stays manual (the Copy button).
 - Approve / Skip / Edit decisions are not saved yet: the live workflow should write `status`, `edited_text` and
   `decided_at` back to `data/social/<date>.json` (the fields already exist) and the page reloads them.
-- The Instagram item shows the single card from the site's share kit; it will show the carousel slides once the
-  carousel generator lands.
+- Scheduling saves a time on the queue item (`scheduled_at` in `data/social/<date>.json`), but nothing posts at that
+  time yet: the live publish workflow needs a scheduled trigger that picks up approved items whose time has come.
+- Mail is read-only (no sending, no bodies). Replies happen in Zoho Mail; the button opens it.
+- Accounts are a curated list (`desktop/accounts.json`, public facts only); add one by editing that file.
 
 ## Files
 
 ```
 dashboard/
-  public/           index.html, app.js, app.css, fonts/, icon.svg, _headers (security headers on Cloudflare)
+  public/           index.html, app.js, app.css, fonts/, icons, manifest, _headers (security headers on Cloudflare)
   functions/api/    [[path]].js: the Pages Function, hands every /api request to lib/api.js
-  lib/api.js        routes, Cloudflare Access check, dry-run writes
-  lib/github.js     GitHub REST client (the only place the token is used)
+  lib/api.js        routes, Cloudflare Access check, dry-run writes, media and scheduling
+  lib/github.js     GitHub REST client (the only place the GitHub token is used)
   lib/parse.js      turns runs, logs and files into the day view and history (pure, tested)
-  dev-server.mjs    local server: same handler plus the static files, 127.0.0.1 only
-  test/             node --test
+  lib/server.mjs    the local HTTP server (127.0.0.1 only, Host-header check, heartbeat)
+  desktop/          the Windows app: app.mjs (start), install.ps1 / uninstall.ps1 / launch.vbs, local-api.mjs
+                    (mail, accounts, roadmap, settings), imap.mjs (read-only IMAP), secrets.mjs + cred.ps1
+                    (Windows Credential Manager), store.mjs (%APPDATA% files), accounts.json
+  dev-server.mjs    the same server in a normal browser (no desktop sections)
+  test/             node --test test/*.test.mjs
 ```
