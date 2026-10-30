@@ -1,7 +1,7 @@
 {
-  "checked": 63,
-  "ok": 59,
-  "repaired": 1,
+  "checked": 65,
+  "ok": 46,
+  "repaired": 6,
   "dropped": 13,
   "entries": [
     {
@@ -34,8 +34,10 @@
         "S1",
         "S2"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Mistral also claims that the model outranks all other open models on agentic coding tasks and provides state‑of‑the‑art performance for sovereign cyber defense, enabling businesses and governments to \""
+      ]
     },
     {
       "where": "what_happened[0]",
@@ -58,12 +60,14 @@
     },
     {
       "where": "what_happened[2]",
-      "text": "AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth to reach a trillion‑dollar valuation within a decade.",
+      "text": "AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth on the way to becoming a trillion‑dollar revenue business.",
       "sources": [
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-30: the source says a trillion-dollar revenue business, not a valuation. Was: AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth to reach a trillion‑dollar valuation within a decade."
+      ]
     },
     {
       "where": "what_happened[3]",
@@ -90,8 +94,10 @@
         "S1",
         "S2"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"TechCrunch article published 29 October 2026 reports Mistral releases weights for its trillion‑parameter model, nicknamed “Le Chonk.”\""
+      ]
     },
     {
       "where": "sections[0]",
@@ -105,12 +111,14 @@
     },
     {
       "where": "sections[0]",
-      "text": "The announcement follows an earlier preview of the model earlier in the month.",
+      "text": "The announcement follows a preview of the model earlier in the month.",
       "sources": [
         "S2"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-30: doubled 'earlier' removed. Was: The announcement follows an earlier preview of the model earlier in the month."
+      ]
     },
     {
       "where": "sections[0]",
@@ -118,8 +126,10 @@
       "sources": [
         "S1"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Mistral also claims state‑of‑the‑art performance on coding and cybersecurity tasks, while using 47 percent fewer tokens than GLM‑5.3.\""
+      ]
     },
     {
       "where": "sections[0]",
@@ -127,8 +137,10 @@
       "sources": [
         "S1"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: Source says the model outranks others, but other source shows it is tied with the leading model, not definitively topping the benchmark."
+      ]
     },
     {
       "where": "sections[0]",
@@ -136,8 +148,10 @@
       "sources": [
         "S2"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"achieve state-of-the-art performance at a fraction of the compute and capital committed by closed labs. ... supports three reasoning modes to balance cost and performance\""
+      ]
     },
     {
       "where": "sections[0]",
@@ -175,8 +189,10 @@
         "S1",
         "S2"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes competition but does not explicitly state a broader industry trend toward giving enterprises more control over advanced AI capabilities."
+      ]
     },
     {
       "where": "section title",
@@ -293,12 +309,14 @@
     },
     {
       "where": "sections[2]",
-      "text": "To reach that scale, AWS plans to increase capital spending dramatically in the coming years.",
+      "text": "Amazon CEO Andy Jassy says AWS can be a trillion‑dollar revenue business, and to get there AWS plans to increase capital spending dramatically in the coming years.",
       "sources": [
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "repaired",
+      "problems": [
+        "reworded in editorial review on 2026-10-30: 'that scale' pointed to a sentence the model check had removed; the goal is now stated, from S4. Was: To reach that scale, AWS plans to increase capital spending dramatically in the coming years."
+      ]
     },
     {
       "where": "sections[2]",
@@ -342,8 +360,10 @@
       "sources": [
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"We’re going to invest to continue being the leader,\" and \"Enterprises wanting to run their core and AI workloads in AWS\""
+      ]
     },
     {
       "where": "sections[2]",
@@ -369,8 +389,10 @@
       "sources": [
         "S5"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Thrive Holdings has acquired physical security company ADT for $10 per share or about $7.6 billion in equity... total enterprise value of the deal is $15.3 billion, the companies announced on Thursday\""
+      ]
     },
     {
       "where": "sections[3]",
@@ -405,8 +427,10 @@
       "sources": [
         "S5"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: Source says OpenAI provides models and engineers to Thrive’s companies generally, not specifically to integrate AI across ADT’s offerings."
+      ]
     },
     {
       "where": "sections[3]",
@@ -423,8 +447,10 @@
       "sources": [
         "S5"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the partnerships but does not provide evidence that ADT is a \"long‑standing\" company."
+      ]
     },
     {
       "where": "sections[3]",
@@ -591,116 +617,26 @@
       "problems": []
     },
     {
-      "where": "layer2",
-      "text": "Mistral announced the open‑weight release of its 1‑trillion‑parameter multimodal model, Mistral Large 4, enabling businesses and governments to download, host, and run the model themselves while claiming state‑of‑the‑art performance on coding and cybersecurity tasks.",
+      "where": "sections[0]",
+      "text": "Mistral released Mistral Large 4, a 1‑trillion‑parameter multimodal model, and is making its weights openly available.",
       "sources": [
-        "S1",
-        "S2"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: checker's evidence quote is not in the source: \"Mistral also claims that the model outranks all other open models on agentic coding tasks and provides state‑of‑the‑art performance for sovereign cyber defense, enabling businesses and governments to \""
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "Mistral announced on 29 October 2026 that it is releasing the weights for its 1‑trillion‑parameter model called Mistral Large 4, nicknamed “Le Chonk”.",
-      "sources": [
-        "S1",
-        "S2"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: checker's evidence quote is not in the source: \"TechCrunch article published 29 October 2026 reports Mistral releases weights for its trillion‑parameter model, nicknamed “Le Chonk.”\""
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "Mistral Large 4 is a multimodal system that claims state‑of‑the‑art performance on coding and cybersecurity tasks while using 47 % fewer tokens than the Chinese open‑weight model GLM‑5.3.",
-      "sources": [
+        "S2",
         "S1"
       ],
-      "status": "dropped",
+      "status": "repaired",
       "problems": [
-        "model check: checker's evidence quote is not in the source: \"Mistral also claims state‑of‑the‑art performance on coding and cybersecurity tasks, while using 47 percent fewer tokens than GLM‑5.3.\""
+        "added in editorial review on 2026-10-30: the section never named the model; sentence from S2's own wording, checked against the sources."
       ]
     },
     {
-      "where": "layer2",
-      "text": "The model tops open‑weight benchmarks on Artificial Analysis’s Coding Agent Index for agentic coding tasks.",
-      "sources": [
-        "S1"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: Source says the model outranks others, but other source shows it is tied with the leading model, not definitively topping the benchmark."
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "Mistral says the model achieves these results at a fraction of the compute and capital required by closed‑lab models, offering three reasoning modes to balance cost and performance.",
-      "sources": [
-        "S2"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: checker's evidence quote is not in the source: \"achieve state-of-the-art performance at a fraction of the compute and capital committed by closed labs. ... supports three reasoning modes to balance cost and performance\""
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "This move reflects a broader industry trend toward giving enterprises more control over advanced AI capabilities.",
-      "sources": [
-        "S1",
-        "S2"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: Source notes competition but does not explicitly state a broader industry trend toward giving enterprises more control over advanced AI capabilities."
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "Amazon’s heavy investment aims to secure leadership as enterprises adopt AI for core and new applications.",
-      "sources": [
-        "S4"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: checker's evidence quote is not in the source: \"We’re going to invest to continue being the leader,\" and \"Enterprises wanting to run their core and AI workloads in AWS\""
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "Thrive Holdings announced on Thursday that it has bought ADT for $10 per share, valuing the security firm at about $7.6 billion in equity and $15.3 billion total enterprise value.",
+      "where": "sections[3]",
+      "text": "Thrive Holdings has acquired physical security company ADT for $10 per share, or about $7.6 billion in equity, the companies announced on Thursday.",
       "sources": [
         "S5"
       ],
-      "status": "dropped",
+      "status": "repaired",
       "problems": [
-        "model check: checker's evidence quote is not in the source: \"Thrive Holdings has acquired physical security company ADT for $10 per share or about $7.6 billion in equity... total enterprise value of the deal is $15.3 billion, the companies announced on Thursday\""
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "OpenAI will provide its models, technology, and forward‑deployed engineers to support the integration of AI across ADT’s offerings.",
-      "sources": [
-        "S5"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: Source says OpenAI provides models and engineers to Thrive’s companies generally, not specifically to integrate AI across ADT’s offerings."
-      ]
-    },
-    {
-      "where": "layer2",
-      "text": "ADT is a long‑standing physical‑security company that already partners with Apple and Google on smart‑home integrations.",
-      "sources": [
-        "S5"
-      ],
-      "status": "dropped",
-      "problems": [
-        "model check: Source confirms the partnerships but does not provide evidence that ADT is a \"long‑standing\" company."
+        "added in editorial review on 2026-10-30: the section never said the deal happened; sentence from S5's own wording, checked against the sources."
       ]
     }
   ],

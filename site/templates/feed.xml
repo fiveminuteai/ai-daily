@@ -12,7 +12,7 @@
     <title>{{ p.headline }}</title>
     <link>{{ origin }}{{ base }}{{ p.url_path }}</link>
     <guid isPermaLink="true">{{ origin }}{{ base }}{{ p.url_path }}</guid>
-    <pubDate>{{ rfc(p.date) }}</pubDate>
+    <pubDate>{{ rfc(p.generated_at or p.date) }}</pubDate>
     <dc:creator>{{ p.byline }}</dc:creator>
     {% for t in p.tags %}<category>{{ t }}</category>{% endfor %}
     <description>{{ p.dek_plain }}</description>

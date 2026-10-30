@@ -23,6 +23,8 @@ Repo: https://github.com/saipavan333/ai-daily · Site: https://fiveminuteai.net/
        by itself and tomorrow's run is normally fine.
    - A red run → see section 7.
 
+If all three tries fail, the 09:07 IST run turns red with "No post for <date> after all three scheduled tries", and GitHub emails you. Read the 'Write today's post' step of the earlier runs for the reason.
+
 A skipped day is not an emergency. The blog is built to publish nothing rather than publish something wrong.
 
 ## 2. Stop everything now

@@ -43,8 +43,8 @@ sources:
   - {id: venturebeat, name: VentureBeat,        kind: rss, url: "https://venturebeat.com/category/ai/feed/",               weight: 0.9, category: products, enabled: false}
 
   # --- Community signals ---
-  - {id: hn,          name: Hacker News,        kind: hn,  url: "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=60", weight: 0.8, category: tools, ai_filter: true}
-  - {id: github,      name: GitHub,             kind: github, url: "https://api.github.com/search/repositories", weight: 0.5, category: tools, min_stars: 150}
+  - {id: hn,          name: Hacker News,        kind: hn,  url: "https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=60", home: "https://news.ycombinator.com/", weight: 0.8, category: tools, ai_filter: true}
+  - {id: github,      name: GitHub,             kind: github, url: "https://api.github.com/search/repositories", home: "https://github.com/trending", weight: 0.5, category: tools, min_stars: 150}
 
 # Words that mark an item as AI-related (used where ai_filter is true). Matched as whole words, case-insensitive.
 ai_terms: [AI, A.I., LLM, LLMs, GPT, ChatGPT, Gemini, Claude, Anthropic, OpenAI, DeepMind, Llama, Mistral, Qwen, DeepSeek,

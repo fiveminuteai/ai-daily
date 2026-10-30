@@ -199,3 +199,15 @@ def test_ordinary_word_starting_a_sentence_is_not_a_name():
     cor = {"S1": corpus({"title": "OCR", "text": "OCR systems read pages one at a time and memory grows."})}
     assert check_sentence("Traditional OCR systems read pages one at a time [S1].", ["S1"], cor, set()) == []
     assert check_sentence("Zorblax OCR systems read pages one at a time [S1].", ["S1"], cor, set()) != []
+
+
+def test_evidence_stitched_from_two_sentences_out_of_order():
+    from fma.verify import evidence_found, norm
+    c = norm("Thrive Holdings has acquired security company ADT for $10 per share, the companies announced on Thursday. "
+             "Beyond equity, the total enterprise value of the deal is $15.3 billion, ADT said. "
+             "“We’re going to invest to continue being the leader,” he said. Other text follows.")
+    assert evidence_found("Thrive Holdings has acquired security company ADT for $10 per share... total enterprise value "
+                          "of the deal is $15.3 billion, the companies announced on Thursday", c)
+    assert evidence_found("We’re going to invest to continue being the leader,\" and \"the deal is $15.3 billion", c)
+    assert not evidence_found("Thrive Holdings has acquired ADT for $10 per share, and plans to fire half of ADT staff "
+                              "within a year to cut costs sharply", c)

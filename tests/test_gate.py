@@ -112,3 +112,14 @@ def test_links_timeout_is_not_broken_but_dns_failure_is():
     bad = check_links(["https://slow.example/a", "https://slowget.example/b", "https://gone.example/c",
                        "https://dead.example/d"], SlowHttp())
     assert bad == {"https://gone.example/c": "HTTP 404", "https://dead.example/d": "ConnectionError"}
+
+
+def test_mojibake_is_repaired_at_the_source_and_refused_by_the_gate():
+    from fma.feeds import fix_mojibake, strip_html
+    apos = chr(0x2019)
+    junk = apos.encode("utf-8").decode("cp1252")             # the three junk characters a curly apostrophe becomes
+    assert strip_html(f"OpenAI{junk}s new model") == f"OpenAI{apos}s new model"
+    odd = "caf" + "é".encode("utf-8").decode("cp1252") + " " + chr(0x2014) + " fine"
+    assert fix_mojibake(odd) == odd                           # doesn't round-trip cleanly: left alone
+    fails = run_gate(post(headline=f"OpenAI{junk}s model"), REPORT, PIPE, [], http=None)
+    assert any("garbled" in f for f in fails)

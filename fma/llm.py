@@ -119,7 +119,10 @@ def providers_from_config(site_cfg: dict, only: str | None = None) -> list[Provi
             continue
         out.append(Provider(name=p["name"], base_url=p["base_url"], model=p["model"],
                             key_env=p.get("key_env"), local=bool(p.get("local", False)),
-                            min_interval_s=float(p.get("min_interval_s", 0)), extra=p.get("extra")))
+                            min_interval_s=float(p.get("min_interval_s", 0)), extra=p.get("extra"),
+                            # a stalled cloud call must fail inside the 40-minute job so the retry can run;
+                            # a local model on a slow machine genuinely needs the long wait
+                            timeout=float(p.get("timeout", 1800 if p.get("local") else 180))))
     return out
 
 

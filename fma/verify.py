@@ -448,28 +448,30 @@ You reply with one JSON object and nothing else."""
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 
 
-def evidence_found(quote: str, corpus_norm: str, need: float = 0.85) -> bool:
-    """The checker's quote must really be in the source. Each piece (split on '...') must have at least 85% of its
-    words together in one short stretch of the source, so small differences in punctuation, quote marks or a
-    dropped word don't matter, but a sentence assembled from scattered words or invented outright doesn't pass."""
+def evidence_found(quote: str, corpus_norm: str, need: float = 0.85, cover: float = 0.6) -> bool:
+    """The checker's quote must really be in the source. The quote is cut into clauses (at '...', semicolons, commas,
+    quote marks, sentence ends and joining 'and'/'but'), because checkers often stitch two source sentences together,
+    sometimes out of order. A clause counts as found when at least 85% of its words sit together in one short stretch
+    of the source, so punctuation, quote marks or a dropped word don't matter. Found clauses must make up at least 60%
+    of the quote's words: a sentence assembled from scattered words or invented outright doesn't pass."""
     corpus_norm = re.sub(r"\]\([^)\s]*\)", "]", corpus_norm)        # markdown [text](url) -> [text]
     corpus_norm = re.sub(r"https?://\S+", " ", corpus_norm)
     ctoks = TOKEN_RE.findall(corpus_norm)
-    # checkers often join two source sentences, sometimes out of order, so each sentence is looked up on its own
-    pieces = [TOKEN_RE.findall(norm(p)) for p in re.split(r"\.\.\.|…|;|,\s+(?:and|but|while)\s+|(?<=[.!?])\s+(?=[A-Z\[\"“])", quote)]
+    pieces = [TOKEN_RE.findall(norm(p)) for p in
+              re.split(r"\.\.\.|…|;|,\s+|[\"“”]|\s(?:and|but|while)\s|(?<=[.!?])\s+", quote)]
     pieces = [p for p in pieces if len(p) >= 4] or [TOKEN_RE.findall(norm(quote))]
-    if not pieces or not pieces[0]:
+    total = sum(len(p) for p in pieces)
+    if not total:
         return False
-    for q in pieces:
+
+    def found(q: list[str]) -> bool:
         span = int(len(q) * 1.3) + 2
-        starts = {t for t in q[:3]}
-        ok = False
+        starts = set(q[:3])
         for i, t in enumerate(ctoks):
             if t not in starts:
                 continue
-            window = ctoks[i:i + span]
-            pool = {}
-            for w in window:
+            pool: dict[str, int] = {}
+            for w in ctoks[i:i + span]:
                 pool[w] = pool.get(w, 0) + 1
             hit = 0
             for w in q:
@@ -477,11 +479,10 @@ def evidence_found(quote: str, corpus_norm: str, need: float = 0.85) -> bool:
                     pool[w] -= 1
                     hit += 1
             if hit / len(q) >= need:
-                ok = True
-                break
-        if not ok:
-            return False
-    return True
+                return True
+        return False
+
+    return sum(len(q) for q in pieces if found(q)) / total >= cover
 
 
 def pub_label(src: dict) -> str:
@@ -491,6 +492,21 @@ def pub_label(src: dict) -> str:
     except ValueError:
         return ""
     return f" (published {d.day} {d.strftime('%B %Y')})"
+
+
+def mark_dropped(report: dict, text: str, sources: list[str], problem: str) -> None:
+    """Record a later removal on the sentence's existing log entry, so a removed sentence never also shows as
+    confirmed and the totals still add up (confirmed + re-cited + removed = checked)."""
+    entry = next((e for e in report["entries"] if e["text"] == text and e["status"] in ("ok", "repaired")), None)
+    if entry is None:
+        report["entries"].append({"where": "layer2", "text": text, "sources": sources, "status": "dropped",
+                                  "problems": [problem]})
+        report["checked"] = report.get("checked", 0) + 1
+    else:
+        report[entry["status"]] -= 1
+        entry["status"] = "dropped"
+        entry["problems"] = entry.get("problems", []) + [problem]
+    report["dropped"] += 1
 
 
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
@@ -560,9 +576,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     post["sections"] = [s for s in post["sections"] if sum(len(plain(p).split()) for p in s["paragraphs"]) >= 80]
     post["why_it_matters"] = [{**w, "text": filt(w["text"])} for w in post["why_it_matters"] if filt(w["text"])]
     for s, reason in drop.items():
-        report["entries"].append({"where": "layer2", "text": plain(s), "sources": cites(s), "status": "dropped",
-                                  "problems": [f"model check: {reason}"]})
-        report["dropped"] += 1
+        mark_dropped(report, plain(s), cites(s), f"model check: {reason}")
     report["layer2_done"] = True
     report["layer2_flagged"] = len(drop)
     return post, report

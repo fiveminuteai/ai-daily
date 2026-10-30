@@ -25,7 +25,10 @@ jobs:
     outputs:
       published: ${{ steps.run.outputs.published }}
     steps:
+      # A run that waited in the queue behind another must see that run's post, or it writes a second one.
       - uses: actions/checkout@v7
+        with:
+          ref: main
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
@@ -54,7 +57,23 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content data
           git commit -m "Post for $(TZ=Asia/Kolkata date +%F)"
-          git push
+          # main may have moved during the 10-40 minute run (a manual fix, say): replay on top and retry.
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 10
+          done
+          exit 1
+
+      # The last backup of the day turns a missed day into a red run, so GitHub emails about it.
+      - name: Alert if there is still no post today
+        if: always() && github.event.schedule == '37 3 * * *'
+        run: |
+          git pull -q origin main || true
+          day=$(TZ=Asia/Kolkata date +%F)
+          if [ ! -f "content/posts/$day.json" ]; then
+            echo "::error::No post for $day after all three scheduled tries. See the 'Write today's post' step above."
+            exit 1
+          fi
 
   deploy:
     needs: generate

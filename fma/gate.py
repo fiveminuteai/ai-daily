@@ -7,6 +7,7 @@ from pathlib import Path
 
 from requests.exceptions import Timeout
 
+from .feeds import MOJIBAKE_RE
 from .rank import jaccard, tokens
 from .verify import plain
 from .write import HYPE_WORDS
@@ -113,6 +114,10 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
         fails.append(f"hype words: {hype}")
     if "!" in low:
         fails.append("exclamation mark in body")
+    shown = [post.get("headline", "")] + body_texts(post) + [s.get("title", "") for s in post.get("sources", [])]
+    garbled = [t[:60] for t in shown if MOJIBAKE_RE.search(t or "")]
+    if garbled:
+        fails.append(f"garbled characters: {garbled}")
     cited = {i for t in body_texts(post) for i in re.findall(r"\[(S\d+)\]", t)}
     listed = {s["id"] for s in post.get("sources", [])}
     if cited - listed:

@@ -23,3 +23,14 @@ def test_split_headline():
     assert split_headline("Short one") == ("Short one", "")
     assert split_headline("Anthropic files S-1 revealing $3.1 billion monthly compute spend") == (
         "Anthropic files S-1 revealing $3.1 billion monthly compute spend", "")
+
+
+def test_feed_time_source_day_and_tag_slugs():
+    from fma.site import _utc, local_day
+    from fma.write import normalise_draft
+    assert _utc("2026-10-30T04:30:21+00:00").hour == 4
+    assert (_utc("2026-10-30").hour, _utc("2026-10-30").minute) == (0, 15)
+    assert local_day("2026-10-29T21:40:00+00:00", "Asia/Kolkata") == "2026-10-30"     # 03:10 next day in India
+    assert local_day("2026-10-29T10:00:00+00:00", "Asia/Kolkata") == "2026-10-29"
+    tags = normalise_draft({"tags": ["AI Models", "ai-models", "++", "Open Weight", "Google"]})["tags"]
+    assert tags == ["ai-models", "open-weight", "google"]

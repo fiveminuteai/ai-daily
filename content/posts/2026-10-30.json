@@ -16,7 +16,7 @@
   "what_happened": [
     "Mistral makes its 1‑trillion‑parameter model weights publicly available, enabling self‑hosted, cost‑efficient AI for coding and cyber defense[S1][S2].",
     "Google Gemini now lets all users edit PDFs, Docs, Sheets and more directly inside chat, starting 29 October 2026[S3].",
-    "AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth to reach a trillion‑dollar valuation within a decade[S4]."
+    "AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth on the way to becoming a trillion‑dollar revenue business[S4]."
   ],
   "sections": [
     {
@@ -24,7 +24,7 @@
       "title": "Mistral releases weights for trillion‑parameter model",
       "category": "models",
       "paragraphs": [
-        "The open‑weight release lets businesses and governments download, host, and run the model themselves[S1][S2]. The announcement follows an earlier preview of the model earlier in the month[S2].",
+        "Mistral released Mistral Large 4, a 1‑trillion‑parameter multimodal model, and is making its weights openly available[S2][S1]. The open‑weight release lets businesses and governments download, host, and run the model themselves[S1][S2]. The announcement follows a preview of the model earlier in the month[S2].",
         "The weights are distributed via Hugging Face and an API, and the company emphasizes that the model can be self‑hosted for sovereign AI use[S1][S2].",
         "Open‑weight models let users run AI locally, avoiding reliance on external providers and reducing data‑privacy risks, a concern especially in cybersecurity[S1]. Mistral positions itself against closed‑source competitors such as OpenAI and Anthropic by promoting European‑trained, fully open models that can be customized and audited[S2][S1]."
       ]
@@ -44,7 +44,7 @@
       "title": "AWS aims for trillion‑dollar revenue",
       "category": "products",
       "paragraphs": [
-        "To reach that scale, AWS plans to increase capital spending dramatically in the coming years[S4].",
+        "Amazon CEO Andy Jassy says AWS can be a trillion‑dollar revenue business, and to get there AWS plans to increase capital spending dramatically in the coming years[S4].",
         "Jassy disclosed that Amazon expects 2026 cash capital expenditures of about $220 billion, with most of the spend directed to AWS, and that spending will rise further in 2027[S4]. AWS already reports a $184 billion annualized revenue run‑rate and posted a 39 percent year‑over‑year revenue increase for the quarter, marking six straight quarters of growth[S4]. The CEO forecast another 40 percent revenue rise in both 2027 and 2028, projecting that the business could reach a trillion‑dollar revenue level within five to ten years[S4].",
         "The cloud market is experiencing a surge in AI workloads, prompting providers to expand compute capacity and specialized services[S4]. Investors remain cautious, as after‑hours trading showed a roughly 6 percent share decline following the announcement[S4]."
       ]
@@ -54,7 +54,7 @@
       "title": "Thrive Holdings acquires ADT",
       "category": "products",
       "paragraphs": [
-        "Thrive Holdings is a spin‑out of Josh Kushner’s Thrive Capital and lists OpenAI as a partner and investor[S5]. The acquisition is positioned as the start of a smart‑home security business under Thrive[S5].",
+        "Thrive Holdings has acquired physical security company ADT for $10 per share, or about $7.6 billion in equity, the companies announced on Thursday[S5]. Thrive Holdings is a spin‑out of Josh Kushner’s Thrive Capital and lists OpenAI as a partner and investor[S5]. The acquisition is positioned as the start of a smart‑home security business under Thrive[S5].",
         "The deal was disclosed in a press release that did not specify any immediate AI‑powered product launches, but it did note that ADT will become the foundation of Thrive Holdings’ smart‑home security portfolio[S5]. The move follows a broader industry trend, with Apple, LG, Schneider Electric, and Amazon all adding AI features to home‑security hardware[S5].",
         "Thrive Holdings, which now owns more than 75 companies, aims to revitalize its portfolio using AI, a strategy reflected in its partnership with OpenAI[S5]. The acquisition signals a consolidation of AI expertise and traditional security services at a time when AI‑enhanced home protection is gaining market momentum[S5]."
       ]
@@ -188,13 +188,13 @@
   "model": "groq:openai/gpt-oss-120b",
   "generated_at": "2026-10-30T04:30:21+00:00",
   "verification": {
-    "checked": 63,
-    "ok": 59,
-    "repaired": 1,
+    "checked": 65,
+    "ok": 46,
+    "repaired": 6,
     "dropped": 13,
     "layer1_done": true,
     "layer2_done": true
   },
-  "word_count": 960,
+  "word_count": 1015,
   "reading_minutes": 5
 }

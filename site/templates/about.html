@@ -34,7 +34,7 @@
 
   <h2>Sources</h2>
   <ul class="compact source-cfg">
-    {% for s in sources if s.enabled is not sameas false %}<li><a href="{{ s.url }}" rel="noopener">{{ s.name }}</a></li>{% endfor %}
+    {% for s in sources if s.enabled is not sameas false %}<li><a href="{{ s.home or s.url }}" rel="noopener">{{ s.name }}</a></li>{% endfor %}
   </ul>
   <p class="muted">The list lives in <code>config/sources.yaml</code> in the <a href="{{ site.repo_url }}">source repository</a>.</p>
 </article>

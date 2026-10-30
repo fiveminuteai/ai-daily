@@ -42,8 +42,24 @@ TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
 
 
+MOJIBAKE_RE = re.compile("\u00c2|\u00e2\u20ac|\u00c3[\u0080-\u00bf]")
+
+
+def fix_mojibake(s: str) -> str:
+    """Undo UTF-8 text that was decoded as Windows-1252 somewhere upstream (a curly apostrophe showing as three
+    junk characters, "a-circumflex, euro, trade mark").
+    Text that doesn't round-trip cleanly is left as it is; the gate still refuses it."""
+    if not s or not MOJIBAKE_RE.search(s):
+        return s
+    try:
+        fixed = s.encode("cp1252").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+    return fixed if not MOJIBAKE_RE.search(fixed) else s
+
+
 def strip_html(s: str) -> str:
-    return WS_RE.sub(" ", html.unescape(TAG_RE.sub(" ", s or ""))).strip()
+    return fix_mojibake(WS_RE.sub(" ", html.unescape(TAG_RE.sub(" ", s or ""))).strip())
 
 
 def parse_date(s: str | None) -> datetime | None:

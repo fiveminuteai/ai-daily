@@ -232,7 +232,9 @@ def normalise_draft(d: dict) -> dict:
     out = {
         "headline": tidy_heading(str(d.get("headline") or "")),
         "dek": str(d.get("dek") or "").strip(),
-        "tags": [str(t).strip().lower().replace(" ", "-") for t in as_list(d.get("tags")) if str(t).strip()][:5],
+        # same rule as the tag page URLs; a tag that slugs to nothing would overwrite the Topics index page
+        "tags": list(dict.fromkeys(t for t in (re.sub(r"[^a-z0-9]+", "-", str(t).lower()).strip("-")
+                                               for t in as_list(d.get("tags"))) if t))[:5],
         "what_happened": [str(b).strip() for b in as_list(d.get("what_happened")) if str(b).strip()],
         "sections": [],
         "why_it_matters": [],

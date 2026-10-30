@@ -91,7 +91,10 @@ def test_layer2_flags_drop_sentences(proj, fake_web):
     r = run(proj, fake_web, chain)
     assert r.status == "published"
     assert r.report["layer2_flagged"] == 1
-    assert any(e["where"] == "layer2" for e in r.report["entries"])
+    flagged = [e for e in r.report["entries"] if any(p.startswith("model check:") for p in e["problems"])]
+    assert len(flagged) == 1 and flagged[0]["status"] == "dropped"      # the sentence's own entry, not a duplicate
+    rep = r.report
+    assert rep["ok"] + rep["repaired"] + rep["dropped"] == rep["checked"] == len(rep["entries"])
 
 
 def test_paused_and_no_provider(proj, fake_web):

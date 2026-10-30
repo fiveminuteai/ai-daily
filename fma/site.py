@@ -48,6 +48,20 @@ def render_text(text: str, numbers: dict[str, int], href: str = "") -> Markup:
     return Markup(" ".join(out))
 
 
+def _utc(iso: str) -> datetime:
+    """A post's publish time for the feed: when it was generated, or 00:15 UTC (the daily run) for a bare date."""
+    d = datetime.fromisoformat(iso)
+    return d.astimezone(timezone.utc) if d.tzinfo else d.replace(hour=0, minute=15, tzinfo=timezone.utc)
+
+
+def local_day(iso: str, tz: str) -> str:
+    """The calendar day of a timestamp in the site's timezone (an article from 03:00 India time is that day, not
+    the previous UTC day)."""
+    from zoneinfo import ZoneInfo
+    d = datetime.fromisoformat(iso)
+    return (d.astimezone(ZoneInfo(tz)) if d.tzinfo else d).date().isoformat()
+
+
 def fmt_date(iso: str, style: str = "long") -> str:
     d = datetime.fromisoformat(iso)
     if style == "short":
@@ -114,7 +128,8 @@ def prepare(post: dict, site: dict) -> dict:
         "quote_r": {**quote, "source_n": numbers.get(quote["source"])} if quote else None,
         "timeline_svg": dual(timeline_svg, post.get("timeline", []), site.get("timezone", "Asia/Kolkata"))
         if len(post.get("timeline", [])) >= 2 else None,
-        "sources_r": [{**s, "n": n, "date": fmt_date(s["published"][:10], "short") if s.get("published") else ""}
+        "sources_r": [{**s, "n": n, "date": fmt_date(local_day(s["published"], site.get("timezone", "Asia/Kolkata")), "short")
+                       if s.get("published") else ""}
                       for n, s in enumerate(post["sources"], 1)],
         "url_path": f"posts/{post['slug']}/",
         "dek_plain": re.sub(r"\s*\[S\d+\]", "", post["dek"]),
@@ -237,8 +252,10 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                                                            og_image=f"{base}og/default.png", canonical="", og_type="website"))
     write("feed.xml", env.get_template("feed.xml").render(
         posts=posts[:20], now=format_datetime(datetime.now(timezone.utc)),
-        rfc=lambda iso: format_datetime(datetime.fromisoformat(iso).replace(hour=6, tzinfo=timezone.utc))))
-    urls = ["", "archive/", "tags/", "about/", "search/"] + [p["url_path"] for p in posts] + [f"tags/{tag_slug(t)}/" for t in tags]
+        rfc=lambda iso: format_datetime(_utc(iso))))
+    urls = (["", "archive/", "tags/", "about/", "search/"] + [p["url_path"] for p in posts]
+            + [f"{p['url_path']}verification/" for p in posts if (content_dir / "reports" / f"{p['date']}.json").exists()]
+            + [f"tags/{tag_slug(t)}/" for t in tags])
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "\n".join(f"  <url><loc>{html.escape(origin + base + u)}</loc></url>" for u in urls) + "\n</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {origin}{base}sitemap.xml\n")

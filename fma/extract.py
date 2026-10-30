@@ -7,7 +7,7 @@ import re
 
 from bs4 import BeautifulSoup
 
-from .feeds import Http, strip_html
+from .feeds import Http, fix_mojibake, strip_html
 from .models import Item
 
 log = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def extract_item(item: Item, http: Http) -> str:
     try:
         r = http.get(url)
         if r.status_code == 200 and "html" in r.headers.get("content-type", "html"):
-            text = html_to_text(r.content)
+            text = fix_mojibake(html_to_text(r.content))
             if len(text) > 200:
                 return text
     except Exception as exc:  # noqa: BLE001
