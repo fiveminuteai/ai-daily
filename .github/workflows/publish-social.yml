@@ -1,0 +1,55 @@
+name: Publish social
+
+# Started by the control dashboard (workflow_dispatch) when Pavan approves or skips a social item.
+# STUB: this is a dry run only. It prints what it would post and changes nothing: no posting, no commit.
+# Live posting comes later, with platform keys from GitHub secrets (never from files or the dashboard).
+
+on:
+  workflow_dispatch:
+    inputs:
+      item_id:
+        description: "Queue item, e.g. 2026-10-30-instagram"
+        required: true
+        type: string
+      action:
+        description: "approve or skip"
+        required: true
+        type: choice
+        options: [approve, skip]
+      text:
+        description: "Edited text (optional; empty keeps the queued text)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-social
+  cancel-in-progress: false
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Show what would be posted
+        env:
+          ITEM_ID: ${{ inputs.item_id }}
+          ACTION: ${{ inputs.action }}
+          TEXT: ${{ inputs.text }}
+        run: |
+          if [ -n "$TEXT" ]; then
+            python -m fma.social_queue act "$ITEM_ID" --action "$ACTION" --text "$TEXT" --dry-run
+          else
+            python -m fma.social_queue act "$ITEM_ID" --action "$ACTION" --dry-run
+          fi

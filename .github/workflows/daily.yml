@@ -50,6 +50,12 @@ jobs:
             echo "published=false" >> "$GITHUB_OUTPUT"
           }
 
+      # The day's social approval queue (Instagram, X, LinkedIn texts), shown in the control dashboard.
+      # Building it never blocks the post.
+      - name: Social queue
+        if: steps.run.outputs.published == 'true'
+        run: python -m fma.social_queue build || echo "::warning::Social queue not built"
+
       - name: Commit the post
         if: steps.run.outputs.published == 'true'
         run: |

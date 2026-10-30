@@ -1,0 +1,49 @@
+{
+ "date": "2026-10-30",
+ "slug": "2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+ "headline": "Mistral releases open weights for trillion‑parameter model",
+ "url": "https://fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter/",
+ "generated_at": "2026-10-30T21:40:18+00:00",
+ "items": [
+  {
+   "id": "2026-10-30-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Free: Instagram Content Publishing API (Instagram Login, Meta developer app)",
+   "text": "Mistral releases open weights for trillion-parameter model\n\n• Mistral makes its 1-trillion-parameter model weights publicly available, enabling self-hosted, cost-efficient AI for coding and cyber defense.\n• Google Gemini now lets all users edit PDFs, Docs, Sheets and more directly inside chat, starting 29 October 2026.\n• AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth on the way to becoming a trillion-dollar revenue business.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-10-30/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-10-30-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Mistral releases open weights for trillion-parameter model\n\n• Mistral makes its 1-trillion-parameter model weights publicly available, enabling self-hosted, cost-efficient AI for coding and cyber defense.\n\nhttps://fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 229
+  },
+  {
+   "id": "2026-10-30-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Mistral releases open weights for trillion-parameter model\n\n• Mistral makes its 1-trillion-parameter model weights publicly available, enabling self-hosted, cost-efficient AI for coding and cyber defense.\n• Google Gemini now lets all users edit PDFs, Docs, Sheets and more directly inside chat, starting 29 October 2026.\n• AWS plans $220 billion capex in 2026 and targets 40 percent annual revenue growth on the way to becoming a trillion-dollar revenue business.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  }
+ ]
+}
