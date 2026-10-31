@@ -1,12 +1,16 @@
 {
  "date": "2026-10-31",
- "collected_at": "2026-10-31T14:19:34+00:00",
+ "collected_at": "2026-10-31T14:25:42+00:00",
  "website": {
   "status": "off",
   "note": "set GOATCOUNTER_TOKEN"
  },
  "instagram": {
-  "status": "error",
-  "error": "HTTP 400"
+  "status": "ok",
+  "username": "fiveminute_ai",
+  "followers": 0,
+  "media_count": 0,
+  "day_error": "HTTP 400 (Meta error 10)",
+  "posts": []
  }
 }
