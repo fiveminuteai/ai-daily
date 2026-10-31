@@ -666,6 +666,46 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
   .ib { width: 36px; height: 36px; }
 }
 
+/* ---------- story Reels ---------- */
+.reels-card { margin-bottom: var(--s5); }
+.reels-card .card-head { align-items: flex-start; }
+.reels-card .card-head p { margin: 4px 0 0; }
+.not-incl { display: flex; gap: 8px; align-items: flex-start; margin: 0 0 var(--s4); padding: 10px 12px; border-radius: 10px;
+  background: color-mix(in srgb, var(--warn) 7%, transparent); border: 1px solid color-mix(in srgb, var(--warn) 30%, var(--line));
+  font-size: 13.5px; color: var(--ink-2); }
+.not-incl svg { width: 16px; height: 16px; flex: none; margin-top: 2px; fill: none; stroke: var(--warn); stroke-width: 2; }
+.not-incl b { color: var(--ink); }
+.reel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s4); align-items: start; }
+.reelcard { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.reelcard.is-skipped { opacity: .6; }
+.reelcard.is-posted { border-color: color-mix(in srgb, var(--ok) 40%, var(--line)); }
+.reelcard.is-failed { border-color: color-mix(in srgb, var(--bad) 50%, var(--line)); }
+.reel-video { background: #000; display: flex; justify-content: center; }
+.reel-video video { width: 100%; max-height: 420px; aspect-ratio: 9 / 16; object-fit: contain; display: block; background: #000; }
+.reel-body { padding: var(--s4); display: flex; flex-direction: column; gap: 10px; }
+.rnum { font: 700 14px/1 var(--display); }
+.reel-body .status-tag { margin-left: auto; }
+.rhook { margin: 0; font-size: 14.5px; line-height: 1.45; color: var(--ink); font-weight: 600; }
+.stline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 0; font-size: 13px; color: var(--ink-2); }
+.stline a { display: inline-flex; align-items: center; gap: 5px; color: var(--ok); font-weight: 650; text-decoration: none; }
+.stline a:hover { text-decoration: underline; }
+.stline a svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+.stline.bad { color: var(--bad); }
+.stline.bad svg { width: 15px; height: 15px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; }
+.cap summary { cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 600; }
+.cap .preview { margin-top: 8px; max-height: 220px; }
+.reel-body .actions .btn { flex: 1 1 auto; }
+#confirm-body { display: flex; flex-direction: column; gap: 12px; }
+.dlg-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--ink); }
+.dlg-list .muted { font-size: 13px; }
+
+@media (max-width: 1180px) and (min-width: 761px) { .reel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .reel-grid { grid-template-columns: minmax(0, 1fr); }
+  .reel-video video { max-height: 520px; }
+  .reels-card .card-head .btn { width: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

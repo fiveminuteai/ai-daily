@@ -14,7 +14,7 @@ import { buildDay, buildHistory, dayRange, parseLog, todayIst } from "./parse.js
 
 const WORKFLOWS = { daily: "daily.yml", deploy: "deploy.yml", social: "publish-social.yml" };
 const DATE_RE = /^\d{4}-\d\d-\d\d$/;
-const ITEM_RE = /^\d{4}-\d\d-\d\d-(instagram|x|linkedin)$/;
+const ITEM_RE = /^\d{4}-\d\d-\d\d-(instagram|x|linkedin|reel-[1-9]\d?)$/;
 
 // desktop: {handle(key, body, query)} from desktop/local-api.mjs: mail, accounts, roadmap, credentials. Only the
 // desktop app passes it, and only with LOCAL_DEV (127.0.0.1); on Cloudflare every /api/local/* route is a 404.
@@ -55,6 +55,7 @@ export async function handle(request, env = {}, { fetchImpl, local, desktop } = 
     if (key === "POST control/rerun") return json(await dispatch(ctx, WORKFLOWS.daily, {}, "Rerun today's daily post"));
     if (key === "POST control/redeploy") return json(await dispatch(ctx, WORKFLOWS.deploy, {}, "Retry the site deploy"));
     if (key === "POST social/action") return json(await socialAction(ctx, await body(request)));
+    if (key === "POST social/approve-reels") return json(await approveReels(ctx, await body(request)));
     if (key === "POST stats/manual") return json(await manualStats(ctx, await body(request)));
     if (key === "POST social/schedule") return json(await schedule(ctx, await body(request)));
     return json({ error: "not_found" }, 404);
@@ -241,6 +242,25 @@ async function socialAction(ctx, { item_id, action, text }) {
   return dispatch(ctx, WORKFLOWS.social, inputs, what);
 }
 
+/**
+ * Approve every pending story Reel of one day: one publish-social dispatch per Reel, the same request the single
+ * Approve button sends. The workflow posts a Reel at its scheduled_at (post-scheduled.yml), or at once if that time
+ * has passed. It reads the queue first, so only what is pending right now gets approved.
+ */
+async function approveReels(ctx, { date }) {
+  if (!DATE_RE.test(date || "")) throw new BadInput("date must be YYYY-MM-DD");
+  if (!ctx.gh) throw new BadInput("No GITHUB_TOKEN set.");
+  const queue = await ctx.gh.json(`data/social/${date}.json`);
+  const pending = (queue?.items || []).filter((i) => i.platform === "instagram_reel" && i.status === "pending" && ITEM_RE.test(i.id));
+  if (!pending.length) throw new BadInput(`no pending Reels for ${date}`);
+  const results = [];
+  for (const i of pending) {                    // one at a time; the workflow's concurrency group queues them anyway
+    results.push(await dispatch(ctx, WORKFLOWS.social, { item_id: i.id, action: "approve" }, `Approve ${i.id}`));
+  }
+  return { dryRun: ctx.dryRun, done: !ctx.dryRun, what: `Approve ${pending.length} Reel${pending.length > 1 ? "s" : ""} for ${date}`,
+           items: pending.map((i) => i.id), requests: results.map((r) => r.request), request: results[0].request };
+}
+
 // ---------- stats ----------
 
 const MANUAL = "data/stats/manual.json";
@@ -298,14 +318,17 @@ export function parseShareMedia(html, date) {
   const slides = [...new Set([...String(html).matchAll(/src="[^"]*?\/share\/\d{4}-\d\d-\d\d\/carousel\/(\d{2}\.jpg)"/g)].map((m) => m[1]))]
     .sort().map((f) => `${base}carousel/${f}`);
   const reel = /\/share\/\d{4}-\d\d-\d\d\/reel\.mp4/.test(html) ? `${base}reel.mp4` : null;
+  // story Reels (one per story with a fact-checked card): share/<date>/reels/01.mp4, 02.mp4, ...
+  const reels = [...new Set([...String(html).matchAll(/src="[^"]*?\/share\/\d{4}-\d\d-\d\d\/reels\/(\d{2}\.mp4)"/g)].map((m) => m[1]))]
+    .sort().map((f) => `${base}reels/${f}`);
   const card = /instagram\.png/.test(html) ? `${base}instagram.png` : null;
-  return { date, slides, reel, card, page: base, zip: /carousel\.zip/.test(html) ? `${base}carousel.zip` : null };
+  return { date, slides, reel, reels, card, page: base, zip: /carousel\.zip/.test(html) ? `${base}carousel.zip` : null };
 }
 
 async function media({ fetchImpl = globalThis.fetch.bind(globalThis) }, date) {
   if (!DATE_RE.test(date || "")) throw new BadInput("date must be YYYY-MM-DD");
   const res = await fetchImpl(`${SITE}share/${date}/`, { headers: { "User-Agent": "fiveminuteai-dashboard" } });
-  if (res.status === 404) return { date, slides: [], reel: null, card: null, page: null, zip: null };
+  if (res.status === 404) return { date, slides: [], reel: null, reels: [], card: null, page: null, zip: null };
   if (!res.ok) throw Object.assign(new Error(), { userMessage: `The share page answered ${res.status}.`, status: 502 });
   return parseShareMedia(await res.text(), date);
 }
