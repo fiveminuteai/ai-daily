@@ -1,0 +1,620 @@
+{
+  "checked": 61,
+  "ok": 48,
+  "repaired": 2,
+  "dropped": 11,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic’s Claude VS Code extension compromised, installing SSH backdoor on thousands of developers’ machines",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "Blue marble below",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "A malicious version of Anthropic’s Claude code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "A backdoored Claude VS Code extension (versions 2.1.312‑313) silently installed a persistent SSH key on up to 5,000 developer machines.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '313' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Google’s Suncatcher satellite, equipped with four TPUs and Gemma 4, generated its first AI haiku from orbit, confirming functional AI hardware in space.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Cisco gave a 27‑year‑old engineer unlimited AI tokens to refactor most of its legacy code within two years.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "The DOJ charged five fraudsters and seized $750,000 after AI‑driven ghost student schemes created over 830,000 fake aid accounts.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source confirms the five charges but does not state a $750,000 seizure together with the creation of over 830,000 fake aid accounts in the same sentence; the claim combines multiple facts not all supported by a single source statement."
+      ]
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "An Accenture contractor linked Anthropic’s Claude Code to a DoD system, leaking CUI to a risky third‑party site.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The malicious bundle installed a persistent SSH backdoor on Windows, macOS and Linux systems.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic has not publicly warned customers, and Cursor removed the affected versions after the discovery.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The backdoored extension, version 2.1.313, was posted to Anthropic’s official Cursor account, superseding version 2.1.312, and auto‑updates enabled it to reach users quickly.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Phorion’s analysis shows the code attempts to add an attacker‑controlled SSH key to authorized_keys, enable the local SSH service, and create a reverse tunnel, persisting via LaunchAgent on macOS or a scheduled task on Windows.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The implant also harvests host details such as hostname, OS, architecture, home directory, environment variables, Git email and public IP before attempting persistence.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms data collection but does not state it occurs before persistence, so claim not fully supported."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Supply‑chain attacks target the distribution channel of software, allowing malicious code to reach many users without direct phishing.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "VS Code extensions run with the permissions of the IDE, so a compromised extension can access local files and developer tooling.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Security researchers recommend reviewing any use of Claude code extensions version 2.1.312 or 2.1.313 and applying incident response measures promptly.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Claude code extension backdoor on cursor marketplace",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google’s Project Suncatcher placed a prototype data‑center satellite in orbit earlier this month, carrying four Tensor Processing Units (TPUs) and the Gemma 4 model from DeepMind.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Engineers on the ground sent a prompt and the on‑board model generated a haiku, marking the first AI response transmitted from space.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The satellite is now operating nominally and reporting orbital conditions back to Earth.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The Suncatcher satellite can generate up to 1 kW of electricity, but each TPU can run for only about 20 minutes before power limits require it to be turned off.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The three‑week commissioning phase verified subsystem performance before the first prompt was sent this week.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google plans to test TPU resilience to thermal stress and radiation, noting that ground tests predicted minimal impact on inference workloads but greater risk for training tasks.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "If successful, two additional satellites with higher power generation and inter‑satellite optical links are slated for launch in 2027.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Running AI workloads in orbit could enable low‑latency processing for satellite constellations and reduce the need to downlink raw data to Earth.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions inference workloads in orbit but does not state low‑latency processing or reduced downlink of raw data."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Traditional data centres are ground‑based; placing compute in space introduces challenges such as radiation‑induced bit flips that can corrupt memory without triggering alerts.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes radiation‑induced bit flips but does not mention that traditional data centres are ground‑based, so claim is only partially supported."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google’s extensive Earth‑based TPU testing in particle accelerators provides a baseline, but real‑world space conditions are needed to validate hardware reliability.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google launches first AI satellite data centre",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Cisco president and chief product officer Jeetu Patel assigned a 27‑year‑old engineer, Padmanabhan Krishnamurthy, to refactor the company’s legacy code base in early 2026.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms assignment but does not specify \"early 2026\"."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Patel gave Krishnamurthy unlimited AI tokens to accelerate the effort and set a four‑week trial period to demonstrate progress.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The goal is to refactor 98 % of Cisco’s legacy code within the next 24 months.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Krishnamurthy joined Cisco in 2025 after the $429 billion tech giant acquired his real‑time translation startup EzDubs, which he co‑founded in 2023.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Patel described the token grant as “unlimited” and encouraged Krishnamurthy to “go nuts” with AI‑assisted code rewriting.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The initiative is framed as a response to a broader trend where 40 % of managers plan to hire fewer recent graduates because AI can perform many entry‑level tasks more cheaply.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Patel also emphasized the need for generational tension, saying it can spark fresh ideas and challenge the status quo.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Legacy code—old software that is costly to maintain—poses a major risk for large tech firms like Cisco, which relies on it for network infrastructure.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source mentions Cisco’s legacy code but does not describe it as a major risk or as costly to maintain; the claim adds unsupported risk language."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Using generative AI to rewrite such code can reduce technical debt and speed up innovation, but it also raises questions about workforce composition and the role of early‑career talent.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source notes AI is used to rewrite code and discusses workforce composition, but it does not state that this reduces technical debt or speeds innovation, so the claim is not fully supported."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Patel’s experiment reflects a growing corporate interest in leveraging AI to empower younger engineers while reshaping traditional seniority hierarchies.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Department of Justice announced on 30 October 2026 that it had charged five individuals in the first large‑scale federal action against “ghost students” who use AI to steal student loans.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The scheme involved fraudsters posing as fake college attendees to obtain federal aid and then diverting the funds.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The DOJ also seized more than $750,000 in cryptocurrency linked to a network tied to Kenyan nationals.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Bad actors bought personally identifiable information of U.S. citizens, often targeting high‑school graduates who never enrolled in college, and used that data to complete FAFSA applications with AI assistance.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The AI filled out forms, generated coursework, and simulated virtual classroom attendance to keep the fake students enrolled semester after semester.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Department of Education reported over 830,000 potentially fraudulent aid accounts created using stolen PII, and dozens of American bank accounts were used as money‑mules for the proceeds.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Student loan fraud has long exploited gaps in identity verification, but the integration of AI tools has amplified the scale and speed of deception.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The DOJ credited new fraud‑detection measures introduced by the Trump administration for enabling the investigation and seizure in Kenya, marking the first international crypto seizure of this kind.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Officials warned that the crackdown is only beginning, emphasizing that perpetrators in any location will be pursued.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "US crackdown on AI‑enabled ghost student loan fraud",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Earlier this year a contractor connected Anthropic’s Claude Code, an AI coding agent, to a secure Department of Defense system used by multiple intelligence agencies.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The contractor works for the global consulting firm Accenture and used a personal account to access the system.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The incident exposed login credentials and other controlled unclassified information to a high‑risk third‑party website.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Claude Code is Anthropic’s AI agent designed to write and debug code for developers.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions writing and deploying code but does not state that Claude Code is designed to debug code; the claim adds an unsupported detail."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The contractor’s personal account allowed the agent to retrieve data from the centralized DoD system, which stores controlled unclassified information such as critical infrastructure details and nuclear submarine propulsion data.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The agent then transmitted that data, including login credentials, to an external site flagged as high risk by security experts.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Controlled unclassified information (CUI) is sensitive data that must not be publicly released without review, and it can include details about critical infrastructure and weapons systems.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Connecting an external AI agent to such a system bypasses traditional security controls, creating a vector for data exfiltration.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This incident highlights the challenges of integrating commercial AI tools into highly secure government environments.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic’s Claude Code linked to Pentagon system",
+      "sources": [
+        "S8",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Developers who installed or auto‑updated the compromised extension may now have unauthorized SSH access to their machines, exposing source code, credentials and internal networks; companies using the extension must urgently audit systems and apply incident response measures to prevent data breaches.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "The incident illustrates how supply‑chain attacks on IDE extensions can bypass traditional phishing defenses, prompting organizations to tighten extension vetting and monitor for unexpected network activity, thereby strengthening overall software development security posture.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source evidence that the incident bypasses phishing defenses or that organizations are prompted to tighten vetting and monitoring; claim not supported."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 9,
+  "unused": 1,
+  "date": "2026-10-31",
+  "slug": "2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
+  "model": "groq:openai/gpt-oss-120b"
+}
