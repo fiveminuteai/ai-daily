@@ -147,6 +147,30 @@ def number_ok(num: str, pct: str, mult: str, text_norm: str) -> bool:
     return False
 
 
+CEILING_RE = re.compile(r"\b(?:up to|at most|as many as|as much as|no more than)\s+[$€£₹]?(\d[\d,]*(?:\.\d+)?)"
+                        r"(?:\s*(thousand|million|billion))?", re.I)
+HEDGE_RE = re.compile(r"\b(?:up to|at most|as many as|as much as|no more than|potentially|could|may|might|exposed|"
+                      r"at risk|threatened|threatening|risk)\b", re.I)
+SCALE_WORDS = {"hundreds": 100, "thousands": 1_000, "millions": 1_000_000, "billions": 1_000_000_000}
+
+
+def ceiling_dropped(claim: str, source_raw: str) -> str:
+    """'At most 5,000 users' in the source must not become 'thousands of users hit' in a headline: a stated
+    limit turned into a stated fact is the most common way a true story gets an untrue headline.
+    Returns the problem, or '' when the claim keeps a hedge or doesn't use the capped number."""
+    if HEDGE_RE.search(claim):
+        return ""
+    claim_nums = {float(n) * {"": 1, "thousand": 1e3, "million": 1e6, "billion": 1e9}.get(m, 1)
+                  for n, _, m in numbers_in(claim)}
+    scales = [v for w, v in SCALE_WORDS.items() if re.search(rf"\b{w}\b", claim, re.I)]
+    for m in CEILING_RE.finditer(source_raw):
+        value = float(m.group(1).replace(",", "")) * {"thousand": 1e3, "million": 1e6, "billion": 1e9}.get(
+            (m.group(2) or "").lower(), 1)
+        if value in claim_nums or any(s <= value < s * 1000 for s in scales):
+            return f"source gives '{m.group(0)}' as a limit; the claim states it as fact"
+    return ""
+
+
 def names_in(sentence_plain: str) -> list[tuple[str, bool]]:
     """Proper-name-like words: capitalised, camel-cased or alphanumeric. Returns (word, is_sentence_start)."""
     out = []
@@ -560,7 +584,12 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         first = next((cites(p) for s in post["sections"] for p in s["paragraphs"] if cites(p)), [])
         lead = by_id.get(first[0], {}).get("story") if first else None
         lead_ids = [i for i, src in by_id.items() if first and src.get("story") == lead]
-        if lead_ids:
+        lead_raw = " ".join(f"{by_id[i].get('title', '')}. {by_id[i].get('text', '')}" for i in lead_ids)
+        if lead_ids and (capped := ceiling_dropped(post["headline"], lead_raw)):
+            # plain code, not the model: the checker model let "at most 5,000" become "thousands hit" (31 Oct 2026)
+            report.setdefault("headline_problems", []).append(capped)
+            mark_dropped(report, post["headline"], lead_ids, capped)
+        elif lead_ids:
             sentences.append((f"C{len(sentences) + 1}", post["headline"] + "".join(f"[{i}]" for i in lead_ids),
                               "headline"))
     kind_of = {k: kind for k, _, kind in sentences}
@@ -599,7 +628,10 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 "the same thing. A claim is NOT supported if the evidence is about a different product, version, person, "
                 "result or event than the claim says (for example the source's maths result described as the physics "
                 "result, or a version 1 date or feature given to version 2), if a number, name or date differs, if it "
-                "presents an older event as new, or if no evidence exists. Paraphrase is fine.\n"
+                "presents an older event as new, or if no evidence exists. It is also NOT supported if it is more "
+                "certain or bigger than the evidence: a ceiling ('up to', 'at most', 'as many as') stated as a count "
+                "that happened, an attempt or design ('tried to', 'could', 'is designed to') stated as done, or "
+                "exposure ('at risk', 'threatened') stated as harm done. Paraphrase is fine.\n"
                 f"{extra}"
                 "Reply as {\"checks\": [{\"id\": \"C1\", \"evidence\": \"exact words from the source\", "
                 "\"supported\": true, \"reason\": \"short reason\"}]} with one entry per claim.\n\n"

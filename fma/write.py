@@ -20,6 +20,9 @@ RULES = """Rules, all mandatory:
 1. Every sentence ends with one or more citations like [S2] or [S1][S4], pointing to the sources that support it.
 2. Use only facts found in the source text below. Copy every number, date, product name, model name, company
    name and person's name exactly as the source writes it. If you are not sure, leave it out.
+   Keep the source's limits and certainty: "up to" or "at most 5,000" stays a ceiling, never "thousands did";
+   "could", "tried to" or "is designed to" never becomes "did"; "exposed" or "at risk" never becomes "infected".
+   This applies to the headline most of all.
 3. Summarise in your own words. At most ONE direct quotation in the whole post, under 15 words, copied exactly,
    and put it in the "quote" field, not in the body.
 4. Plain, calm, human voice. Short sentences (aim for under 22 words). Explain any jargon in a few words.

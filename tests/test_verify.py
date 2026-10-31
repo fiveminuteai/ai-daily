@@ -279,3 +279,42 @@ def test_verified_but_unused_sentences_are_not_confirmed():
     for e in report["entries"]:                                 # everything still "ok" really is in the post
         if e["status"] == "ok" and e["where"] not in ("chart", "diagram"):
             assert e["text"].rstrip(".") in json.dumps(out, ensure_ascii=False).replace("\\", ""), e["text"]
+
+
+# ---------------------------------------------------------------- a limit in the source stays a limit
+
+ARS_31_OCT = ("An official extension for Anthropic's Claude model was backdoored and threatened as many as 5,000 "
+              "developers' machines, multiple sources reported Friday. The malicious version, 2.1.313, subsequently "
+              "affected \"at most 5,000 users,\" presumably when they either downloaded it or their systems "
+              "automatically fetched and installed it.")
+
+
+def test_a_ceiling_stated_as_fact_is_caught():
+    from fma.verify import ceiling_dropped
+    # the real 31 Oct 2026 headline and the Ars Technica text it was checked against
+    assert ceiling_dropped("Anthropic's Claude VS Code extension compromised, installing SSH backdoor on thousands "
+                           "of developers' machines", ARS_31_OCT)
+    assert ceiling_dropped("Backdoored Claude extension hit 5,000 developers", ARS_31_OCT)
+
+
+def test_a_claim_that_keeps_the_limit_passes():
+    from fma.verify import ceiling_dropped
+    assert not ceiling_dropped("Claude extension on Cursor backdoored, exposing up to 5,000 developers", ARS_31_OCT)
+    assert not ceiling_dropped("Backdoored Claude extension put thousands of developers at risk", ARS_31_OCT)
+    assert not ceiling_dropped("Claude extension on Cursor backdoored for nearly 12 hours", ARS_31_OCT)
+    assert not ceiling_dropped("Acme hires 40 engineers", "Acme will spend up to $5 billion.")
+
+
+def test_ceiling_headline_fails_the_gate_without_asking_the_model():
+    from conftest import FakeChain
+
+    from fma.verify import llm_check
+    d = good_draft()
+    capped = [dict(s, text=s["text"] + " The deal could reach up to 900 customers.") if s["id"] == "S1" else s
+              for s in SOURCES]
+    d["headline"] = "Acme ships Nova-2 to 900 customers"
+    post, report = verify_draft(d, capped)
+    chain = FakeChain([])
+    _, report = llm_check(chain, post, capped, report)
+    assert any("as a limit" in p for p in report["headline_problems"])
+    assert not any("[headline]" in p for p in chain.prompts)
