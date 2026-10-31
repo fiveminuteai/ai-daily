@@ -20,12 +20,16 @@ from PIL import Image, ImageDraw
 from .carousel import CAT_NAMES, THEMES, key_figure, mark, marker_underline, publishers, short_figure, wrap
 from .music import BAR, BEAT, write_wav
 from .reel import FPS, H, M, W, _count, background, ease
+from . import sketch
 from .social import plain
 from .visuals import _font
 
 TEXT_W = W - 2 * M - 60            # keep clear of Instagram's like/comment/share column
 EMPH_RE = re.compile(r"\d")      # numbers and money get the topic colour; highlighting words like "AI" reads random
-MID_TOP, MID_BOTTOM = 470, 1330    # text is centred in this band, clear of the header and the source line
+MID_TOP, MID_BOTTOM = 570, 930     # text is centred in this band; the doodle sits below it
+DOODLE = 420                       # doodle box size; centred in the text column between the text and the source line
+DOODLE_Y = 955
+SOURCE_Y = 1405
 
 
 def card_stories(post: dict, limit: int = 3) -> list[tuple[int, dict]]:
@@ -49,7 +53,16 @@ class Block:
                 self.items.append((word, xx, yy))
                 xx += d.textlength(word + " ", font=font)
             yy += int(size * lead)
-        self.font, self.bottom, self.last_w = font, yy, (xx - x) if self.items else 0
+        self.font, self.size, self.bottom, self.last_w = font, size, yy, (xx - x) if self.items else 0
+
+    def first_emph(self, d):
+        """Box of the first number word, for the hand-drawn ring, with the time index of that word."""
+        for k, (word, x, y) in enumerate(self.items):
+            core = word.strip(".,;:!?()\"'’“”")
+            if EMPH_RE.search(core):
+                w = d.textlength(core, font=self.font)
+                return k, (x, y + self.size * 0.12, x + w, y + self.size * 0.98)
+        return None
 
     def draw(self, ld, t, start, per_word, ink, emph):
         for k, (word, x, y) in enumerate(self.items):
@@ -82,20 +95,32 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
 
     hook = plain(card["hook"])
     fig = short_figure(key_figure(hook))
-    hf, hs, hl = _fit(probe, hook, "serif", 120, 72, 5)
+    hf, hs, hl = _fit(probe, hook, "serif", 112, 70, 4)
     hook_b = Block(probe, hook, hf, hs, M, None, TEXT_W)
     if fig:                                        # the counting figure sits above the hook; centre the pair
         shift = 120
         hook_b = Block(probe, hook, hf, hs, M, hook_b.top + shift, TEXT_W)
     points = []
     for p in card["points"]:
-        pf, ps, _ = _fit(probe, plain(p), "serif", 96, 60, 6)
+        pf, ps, _ = _fit(probe, plain(p), "serif", 90, 60, 5)
         points.append(Block(probe, plain(p), pf, ps, M, None, TEXT_W))
     take = plain(card["take"]) if card.get("take") else ""
     take_b = None
     if take:
-        tf, ts, _ = _fit(probe, take, "serif", 92, 60, 6)
+        tf, ts, _ = _fit(probe, take, "serif", 88, 60, 5)
         take_b = Block(probe, take, tf, ts, M, None, TEXT_W)
+
+    # one doodle per scene, chosen from that line's words, never the same one twice in a Reel
+    used: set[str] = set()
+    doodles = []
+    for text in [hook, *[plain(x) for x in card["points"]], take]:
+        name = sketch.pick(text, used) if text else "spark"
+        used.add(name)
+        doodles.append(name)
+    dbox = (M + (TEXT_W - DOODLE) / 2, DOODLE_Y, DOODLE)
+    ink = T["ink"] + (235,)
+    wash = c + (120 if theme == "night" else 80,)         # strong enough on navy to read as colour, not mud          # the colour patch behind each doodle
+    rings = {"hook": hook_b.first_emph(probe), **{f"p{k}": b.first_emph(probe) for k, b in enumerate(points)}}
 
     scenes = [(0, 2 * BAR, "hook", None)]
     t = 2 * BAR
@@ -126,7 +151,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.rounded_rectangle([W - M - lw - 120, 334, W - M - 60, 392], radius=29, fill=c + (int(255 * a),))
             ld.text((W - M - lw - 92, 344), label, font=lf, fill=T["bg"] + (int(255 * a),))
             if source:
-                ld.text((M, 1400), f"Source: {source}", font=_font("sans", 34), fill=T["muted"] + (int(255 * a),))
+                ld.text((M, SOURCE_Y), f"Source: {source}", font=_font("sans", 34), fill=T["muted"] + (int(255 * a),))
             # progress: a thin topic-coloured bar under the header, so viewers see how long is left
             end_t = scenes[-1][0]
             ld.rounded_rectangle([M, 420, W - M - 60, 426], radius=3, fill=T["line"] + (int(160 * a),))
@@ -138,6 +163,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
                 if pf > 0:
                     ld.text((M - 6, hook_b.top - 250), _count(fig, pf), font=_font("serif", 200), fill=c + (255,))
             per = min(0.08, BAR * 0.45 / max(1, len(hook_b.items)))
+            sketch.blob(ld, dbox, lt + 0.2, wash, seed=n)
+            sketch.draw(ld, doodles[0], dbox, lt + 0.3, ink, c + (255,), seed=n)
+            if rings["hook"]:
+                k, bb = rings["hook"]
+                sketch.ring(ld, bb, lt - per * k - 0.5, c + (255,), seed=n)
             hook_b.draw(ld, lt + 0.22, 0.0, per, T["ink"], c)        # the first word is already in place at frame one
             pu = ease((lt - per * len(hook_b.items)) / 0.35)
             if pu > 0:
@@ -149,6 +179,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.text((M, b.top - 90 - (1 - p0) * 30), f"{k + 1} / {len(points)}", font=_font("sans_bold", 44),
                     fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
+            sketch.blob(ld, dbox, lt - 0.05, wash, seed=n * 10 + k)
+            sketch.draw(ld, doodles[1 + k], dbox, lt - 0.15, ink, c + (255,), seed=n * 10 + k)
+            if rings[f"p{k}"]:
+                kk, bb = rings[f"p{k}"]
+                sketch.ring(ld, bb, lt - per * kk - 0.45, c + (255,), seed=n * 10 + k)
             b.draw(ld, lt, 0.04, per, T["ink"], c)
 
         elif kind == "take":
@@ -160,6 +195,8 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.rounded_rectangle([M, ty, M + tw + 56, ty + 68], radius=34, outline=c + (int(255 * p0),), width=4)
             ld.text((M + 28, ty + 12), tag, font=tf, fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(take_b.items)))
+            sketch.blob(ld, dbox, lt - 0.05, wash, seed=n * 10 + 9)
+            sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, c + (255,), seed=n * 10 + 9)
             take_b.draw(ld, lt, 0.06, per, T["ink"], c)
 
         else:
