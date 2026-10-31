@@ -25,6 +25,8 @@ RULES = """Rules, all mandatory:
    This applies to the headline most of all.
 3. Summarise in your own words. At most ONE direct quotation in the whole post, under 15 words, copied exactly,
    and put it in the "quote" field, not in the body.
+   The quote's speaker is whoever said or wrote those words in the source. Words written by an AI model (a poem,
+   a reply, a haiku) are credited to that model, never to a company or its spokesperson.
 4. Plain, calm, human voice. Short sentences (aim for under 22 words). Explain any jargon in a few words.
    No hype, no clickbait, no exclamation marks, no rhetorical questions. Never use these words: {hype}.
 5. Facts go in the sections. Opinions or predictions go only in "why_it_matters" items marked "speculative": true.
@@ -32,7 +34,9 @@ RULES = """Rules, all mandatory:
    each under 30 words. "why_it_matters" is 2 or 3 items of 30 to 60 words. The whole post must land between
    950 and 1100 words. Count carefully: too short is a failure.
 7. Headline: specific and plain, under 80 characters, sentence case (only names capitalised), no colon-bait,
-   no question. Section titles are sentence case too.
+   no question. Section titles are sentence case too, and keep the facts' size: a test, prototype or first
+   step is never "launches"; one case is never a trend. Product and company names keep the sources' capitals
+   (Claude Code, Cursor, GitHub) even in sentence case.
    The publisher of a source is not always the maker of the thing: say who made or announced it as the source says.
    The date in each source header is when that page was published, not when the event happened: only state a date
    if the article text itself gives it. Background and context must also come from the sources.

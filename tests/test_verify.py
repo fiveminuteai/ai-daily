@@ -318,3 +318,39 @@ def test_ceiling_headline_fails_the_gate_without_asking_the_model():
     _, report = llm_check(chain, post, capped, report)
     assert any("as a limit" in p for p in report["headline_problems"])
     assert not any("[headline]" in p for p in chain.prompts)
+
+
+# ---------------------------------------------------------------- titles, quote speakers and brand capitals (31 Oct)
+
+def test_overstated_section_title_is_replaced_with_the_source_title():
+    from conftest import FakeChain
+    d = good_draft()
+    d["sections"][0]["title"] = "Acme launches the first Nova-2 network"
+    post, report = verify_draft(d, SOURCES)
+    from fma.verify import llm_check
+    chain = FakeChain([], flag_text={"[title] Acme launches": "a test called a launch"})
+    post, report = llm_check(chain, post, SOURCES, report)
+    assert post["sections"][0]["title"] == "Acme releases Nova-2"
+    e = next(e for e in report["entries"] if e["text"].startswith("Acme launches"))
+    assert e["status"] == "dropped" and "model check: a test called a launch" in e["problems"]
+    assert report["ok"] + report["repaired"] + report["dropped"] == report["checked"]
+
+
+def test_quote_credited_to_the_wrong_speaker_is_dropped():
+    from conftest import FakeChain
+    chain = FakeChain([], flag_text={"[quote]": "the source says the model wrote these words"})
+    post, report = _checked(chain)
+    assert any("said or wrote:" in p and "credited to a company" in p for p in chain.prompts)
+    assert post["quote"] is None
+    e = next(e for e in report["entries"] if e["where"] == "quote")
+    assert e["status"] == "dropped" and "speaker" in e["problems"][-1]
+
+
+def test_brand_names_get_the_sources_capitals_back():
+    from fma.verify import SourceCasing
+    c = SourceCasing(["Users of Claude Code on the Cursor marketplace were hit. Claude Code is an agent; the Cursor "
+                      "team said source code was safe. Read the code again, said a Cursor engineer."])
+    assert c.restore("Claude code extension backdoor on cursor marketplace") == \
+        "Claude Code extension backdoor on Cursor marketplace"
+    assert c.restore("They rewrote legacy code") == "They rewrote legacy code"     # 'code' is also an ordinary word
+    assert c.restore("cursor first") == "cursor first"                            # a sentence start is left alone

@@ -305,8 +305,11 @@ def slide_story(post, item, n, total, theme):
         y += 34
         marker_underline(d, M, M + 150, y, c, seed=n, width=10)
         y += 50
-        d.text((M, y), f"\u2014 {plain(q['speaker'])}", font=_font("sans_bold", 38), fill=T["ink2"])
-        y += 80
+        sf, ss, sl = fit(d, f"\u2014 {plain(q['speaker'])}", "sans_bold", (38, 34, 30), W - 2 * M, 2)   # long credits wrap
+        for ln in sl:
+            d.text((M, y), ln, font=sf, fill=T["ink2"])
+            y += int(ss * 1.3)
+        y += 80 - int(ss * 1.3)
         tf, ts, tl = fit(d, title, "sans", (38, 36, 34), W - 2 * M, 2)
         for ln in tl:
             d.text((M, y), ln, font=tf, fill=T["muted"])

@@ -243,12 +243,66 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
     return problems
 
 
+CASE_WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9]*(?:[-'’][A-Za-z0-9]+)*")
+
+
+class SourceCasing:
+    """How the sources spell names mid-sentence, read from article bodies only (headlines are often Title Case).
+    restore() puts the capitals back on a lower-cased name: 'Claude code ... cursor' becomes 'Claude Code ...
+    Cursor' when the sources always write it that way (31 Oct 2026). Words the sources also use in lower case
+    ('code' in 'source code') are left alone."""
+
+    def __init__(self, texts: list[str]):
+        self.one: dict[str, dict[str, int]] = {}
+        self.two: dict[str, dict[str, int]] = {}
+        for text in texts:
+            words = [(m.group(0), m.start()) for m in CASE_WORD_RE.finditer(text)]
+            for n, (w, at) in enumerate(words):
+                if re.fullmatch(r"[a-z0-9,;:)] ", text[max(0, at - 2):at]):      # mid-sentence only
+                    forms = self.one.setdefault(w.lower(), {})
+                    forms[w] = forms.get(w, 0) + 1
+                if n + 1 < len(words) and text[at + len(w):words[n + 1][1]] == " ":
+                    pair = f"{w} {words[n + 1][0]}"
+                    forms = self.two.setdefault(pair.lower(), {})
+                    forms[pair] = forms.get(pair, 0) + 1
+
+    @staticmethod
+    def _dominant(forms: dict[str, int] | None, share: float) -> str | None:
+        if not forms:
+            return None
+        best, n = max(forms.items(), key=lambda kv: kv[1])
+        return best if n >= 2 and n / sum(forms.values()) >= share else None
+
+    def restore(self, text: str) -> str:
+        words = list(CASE_WORD_RE.finditer(text))
+        out, last, n = [], 0, 0
+        while n < len(words):
+            m = words[n]
+            w = m.group(0)
+            nxt = words[n + 1] if n + 1 < len(words) and text[m.end():words[n + 1].start()] == " " else None
+            if nxt:
+                pair = f"{w} {nxt.group(0)}"
+                best = self._dominant(self.two.get(pair.lower()), 0.75)
+                if best and best != pair and sum(c.isupper() for c in best) > sum(c.isupper() for c in pair):
+                    out += [text[last:m.start()], best]
+                    last, n = nxt.end(), n + 2
+                    continue
+            if w.islower() and len(w) >= 3 and m.start() > 0:
+                best = self._dominant(self.one.get(w), 1.0)
+                if best and best[0].isupper():
+                    out += [text[last:m.start()], best]
+                    last = m.end()
+            n += 1
+        return "".join(out) + text[last:]
+
+
 class Verifier:
     def __init__(self, sources: list[dict], max_quotes: int = 1):
         self.sources = {s["id"]: s for s in sources}
         self.corpora = {s["id"]: corpus(s) for s in sources}
         self.vocab = set(re.findall(r"[a-z][a-z'\-]+", " ".join(self.corpora.values())))
         self.raw = " ".join(f"{s.get('title', '')}. {s.get('text', '')}" for s in sources)   # original capitalisation
+        self.casing = SourceCasing([s.get("text", "") for s in sources])
         self.max_quotes = max_quotes
         self.quotes_used = 0
         self.log: list[dict] = []
@@ -296,7 +350,7 @@ class Verifier:
             problems.append(quote_problem)
         status = "dropped" if problems else ("repaired" if repaired or not cites(s) else "ok")
         self.log.append({"where": where, "text": plain(s), "sources": ids, "status": status, "problems": problems})
-        return None if problems else tidy(plain(s), ids)
+        return None if problems else self.casing.restore(tidy(plain(s), ids))
 
     def _inline_quotes(self, p: str, ids: list[str]) -> str | None:
         for q in QUOTE_RE.findall(p):
@@ -381,7 +435,7 @@ class Verifier:
         """Titles must use only names found in that section's sources; otherwise fall back to the lead source's title."""
         ids = list(dict.fromkeys(i for p in paras for i in cites(p)))
         ids = list(dict.fromkeys(ids + [k for i in ids for k in self.story_ids(i)]))
-        title = self.sentence_case(plain(section.get("title", "")))
+        title = self.casing.restore(self.sentence_case(plain(section.get("title", ""))))
         problems = check_sentence(title + "".join(f"[{i}]" for i in ids), ids, self.corpora, self.vocab) if title else ["empty"]
         self.log.append({"where": "section title", "text": title, "sources": ids,
                          "status": "dropped" if problems else "ok", "problems": problems})
@@ -411,7 +465,7 @@ class Verifier:
     def headline(self, h: str) -> tuple[str, list[str]]:
         all_ids = list(self.corpora)
         problems = []
-        p = self.sentence_case(plain(h))
+        p = self.casing.restore(self.sentence_case(plain(h)))
         text = " ".join(self.corpora.values())
         for num, pct, mult in numbers_in(p):
             if not number_ok(num, pct, mult, text):
@@ -560,8 +614,8 @@ def mark_dropped(report: dict, text: str, sources: list[str], problem: str) -> N
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
     """Ask the model which sentences their cited sources don't support, and drop those."""
     by_id = {s["id"]: s for s in sources}
-    sentences: list[tuple[str, str, str]] = []   # (key, sentence, kind): kind is fact | analysis | headline
-    tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] "}
+    sentences: list[tuple[str, str, str]] = []   # (key, sentence, kind): fact | analysis | headline | title | quote
+    tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] ", "title": "[title] ", "quote": "[quote] "}
 
     def collect(text: str, kind: str = "fact"):
         for s in split_sentences(text):
@@ -576,6 +630,19 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     for w in post["why_it_matters"]:
         # "why it matters" may judge or look ahead, but any fact it states must still be in the sources
         collect(w["text"], "analysis" if w.get("speculative") else "fact")
+    # Section titles and the quote's speaker were only name-checked in layer 1, so on 31 Oct 2026 "launches first
+    # AI satellite data centre" and a haiku written by Gemma 4 credited to "Google spokesperson" both got through.
+    title_of: dict[str, int] = {}
+    for n, sec in enumerate(post["sections"]):
+        ids = list(dict.fromkeys(i for para in sec["paragraphs"] for i in cites(para)))
+        if sec.get("title") and ids:
+            key = f"C{len(sentences) + 1}"
+            title_of[key] = n
+            sentences.append((key, sec["title"] + "".join(f"[{i}]" for i in ids), "title"))
+    q = post.get("quote")
+    if q and q.get("source") in by_id:
+        sentences.append((f"C{len(sentences) + 1}",
+                          f"{q.get('speaker') or 'Someone'} said or wrote: \"{q.get('text', '')}\"[{q['source']}]", "quote"))
     # The headline is checked on its own, against the lead story's sources only, so names and numbers from two
     # different stories can't be stitched into one false headline. A headline that already failed layer 1 is
     # failing anyway and isn't sent.
@@ -616,6 +683,15 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 extra += ("A claim starting [headline] is the post's headline: being short is fine, but every fact in it "
                           "(who, what, which product, any number) must be supported by these sources, and it must not "
                           "combine facts from different events.\n")
+            if "title" in kinds:
+                extra += ("A claim starting [title] is a section title: being short is fine, but it must not claim more "
+                          "than the sources: a test, prototype or first step called a launch, one case called a trend, "
+                          "or a 'first' the sources don't state.\n")
+            if "quote" in kinds:
+                extra += ("A claim starting [quote] says the named speaker said or wrote those exact words. It is NOT "
+                          "supported if the source shows the words came from someone or something else, for example "
+                          "text written by an AI model credited to a company or its spokesperson, even when the words "
+                          "themselves are in the source. The evidence must show who produced them.\n")
             if "analysis" in kinds:
                 extra += ("A claim starting [analysis] is our commentary: a judgement, opinion or forward-looking "
                           "statement (what could or may happen) is allowed and needs no evidence. But any fact it states "
@@ -647,12 +723,26 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 elif not evidence_found(str(c.get("evidence", "")), corpus_here):
                     bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
     head_bad = [bad[k] for k, _, kind in sentences if kind == "headline" and k in bad]
-    drop = {s: bad[k] for k, s, kind in sentences if k in bad and kind != "headline"}
+    drop = {s: bad[k] for k, s, kind in sentences if k in bad and kind not in ("headline", "title", "quote")}
 
     def filt(text: str) -> str:
         return " ".join(s for s in split_sentences(text) if s not in drop)
 
     post = {**post}
+    post["sections"] = [dict(sec) for sec in post["sections"]]
+    side_flagged = 0
+    for k, s, kind in sentences:
+        if k not in bad or kind not in ("title", "quote"):
+            continue
+        side_flagged += 1
+        if kind == "title":        # same fallback as layer 1: the lead source's own title
+            sec = post["sections"][title_of[k]]
+            mark_dropped(report, sec["title"], cites(s), f"model check: {bad[k]}")
+            lead = by_id.get(cites(s)[0], {}).get("title", "")
+            sec["title"] = (lead[:90].rsplit(" ", 1)[0] + "…") if len(lead) > 90 else lead
+        else:
+            mark_dropped(report, post["quote"]["text"], cites(s), f"model check (speaker): {bad[k]}")
+            post["quote"] = None
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]
     post["sections"] = [{**s, "paragraphs": [x for x in (filt(p) for p in s["paragraphs"]) if x]} for s in post["sections"]]
@@ -665,5 +755,5 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         report.setdefault("headline_problems", []).append(f"model check: {reason}")
         mark_dropped(report, post["headline"], lead_ids, f"model check: {reason}")
     report["layer2_done"] = True
-    report["layer2_flagged"] = len(drop) + len(head_bad)
+    report["layer2_flagged"] = len(drop) + len(head_bad) + side_flagged
     return post, report

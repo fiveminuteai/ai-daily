@@ -2,7 +2,7 @@
   "date": "2026-10-31",
   "slug": "2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
   "headline": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
-  "dek": "A malicious version of Anthropic’s Claude code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers[S1][S2].",
+  "dek": "A malicious version of Anthropic’s Claude Code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers[S1][S2].",
   "byline": "Sai Pavan UE",
   "tags": [
     "products",
@@ -14,27 +14,27 @@
     "security"
   ],
   "what_happened": [
-    "Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package[S1].",
+    "Anthropic’s Claude Code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package[S1].",
     "Google’s Suncatcher satellite, equipped with four TPUs and Gemma 4, generated its first AI haiku from orbit, confirming functional AI hardware in space[S3][S4].",
     "Cisco gave a 27‑year‑old engineer unlimited AI tokens to refactor most of its legacy code within two years[S5]."
   ],
   "sections": [
     {
       "story": 1,
-      "title": "Claude code extension backdoor on cursor marketplace",
+      "title": "Claude Code extension backdoor on Cursor marketplace",
       "category": "products",
       "paragraphs": [
-        "Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package[S1]. The malicious bundle installed a persistent SSH backdoor on Windows, macOS and Linux systems[S1][S2]. Anthropic has not publicly warned customers, and Cursor removed the affected versions after the discovery[S1][S2].",
+        "Anthropic’s Claude Code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package[S1]. The malicious bundle installed a persistent SSH backdoor on Windows, macOS and Linux systems[S1][S2]. Anthropic has not publicly warned customers, and Cursor removed the affected versions after the discovery[S1][S2].",
         "The backdoored extension, version 2.1.313, was posted to Anthropic’s official Cursor account, superseding version 2.1.312, and auto‑updates enabled it to reach users quickly[S1]. Phorion’s analysis shows the code attempts to add an attacker‑controlled SSH key to authorized_keys, enable the local SSH service, and create a reverse tunnel, persisting via LaunchAgent on macOS or a scheduled task on Windows[S1][S2].",
-        "Supply‑chain attacks target the distribution channel of software, allowing malicious code to reach many users without direct phishing[S1]. VS Code extensions run with the permissions of the IDE, so a compromised extension can access local files and developer tooling[S1][S2]. Security researchers recommend reviewing any use of Claude code extensions version 2.1.312 or 2.1.313 and applying incident response measures promptly[S2]."
+        "Supply‑chain attacks target the distribution channel of software, allowing malicious code to reach many users without direct phishing[S1]. VS Code extensions run with the permissions of the IDE, so a compromised extension can access local files and developer tooling[S1][S2]. Security researchers recommend reviewing any use of Claude Code extensions version 2.1.312 or 2.1.313 and applying incident response measures promptly[S2]."
       ]
     },
     {
       "story": 2,
-      "title": "Google launches first AI satellite data centre",
+      "title": "Google’s first data centre satellite comes online and writes a haiku",
       "category": "products",
       "paragraphs": [
-        "Google’s Project Suncatcher placed a prototype data‑center satellite in orbit earlier this month, carrying four Tensor Processing Units (TPUs) and the Gemma 4 model from DeepMind[S3][S4]. Engineers on the ground sent a prompt and the on‑board model generated a haiku, marking the first AI response transmitted from space[S3][S4]. The satellite is now operating nominally and reporting orbital conditions back to Earth[S3][S4].",
+        "Google’s Project Suncatcher placed a prototype data‑center satellite in orbit earlier this month, carrying four Tensor Processing Units (TPUs) and the Gemma 4 model from DeepMind[S3][S4]. Engineers on the ground sent a prompt and the on‑board model generated a haiku, the satellite’s first AI response sent back to Earth[S3][S4]. The satellite is now operating nominally and reporting orbital conditions back to Earth[S3][S4].",
         "The Suncatcher satellite can generate up to 1 kW of electricity, but each TPU can run for only about 20 minutes before power limits require it to be turned off[S3]. The three‑week commissioning phase verified subsystem performance before the first prompt was sent this week[S3]. Google plans to test TPU resilience to thermal stress and radiation, noting that ground tests predicted minimal impact on inference workloads but greater risk for training tasks[S3][S4]. If successful, two additional satellites with higher power generation and inter‑satellite optical links are slated for launch in 2027[S3].",
         "Google’s extensive Earth‑based TPU testing in particle accelerators provides a baseline, but real‑world space conditions are needed to validate hardware reliability[S3][S4]."
       ]
@@ -78,7 +78,7 @@
   ],
   "quote": {
     "text": "Blue marble below",
-    "speaker": "Google spokesperson",
+    "speaker": "Gemma 4, the AI model on Google’s satellite",
     "source": "S4"
   },
   "chart": null,
@@ -86,13 +86,13 @@
   "timeline": [
     {
       "time": "2026-10-30T21:09:54+00:00",
-      "title": "Claude code extension backdoor on cursor marketplace",
+      "title": "Claude Code extension backdoor on Cursor marketplace",
       "publisher": "Ars Technica",
       "category": "products"
     },
     {
       "time": "2026-10-30T17:00:00+00:00",
-      "title": "Google launches first AI satellite data centre",
+      "title": "Google’s first data centre satellite comes online and writes a haiku",
       "publisher": "TechCrunch",
       "category": "products"
     },
@@ -122,7 +122,7 @@
     {
       "id": "S1",
       "title": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
-      "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
+      "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-Cursor-backdoored-for-nearly-12-hours/",
       "publisher": "Ars Technica",
       "published": "2026-10-30T21:09:54+00:00"
     },
@@ -172,10 +172,10 @@
   "model": "groq:openai/gpt-oss-120b",
   "generated_at": "2026-10-31T03:44:26+00:00",
   "verification": {
-    "checked": 62,
+    "checked": 65,
     "ok": 48,
     "repaired": 2,
-    "dropped": 12,
+    "dropped": 15,
     "unused": 1,
     "layer1_done": true,
     "layer2_done": true
@@ -186,6 +186,10 @@
     {
       "date": "31 October 2026",
       "text": "An earlier headline said the extension was installing an SSH backdoor on thousands of developers’ machines. The sources say up to 5,000 users were affected, an upper limit rather than a count, and that the backdoor’s setup often fails. We changed the headline to match."
+    },
+    {
+      "date": "31 October 2026",
+      "text": "The Google story quoted “Blue marble below” as words from a Google spokesperson. They are the first line of a haiku written by the Gemma 4 model on Google’s satellite. We also changed that story’s title, which said Google had launched a satellite data centre: the sources describe a prototype satellite in testing. Product names Claude Code and Cursor are now spelled correctly."
     }
   ]
 }

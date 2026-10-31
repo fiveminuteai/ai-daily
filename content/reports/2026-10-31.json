@@ -1,8 +1,8 @@
 {
-  "checked": 62,
+  "checked": 65,
   "ok": 48,
   "repaired": 2,
-  "dropped": 12,
+  "dropped": 15,
   "entries": [
     {
       "where": "headline",
@@ -28,12 +28,14 @@
       "sources": [
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "speaker corrected in editorial review on 2026-10-31: the source says Gemma 4 on Google's satellite wrote these words in a haiku; no Google spokesperson said them"
+      ]
     },
     {
       "where": "dek",
-      "text": "A malicious version of Anthropic’s Claude code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers.",
+      "text": "A malicious version of Anthropic’s Claude Code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers.",
       "sources": [
         "S1",
         "S2"
@@ -94,7 +96,7 @@
     },
     {
       "where": "sections[0]",
-      "text": "Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package.",
+      "text": "Anthropic’s Claude Code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto‑updated the package.",
       "sources": [
         "S1"
       ],
@@ -172,7 +174,7 @@
     },
     {
       "where": "sections[0]",
-      "text": "Security researchers recommend reviewing any use of Claude code extensions version 2.1.312 or 2.1.313 and applying incident response measures promptly.",
+      "text": "Security researchers recommend reviewing any use of Claude Code extensions version 2.1.312 or 2.1.313 and applying incident response measures promptly.",
       "sources": [
         "S2"
       ],
@@ -181,7 +183,7 @@
     },
     {
       "where": "section title",
-      "text": "Claude code extension backdoor on cursor marketplace",
+      "text": "Claude Code extension backdoor on Cursor marketplace",
       "sources": [
         "S1",
         "S2"
@@ -206,8 +208,10 @@
         "S3",
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "replaced in editorial review on 2026-10-31: the sources describe the satellite's first response, not the first AI response ever sent from space"
+      ]
     },
     {
       "where": "sections[1]",
@@ -295,8 +299,10 @@
         "S3",
         "S4"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "title replaced in editorial review on 2026-10-31: a prototype satellite in testing is not a launched data centre"
+      ]
     },
     {
       "where": "sections[2]",
@@ -620,6 +626,41 @@
       "status": "ok",
       "problems": [
         "new headline, checked by hand against the sources on 2026-10-31"
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "Blue marble below",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": [
+        "speaker corrected to Gemma 4, checked by hand against the sources on 2026-10-31"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Google’s first data centre satellite comes online and writes a haiku",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": [
+        "new title, checked by hand against the sources on 2026-10-31"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Engineers on the ground sent a prompt and the on‑board model generated a haiku, the satellite’s first AI response sent back to Earth.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": [
+        "reworded, checked by hand against the sources on 2026-10-31"
       ]
     }
   ],
