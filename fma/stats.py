@@ -4,8 +4,10 @@
 
 One snapshot per India-time day:
   website    GoatCounter API (free). GOATCOUNTER_TOKEN, site code from `goatcounter:` in config/site.yaml
-  instagram  Instagram API with Instagram Login (free). INSTAGRAM_TOKEN: a long-lived token (60 days) from the
-             Meta app, scopes instagram_business_basic + instagram_business_manage_insights
+  instagram  Instagram API (free). INSTAGRAM_TOKEN from the Meta app. With `instagram_id:` in config/site.yaml it is
+             the never-expiring system-user token from "API setup with Unified login" (Five Minute AI portfolio),
+             read through graph.facebook.com; without it, an Instagram Login token through graph.instagram.com.
+             Account insights need the insights permission; without it the profile and post numbers still count
   x, linkedin  no free API for reading stats (X is paid; LinkedIn page stats need Community Management approval),
              so their numbers are typed into the dashboard and kept in data/stats/manual.json
 
@@ -29,6 +31,7 @@ from . import config
 log = logging.getLogger(__name__)
 
 IG_API = "https://graph.instagram.com/v26.0"
+FB_API = "https://graph.facebook.com/v26.0"   # system-user tokens (Unified login)
 IG_MEDIA_METRICS = "reach,views,saved,shares,total_interactions"   # "impressions" is deprecated for new media
 IG_ACCOUNT_METRICS = "reach,views,accounts_engaged,total_interactions"
 IG_POSTS = 12
@@ -45,7 +48,11 @@ def _get_json(http, url: str, headers: dict | None = None) -> dict:
     except Exception as exc:  # noqa: BLE001 - a network error's message can include the URL (and a token)
         raise StatsError(type(exc).__name__) from None
     if r.status_code >= 400:
-        raise StatsError(f"HTTP {r.status_code}")
+        try:                       # Meta's error code says why (190 bad token, 10/200 missing permission); never its text
+            code = (r.json().get("error") or {}).get("code")
+        except Exception:  # noqa: BLE001
+            code = None
+        raise StatsError(f"HTTP {r.status_code}" + (f" (Meta error {code})" if isinstance(code, int) else ""))
     try:
         return r.json()
     except ValueError:
@@ -82,8 +89,8 @@ def website(http, site_code: str, token: str, day: str) -> dict:
 
 # ---------------------------------------------------------------- Instagram
 
-def _ig(http, path: str, token: str, **params) -> dict:
-    return _get_json(http, f"{IG_API}/{path}?{urlencode({**params, 'access_token': token})}")
+def _ig(http, path: str, token: str, api: str = IG_API, **params) -> dict:
+    return _get_json(http, f"{api}/{path}?{urlencode({**params, 'access_token': token})}")
 
 
 def _insight_values(data: dict) -> dict:
@@ -98,22 +105,23 @@ def _insight_values(data: dict) -> dict:
     return out
 
 
-def instagram(http, token: str, day: str) -> dict:
-    me = _ig(http, "me", token, fields="user_id,username,followers_count,media_count")
+def instagram(http, token: str, day: str, ig_id: str | None = None) -> dict:
+    api, node = (FB_API, ig_id) if ig_id else (IG_API, "me")
+    me = _ig(http, node, token, api, fields="username,followers_count,media_count")
     start = datetime.fromisoformat(f"{day}T00:00:00+05:30")
     acct = {}
     try:
-        acct = _insight_values(_ig(http, "me/insights", token, metric=IG_ACCOUNT_METRICS, period="day",
+        acct = _insight_values(_ig(http, f"{node}/insights", token, api, metric=IG_ACCOUNT_METRICS, period="day",
                                    metric_type="total_value", since=int(start.timestamp()),
                                    until=int((start + timedelta(days=1)).timestamp())))
     except StatsError as exc:          # account insights need the insights scope; the profile numbers still count
         acct = {"error": str(exc)}
-    media = _ig(http, "me/media", token, fields="id,caption,timestamp,permalink,like_count,comments_count,media_type",
+    media = _ig(http, f"{node}/media", token, api, fields="id,caption,timestamp,permalink,like_count,comments_count,media_type",
                 limit=IG_POSTS).get("data") or []
     posts = []
     for m in media[:IG_POSTS]:
         try:
-            ins = _insight_values(_ig(http, f"{m['id']}/insights", token, metric=IG_MEDIA_METRICS))
+            ins = _insight_values(_ig(http, f"{m['id']}/insights", token, api, metric=IG_MEDIA_METRICS))
         except StatsError:
             ins = {}
         posts.append({"id": m["id"], "timestamp": m.get("timestamp"), "permalink": m.get("permalink"),
@@ -145,7 +153,7 @@ def collect(http, day: str, site: dict, env: dict | None = None) -> dict:
         "collected_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "website": _safely("website", website, http, gc, gc_token, day) if gc and gc_token
         else {"status": "off", "note": "set GOATCOUNTER_TOKEN" if gc else "no goatcounter site in config/site.yaml"},
-        "instagram": _safely("instagram", instagram, http, ig_token, day) if ig_token
+        "instagram": _safely("instagram", instagram, http, ig_token, day, site.get("instagram_id")) if ig_token
         else {"status": "off", "note": "set INSTAGRAM_TOKEN"},
     }
 

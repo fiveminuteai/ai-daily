@@ -14,6 +14,9 @@ social:
   - {name: Instagram, handle: "@fiveminute_ai", url: "https://www.instagram.com/fiveminute_ai/"}
   - {name: LinkedIn, handle: Five Minute AI, url: "https://www.linkedin.com/company/fiveminuteai/"}
   - {name: X, handle: "@fiveminute_ai", url: "https://x.com/fiveminute_ai"}
+# @fiveminute_ai's Instagram account ID (public, not a secret). Stats and posting use it with the INSTAGRAM_TOKEN
+# secret, a system-user token from the Meta app "Five Minute AI publisher" in the Five Minute AI business portfolio.
+instagram_id: "17841454265938310"
 
 # Set to true to stop daily posts without touching the workflow.
 paused: false

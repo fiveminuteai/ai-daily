@@ -79,3 +79,12 @@ def test_snapshot_file(tmp_path):
     path = stats.write_snapshot(tmp_path, snap)
     assert path == tmp_path / "data/stats/2026-10-31.json"
     assert json.loads(path.read_text(encoding="utf-8"))["date"] == "2026-10-31"
+
+
+def test_system_user_token_reads_through_facebook_graph():
+    fb = "https://graph.facebook.com/v26.0"
+    r = {k.replace(f"{IG}/me", f"{fb}/1784").replace(IG, fb): v for k, v in routes().items()}
+    r[f"{fb}/1784/insights?"] = FakeResponse(403, json_data={"error": {"message": "needs permission", "code": 10}})
+    ig = stats.collect(FakeHttp(r), "2026-10-31", {**SITE, "instagram_id": "1784"}, ENV)["instagram"]
+    assert ig["status"] == "ok" and ig["username"] == "fiveminute_ai" and ig["posts"][0]["reach"] == 410
+    assert ig["day_error"] == "HTTP 403 (Meta error 10)"
