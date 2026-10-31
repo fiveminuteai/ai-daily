@@ -381,7 +381,7 @@ async function renderHistory() {
 }
 
 // ---------- social ----------
-const PLAT = { instagram: "Instagram", x: "X", linkedin: "LinkedIn" };
+const PLAT = { instagram: "Instagram", x: "X", linkedin: "LinkedIn", instagram_reel: "Instagram Reel" };
 const HOW = { api: ["Auto-post", "free Instagram API"], paid: ["Paid API", "about $0.20 a post"], manual: ["Manual", "copy and post by hand"] };
 
 function itemStatus(i) { return state.decisions.get(i.id) || i.status; }
@@ -395,6 +395,7 @@ function itemCard(i) {
     <div class="item-head"><span class="picon p-${esc(i.platform)}">${svg(i.platform)}</span><span class="plat">${esc(PLAT[i.platform])}</span>
       <span class="muted" style="font-size:12.5px">${esc(i.kind)}</span>${tag(st)}</div>
     <div class="how ${i.posting === "paid" ? "paid" : ""}" title="${esc(i.note)}"><span><b>${esc(howTitle)}</b> · ${esc(howNote)}</span></div>
+    ${statusLine(i)}
     ${(() => {
       // the day's real carousel when the share page has one, else the single card from the queue
       const slides = i.platform === "instagram" ? state.media.get(i.id.slice(0, 10))?.slides : null;
@@ -410,9 +411,9 @@ function itemCard(i) {
         <button class="linkbtn" data-act="schedule">${at ? "Change" : "Schedule"}</button></div>` : "";
     })()}
     <div class="actions">
-      <button class="btn ok" data-act="approve" ${st !== "pending" ? "disabled" : ""}>Approve</button>
+      <button class="btn ok" data-act="approve" ${!["pending", "failed"].includes(st) ? "disabled" : ""}>${st === "failed" ? "Approve again" : "Approve"}</button>
       <button class="btn" data-act="edit" ${st !== "pending" ? "disabled" : ""}>Edit</button>
-      <button class="btn ghost" data-act="skip" ${st !== "pending" ? "disabled" : ""}>Skip</button>
+      <button class="btn ghost" data-act="skip" ${!["pending", "failed"].includes(st) ? "disabled" : ""}>Skip</button>
       ${i.platform === "linkedin" ? `<button class="btn ghost" data-act="copy" aria-label="Copy LinkedIn text">${svg("copy")}Copy</button>` : ""}
     </div></article>`;
 }
@@ -463,8 +464,9 @@ async function onItemAction(btn) {
     try {
       const r = await api("social/schedule", { method: "POST", body: { item_id: item.id, at } });
       state.schedules.set(item.id, at);
-      el.outerHTML = itemCard(item);
-      toast(r.dryRun ? `<b>Dry run.</b> ${esc(r.what)}: not saved.` : `${esc(r.what)}.`, r.dryRun ? "dry" : "");
+      el.outerHTML = cardFor(item);
+      const said = at ? `${PLAT[item.platform]} set to post ${whenText(at)} IST` : `${PLAT[item.platform]} unscheduled`;
+      toast(r.dryRun ? `<b>Dry run.</b> ${esc(said)}: not saved.` : `${esc(said)}.`, r.dryRun ? "dry" : "");
     } catch (err) {
       toast(`<b>Failed.</b> ${esc(err.message)}`, "err");
     }
@@ -475,7 +477,7 @@ async function onItemAction(btn) {
     const v = ta.value.trim();
     if (!v) return toast("Text can't be empty.", "err");
     if (v === item.text) state.edits.delete(item.id); else state.edits.set(item.id, v);
-    el.outerHTML = itemCard(item);
+    el.outerHTML = cardFor(item);
     return;
   }
   const open = el.querySelector("textarea.edit");       // approving while editing keeps the edit
@@ -487,6 +489,7 @@ async function onItemAction(btn) {
   const edited = text !== item.text;
   const ok = await confirmDialog(act === "approve" ? `Approve ${PLAT[item.platform]}?` : `Skip ${PLAT[item.platform]}?`,
     `<p>${act === "approve" ? `This starts the <b>publish-social</b> workflow for <code>${esc(item.id)}</code>${edited ? " with your edited text" : ""}.` : `Nothing will be posted for <code>${esc(item.id)}</code>.`}</p>
+     ${act === "approve" && slotOf(item) ? `<p>${esc(slotText(item))}.</p>` : ""}
      <p class="muted">${state.status?.dryRun ? "Dry run: the dashboard only shows the request it would send." : "Live: the workflow runs now."}
      ${item.posting === "paid" && act === "approve" ? " X posting costs about $0.20 once it is live." : ""}</p>`,
     act === "approve" ? "Approve" : "Skip");
@@ -495,11 +498,112 @@ async function onItemAction(btn) {
     const r = await api("social/action", { method: "POST", body: { item_id: item.id, action: act, ...(edited ? { text } : {}) } });
     state.lastResult = r;
     state.decisions.set(item.id, act === "approve" ? "approved" : "skipped");
-    el.outerHTML = itemCard(item);
+    el.outerHTML = cardFor(item);
     renderCounts();
     toast(r.dryRun ? `<b>Dry run.</b> Would dispatch publish-social.yml for ${esc(item.id)}.` : `Started publish-social for ${esc(item.id)}.`, r.dryRun ? "dry" : "");
   } catch (err) {
     toast(`<b>Failed.</b> ${esc(err.message)}`, "err");
+  }
+}
+
+// ---------- story Reels: the day's set, previewed and approved together ----------
+const isReel = (i) => i.platform === "instagram_reel";
+const cardFor = (i) => (isReel(i) ? reelCard(i) : itemCard(i));
+const slotOf = (i) => (state.schedules.has(i.id) ? state.schedules.get(i.id) : i.scheduled_at);
+
+/** What happened to an item that is no longer pending: the live link and time, the failure, or the plan. */
+function statusLine(i) {
+  const st = itemStatus(i), at = slotOf(i);
+  if (st === "posted") {
+    return `<p class="stline ok">${i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer">View on Instagram ${svg("ext")}</a>` : "Posted"}
+      ${i.decided_at ? `<span>Posted ${esc(whenText(i.decided_at))} IST</span>` : ""}</p>`;
+  }
+  if (st === "failed") return `<p class="stline bad">${svg("warn")}<span>Not posted: ${esc(i.error || "the workflow recorded a failure")}. Approve again to retry.</span></p>`;
+  if (st === "approved") {
+    if (i.platform === "linkedin") return `<p class="stline">Approved: copy the text and post it on LinkedIn by hand.</p>`;
+    return `<p class="stline">${at && Date.parse(at) > Date.now() ? `Approved: posts ${esc(whenText(at))} IST` : "Approved: posting now"}</p>`;
+  }
+  if (st === "skipped") return `<p class="stline muted">Skipped: will not be posted.</p>`;
+  return "";
+}
+
+function slotText(i) {
+  const st = itemStatus(i), at = slotOf(i);
+  if (!at) return "No time set: posts when approved";
+  const when = `${time(at)} IST`;
+  if (st !== "pending") return `Slot ${when}`;
+  return Date.parse(at) <= Date.now() ? `${when} has passed: approving posts it right away` : `Posts at ${when}, once approved`;
+}
+
+function reelCard(i) {
+  const st = itemStatus(i), n = i.id.split("-reel-")[1];
+  return `<article class="card reelcard is-${esc(st)}" data-item="${esc(i.id)}">
+    <div class="reel-video"><video src="${esc(safeUrl(i.media?.[0]))}#t=0.1" controls preload="metadata" playsinline aria-label="Reel ${esc(n)}"></video></div>
+    <div class="reel-body">
+      <div class="item-head"><span class="rnum">Reel ${esc(n)}</span>${tag(st)}</div>
+      <p class="rhook">${esc(plain(i.hook || ""))}</p>
+      <div class="sched">${svg("calendar")}<span>${esc(slotText(i))}</span>
+        ${st === "pending" ? `<button class="linkbtn" data-act="schedule">Change time</button>` : ""}</div>
+      ${statusLine(i)}
+      <details class="cap"><summary>Caption</summary><div class="preview">${esc(itemText(i))}</div></details>
+      ${["pending", "failed"].includes(st) ? `<div class="actions"><button class="btn ok" data-act="approve">${st === "failed" ? "Approve again" : "Approve"}</button><button class="btn ghost" data-act="skip">Skip</button></div>` : ""}
+    </div></article>`;
+}
+
+/** Pavan's rule: before anything posts he sees what is NOT in the package too. */
+function notIncluded(day) {
+  const by = (p) => day.items.find((i) => i.platform === p);
+  const word = { pending: "waiting for approval below", approved: "approved separately", posted: "posted separately", skipped: "skipped", failed: "failed, see below" };
+  const parts = [];
+  const car = by("instagram");
+  parts.push(car ? `the carousel (${word[itemStatus(car)] || itemStatus(car)})` : "no carousel today");
+  if (state.media.get(day.date)?.reel) parts.push("the music Reel (not posted automatically)");
+  if (by("x")) parts.push("X (paid API, off)");
+  if (by("linkedin")) parts.push("LinkedIn (copy and post by hand)");
+  return parts.join(", ");
+}
+
+function reelsSection(day) {
+  const reels = day.items.filter(isReel);
+  if (!reels.length) return "";
+  const count = (s) => reels.filter((r) => itemStatus(r) === s).length;
+  const pend = count("pending");
+  const isToday = day.date === state.status?.today;
+  const summary = [pend && `${pend} waiting for you`, count("approved") && `${count("approved")} approved`, count("posted") && `${count("posted")} posted`,
+                   count("failed") && `${count("failed")} failed`, count("skipped") && `${count("skipped")} skipped`].filter(Boolean).join(" · ");
+  return `<section class="card reels-card" data-reel-day="${esc(day.date)}">
+    <div class="card-head"><div><h3>Story Reels · ${esc(shortDate(day.date))}</h3><p class="muted small">${reels.length} Reels, one per story · ${esc(summary)}</p></div>
+      ${pend ? `<button class="btn primary" data-approve-reels="${esc(day.date)}">${isToday ? "Approve today's Reels" : "Approve these Reels"} (${pend})</button>` : ""}</div>
+    <p class="not-incl">${svg("warn")}<span><b>Not in this set:</b> ${esc(notIncluded(day))}.</span></p>
+    <div class="reel-grid">${reels.map(reelCard).join("")}</div>
+  </section>`;
+}
+
+async function onApproveReels(btn) {
+  const date = btn.dataset.approveReels;
+  const day = state.social.days.find((d) => d.date === date);
+  const pend = day.items.filter((i) => isReel(i) && itemStatus(i) === "pending");
+  const line = (i) => {
+    const at = slotOf(i);
+    const when = !at ? "posts now" : Date.parse(at) <= Date.now() ? `posts now (${time(at)} IST has passed)` : `posts at ${time(at)} IST`;
+    return `<li><b>Reel ${esc(i.id.split("-reel-")[1])}</b> · ${esc(when)}<br><span class="muted">${esc(plain(i.hook || ""))}</span></li>`;
+  };
+  const ok = await confirmDialog(`Approve ${pend.length} Reel${pend.length > 1 ? "s" : ""}?`,
+    `<ul class="dlg-list">${pend.map(line).join("")}</ul>
+     <p><b>Not in this set:</b> ${esc(notIncluded(day))}.</p>
+     <p class="muted">${state.status?.dryRun ? "Dry run: you will see the requests, nothing is sent." : "Live: each Reel is approved now and posts at its time."}</p>`, "Approve all");
+  if (!ok) return;
+  btn.disabled = true;
+  try {
+    const r = await api("social/approve-reels", { method: "POST", body: { date } });
+    state.lastResult = r;
+    for (const id of r.items) state.decisions.set(id, "approved");
+    view.querySelector(`[data-reel-day="${date}"]`).outerHTML = reelsSection(day);
+    renderCounts();
+    toast(r.dryRun ? `<b>Dry run.</b> ${esc(r.what)}: would dispatch publish-social ${r.items.length} times.` : `${esc(r.what)}: started.`, r.dryRun ? "dry" : "");
+  } catch (err) {
+    toast(`<b>Failed.</b> ${esc(err.message)}`, "err");
+    btn.disabled = false;
   }
 }
 
@@ -734,8 +838,12 @@ async function renderPosts() {
     if (media) state.media.set(newest, media);
   }
   const days = state.social.days;
+  // the "not in this set" line needs each shown day's share page (music Reel or not); cached after the first look
+  await Promise.all(days.slice(0, 2).filter((d) => d.items.some(isReel) && !state.media.has(d.date)).map((d) =>
+    api(`media?date=${d.date}`).then((m) => state.media.set(d.date, m)).catch(() => {})));
   view.innerHTML = `
     ${pageHead("Posts", `<span class="muted">${state.status?.dryRun ? "Dry run: approving and scheduling only show what would happen" : "Live"}</span>`)}
+    ${days.slice(0, 2).map(reelsSection).join("")}
     <section class="card media-card">
       <div class="card-head"><h3>Instagram media${newest ? ` · ${esc(shortDate(newest))}` : ""}</h3>
         ${media?.page ? `<span class="head-links"><a href="${esc(safeUrl(media.page))}" target="_blank" rel="noopener noreferrer">Share kit ${svg("ext")}</a>${media.zip ? `<a href="${esc(safeUrl(media.zip))}">Slides (zip)</a>` : ""}</span>` : ""}</div>
@@ -743,14 +851,14 @@ async function renderPosts() {
         ${media.slides.length ? `<div class="slides" role="list" aria-label="Carousel, ${media.slides.length} slides">${media.slides.map((u, n) =>
           `<a role="listitem" href="${esc(safeUrl(u))}" target="_blank" rel="noopener noreferrer" class="slide"><img src="${esc(safeUrl(u))}" alt="Slide ${n + 1}" loading="lazy" width="1080" height="1350"><span>${n + 1}</span></a>`).join("")}</div>` : ""}
         ${media.reel ? `<figure class="reel"><video src="${esc(safeUrl(media.reel))}" controls preload="metadata" playsinline ${media.slides[0] ? `poster="${esc(safeUrl(media.slides[0]))}"` : ""}></video><figcaption>Reel · original music</figcaption></figure>` : ""}
-      </div><p class="note">Made by the blog pipeline on every deploy, for the newest post. Instagram posting turns on once the Meta app exists.</p>`
+      </div><p class="note">Made by the blog pipeline on every deploy, for the newest post. The carousel posts to Instagram when you approve it below.</p>`
       : `<p class="empty">${newest ? "No carousel or Reel on the share page yet: the deploy makes them for the newest post." : "No posts yet."}</p>`}
     </section>
     <div class="section-title"><h2>Social queue</h2><span class="muted">Approve, edit, skip or schedule each post</span></div>
     ${days.length ? days.map((d) => `<section class="sday">
       <div class="sday-head"><div><span class="eyebrow">${esc(longDate(d.date))}</span><h2>${esc(plain(d.headline))}</h2></div>
         <a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener noreferrer" class="btn ghost">Read the post ${svg("ext")}</a></div>
-      <div class="queue">${d.items.map(itemCard).join("")}</div></section>`).join("")
+      <div class="queue">${d.items.filter((i) => !isReel(i)).map(itemCard).join("")}</div></section>`).join("")
       : `<div class="banner">${svg("warn")}<div><h2>Nothing in the queue</h2><p>The daily run writes <code>data/social/&lt;date&gt;.json</code> next to each new post.</p></div></div>`}
     <div class="section-title"><h2>Blog posts</h2><span class="muted">${posts.length} in the last three weeks</span></div>
     <section class="card"><ul class="postlist">${posts.map((d) => `<li>
@@ -1192,6 +1300,7 @@ view.addEventListener("click", (e) => {
   const t = e.target.closest("button, a");
   if (!t) return;
   if (t.dataset.jump) { document.getElementById(t.dataset.jump)?.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+  if (t.dataset.approveReels) { onApproveReels(t); return; }
   if (t.dataset.act) { onItemAction(t); return; }
   if (t.dataset.control) { onControl(t); return; }
   if (t.dataset.card) { onCardAction(t); return; }

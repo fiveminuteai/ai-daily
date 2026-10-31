@@ -274,3 +274,66 @@ test("server: only 127.0.0.1/localhost Host headers are answered (DNS-rebinding 
     server.close();
   }
 });
+
+// ---------- story Reels ----------
+
+const REEL_QUEUE = { date: "2026-11-01", items: [
+  { id: "2026-11-01-instagram", platform: "instagram", status: "pending" },
+  { id: "2026-11-01-reel-1", platform: "instagram_reel", status: "pending", scheduled_at: "2026-11-01T03:30:00+00:00" },
+  { id: "2026-11-01-reel-2", platform: "instagram_reel", status: "posted", posted_url: "https://www.instagram.com/reel/x/" },
+  { id: "2026-11-01-reel-3", platform: "instagram_reel", status: "pending", scheduled_at: "2026-11-01T13:30:00+00:00" },
+] };
+
+function reelGithub(queue = REEL_QUEUE) {
+  const dispatched = [];
+  const fetchImpl = async (url, init = {}) => {
+    if ((init.method || "GET") === "POST" && url.endsWith("/dispatches")) { dispatched.push(JSON.parse(init.body)); return new Response(null, { status: 204 }); }
+    if (url.includes("contents/data/social/2026-11-01.json")) return new Response(JSON.stringify(queue));
+    return new Response("{}", { status: 404 });
+  };
+  return { fetchImpl, dispatched };
+}
+
+test("Reel items can be approved, skipped and scheduled one by one", async () => {
+  const env = { ...LOCAL, GITHUB_TOKEN: "t" };
+  const soon = new Date(Date.now() + 3600e3).toISOString();
+  for (const [path, b] of [["social/action", { item_id: "2026-11-01-reel-2", action: "approve" }],
+                           ["social/action", { item_id: "2026-11-01-reel-3", action: "skip" }],
+                           ["social/schedule", { item_id: "2026-11-01-reel-1", at: soon }]]) {
+    const r = await handle(post(path, b), env, {});
+    assert.equal(r.status, 200, `${path} ${JSON.stringify(b)}`);
+    assert.equal((await r.json()).dryRun, true);
+  }
+  for (const bad of ["2026-11-01-reel-0", "2026-11-01-reel-x", "2026-11-01-reel-1/../x", "2026-11-01-reels"]) {
+    assert.equal((await handle(post("social/action", { item_id: bad, action: "approve" }), env, {})).status, 400, bad);
+  }
+});
+
+test("approve all Reels: dry run lists only the pending Reels; live sends one approval each", async () => {
+  const { fetchImpl, dispatched } = reelGithub();
+  const dry = await (await handle(post("social/approve-reels", { date: "2026-11-01" }), { ...LOCAL, GITHUB_TOKEN: "t" }, { fetchImpl })).json();
+  assert.equal(dry.dryRun, true);
+  assert.deepEqual(dry.items, ["2026-11-01-reel-1", "2026-11-01-reel-3"]);         // posted Reel and the carousel left out
+  assert.deepEqual(dry.requests.map((r) => r.body.inputs), [{ item_id: "2026-11-01-reel-1", action: "approve" }, { item_id: "2026-11-01-reel-3", action: "approve" }]);
+  assert.equal(dispatched.length, 0);
+  const live = await (await handle(post("social/approve-reels", { date: "2026-11-01" }), { ...LOCAL, GITHUB_TOKEN: "t", DRY_RUN: "0" }, { fetchImpl })).json();
+  assert.equal(live.done, true);
+  assert.deepEqual(dispatched.map((d) => [d.ref, d.inputs.item_id, d.inputs.action]),
+    [["main", "2026-11-01-reel-1", "approve"], ["main", "2026-11-01-reel-3", "approve"]]);
+});
+
+test("approve all Reels refuses when nothing is pending, a bad date, or no token", async () => {
+  const none = reelGithub({ items: REEL_QUEUE.items.map((i) => ({ ...i, status: "posted" })) });
+  const st = async (body, env, f) => (await handle(post("social/approve-reels", body), env, { fetchImpl: f })).status;
+  assert.equal(await st({ date: "2026-11-01" }, { ...LOCAL, GITHUB_TOKEN: "t" }, none.fetchImpl), 400);
+  assert.equal(await st({ date: "1 Nov" }, { ...LOCAL, GITHUB_TOKEN: "t" }, none.fetchImpl), 400);
+  assert.equal(await st({ date: "2026-11-01" }, { ...LOCAL }, none.fetchImpl), 400);
+  assert.equal(none.dispatched.length, 0);
+});
+
+test("share page: story Reels are listed in order, without duplicates", () => {
+  const m = parseShareMedia('<video src="/share/2026-11-01/reels/03.mp4"></video><video src="/share/2026-11-01/reels/01.mp4"></video>'
+    + '<a href="/share/2026-11-01/reels/01.mp4">dl</a><video src="/share/2026-11-01/reels/01.mp4"></video>', "2026-11-01");
+  assert.deepEqual(m.reels, ["https://fiveminuteai.net/share/2026-11-01/reels/01.mp4", "https://fiveminuteai.net/share/2026-11-01/reels/03.mp4"]);
+  assert.deepEqual(parseShareMedia("<p>no media</p>", "2026-11-01").reels, []);
+});
