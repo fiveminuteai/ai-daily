@@ -4,7 +4,7 @@
 const $ = (sel, root = document) => root.querySelector(sel);
 const view = $("#view");
 const state = { status: null, days: new Map(), history: null, social: null, decisions: new Map(), edits: new Map(), schedules: new Map(),
-                lastResult: null, media: new Map(), mail: null, accounts: null, roadmap: null, info: null };
+                lastResult: null, media: new Map(), mail: null, accounts: null, roadmap: null, info: null, pages: null };
 const CATS = new Set(["models", "architecture", "research", "products", "tools", "policy", "impact"]);
 const SITE = "https://fiveminuteai.net/";
 
@@ -851,6 +851,93 @@ view.addEventListener("change", async (e) => {
   }
 });
 
+// ---------- pages: the faceless Instagram pages and their shared income (read-only, from faceless-ig) ----------
+const PAGE_STATUS = { live: ["t-ok", "Live"], building: ["t-pending", "Building"], planned: ["t-skipped", "Planned"], paused: ["t-waiting", "Paused"] };
+const rupees = (n) => (n == null ? "–" : `₹${Number(n).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`);
+const per100 = (n) => (n == null ? "–" : Number(n).toFixed(2));
+const monthName = (m) => (/^\d{4}-\d\d$/.test(m) ? new Date(`${m}-15T12:00:00Z`).toLocaleDateString("en-GB", { month: "short", year: "numeric" }) : m);
+
+function pageCard(a) {
+  const [cls, word] = PAGE_STATUS[a.status] || ["t-unknown", a.status];
+  const env = a.id.toUpperCase().replace(/[^A-Z0-9]/g, "_");
+  const secrets = a.secretsSet ? `<p class="pg-line">${svg("lock")}<span>Instagram secrets set</span></p>`
+    : `<p class="todo">${svg("warn")}<span>${a.secretsSet == null ? "Secrets unknown" : "Secrets not set"}: <code>IG_USER_ID__${esc(env)}</code> and <code>IG_ACCESS_TOKEN__${esc(env)}</code></span></p>`;
+  const q = a.queue, w = a.week;
+  const qcCls = a.qc.built && a.qc.passed === a.qc.built ? "b-ok" : a.qc.built ? "b-warn" : "";
+  const next = q.next ? `${esc(q.next.slug || "untitled")}${q.next.kind ? ` <span class="muted">· ${esc(q.next.kind)}</span>` : ""}${q.next.at ? ` <span class="muted">· ${esc(whenText(q.next.at))}</span>` : ""}`
+    : `<span class="faint">Nothing queued</span>`;
+  const last = a.posted.last;
+  const lastHtml = !last ? `<span class="faint">Not posted yet</span>`
+    : `${last.permalink ? `<a href="${esc(last.permalink)}" target="_blank" rel="noopener noreferrer">${esc(last.slug || "Open post")} ${svg("ext")}</a>` : esc(last.slug || "–")}${last.at ? ` <span class="muted">· ${esc(ago(last.at))}</span>` : ""}`;
+  return `<section class="card acct pg" data-page="${esc(a.id)}">
+    <div class="acct-head"><span class="picon p-instagram">${svg("instagram")}</span>
+      <div><h3>${esc(a.handle || a.id)}</h3><p class="handle">${esc(a.niche || "")}</p></div>
+      <span class="status-tag ${cls}">${esc(word)}</span></div>
+    ${secrets}
+    <div class="big pg-big">
+      <div><b>${num(q.waiting)}</b><span>Waiting approval</span></div>
+      <div><b>${num(q.approved)}</b><span>Approved</span></div>
+      <div><b>${num(a.posted.count)}</b><span>Posted</span></div>
+      <div class="${qcCls}"><b>${num(a.qc.passed)}<small>/${num(a.qc.built)}</small></b><span>QC passed</span></div>
+    </div>
+    <dl class="kv"><dt>Next post</dt><dd>${next}</dd><dt>Last post</dt><dd>${lastHtml}</dd></dl>
+    <div class="pg-week"><p class="eyebrow">Last 7 days${w.posts != null ? ` · ${num(w.posts)} post${w.posts === 1 ? "" : "s"}` : ""}</p>
+      <div class="big"><div><b>${num(w.reach)}</b><span>Reach</span></div>
+        <div><b>${per100(w.sendsPer100)}</b><span>Sends per 100</span></div>
+        <div><b>${per100(w.savesPer100)}</b><span>Saves per 100</span></div></div></div>
+  </section>`;
+}
+
+function incomeCard(inc, accounts) {
+  const handle = Object.fromEntries(accounts.map((a) => [a.id, a.handle || a.id]));
+  const list = (rows, label, empty) => {
+    const max = Math.max(1, ...rows.map((r) => r[1]));
+    return `<div class="pg-inc"><p class="eyebrow">${label}</p>${rows.length
+      ? `<div class="bars">${rows.map(([k, v]) => `<div class="bar"><span class="name" title="${esc(k)}">${esc(k)}</span>
+          <span class="track"><i style="width:${Math.max(2, (v / max) * 100)}%"></i></span><span class="n">${esc(rupees(v))}</span></div>`).join("")}</div>`
+      : `<p class="empty small">${empty}</p>`}</div>`;
+  };
+  const last = inc.byMonth.at(-1);
+  return `<section class="card pg-income"><div class="card-head"><h3>Income</h3><span class="muted small">All pages, one ledger</span></div>
+    <div class="big"><div><b>${esc(rupees(inc.total))}</b><span>Total so far</span></div>
+      ${last ? `<div><b>${esc(rupees(last[1]))}</b><span>${esc(monthName(last[0]))}</span></div>` : ""}</div>
+    ${inc.byMonth.length || inc.byAccount.length || inc.bySource.length ? `<div class="pg-inc-grid">
+      ${list(inc.byMonth.map(([k, v]) => [monthName(k), v]), "By month", "No months yet.")}
+      ${list(inc.byAccount.map(([k, v]) => [handle[k] || k, v]), "By page", "Nothing per page yet.")}
+      ${list(inc.bySource, "By source", "No sources yet.")}
+    </div>` : ""}
+    ${inc.total ? "" : `<p class="note">No income logged yet. Rows go in <code>faceless-ig/data/income.csv</code>; then run <code>python -m ig feed</code> there and reload.</p>`}
+  </section>`;
+}
+
+async function renderPages() {
+  try {
+    state.pages = state.pages || await api("local/pages");
+  } catch (err) {
+    view.innerHTML = pageHead("Pages") + problem(err, "the pages feed");
+    return;
+  }
+  const r = state.pages;
+  const refresh = `<button class="btn ghost" data-pages-refresh>Reload</button>`;
+  const where = `<p class="note">Feed: <span class="mono">${esc(r.path)}</span>${r.modified ? ` · file saved ${esc(ago(r.modified))}` : ""}.
+    Change it under <a href="#settings">Settings</a>.</p>`;
+  if (!r.feed) {
+    view.innerHTML = `${pageHead("Pages", refresh)}<div class="banner">${svg("warn")}<div><h2>${esc(r.message || "No pages feed")}</h2>
+      <p>This screen reads the file the faceless Instagram pipeline writes. To make it:</p>
+      <div class="cmd"><code>${esc(r.how)}</code><button class="btn ghost" data-copy="${esc(r.how)}" data-copy-label="Command copied.">${svg("copy")}Copy</button></div>
+      ${where}</div></div>`;
+    return;
+  }
+  const f = r.feed;
+  const live = f.accounts.filter((a) => a.status === "live").length;
+  view.innerHTML = `${pageHead("Pages", `<span class="pg-head-r"><span class="muted">${f.accounts.length} page${f.accounts.length === 1 ? "" : "s"} · ${live} live${f.generatedAt ? ` · feed built ${esc(ago(f.generatedAt))}` : ""}</span>${refresh}</span>`)}
+    ${f.warnings.length ? `<div class="banner">${svg("warn")}<div><h2>Some of the feed could not be read</h2><ul class="pg-warn">${f.warnings.map((w) => `<li>${esc(w)}</li>`).join("")}</ul></div></div>` : ""}
+    ${incomeCard(f.income, f.accounts)}
+    <div class="section-title"><h2>Instagram pages</h2><span class="muted small">Read-only · approve and post from faceless-ig</span></div>
+    ${f.accounts.length ? `<div class="acct-grid pg-grid">${f.accounts.map(pageCard).join("")}</div>` : `<p class="empty">The feed lists no pages. Add one to <code>accounts.yaml</code>.</p>`}
+    ${where}`;
+}
+
 // ---------- roadmap ----------
 const COLS = [["ideas", "Ideas"], ["next", "Next"], ["doing", "Doing"], ["done", "Done"]];
 
@@ -981,6 +1068,10 @@ async function renderSettings() {
           <dt>Data folder</dt><dd class="mono">${esc(i.dataDir)}</dd>
           <dt>Repository</dt><dd class="mono">${esc(s.repo || "")}</dd>
           <dt>GitHub</dt><dd>${s.configured ? "Connected" : "Not connected"}</dd></dl></section>
+      <section class="card"><div class="card-head"><h3>Pages feed</h3></div>
+        <form class="mform" id="pages-settings"><label class="span-all">Path to dashboard.json<input name="pagesFeed" class="mono" value="${esc(i.settings.pagesFeed || "")}" placeholder="Empty: faceless-ig next to this repository"></label>
+          <button class="btn" type="submit">Save</button></form>
+        <p class="note">Leave it empty for the default. Read-only: the app never writes to this file.</p></section>
     </div>`;
   $("#mail-settings").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -989,6 +1080,16 @@ async function renderSettings() {
       await api("local/settings", { method: "POST", body: { imapHost: f.get("imapHost").trim(), mailWeb: f.get("mailWeb").trim() } });
       state.mail = null;
       toast("Mail settings saved.");
+    } catch (err) {
+      toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
+    }
+  });
+  $("#pages-settings").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    try {
+      await api("local/settings", { method: "POST", body: { pagesFeed: String(new FormData(e.target).get("pagesFeed")).trim() } });
+      state.pages = null;
+      toast("Pages feed path saved.");
     } catch (err) {
       toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
     }
@@ -1063,7 +1164,7 @@ async function onControl(btn) {
 async function route() {
   clearTimeout(timer);
   const [tab = "today", arg] = location.hash.replace(/^#/, "").split("/");
-  const desk = ["mail", "accounts", "roadmap", "settings"];
+  const desk = ["pages", "mail", "accounts", "roadmap", "settings"];
   const all = ["today", "history", "posts", "stats", "controls", "more", ...(state.status?.desktop ? desk : [])];
   const name = tab === "social" ? "posts" : all.includes(tab) ? tab : "today";
   document.querySelectorAll("[data-tab]").forEach((a) => {
@@ -1077,6 +1178,7 @@ async function route() {
   else if (name === "history") await renderHistory();
   else if (name === "posts") await renderPosts();
   else if (name === "stats") await renderStats();
+  else if (name === "pages") await renderPages();
   else if (name === "mail") await renderMail();
   else if (name === "accounts") await renderAccounts();
   else if (name === "roadmap") await renderRoadmap();
@@ -1095,8 +1197,9 @@ view.addEventListener("click", (e) => {
   if (t.dataset.card) { onCardAction(t); return; }
   if (t.dataset.copy != null) { copyText(t.dataset.copy, t.dataset.copyLabel || "Copied."); return; }
   if (t.dataset.mailRefresh != null) { renderMail(true); return; }
+  if (t.dataset.pagesRefresh != null) { state.pages = null; renderPages(); return; }
   if (t.hasAttribute("data-retry")) {
-    Object.assign(state, { history: null, social: null, stats: null, mail: null, accounts: null, roadmap: null, info: null });
+    Object.assign(state, { history: null, social: null, stats: null, mail: null, accounts: null, roadmap: null, info: null, pages: null });
     state.days.clear();
     route();
   }

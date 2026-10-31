@@ -1,10 +1,11 @@
-// /api/local/* for the desktop app only: mail, accounts, roadmap, credentials. lib/api.js hands these routes here
+// /api/local/* for the desktop app only: mail, accounts, roadmap, credentials, the Instagram pages feed. lib/api.js hands these routes here
 // (key like "GET mail"), and only when the server runs on 127.0.0.1 with this module passed in.
 
 import { execFile } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { fetchInbox, ImapError } from "./imap.mjs";
+import { DEFAULT_FEED, readPagesFeed, validFeedPath } from "./pages.mjs";
 import { CREDENTIALS, addCommand, forget, listCredentials, readCredential } from "./secrets.mjs";
 import { Store, dataDir } from "./store.mjs";
 
@@ -60,13 +61,17 @@ async function bitwarden() {
   try { return { cli: true, status: JSON.parse(out).status || "unknown" }; } catch { return { cli: true, status: "unknown" }; }
 }
 
-/** deps are injectable for tests: store, readCredential, listCredentials, fetchInbox, bitwarden. */
+/** deps are injectable for tests: store, readCredential, listCredentials, fetchInbox, bitwarden, readPagesFeed, env. */
 export function createLocalApi(deps = {}) {
   const store = deps.store || new Store();
   const readCred = deps.readCredential || readCredential;
   const listCreds = deps.listCredentials || listCredentials;
   const inbox = deps.fetchInbox || fetchInbox;
   const bw = deps.bitwarden || bitwarden;
+  const pagesFeed = deps.readPagesFeed || readPagesFeed;
+  const env = deps.env || process.env;
+  // the feed path: Settings first, then FMA_PAGES_FEED, then faceless-ig next to this repository
+  const feedPath = (s) => s.pagesFeed || env.FMA_PAGES_FEED || DEFAULT_FEED;
   const settings = async () => ({ ...DEFAULT_SETTINGS, ...(await store.read("settings", {})) });
   let mailCache = null;
 
@@ -110,6 +115,11 @@ export function createLocalApi(deps = {}) {
             if (!/^https:\/\/[a-z0-9.-]+\//i.test(body.mailWeb)) throw bad("mail link must be an https address");
             next.mailWeb = body.mailWeb;
           }
+          if (body?.pagesFeed != null) {
+            if (body.pagesFeed === "") delete next.pagesFeed;          // back to the default
+            else if (!validFeedPath(body.pagesFeed)) throw bad("the pages feed must be a full path to a .json file");
+            else next.pagesFeed = body.pagesFeed;
+          }
           return store.write("settings", next);
         }
         case "GET mail": {
@@ -132,6 +142,10 @@ export function createLocalApi(deps = {}) {
             }
             throw err;
           }
+        }
+        case "GET pages": {
+          const s = await settings();
+          return { ...(await pagesFeed(feedPath(s))), defaultPath: DEFAULT_FEED, custom: Boolean(s.pagesFeed) };
         }
         case "GET bitwarden":
           return bw();

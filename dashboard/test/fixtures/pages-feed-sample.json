@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "generated_at": "2026-10-31T17:06+05:30",
+  "accounts": [
+    {
+      "id": "sql",
+      "handle": "@onequeryaday",
+      "niche": "SQL and data skills, one verified query a day",
+      "status": "building",
+      "secrets_set": false,
+      "queue": {
+        "waiting_approval": 0,
+        "approved": 0,
+        "next": null
+      },
+      "posted": {
+        "count": 0,
+        "last": null
+      },
+      "qc": {
+        "built": 6,
+        "passed": 6
+      },
+      "week": {
+        "posts": 0,
+        "reach": 0,
+        "sends_per_100": null,
+        "saves_per_100": null
+      }
+    },
+    {
+      "id": "heart",
+      "handle": "@pick-a-handle",
+      "niche": "Relationships and the small feelings people send to each other (original micro-writing)",
+      "status": "planned",
+      "secrets_set": false,
+      "queue": {
+        "waiting_approval": 0,
+        "approved": 0,
+        "next": null
+      },
+      "posted": {
+        "count": 0,
+        "last": null
+      },
+      "qc": {
+        "built": 0,
+        "passed": 0
+      },
+      "week": {
+        "posts": 0,
+        "reach": 0,
+        "sends_per_100": null,
+        "saves_per_100": null
+      }
+    }
+  ],
+  "income": {
+    "total_inr": 0.0,
+    "by_month": {},
+    "by_account": {},
+    "by_source": {}
+  }
+}
