@@ -70,3 +70,17 @@ def test_build_with_media_links_the_reel_and_slides(tmp_path, monkeypatch):
         assert f"reels/{k + 1:02d}.mp4" in page
     latest = sorted(p.name for p in (out / "share").iterdir() if p.is_dir())[-1]
     assert (out / f"share/{latest}/carousel/01.jpg").exists() and (out / f"share/{latest}/carousel.zip").exists()
+
+
+def test_every_doodle_cue_has_a_drawing_and_every_drawing_renders_in_every_look():
+    from PIL import ImageDraw
+
+    from fma import sketch
+    assert not [n for n, _ in sketch.CUES if n not in sketch.LIBRARY]
+    layer = Image.new("RGBA", (400, 400), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(layer)
+    for name in sketch.LIBRARY:
+        for mode in ("pen", "chalk", "cutout", "comic"):
+            sketch.draw(ld, name, (20, 20, 300), 3.0, (30, 35, 60, 235), (38, 150, 140, 255), mode=mode)
+    assert sketch.pick("A hacked Claude Code update reached up to 5,000 developers") == "padlock"   # not "up" -> chart
+    assert sketch.pick("Amazon cut 14,000 jobs") == "briefcase"

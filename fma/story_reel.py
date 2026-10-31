@@ -32,7 +32,9 @@ DOODLE_Y = 955
 SOURCE_Y = 1405
 
 
-# Looks for the story Reels. "doodle" keeps the site's night/paper themes; the others bring their own.
+# Looks for the story Reels. "cutout" is the house look (Pavan's choice, 1 Nov 2026); "doodle" keeps the site's
+# night/paper themes; the others bring their own.
+DEFAULT_STYLE = "cutout"
 STYLE_THEMES = {
     "chalk": {"bg": (31, 49, 42), "ink": (238, 236, 226), "ink2": (210, 214, 200), "muted": (165, 182, 168),
               "line": (66, 90, 78), "accent": (246, 214, 110), "dot": (40, 60, 52), "c": (246, 214, 110),
@@ -64,7 +66,7 @@ def style_background(style: str, n: int):
         d.rectangle([0, H - 300, W, H], fill=(20, 32, 27, 255))            # the chalk tray edge
         d.rectangle([0, H - 300, W, H - 288], fill=(90, 70, 50, 255))
     elif style == "cutout":                      # two big paper shapes in the corners
-        d.ellipse([W - 420, 120, W + 260, 800], fill=(38, 150, 140, 70))
+        d.ellipse([W - 230, 150, W + 250, 630], fill=(38, 150, 140, 60))
         d.pieslice([-300, H - 470, 420, H + 250], 270, 360, fill=(242, 190, 64, 110))
         d.rectangle([0, 0, W, 10], fill=(240, 110, 80, 255))
     else:                                        # comic: halftone dots, bigger toward the bottom-right corner
@@ -91,7 +93,7 @@ class Block:
         lines = wrap(d, text, font, max_w)
         self.height = len(lines) * int(size * lead)
         if y is None:                              # centre the block in the text band
-            yy = y = (MID_TOP + MID_BOTTOM) // 2 - self.height // 2
+            yy = y = max(MID_TOP, (MID_TOP + MID_BOTTOM) // 2 - self.height // 2)   # never up into the header
         self.top = y
         for line in lines:
             xx = x
@@ -129,7 +131,7 @@ def _fit(d, text: str, kind: str, start: int, floor: int, max_lines: int, max_w:
         size -= 6
 
 
-def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float, style: str = "doodle"):
+def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float, style: str = DEFAULT_STYLE):
     card = section["card"]
     probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
     if style == "doodle":
@@ -155,12 +157,12 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         hook_b = Block(probe, hook, hf, hs, M, hook_b.top + shift, TEXT_W)
     points = []
     for p in card["points"]:
-        pf, ps, _ = _fit(probe, plain(p), face, 90, 60, 5)
+        pf, ps, _ = _fit(probe, plain(p), face, 88, 58, 4)
         points.append(Block(probe, plain(p), pf, ps, M, None, TEXT_W))
     take = plain(card["take"]) if card.get("take") else ""
     take_b = None
     if take:
-        tf, ts, _ = _fit(probe, take, face, 88, 60, 5)
+        tf, ts, _ = _fit(probe, take, face, 86, 58, 4)
         take_b = Block(probe, take, tf, ts, M, None, TEXT_W)
 
     # one doodle per scene, chosen from that line's words, never the same one twice in a Reel
@@ -170,7 +172,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         name = sketch.pick(text, used) if text else "spark"
         used.add(name)
         doodles.append(name)
-    dbox = (M + (TEXT_W - DOODLE) / 2, DOODLE_Y, DOODLE)
+    def box_under(block):
+        y = max(DOODLE_Y, block.bottom + 30)
+        size = max(220, min(DOODLE, SOURCE_Y - 25 - y))
+        return (M + (TEXT_W - size) / 2, y, size)
+    dbox = box_under(hook_b)
     ink = T["ink"] + (235,)
     wash = c + (120 if theme == "night" else 80,)         # strong enough on navy to read as colour, not mud
     hi_c = (hi or c) + (255,)
@@ -221,6 +227,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             ld.rounded_rectangle([M, 420, M + (W - 2 * M - 60) * min(1, tt / end_t), 426], radius=3, fill=c + (255,))
 
         if kind == "hook":
+            dbox = box_under(hook_b)
             if fig:
                 pf = (lt - 0.2) / (BEAT * 1.5)
                 if pf > 0:
@@ -242,6 +249,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             ld.text((M, b.top - 90 - (1 - p0) * 30), f"{k + 1} / {len(points)}", font=_font("sans_bold", 44),
                     fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
+            dbox = box_under(b)
             backdrop(lt - 0.05, n * 10 + k)
             sketch.draw(ld, doodles[1 + k], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + k, mode=mode)
             if rings[f"p{k}"]:
@@ -258,6 +266,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             ld.rounded_rectangle([M, ty, M + tw + 56, ty + 68], radius=34, outline=c + (int(255 * p0),), width=4)
             ld.text((M + 28, ty + 12), tag, font=tf, fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(take_b.items)))
+            dbox = box_under(take_b)
             backdrop(lt - 0.05, n * 10 + 9)
             sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + 9, mode=mode)
             take_b.draw(ld, lt, 0.06, per, T["ink"], c)
@@ -281,7 +290,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         yield np.clip(arr, 0, 255).astype(np.uint8).tobytes()
 
 
-def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: str = "doodle") -> Path:
+def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: str = DEFAULT_STYLE) -> Path:
     card = section["card"]
     bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + 1
     out.parent.mkdir(parents=True, exist_ok=True)

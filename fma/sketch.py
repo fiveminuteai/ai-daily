@@ -75,9 +75,12 @@ def _magnifier():
 
 
 def _satellite():
-    return [line(*rect(0.4, 0.4, 0.6, 0.6)), line(*rect(0.06, 0.44, 0.34, 0.56)), line(*rect(0.66, 0.44, 0.94, 0.56)),
-            line((0.34, 0.5), (0.4, 0.5)), line((0.6, 0.5), (0.66, 0.5)),
-            {"hi": arc(0.5, 0.82, 0.45, 0.12, 200, 340)}]
+    body = [(0.4, 0.34), (0.6, 0.34), (0.6, 0.58), (0.4, 0.58), (0.4, 0.34)]
+    left = [(0.06, 0.38), (0.33, 0.38), (0.33, 0.54), (0.06, 0.54), (0.06, 0.38)]
+    right = [(0.67, 0.38), (0.94, 0.38), (0.94, 0.54), (0.67, 0.54), (0.67, 0.38)]
+    return [line(*left), line(*right), line((0.33, 0.46), (0.4, 0.46)), line((0.6, 0.46), (0.67, 0.46)), line(*body),
+            line((0.5, 0.34), (0.5, 0.2)), circle(0.5, 0.16, 0.04),
+            {"hi": arc(0.5, 1.02, 0.5, 0.26, 200, 340)}]
 
 
 def _graduate_ghost():
@@ -129,19 +132,196 @@ LIBRARY = {"padlock": _padlock_cracked, "package": _package_update, "key": _key_
            "magnifier": _magnifier, "satellite": _satellite, "graduate": _graduate_ghost, "robot": _robot,
            "server": _server_leak, "money": _money, "gavel": _gavel, "chip": _chip, "spark": _spark}
 
-# first match wins; the words come from the card line the doodle sits under
+
+
+def _closed_poly(*pts):
+    return line(*pts, pts[0])
+
+
+def _brain():
+    """A light bulb: reasoning, ideas, intelligence."""
+    bulb = arc(0.5, 0.4, 0.26, 0.28, 140, 400)
+    return [line(*bulb, (0.6, 0.72), (0.4, 0.72), bulb[0]),
+            line((0.41, 0.8), (0.59, 0.8)), line((0.43, 0.88), (0.57, 0.88)),
+            {"hi": line((0.42, 0.5), (0.47, 0.4), (0.53, 0.5), (0.58, 0.4))},
+            {"hi": line((0.14, 0.2), (0.22, 0.26))}, {"hi": line((0.86, 0.2), (0.78, 0.26))}]
+
+
+def _chart_up():
+    return [line((0.15, 0.12), (0.15, 0.88), (0.9, 0.88)),
+            _closed_poly((0.24, 0.88), (0.24, 0.66), (0.36, 0.66), (0.36, 0.88)),
+            _closed_poly((0.44, 0.88), (0.44, 0.52), (0.56, 0.52), (0.56, 0.88)),
+            _closed_poly((0.64, 0.88), (0.64, 0.34), (0.76, 0.34), (0.76, 0.88)),
+            *[{"hi": x} for x in arrow(0.22, 0.56, 0.84, 0.16, 0.09)]]
+
+
+def _chart_down():
+    return [line((0.15, 0.12), (0.15, 0.88), (0.9, 0.88)),
+            _closed_poly((0.24, 0.88), (0.24, 0.3), (0.36, 0.3), (0.36, 0.88)),
+            _closed_poly((0.44, 0.88), (0.44, 0.5), (0.56, 0.5), (0.56, 0.88)),
+            _closed_poly((0.64, 0.88), (0.64, 0.68), (0.76, 0.68), (0.76, 0.88)),
+            *[{"hi": x} for x in arrow(0.22, 0.2, 0.84, 0.62, 0.09)]]
+
+
+def _building():
+    cols = [line((x, 0.42), (x, 0.8)) for x in (0.3, 0.43, 0.57, 0.7)]
+    return [_closed_poly((0.18, 0.4), (0.5, 0.16), (0.82, 0.4)), *cols,
+            {"hi": _closed_poly((0.14, 0.8), (0.86, 0.8), (0.86, 0.9), (0.14, 0.9))}]
+
+
+def _chat():
+    return [_closed_poly((0.12, 0.18), (0.88, 0.18), (0.88, 0.66), (0.42, 0.66), (0.26, 0.84), (0.28, 0.66), (0.12, 0.66)),
+            {"hi": circle(0.32, 0.42, 0.04)}, {"hi": circle(0.5, 0.42, 0.04)}, {"hi": circle(0.68, 0.42, 0.04)}]
+
+
+def _phone():
+    return [_closed_poly((0.3, 0.08), (0.7, 0.08), (0.7, 0.92), (0.3, 0.92)), line((0.44, 0.15), (0.56, 0.15)),
+            {"hi": _closed_poly((0.36, 0.24), (0.64, 0.24), (0.64, 0.78), (0.36, 0.78))}, circle(0.5, 0.85, 0.025)]
+
+
+def _cloud():
+    top = arc(0.32, 0.6, 0.16, 0.16, 90, 270) + arc(0.5, 0.42, 0.2, 0.2, 180, 360)[1:] + arc(0.7, 0.58, 0.16, 0.18, 270, 450)[1:]
+    return [line(*top, top[0]), *[{"hi": x} for x in arrow(0.5, 0.95, 0.5, 0.62, 0.08)]]
+
+
+def _paper_doc():
+    return [_closed_poly((0.24, 0.1), (0.64, 0.1), (0.78, 0.24), (0.78, 0.9), (0.24, 0.9)),
+            line((0.64, 0.1), (0.64, 0.24), (0.78, 0.24)),
+            line((0.33, 0.4), (0.68, 0.4)), line((0.33, 0.52), (0.68, 0.52)), line((0.33, 0.64), (0.58, 0.64)),
+            {"hi": line((0.33, 0.77), (0.48, 0.77))}]
+
+
+def _link():
+    return [circle(0.36, 0.5, 0.18, 0.13), {"hi": circle(0.64, 0.5, 0.18, 0.13)}]
+
+
+def _rocket():
+    body = [(0.5, 0.06), (0.64, 0.3), (0.64, 0.7), (0.36, 0.7), (0.36, 0.3)]
+    return [_closed_poly(*body), _closed_poly((0.36, 0.52), (0.22, 0.72), (0.36, 0.7)),
+            _closed_poly((0.64, 0.52), (0.78, 0.72), (0.64, 0.7)), circle(0.5, 0.38, 0.06),
+            {"hi": _closed_poly((0.42, 0.72), (0.58, 0.72), (0.5, 0.94))}]
+
+
+def _bolt():
+    return [{"hi": _closed_poly((0.56, 0.06), (0.24, 0.54), (0.48, 0.54), (0.4, 0.94), (0.76, 0.42), (0.52, 0.42),
+                                (0.62, 0.06))}]
+
+
+def _eye():
+    top = arc(0.5, 0.78, 0.42, 0.42, 200, 340)
+    bottom = arc(0.5, 0.22, 0.42, 0.42, 20, 160)
+    return [line(*top, *bottom, top[0]), {"hi": circle(0.5, 0.5, 0.12)}, circle(0.5, 0.5, 0.04)]
+
+
+def _shield():
+    return [_closed_poly((0.5, 0.08), (0.84, 0.2), (0.8, 0.56), (0.5, 0.92), (0.2, 0.56), (0.16, 0.2)),
+            {"hi": line((0.34, 0.5), (0.46, 0.62), (0.68, 0.36))}]
+
+
+def _globe():
+    return [circle(0.5, 0.5, 0.38), line(*arc(0.5, 0.5, 0.16, 0.38, -90, 90)), line(*arc(0.5, 0.5, 0.16, 0.38, 90, 270)),
+            {"hi": line((0.12, 0.5), (0.88, 0.5))}, line((0.18, 0.32), (0.82, 0.32)), line((0.18, 0.68), (0.82, 0.68))]
+
+
+def _code():
+    return [line((0.32, 0.26), (0.12, 0.5), (0.32, 0.74)), line((0.68, 0.26), (0.88, 0.5), (0.68, 0.74)),
+            {"hi": line((0.58, 0.18), (0.42, 0.82))}]
+
+
+def _image():
+    return [_closed_poly((0.12, 0.2), (0.88, 0.2), (0.88, 0.8), (0.12, 0.8)),
+            _closed_poly((0.18, 0.74), (0.42, 0.44), (0.58, 0.62), (0.68, 0.52), (0.82, 0.74)),
+            {"hi": circle(0.7, 0.36, 0.07)}]
+
+
+def _video():
+    return [_closed_poly((0.1, 0.22), (0.9, 0.22), (0.9, 0.78), (0.1, 0.78)),
+            {"hi": _closed_poly((0.42, 0.36), (0.64, 0.5), (0.42, 0.64))}]
+
+
+def _warning():
+    return [_closed_poly((0.5, 0.1), (0.9, 0.86), (0.1, 0.86)), {"hi": line((0.5, 0.36), (0.5, 0.62))},
+            {"hi": circle(0.5, 0.73, 0.03)}]
+
+
+def _trophy():
+    cup = [(0.28, 0.14), (0.72, 0.14), (0.68, 0.46), (0.5, 0.58), (0.32, 0.46)]
+    return [_closed_poly(*cup), line(*arc(0.26, 0.28, 0.1, 0.12, 90, 270)), line(*arc(0.74, 0.28, 0.1, 0.12, -90, 90)),
+            line((0.5, 0.58), (0.5, 0.74)), {"hi": _closed_poly((0.32, 0.74), (0.68, 0.74), (0.68, 0.86), (0.32, 0.86))}]
+
+
+def _people():
+    return [circle(0.34, 0.32, 0.1), _closed_poly((0.16, 0.8), (0.18, 0.56), (0.5, 0.56), (0.52, 0.8)),
+            {"hi": circle(0.66, 0.36, 0.1)}, {"hi": _closed_poly((0.48, 0.84), (0.5, 0.6), (0.82, 0.6), (0.84, 0.84))}]
+
+
+def _briefcase():
+    return [_closed_poly((0.12, 0.34), (0.88, 0.34), (0.88, 0.84), (0.12, 0.84)),
+            line((0.38, 0.34), (0.38, 0.22), (0.62, 0.22), (0.62, 0.34)),
+            {"hi": _closed_poly((0.44, 0.5), (0.56, 0.5), (0.56, 0.6), (0.44, 0.6))}]
+
+
+def _health():
+    return [circle(0.5, 0.5, 0.38),
+            {"hi": _closed_poly((0.42, 0.26), (0.58, 0.26), (0.58, 0.42), (0.74, 0.42), (0.74, 0.58), (0.58, 0.58),
+                                (0.58, 0.74), (0.42, 0.74), (0.42, 0.58), (0.26, 0.58), (0.26, 0.42), (0.42, 0.42))}]
+
+
+def _car():
+    return [_closed_poly((0.1, 0.64), (0.16, 0.46), (0.32, 0.44), (0.42, 0.28), (0.66, 0.28), (0.76, 0.44),
+                         (0.9, 0.48), (0.9, 0.64)),
+            {"hi": circle(0.3, 0.68, 0.08)}, {"hi": circle(0.72, 0.68, 0.08)}]
+
+
+def _open_weights():
+    return [_closed_poly((0.18, 0.44), (0.82, 0.44), (0.82, 0.88), (0.18, 0.88)),
+            line(*arc(0.4, 0.44, 0.17, 0.26, 180, 330)), {"hi": circle(0.5, 0.64, 0.06)}]
+
+
+LIBRARY.update({"brain": _brain, "chart_up": _chart_up, "chart_down": _chart_down, "building": _building, "chat": _chat,
+                "phone": _phone, "cloud": _cloud, "doc": _paper_doc, "link": _link, "rocket": _rocket, "bolt": _bolt,
+                "eye": _eye, "shield": _shield, "globe": _globe, "code": _code, "image": _image, "video": _video,
+                "warning": _warning, "trophy": _trophy, "people": _people, "briefcase": _briefcase, "health": _health,
+                "car": _car, "open": _open_weights})
+
+
+# First match wins, so strong, specific signals come first and loose ones ("power", "agent") last.
 CUES = [("removed", r"\b(removed|pulled|deleted|banned|shut down)\b"),
-        ("key", r"\b(ssh|key|keys|password|login|logins|credential|tunnel)\b"),
-        ("padlock", r"\b(hack|hacked|backdoor|breach|malicious|compromised|attack|security)\b"),
-        ("package", r"\b(update|version|release|released|ships|shipped|launch)\b"),
-        ("magnifier", r"\b(check|review|audit|investigat|found|analysis)\w*"),
-        ("satellite", r"\b(satellite|orbit|space)\b"),
-        ("graduate", r"\b(student|students|college|university|school)\b"),
-        ("money", r"[$€£₹]|\b(million|billion|price|cost|funding|crypto|seized)\b"),
-        ("gavel", r"\b(charged|court|law|lawsuit|regulat|prosecutor|fine|fined)\w*"),
-        ("server", r"\b(data|leak|leaked|sent|system|server|database)\b"),
-        ("chip", r"\b(chip|chips|gpu|gpus|tpu|tpus|nvidia)\b"),
-        ("robot", r"\b(agent|agents|robot|model|ai)\b")]
+        ("padlock", r"\b(hack|hacked|backdoor\w*|breach\w*|malicious|compromised|attack\w*|malware)\b"),
+        ("key", r"\b(ssh|key|keys|password\w*|login|logins|credential\w*|tunnel)\b"),
+        ("warning", r"\b(warn\w*|risk\w*|danger\w*|threat\w*|flagged)\b"),
+        ("shield", r"\b(safety|protect\w*|guardrail\w*|defen[cs]e)\b"),
+        ("eye", r"\b(privacy|surveillance|tracking|spy\w*|facial)\b"),
+        ("magnifier", r"\b(check\w*|review\w*|audit\w*|investigat\w*|analysis)\b"),
+        ("satellite", r"\b(satellite\w*|orbit\w*|space)\b"),
+        ("graduate", r"\b(student\w*|college\w*|universit\w*|school\w*)\b"),
+        ("health", r"\b(health\w*|medical|doctor\w*|hospital\w*|patient\w*|drug\w*)\b"),
+        ("car", r"\b(cars?|driving|driverless|vehicle\w*|robotaxi\w*)\b"),
+        ("gavel", r"\b(charged|court\w*|law|laws|lawsuit\w*|regulat\w*|prosecutor\w*|fined?|sued)\b"),
+        ("money", r"[$€£₹]|\b(million|billion|price\w*|cost\w*|funding|crypto|seized|revenue)\b"),
+        ("package", r"\b(update\w*|version\w*|release\w*|ships|shipped)\b"),
+        ("open", r"\bopen[- ](source|weights?)\b"),
+        ("video", r"\b(video\w*|film\w*|youtube)\b"),
+        ("image", r"\b(image\w*|photo\w*|picture\w*)\b"),
+        ("chat", r"\b(chatbot\w*|chatgpt|assistant\w*|conversation\w*)\b"),
+        ("phone", r"\b(app|apps|phone\w*|iphone|android|mobile)\b"),
+        ("cloud", r"\b(cloud|data ?cent(er|re)s?|aws|azure)\b"),
+        ("doc", r"\b(paper|study|research\w*|report\w*)\b"),
+        ("link", r"\b(deal\w*|partner\w*|acquir\w*|acquisition\w*|merger|bought)\b"),
+        ("rocket", r"\b(launch\w*|debut\w*)\b"),
+        ("trophy", r"\b(benchmark\w*|leaderboard|scored?)\b"),
+        ("chart_up", r"\b(grew|growth|rose|surge\w*|increase\w*|doubled|tripled)\b"),
+        ("chart_down", r"\b(fell|drop\w*|decline\w*|layoffs?|slump\w*)\b"),
+        ("briefcase", r"\b(jobs?|hire|hiring|engineers?|workers?|employees?)\b"),
+        ("people", r"\b(users|people|customers|public)\b"),
+        ("globe", r"\b(global|world\w*|countries|international|eu|europe|china|india)\b"),
+        ("building", r"\b(compan\w*|government\w*|department|agenc\w*|pentagon|congress|ministry)\b"),
+        ("chip", r"\b(chips?|gpus?|tpus?|nvidia|semiconductor\w*)\b"),
+        ("server", r"\b(data|leak\w*|system\w*|servers?|database\w*)\b"),
+        ("code", r"\b(code|coding|developers?|programming|github)\b"),
+        ("bolt", r"\b(power|energy|electricity|kw|mw|gw)\b"),
+        ("brain", r"\b(reasoning|intelligence|agi|thinks?|learns?)\b"),
+        ("robot", r"\b(agents?|robots?|models?|ai)\b")]
 
 
 def pick(text: str, avoid: set[str] | None = None) -> str:
@@ -187,7 +367,8 @@ def _partial(pts, frac):
     return out
 
 
-CUTOUT = [(240, 110, 80), (38, 150, 140), (242, 190, 64), (122, 104, 220)]   # coral, teal, mustard, violet paper
+# fill papers for cut-out shapes: never the disc's mustard (shapes vanish) or the highlight teal (accents vanish)
+CUTOUT = [(240, 110, 80), (122, 104, 220), (255, 251, 242)]   # coral, violet, white paper
 
 
 def _closed(pts) -> bool:
