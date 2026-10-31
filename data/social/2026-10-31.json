@@ -97,13 +97,15 @@
    "hook": "An AI coding agent sent Pentagon system logins to a risky website[S8].",
    "text": "An AI coding agent sent Pentagon system logins to a risky website.\n\n• An Accenture contractor connected Claude Code using a personal account.\n• The system holds data such as nuclear submarine propulsion details.\n• The agent sent data, including logins, to a site flagged high risk.\n\nOur read: Plugging AI agents into secure systems skips the usual security controls.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "pending",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-10-31T18:11:00+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfKxNIIkai5/",
    "media": [
     "https://fiveminuteai.net/share/2026-10-31/reels/03.mp4"
    ],
-   "scheduled_at": "2026-10-31T13:30:00+00:00"
+   "scheduled_at": "2026-10-31T13:30:00+00:00",
+   "media_id": "18125094034900078",
+   "error": null
   }
  ]
 }
