@@ -2,11 +2,19 @@ name: Daily post
 
 on:
   schedule:
-    - cron: "15 0 * * *"      # 00:15 UTC = 05:45 India time, every day
-    # Backups: GitHub sometimes drops scheduled runs. If the day's post already exists these
-    # runs skip themselves ("post for <date> already exists"), so at most one post goes out.
-    - cron: "45 1 * * *"      # 07:15 India time
-    - cron: "37 3 * * *"      # 09:07 India time
+    # GitHub's scheduler is best effort: it delays runs and sometimes drops them (31 Oct 2026 lost
+    # both morning runs). So there are many tries, at odd minutes away from the busy top of the hour.
+    # Once the day's post exists the rest skip themselves in seconds, so only one post goes out.
+    - cron: "15 0 * * *"      # 05:45 India time, the main run
+    - cron: "47 0 * * *"      # 06:17
+    - cron: "23 1 * * *"      # 06:53
+    - cron: "53 1 * * *"      # 07:23
+    - cron: "29 2 * * *"      # 07:59
+    - cron: "7 3 * * *"       # 08:37
+    - cron: "43 3 * * *"      # 09:13
+    - cron: "19 4 * * *"      # 09:49
+    - cron: "11 5 * * *"      # 10:41
+    - cron: "37 6 * * *"      # 12:07, last try; raises the alert below if there is still no post
   workflow_dispatch:          # "Run workflow" button for a manual run
 
 permissions:
@@ -66,12 +74,12 @@ jobs:
 
       # The last backup of the day turns a missed day into a red run, so GitHub emails about it.
       - name: Alert if there is still no post today
-        if: always() && github.event.schedule == '37 3 * * *'
+        if: always() && github.event.schedule == '37 6 * * *'
         run: |
           git pull -q origin main || true
           day=$(TZ=Asia/Kolkata date +%F)
           if [ ! -f "content/posts/$day.json" ]; then
-            echo "::error::No post for $day after all three scheduled tries. See the 'Write today's post' step above."
+            echo "::error::No post for $day after all the scheduled tries. See the 'Write today's post' step above."
             exit 1
           fi
 
