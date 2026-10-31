@@ -297,8 +297,9 @@ async function renderToday(date) {
   }
   const v = d.verdict;
   const main = d.runs.find((r) => r.id === d.mainRunId);
-  const sub = v === "bad" ? esc(d.reason || "The run failed. Open its log.")
-    : v === "waiting" ? (d.nextRun ? `Next scheduled try at ${time(d.nextRun)} IST; backups at 07:15 and 09:07.` : "No scheduled tries left today.")
+  const next = d.nextRun ? `Next scheduled try at ${time(d.nextRun)} IST${d.triesLeft > 1 ? `; ${d.triesLeft} tries left today, the last at ${time(d.lastTry)}` : "; it is the last today"}.` : "";
+  const sub = v === "bad" ? `${esc(d.reason || "The run failed. Open its log.")}${next ? ` ${next}` : " No scheduled tries left today."}`
+    : v === "waiting" ? (next || "No scheduled tries left today.")
     : v === "paused" ? "Daily posts are paused in config/site.yaml. Resume from Controls."
     : v === "running" ? "A run is in progress; this page refreshes every 30 seconds."
     : d.hasSummary ? "" : "This day ran before run summaries existed: numbers come from the run log and the committed post.";

@@ -2,7 +2,8 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { _resetCertCache, handle, setPaused, verifyJwt } from "../lib/api.js";
-import { buildDay, buildHistory, dayRange, nextSchedule, parseLog } from "../lib/parse.js";
+import { readFileSync } from "node:fs";
+import { buildDay, buildHistory, dayRange, nextSchedule, parseLog, SCHEDULE_UTC, schedulesLeft } from "../lib/parse.js";
 
 const LOCAL = { LOCAL_DEV: "1" };
 const req = (path, init = {}) => new Request(`http://127.0.0.1:8788/api/${path}`, init);
@@ -194,8 +195,10 @@ test("India-time day windows and schedules", () => {
   const [a, b] = dayRange("2026-10-31");
   assert.equal(a.toISOString(), "2026-10-30T18:30:00.000Z");
   assert.equal(b.toISOString(), "2026-10-31T18:30:00.000Z");
-  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T01:00:00Z")), "2026-10-31T01:45:00.000Z");
-  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T05:00:00Z")), null);
+  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T01:00:00Z")), "2026-10-31T01:23:00.000Z");
+  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T01:00:00Z")), 8);
+  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T06:40:00Z")), null);
+  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T06:40:00Z")), 0);
 });
 
 test("history marks the publishing run from the post's time, and earlier real runs as skipped", () => {
@@ -285,3 +288,24 @@ test("manual numbers: the first save creates the file without a sha", async () =
   assert.equal("sha" in put, false);
   assert.deepEqual(JSON.parse(Buffer.from(put.content, "base64").toString()).linkedin, [{ date: "2026-10-31", followers: 30 }]);
 });
+
+test("the schedule the app shows is exactly the cron lines in daily.yml", () => {
+  const yml = readFileSync(new URL("../../.github/workflows/daily.yml", import.meta.url), "utf-8");
+  const crons = [...yml.matchAll(/cron:\s*"(\d+) (\d+) \* \* \*"/g)]
+    .map(([, m, h]) => `${h.padStart(2, "0")}:${m.padStart(2, "0")}`).sort();
+  assert.deepEqual([...SCHEDULE_UTC].sort(), crons);
+  assert.deepEqual(SCHEDULE_UTC, [...SCHEDULE_UTC].sort());              // in time order, so "next" is the next one
+});
+
+test("a skipped early run still shows the next try and how many are left", () => {
+  const log = parseLog("2026-10-31T00:40:00Z SKIPPED 2026-10-31: gate failed after retries: too few words");
+  const run = { id: 9, html_url: "https://github.com/r/9", event: "schedule", status: "completed", conclusion: "success",
+                created_at: "2026-10-31T00:16:00Z", run_started_at: "2026-10-31T00:16:00Z", updated_at: "2026-10-31T00:40:00Z" };
+  const d = buildDay({ date: "2026-10-31", now: new Date("2026-10-31T00:45:00Z"), runs: [{ run, jobs: [], log }] });
+  assert.equal(d.verdict, "bad");
+  assert.equal(d.nextRun, "2026-10-31T00:47:00.000Z");
+  assert.equal(d.triesLeft, 9);
+  assert.equal(d.lastTry, "2026-10-31T06:37:00.000Z");
+  assert.equal(d.runs[0].trigger, "scheduled");
+});
+
