@@ -1,0 +1,12 @@
+{
+ "date": "2026-10-31",
+ "collected_at": "2026-10-31T14:19:34+00:00",
+ "website": {
+  "status": "off",
+  "note": "set GOATCOUNTER_TOKEN"
+ },
+ "instagram": {
+  "status": "error",
+  "error": "HTTP 400"
+ }
+}
