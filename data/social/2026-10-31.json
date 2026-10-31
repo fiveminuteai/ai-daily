@@ -57,13 +57,15 @@
    "hook": "A hacked Claude Code update reached up to 5,000 developers[S1].",
    "text": "A hacked Claude Code update reached up to 5,000 developers.\n\n• Version 2.1.313 was posted to Anthropic’s official Cursor account.\n• It tries to add an attacker’s SSH key and open a reverse tunnel.\n• Cursor removed it. Anthropic has not publicly warned customers.\n\nDo this: Used Claude Code in Cursor? Check for versions 2.1.312 or 2.1.313.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "pending",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-10-31T18:07:56+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfKw3Zzkv3p/",
    "media": [
     "https://fiveminuteai.net/share/2026-10-31/reels/01.mp4"
    ],
-   "scheduled_at": "2026-10-31T03:30:00+00:00"
+   "scheduled_at": "2026-10-31T03:30:00+00:00",
+   "media_id": "18132685601497886",
+   "error": null
   },
   {
    "id": "2026-10-31-reel-2",
