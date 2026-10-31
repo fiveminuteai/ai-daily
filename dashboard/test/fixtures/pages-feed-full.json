@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "generated_at": "2026-10-31T16:30+05:30",
+  "accounts": [
+    {
+      "id": "sql",
+      "handle": "@onequeryaday",
+      "niche": "SQL and data skills, one verified query a day",
+      "status": "live",
+      "secrets_set": true,
+      "queue": {
+        "waiting_approval": 2,
+        "approved": 3,
+        "next": {"slug": "window-functions-running-total", "kind": "carousel", "at": "2026-11-01T19:00+05:30"}
+      },
+      "posted": {
+        "count": 12,
+        "last": {"slug": "left-join-null-trap", "kind": "reel", "posted_at": "2026-10-30T19:00:12+05:30",
+                 "permalink": "https://www.instagram.com/p/EXAMPLE123/"}
+      },
+      "qc": {"built": 17, "passed": 16},
+      "week": {"posts": 7, "reach": 4820, "sends_per_100": 1.87, "saves_per_100": 3.42}
+    },
+    {
+      "id": "heart",
+      "handle": "@pick-a-handle",
+      "niche": "Relationships and the small feelings people send to each other (original micro-writing)",
+      "status": "planned",
+      "secrets_set": false,
+      "queue": {"waiting_approval": 0, "approved": 0, "next": null},
+      "posted": {"count": 0, "last": null},
+      "qc": {"built": 0, "passed": 0},
+      "week": {"posts": 0, "reach": 0, "sends_per_100": null, "saves_per_100": null}
+    }
+  ],
+  "income": {
+    "total_inr": 4250.0,
+    "by_month": {"2026-09": 750.0, "2026-10": 3500.0},
+    "by_account": {"sql": 4250.0},
+    "by_source": {"affiliate": 1250.0, "sponsor": 3000.0}
+  }
+}

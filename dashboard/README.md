@@ -10,6 +10,7 @@ Cloudflare). Free, no dependencies, nothing downloaded.
 | **Controls** | Pause / resume daily posts, rerun today, retry the deploy. |
 | **Posts** | The newest post's Instagram carousel and Reel (made by the blog pipeline), the social queue (Instagram, X, LinkedIn) with Approve / Edit / Skip / Schedule, and every blog post with its share kit. |
 | **Stats** | Website, Instagram, X and LinkedIn numbers: followers, 7-day change, visitors per day, referrers, most-read pages, Instagram reach per post. |
+| **Pages** (desktop) | Every faceless Instagram page (from `faceless-ig`, read-only): handle, niche, status, whether its secrets are set, queue (waiting approval, approved, next post), posts so far with the last permalink, QC built/passed, last 7 days' reach with sends and saves per 100. Plus the shared income ledger: total, by month, by page, by source. |
 | **Mail** (desktop) | The hello@fiveminuteai.net inbox, read-only: sender, subject, date, unread count. Replies happen in Zoho Mail. |
 | **Accounts** (desktop) | Every account (site, GitHub, Instagram, X, LinkedIn, Zoho, GoatCounter, domain, model providers, Cloudflare, Bitwarden): handle, status, links, what is still to do, which Bitwarden item holds its password, private notes. |
 | **Roadmap** (desktop) | A board (Ideas, Next, Doing, Done) for future work, kept on this computer. |
@@ -59,6 +60,7 @@ the Bitwarden CLI (`winget install Bitwarden.CLI`), Settings also shows whether 
 | Roadmap, account notes, mail settings | `%APPDATA%\FiveMinuteAI\*.json` (this computer only) |
 | App log (start/stop lines, no secrets) | `%APPDATA%\FiveMinuteAI\app.log` |
 | App window profile | `%LOCALAPPDATA%\FiveMinuteAI\window` |
+| Instagram pages feed (read-only) | `faceless-ig\data\dashboard.json` next to this repository, written by `python -m ig feed` in that folder. Another path: Settings → Pages feed, or `$env:FMA_PAGES_FEED` |
 | Secrets | Windows Credential Manager (`FiveMinuteAI/*`) and Bitwarden |
 | Pipeline data, social queue, stats | the GitHub repository, as before |
 
@@ -259,7 +261,8 @@ dashboard/
   lib/parse.js      turns runs, logs and files into the day view and history (pure, tested)
   lib/server.mjs    the local HTTP server (127.0.0.1 only, Host-header check, heartbeat)
   desktop/          the Windows app: app.mjs (start), install.ps1 / uninstall.ps1 / launch.vbs, local-api.mjs
-                    (mail, accounts, roadmap, settings), imap.mjs (read-only IMAP), secrets.mjs + cred.ps1
+                    (mail, accounts, roadmap, settings, pages), pages.mjs
+                    (reads faceless-ig's dashboard.json), imap.mjs (read-only IMAP), secrets.mjs + cred.ps1
                     (Windows Credential Manager), store.mjs (%APPDATA% files), accounts.json
   dev-server.mjs    the same server in a normal browser (no desktop sections)
   test/             node --test test/*.test.mjs
