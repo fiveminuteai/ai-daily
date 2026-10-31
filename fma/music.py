@@ -204,8 +204,8 @@ def compose(bars: int = 8, seed: int = 7) -> tuple[np.ndarray, list[float]]:
     return mix.astype(np.float32), beats
 
 
-def write_wav(path: Path, bars: int = 8) -> tuple[Path, list[float]]:
-    audio, beats = compose(bars)
+def write_wav(path: Path, bars: int = 8, seed: int = 7) -> tuple[Path, list[float]]:
+    audio, beats = compose(bars, seed=seed)
     data = (np.clip(audio, -1, 1) * 32767).astype(np.int16)
     path.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(path), "wb") as w:

@@ -19,7 +19,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30          # the story Reels add about 3 minutes of encoding
     steps:
       - uses: actions/checkout@v7
         with:

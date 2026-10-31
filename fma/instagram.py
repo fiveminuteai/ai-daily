@@ -18,6 +18,7 @@ CAPTION_MAX = 2200          # Instagram's caption limit
 HASHTAGS_MAX = 30
 SLIDES_MAX = 10             # Meta allows up to 20; our carousels are 7 or 8
 WAIT_TRIES, WAIT_SECONDS = 12, 5
+REEL_WAIT_TRIES, REEL_WAIT_SECONDS = 40, 15     # Meta fetches and transcodes the video: allow up to 10 minutes
 
 
 class PublishError(Exception):
@@ -68,6 +69,49 @@ def check_caption(caption: str) -> None:
         raise PublishError(f"caption is {len(caption)} characters, over Instagram's {CAPTION_MAX}")
     if len(re.findall(r"#\w", caption)) > HASHTAGS_MAX:
         raise PublishError(f"caption has more than {HASHTAGS_MAX} hashtags")
+
+
+def _wait(http, container: str, token: str, tries: int, seconds: float, sleep) -> None:
+    for _ in range(tries):              # Meta fetches the media; publishing before FINISHED fails
+        status = _call(http, "get", f"{API}/{container}", "status",
+                       params={"fields": "status_code", "access_token": token}).get("status_code")
+        if status == "FINISHED":
+            return
+        if status in ("ERROR", "EXPIRED"):
+            raise PublishError(f"Instagram could not prepare the media ({status})")
+        sleep(seconds)
+    raise PublishError(f"the media was not ready after {int(tries * seconds)} seconds")
+
+
+def _publish(http, ig_id: str, token: str, container: str) -> dict:
+    media_id = _call(http, "post", f"{API}/{ig_id}/media_publish", "publish",
+                     data={"creation_id": container, "access_token": token})["id"]
+    try:                                # the post is live now; a missing link is not a failure
+        link = _call(http, "get", f"{API}/{media_id}", "permalink",
+                     params={"fields": "permalink", "access_token": token}).get("permalink")
+    except PublishError:
+        link = None
+    return {"id": media_id, "permalink": link}
+
+
+def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=time.sleep) -> dict:
+    """Post one video as a Reel, also shown on the profile grid. Returns {"id", "permalink"}."""
+    if not ig_id or not token:
+        raise PublishError("instagram_id or INSTAGRAM_TOKEN is not set")
+    if not video.startswith("https://") or not video.lower().endswith(".mp4"):
+        raise PublishError("the Reel must be a public https MP4")
+    check_caption(caption)
+    try:
+        head = http.head(video)
+    except Exception as exc:  # noqa: BLE001
+        raise PublishError(f"video check: {type(exc).__name__}") from None
+    if head.status_code != 200:
+        raise PublishError(f"the Reel video is not on the site yet (HTTP {head.status_code})")
+    container = _call(http, "post", f"{API}/{ig_id}/media", "reel",
+                      data={"media_type": "REELS", "video_url": video, "caption": caption, "share_to_feed": "true",
+                            "access_token": token})["id"]
+    _wait(http, container, token, REEL_WAIT_TRIES, REEL_WAIT_SECONDS, sleep)
+    return _publish(http, ig_id, token, container)
 
 
 def publish_carousel(http, ig_id: str, token: str, images: list[str], caption: str, sleep=time.sleep) -> dict:

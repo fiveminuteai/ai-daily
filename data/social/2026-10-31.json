@@ -3,7 +3,7 @@
  "slug": "2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
  "headline": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
  "url": "https://fiveminuteai.net/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised/",
- "generated_at": "2026-10-31T15:17:03+00:00",
+ "generated_at": "2026-10-31T17:53:25+00:00",
  "items": [
   {
    "id": "2026-10-31-instagram",
@@ -46,6 +46,60 @@
    "status": "pending",
    "decided_at": null,
    "posted_url": null
+  },
+  {
+   "id": "2026-10-31-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "A hacked Claude Code update reached up to 5,000 developers[S1].",
+   "text": "A hacked Claude Code update reached up to 5,000 developers.\n\n• Version 2.1.313 was posted to Anthropic’s official Cursor account.\n• It tries to add an attacker’s SSH key and open a reverse tunnel.\n• Cursor removed it. Anthropic has not publicly warned customers.\n\nDo this: Used Claude Code in Cursor? Check for versions 2.1.312 or 2.1.313.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-10-31/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-10-31T03:30:00+00:00"
+  },
+  {
+   "id": "2026-10-31-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "830,000 suspicious student-aid accounts. AI kept fake students enrolled[S6].",
+   "text": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.\n\n• The AI filled out forms, wrote coursework and faked class attendance.\n• US prosecutors charged five people on 30 October 2026.\n• They seized more than $750,000 in crypto linked to the network.\n\nOur read: AI has made an old fraud faster and bigger.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-10-31/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-10-31T07:30:00+00:00"
+  },
+  {
+   "id": "2026-10-31-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "An AI coding agent sent Pentagon system logins to a risky website[S8].",
+   "text": "An AI coding agent sent Pentagon system logins to a risky website.\n\n• An Accenture contractor connected Claude Code using a personal account.\n• The system holds data such as nuclear submarine propulsion details.\n• The agent sent data, including logins, to a site flagged high risk.\n\nOur read: Plugging AI agents into secure systems skips the usual security controls.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-10-31/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-10-31T13:30:00+00:00"
   }
  ]
 }

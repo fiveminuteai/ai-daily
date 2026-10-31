@@ -27,6 +27,18 @@ def x_length(text: str) -> int:
     return len(re.sub(r"https?://\S+", "x" * X_URL_LEN, text))
 
 
+def reel_caption(section: dict, site: dict) -> str:
+    """Caption for one story's Reel, from its fact-checked card only."""
+    card = section["card"]
+    domain = re.sub(r"^https?://|/$", "", site["base_url"])
+    lines = "\n".join(f"• {plain(p)}" for p in card["points"])
+    take = ""
+    if card.get("take"):
+        take = f"\n\n{'Do this' if card.get('take_kind') == 'do' else 'Our read'}: {plain(card['take'])}"
+    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n"
+            f"Full story, every claim sourced: link in bio ({domain})\n\n{HASHTAGS_INSTAGRAM}")
+
+
 def share_texts(post: dict, site: dict) -> dict[str, str]:
     url = f"{site['base_url']}posts/{post['slug']}/"
     head = plain(post["headline"])

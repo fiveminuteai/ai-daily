@@ -11,6 +11,18 @@
   <h1 class="page-title">{{ post.headline }}</h1>
   <p class="hint">Ready-made posts for today's issue. Tap <b>Copy</b>, open the app, paste. Every line comes from the checked post, so nothing here says more than the post does.{% if not latest %} This is the kit for {{ post.date_short }}; <a href="{{ base }}share/">today's kit is here</a>.{% endif %}</p>
 
+  {% if media.story_reels %}
+  <section class="kit">
+    <h2>Story Reels</h2>
+    <p class="muted">One Reel per story, built from its fact-checked card. The control app posts them at the scheduled times after you approve.</p>
+    {% for r in media.story_reels %}
+    <figure class="kit-story-reel">
+      <video class="kit-reel" src="{{ base }}share/{{ post.date }}/{{ r.file }}" controls playsinline preload="metadata" width="1080" height="1920"></video>
+      <figcaption>{{ loop.index }}. {{ r.hook }}</figcaption>
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
   {% if media.reel %}
   <section class="kit">
     <h2>Instagram Reel</h2>

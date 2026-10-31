@@ -38,7 +38,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20          # a Reel can take Meta several minutes to process
     steps:
       - uses: actions/checkout@v7
         with:

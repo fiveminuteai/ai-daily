@@ -1,0 +1,54 @@
+name: Post scheduled social
+
+# Posts every approved Instagram item whose time has come (data/social/<date>.json, scheduled_at). The story Reels
+# are scheduled for 09:00, 13:00 and 19:00 India time; approving in the control app only marks them approved.
+# GitHub's scheduler sometimes drops runs, so each slot has a second try 30 minutes later. An item is posted once:
+# after posting it is "posted" and later runs skip it.
+
+on:
+  schedule:
+    - cron: "35 3 * * *"      # 09:05 India time
+    - cron: "5 4 * * *"       # 09:35, second try
+    - cron: "35 7 * * *"      # 13:05
+    - cron: "5 8 * * *"       # 13:35
+    - cron: "35 13 * * *"     # 19:05
+    - cron: "5 14 * * *"      # 19:35
+  workflow_dispatch:
+
+permissions:
+  contents: write             # record the result in data/social
+
+concurrency:
+  group: publish-social       # same lock as approve/skip, so two runs never post the same item
+  cancel-in-progress: false
+
+jobs:
+  due:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Post what is due
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+        run: python -m fma.social_queue due
+      - name: Record the result
+        if: ${{ always() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/social
+          git diff --cached --quiet && exit 0
+          git commit -m "Social: scheduled posts"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            sleep 10
+          done
+          exit 1

@@ -1,6 +1,6 @@
 {
-  "checked": 65,
-  "ok": 48,
+  "checked": 80,
+  "ok": 63,
   "repaired": 2,
   "dropped": 15,
   "entries": [
@@ -661,6 +661,171 @@
       "status": "ok",
       "problems": [
         "reworded, checked by hand against the sources on 2026-10-31"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "A hacked Claude Code update reached up to 5,000 developers.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "Version 2.1.313 was posted to Anthropic’s official Cursor account.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "It tries to add an attacker’s SSH key and open a reverse tunnel.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "Cursor removed it. Anthropic has not publicly warned customers.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "Used Claude Code in Cursor? Check for versions 2.1.312 or 2.1.313.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "The AI filled out forms, wrote coursework and faked class attendance.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "US prosecutors charged five people on 30 October 2026.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "They seized more than $750,000 in crypto linked to the network.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "AI has made an old fraud faster and bigger.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "An AI coding agent sent Pentagon system logins to a risky website.",
+      "sources": [
+        "8]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "An Accenture contractor connected Claude Code using a personal account.",
+      "sources": [
+        "8]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "The system holds data such as nuclear submarine propulsion details.",
+      "sources": [
+        "8]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "The agent sent data, including logins, to a site flagged high risk.",
+      "sources": [
+        "8]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "Plugging AI agents into secure systems skips the usual security controls.",
+      "sources": [
+        "8]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-10-31 from sentences already verified in this post"
       ]
     }
   ],

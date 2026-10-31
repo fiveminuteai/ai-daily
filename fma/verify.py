@@ -363,6 +363,29 @@ class Verifier:
             self.quotes_used += 1
         return None
 
+    def card(self, c: dict | None, ids: list[str], n: int) -> dict | None:
+        """Layer 1 for a story's Instagram card. Every line is checked like a sentence of the post (names, numbers,
+        citations, hype). A line over its word limit is dropped. A card needs its hook and two takeaways."""
+        if not c:
+            return None
+
+        def one(text, where, limit):
+            if not text:
+                return None
+            words = len(plain(text).split())
+            if words > limit:
+                self.log.append({"where": where, "text": plain(text), "sources": cites(text), "status": "dropped",
+                                 "problems": [f"{words} words, card limit is {limit}"]})
+                return None
+            return self.sentence(text, where, ids)
+
+        hook = one(c.get("hook"), f"card[{n}] hook", 14)
+        points = [x for x in (one(p, f"card[{n}] point", 20) for p in (c.get("points") or [])[:4]) if x][:3]
+        take = one(c.get("take"), f"card[{n}] take", 24)
+        if not hook or len(points) < 2:
+            return None
+        return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read")}
+
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)
         para_ids = list(dict.fromkeys(i for s in sents for i in cites(s)))
@@ -492,7 +515,9 @@ def verify_draft(draft: dict, sources: list[dict], max_quotes: int = 1) -> tuple
         paras = [x for x in (v.paragraph(p, f"sections[{n}]") for p in s.get("paragraphs", [])) if x]
         words = sum(len(plain(x).split()) for x in paras)
         if words >= 80:
-            post["sections"].append({**s, "title": v.section_title(s, paras), "paragraphs": paras})
+            ids = list(dict.fromkeys(i for p in paras for i in cites(p)))
+            post["sections"].append({**s, "title": v.section_title(s, paras), "paragraphs": paras,
+                                     "card": v.card(s.get("card"), ids, n)})
         else:
             v.log.append({"where": f"sections[{n}]", "text": s.get("title", ""), "sources": [], "status": "dropped",
                           "problems": [f"only {words} verified words left in section"]})
@@ -525,6 +550,8 @@ def mark_unused(report: dict, post: dict) -> dict:
     shown = [post.get("headline", ""), post.get("dek", ""), *post.get("what_happened", [])]
     for sec in post.get("sections", []):
         shown += [sec.get("title", ""), *sec.get("paragraphs", [])]
+        card = sec.get("card") or {}
+        shown += [card.get("hook") or "", *card.get("points", []), card.get("take") or ""]
     shown += [w.get("text", "") for w in post.get("why_it_matters", [])]
     if post.get("quote"):
         shown.append(post["quote"].get("text", ""))
@@ -639,6 +666,12 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
             key = f"C{len(sentences) + 1}"
             title_of[key] = n
             sentences.append((key, sec["title"] + "".join(f"[{i}]" for i in ids), "title"))
+    # Instagram card lines are public claims too: hook and takeaways as facts, the take as commentary
+    for sec in post["sections"]:
+        c = sec.get("card") or {}
+        for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis")]:
+            if text:
+                sentences.append((f"C{len(sentences) + 1}", text, kind))
     q = post.get("quote")
     if q and q.get("source") in by_id:
         sentences.append((f"C{len(sentences) + 1}",
@@ -743,6 +776,12 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         else:
             mark_dropped(report, post["quote"]["text"], cites(s), f"model check (speaker): {bad[k]}")
             post["quote"] = None
+    for sec in post["sections"]:
+        c = sec.get("card")
+        if c:
+            c = {**c, "points": [p for p in c["points"] if p not in drop],
+                 "take": None if c.get("take") in drop else c.get("take")}
+            sec["card"] = None if c["hook"] in drop or len(c["points"]) < 2 else c
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]
     post["sections"] = [{**s, "paragraphs": [x for x in (filt(p) for p in s["paragraphs"]) if x]} for s in post["sections"]]

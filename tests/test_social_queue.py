@@ -78,7 +78,7 @@ class FakeGraph:
         if url == SHARE:
             imgs = "".join(f'<img src="/share/2026-10-31/carousel/{i:02d}.jpg">' for i in range(1, self.slides + 1))
             return FakeResponse(200, imgs + '<img src="/share/2026-10-30/carousel/09.jpg">')
-        if url == f"{GRAPH}/C1":
+        if url in (f"{GRAPH}/C1", f"{GRAPH}/R1"):
             return FakeResponse(200, json_data={"status_code": "FINISHED"})
         if url == f"{GRAPH}/M1":
             return FakeResponse(200, json_data={"permalink": "https://www.instagram.com/p/abc/"})
@@ -92,7 +92,13 @@ class FakeGraph:
                 return FakeResponse(self.publish_status, json_data={"error": {"message": "bad token abc", "code": 190}})
             return FakeResponse(200, json_data={"id": "M1"})
         self.n += 1
-        return FakeResponse(200, json_data={"id": "C1" if data.get("media_type") == "CAROUSEL" else f"S{self.n}"})
+        kind = data.get("media_type")
+        return FakeResponse(200, json_data={"id": {"CAROUSEL": "C1", "REELS": "R1"}.get(kind, f"S{self.n}")})
+
+    def head(self, url, **kw):
+        from conftest import FakeResponse
+        self.calls.append(("HEAD", url, None))
+        return FakeResponse(200 if "/reels/" in url else 404, b"")
 
 
 def item(root, platform):
@@ -149,3 +155,64 @@ def test_caption_and_slide_limits():
                                    ([u.replace(".jpg", ".png") for u in imgs], "ok", "JPEG")):
         with pytest.raises(PublishError, match=msg):
             publish_carousel(FakeGraph(), "1784", "SECRET-T0K", bad_imgs, bad_cap)
+
+
+# ---------------------------------------------------------------- story Reels
+
+CARD = {"hook": "Acme cut Nova-2 prices to $5 a month[S2].", "points": ["Rivals cut prices too[S3].", "It shipped today[S1]."],
+        "take": "Check your plan[S2].", "take_kind": "do"}
+
+
+@pytest.fixture
+def reel_root(tmp_path):
+    post = {**POST, "sections": [{"title": "Acme", "category": "products", "paragraphs": ["x[S1]"], "card": CARD},
+                                 {"title": "No card", "category": "policy", "paragraphs": ["y[S2]"], "card": None}]}
+    (tmp_path / "content/posts").mkdir(parents=True)
+    (tmp_path / "content/posts/2026-10-31.json").write_text(json.dumps(post), encoding="utf-8")
+    sq.write_queue(tmp_path, "2026-10-31", LIVE_SITE)
+    return tmp_path
+
+
+def test_queue_gets_one_reel_per_carded_story_with_a_post_time(reel_root):
+    q = json.loads(sq.queue_path(reel_root, "2026-10-31").read_text(encoding="utf-8"))
+    reels = [i for i in q["items"] if i["platform"] == "instagram_reel"]
+    assert [r["id"] for r in reels] == ["2026-10-31-reel-1"]
+    r = reels[0]
+    assert r["media"] == ["https://fiveminuteai.net/share/2026-10-31/reels/01.mp4"]
+    assert r["scheduled_at"] == "2026-10-31T03:30:00+00:00"                  # 09:00 India time
+    assert r["text"].startswith("Acme cut Nova-2 prices to $5 a month.") and "Do this: Check your plan." in r["text"]
+    assert "[S" not in r["text"] and "link in bio" in r["text"]
+
+
+def test_approved_reel_waits_for_its_time_then_due_posts_it(reel_root):
+    from datetime import datetime, timezone
+    early = datetime(2026, 10, 31, 2, 0, tzinfo=timezone.utc)
+    g = FakeGraph()
+    out = sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "SECRET-T0K", now=early)
+    assert "will post at" in out and g.calls == []                           # approved, nothing posted yet
+    assert item(reel_root, "instagram_reel")["status"] == "approved"
+    assert sq.due(reel_root, LIVE_SITE, g, "SECRET-T0K", now=early) == []    # not yet
+    late = datetime(2026, 10, 31, 3, 31, tzinfo=timezone.utc)
+    lines = sq.due(reel_root, LIVE_SITE, g, "SECRET-T0K", now=late)
+    assert len(lines) == 1 and "posted to Instagram" in lines[0] and "(Reel)" in lines[0]
+    reel_post = next(d for m, u, d in g.calls if m == "POST" and d.get("media_type") == "REELS")
+    assert reel_post["video_url"].endswith("/reels/01.mp4") and reel_post["share_to_feed"] == "true"
+    assert item(reel_root, "instagram_reel")["status"] == "posted"
+    assert sq.due(reel_root, LIVE_SITE, g, "SECRET-T0K", now=late) == []     # never twice
+
+
+def test_reel_whose_video_is_missing_fails_without_posting(reel_root):
+    from datetime import datetime, timezone
+
+    from fma.instagram import PublishError
+
+    class NoVideo(FakeGraph):
+        def head(self, url, **kw):
+            from conftest import FakeResponse
+            return FakeResponse(404, b"")
+    g = NoVideo()
+    with pytest.raises(PublishError, match="not on the site yet"):
+        sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "SECRET-T0K",
+               now=datetime(2026, 10, 31, 4, 0, tzinfo=timezone.utc))
+    assert not any(m == "POST" for m, _, _ in g.calls)
+    assert item(reel_root, "instagram_reel")["status"] == "failed"

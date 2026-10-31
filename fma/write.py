@@ -59,7 +59,11 @@ SCHEMA = """{
   "what_happened": ["bullet with citation [S1]", "...", "..."],
   "sections": [
     {"story": 1, "title": "short plain section title", "category": "models|architecture|research|products|tools|policy|impact",
-     "paragraphs": ["paragraph text, every sentence cited [S1]", "..."]}
+     "paragraphs": ["paragraph text, every sentence cited [S1]", "..."],
+     "card": {"hook": "the most surprising fact of this story as a full statement, at most 12 words, number first if there is one, cited [S1]. Not a title",
+                "points": ["three takeaways, each at most 15 words with one concrete detail (a number, a name, or how it works), each cited [S1]"],
+                "take": "at most 18 words: what a reader should do, or why it matters to them, cited [S1]",
+                "take_kind": "do|read"}}
   ],
   "why_it_matters": [{"text": "sentence(s) with citations", "speculative": false}],
   "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
@@ -120,6 +124,10 @@ SECTION_SCHEMA = """{
   "details": "paragraph 2, 60 to 80 words: the specifics, numbers and names from the sources. Every sentence cited",
   "context": "paragraph 3, 50 to 70 words: background a non-specialist needs, in plain English. Every sentence cited",
   "bullet": "one sentence under 30 words summing up this story for the 30-second version, cited",
+  "card": {"hook": "the most surprising fact of this story as a full statement, at most 12 words, number first if there is one, cited [S1]. Not a title",
+             "points": ["three takeaways, each at most 15 words with one concrete detail (a number, a name, or how it works), each cited [S1]"],
+             "take": "at most 18 words: what a reader should do, or why it matters to them, cited [S1]",
+             "take_kind": "do|read"},
   "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
   "chart": {"title": "string", "unit": "e.g. %", "source": "S2", "bars": [{"label": "string", "value": 0.0}]} or null,
   "diagram": {"title": "string", "source": "S5", "kind": "flow|compare", "steps": ["..."], "baseline": ["..."]} or null
@@ -222,6 +230,16 @@ def tidy_heading(text: str) -> str:
     return text
 
 
+def normalise_card(c) -> dict | None:
+    """The short Instagram card for one story (hook, three takeaways, one 'do this' or 'our read' line)."""
+    if not isinstance(c, dict):
+        return None
+    text = lambda x: fix_citations(str(x)).strip() if isinstance(x, str) and x.strip() else None  # noqa: E731
+    points = c.get("points") if isinstance(c.get("points"), list) else []
+    return {"hook": text(c.get("hook")), "points": [t for t in (text(p) for p in points) if t],
+            "take": text(c.get("take")), "take_kind": "do" if str(c.get("take_kind")).lower() == "do" else "read"}
+
+
 def normalise_draft(d: dict) -> dict:
     """Coerce the model's reply into the expected shape so later steps never trip on a missing key."""
     def as_list(x):
@@ -254,7 +272,8 @@ def normalise_draft(d: dict) -> dict:
             continue
         paras = [str(p).strip() for p in as_list(s.get("paragraphs") or s.get("body")) if str(p).strip()]
         out["sections"].append({"story": s.get("story"), "title": tidy_heading(str(s.get("title") or "")),
-                                "category": str(s.get("category") or "products").strip().lower(), "paragraphs": paras})
+                                "category": str(s.get("category") or "products").strip().lower(), "paragraphs": paras,
+                                "card": normalise_card(s.get("card"))})
     for w in as_list(d.get("why_it_matters")):
         if isinstance(w, dict):
             out["why_it_matters"].append({"text": str(w.get("text") or "").strip(), "speculative": bool(w.get("speculative"))})

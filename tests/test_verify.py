@@ -354,3 +354,42 @@ def test_brand_names_get_the_sources_capitals_back():
         "Claude Code extension backdoor on Cursor marketplace"
     assert c.restore("They rewrote legacy code") == "They rewrote legacy code"     # 'code' is also an ordinary word
     assert c.restore("cursor first") == "cursor first"                            # a sentence start is left alone
+
+
+# ---------------------------------------------------------------- Instagram cards
+
+def _card_draft(**over):
+    d = good_draft()
+    d["sections"][0]["card"] = {"hook": "Nova-2 scores 87.5% on the MMLU benchmark [S1].",
+                                "points": ["Nova-1 scored 81.2% on the same test [S1].",
+                                           "Acme says Nova-2 costs $2 per million tokens [S1].",
+                                           "Acme says Nova-2 costs $9 per million tokens [S1]."],
+                                "take": "Cheaper strong models put pressure on rivals' prices [S1].", "take_kind": "read", **over}
+    return d
+
+
+def test_card_lines_are_checked_like_post_sentences():
+    post, report = verify_draft(_card_draft(), SOURCES)
+    card = post["sections"][0]["card"]
+    assert card["hook"].startswith("Nova-2 scores 87.5%")
+    assert len(card["points"]) == 2 and not any("$9" in p for p in card["points"])     # invented number dropped
+    assert any(e["where"] == "card[0] point" and e["status"] == "dropped" for e in report["entries"])
+    assert post["sections"][1]["card"] is None                                       # no card was written
+
+
+def test_card_without_a_good_hook_or_two_points_is_dropped():
+    long_hook = "Nova-2 " + "really " * 14 + "scores 87.5% on the MMLU benchmark [S1]."
+    post, report = verify_draft(_card_draft(hook=long_hook), SOURCES)
+    assert post["sections"][0]["card"] is None
+    assert any("card limit" in p for e in report["entries"] for p in e["problems"])
+
+
+def test_model_check_removes_a_flagged_card_point():
+    from conftest import FakeChain
+
+    from fma.verify import llm_check
+    post, report = verify_draft(_card_draft(), SOURCES)
+    post, report = llm_check(FakeChain([], flag_text={"Nova-1 scored": "a different model"}), post, SOURCES, report)
+    card = post["sections"][0]["card"]
+    assert card is None or not any("Nova-1" in p for p in card["points"])
+    assert card is None                 # only one takeaway left, so the card goes

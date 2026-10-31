@@ -55,8 +55,18 @@ def test_build_with_media_links_the_reel_and_slides(tmp_path, monkeypatch):
         out.write_bytes(b"mp4")
         return out
     monkeypatch.setattr("fma.reel.reel", fake_reel)
+
+    def fake_story_reel(post, section, n, site, out):
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(b"mp4")
+        return out
+    monkeypatch.setattr("fma.story_reel.story_reel", fake_story_reel)
     out = site_mod.build(out_dir=tmp_path / "public", media_on=True)
     page = (out / "share/index.html").read_text(encoding="utf-8")
     assert "carousel.zip" in page and "reel.mp4" in page
+    from fma.story_reel import card_stories
+    newest = json.loads(sorted((site_mod.config.CONTENT_DIR / "posts").glob("*.json"))[-1].read_text(encoding="utf-8"))
+    for k in range(len(card_stories(newest))):                 # one Story Reel per carded story, linked on the page
+        assert f"reels/{k + 1:02d}.mp4" in page
     latest = sorted(p.name for p in (out / "share").iterdir() if p.is_dir())[-1]
     assert (out / f"share/{latest}/carousel/01.jpg").exists() and (out / f"share/{latest}/carousel.zip").exists()

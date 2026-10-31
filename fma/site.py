@@ -16,7 +16,7 @@ from markupsafe import Markup
 
 from . import config
 from .verify import CITE_RE, cites, split_sentences
-from .social import instagram_card, share_texts, x_length
+from .social import instagram_card, plain, share_texts, x_length
 from .visuals import CAT_LABEL, NARROW, WIDE, bar_chart_svg, flow_svg, og_card, timeline_svg
 
 CITE_GROUP = re.compile(r"((?:\[S\d+\])+)")
@@ -198,6 +198,14 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
         out["reel"] = "reel.mp4"
     except Exception as exc:  # noqa: BLE001
         logging.getLogger(__name__).warning("reel failed: %s", exc)
+    from .story_reel import card_stories, story_reel
+    out["story_reels"] = []
+    for k, (n, sec) in enumerate(card_stories(post)):     # one Reel per story with a fact-checked card, up to three
+        try:
+            story_reel(post, sec, n, site, folder / "reels" / f"{k + 1:02d}.mp4")
+            out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})
+        except Exception as exc:  # noqa: BLE001
+            logging.getLogger(__name__).warning("story reel %d failed: %s", k + 1, exc)
     return out
 
 

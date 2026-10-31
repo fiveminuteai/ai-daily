@@ -28,6 +28,16 @@ PLATFORMS = {
                  "note": "Company-page API needs Community Management approval: copy the text and post by hand"},
 }
 STATUSES = ("pending", "approved", "skipped", "posted", "failed")
+# One Reel per story with a fact-checked card (fma/story_reel.py), posted at these India times after approval.
+REEL = {"kind": "reel", "posting": "api",
+        "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time"}
+REEL_SLOTS = ("09:00", "13:00", "19:00")
+
+
+def slot_utc(date: str, hhmm: str) -> str:
+    from zoneinfo import ZoneInfo
+    local = datetime.fromisoformat(f"{date}T{hhmm}:00").replace(tzinfo=ZoneInfo("Asia/Kolkata"))
+    return local.astimezone(timezone.utc).isoformat(timespec="seconds")
 
 
 def item_id(date: str, platform: str) -> str:
@@ -51,6 +61,19 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
         if prev:
             item.update({k: prev[k] for k in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at", "media_id", "error")
                          if k in prev})
+        items.append(item)
+    from .social import reel_caption
+    from .story_reel import card_stories
+    for k, (n, sec) in enumerate(card_stories(post, limit=len(REEL_SLOTS))):
+        iid = f"{post['date']}-reel-{k + 1}"
+        item = {"id": iid, "platform": "instagram_reel", **REEL, "story": n, "hook": sec["card"]["hook"],
+                "text": reel_caption(sec, site), "edited_text": None, "status": "pending", "decided_at": None,
+                "posted_url": None, "media": [f"{site['base_url']}share/{post['date']}/reels/{k + 1:02d}.mp4"],
+                "scheduled_at": slot_utc(post["date"], REEL_SLOTS[k])}
+        prev = old.get(iid)
+        if prev:
+            item.update({k2: prev[k2] for k2 in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at",
+                                                  "media_id", "error") if k2 in prev})
         items.append(item)
     return {"date": post["date"], "slug": post["slug"], "headline": post["headline"], "url": texts["url"],
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
@@ -90,8 +113,10 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
         raise ValueError(f"{iid} is already posted ({item.get('posted_url') or 'no link'})")
     how = {"api": f"post to {item['platform']} through its API", "paid": "post to X through the paid API",
            "manual": "nothing (manual platform): mark approved so Pavan copies the text"}[item["posting"]]
+    if item.get("scheduled_at") and item["posting"] == "api":
+        how += f", at {item['scheduled_at']} (UTC) or as soon as possible after"
     return {"item": iid, "action": "approve", "platform": item["platform"], "would": how,
-            "text": final, "media": item.get("media", [])}
+            "text": final, "media": item.get("media", []), "scheduled_at": item.get("scheduled_at")}
 
 
 def _save_item(root: Path, iid: str, **fields) -> None:
@@ -102,11 +127,38 @@ def _save_item(root: Path, iid: str, **fields) -> None:
     path.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, token: str | None) -> str:
-    """Carry out an approve or skip and record it in the queue file. Returns a one-line result.
-    Raises ValueError for a refused request (nothing changed) and PublishError when posting failed (recorded)."""
-    from .instagram import PublishError, publish_carousel, slide_urls
+def _now() -> datetime:
+    return datetime.now(timezone.utc)
 
+
+def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None, edited: str | None) -> str:
+    """Publish one Instagram item now and record the result. Raises PublishError (recorded) on failure."""
+    from .instagram import PublishError, publish_carousel, publish_reel, slide_urls
+
+    ig_id = str(site.get("instagram_id") or "")
+    try:
+        if plan["platform"] == "instagram_reel":
+            result = publish_reel(http, ig_id, token or "", plan["media"][0], plan["text"])
+            what = "Reel"
+        else:
+            images = slide_urls(http, site["base_url"], iid[:10])
+            if not images:
+                raise PublishError("no carousel slides on the share page (only the newest post has them)")
+            result = publish_carousel(http, ig_id, token or "", images, plan["text"])
+            what = f"{len(images)} slides"
+    except PublishError as exc:
+        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited)
+        raise
+    _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
+               edited_text=edited)
+    return f"{iid} posted to Instagram: {result['permalink'] or result['id']} ({what})"
+
+
+def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, token: str | None,
+        now: datetime | None = None) -> str:
+    """Carry out an approve or skip and record it in the queue file. Returns a one-line result.
+    An approved Instagram item with a later scheduled time waits for `due`; otherwise it posts now.
+    Raises ValueError for a refused request (nothing changed) and PublishError when posting failed (recorded)."""
     plan = plan_action(root, iid, action, text)
     edited = text or None
     if action == "skip":
@@ -116,19 +168,35 @@ def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, t
     if platform == "linkedin":
         _save_item(root, iid, status="approved", edited_text=edited)
         return f"{iid} approved: copy the text and post it on LinkedIn by hand"
-    if platform != "instagram":
+    if platform not in ("instagram", "instagram_reel"):
         raise ValueError(f"posting to {platform} is not switched on")
-    try:
-        images = slide_urls(http, site["base_url"], iid[:10])
-        if not images:
-            raise PublishError("no carousel slides on the share page (only the newest post has them)")
-        result = publish_carousel(http, str(site.get("instagram_id") or ""), token or "", images, plan["text"])
-    except PublishError as exc:
-        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited)
-        raise
-    _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
-               edited_text=edited)
-    return f"{iid} posted to Instagram: {result['permalink'] or result['id']} ({len(images)} slides)"
+    when = plan.get("scheduled_at")
+    if when and datetime.fromisoformat(when) > (now or _now()):
+        _save_item(root, iid, status="approved", edited_text=edited, error=None)
+        return f"{iid} approved, will post at {when} (UTC)"
+    return _post(root, iid, plan, site, http, token, edited)
+
+
+def due(root: Path, site: dict, http, token: str | None, now: datetime | None = None) -> list[str]:
+    """Post every approved Instagram item whose time has come (today's and yesterday's queues). One failure is
+    recorded and the rest still go."""
+    from .instagram import PublishError
+
+    now = now or _now()
+    out = []
+    for path in sorted(queue_path(root, "x").parent.glob("*.json"))[-2:]:
+        for item in json.loads(path.read_text(encoding="utf-8"))["items"]:
+            if item["status"] != "approved" or item["platform"] not in ("instagram", "instagram_reel"):
+                continue
+            if item.get("scheduled_at") and datetime.fromisoformat(item["scheduled_at"]) > now:
+                continue
+            plan = {"platform": item["platform"], "media": item.get("media", []),
+                    "text": item.get("edited_text") or item["text"]}
+            try:
+                out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text")))
+            except PublishError as exc:
+                out.append(f"{item['id']} FAILED (recorded): {exc}")
+    return out
 
 
 def main(argv=None) -> int:
@@ -141,6 +209,7 @@ def main(argv=None) -> int:
     a.add_argument("--action", required=True)
     a.add_argument("--text")
     a.add_argument("--dry-run", action="store_true")
+    sub.add_parser("due", help="post approved Instagram items whose time has come")
     args = ap.parse_args(argv)
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -149,6 +218,13 @@ def main(argv=None) -> int:
         from .pipeline import today_in
         print(f"wrote {write_queue(config.ROOT, args.date or today_in(site['timezone']), site)}")
         return 0
+    if args.cmd == "due":
+        import os
+
+        from .feeds import Http
+        lines = due(config.ROOT, site, Http(), os.environ.get("INSTAGRAM_TOKEN"))
+        print("\n".join(lines) or "nothing due")
+        return 1 if any("FAILED" in ln for ln in lines) else 0
     try:
         plan = plan_action(config.ROOT, args.item_id, args.action, args.text)
     except ValueError as exc:
