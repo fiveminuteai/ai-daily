@@ -18,6 +18,7 @@ const STATUSES = new Set(["live", "building", "planned", "paused"]);
 const int = (v) => (Number.isInteger(v) && v >= 0 ? v : null);
 const amount = (v) => (typeof v === "number" && Number.isFinite(v) ? Math.round(v * 100) / 100 : null);
 const ratio = (v) => (typeof v === "number" && Number.isFinite(v) && v >= 0 ? Math.round(v * 100) / 100 : null);
+const bool = (v) => (typeof v === "boolean" ? v : null);
 const text = (v, max = 300) => (typeof v === "string" ? v.slice(0, max) : null);
 const isoish = (v) => (typeof v === "string" && Number.isFinite(Date.parse(v)) ? v : null);
 const httpsUrl = (v) => (typeof v === "string" && /^https:\/\/[^\s"'<>]+$/.test(v) ? v : null);
@@ -48,7 +49,10 @@ function account(a, i, warn) {
   if (last?.permalink && !httpsUrl(last.permalink)) warn(`${id}: last permalink is not an https link, hidden`);
   return {
     id, handle: text(a.handle, 60), niche: text(a.niche), status: status || "unknown",
-    secretsSet: typeof a.secrets_set === "boolean" ? a.secrets_set : null,
+    secretsSet: bool(a.secrets_set),
+    // where they are: this PC's environment and/or GitHub Actions secrets (github null = not checked, e.g. no repo yet)
+    secretsWhere: a.secrets && typeof a.secrets === "object" && !Array.isArray(a.secrets) ? { local: bool(a.secrets.local), github: bool(a.secrets.github) } : null,
+    first: i === 0,
     queue: { waiting: int(q.waiting_approval), approved: int(q.approved),
              next: next ? { slug: text(next.slug, 120), kind: text(next.kind, 20), at: isoish(next.at) } : null },
     posted: { count: int(p.count),

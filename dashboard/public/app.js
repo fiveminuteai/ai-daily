@@ -967,9 +967,14 @@ const monthName = (m) => (/^\d{4}-\d\d$/.test(m) ? new Date(`${m}-15T12:00:00Z`)
 
 function pageCard(a) {
   const [cls, word] = PAGE_STATUS[a.status] || ["t-unknown", a.status];
-  const env = a.id.toUpperCase().replace(/[^A-Z0-9]/g, "_");
-  const secrets = a.secretsSet ? `<p class="pg-line">${svg("lock")}<span>Instagram secrets set</span></p>`
-    : `<p class="todo">${svg("warn")}<span>${a.secretsSet == null ? "Secrets unknown" : "Secrets not set"}: <code>IG_USER_ID__${esc(env)}</code> and <code>IG_ACCESS_TOKEN__${esc(env)}</code></span></p>`;
+  // the first page in accounts.yaml uses the plain names on GitHub (post.yml passes them); the rest add __<ID>
+  const sfx = a.first ? "" : `__${a.id.toUpperCase().replace(/[^A-Z0-9]/g, "_")}`;
+  const names = `<code>IG_USER_ID${esc(sfx)}</code> and <code>IG_ACCESS_TOKEN${esc(sfx)}</code>`;
+  const at = a.secretsWhere;
+  const where = at ? [at.github && "on GitHub", at.local && "on this PC"].filter(Boolean).join(" and ") : "";
+  const why = !at ? "" : at.github == null ? " (GitHub not checked: this pipeline has no GitHub repository yet)" : " on GitHub";
+  const secrets = a.secretsSet ? `<p class="pg-line">${svg("lock")}<span>Instagram secrets set${where ? ` ${where}` : ""}</span></p>`
+    : `<p class="todo">${svg("warn")}<span>${a.secretsSet == null ? "Secrets unknown" : `Secrets not set${why}`}: add ${names} as GitHub Actions secrets</span></p>`;
   const q = a.queue, w = a.week;
   const qcCls = a.qc.built && a.qc.passed === a.qc.built ? "b-ok" : a.qc.built ? "b-warn" : "";
   const next = q.next ? `${esc(q.next.slug || "untitled")}${q.next.kind ? ` <span class="muted">· ${esc(q.next.kind)}</span>` : ""}${q.next.at ? ` <span class="muted">· ${esc(whenText(q.next.at))}</span>` : ""}`
