@@ -1,0 +1,49 @@
+{
+ "date": "2026-10-31",
+ "slug": "2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
+ "headline": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
+ "url": "https://fiveminuteai.net/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised/",
+ "generated_at": "2026-10-31T15:03:43+00:00",
+ "items": [
+  {
+   "id": "2026-10-31-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)",
+   "text": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed\n\n• Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto-updated the package.\n• Google’s Suncatcher satellite, equipped with four TPUs and Gemma 4, generated its first AI haiku from orbit, confirming functional AI hardware in space.\n• Cisco gave a 27-year-old engineer unlimited AI tokens to refactor most of its legacy code within two years.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-10-31/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-10-31-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed\n\nhttps://fiveminuteai.net/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 104
+  },
+  {
+   "id": "2026-10-31-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed\n\n• Anthropic’s Claude code VS Code extension was compromised on the Cursor marketplace and distributed as version 2.1.313, affecting up to 5,000 developers who installed or auto-updated the package.\n• Google’s Suncatcher satellite, equipped with four TPUs and Gemma 4, generated its first AI haiku from orbit, confirming functional AI hardware in space.\n• Cisco gave a 27-year-old engineer unlimited AI tokens to refactor most of its legacy code within two years.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  }
+ ]
+}

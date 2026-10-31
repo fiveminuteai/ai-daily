@@ -1,7 +1,8 @@
 """The social approval queue: one file per day, data/social/<date>.json, listing what could go to Instagram, X and
-LinkedIn, built from share_texts() so a social post never says more than the checked post does. Nothing here posts
-anything. The control dashboard shows the queue; Approve / Edit / Skip dispatch the publish-social workflow, which
-for now runs this module's dry run and only logs what it would post.
+LinkedIn, built from share_texts() so a social post never says more than the checked post does. The control
+dashboard shows the queue; Approve / Edit / Skip dispatch the publish-social workflow, which runs `act`:
+Instagram is posted through the Graph API (fma/instagram.py), LinkedIn is marked approved for Pavan to paste by
+hand, X is refused until its paid API is switched on. The result is written back to the queue file.
 
     python -m fma.social_queue build [--date YYYY-MM-DD]                  write data/social/<date>.json
     python -m fma.social_queue act ITEM_ID --action approve|skip [--text T] [--dry-run]
@@ -20,7 +21,7 @@ from .social import share_texts, x_length
 # How each platform gets posted, as checked on 31 Oct 2026. The dashboard shows this next to each item.
 PLATFORMS = {
     "instagram": {"kind": "carousel", "posting": "api",
-                  "note": "Free: Instagram Content Publishing API (Instagram Login, Meta developer app)"},
+                  "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)"},
     "x": {"kind": "post", "posting": "paid",
           "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision"},
     "linkedin": {"kind": "text", "posting": "manual",
@@ -48,7 +49,8 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
             item["media"] = [f"{site['base_url']}share/{post['date']}/instagram.png"]
         prev = old.get(iid)
         if prev:
-            item.update({k: prev[k] for k in ("edited_text", "status", "decided_at", "posted_url") if k in prev})
+            item.update({k: prev[k] for k in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at", "media_id", "error")
+                         if k in prev})
         items.append(item)
     return {"date": post["date"], "slug": post["slug"], "headline": post["headline"], "url": texts["url"],
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
@@ -84,10 +86,49 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
         return {"item": iid, "action": "skip", "would": "mark skipped, post nothing"}
     if item["platform"] == "x" and x_length(final) > 280:
         raise ValueError(f"X text is {x_length(final)} characters, over 280")
+    if item["status"] == "posted":
+        raise ValueError(f"{iid} is already posted ({item.get('posted_url') or 'no link'})")
     how = {"api": f"post to {item['platform']} through its API", "paid": "post to X through the paid API",
            "manual": "nothing (manual platform): mark approved so Pavan copies the text"}[item["posting"]]
     return {"item": iid, "action": "approve", "platform": item["platform"], "would": how,
             "text": final, "media": item.get("media", [])}
+
+
+def _save_item(root: Path, iid: str, **fields) -> None:
+    path = queue_path(root, iid[:10])
+    queue = json.loads(path.read_text(encoding="utf-8"))
+    item = next(i for i in queue["items"] if i["id"] == iid)
+    item.update(decided_at=datetime.now(timezone.utc).isoformat(timespec="seconds"), **fields)
+    path.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, token: str | None) -> str:
+    """Carry out an approve or skip and record it in the queue file. Returns a one-line result.
+    Raises ValueError for a refused request (nothing changed) and PublishError when posting failed (recorded)."""
+    from .instagram import PublishError, publish_carousel, slide_urls
+
+    plan = plan_action(root, iid, action, text)
+    edited = text or None
+    if action == "skip":
+        _save_item(root, iid, status="skipped")
+        return f"{iid} skipped, nothing posted"
+    platform = plan["platform"]
+    if platform == "linkedin":
+        _save_item(root, iid, status="approved", edited_text=edited)
+        return f"{iid} approved: copy the text and post it on LinkedIn by hand"
+    if platform != "instagram":
+        raise ValueError(f"posting to {platform} is not switched on")
+    try:
+        images = slide_urls(http, site["base_url"], iid[:10])
+        if not images:
+            raise PublishError("no carousel slides on the share page (only the newest post has them)")
+        result = publish_carousel(http, str(site.get("instagram_id") or ""), token or "", images, plan["text"])
+    except PublishError as exc:
+        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited)
+        raise
+    _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
+               edited_text=edited)
+    return f"{iid} posted to Instagram: {result['permalink'] or result['id']} ({len(images)} slides)"
 
 
 def main(argv=None) -> int:
@@ -113,11 +154,22 @@ def main(argv=None) -> int:
     except ValueError as exc:
         print(f"REFUSED: {exc}")
         return 1
-    if not args.dry_run:
-        print("REFUSED: live posting is not built yet; run with --dry-run")
+    if args.dry_run:
+        print("DRY RUN, nothing posted. Would:", plan["would"])
+        print(json.dumps(plan, ensure_ascii=False, indent=1))
+        return 0
+    import os
+
+    from .feeds import Http
+    from .instagram import PublishError
+    try:
+        print(act(config.ROOT, args.item_id, args.action, args.text, site, Http(), os.environ.get("INSTAGRAM_TOKEN")))
+    except ValueError as exc:
+        print(f"REFUSED: {exc}")
         return 1
-    print("DRY RUN, nothing posted. Would:", plan["would"])
-    print(json.dumps(plan, ensure_ascii=False, indent=1))
+    except PublishError as exc:
+        print(f"FAILED (recorded in the queue): {exc}")
+        return 1
     return 0
 
 

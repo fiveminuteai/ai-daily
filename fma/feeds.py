@@ -35,6 +35,9 @@ class Http:
     def head(self, url: str, **kw) -> requests.Response:
         return self.session.head(url, timeout=self.timeout, allow_redirects=True, **kw)
 
+    def post(self, url: str, **kw) -> requests.Response:
+        return self.session.post(url, timeout=self.timeout, **kw)
+
 
 # ---------------------------------------------------------------- helpers
 
