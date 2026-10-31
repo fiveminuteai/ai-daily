@@ -165,3 +165,21 @@ test("local API: GET pages reads the configured path; POST settings sets and cle
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test("reads where the secrets are set; feeds written before that field still parse", async () => {
+  const old = parseFeed(await fixture("pages-feed-sample.json"));
+  assert.equal(old.accounts[0].secretsWhere, null);
+  assert.deepEqual(old.accounts.map((a) => a.first), [true, false]);
+  const f = parseFeed(JSON.stringify({ version: 1, accounts: [
+    { id: "sql", secrets_set: true, secrets: { local: false, github: true } },
+    { id: "gita", secrets_set: false, secrets: { local: false, github: null } },
+    { id: "heart", secrets_set: false, secrets: { local: "yes", github: 1 } },
+    { id: "x", secrets: [] },
+  ] }));
+  assert.deepEqual(f.accounts.map((a) => [a.secretsSet, a.secretsWhere]), [
+    [true, { local: false, github: true }],
+    [false, { local: false, github: null }],
+    [false, { local: null, github: null }],
+    [null, null],
+  ]);
+});
