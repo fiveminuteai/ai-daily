@@ -1,0 +1,10 @@
+{
+  "name": "fiveminuteai-dashboard",
+  "private": true,
+  "type": "module",
+  "description": "Private control dashboard for Five Minute AI. No dependencies.",
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}

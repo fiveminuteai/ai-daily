@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 import sys
@@ -80,6 +81,8 @@ def main(argv=None) -> int:
     chain = Chain(providers_from_config(site, only=args.provider))
     result = run_day(date, Http(), chain, skip_links=args.skip_links, build_fn=lambda **kw: build(**kw))
     set_output("published", "true" if result.status == "published" else "false")
+    if result.summary:          # one line the control dashboard reads back from the Actions log
+        print("FMA_RUN_SUMMARY " + json.dumps(result.summary, ensure_ascii=False, separators=(",", ":"), default=str))
     if result.status == "published":
         print(f"PUBLISHED {result.slug} ({result.post['word_count']} words, model {result.post['model']})")
     else:

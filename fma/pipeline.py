@@ -7,6 +7,7 @@ import logging
 import re
 import shutil
 import tempfile
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,6 +32,7 @@ class Result:
     slug: str = ""
     post: dict | None = None
     report: dict | None = None
+    summary: dict | None = None
 
 
 def slugify(text: str, words: int = 7) -> str:
@@ -124,7 +126,61 @@ def assemble(date: str, verified: dict, sources: list[dict], site: dict, model: 
 
 def run_day(date: str, http, chain, now: datetime | None = None, skip_links: bool = False,
             root: Path | None = None, build_fn=None) -> Result:
+    """Run the day and keep a run summary for the control dashboard: each stage's status, time and key numbers.
+    It is always written to logs/run-<date>.json, and to data/runs/<date>.json (committed with the post) when the
+    day publishes. A skipped day never touches content/ or data/."""
     root = root or config.ROOT
+    summary: dict = {"date": date, "started_at": _utc_iso(), "stages": {}}
+    t0 = time.monotonic()
+    result = _run_day(date, http, chain, now, skip_links, root, build_fn, summary)
+    summary.update(status=result.status, reason=result.reason, slug=result.slug, finished_at=_utc_iso(),
+                   seconds=round(time.monotonic() - t0, 1))
+    result.summary = summary
+    _write_summary(root, summary, published=result.status == "published")
+    return result
+
+
+def _utc_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def _stage(summary: dict, name: str, started: float, status: str = "ok", **numbers) -> None:
+    summary["stages"][name] = {"status": status, "seconds": round(time.monotonic() - started, 1), **numbers}
+
+
+def _source_stats(stats: dict) -> dict:
+    """fetch_all's "ok:12" / "error:Timeout" / "disabled" strings as {status, items, error}."""
+    out = {}
+    for sid, val in stats.items():
+        kind, _, rest = str(val).partition(":")
+        out[sid] = {"status": kind, "items": int(rest) if kind == "ok" and rest.isdigit() else 0,
+                    **({"error": rest} if kind == "error" else {})}
+    return out
+
+
+def _story_row(st, picked: bool) -> dict:
+    return {"title": st.title, "url": st.lead.url, "score": round(st.score, 2),
+            "interest": st.interest, "category": st.category, "outlets": sorted(st.publishers), "picked": picked}
+
+
+def _counts(report: dict | None) -> dict:
+    return {k: (report or {}).get(k, 0) for k in ("checked", "ok", "repaired", "dropped")}
+
+
+def _write_summary(root: Path, summary: dict, published: bool) -> None:
+    text = json.dumps(summary, ensure_ascii=False, indent=1, default=str)
+    targets = [root / "logs" / f"run-{summary['date']}.json"]
+    if published:
+        targets.append(root / "data" / "runs" / f"{summary['date']}.json")
+    for path in targets:
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+        except OSError:                    # a summary must never break a run
+            log.exception("could not write run summary %s", path)
+
+
+def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summary: dict) -> Result:
     posts_dir, reports_dir, data_dir = root / "content/posts", root / "content/reports", root / "data"
     site = _yaml(root / "config/site.yaml")
     srcs = _yaml(root / "config/sources.yaml")
@@ -138,8 +194,11 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
     if not chain:
         return Result("skipped", "no model provider available (set GEMINI_API_KEY, or run Ollama locally)")
 
+    t = time.monotonic()
     items, stats = fetch_all(srcs, http, now=now)
     log.info("fetched %d items: %s", len(items), stats)
+    _stage(summary, "collect", t, items=len(items), sources=_source_stats(stats))
+    t = time.monotonic()
     history = load_json(data_dir / "history.json", [])
     ranked = rank(items, srcs, pipe, history, now, date)
     ranked = apply_editor(chain, ranked, site.get("audience", {}))
@@ -152,32 +211,59 @@ def run_day(date: str, http, chain, now: datetime | None = None, skip_links: boo
         pass
     want = int(pipe.get("stories_per_post", 5))
     candidates = pick_lineup(ranked, n=want + 2)
+    _stage(summary, "rank", t, stories=len(ranked), editor=any(st.interest is not None for st in ranked))
+    t = time.monotonic()
     for st in candidates:
         for it in ([st.lead] + [i for i in st.items if i is not st.lead])[:3]:
             it.text = extract_item(it, http)
     candidates = [st for st in candidates if len(st.lead.text or st.lead.summary) >= 200] or candidates
     lineup = candidates[:want]
+    _stage(summary, "extract", t, articles=sum(min(3, len(st.items)) for st in candidates),
+           with_text=sum(1 for st in candidates for i in st.items[:3] if len(i.text) >= 600))
+    picked = {id(st) for st in lineup}
+    summary["stages"]["rank"]["top"] = [_story_row(st, id(st) in picked) for st in ranked[:12]]
+    summary["stages"]["rank"]["lineup"] = [_story_row(st, True) for st in lineup]
     if len(lineup) < int(pipe.get("min_stories", 3)):
+        summary["stages"]["rank"]["status"] = "failed"
         return Result("skipped", f"only {len(lineup)} new stories found")
 
     date_label = datetime.fromisoformat(date).strftime("%A %d %B %Y")
     recent = recent_posts(posts_dir)
     feedback, last_fail = "", ""
+    attempts: list[dict] = []
+    summary["attempts"] = attempts
     for attempt in range(1, int(pipe.get("attempts", 2)) + 1):
         draft = None
+        times: dict[str, float] = {}
+        layer1: dict = {}
         try:
+            t = time.monotonic()
             draft, sources = draft_post(chain, lineup, date_label, feedback, mode=pipe.get("write_mode", "sections"))
+            times["write"], t = time.monotonic() - t, time.monotonic()
             verified, report = verify_draft(draft, sources, max_quotes=int(pipe.get("max_quotes", 1)))
+            layer1 = _counts(report)
+            times["layer1"], t = time.monotonic() - t, time.monotonic()
             if pipe.get("llm_check", True):
                 verified, report = llm_check(chain, verified, sources, report)
+            times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
+            times["gate"] = time.monotonic() - t
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day
             log.exception("attempt %d crashed", attempt)
             fails, post, report = [f"attempt crashed: {type(exc).__name__}: {exc}"], None, None
+        attempts.append({"n": attempt, "model": getattr(chain, "used", None) or "",
+                         "seconds": {k: round(v, 1) for k, v in times.items()},
+                         "layer1": layer1, "layer2": _counts(report) if report and report.get("layer2_done") else {},
+                         "unused": (report or {}).get("unused", 0), "fails": fails})
         _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
         if not fails:
-            return _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn)
+            t = time.monotonic()
+            result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn)
+            ok = result.status == "published"
+            _stage(summary, "publish", t, "ok" if ok else "failed",
+                   **({"word_count": post["word_count"], "sources": len(post["sources"])} if ok else {"error": result.reason}))
+            return result
         last_fail = "; ".join(fails)
         log.warning("attempt %d rejected: %s", attempt, last_fail)
         feedback = "\n".join(f"- {f}" for f in fails)

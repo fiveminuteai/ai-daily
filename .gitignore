@@ -1,7 +1,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-public/
+/public/
 logs/
 .env
 .venv/
