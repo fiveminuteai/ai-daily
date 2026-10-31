@@ -165,6 +165,28 @@ def test_editorial_correction_removes_and_logs(proj, fake_web):
     assert post["verification"]["dropped"] == rep["dropped"]
 
 
+def test_headline_correction_is_logged_and_shown_to_readers(proj, fake_web):
+    import pytest
+
+    from fma.pipeline import retitle
+    from fma.site import build
+    assert run(proj, fake_web, FakeChain(replies(good_draft()))).status == "published"
+    before = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
+    with pytest.raises(SystemExit):                                   # a new headline must name real sources
+        retitle(proj, "2026-10-27", "Acme ships Nova-2", "why", ["S99"], "note")
+    old = retitle(proj, "2026-10-27", "Acme ships Nova-2", "test reason", ["S1"], "We changed the headline.")
+    assert old == before["headline"]
+    post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
+    assert post["headline"] == "Acme ships Nova-2" and post["slug"] == before["slug"]   # the link stays the same
+    rep = json.loads((proj / "content/reports/2026-10-27.json").read_text(encoding="utf-8"))
+    heads = [e for e in rep["entries"] if e["where"] == "headline"]
+    assert [e["status"] for e in heads] == ["dropped", "ok"] and "test reason" in heads[0]["problems"][-1]
+    assert rep["ok"] + rep["repaired"] + rep["dropped"] == rep["checked"] == post["verification"]["checked"]
+    out = build(content_dir=proj / "content", out_dir=proj / "public")
+    page = (out / f"posts/{post['slug']}/index.html").read_text(encoding="utf-8")
+    assert "Correction," in page and "We changed the headline." in page and "Acme ships" in page
+
+
 def test_headings_get_capital_first_letter_and_short_forms():
     from fma.write import normalise_draft, tidy_heading
     assert tidy_heading("Aws aims for trillion‑dollar revenue") == "AWS aims for trillion‑dollar revenue"

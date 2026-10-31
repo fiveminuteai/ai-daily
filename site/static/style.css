@@ -187,6 +187,8 @@ code { font: .85em var(--mono); background: var(--surface-2); padding: .1em .35e
 .post-head { margin-bottom: var(--s6); }
 .byline { font: 400 .92rem/1.5 var(--text); color: var(--muted); margin: 0 0 var(--s4); }
 .byline strong { color: var(--ink); font-weight: 600; }
+.correction { font: 400 .92rem/1.55 var(--text); color: var(--ink-2); margin: calc(-1 * var(--s2)) 0 var(--s4); padding: .7rem .9rem; border-left: 3px solid var(--warn); background: var(--surface); border-radius: 0 8px 8px 0; }
+.correction strong { color: var(--ink); font-weight: 600; }
 .tag-row, .tag-cloud { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s2); }
 .tag { display: inline-flex; align-items: center; gap: 7px; font: 600 .8rem/1 var(--text); text-decoration: none; color: var(--ink-2); border: 1px solid var(--line); padding: 8px 12px; border-radius: 999px; background: var(--surface); }
 .tag[data-topic]::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }

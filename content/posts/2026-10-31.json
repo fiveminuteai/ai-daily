@@ -1,7 +1,7 @@
 {
   "date": "2026-10-31",
   "slug": "2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
-  "headline": "Anthropic’s Claude VS Code extension compromised, installing SSH backdoor on thousands of developers’ machines",
+  "headline": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
   "dek": "A malicious version of Anthropic’s Claude code VS Code extension distributed via the Cursor marketplace installed a persistent SSH backdoor on up to 5,000 developers’ Windows, macOS and Linux systems, and Anthropic has not publicly warned customers[S1][S2].",
   "byline": "Sai Pavan UE",
   "tags": [
@@ -172,14 +172,20 @@
   "model": "groq:openai/gpt-oss-120b",
   "generated_at": "2026-10-31T03:44:26+00:00",
   "verification": {
-    "checked": 61,
+    "checked": 62,
     "ok": 48,
     "repaired": 2,
-    "dropped": 11,
+    "dropped": 12,
     "unused": 1,
     "layer1_done": true,
     "layer2_done": true
   },
   "word_count": 1085,
-  "reading_minutes": 5
+  "reading_minutes": 5,
+  "corrections": [
+    {
+      "date": "31 October 2026",
+      "text": "An earlier headline said the extension was installing an SSH backdoor on thousands of developers’ machines. The sources say up to 5,000 users were affected, an upper limit rather than a count, and that the backdoor’s setup often fails. We changed the headline to match."
+    }
+  ]
 }

@@ -39,9 +39,12 @@ def main(argv=None) -> int:
     b.add_argument("--base-url")
     b.add_argument("--media", action="store_true", help="also make the day's Instagram carousel and Reel (needs ffmpeg)")
     sub.add_parser("candidates")
-    c = sub.add_parser("correct", help="remove a sentence from a post and log the correction publicly")
+    c = sub.add_parser("correct", help="remove a sentence, or replace the headline, and log the correction publicly")
     c.add_argument("date")
-    c.add_argument("--remove", action="append", required=True, help="the start of the sentence to remove (repeatable)")
+    c.add_argument("--remove", action="append", default=[], help="the start of the sentence to remove (repeatable)")
+    c.add_argument("--headline", help="replace the headline with this (checked by hand against --source)")
+    c.add_argument("--source", action="append", default=[], help="source id that supports the new headline (S1)")
+    c.add_argument("--note", help="the correction note readers see on the post (with --headline)")
     c.add_argument("--reason", required=True)
     c.add_argument("--suppress", action="store_true",
                    help="legal, defamation or privacy: keep the words out of the public log (log keeps a sha256)")
@@ -57,7 +60,13 @@ def main(argv=None) -> int:
         return 0
 
     if args.cmd == "correct":
-        from .pipeline import remove_sentences
+        from .pipeline import remove_sentences, retitle
+        if args.headline:
+            if not args.note:
+                raise SystemExit("--headline needs --note: readers are told what changed")
+            print("old headline:", retitle(config.ROOT, args.date, args.headline, args.reason, args.source, args.note))
+        if not args.remove:
+            return 0
         removed = remove_sentences(config.ROOT, args.date, args.remove, args.reason, suppress=args.suppress)
         for s in removed:
             print("removed:", s)

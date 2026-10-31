@@ -324,6 +324,33 @@ def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str, su
     return removed
 
 
+def retitle(root: Path, date: str, headline: str, reason: str, sources: list[str], note: str) -> str:
+    """Editorial correction of a headline. Unlike a removal this adds a claim, so the new headline is one a person
+    checked against the named sources. The old headline's log entry becomes "Removed" with the reason, the new one
+    is logged as confirmed by editorial review, and `note` is shown to readers on the post. URL stays the same."""
+    post_path, rep_path = root / "content/posts" / f"{date}.json", root / "content/reports" / f"{date}.json"
+    post, report = load_json(post_path, None), load_json(rep_path, {"entries": []})
+    if post is None:
+        raise SystemExit(f"no post for {date}")
+    unknown = [i for i in sources if i not in {s["id"] for s in post["sources"]}]
+    if unknown or not sources:
+        raise SystemExit(f"name the post's sources that support the new headline (unknown: {unknown})")
+    old, stamp = post["headline"], datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    mark_dropped(report, plain(old), [], f"headline replaced in editorial review on {stamp}: {reason}")
+    report["entries"].append({"where": "headline", "text": headline, "sources": sources, "status": "ok",
+                              "problems": [f"new headline, checked by hand against the sources on {stamp}"]})
+    report["checked"] = report.get("checked", 0) + 1
+    report["ok"] = report.get("ok", 0) + 1
+    post["headline"] = headline
+    now = datetime.now(ZoneInfo("Asia/Kolkata"))
+    post["corrections"] = [*post.get("corrections", []), {"date": f"{now.day} {now:%B %Y}", "text": note}]
+    for k in ("checked", "ok", "repaired", "dropped"):
+        post["verification"][k] = report.get(k, 0)
+    post_path.write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")
+    rep_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return old
+
+
 def _dump_rejected(root: Path, date: str, attempt: int, chain, draft, post, report, fails) -> None:
     """Keep every attempt's raw reply and verification report under logs/ (never content/) for diagnosis."""
     try:

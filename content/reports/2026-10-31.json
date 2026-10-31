@@ -1,8 +1,8 @@
 {
-  "checked": 61,
+  "checked": 62,
   "ok": 48,
   "repaired": 2,
-  "dropped": 11,
+  "dropped": 12,
   "entries": [
     {
       "where": "headline",
@@ -17,8 +17,10 @@
         "S7",
         "S8"
       ],
-      "status": "ok",
-      "problems": []
+      "status": "dropped",
+      "problems": [
+        "headline replaced in editorial review on 2026-10-31: the old headline said thousands of machines had the backdoor installed; the sources give 5,000 as an upper limit of users affected, not a count of infected machines"
+      ]
     },
     {
       "where": "quote",
@@ -606,6 +608,18 @@
       "status": "dropped",
       "problems": [
         "model check: No source evidence that the incident bypasses phishing defenses or that organizations are prompted to tighten vetting and monitoring; claim not supported."
+      ]
+    },
+    {
+      "where": "headline",
+      "text": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": [
+        "new headline, checked by hand against the sources on 2026-10-31"
       ]
     }
   ],
