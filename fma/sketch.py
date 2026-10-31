@@ -187,6 +187,41 @@ def _partial(pts, frac):
     return out
 
 
+CUTOUT = [(240, 110, 80), (38, 150, 140), (242, 190, 64), (122, 104, 220)]   # coral, teal, mustard, violet paper
+
+
+def _closed(pts) -> bool:
+    return len(pts) > 3 and math.dist(pts[0], pts[-1]) < 0.04
+
+
+def burst(ld, box, t, colour, outline=(20, 20, 20, 255), seed=0, grow=0.3):
+    """Comic starburst behind a doodle."""
+    if t <= 0:
+        return
+    x, y, size = box
+    k = 1 - (1 - min(1.0, t / grow)) ** 3
+    cx, cy = x + size * 0.5, y + size * 0.52
+    rng = random.Random(seed)
+    pts = []
+    for n in range(28):
+        a = math.radians(n * 360 / 28 + (int(t * 4) % 2) * 3)
+        r = size * (0.52 if n % 2 == 0 else 0.36) * k * rng.uniform(0.94, 1.06)
+        pts.append((cx + r * math.cos(a), cy + r * math.sin(a)))
+    ld.polygon(pts, fill=colour, outline=outline, width=8)
+
+
+def paper(ld, box, t, colour, seed=0, grow=0.35):
+    """A cut-paper disc behind a doodle, with a soft shadow, sliding up into place."""
+    if t <= 0:
+        return
+    x, y, size = box
+    k = 1 - (1 - min(1.0, t / grow)) ** 3
+    r = size * 0.47
+    cx, cy = x + size * 0.5, y + size * 0.52 + (1 - k) * 120
+    ld.ellipse([cx - r + 12, cy - r + 14, cx + r + 12, cy + r + 14], fill=(0, 0, 0, int(45 * k)))
+    ld.ellipse([cx - r, cy - r, cx + r, cy + r], fill=colour[:3] + (int(255 * k),))
+
+
 def blob(ld, box, t, colour, seed=0, grow=0.35):
     """A hand-painted colour patch behind a doodle: an uneven round shape that pops in, then boils."""
     if t <= 0:
@@ -204,9 +239,13 @@ def blob(ld, box, t, colour, seed=0, grow=0.35):
 
 
 def draw(ld, name: str, box: tuple[float, float, float], t: float, ink, hi, width: int = 11, draw_time: float = 1.1,
-         seed: int = 0):
+         seed: int = 0, mode: str = "pen"):
     """Draw doodle `name` into box (x, y, size) at time t (seconds since it started). Strokes draw on one after
-    another over `draw_time`, then boil: the wobble is re-rolled 4 times a second."""
+    another over `draw_time`, then boil: the wobble is re-rolled 4 times a second.
+    mode: "pen" (notebook doodle), "chalk" (grainy multi-pass strokes), "cutout" (closed shapes become filled paper
+    pieces with a shadow), "comic" (thick black outlines, closed shapes filled flat)."""
+    if mode in ("cutout", "comic"):
+        return _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time)
     if t <= 0:
         return
     x, y, size = box
@@ -225,11 +264,55 @@ def draw(ld, name: str, box: tuple[float, float, float], t: float, ink, hi, widt
         if len(part) < 2:
             continue
         xy = [(x + px * size, y + py * size) for px, py in part]
+        if mode == "chalk":                 # three thin dusty passes, each with gaps where the chalk skipped
+            for k in range(3):
+                pr = random.Random(seed * 31 + k)
+                pts2 = [(a + pr.uniform(-3, 3), b + pr.uniform(-3, 3)) for a, b in xy]
+                for i in range(len(pts2) - 1):
+                    if pr.random() > 0.12:
+                        ld.line([pts2[i], pts2[i + 1]], fill=colour[:3] + (205,), width=7)
+            continue
         ld.line(xy, fill=colour, width=width, joint="curve")
         ld.line([(a + 1.5, b + 1.0) for a, b in xy], fill=colour[:3] + (int(colour[3] * 0.35),), width=max(2, width // 3))
 
 
-def ring(ld, bbox, t, colour, seed=0, width=5, draw_time=0.45):
+def _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time):
+    """Cut-out and comic doodles: shapes pop in one after another (scale from their centre) instead of being traced."""
+    x, y, size = box
+    strokes = LIBRARY[name]()
+    rng = random.Random(seed * 1000 + int(t * 4))
+    n = len(strokes)
+    for i, s in enumerate(strokes):
+        hi_stroke = isinstance(s, dict)
+        pts = s["hi"] if hi_stroke else s
+        k = min(1.0, max(0.0, (t - draw_time * i / max(1, n)) / 0.25))
+        if k <= 0:
+            continue
+        k = 1 - (1 - k) ** 3 * (1 - 0.6 * k)               # quick pop with a touch of overshoot feel
+        cx = sum(p[0] for p in pts) / len(pts)
+        cy = sum(p[1] for p in pts) / len(pts)
+        jig = 0.004 if mode == "comic" else 0.0
+        xy = [(x + (cx + (px - cx) * k + rng.uniform(-jig, jig)) * size,
+               y + (cy + (py - cy) * k + rng.uniform(-jig, jig)) * size) for px, py in pts]
+        if mode == "cutout":
+            if _closed(pts):
+                fill = CUTOUT[(i + seed) % len(CUTOUT)] + (255,) if not hi_stroke else hi
+                ld.polygon([(a + 9, b + 11) for a, b in xy], fill=(0, 0, 0, 50))
+                ld.polygon(xy, fill=fill)
+            else:
+                ld.line([(a + 6, b + 8) for a, b in xy], fill=(0, 0, 0, 45), width=13, joint="curve")
+                ld.line(xy, fill=hi if hi_stroke else ink, width=13, joint="curve")
+        else:   # comic
+            if _closed(pts):
+                ld.polygon(xy, fill=hi if hi_stroke else (255, 255, 255, 255))
+                ld.line(xy + [xy[0]], fill=(15, 15, 15, 255), width=12, joint="curve")
+            else:
+                ld.line(xy, fill=(15, 15, 15, 255), width=16, joint="curve")
+                if hi_stroke:
+                    ld.line(xy, fill=hi, width=8, joint="curve")
+
+
+def ring(ld, bbox, t, colour, seed=0, width=5, draw_time=0.45, mode="pen"):
     """A quick hand-drawn ellipse around a word's box (x0, y0, x1, y1), drawn on, then boiling."""
     if t <= 0:
         return
@@ -239,5 +322,16 @@ def ring(ld, bbox, t, colour, seed=0, width=5, draw_time=0.45):
     part = _partial(pts, min(1.0, t / draw_time))
     pad_x, pad_y = (x1 - x0) * 0.08 + 12, (y1 - y0) * 0.16 + 6
     xy = [(x0 - pad_x + px * (x1 - x0 + 2 * pad_x), y0 - pad_y + py * (y1 - y0 + 2 * pad_y)) for px, py in part]
-    if len(xy) > 1:
+    if len(xy) < 2:
+        return
+    if mode == "chalk":
+        for k in range(2):
+            ld.line([(a + k * 2, b - k * 2) for a, b in xy], fill=colour[:3] + (160,), width=3, joint="curve")
+    elif mode == "cutout":                 # a paper sticker behind the number instead of a ring
+        p = min(1.0, t / 0.3)
+        ld.rounded_rectangle([x0 - 10, y0 + 2, x0 - 10 + (x1 - x0 + 20) * p, y1 + 6], radius=10,
+                             fill=colour[:3] + (90,))
+    elif mode == "comic":
+        ld.line(xy, fill=colour, width=width + 4, joint="curve")
+    else:
         ld.line(xy, fill=colour, width=width, joint="curve")

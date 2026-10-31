@@ -32,6 +32,52 @@ DOODLE_Y = 955
 SOURCE_Y = 1405
 
 
+# Looks for the story Reels. "doodle" keeps the site's night/paper themes; the others bring their own.
+STYLE_THEMES = {
+    "chalk": {"bg": (31, 49, 42), "ink": (238, 236, 226), "ink2": (210, 214, 200), "muted": (165, 182, 168),
+              "line": (66, 90, 78), "accent": (246, 214, 110), "dot": (40, 60, 52), "c": (246, 214, 110),
+              "hi": (255, 158, 140), "font": "serif"},
+    "cutout": {"bg": (245, 237, 222), "ink": (30, 35, 60), "ink2": (60, 64, 88), "muted": (112, 106, 96),
+               "line": (222, 210, 190), "accent": (240, 110, 80), "dot": (232, 222, 204), "c": (240, 110, 80),
+               "hi": (38, 150, 140), "font": "serif"},
+    "comic": {"bg": (255, 228, 112), "ink": (15, 15, 15), "ink2": (40, 40, 40), "muted": (90, 74, 30),
+              "line": (232, 196, 80), "accent": (222, 38, 44), "dot": (245, 160, 60), "c": (222, 38, 44),
+              "hi": (58, 186, 230), "font": "sans_bold"},
+}
+
+
+def style_background(style: str, n: int):
+    """Backgrounds for the non-doodle looks, drawn once per Reel."""
+    th = STYLE_THEMES[style]
+    img = Image.new("RGB", (W, H), th["bg"])
+    d = ImageDraw.Draw(img, "RGBA")
+    rng = np.random.default_rng(40 + n)
+    if style == "chalk":                         # old smudges where the board was wiped
+        from PIL import ImageFilter
+        smudge = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(smudge)
+        for _ in range(9):
+            x, y, r = rng.integers(0, W), rng.integers(200, H - 200), rng.integers(140, 380)
+            sd.ellipse([x - r, y - r * 0.5, x + r, y + r * 0.5], fill=(255, 255, 255, int(rng.integers(8, 18))))
+        img.paste(smudge.filter(ImageFilter.GaussianBlur(40)), (0, 0), smudge.filter(ImageFilter.GaussianBlur(40)))
+        d = ImageDraw.Draw(img, "RGBA")
+        d.rectangle([0, H - 300, W, H], fill=(20, 32, 27, 255))            # the chalk tray edge
+        d.rectangle([0, H - 300, W, H - 288], fill=(90, 70, 50, 255))
+    elif style == "cutout":                      # two big paper shapes in the corners
+        d.ellipse([W - 420, 120, W + 260, 800], fill=(38, 150, 140, 70))
+        d.pieslice([-300, H - 470, 420, H + 250], 270, 360, fill=(242, 190, 64, 110))
+        d.rectangle([0, 0, W, 10], fill=(240, 110, 80, 255))
+    else:                                        # comic: halftone dots, bigger toward the bottom-right corner
+        for y in range(0, H, 34):
+            for x in range(0, W, 34):
+                k = ((x / W) * 0.5 + (y / H) * 0.8)
+                r = max(0.0, (k - 0.35) * 14)
+                if r > 0.6:
+                    d.ellipse([x - r, y - r, x + r, y + r], fill=th["dot"] + (150,))
+        d.rectangle([24, 24, W - 24, H - 24], outline=(15, 15, 15, 255), width=10)   # the panel border
+    return img
+
+
 def card_stories(post: dict, limit: int = 3) -> list[tuple[int, dict]]:
     """The first `limit` stories that have a complete fact-checked card, in the post's order (most important first)."""
     return [(n, s) for n, s in enumerate(post.get("sections", [])) if (s.get("card") or {}).get("hook")][:limit]
@@ -83,31 +129,38 @@ def _fit(d, text: str, kind: str, start: int, floor: int, max_lines: int, max_w:
         size -= 6
 
 
-def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float):
+def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float, style: str = "doodle"):
     card = section["card"]
-    theme = "night" if n % 2 == 0 else "paper"
-    T = THEMES[theme]
-    c = T["topic"].get(section.get("category"), T["accent"])
     probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
-    bg = background(theme, c, "top-right" if n % 2 == 0 else "bottom-left")
+    if style == "doodle":
+        theme = "night" if n % 2 == 0 else "paper"
+        T = THEMES[theme]
+        c = T["topic"].get(section.get("category"), T["accent"])
+        bg = background(theme, c, "top-right" if n % 2 == 0 else "bottom-left")
+        face, mode, hi = "serif", "pen", None
+    else:
+        theme = "night" if style == "chalk" else "paper"
+        T = STYLE_THEMES[style]
+        c, face, mode, hi = T["c"], T["font"], style, T["hi"]
+        bg = style_background(style, n)
     grain = np.random.default_rng(11 + n).normal(0, 5, (H, W, 1)).astype(np.int16)
     source = publishers(post, section)
 
     hook = plain(card["hook"])
     fig = short_figure(key_figure(hook))
-    hf, hs, hl = _fit(probe, hook, "serif", 112, 70, 4)
+    hf, hs, hl = _fit(probe, hook, face, 112, 70, 4)
     hook_b = Block(probe, hook, hf, hs, M, None, TEXT_W)
     if fig:                                        # the counting figure sits above the hook; centre the pair
         shift = 120
         hook_b = Block(probe, hook, hf, hs, M, hook_b.top + shift, TEXT_W)
     points = []
     for p in card["points"]:
-        pf, ps, _ = _fit(probe, plain(p), "serif", 90, 60, 5)
+        pf, ps, _ = _fit(probe, plain(p), face, 90, 60, 5)
         points.append(Block(probe, plain(p), pf, ps, M, None, TEXT_W))
     take = plain(card["take"]) if card.get("take") else ""
     take_b = None
     if take:
-        tf, ts, _ = _fit(probe, take, "serif", 88, 60, 5)
+        tf, ts, _ = _fit(probe, take, face, 88, 60, 5)
         take_b = Block(probe, take, tf, ts, M, None, TEXT_W)
 
     # one doodle per scene, chosen from that line's words, never the same one twice in a Reel
@@ -119,7 +172,17 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
         doodles.append(name)
     dbox = (M + (TEXT_W - DOODLE) / 2, DOODLE_Y, DOODLE)
     ink = T["ink"] + (235,)
-    wash = c + (120 if theme == "night" else 80,)         # strong enough on navy to read as colour, not mud          # the colour patch behind each doodle
+    wash = c + (120 if theme == "night" else 80,)         # strong enough on navy to read as colour, not mud
+    hi_c = (hi or c) + (255,)
+
+    def backdrop(t, seed):
+        if mode == "pen":
+            sketch.blob(ld, dbox, t, wash, seed=seed)
+        elif mode == "cutout":
+            sketch.paper(ld, dbox, t, (242, 190, 64, 255), seed=seed)
+        elif mode == "comic":
+            sketch.burst(ld, dbox, t, (255, 255, 255, 255), seed=seed)
+        # chalk: no backdrop, the board is the backdrop          # the colour patch behind each doodle
     rings = {"hook": hook_b.first_emph(probe), **{f"p{k}": b.first_emph(probe) for k, b in enumerate(points)}}
 
     scenes = [(0, 2 * BAR, "hook", None)]
@@ -163,11 +226,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
                 if pf > 0:
                     ld.text((M - 6, hook_b.top - 250), _count(fig, pf), font=_font("serif", 200), fill=c + (255,))
             per = min(0.08, BAR * 0.45 / max(1, len(hook_b.items)))
-            sketch.blob(ld, dbox, lt + 0.2, wash, seed=n)
-            sketch.draw(ld, doodles[0], dbox, lt + 0.3, ink, c + (255,), seed=n)
+            backdrop(lt + 0.2, n)
+            sketch.draw(ld, doodles[0], dbox, lt + 0.3, ink, hi_c, seed=n, mode=mode)
             if rings["hook"]:
                 k, bb = rings["hook"]
-                sketch.ring(ld, bb, lt - per * k - 0.5, c + (255,), seed=n)
+                sketch.ring(ld, bb, lt - per * k - 0.5, c + (255,), seed=n, mode=mode)
             hook_b.draw(ld, lt + 0.22, 0.0, per, T["ink"], c)        # the first word is already in place at frame one
             pu = ease((lt - per * len(hook_b.items)) / 0.35)
             if pu > 0:
@@ -179,11 +242,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.text((M, b.top - 90 - (1 - p0) * 30), f"{k + 1} / {len(points)}", font=_font("sans_bold", 44),
                     fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
-            sketch.blob(ld, dbox, lt - 0.05, wash, seed=n * 10 + k)
-            sketch.draw(ld, doodles[1 + k], dbox, lt - 0.15, ink, c + (255,), seed=n * 10 + k)
+            backdrop(lt - 0.05, n * 10 + k)
+            sketch.draw(ld, doodles[1 + k], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + k, mode=mode)
             if rings[f"p{k}"]:
                 kk, bb = rings[f"p{k}"]
-                sketch.ring(ld, bb, lt - per * kk - 0.45, c + (255,), seed=n * 10 + k)
+                sketch.ring(ld, bb, lt - per * kk - 0.45, c + (255,), seed=n * 10 + k, mode=mode)
             b.draw(ld, lt, 0.04, per, T["ink"], c)
 
         elif kind == "take":
@@ -195,8 +258,8 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.rounded_rectangle([M, ty, M + tw + 56, ty + 68], radius=34, outline=c + (int(255 * p0),), width=4)
             ld.text((M + 28, ty + 12), tag, font=tf, fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(take_b.items)))
-            sketch.blob(ld, dbox, lt - 0.05, wash, seed=n * 10 + 9)
-            sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, c + (255,), seed=n * 10 + 9)
+            backdrop(lt - 0.05, n * 10 + 9)
+            sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + 9, mode=mode)
             take_b.draw(ld, lt, 0.06, per, T["ink"], c)
 
         else:
@@ -218,7 +281,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
         yield np.clip(arr, 0, 255).astype(np.uint8).tobytes()
 
 
-def story_reel(post: dict, section: dict, n: int, site: dict, out: Path) -> Path:
+def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: str = "doodle") -> Path:
     card = section["card"]
     bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + 1
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -231,7 +294,7 @@ def story_reel(post: dict, section: dict, n: int, site: dict, out: Path) -> Path
            "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
            "-t", f"{seconds:.2f}", "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    for frame in render_frames(post, section, n, site, seconds):
+    for frame in render_frames(post, section, n, site, seconds, style):
         proc.stdin.write(frame)
     proc.stdin.close()
     if proc.wait() != 0:
