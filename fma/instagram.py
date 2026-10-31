@@ -18,7 +18,8 @@ CAPTION_MAX = 2200          # Instagram's caption limit
 HASHTAGS_MAX = 30
 SLIDES_MAX = 10             # Meta allows up to 20; our carousels are 7 or 8
 WAIT_TRIES, WAIT_SECONDS = 12, 5
-REEL_WAIT_TRIES, REEL_WAIT_SECONDS = 40, 15     # Meta fetches and transcodes the video: allow up to 10 minutes
+REEL_WAIT_TRIES, REEL_WAIT_SECONDS = 40, 15
+REEL_COVER_MS = 3500        # the grid cover: a frame with the whole hook on screen and underlined     # Meta fetches and transcodes the video: allow up to 10 minutes
 
 
 class PublishError(Exception):
@@ -109,7 +110,7 @@ def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=t
         raise PublishError(f"the Reel video is not on the site yet (HTTP {head.status_code})")
     container = _call(http, "post", f"{API}/{ig_id}/media", "reel",
                       data={"media_type": "REELS", "video_url": video, "caption": caption, "share_to_feed": "true",
-                            "access_token": token})["id"]
+                            "thumb_offset": str(REEL_COVER_MS), "access_token": token})["id"]
     _wait(http, container, token, REEL_WAIT_TRIES, REEL_WAIT_SECONDS, sleep)
     return _publish(http, ig_id, token, container)
 

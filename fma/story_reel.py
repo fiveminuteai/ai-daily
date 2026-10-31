@@ -118,7 +118,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
         ld = ImageDraw.Draw(layer)
 
         if kind != "end":
-            a = ease(tt / 0.3)
+            a = 1.0                                 # no fade-in: frame one is the cover and the first glance
             mark(ld, M + 24, 362, 24, T["accent"] + (int(255 * a),))
             ld.text((M + 64, 345), site["name"].upper(), font=_font("sans_bold", 32), fill=T["accent"] + (int(255 * a),))
             lf = _font("sans_bold", 32)
@@ -137,9 +137,9 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
                 pf = (lt - 0.2) / (BEAT * 1.5)
                 if pf > 0:
                     ld.text((M - 6, hook_b.top - 250), _count(fig, pf), font=_font("serif", 200), fill=c + (255,))
-            per = min(0.12, (BAR * 1.1) / max(1, len(hook_b.items)))
-            hook_b.draw(ld, lt, 0.3, per, T["ink"], c)
-            pu = ease((lt - 0.3 - per * len(hook_b.items)) / 0.35)
+            per = min(0.08, BAR * 0.45 / max(1, len(hook_b.items)))
+            hook_b.draw(ld, lt + 0.22, 0.0, per, T["ink"], c)        # the first word is already in place at frame one
+            pu = ease((lt - per * len(hook_b.items)) / 0.35)
             if pu > 0:
                 marker_underline(ld, M - 6, M - 6 + min(hook_b.last_w, TEXT_W) * pu, hook_b.bottom + 8, c + (255,), seed=n)
 
@@ -149,7 +149,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.text((M, b.top - 90 - (1 - p0) * 30), f"{k + 1} / {len(points)}", font=_font("sans_bold", 44),
                     fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
-            b.draw(ld, lt, 0.2, per, T["ink"], c)
+            b.draw(ld, lt, 0.04, per, T["ink"], c)
 
         elif kind == "take":
             p0 = ease(lt / 0.25)
@@ -160,7 +160,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float)
             ld.rounded_rectangle([M, ty, M + tw + 56, ty + 68], radius=34, outline=c + (int(255 * p0),), width=4)
             ld.text((M + 28, ty + 12), tag, font=tf, fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(take_b.items)))
-            take_b.draw(ld, lt, 0.25, per, T["ink"], c)
+            take_b.draw(ld, lt, 0.06, per, T["ink"], c)
 
         else:
             a = ease(lt / 0.35)
@@ -190,7 +190,7 @@ def story_reel(post: dict, section: dict, n: int, site: dict, out: Path) -> Path
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-i", str(wav), "-af", "loudnorm=I=-14:TP=-1.5:LRA=9,aresample=48000",
-           "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-maxrate", "12M", "-bufsize", "24M",
+           "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-maxrate", "20M", "-bufsize", "40M",
            "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
            "-t", f"{seconds:.2f}", "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
