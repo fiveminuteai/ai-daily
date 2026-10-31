@@ -1,6 +1,6 @@
 {
  "date": "2026-10-31",
- "collected_at": "2026-10-31T14:25:42+00:00",
+ "collected_at": "2026-10-31T17:34:34+00:00",
  "website": {
   "status": "off",
   "note": "set GOATCOUNTER_TOKEN"
@@ -9,8 +9,28 @@
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 0,
-  "media_count": 0,
-  "day_error": "HTTP 400 (Meta error 10)",
-  "posts": []
+  "media_count": 1,
+  "day": {
+   "reach": 0,
+   "views": 0,
+   "accounts_engaged": 1,
+   "total_interactions": 1
+  },
+  "posts": [
+   {
+    "id": "18132049543745385",
+    "timestamp": "2026-10-31T15:39:39+0000",
+    "permalink": "https://www.instagram.com/p/DfKf9Mfj7J_/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Claude’s VS Code extension on Cursor backdoored, up to 5,000 developers exposed",
+    "likes": 1,
+    "comments": 0,
+    "reach": 0,
+    "views": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  ]
  }
 }
