@@ -6,8 +6,9 @@ export const STAGES = [
   ["gate", "Gate"], ["publish", "Publish"], ["deploy", "Deploy"], ["social", "Social"],
 ];
 
-// Scheduled tries, UTC "HH:MM" (05:45, 07:15 and 09:07 India time). Must match .github/workflows/daily.yml.
-export const SCHEDULE_UTC = ["00:15", "01:45", "03:37"];
+// Scheduled tries, UTC "HH:MM": 05:45 to 12:07 India time. test/api.test.mjs fails if this stops matching the cron
+// lines in .github/workflows/daily.yml.
+export const SCHEDULE_UTC = ["00:15", "00:47", "01:23", "01:53", "02:29", "03:07", "03:43", "04:19", "05:11", "06:37"];
 const IST_MS = 330 * 60 * 1000;
 
 /** The UTC window of one India-time calendar day. */
@@ -97,20 +98,9 @@ export function runInfo(run, jobs = [], log = null) {
     id: run.id, url: run.html_url, event: run.event, status: run.status, conclusion: run.conclusion,
     created: run.created_at, started: run.run_started_at || run.created_at, updated: run.updated_at,
     seconds, outcome: outcome || "unknown", reason, noop,
-    trigger: run.event === "schedule" ? scheduleLabel(run.created_at) : run.event === "workflow_dispatch" ? "manual" : run.event,
+    // GitHub doesn't say which cron line started a run, and delays scheduled runs by up to hours, so no guessing
+    trigger: run.event === "schedule" ? "scheduled" : run.event === "workflow_dispatch" ? "manual" : run.event,
   };
-}
-
-function scheduleLabel(iso) {
-  const t = new Date(iso);
-  const mins = t.getUTCHours() * 60 + t.getUTCMinutes();
-  const names = ["05:45 run", "07:15 backup", "09:07 backup"];
-  let best = 0;
-  SCHEDULE_UTC.forEach((hm, i) => {
-    const [h, m] = hm.split(":").map(Number);
-    if (mins >= h * 60 + m - 5) best = i;
-  });
-  return names[best];
 }
 
 /** The run that decided the day: the one that published, else the latest real (non-"already exists") run. */
@@ -253,7 +243,9 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
 
   return {
     date, verdict, reason, paused,
-    nextRun: nothing ? nextSchedule(date, now) : null,
+    nextRun: published ? null : nextSchedule(date, now),
+    triesLeft: published ? 0 : schedulesLeft(date, now),
+    lastTry: scheduleTimes(date).at(-1).toISOString(),
     post: post ? { headline: post.headline, dek: post.dek, slug: post.slug, model: post.model, tags: post.tags,
                    generated_at: post.generated_at, words: post.word_count, minutes: post.reading_minutes } : null,
     runs: withInfo.map((r) => r.info),
@@ -268,16 +260,23 @@ function pick(v) {
   return { checked: v.checked, ok: v.ok, repaired: v.repaired, dropped: v.dropped };
 }
 
+/** The day's scheduled tries as UTC instants. The UTC times all fall on the India-time date's own UTC calendar day
+ *  (the India day starts at 18:30 UTC the day before, and every try is before 18:30 UTC). */
+export function scheduleTimes(date) {
+  const [start] = dayRange(date);
+  return SCHEDULE_UTC.map((hm) => {
+    const [h, m] = hm.split(":").map(Number);
+    return new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate() + 1, h, m));
+  });
+}
+
 /** The next scheduled try on that India-time day, or null if they have all passed. */
 export function nextSchedule(date, now = new Date()) {
-  const [start] = dayRange(date);
-  for (const hm of SCHEDULE_UTC) {
-    const [h, m] = hm.split(":").map(Number);
-    // the UTC times fall on the India-time date's own UTC calendar day (start is 18:30 UTC the day before)
-    const t = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate() + 1, h, m));
-    if (t > now) return t.toISOString();
-  }
-  return null;
+  return scheduleTimes(date).find((t) => t > now)?.toISOString() || null;
+}
+
+export function schedulesLeft(date, now = new Date()) {
+  return scheduleTimes(date).filter((t) => t > now).length;
 }
 
 /** Group daily runs and posts into India-time days for the history timeline (newest first). */
