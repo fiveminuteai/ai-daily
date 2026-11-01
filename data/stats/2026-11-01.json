@@ -1,9 +1,214 @@
 {
  "date": "2026-11-01",
- "collected_at": "2026-11-01T07:19:12+00:00",
+ "collected_at": "2026-11-01T07:23:26+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 84,
+  "visitors_day": 8,
+  "daily": [
+   {
+    "day": "2026-10-05",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-06",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-07",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-08",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-09",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-10",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-11",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-12",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 45
+   },
+   {
+    "path": "/ai-daily",
+    "title": "Five Minute AI",
+    "visitors": 14
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 5
+   },
+   {
+    "path": "/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+    "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/ai-daily/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+    "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "title": "Mistral releases open weights for trillion‑parameter model · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/share/2026-10-30",
+    "title": "Share kit · 30 Oct 2026 · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/archive",
+    "title": "Archive · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
+    "title": "Anthropic’s Claude VS Code extension compromised, installing SSH backdoor on thousands of developers’ machines · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/search",
+    "title": "Search · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 44
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 12
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 5
+   },
+   {
+    "name": "Google",
+    "visitors": 3
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 3
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 2
+   },
+   {
+    "name": "fiveminuteai.net/archive",
+    "visitors": 2
+   },
+   {
+    "name": "fiveminuteai.net/tags",
+    "visitors": 2
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
