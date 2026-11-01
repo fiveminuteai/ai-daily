@@ -72,8 +72,13 @@ HOME_PALETTE = {"products": "cream", "models": "sky", "architecture": "mint", "r
                 "impact": "dusk", "policy": "dusk"}
 
 
-def palettes_for(stories: list[tuple[int, dict]]) -> list[str]:
+VARIETY_FROM = "2026-11-02"      # Reels for earlier days keep the look Pavan approved them in ("classic")
+
+
+def palettes_for(stories: list[tuple[int, dict]], date: str = "9999") -> list[str]:
     """One colour set per Reel of the day: the topic's home set, or the next unused one."""
+    if date < VARIETY_FROM:
+        return ["classic"] * len(stories)
     order, used, out = list(PALETTES), set(), []
     for _, sec in stories:
         name = HOME_PALETTE.get(sec.get("category"), "cream")
@@ -129,9 +134,13 @@ def style_background(style: str, n: int, pal: dict | None = None, seed: int = 0)
         d = ImageDraw.Draw(img, "RGBA")
         d.rectangle([0, H - 300, W, H], fill=(20, 32, 27, 255))            # the chalk tray edge
         d.rectangle([0, H - 300, W, H - 288], fill=(90, 70, 50, 255))
+    elif style == "cutout" and pal is None:      # "classic": the 1 Nov look, kept so approved Reels never change
+        d.ellipse([W - 230, 150, W + 250, 630], fill=(38, 150, 140, 60))
+        d.pieslice([-300, H - 470, 420, H + 250], 270, 360, fill=(242, 190, 64, 110))
+        d.rectangle([0, 0, W, 10], fill=(240, 110, 80, 255))
     elif style == "cutout":                      # paper shapes around the edges, different for every story
-        _cutout_shapes(d, pal or PALETTES["cream"], seed)
-        d.rectangle([0, 0, W, 10], fill=(pal or PALETTES["cream"])["c"] + (255,))
+        _cutout_shapes(d, pal, seed)
+        d.rectangle([0, 0, W, 10], fill=pal["c"] + (255,))
     else:                                        # comic: halftone dots, bigger toward the bottom-right corner
         for y in range(0, H, 34):
             for x in range(0, W, 34):
@@ -244,7 +253,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         face, mode, hi = "serif", "pen", None
     else:
         T = dict(STYLE_THEMES[style])
-        if style == "cutout":
+        if style == "cutout" and palette != "classic":
             pal = PALETTES[palette or HOME_PALETTE.get(section.get("category"), "cream")]
             T.update(pal, accent=pal["c"], ink2=pal["ink"])
         theme = "night" if style == "chalk" or palette == "dusk" else "paper"
@@ -355,7 +364,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
                     fill=c + (int(255 * p0),))
             per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
             dbox = box_under(b)
-            chg = change_in(plain(card["points"][k]))
+            chg = change_in(plain(card["points"][k])) if pal is not None else None   # not in the classic look
             if chg and mode == "cutout":
                 change_badge(ld, dbox, lt - 0.1, chg[0], chg[1], T["ink"], c, (pal or {}).get("disc", (255, 255, 255)))
             else:

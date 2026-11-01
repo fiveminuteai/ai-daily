@@ -201,7 +201,7 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
     from .story_reel import card_stories, palettes_for, story_reel
     out["story_reels"] = []
     stories = card_stories(post)
-    for k, ((n, sec), pal) in enumerate(zip(stories, palettes_for(stories))):   # up to three, each its own colours
+    for k, ((n, sec), pal) in enumerate(zip(stories, palettes_for(stories, post["date"]))):   # up to three, each its own colours
         try:
             story_reel(post, sec, n, site, folder / "reels" / f"{k + 1:02d}.mp4", palette=pal)
             out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})

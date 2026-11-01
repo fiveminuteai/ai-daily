@@ -92,3 +92,9 @@ def test_each_reel_of_the_day_gets_its_own_colour_set_and_changes_get_a_badge():
     assert pals[0] == "dusk" and pals[1] == "cream" and len(set(pals)) == 3          # home set first, never repeated
     assert change_in("Its valuation fell from $1.4 trillion to $1.25 trillion.") == ("$1.4T", "$1.25T")
     assert change_in("It costs $5 a month.") is None
+
+
+def test_reels_already_approved_keep_their_look():
+    from fma.story_reel import palettes_for
+    assert palettes_for([(0, {"category": "impact"})], "2026-11-01") == ["classic"]
+    assert palettes_for([(0, {"category": "impact"})], "2026-11-02") == ["dusk"]
