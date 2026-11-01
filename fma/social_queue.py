@@ -69,7 +69,10 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
     for k, (n, sec) in enumerate(card_stories(post, limit=len(REEL_SLOTS))):
         iid = f"{post['date']}-reel-{k + 1}"
         item = {"id": iid, "platform": "instagram_reel", **REEL, "story": n, "hook": sec["card"]["hook"],
-                "text": reel_caption(sec, site), "edited_text": None, "status": "pending", "decided_at": None,
+                "text": reel_caption(sec, site), "edited_text": None,
+                # auto_post_reels (Pavan, 1 Nov 2026: "don't ask, just post them"): queued already approved, so
+                # post-scheduled.yml posts each at its time; Skip in the control app before then still stops it
+                "status": "approved" if site.get("auto_post_reels") else "pending", "decided_at": None,
                 "posted_url": None, "media": [f"{site['base_url']}share/{post['date']}/reels/{k + 1:02d}.mp4"],
                 "scheduled_at": slot_utc(post["date"], REEL_SLOTS[k])}
         prev = old.get(iid)

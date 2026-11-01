@@ -217,3 +217,12 @@ def test_reel_whose_video_is_missing_fails_without_posting(reel_root):
                now=datetime(2026, 10, 31, 4, 0, tzinfo=timezone.utc))
     assert not any(m == "POST" for m, _, _ in g.calls)
     assert item(reel_root, "instagram_reel")["status"] == "failed"
+
+
+def test_reels_are_queued_approved_when_auto_posting_is_on(tmp_path):
+    post = {**POST, "sections": [{"title": "Acme", "category": "products", "paragraphs": ["x[S1]"], "card": CARD}]}
+    (tmp_path / "content/posts").mkdir(parents=True)
+    (tmp_path / "content/posts/2026-10-31.json").write_text(json.dumps(post), encoding="utf-8")
+    for auto, want in ((True, "approved"), (False, "pending")):
+        q = sq.build_queue(post, {**LIVE_SITE, "auto_post_reels": auto})
+        assert next(i for i in q["items"] if i["platform"] == "instagram_reel")["status"] == want

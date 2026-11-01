@@ -20,6 +20,9 @@ instagram_id: "17841454265938310"
 
 # Set to true to stop daily posts without touching the workflow.
 paused: false
+# Story Reels post at 09:00, 13:00 and 19:00 India time without waiting for approval (Pavan, 1 Nov 2026).
+# Skip a Reel in the control app before its time to stop it. Set to false to approve each one by hand again.
+auto_post_reels: true
 
 # Who reads this, and what they find interesting. The daily editor pass uses this to pick stories.
 audience:
