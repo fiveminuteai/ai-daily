@@ -226,7 +226,9 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   }));
 
   // social
-  const items = queue?.items || [];
+  // what can really post: the story Reels, or the carousel on days before Reels existed (X is off, LinkedIn by hand)
+  const all = queue?.items || [];
+  const items = all.filter((i) => i.platform === "instagram_reel" || (i.platform === "instagram" && !all.some((r) => r.platform === "instagram_reel")));
   const count = (s) => items.filter((i) => i.status === s).length;
   stages.push(stage("social", !items.length ? (post ? "pending" : after(false)) :
     count("pending") ? "pending" : count("failed") ? "failed" : "ok", {

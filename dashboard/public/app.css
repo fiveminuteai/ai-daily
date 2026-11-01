@@ -706,6 +706,24 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
   .reels-card .card-head .btn { width: 100%; }
 }
 
+/* ---------- loading: a thin bar instead of frozen screens ---------- */
+body::before {
+  content: ""; position: fixed; z-index: 80; top: 0; left: 0; height: 2px; width: 0; opacity: 0; pointer-events: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+body.loading-data::before { opacity: 1; animation: loadbar 1.4s var(--ease) infinite; }
+@keyframes loadbar { 0% { left: 0; width: 0; } 50% { left: 15%; width: 55%; } 100% { left: 100%; width: 10%; } }
+.skeleton { display: flex; flex-direction: column; gap: var(--s4); padding-top: var(--s2); }
+.skeleton i { display: block; border-radius: var(--r); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%);
+  background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
+.skeleton i:nth-child(1) { height: 56px; width: 42%; }
+.skeleton i:nth-child(2) { height: 140px; }
+.skeleton i:nth-child(3) { height: 320px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.t-expired { color: var(--faint); background: color-mix(in srgb, var(--faint) 12%, transparent); }
+.item.is-expired { opacity: .55; }
+details.older > div { margin-top: var(--s4); }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

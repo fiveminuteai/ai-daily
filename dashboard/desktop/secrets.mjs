@@ -23,9 +23,12 @@ function run(file, args) {
 export async function readCredential(name, { runner = run } = {}) {
   if (!Object.hasOwn(CREDENTIALS, name)) throw new Error("unknown credential");
   if (cache.has(name)) return cache.get(name);
+  // a missing credential is remembered for 30 s, so screens don't start PowerShell on every visit
+  const missing = cache.get(`missing:${name}`);
+  if (missing && Date.now() - missing < 30e3) return null;
   const { code, stdout } = await runner("powershell.exe",
     ["-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", SCRIPT, "-Target", `FiveMinuteAI/${name}`]);
-  if (code !== 0 || !stdout.trim()) return null;
+  if (code !== 0 || !stdout.trim()) { cache.set(`missing:${name}`, Date.now()); return null; }
   try {
     const { user, secret } = JSON.parse(stdout);
     if (!secret) return null;

@@ -337,3 +337,45 @@ test("share page: story Reels are listed in order, without duplicates", () => {
   assert.deepEqual(m.reels, ["https://fiveminuteai.net/share/2026-11-01/reels/01.mp4", "https://fiveminuteai.net/share/2026-11-01/reels/03.mp4"]);
   assert.deepEqual(parseShareMedia("<p>no media</p>", "2026-11-01").reels, []);
 });
+
+// ---------- speed: server cache ----------
+
+test("GitHub reads are cached: second read is free, stale reads refresh in the background, writes clear it", async () => {
+  const { GitHub } = await import("../lib/github.js");
+  let calls = 0;
+  let body = '{"v":1}';
+  const fetchImpl = async (url, init = {}) => {
+    calls += 1;
+    if ((init.method || "GET") !== "GET") return new Response("{}");
+    return new Response(body);
+  };
+  const gh = new GitHub({ token: "t", repo: "o/r", fetchImpl });
+  assert.deepEqual(await gh.json("data/x.json"), { v: 1 });
+  assert.deepEqual(await gh.json("data/x.json"), { v: 1 });
+  assert.equal(calls, 1);                                         // second read came from memory
+  const [a, b] = await Promise.all([gh.json("data/y.json"), gh.json("data/y.json")]);
+  assert.deepEqual(a, b);
+  assert.equal(calls, 2);                                         // two reads at once share one request
+  await gh.putFile("data/x.json", { content: "{}", message: "m" });
+  body = '{"v":2}';
+  assert.deepEqual(await gh.json("data/x.json"), { v: 2 });       // the write cleared the cache
+  await gh.fileMeta("data/x.json");
+  await gh.fileMeta("data/x.json");
+  assert.equal(calls, 6);                                         // a write's sha read is never cached
+});
+
+test("the desktop cache survives a restart and comes back marked for refresh", async () => {
+  const { GitHub, exportCache, importCache } = await import("../lib/github.js");
+  const gh = new GitHub({ token: "t", repo: "o/r" });              // default owner: the real app's cache
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response('{"saved":true}');
+  try {
+    gh.fetch = globalThis.fetch;
+    await gh.json("data/persist-me.json");
+  } finally { globalThis.fetch = realFetch; }
+  const saved = JSON.parse(JSON.stringify(exportCache()));
+  assert.ok(saved.gets.some(([k]) => k.endsWith("/contents/data/persist-me.json?ref=main")));
+  assert.ok(!JSON.stringify(saved).includes('"t"'));               // no token in the file
+  assert.ok(importCache(saved) >= 1);
+  assert.equal(importCache({ ...saved, saved: Date.now() - 25 * 3600e3 }), 0);   // a day-old cache is ignored
+});

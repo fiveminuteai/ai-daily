@@ -160,7 +160,8 @@ test("a published day: every stage ok, the publishing run is the main one", () =
     post: { headline: "H", dek: "", slug: "s", model: "m", tags: [], word_count: 960, reading_minutes: 5, generated_at: "2026-10-30T04:30:21+00:00",
             sections: [{ title: "A", category: "models" }], sources: [1, 2],
             verification: { checked: 10, ok: 8, repaired: 1, dropped: 1, unused: 0, layer1_done: true, layer2_done: true } },
-    queue: { items: [{ status: "pending" }, { status: "skipped" }] },
+    queue: { items: [{ platform: "instagram_reel", status: "pending" }, { platform: "instagram_reel", status: "skipped" },
+                     { platform: "instagram", status: "pending" }, { platform: "x", status: "pending" }, { platform: "linkedin", status: "pending" }] },
   });
   assert.equal(d.verdict, "ok");
   const st = Object.fromEntries(d.stages.map((s) => [s.key, s]));
