@@ -37,6 +37,8 @@ RULES = """Rules, all mandatory:
    no question. Section titles are sentence case too, and keep the facts' size: a test, prototype or first
    step is never "launches"; one case is never a trend. Product and company names keep the sources' capitals
    (Claude Code, Cursor, GitHub) even in sentence case.
+   A card's hook is a full sentence with a subject doing something, never a label: not "AI speeds up credential
+   profiling" but "New malware uses an AI model to size up its victims".
    The publisher of a source is not always the maker of the thing: say who made or announced it as the source says.
    The date in each source header is when that page was published, not when the event happened: only state a date
    if the article text itself gives it. Background and context must also come from the sources.
@@ -63,6 +65,8 @@ SCHEMA = """{
      "card": {"hook": "the most surprising fact of this story as a full statement, at most 12 words, number first if there is one, cited [S1]. Not a title",
                 "points": ["three takeaways, each at most 15 words with one concrete detail (a number, a name, or how it works), each cited [S1]"],
                 "take": "at most 18 words: what a reader should do, or why it matters to them, cited [S1]",
+           "ask": "a question for the comments, at most 10 words, asking the viewer's opinion or experience and stating no facts, e.g. 'Would you let an AI choose your medicine?'",
+           "interest": "1 to 5: how likely an ordinary phone user stops scrolling for this story (5 = it affects them or is startling, 1 = only specialists care)",
                 "take_kind": "do|read"}}
   ],
   "why_it_matters": [{"text": "sentence(s) with citations", "speculative": false}],
@@ -127,6 +131,8 @@ SECTION_SCHEMA = """{
   "card": {"hook": "the most surprising fact of this story as a full statement, at most 12 words, number first if there is one, cited [S1]. Not a title",
              "points": ["three takeaways, each at most 15 words with one concrete detail (a number, a name, or how it works), each cited [S1]"],
              "take": "at most 18 words: what a reader should do, or why it matters to them, cited [S1]",
+           "ask": "a question for the comments, at most 10 words, asking the viewer's opinion or experience and stating no facts, e.g. 'Would you let an AI choose your medicine?'",
+           "interest": "1 to 5: how likely an ordinary phone user stops scrolling for this story (5 = it affects them or is startling, 1 = only specialists care)",
              "take_kind": "do|read"},
   "quote": {"text": "exact words", "speaker": "who said it, as named in the source", "source": "S3"} or null,
   "chart": {"title": "string", "unit": "e.g. %", "source": "S2", "bars": [{"label": "string", "value": 0.0}]} or null,
@@ -237,7 +243,15 @@ def normalise_card(c) -> dict | None:
     text = lambda x: fix_citations(str(x)).strip() if isinstance(x, str) and x.strip() else None  # noqa: E731
     points = c.get("points") if isinstance(c.get("points"), list) else []
     return {"hook": text(c.get("hook")), "points": [t for t in (text(p) for p in points) if t],
-            "take": text(c.get("take")), "take_kind": "do" if str(c.get("take_kind")).lower() == "do" else "read"}
+            "take": text(c.get("take")), "take_kind": "do" if str(c.get("take_kind")).lower() == "do" else "read",
+            "ask": text(c.get("ask")), "interest": _interest(c.get("interest"))}
+
+
+def _interest(x) -> int:
+    try:
+        return min(5, max(1, int(float(str(x).strip()[:3]))))
+    except (TypeError, ValueError):
+        return 3
 
 
 def normalise_draft(d: dict) -> dict:

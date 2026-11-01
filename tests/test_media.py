@@ -98,3 +98,17 @@ def test_reels_already_approved_keep_their_look():
     from fma.story_reel import palettes_for
     assert palettes_for([(0, {"category": "impact"})], "2026-11-01") == ["classic"]
     assert palettes_for([(0, {"category": "impact"})], "2026-11-02") == ["dusk"]
+
+
+def test_reels_go_to_the_strongest_stories_from_2_nov():
+    from fma.story_reel import card_stories
+    def sec(cat, interest, hook="Acme cut prices[S1].", pubs=("S1",)):
+        return {"category": cat, "paragraphs": ["".join(f"x[{p}]" for p in pubs)],
+                "card": {"hook": hook, "points": ["a", "b"], "interest": interest}}
+    sources = [{"id": "S1", "publisher": "A"}, {"id": "S2", "publisher": "B"}]
+    secs = [sec("architecture", 3), sec("products", 2), sec("impact", 5), sec("models", 3, pubs=("S1", "S2")),
+            sec("tools", 4)]
+    new = card_stories({"date": "2026-11-02", "sections": secs, "sources": sources})
+    assert [n for n, _ in new] == [2, 3, 4]          # interest 5, two publishers, interest 4; post order kept
+    old = card_stories({"date": "2026-11-01", "sections": secs, "sources": sources})
+    assert [n for n, _ in old] == [0, 1, 2]          # approved days never change

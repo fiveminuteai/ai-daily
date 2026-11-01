@@ -88,3 +88,18 @@ def test_system_user_token_reads_through_facebook_graph():
     ig = stats.collect(FakeHttp(r), "2026-10-31", {**SITE, "instagram_id": "1784"}, ENV)["instagram"]
     assert ig["status"] == "ok" and ig["username"] == "fiveminute_ai" and ig["posts"][0]["reach"] == 410
     assert ig["day_error"] == "HTTP 403 (Meta error 10)"
+
+
+def test_reels_get_average_watch_time():
+    r = routes()
+    r[f"{IG}/me/media?"] = FakeResponse(200, json_data={"data": [{"id": "v1", "media_type": "VIDEO", "timestamp": "t"}]})
+    calls = []
+
+    class Http(FakeHttp):
+        def get(self, url, **kw):
+            calls.append(url)
+            if url.startswith(f"{IG}/v1/insights?") and "ig_reels_avg_watch_time" in url:
+                return FakeResponse(200, json_data={"data": [{"name": "ig_reels_avg_watch_time", "values": [{"value": 7400}]}]})
+            return super().get(url, **kw)
+    ig = stats.collect(Http(r), "2026-10-31", SITE, ENV)["instagram"]
+    assert ig["posts"][0]["avg_watch_s"] == 7.4

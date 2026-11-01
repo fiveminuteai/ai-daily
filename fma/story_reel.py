@@ -97,7 +97,8 @@ def _cutout_shapes(d, pal: dict, seed: int):
     spots = [("tr", W - 110, 110), ("bl", 60, H - 300), ("br", W - 90, H - 230), ("tl", -20, 90)]
     picks = [spots[i] for i in rng.choice(len(spots), size=3, replace=False)]
     for k, (where, cx, cy) in enumerate(picks):
-        colour = (a if k % 2 == 0 else b) + (70 if where in ("tr", "tl") else 110,)
+        dark = sum(pal["bg"]) < 300                      # on navy, faint amber reads as mud: go bolder
+        colour = (a if k % 2 == 0 else b) + ((150 if dark else 70) if where in ("tr", "tl") else (210 if dark else 110),)
         r = int(rng.integers(120, 180)) if where in ("tr", "tl") else int(rng.integers(170, 260))
         kind = rng.choice(["circle", "half", "square", "triangle", "pill"])
         if kind == "circle":
@@ -189,9 +190,28 @@ def change_badge(ld, box, t, before: str, after: str, ink, accent, card_bg, grow
         ld.text((bx + bw + gap, ty), _count(after, pa), font=f, fill=accent + (255,))
 
 
+def reel_score(post: dict, section: dict) -> float:
+    """How strong a story is for a Reel: the writer's interest rating (1-5), plus confirmation by two or more
+    publishers (accuracy), a number in the hook, and a practical "do this"; specialist architecture stories lose a
+    point. Ties keep the post's order."""
+    card = section.get("card") or {}
+    by_id = {s["id"]: (s.get("publisher") or "").lower() for s in post.get("sources", [])}
+    ids = {i for p in section.get("paragraphs", []) for i in re.findall(r"S\d+", p)}
+    pubs = {by_id[i] for i in ids if by_id.get(i)}
+    return (float(card.get("interest") or 3) + (1.0 if len(pubs) >= 2 else 0.0)
+            + (0.5 if re.search(r"\d", plain(card.get("hook") or "")) else 0.0)
+            + (0.5 if card.get("take") and card.get("take_kind") == "do" else 0.0)
+            - (1.0 if section.get("category") == "architecture" else 0.0))
+
+
 def card_stories(post: dict, limit: int = 3) -> list[tuple[int, dict]]:
-    """The first `limit` stories that have a complete fact-checked card, in the post's order (most important first)."""
-    return [(n, s) for n, s in enumerate(post.get("sections", [])) if (s.get("card") or {}).get("hook")][:limit]
+    """The day's Reel stories: those with a complete fact-checked card. From 2 Nov 2026 the `limit` strongest by
+    reel_score are chosen (earlier days keep the first ones, so their Reels never change); always in post order."""
+    carded = [(n, s) for n, s in enumerate(post.get("sections", [])) if (s.get("card") or {}).get("hook")]
+    if str(post.get("date", "9999")) < VARIETY_FROM:
+        return carded[:limit]
+    best = sorted(carded, key=lambda ns: (-reel_score(post, ns[1]), ns[0]))[:limit]
+    return sorted(best, key=lambda ns: ns[0])
 
 
 class Block:
@@ -305,6 +325,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         # chalk: no backdrop, the board is the backdrop          # the colour patch behind each doodle
     rings = {"hook": hook_b.first_emph(probe), **{f"p{k}": b.first_emph(probe) for k, b in enumerate(points)}}
 
+    ask_b = None
+    if card.get("ask"):
+        af, asz, _ = _fit(probe, plain(card["ask"]), face, 104, 70, 4)
+        ask_b = Block(probe, plain(card["ask"]), af, asz, M, 630, TEXT_W)
+
     scenes = [(0, 2 * BAR, "hook", None)]
     t = 2 * BAR
     for k, b in enumerate(points):
@@ -390,6 +415,20 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + 9, mode=mode, fills=(pal or {}).get("fills"))
             take_b.draw(ld, lt, 0.06, per, T["ink"], c)
 
+        elif card.get("ask"):          # end on the story's comment question: a reason to reply, then the link
+            a = ease(lt / 0.3)
+            tag_f = _font("sans_bold", 40)
+            tag = "YOUR TAKE?"
+            tw = ld.textlength(tag, font=tag_f)
+            ld.rounded_rectangle([M, 520, M + tw + 56, 588], radius=34, fill=c + (int(255 * a),))
+            ld.text((M + 28, 532), tag, font=tag_f, fill=T["bg"] + (int(255 * a),))
+            ask_b.draw(ld, lt, 0.1, min(0.09, BAR * 0.5 / max(1, len(ask_b.items))), T["ink"], c)
+            p2 = ease((lt - 1.1) / 0.3)
+            for text, font, colour, y in (("Tell us in the comments", _font("sans_bold", 50), c, ask_b.bottom + 50),
+                                          ("Full story, every claim sourced: link in bio", _font("sans", 40),
+                                           T["muted"], ask_b.bottom + 140)):
+                ld.text((M, y + (1 - p2) * 20), text, font=font, fill=colour + (int(255 * p2),))
+
         else:
             a = ease(lt / 0.35)
             mark(ld, W // 2, 640, int(110 * (0.6 + 0.4 * a)), T["accent"] + (int(255 * a),))
@@ -412,7 +451,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
 def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: str = DEFAULT_STYLE,
                palette: str | None = None) -> Path:
     card = section["card"]
-    bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + 1
+    bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + (2 if card.get("ask") else 1)
     out.parent.mkdir(parents=True, exist_ok=True)
     wav, _ = write_wav(out.with_suffix(".wav"), bars=bars, seed=7 + n)
     seconds = bars * BAR + 1.0

@@ -398,3 +398,11 @@ def test_model_check_removes_a_flagged_card_point():
 def test_a_do_this_line_starting_with_a_verb_is_not_an_invented_name():
     out, log = check("Try the hosted API for the larger model [S1].")
     assert not any("name 'Try'" in p for p in log["problems"])
+
+
+def test_card_question_is_kept_only_if_it_is_a_question():
+    post, _ = verify_draft(_card_draft(ask="Would you pay $2 for a smarter model?", interest="5"), SOURCES)
+    card = post["sections"][0]["card"]
+    assert card["ask"].startswith("Would you pay") and card["interest"] == "5" or card["interest"] == 5
+    post, _ = verify_draft(_card_draft(ask="Cheaper models are coming"), SOURCES)
+    assert post["sections"][0]["card"]["ask"] is None

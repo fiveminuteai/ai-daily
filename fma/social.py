@@ -35,6 +35,8 @@ def reel_caption(section: dict, site: dict) -> str:
     take = ""
     if card.get("take"):
         take = f"\n\n{'Do this' if card.get('take_kind') == 'do' else 'Our read'}: {plain(card['take'])}"
+    if card.get("ask"):
+        take += f"\n\nYour take: {plain(card['ask'])} Tell us in the comments."
     return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n"
             f"Full story, every claim sourced: link in bio ({domain})\n\n{HASHTAGS_INSTAGRAM}")
 

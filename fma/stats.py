@@ -34,6 +34,7 @@ IG_API = "https://graph.instagram.com/v26.0"
 FB_API = "https://graph.facebook.com/v26.0"   # system-user tokens (Unified login)
 IG_MEDIA_METRICS = "reach,views,saved,shares,total_interactions"   # "impressions" is deprecated for new media
 IG_ACCOUNT_METRICS = "reach,views,accounts_engaged,total_interactions"
+REEL_METRICS = "ig_reels_avg_watch_time,ig_reels_video_view_total_time"   # ms; Reels only, asked for separately
 IG_POSTS = 12
 DAYS = 28
 
@@ -124,10 +125,17 @@ def instagram(http, token: str, day: str, ig_id: str | None = None) -> dict:
             ins = _insight_values(_ig(http, f"{m['id']}/insights", token, api, metric=IG_MEDIA_METRICS))
         except StatsError:
             ins = {}
+        if m.get("media_type") == "VIDEO":       # how long people watch: the Reels number that matters most
+            try:
+                ins.update(_insight_values(_ig(http, f"{m['id']}/insights", token, api, metric=REEL_METRICS)))
+            except StatsError:
+                pass
         posts.append({"id": m["id"], "timestamp": m.get("timestamp"), "permalink": m.get("permalink"),
                       "type": m.get("media_type"), "caption": (m.get("caption") or "").split("\n")[0][:90],
                       "likes": m.get("like_count"), "comments": m.get("comments_count"),
-                      **{k: ins.get(k) for k in ("reach", "views", "saved", "shares", "total_interactions")}})
+                      **{k: ins.get(k) for k in ("reach", "views", "saved", "shares", "total_interactions")},
+                      "avg_watch_s": round(ins["ig_reels_avg_watch_time"] / 1000, 1)
+                      if isinstance(ins.get("ig_reels_avg_watch_time"), (int, float)) else None})
     return {"status": "ok", "username": me.get("username"), "followers": me.get("followers_count"),
             "media_count": me.get("media_count"),
             **({"day": {k: acct.get(k) for k in IG_ACCOUNT_METRICS.split(",")}} if "error" not in acct

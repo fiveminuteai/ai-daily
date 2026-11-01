@@ -389,9 +389,11 @@ class Verifier:
         hook = one(c.get("hook"), f"card[{n}] hook", 14)
         points = [x for x in (one(p, f"card[{n}] point", 20) for p in (c.get("points") or [])[:4]) if x][:3]
         take = one(c.get("take"), f"card[{n}] take", 24)
+        ask = one(c.get("ask"), f"card[{n}] ask", 12) if "?" in (c.get("ask") or "") else None   # must be a question
         if not hook or len(points) < 2:
             return None
-        return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read")}
+        return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
+                "interest": c.get("interest", 3)}
 
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)
@@ -558,7 +560,7 @@ def mark_unused(report: dict, post: dict) -> dict:
     for sec in post.get("sections", []):
         shown += [sec.get("title", ""), *sec.get("paragraphs", [])]
         card = sec.get("card") or {}
-        shown += [card.get("hook") or "", *card.get("points", []), card.get("take") or ""]
+        shown += [card.get("hook") or "", *card.get("points", []), card.get("take") or "", card.get("ask") or ""]
     shown += [w.get("text", "") for w in post.get("why_it_matters", [])]
     if post.get("quote"):
         shown.append(post["quote"].get("text", ""))
@@ -676,7 +678,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     # Instagram card lines are public claims too: hook and takeaways as facts, the take as commentary
     for sec in post["sections"]:
         c = sec.get("card") or {}
-        for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis")]:
+        for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis"),
+                           (c.get("ask"), "analysis")]:
             if text:
                 sentences.append((f"C{len(sentences) + 1}", text, kind))
     q = post.get("quote")
@@ -787,7 +790,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         c = sec.get("card")
         if c:
             c = {**c, "points": [p for p in c["points"] if p not in drop],
-                 "take": None if c.get("take") in drop else c.get("take")}
+                 "take": None if c.get("take") in drop else c.get("take"),
+                 "ask": None if c.get("ask") in drop else c.get("ask")}
             sec["card"] = None if c["hook"] in drop or len(c["points"]) < 2 else c
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]
