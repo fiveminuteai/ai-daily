@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const SCRIPT = fileURLToPath(new URL("./cred.ps1", import.meta.url));
 export const CREDENTIALS = {
   github: { label: "GitHub token", user: "github", why: "pipeline, history, posts, controls, stats" },
-  zoho: { label: "Zoho Mail app password", user: "hello@fiveminuteai.net", why: "the Mail screen (read-only inbox)" },
+  zoho: { label: "Zoho Mail app password (needs a paid Zoho plan for IMAP)", user: "pavan@fiveminuteai.net", why: "the Mail screen (read-only inbox; hello@ is an alias of pavan@)" },
 };
 const cache = new Map();
 

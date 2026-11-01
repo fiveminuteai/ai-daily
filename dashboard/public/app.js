@@ -974,17 +974,21 @@ async function renderMail(refresh = false) {
   const m = state.mail;
   renderCounts();
   if (!m.connected) {
+    // Checked 1 Nov 2026: Zoho's free plan shows IMAP as "not available for your account" (POP and forwarding are
+    // paid too), so the inbox can't be read from here until the plan changes. hello@ is an alias of pavan@.
     view.innerHTML = `${pageHead("Mail")}
-      <section class="card setup-card"><div class="card-head"><h3>Connect hello@fiveminuteai.net</h3>${tag("pending")}</div>
-        <p class="note" style="margin:0 0 var(--s4)">The app reads the inbox with a Zoho <b>app password</b> (not your login password), kept in Windows Credential Manager. It only reads: nothing is sent, deleted or marked as read.</p>
+      <section class="card setup-card"><div class="card-head"><h3>pavan@fiveminuteai.net</h3><span class="status-tag t-skipped">Opens in Zoho</span></div>
+        <p class="note" style="margin:0 0 var(--s4)">Mail sent to hello@ lands in the pavan@ inbox. Zoho's free plan doesn't allow other apps to read mail (IMAP, POP and forwarding are paid features), so this screen opens Zoho Mail instead.</p>
+        <div class="actions"><a class="btn primary" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+        <details class="more"><summary>If you move to a paid Zoho plan</summary><div>
         <ol class="steps">
-          <li>In Zoho Mail: your profile → <b>My Account</b> → <b>Security</b> → <b>App Passwords</b> → generate one named "Five Minute AI app". Turn on IMAP access in Mail settings if it is off.</li>
+          <li>Zoho Mail → Settings → <b>Mail Accounts</b> → <b>IMAP</b>: turn IMAP access on.</li>
+          <li>Your profile → <b>My Account</b> → <b>Security</b> → <b>App Passwords</b>: create one named "Five Minute AI app".</li>
           <li>In PowerShell, run this. It asks for the password; paste the app password (nothing shows on screen):
             <div class="cmd"><code>${esc(m.add)}</code><button class="btn ghost" data-copy="${esc(m.add)}" data-copy-label="Command copied.">${svg("copy")}Copy</button></div></li>
-          <li>Come back and press <b>Check again</b>.</li>
+          <li>Press <b>Check again</b>: the inbox shows here, read-only (nothing is sent, deleted or marked as read).</li>
         </ol>
-        <div class="actions"><button class="btn primary" data-mail-refresh>Check again</button>
-          <a class="btn ghost" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+        <div class="actions"><button class="btn" data-mail-refresh>Check again</button></div></div></details>
       </section>`;
     return;
   }
