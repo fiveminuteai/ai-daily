@@ -1408,12 +1408,22 @@ function wireLazyVideos() {
   if (!vids.length) return;
   videoObserver?.disconnect();
   const start = (v) => {
-    // a video the site no longer has becomes a tile with the Instagram link, never a broken player
+    const src = v.dataset.src;
+    // a load error is usually a slow or dropped connection, not a missing file (the share-page listing catches
+    // those before a player is drawn), so offer a retry instead of a broken player
     v.addEventListener("error", () => {
-      const link = v.dataset.posted;
-      v.parentElement.innerHTML = `<div class="reel-gone"><span>Video no longer on the site</span>${link ? `<a href="${esc(safeUrl(link))}" target="_blank" rel="noopener noreferrer">Watch on Instagram ${svg("ext")}</a>` : ""}</div>`;
+      const link = v.dataset.posted, box = v.parentElement;
+      box.innerHTML = `<div class="reel-gone"><span>The video didn't load. The connection may be slow.</span>
+        <button class="linkbtn" type="button">Try again</button>
+        ${link ? `<a href="${esc(safeUrl(link))}" target="_blank" rel="noopener noreferrer">Watch on Instagram ${svg("ext")}</a>` : ""}</div>`;
+      box.querySelector("button").addEventListener("click", () => {
+        box.innerHTML = `<video controls playsinline aria-label="${esc(v.getAttribute("aria-label") || "Reel")}"></video>`;
+        const again = box.querySelector("video");
+        again.dataset.src = src; again.dataset.posted = link || "";
+        start(again);
+      }, { once: true });
     }, { once: true });
-    v.src = v.dataset.src; v.preload = "metadata"; v.removeAttribute("data-src");
+    v.src = src; v.preload = "metadata"; v.removeAttribute("data-src");
   };
   if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
   videoObserver = new IntersectionObserver((entries) => {
