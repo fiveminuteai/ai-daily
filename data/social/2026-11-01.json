@@ -95,14 +95,15 @@
    "hook": "AI completed a live mouse brain injection[S6].",
    "text": "AI completed a live mouse brain injection.\n\n• 19 therapy options were evaluated by the AI.\n• Claude Opus 5.5 refused to inject, citing safety.\n• Claude Sonnet 5 performed the injection successfully.\n\nOur read: The test shows both the promise and the safety limits of AI in the lab.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": "2026-11-01T06:02:30+00:00",
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-01T13:49:44+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfM4GWbjwYb/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-01/reels/03.mp4"
    ],
    "scheduled_at": "2026-11-01T13:30:00+00:00",
-   "error": null
+   "error": null,
+   "media_id": "18157837654520665"
   }
  ]
 }
