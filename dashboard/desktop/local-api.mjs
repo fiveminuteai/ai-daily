@@ -21,8 +21,7 @@ export function seedRoadmap(now = new Date()) {
   const at = now.toISOString();
   const card = (column, title, note = "", tag = "") => ({ id: `c${Math.random().toString(36).slice(2, 10)}`, column, title, note, tag, created: at, updated: at });
   return { version: 1, cards: [
-    card("next", "GoatCounter API token", "GitHub secret GOATCOUNTER_TOKEN: website numbers on the Stats screen.", "stats"),
-    card("next", "Zoho app password for the Mail screen", "cmdkey /generic:FiveMinuteAI/zoho /user:hello@fiveminuteai.net /pass", "mail"),
+    card("ideas", "Mail inside the app (needs a paid Zoho plan)", "Zoho's free plan has no IMAP; hello@ is an alias of pavan@.", "mail"),
     card("next", "Review the 3-week Reel test (around 21 Nov)", "Keep, change or stop the three-a-day Reels, using Stats.", "instagram"),
     card("ideas", "Decide on X API spend", "About $0.20 per post with a link; stats reading also paid.", "x"),
     card("ideas", "Apply for LinkedIn Community Management API", "Needed for company-page posting and page stats.", "linkedin"),
@@ -30,6 +29,7 @@ export function seedRoadmap(now = new Date()) {
     card("doing", "Story Reels: three a day, 3-week test", "Approve each day on the Posts screen.", "instagram"),
     card("done", "Instagram posting and stats through the Meta app", "31 Oct 2026", "instagram"),
     card("done", "Control app merged", "31 Oct 2026", "app"),
+    card("done", "Website stats (GoatCounter token)", "1 Nov 2026", "stats"),
     card("done", "Site live at fiveminuteai.net", "29 Oct 2026", "site"),
   ] };
 }

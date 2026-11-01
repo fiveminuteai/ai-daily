@@ -151,7 +151,7 @@ const genJob = (commit) => ({ name: "generate", status: "completed", steps: [
 
 test("a published day: every stage ok, the publishing run is the main one", () => {
   const d = buildDay({
-    date: "2026-10-30",
+    date: "2026-10-30", now: new Date("2026-10-30T06:00:00Z"),
     runs: [
       { run: run(2, "2026-10-30T05:42:29Z", "2026-10-30T05:42:43Z"), jobs: [genJob("skipped")], log: parseLog("2026-10-30T05:42:40Z SKIPPED 2026-10-30: post for 2026-10-30 already exists") },
       { run: run(1, "2026-10-30T04:22:02Z", "2026-10-30T04:31:23Z"), log: parseLog(LOG), jobs: [genJob("success"),
@@ -308,5 +308,21 @@ test("a skipped early run still shows the next try and how many are left", () =>
   assert.equal(d.triesLeft, 9);
   assert.equal(d.lastTry, "2026-10-31T06:37:00.000Z");
   assert.equal(d.runs[0].trigger, "scheduled");
+});
+
+test("a past day: nothing is pending any more, and a day without a run says so", () => {
+  const queue = { items: [{ platform: "instagram_reel", status: "pending" }, { platform: "instagram_reel", status: "posted" }] };
+  const later = new Date("2026-11-01T06:00:00Z");
+  const withPost = buildDay({ date: "2026-10-30", now: later, queue,
+    post: { headline: "H", dek: "", slug: "s", model: "m", tags: [], word_count: 9, reading_minutes: 1, sections: [], sources: [],
+            verification: { checked: 1, ok: 1, repaired: 0, dropped: 0, unused: 0, layer1_done: true, layer2_done: true } } });
+  const social = withPost.stages.find((s) => s.key === "social");
+  assert.equal(social.numbers.pending, 0);
+  assert.equal(social.numbers.expired, 1);
+  assert.equal(social.status, "ok");
+  const empty = buildDay({ date: "2026-10-28", now: later });
+  assert.equal(empty.verdict, "missed");
+  assert.equal(empty.nextRun, null);
+  assert.ok(empty.stages.every((s) => s.status === "skipped"));
 });
 

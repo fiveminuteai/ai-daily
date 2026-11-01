@@ -171,8 +171,11 @@ async function day({ gh }, date) {
     const gen = jobs.find((j) => j.name === "generate");
     // Logs are the slow part (one download each, up to ten runs a day). A finished run under 90 s found the post
     // already there and has nothing to tell, so only the newest run and runs that did real work are read.
+    // With a committed run summary (data/runs/<date>.json, from 1 Nov 2026) the numbers are already here, so a log is
+    // only worth fetching for a long run that did not publish: its log holds the reason it stopped.
     const ran = (Date.parse(run.updated_at) - Date.parse(run.run_started_at || run.created_at)) / 1000;
-    const worth = n === 0 || !(ran < 90);
+    const committed = gen?.steps?.some((s) => s.name === "Commit the post" && s.conclusion === "success");
+    const worth = summary ? ran >= 90 && !committed : n === 0 || !(ran < 90);
     const log = gen && gen.status === "completed" && worth ? parseLog(await gh.jobLog(gen)) : null;
     return { run, jobs, log };
   }));

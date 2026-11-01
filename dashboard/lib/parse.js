@@ -135,8 +135,9 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   const running = main?.info.outcome === "running";
   const failedRun = main && ["failed", "skipped"].includes(main.info.outcome) && !published;
   const nothing = !main && !post;
+  const past = date < todayIst(now);            // a day already over: nothing on it is "pending" any more
   // stages after a hard stop are "skipped", stages not reached yet in a running/future run are "pending"
-  const after = (ok) => (ok ? "ok" : running || nothing ? "pending" : "skipped");
+  const after = (ok) => (ok ? "ok" : running || (nothing && !past) ? "pending" : "skipped");
 
   const stages = [];
 
@@ -229,10 +230,12 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   // what can really post: the story Reels, or the carousel on days before Reels existed (X is off, LinkedIn by hand)
   const all = queue?.items || [];
   const items = all.filter((i) => i.platform === "instagram_reel" || (i.platform === "instagram" && !all.some((r) => r.platform === "instagram_reel")));
-  const count = (s) => items.filter((i) => i.status === s).length;
+  const statusOf = (i) => (past && i.status === "pending" ? "expired" : i.status);
+  const count = (s) => items.filter((i) => statusOf(i) === s).length;
   stages.push(stage("social", !items.length ? (post ? "pending" : after(false)) :
-    count("pending") ? "pending" : count("failed") ? "failed" : "ok", {
-    numbers: items.length ? { pending: count("pending"), approved: count("approved") + count("posted"), skipped: count("skipped") } : {},
+    count("pending") ? "pending" : count("failed") ? "failed" : count("approved") + count("posted") ? "ok" : "skipped", {
+    numbers: items.length ? { pending: count("pending"), approved: count("approved") + count("posted"), skipped: count("skipped"),
+                              expired: count("expired") } : {},
   }));
 
   for (const s of stages) if (paused && nothing && s.status === "pending") s.status = "skipped";
@@ -241,12 +244,12 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   if (published) verdict = stages.some((s) => s.status === "failed") ? "warn" : "ok";
   else if (running) verdict = "running";
   else if (failedRun) verdict = /already exists/.test(reason) ? "ok" : "bad";
-  else verdict = paused ? "paused" : "waiting";
+  else verdict = paused ? "paused" : past ? "missed" : "waiting";
 
   return {
     date, verdict, reason, paused,
-    nextRun: published ? null : nextSchedule(date, now),
-    triesLeft: published ? 0 : schedulesLeft(date, now),
+    nextRun: published || past ? null : nextSchedule(date, now),
+    triesLeft: published || past ? 0 : schedulesLeft(date, now),
     lastTry: scheduleTimes(date).at(-1).toISOString(),
     post: post ? { headline: post.headline, dek: post.dek, slug: post.slug, model: post.model, tags: post.tags,
                    generated_at: post.generated_at, words: post.word_count, minutes: post.reading_minutes } : null,

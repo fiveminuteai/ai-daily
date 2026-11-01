@@ -68,6 +68,7 @@ async function alreadyRunning() {
 }
 
 if (await alreadyRunning()) {               // second launch: just another window on the running app
+  console.log(`Five Minute AI is already running at ${URL_}; ${NO_WINDOW ? "nothing else to start" : "opening another window"}.`);
   if (!NO_WINDOW) openWindow();
   process.exit(0);
 }

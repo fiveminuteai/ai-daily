@@ -681,6 +681,9 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
 .reelcard.is-posted { border-color: color-mix(in srgb, var(--ok) 40%, var(--line)); }
 .reelcard.is-failed { border-color: color-mix(in srgb, var(--bad) 50%, var(--line)); }
 .reel-video { background: #000; display: flex; justify-content: center; }
+.reel-gone { width: 100%; aspect-ratio: 9 / 16; max-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; background: var(--bg); }
+.reel-gone a { color: var(--ok); font-weight: 650; text-decoration: none; display: inline-flex; gap: 5px; align-items: center; }
+.reel-gone svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; }
 .reel-video video { width: 100%; max-height: 420px; aspect-ratio: 9 / 16; object-fit: contain; display: block; background: #000; }
 .reel-body { padding: var(--s4); display: flex; flex-direction: column; gap: 10px; }
 .rnum { font: 700 14px/1 var(--display); }
@@ -720,7 +723,7 @@ body.loading-data::before { opacity: 1; animation: loadbar 1.4s var(--ease) infi
 .skeleton i:nth-child(2) { height: 140px; }
 .skeleton i:nth-child(3) { height: 320px; }
 @keyframes shimmer { to { background-position: -200% 0; } }
-.t-expired { color: var(--faint); background: color-mix(in srgb, var(--faint) 12%, transparent); }
+.t-off, .t-expired { color: var(--faint); background: color-mix(in srgb, var(--faint) 12%, transparent); }
 .item.is-expired { opacity: .55; }
 details.older > div { margin-top: var(--s4); }
 
