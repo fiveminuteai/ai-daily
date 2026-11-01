@@ -1,35 +1,49 @@
 {
  "date": "2026-11-01",
- "collected_at": "2026-10-31T21:17:45+00:00",
+ "collected_at": "2026-11-01T07:19:12+00:00",
  "website": {
-  "status": "off",
-  "note": "set GOATCOUNTER_TOKEN"
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 0,
-  "media_count": 3,
+  "followers": 1,
+  "media_count": 4,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 0,
+   "views": 0,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "18065605586789086",
+    "timestamp": "2026-11-01T06:01:13+0000",
+    "permalink": "https://www.instagram.com/reel/DfMCgctin89/",
+    "type": "VIDEO",
+    "caption": "New malware uses an AI model to size up its victims.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 1,
+    "views": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0
+   },
    {
     "id": "18125094034900078",
     "timestamp": "2026-10-31T18:10:50+0000",
     "permalink": "https://www.instagram.com/reel/DfKxNIIkai5/",
     "type": "VIDEO",
     "caption": "An AI coding agent sent Pentagon system logins to a risky website.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
-    "reach": 52,
-    "views": 55,
+    "reach": 55,
+    "views": 64,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0
+    "total_interactions": 1
    },
    {
     "id": "18038621561913181",
@@ -37,13 +51,13 @@
     "permalink": "https://www.instagram.com/reel/DfKxBcCDEuh/",
     "type": "VIDEO",
     "caption": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
-    "reach": 30,
-    "views": 32,
+    "reach": 42,
+    "views": 51,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0
+    "total_interactions": 1
    },
    {
     "id": "18132685601497886",
@@ -51,13 +65,13 @@
     "permalink": "https://www.instagram.com/reel/DfKw3Zzkv3p/",
     "type": "VIDEO",
     "caption": "A hacked Claude Code update reached up to 5,000 developers.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
-    "reach": 32,
-    "views": 35,
+    "reach": 48,
+    "views": 50,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0
+    "total_interactions": 1
    }
   ]
  }
