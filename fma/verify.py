@@ -34,6 +34,13 @@ the investors employees governments lawmakers until within without during betwee
 through toward towards per unlike like rather whether either neither nor just much any every none nothing something
 someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long
 offline online""".split())
+# Verbs that open a "Do this" line or a short takeaway ("Try the hosted API", "Scans Gmail for receipts"). At the start
+# of a sentence they are instructions or actions, not names (1 Nov 2026: four card lines were dropped as "name 'Try'").
+COMMON_STARTERS |= set("""try check consider focus watch use update review expect look read ask avoid compare keep plan
+start stop test turn think note see learn switch protect secure delete change limit treat prepare follow verify audit
+scan scans collect collects add adds let lets help helps make makes run runs send sends target targets steal steals
+lower lowers raise raises build builds cut cuts give gives get gets take takes find finds show shows open opens move
+moves pay pays offer offers ship ships launch launches release releases block blocks bring brings""".split())
 # Endings that mark an ordinary English word ("Traditional", "Recent", "Providing") rather than a product or person.
 ORDINARY_ENDINGS = ("ing", "ed", "al", "ly", "ent", "ant", "ive", "ion", "ions", "ous", "ful", "less", "able", "ible",
                     "ity", "ness", "ment", "ments", "ance", "ence", "ary", "ory", "ise", "ize", "ised", "ized")

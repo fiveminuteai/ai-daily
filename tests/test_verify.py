@@ -393,3 +393,8 @@ def test_model_check_removes_a_flagged_card_point():
     card = post["sections"][0]["card"]
     assert card is None or not any("Nova-1" in p for p in card["points"])
     assert card is None                 # only one takeaway left, so the card goes
+
+
+def test_a_do_this_line_starting_with_a_verb_is_not_an_invented_name():
+    out, log = check("Try the hosted API for the larger model [S1].")
+    assert not any("name 'Try'" in p for p in log["problems"])

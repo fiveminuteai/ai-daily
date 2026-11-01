@@ -28,7 +28,16 @@
         "Volta-Autodoxer collects passwords, browser‑saved credentials, Microsoft OAuth tokens, cookies, payment cards and crypto‑wallet seed phrases, as well as active sessions on Discord, Telegram, Steam and Roblox[S1]. After the initial sweep it performs a deeper scan of central accounts such as Gmail, extracting receipts, order history and location data from services like UberEats[S1].",
         "Infostealer malware has long been used to harvest login details that fuel large data breaches, including incidents involving Snowflake, AT&T, Ticketmaster and Disney[S1]. Cisco Talos flagged the tool using its new CAIRN framework, which detects hacking tools that embed AI capabilities, though the researchers have not observed active deployments in the wild[S1]."
       ],
-      "card": null
+      "card": {
+        "hook": "New malware uses an AI model to size up its victims[S1].",
+        "points": [
+          "It steals passwords, cookies, payment cards and crypto wallet seed phrases[S1].",
+          "It digs through Gmail for receipts, order history and location data[S1].",
+          "Researchers have not yet seen it used in real attacks[S1]."
+        ],
+        "take": "Review the passwords and payment cards saved in your browser[S1].",
+        "take_kind": "do"
+      }
     },
     {
       "story": 2,
@@ -39,16 +48,7 @@
         "Ternus noted that Apple has been perceived as lagging because Siri’s more powerful version only arrived this summer[S2]. He argued that when AI is applied correctly, users should not need to consider the underlying technology[S2]. He also said that AI could eventually make tasks like app creation easier, but product creation remains a human‑driven activity[S2].",
         "The CEO’s comments come as the industry debates whether AI agents might replace traditional apps[S2]. Ternus’ stance suggests Apple will continue to prioritize user experience over showcasing AI for its own novelty[S2]."
       ],
-      "card": {
-        "hook": "Apple will only ship AI when it adds clear user value[S2].",
-        "points": [
-          "Apple delayed a stronger Siri until summer 2026[S2].",
-          "CEO John Ternus became chief in September 2026[S2].",
-          "AI should be invisible to users if done right[S2]."
-        ],
-        "take": null,
-        "take_kind": "do"
-      }
+      "card": null
     },
     {
       "story": 3,
@@ -59,15 +59,7 @@
         "The architecture adds two task adapters: FL2VA for text and endpoint‑frame conditioning, and Ref2VA for multimodal references[S3]. It builds on the MiniMax‑H3 base model and processes prompts and media through an encoder before producing video and audio latents[S3]. The inference pipeline then decodes these latents and combines them into an MP4 file, automatically downloading the pinned base components and selected adapter[S3].",
         "Pika H3 Flex integrates both modalities, allowing creators to control motion and sound together, which simplifies multi‑shot storytelling and motion‑graphics workflows[S3]."
       ],
-      "card": {
-        "hook": "12 reference inputs guide video generation[S3].",
-        "points": [
-          "Six sampling steps produce video and audio together[S3].",
-          "Two adapters handle text and multimodal references[S3]."
-        ],
-        "take": null,
-        "take_kind": "do"
-      }
+      "card": null
     },
     {
       "story": 4,
@@ -77,7 +69,16 @@
         "OpenAI announced that it has reduced the size of its upcoming financing round to a $20 billion target after earlier reports of a $30 billion raise[S5]. The revision follows a valuation drop from $1.4 trillion to $1.25 trillion and comes ahead of a planned initial public offering[S5]. Investors from the United Arab Emirates will lead the round, with a possible retail tranche for wealthy individuals[S5].",
         "The company has already secured $11 billion in commitments, according to a Wall Street Journal follow‑up, but the overall response from large investors has been described as “tepid”[S5]. The first close of the round is expected to be below the $20 billion goal, and the total may only be reached through the additional retail offering[S5]. Analysts suggest that the softer fundraising environment is linked to Wall Street’s caution over heavy AI infrastructure spending and a broader sell‑off in tech stocks[S5]."
       ],
-      "card": null
+      "card": {
+        "hook": "OpenAI cut its funding goal to $20 billion[S5].",
+        "points": [
+          "It has $11 billion in commitments so far[S5].",
+          "Its valuation fell from $1.4 trillion to $1.25 trillion[S5].",
+          "Big investors’ response was described as tepid[S5]."
+        ],
+        "take": "Wall Street is getting cautious about heavy AI spending[S5].",
+        "take_kind": "read"
+      }
     },
     {
       "story": 5,
@@ -95,8 +96,8 @@
           "Claude Opus 5.5 refused to inject, citing safety[S6].",
           "Claude Sonnet 5 performed the injection successfully[S6]."
         ],
-        "take": null,
-        "take_kind": "do"
+        "take": "The test shows both the promise and the safety limits of AI in the lab[S6].",
+        "take_kind": "read"
       }
     }
   ],
@@ -206,8 +207,8 @@
   "model": "groq:openai/gpt-oss-120b",
   "generated_at": "2026-11-01T02:11:43+00:00",
   "verification": {
-    "checked": 79,
-    "ok": 49,
+    "checked": 89,
+    "ok": 59,
     "repaired": 12,
     "dropped": 18,
     "unused": 11,

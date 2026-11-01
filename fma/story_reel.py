@@ -169,7 +169,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
     used: set[str] = set()
     doodles = []
     for text in [hook, *[plain(x) for x in card["points"]], take]:
-        name = sketch.pick(text, used) if text else "spark"
+        name = sketch.pick(text, used, section.get("category", "")) if text else "spark"
         used.add(name)
         doodles.append(name)
     def box_under(block):

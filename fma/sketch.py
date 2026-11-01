@@ -303,7 +303,10 @@ CUES = [("removed", r"\b(removed|pulled|deleted|banned|shut down)\b"),
         ("open", r"\bopen[- ](source|weights?)\b"),
         ("video", r"\b(video\w*|film\w*|youtube)\b"),
         ("image", r"\b(image\w*|photo\w*|picture\w*)\b"),
-        ("chat", r"\b(chatbot\w*|chatgpt|assistant\w*|conversation\w*)\b"),
+        ("chat", r"\b(chatbot\w*|chatgpt|assistant\w*|conversation\w*|siri|alexa|voice)\b"),
+        ("briefcase", r"\b(ceo|chief|executive|boss|founder|appointed)\b"),
+        ("health", r"\b(therap\w*|brain|mouse|mice|neuro\w*|surgery|injection)\b"),
+        ("video", r"\b(sampling|frames?|audio|sound)\b"),
         ("phone", r"\b(app|apps|phone\w*|iphone|android|mobile)\b"),
         ("cloud", r"\b(cloud|data ?cent(er|re)s?|aws|azure)\b"),
         ("doc", r"\b(paper|study|research\w*|report\w*)\b"),
@@ -324,10 +327,19 @@ CUES = [("removed", r"\b(removed|pulled|deleted|banned|shut down)\b"),
         ("robot", r"\b(agents?|robots?|models?|ai)\b")]
 
 
-def pick(text: str, avoid: set[str] | None = None) -> str:
+# When no word matches: a drawing for the story's topic, so the generic star is the last resort
+TOPIC_DOODLE = {"models": "brain", "architecture": "chip", "research": "doc", "products": "phone", "tools": "code",
+                "policy": "gavel", "impact": "people"}
+
+
+def pick(text: str, avoid: set[str] | None = None, category: str = "") -> str:
     low = text.lower()
+    avoid = avoid or set()
     for name, pat in CUES:
-        if name not in (avoid or set()) and re.search(pat, low):
+        if name not in avoid and re.search(pat, low):
+            return name
+    for name in (TOPIC_DOODLE.get(category), "robot", "brain", "doc"):
+        if name and name not in avoid:
             return name
     return "spark"
 

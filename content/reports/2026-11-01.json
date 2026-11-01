@@ -1,6 +1,6 @@
 {
-  "checked": 79,
-  "ok": 49,
+  "checked": 89,
+  "ok": 59,
   "repaired": 12,
   "dropped": 18,
   "entries": [
@@ -322,7 +322,7 @@
       "sources": [
         "S2"
       ],
-      "status": "ok",
+      "status": "unused",
       "problems": []
     },
     {
@@ -855,13 +855,134 @@
       "problems": [
         "model check: source describes $1.25 trillion valuation as a past report, not a current valuation; claim presents it as now"
       ]
+    },
+    {
+      "where": "card[0]",
+      "text": "New malware uses an AI model to size up its victims.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "It steals passwords, cookies, payment cards and crypto wallet seed phrases.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "It digs through Gmail for receipts, order history and location data.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "Researchers have not yet seen it used in real attacks.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[0]",
+      "text": "Review the passwords and payment cards saved in your browser.",
+      "sources": [
+        "1]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "OpenAI cut its funding goal to $20 billion.",
+      "sources": [
+        "5]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "It has $11 billion in commitments so far.",
+      "sources": [
+        "5]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "Its valuation fell from $1.4 trillion to $1.25 trillion.",
+      "sources": [
+        "5]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "Big investors’ response was described as tepid.",
+      "sources": [
+        "5]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[3]",
+      "text": "Wall Street is getting cautious about heavy AI spending.",
+      "sources": [
+        "5]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
+    },
+    {
+      "where": "card[4]",
+      "text": "The test shows both the promise and the safety limits of AI in the lab.",
+      "sources": [
+        "6]"
+      ],
+      "status": "ok",
+      "problems": [
+        "Instagram card line written in editorial review on 2026-11-01 from sentences already verified in this post"
+      ]
     }
   ],
   "layer1_done": true,
   "layer2_done": true,
   "headline_problems": [],
   "layer2_flagged": 13,
-  "unused": 11,
+  "unused": 12,
   "date": "2026-11-01",
   "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
   "model": "groq:openai/gpt-oss-120b"
