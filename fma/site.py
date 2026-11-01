@@ -198,11 +198,12 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
         out["reel"] = "reel.mp4"
     except Exception as exc:  # noqa: BLE001
         logging.getLogger(__name__).warning("reel failed: %s", exc)
-    from .story_reel import card_stories, story_reel
+    from .story_reel import card_stories, palettes_for, story_reel
     out["story_reels"] = []
-    for k, (n, sec) in enumerate(card_stories(post)):     # one Reel per story with a fact-checked card, up to three
+    stories = card_stories(post)
+    for k, ((n, sec), pal) in enumerate(zip(stories, palettes_for(stories))):   # up to three, each its own colours
         try:
-            story_reel(post, sec, n, site, folder / "reels" / f"{k + 1:02d}.mp4")
+            story_reel(post, sec, n, site, folder / "reels" / f"{k + 1:02d}.mp4", palette=pal)
             out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})
         except Exception as exc:  # noqa: BLE001
             logging.getLogger(__name__).warning("story reel %d failed: %s", k + 1, exc)

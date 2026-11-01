@@ -432,13 +432,13 @@ def blob(ld, box, t, colour, seed=0, grow=0.35):
 
 
 def draw(ld, name: str, box: tuple[float, float, float], t: float, ink, hi, width: int = 11, draw_time: float = 1.1,
-         seed: int = 0, mode: str = "pen"):
+         seed: int = 0, mode: str = "pen", fills=None):
     """Draw doodle `name` into box (x, y, size) at time t (seconds since it started). Strokes draw on one after
     another over `draw_time`, then boil: the wobble is re-rolled 4 times a second.
     mode: "pen" (notebook doodle), "chalk" (grainy multi-pass strokes), "cutout" (closed shapes become filled paper
     pieces with a shadow), "comic" (thick black outlines, closed shapes filled flat)."""
     if mode in ("cutout", "comic"):
-        return _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time)
+        return _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time, fills or CUTOUT)
     if t <= 0:
         return
     x, y, size = box
@@ -469,7 +469,7 @@ def draw(ld, name: str, box: tuple[float, float, float], t: float, ink, hi, widt
         ld.line([(a + 1.5, b + 1.0) for a, b in xy], fill=colour[:3] + (int(colour[3] * 0.35),), width=max(2, width // 3))
 
 
-def _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time):
+def _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time, fills=CUTOUT):
     """Cut-out and comic doodles: shapes pop in one after another (scale from their centre) instead of being traced."""
     x, y, size = box
     strokes = LIBRARY[name]()
@@ -489,7 +489,7 @@ def _draw_filled(ld, name, box, t, ink, hi, seed, mode, draw_time):
                y + (cy + (py - cy) * k + rng.uniform(-jig, jig)) * size) for px, py in pts]
         if mode == "cutout":
             if _closed(pts):
-                fill = CUTOUT[(i + seed) % len(CUTOUT)] + (255,) if not hi_stroke else hi
+                fill = fills[(i + seed) % len(fills)] + (255,) if not hi_stroke else hi
                 ld.polygon([(a + 9, b + 11) for a, b in xy], fill=(0, 0, 0, 50))
                 ld.polygon(xy, fill=fill)
             else:
