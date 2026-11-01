@@ -166,10 +166,17 @@ async function day({ gh }, date) {
     gh.json(`data/social/${date}.json`),
     readPaused(gh),
   ]);
-  const runs = await Promise.all(daily.slice(0, 6).map(async (run) => {
+  const runs = await Promise.all(daily.slice(0, 6).map(async (run, n) => {
     const jobs = await gh.jobs(run);
     const gen = jobs.find((j) => j.name === "generate");
-    const log = gen && gen.status === "completed" ? parseLog(await gh.jobLog(gen)) : null;
+    // Logs are the slow part (one download each, up to ten runs a day). A finished run under 90 s found the post
+    // already there and has nothing to tell, so only the newest run and runs that did real work are read.
+    // With a committed run summary (data/runs/<date>.json, from 1 Nov 2026) the numbers are already here, so a log is
+    // only worth fetching for a long run that did not publish: its log holds the reason it stopped.
+    const ran = (Date.parse(run.updated_at) - Date.parse(run.run_started_at || run.created_at)) / 1000;
+    const committed = gen?.steps?.some((s) => s.name === "Commit the post" && s.conclusion === "success");
+    const worth = summary ? ran >= 90 && !committed : n === 0 || !(ran < 90);
+    const log = gen && gen.status === "completed" && worth ? parseLog(await gh.jobLog(gen)) : null;
     return { run, jobs, log };
   }));
   return buildDay({ date, runs, deploys, post, report, summary, queue, paused });
@@ -325,12 +332,22 @@ export function parseShareMedia(html, date) {
   return { date, slides, reel, reels, card, page: base, zip: /carousel\.zip/.test(html) ? `${base}carousel.zip` : null };
 }
 
-async function media({ fetchImpl = globalThis.fetch.bind(globalThis) }, date) {
+const mediaCache = new Map();       // date -> { at, value }; share pages change only on a deploy
+
+async function media({ fetchImpl }, date) {
   if (!DATE_RE.test(date || "")) throw new BadInput("date must be YYYY-MM-DD");
-  const res = await fetchImpl(`${SITE}share/${date}/`, { headers: { "User-Agent": "fiveminuteai-dashboard" } });
-  if (res.status === 404) return { date, slides: [], reel: null, reels: [], card: null, page: null, zip: null };
-  if (!res.ok) throw Object.assign(new Error(), { userMessage: `The share page answered ${res.status}.`, status: 502 });
-  return parseShareMedia(await res.text(), date);
+  const hit = !fetchImpl && mediaCache.get(date);           // tests with their own fetch are never cached
+  if (hit && Date.now() - hit.at < 5 * 60e3) return hit.value;
+  const res = await (fetchImpl || globalThis.fetch.bind(globalThis))(`${SITE}share/${date}/`, { headers: { "User-Agent": "fiveminuteai-dashboard" } });
+  let value;
+  if (res.status === 404) value = { date, slides: [], reel: null, reels: [], card: null, page: null, zip: null };
+  else if (!res.ok) throw Object.assign(new Error(), { userMessage: `The share page answered ${res.status}.`, status: 502 });
+  else value = parseShareMedia(await res.text(), date);
+  if (!fetchImpl) {
+    mediaCache.set(date, { at: Date.now(), value });
+    if (mediaCache.size > 60) mediaCache.delete(mediaCache.keys().next().value);
+  }
+  return value;
 }
 
 // ---------- scheduling ----------

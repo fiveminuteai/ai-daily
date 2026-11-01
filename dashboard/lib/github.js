@@ -5,22 +5,64 @@ const API = "https://api.github.com";
 const cache = new Map();           // finished runs' jobs and logs never change: keep them per isolate
 const CACHE_MAX = 300;
 
+// Every other GET: fresh for 45 s, then served stale (up to 30 min) while one background request refreshes it,
+// so a screen never waits on GitHub twice. Any write clears it. Kept per fetch function, so tests with their own
+// fake fetch never share entries.
+const FRESH_MS = 45e3;
+const STALE_MS = 30 * 60e3;
+const GET_MAX = 600;
+const DEFAULT_OWNER = {};
+const getCaches = new WeakMap();
+
 export class GitHubError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
 
 export class GitHub {
   // local: optional {file(path), list(path)}: a local checkout used for files main doesn't have yet (dev server only)
-  constructor({ token, repo, fetchImpl = globalThis.fetch.bind(globalThis), local = null }) {
+  constructor({ token, repo, fetchImpl, local = null }) {
     this.local = local;
     if (!/^[\w.-]+\/[\w.-]+$/.test(repo || "")) throw new Error("REPO must look like owner/name");
     this.token = token;
     this.repo = repo;
-    this.fetch = fetchImpl;
+    this.fetch = fetchImpl || globalThis.fetch.bind(globalThis);
+    this.owner = fetchImpl || DEFAULT_OWNER;
     this.calls = 0;
   }
 
-  async req(path, { method = "GET", body, accept = "application/vnd.github+json", raw = false } = {}) {
+  store() {
+    if (!getCaches.has(this.owner)) getCaches.set(this.owner, new Map());
+    return getCaches.get(this.owner);
+  }
+
+  req(path, opts = {}) {
+    const { method = "GET", accept = "application/vnd.github+json", raw = false } = opts;
+    const store = this.store();
+    if (method !== "GET") {
+      store.clear();                     // a write may change anything we have cached
+      return this.send(path, opts);
+    }
+    const key = `${this.repo}|${accept}|${raw ? 1 : 0}|${path}`;
+    const hit = store.get(key);
+    const now = Date.now();
+    if (hit && "value" in hit && now - hit.at < STALE_MS) {
+      if (now - hit.at > FRESH_MS && !hit.refreshing) {
+        hit.refreshing = this.send(path, opts)
+          .then((value) => store.set(key, { at: Date.now(), value }))
+          .catch(() => { hit.refreshing = null; });     // keep serving the stale copy; try again next time
+      }
+      return Promise.resolve(hit.value);
+    }
+    if (hit?.inflight) return hit.inflight;           // the same request is already on its way
+    const inflight = this.send(path, opts).then(
+      (value) => { store.set(key, { at: Date.now(), value }); return value; },
+      (err) => { store.delete(key); throw err; });
+    store.set(key, { inflight });
+    if (store.size > GET_MAX) store.delete(store.keys().next().value);
+    return inflight;
+  }
+
+  async send(path, { method = "GET", body, accept = "application/vnd.github+json", raw = false } = {}) {
     this.calls += 1;
     const res = await this.fetch(`${API}${path}`, {
       method,
@@ -81,7 +123,7 @@ export class GitHub {
   }
 
   /** The file's metadata (with sha and base64 content), for an update. */
-  fileMeta(path) { return this.req(this.r(`/contents/${path}?ref=main`)); }
+  fileMeta(path) { return this.send(this.r(`/contents/${path}?ref=main`)); }          // never cached: a write needs the current sha
 
   async listDir(path) {
     const remote = await this.req(this.r(`/contents/${path}?ref=main`)).then((d) => (Array.isArray(d) ? d : []));
@@ -97,6 +139,26 @@ export class GitHub {
   dispatch(workflow, inputs = {}) {
     return this.req(this.r(`/actions/workflows/${workflow}/dispatches`), { method: "POST", body: { ref: "main", inputs } });
   }
+}
+
+/**
+ * The desktop app saves the default cache when it stops and loads it when it starts, so the first screen shows the
+ * last known state at once and refreshes itself in the background. Only GitHub responses (public repository data);
+ * no token. Entries come back marked old, so every one is refreshed on first use.
+ */
+export function exportCache() {
+  const gets = [...(getCaches.get(DEFAULT_OWNER) || new Map())].filter(([, e]) => "value" in e).map(([k, e]) => [k, e.at, e.value]);
+  return { version: 1, saved: Date.now(), gets, done: [...cache] };
+}
+
+export function importCache(data, now = Date.now()) {
+  if (!data || data.version !== 1 || now - data.saved > 24 * 3600e3) return 0;
+  const store = getCaches.get(DEFAULT_OWNER) || new Map();
+  getCaches.set(DEFAULT_OWNER, store);
+  // aged past fresh but inside stale: shown at once, refreshed on first use
+  for (const [k, , value] of data.gets || []) store.set(k, { at: now - FRESH_MS - 1, value });
+  for (const [k, v] of data.done || []) if (cache.size < CACHE_MAX) cache.set(k, v);
+  return store.size;
 }
 
 export function b64decode(b64) {

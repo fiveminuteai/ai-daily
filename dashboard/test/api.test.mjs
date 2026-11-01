@@ -151,7 +151,7 @@ const genJob = (commit) => ({ name: "generate", status: "completed", steps: [
 
 test("a published day: every stage ok, the publishing run is the main one", () => {
   const d = buildDay({
-    date: "2026-10-30",
+    date: "2026-10-30", now: new Date("2026-10-30T06:00:00Z"),
     runs: [
       { run: run(2, "2026-10-30T05:42:29Z", "2026-10-30T05:42:43Z"), jobs: [genJob("skipped")], log: parseLog("2026-10-30T05:42:40Z SKIPPED 2026-10-30: post for 2026-10-30 already exists") },
       { run: run(1, "2026-10-30T04:22:02Z", "2026-10-30T04:31:23Z"), log: parseLog(LOG), jobs: [genJob("success"),
@@ -160,7 +160,8 @@ test("a published day: every stage ok, the publishing run is the main one", () =
     post: { headline: "H", dek: "", slug: "s", model: "m", tags: [], word_count: 960, reading_minutes: 5, generated_at: "2026-10-30T04:30:21+00:00",
             sections: [{ title: "A", category: "models" }], sources: [1, 2],
             verification: { checked: 10, ok: 8, repaired: 1, dropped: 1, unused: 0, layer1_done: true, layer2_done: true } },
-    queue: { items: [{ status: "pending" }, { status: "skipped" }] },
+    queue: { items: [{ platform: "instagram_reel", status: "pending" }, { platform: "instagram_reel", status: "skipped" },
+                     { platform: "instagram", status: "pending" }, { platform: "x", status: "pending" }, { platform: "linkedin", status: "pending" }] },
   });
   assert.equal(d.verdict, "ok");
   const st = Object.fromEntries(d.stages.map((s) => [s.key, s]));
@@ -307,5 +308,21 @@ test("a skipped early run still shows the next try and how many are left", () =>
   assert.equal(d.triesLeft, 9);
   assert.equal(d.lastTry, "2026-10-31T06:37:00.000Z");
   assert.equal(d.runs[0].trigger, "scheduled");
+});
+
+test("a past day: nothing is pending any more, and a day without a run says so", () => {
+  const queue = { items: [{ platform: "instagram_reel", status: "pending" }, { platform: "instagram_reel", status: "posted" }] };
+  const later = new Date("2026-11-01T06:00:00Z");
+  const withPost = buildDay({ date: "2026-10-30", now: later, queue,
+    post: { headline: "H", dek: "", slug: "s", model: "m", tags: [], word_count: 9, reading_minutes: 1, sections: [], sources: [],
+            verification: { checked: 1, ok: 1, repaired: 0, dropped: 0, unused: 0, layer1_done: true, layer2_done: true } } });
+  const social = withPost.stages.find((s) => s.key === "social");
+  assert.equal(social.numbers.pending, 0);
+  assert.equal(social.numbers.expired, 1);
+  assert.equal(social.status, "ok");
+  const empty = buildDay({ date: "2026-10-28", now: later });
+  assert.equal(empty.verdict, "missed");
+  assert.equal(empty.nextRun, null);
+  assert.ok(empty.stages.every((s) => s.status === "skipped"));
 });
 

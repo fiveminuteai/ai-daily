@@ -6,9 +6,10 @@
 
 import { execFile, spawn } from "node:child_process";
 import { existsSync } from "node:fs";
-import { appendFile, mkdir, readFile, readdir } from "node:fs/promises";
+import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
+import { exportCache, importCache } from "../lib/github.js";
 import { startServer } from "../lib/server.mjs";
 import { createLocalApi } from "./local-api.mjs";
 import { readCredential } from "./secrets.mjs";
@@ -67,6 +68,7 @@ async function alreadyRunning() {
 }
 
 if (await alreadyRunning()) {               // second launch: just another window on the running app
+  console.log(`Five Minute AI is already running at ${URL_}; ${NO_WINDOW ? "nothing else to start" : "opening another window"}.`);
   if (!NO_WINDOW) openWindow();
   process.exit(0);
 }
@@ -77,6 +79,18 @@ const local = {                             // files main doesn't have yet (an u
   file: (p) => readFile(join(root, normalize(p)), "utf-8").catch(() => null),
   list: (p) => readdir(join(root, normalize(p))).then((names) => names.map((name) => ({ name }))).catch(() => []),
 };
+// last session's GitHub responses, so the first screen draws at once (see lib/github.js importCache)
+const CACHE_FILE = join(process.env.LOCALAPPDATA || DATA, "FiveMinuteAI", "github-cache.json");
+try { importCache(JSON.parse(await readFile(CACHE_FILE, "utf-8"))); } catch { /* no cache yet: a normal cold start */ }
+async function saveCache() {
+  try {
+    await mkdir(join(CACHE_FILE, ".."), { recursive: true });
+    await writeFile(`${CACHE_FILE}.tmp`, JSON.stringify(exportCache()), "utf-8");
+    await rename(`${CACHE_FILE}.tmp`, CACHE_FILE);
+  } catch { /* the cache is only a speed-up */ }
+}
+setInterval(saveCache, 5 * 60e3).unref();
+
 const server = await startServer({
   port: PORT, quiet: true, local, desktop: createLocalApi(),
   env: { GITHUB_TOKEN: token, REPO: process.env.REPO || "fiveminuteai/ai-daily", DRY_RUN: LIVE ? "0" : "1" },
@@ -88,7 +102,7 @@ if (!NO_WINDOW) {
   // Edge can keep its process alive after the window closes, so the window's own heartbeat (one ping a minute,
   // see public/app.js) decides: no request for IDLE_MIN minutes means the window is gone, and the server stops.
   const IDLE_MIN = Number(process.env.FMA_IDLE_MIN || 5);
-  const stop = async (why) => { await logLine(`stopped: ${why}`); server.close(); process.exit(0); };
+  const stop = async (why) => { await saveCache(); await logLine(`stopped: ${why}`); server.close(); process.exit(0); };
   openWindow();
   setInterval(() => { if (server.idleMs() > IDLE_MIN * 60e3) stop(`no window for ${IDLE_MIN} minutes`); }, 30e3);
 }

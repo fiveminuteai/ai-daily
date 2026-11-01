@@ -58,7 +58,7 @@ const ICON = {
 };
 const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
 const STATUS_WORD = { ok: "OK", failed: "Failed", skipped: "Skipped", pending: "Pending", running: "Running",
-                      waiting: "Waiting", bad: "Failed", warn: "Warning", missed: "No run", unknown: "Done",
+                      waiting: "Waiting", bad: "Failed", warn: "Warning", missed: "No run", unknown: "Done", expired: "Expired", off: "Off",
                       approved: "Approved", posted: "Posted" };
 const tag = (s) => `<span class="status-tag t-${esc(s)}">${esc(STATUS_WORD[s] || s)}</span>`;
 
@@ -116,6 +116,77 @@ function problem(err, what) {
     <p><button class="btn" data-retry>Try again</button></p></div></div>`;
 }
 
+// ---------- data: shown from memory at once, refreshed quietly in the background ----------
+// Every GitHub-backed read goes through load(): a screen that was loaded before draws instantly from memory; if that
+// copy is over 20 s old, one background request refreshes it and the screen is redrawn only if something changed
+// (and never while you are typing, choosing or watching a video).
+const DATA = new Map();                 // path -> { at, value, promise }
+const FRESH_MS = 20e3;
+let usedPaths = new Set();              // what the visible screen was drawn from
+
+function assignData(path, v) {
+  if (path.startsWith("day?date=")) state.days.set(path.slice(9), v);
+  else ({ history: () => { state.history = v; }, social: () => { state.social = v; }, stats: () => { state.stats = v; },
+          "local/mail": () => { state.mail = v; }, "local/accounts": () => { state.accounts = v; },
+          "local/pages": () => { state.pages = v; }, "local/info": () => { state.info = v; } }[path] || (() => {}))();
+  if (path.startsWith("media?date=")) state.media.set(path.slice(11), v);
+}
+
+function fetchData(path) {
+  const entry = DATA.get(path) || {};
+  const promise = api(path).then((v) => {
+    const changed = "value" in entry && JSON.stringify(entry.value) !== JSON.stringify(v);
+    DATA.set(path, { at: Date.now(), value: v });
+    assignData(path, v);
+    if (changed) dataChanged(path);
+    return v;
+  }, (err) => {
+    if ("value" in entry) DATA.set(path, { at: entry.at, value: entry.value }); else DATA.delete(path);
+    throw err;
+  });
+  DATA.set(path, { ...entry, promise });
+  return promise;
+}
+
+function load(path) {
+  usedPaths.add(path);
+  const e = DATA.get(path);
+  if (e && "value" in e) {
+    if (Date.now() - e.at > FRESH_MS && !e.promise) fetchData(path).catch(() => {});
+    assignData(path, e.value);
+    return Promise.resolve(e.value);
+  }
+  return e?.promise || fetchData(path);
+}
+
+function busyScreen() {
+  const a = document.activeElement;
+  return Boolean(document.querySelector("dialog[open]") || (a && view.contains(a) && /INPUT|TEXTAREA|SELECT/.test(a.tagName))
+    || [...view.querySelectorAll("video")].some((v) => !v.paused));
+}
+
+let redrawTimer = null;
+function dataChanged(path) {
+  renderCounts();
+  if (!usedPaths.has(path)) return;
+  clearTimeout(redrawTimer);
+  redrawTimer = setTimeout(() => { if (!busyScreen()) route({ keepScroll: true }); }, 300);
+}
+
+/** After the first screen: warm every section in the background, one request at a time. */
+function prefetch() {
+  const today = state.status?.today || todayIstClient();
+  const yesterday = new Date(Date.parse(`${today}T00:00:00Z`) - 864e5).toISOString().slice(0, 10);
+  const paths = state.status?.configured
+    ? ["social", "history", "stats", `media?date=${today}`, `media?date=${yesterday}`, `day?date=${yesterday}`] : [];
+  if (state.status?.desktop) paths.push("local/accounts", "local/pages", "local/info", "local/roadmap", "local/mail");
+  let i = 0;
+  const next = () => { if (i < paths.length) load(paths[i++]).catch(() => {}).finally(() => setTimeout(next, 120)); };
+  setTimeout(next, 400);
+}
+
+const todayIstClient = () => new Date(Date.now() + 330 * 60e3).toISOString().slice(0, 10);
+
 // ---------- header ----------
 function renderMode() {
   const s = state.status;
@@ -137,7 +208,7 @@ function setCount(name, n) {
 }
 
 function renderCounts() {
-  setCount("posts", (state.social?.days || []).flatMap((d) => d.items).filter((i) => itemStatus(i) === "pending").length);
+  setCount("posts", (state.social?.days || []).flatMap((d) => d.items).filter(needsYou).length);
   if (state.mail?.connected) setCount("mail", state.mail.unread || 0);
 }
 
@@ -148,6 +219,7 @@ const VERDICT = {
   bad: () => "No post",
   running: () => "Running now",
   waiting: (d) => (d.nextRun ? `Waiting for the ${time(d.nextRun)} run` : "No run yet"),
+  missed: () => "No post that day",
   paused: () => "Paused",
 };
 
@@ -289,8 +361,7 @@ async function renderToday(date) {
   date = date || today;
   let d;
   try {
-    d = state.days.get(date) || await api(`day?date=${date}`);
-    state.days.set(date, d);
+    d = await load(`day?date=${date}`);
   } catch (err) {
     view.innerHTML = problem(err, "today's pipeline");
     return;
@@ -300,6 +371,7 @@ async function renderToday(date) {
   const next = d.nextRun ? `Next scheduled try at ${time(d.nextRun)} IST${d.triesLeft > 1 ? `; ${d.triesLeft} tries left today, the last at ${time(d.lastTry)}` : "; it is the last today"}.` : "";
   const sub = v === "bad" ? `${esc(d.reason || "The run failed. Open its log.")}${next ? ` ${next}` : " No scheduled tries left today."}`
     : v === "waiting" ? (next || "No scheduled tries left today.")
+    : v === "missed" ? "Nothing ran or was posted that day."
     : v === "paused" ? "Daily posts are paused in config/site.yaml. Resume from Controls."
     : v === "running" ? "A run is in progress; this page refreshes every 30 seconds."
     : d.hasSummary ? "" : "This day ran before run summaries existed: numbers come from the run log and the committed post.";
@@ -315,7 +387,7 @@ async function renderToday(date) {
         ${sub ? `<p class="subline">${sub}</p>` : ""}
         ${d.post ? `<a class="headline-link" href="${SITE}posts/${esc(encodeURIComponent(d.post.slug))}/" target="_blank" rel="noopener noreferrer">${esc(plain(d.post.headline))} <span class="arrow">↗</span></a>` : ""}
         <div class="meta-row">
-          ${d.totalSeconds ? `<span class="stat-chip">Run <b>${dur(d.totalSeconds)}</b></span>` : ""}
+          ${d.totalSeconds ? `<span class="stat-chip" title="Time the writing pipeline took; the run row below also counts setup">Pipeline <b>${dur(d.totalSeconds)}</b></span>` : ""}
           ${d.post ? `<span class="stat-chip">Read <b>${d.post.minutes} min</b></span><span class="stat-chip">Model <b>${esc(d.post.model.split(":").pop())}</b></span>` : ""}
           ${d.runs.length ? `<span class="stat-chip">Runs <b>${d.runs.length}</b></span>` : ""}
         </div>
@@ -347,7 +419,7 @@ function schedule(fn, ms) { clearTimeout(timer); timer = setTimeout(fn, ms); }
 // ---------- history ----------
 async function renderHistory() {
   try {
-    state.history = state.history || await api("history");
+    state.history = await load("history");
   } catch (err) {
     view.innerHTML = problem(err, "history");
     return;
@@ -384,7 +456,29 @@ async function renderHistory() {
 const PLAT = { instagram: "Instagram", x: "X", linkedin: "LinkedIn", instagram_reel: "Instagram Reel" };
 const HOW = { api: ["Auto-post", "free Instagram API"], paid: ["Paid API", "about $0.20 a post"], manual: ["Manual", "copy and post by hand"] };
 
-function itemStatus(i) { return state.decisions.get(i.id) || i.status; }
+function itemStatus(i) {
+  const s = state.decisions.get(i.id) || i.status;
+  // nobody posts yesterday's news: an item still pending after its day is over is shown as expired, with no buttons
+  if (s === "pending" && i.id.slice(0, 10) < (state.status?.today || todayIstClient())) return "expired";
+  return s === "pending" && i.platform === "x" ? "off" : s;       // X posting is off: not something waiting on Pavan
+}
+
+/** A carousel item can only post if the deploy made slides for that day (the carousel was dropped on 1 Nov). */
+const noSlides = (i) => i.platform === "instagram" && !(state.media.get(i.id.slice(0, 10))?.slides?.length);
+
+/** What still needs Pavan: pending items that will really post through the app (X is off, LinkedIn is by hand). */
+function needsYou(i) {
+  return itemStatus(i) === "pending" && (i.platform === "instagram_reel" || (i.platform === "instagram" && !noSlides(i)));
+}
+
+function queueDay(d) {
+  const items = d.items.filter((i) => !isReel(i));
+  if (!items.length) return "";
+  return `<section class="sday">
+    <div class="sday-head"><div><span class="eyebrow">${esc(longDate(d.date))}</span><h2>${esc(plain(d.headline))}</h2></div>
+      <a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener noreferrer" class="btn ghost">Read the post ${svg("ext")}</a></div>
+    <div class="queue">${items.map(itemCard).join("")}</div></section>`;
+}
 function itemText(i) { return state.edits.get(i.id) ?? i.edited_text ?? i.text; }
 function xLen(t) { return t.replace(/https?:\/\/\S+/g, "x".repeat(23)).length; }
 
@@ -396,6 +490,8 @@ function itemCard(i) {
       <span class="muted" style="font-size:12.5px">${esc(i.kind)}</span>${tag(st)}</div>
     <div class="how ${i.posting === "paid" ? "paid" : ""}" title="${esc(i.note)}"><span><b>${esc(howTitle)}</b> · ${esc(howNote)}</span></div>
     ${statusLine(i)}
+    ${noSlides(i) && st === "pending" ? `<p class="stline muted">No carousel was made for this day, so there is nothing to post.</p>` : ""}
+    ${i.posting === "paid" && st === "pending" ? `<p class="stline muted">X posting is off (paid API): copy the text if you post it yourself.</p>` : ""}
     ${(() => {
       // the day's real carousel when the share page has one, else the single card from the queue
       const slides = i.platform === "instagram" ? state.media.get(i.id.slice(0, 10))?.slides : null;
@@ -406,16 +502,22 @@ function itemCard(i) {
     <div class="preview ${edited ? "edited" : ""}" data-preview>${esc(text)}</div>
     ${i.platform === "x" ? `<div class="counter ${xLen(text) > 280 ? "over" : ""}">${xLen(text)} / 280</div>` : ""}
     ${(() => {
+      // only what can really happen gets a button: X is off, a carousel needs slides, past days are over
       const at = state.schedules.has(i.id) ? state.schedules.get(i.id) : i.scheduled_at;
-      return st === "pending" ? `<div class="sched">${svg("calendar")}<span>${at ? `Posts ${esc(whenText(at))}` : "Not scheduled: posts when approved"}</span>
-        <button class="linkbtn" data-act="schedule">${at ? "Change" : "Schedule"}</button></div>` : "";
+      const carouselOk = i.platform === "instagram" && !noSlides(i);
+      const approvable = i.platform !== "x" && (i.platform !== "instagram" || carouselOk)
+        && (["pending", "failed"].includes(st) || (st === "skipped" && carouselOk));
+      const sched = st === "pending" && carouselOk
+        ? `<div class="sched">${svg("calendar")}<span>${at ? `Posts ${esc(whenText(at))}` : "Not scheduled: posts when approved"}</span>
+          <button class="linkbtn" data-act="schedule">${at ? "Change" : "Schedule"}</button></div>` : "";
+      const copy = ["x", "linkedin"].includes(i.platform) && st !== "expired"
+        ? `<button class="btn ghost" data-act="copy" aria-label="Copy ${esc(PLAT[i.platform])} text">${svg("copy")}Copy</button>` : "";
+      const buttons = approvable
+        ? `<button class="btn ok" data-act="approve">${st === "failed" ? "Approve again" : st === "skipped" ? "Post it anyway" : "Approve"}</button>
+           ${st === "pending" ? `<button class="btn" data-act="edit">Edit</button><button class="btn ghost" data-act="skip">Skip</button>` : ""}` : "";
+      return sched + (buttons || copy ? `<div class="actions">${buttons}${copy}</div>` : "");
     })()}
-    <div class="actions">
-      <button class="btn ok" data-act="approve" ${!["pending", "failed"].includes(st) ? "disabled" : ""}>${st === "failed" ? "Approve again" : "Approve"}</button>
-      <button class="btn" data-act="edit" ${st !== "pending" ? "disabled" : ""}>Edit</button>
-      <button class="btn ghost" data-act="skip" ${!["pending", "failed"].includes(st) ? "disabled" : ""}>Skip</button>
-      ${i.platform === "linkedin" ? `<button class="btn ghost" data-act="copy" aria-label="Copy LinkedIn text">${svg("copy")}Copy</button>` : ""}
-    </div></article>`;
+  </article>`;
 }
 
 function findItem(id) {
@@ -429,7 +531,7 @@ async function onItemAction(btn) {
   const act = btn.dataset.act;
   if (!item) return;
   if (act === "copy") {
-    try { await navigator.clipboard.writeText(itemText(item)); toast("LinkedIn text copied."); } catch { toast("Copy failed: select the text by hand.", "err"); }
+    try { await navigator.clipboard.writeText(itemText(item)); toast(`${esc(PLAT[item.platform])} text copied.`); } catch { toast("Copy failed: select the text by hand.", "err"); }
     return;
   }
   if (act === "edit") {
@@ -463,8 +565,9 @@ async function onItemAction(btn) {
     const at = act === "schedule-clear" ? null : new Date(input.value).toISOString();
     try {
       const r = await api("social/schedule", { method: "POST", body: { item_id: item.id, at } });
-      state.schedules.set(item.id, at);
+      if (!r.dryRun) state.schedules.set(item.id, at);     // a dry run changes nothing, on GitHub or on screen
       el.outerHTML = cardFor(item);
+    wireLazyVideos();
       const said = at ? `${PLAT[item.platform]} set to post ${whenText(at)} IST` : `${PLAT[item.platform]} unscheduled`;
       toast(r.dryRun ? `<b>Dry run.</b> ${esc(said)}: not saved.` : `${esc(said)}.`, r.dryRun ? "dry" : "");
     } catch (err) {
@@ -478,6 +581,8 @@ async function onItemAction(btn) {
     if (!v) return toast("Text can't be empty.", "err");
     if (v === item.text) state.edits.delete(item.id); else state.edits.set(item.id, v);
     el.outerHTML = cardFor(item);
+    toast("Edit kept here: it goes out with this post when you approve it.");
+    wireLazyVideos();
     return;
   }
   const open = el.querySelector("textarea.edit");       // approving while editing keeps the edit
@@ -497,8 +602,9 @@ async function onItemAction(btn) {
   try {
     const r = await api("social/action", { method: "POST", body: { item_id: item.id, action: act, ...(edited ? { text } : {}) } });
     state.lastResult = r;
-    state.decisions.set(item.id, act === "approve" ? "approved" : "skipped");
+    if (!r.dryRun) state.decisions.set(item.id, act === "approve" ? "approved" : "skipped");
     el.outerHTML = cardFor(item);
+    wireLazyVideos();
     renderCounts();
     toast(r.dryRun ? `<b>Dry run.</b> Would dispatch publish-social.yml for ${esc(item.id)}.` : `Started publish-social for ${esc(item.id)}.`, r.dryRun ? "dry" : "");
   } catch (err) {
@@ -523,7 +629,11 @@ function statusLine(i) {
     if (i.platform === "linkedin") return `<p class="stline">Approved: copy the text and post it on LinkedIn by hand.</p>`;
     return `<p class="stline">${at && Date.parse(at) > Date.now() ? `Approved: posts ${esc(whenText(at))} IST` : "Approved: posting now"}</p>`;
   }
-  if (st === "skipped") return `<p class="stline muted">Skipped: will not be posted.</p>`;
+  if (st === "skipped") {
+    return i.platform === "instagram" && !noSlides(i)
+      ? `<p class="stline muted">Skipped by default (the daily Reels replace the carousel). "Post it anyway" posts it now.</p>`
+      : `<p class="stline muted">Skipped: will not be posted.</p>`;
+  }
   return "";
 }
 
@@ -537,16 +647,26 @@ function slotText(i) {
 
 function reelCard(i) {
   const st = itemStatus(i), n = i.id.split("-reel-")[1];
+  const url = i.media?.[0] || "";
+  // the share page keeps only recent Reels: if it no longer lists this one, show a tile instead of a broken player
+  const listed = state.media.get(i.id.slice(0, 10))?.reels;
+  const gone = Array.isArray(listed) && !listed.includes(url);
+  const slot = slotOf(i);
+  const notYet = st === "approved" && slot && Date.parse(slot) > Date.now();        // approved, still waiting for its time
+  const video = gone
+    ? `<div class="reel-gone"><span>Video no longer on the site</span>${i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer">Watch on Instagram ${svg("ext")}</a>` : ""}</div>`
+    : `<video data-src="${esc(safeUrl(url))}#t=0.1" data-posted="${esc(i.posted_url || "")}" controls preload="none" playsinline aria-label="Reel ${esc(n)}"></video>`;
   return `<article class="card reelcard is-${esc(st)}" data-item="${esc(i.id)}">
-    <div class="reel-video"><video src="${esc(safeUrl(i.media?.[0]))}#t=0.1" controls preload="metadata" playsinline aria-label="Reel ${esc(n)}"></video></div>
+    <div class="reel-video">${video}</div>
     <div class="reel-body">
       <div class="item-head"><span class="rnum">Reel ${esc(n)}</span>${tag(st)}</div>
       <p class="rhook">${esc(plain(i.hook || ""))}</p>
       <div class="sched">${svg("calendar")}<span>${esc(slotText(i))}</span>
-        ${st === "pending" ? `<button class="linkbtn" data-act="schedule">Change time</button>` : ""}</div>
+        ${st === "pending" || notYet ? `<button class="linkbtn" data-act="schedule">Change time</button>` : ""}</div>
       ${statusLine(i)}
       <details class="cap"><summary>Caption</summary><div class="preview">${esc(itemText(i))}</div></details>
-      ${["pending", "failed"].includes(st) ? `<div class="actions"><button class="btn ok" data-act="approve">${st === "failed" ? "Approve again" : "Approve"}</button><button class="btn ghost" data-act="skip">Skip</button></div>` : ""}
+      ${["pending", "failed"].includes(st) ? `<div class="actions"><button class="btn ok" data-act="approve">${st === "failed" ? "Approve again" : "Approve"}</button><button class="btn ghost" data-act="skip">Skip</button></div>`
+        : notYet ? `<div class="actions"><button class="btn ghost" data-act="skip">Skip, don't post</button></div>` : ""}
     </div></article>`;
 }
 
@@ -556,7 +676,9 @@ function notIncluded(day) {
   const word = { pending: "waiting for approval below", approved: "approved separately", posted: "posted separately", skipped: "skipped", failed: "failed, see below" };
   const parts = [];
   const car = by("instagram");
-  parts.push(car ? `the carousel (${word[itemStatus(car)] || itemStatus(car)})` : "no carousel today");
+  // a carousel that was posted (or decided) counts even if the share page no longer lists its slides
+  const carouselReal = car && (!noSlides(car) || ["posted", "approved", "failed"].includes(itemStatus(car)));
+  parts.push(carouselReal ? `the carousel (${word[itemStatus(car)] || itemStatus(car)})` : "no carousel today");
   if (state.media.get(day.date)?.reel) parts.push("the music Reel (not posted automatically)");
   if (by("x")) parts.push("X (paid API, off)");
   if (by("linkedin")) parts.push("LinkedIn (copy and post by hand)");
@@ -597,8 +719,9 @@ async function onApproveReels(btn) {
   try {
     const r = await api("social/approve-reels", { method: "POST", body: { date } });
     state.lastResult = r;
-    for (const id of r.items) state.decisions.set(id, "approved");
+    if (!r.dryRun) for (const id of r.items) state.decisions.set(id, "approved");
     view.querySelector(`[data-reel-day="${date}"]`).outerHTML = reelsSection(day);
+    wireLazyVideos();
     renderCounts();
     toast(r.dryRun ? `<b>Dry run.</b> ${esc(r.what)}: would dispatch publish-social ${r.items.length} times.` : `${esc(r.what)}: started.`, r.dryRun ? "dry" : "");
   } catch (err) {
@@ -617,9 +740,11 @@ const PLATFORMS = [
 const fmtDay = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 
 /** [{date, value}] ascending, nulls dropped. */
+const notFuture = (d) => d <= (state.status?.today || todayIstClient());
+
 function followerSeries(st, key) {
   if (key === "instagram") return st.days.map((d) => ({ date: d.date, value: d.instagram?.followers })).filter((p) => p.value != null);
-  if (key === "website") return (st.days.at(-1)?.website?.daily || []).map((d) => ({ date: d.day, value: d.visitors }));
+  if (key === "website") return (st.days.at(-1)?.website?.daily || []).filter((d) => notFuture(d.day)).map((d) => ({ date: d.day, value: d.visitors }));
   return (st.manual?.[key] || []).map((e) => ({ date: e.date, value: e.followers })).filter((p) => p.value != null);
 }
 
@@ -663,7 +788,7 @@ function platformTile(st, p) {
   const last = series.at(-1);
   const ch = p.key === "website" ? null : weekChange(series);
   const value = p.key === "website" ? snap.visitors_28d : last?.value;
-  const label = p.key === "website" ? "visitors, last 28 days" : "followers";
+  const label = p.key === "website" ? "visitors, last 28 days" : value === 1 ? "follower" : "followers";
   const sub = p.key === "website"
     ? `${num(snap.visitors_day ?? 0)} on ${fmtDay(latest.date)}`
     : p.key === "instagram" && snap.day?.reach != null ? `reach ${num(snap.day.reach)} on ${fmtDay(latest.date)}` : `as of ${fmtDay(last.date)}`;
@@ -735,7 +860,7 @@ function manualForm(st) {
 
 async function renderStats() {
   try {
-    state.stats = state.stats || await api("stats");
+    state.stats = await load("stats");
   } catch (err) {
     view.innerHTML = problem(err, "stats");
     return;
@@ -745,15 +870,15 @@ async function renderStats() {
   const ig = latest.instagram?.status === "ok" ? latest.instagram : null;
   view.innerHTML = `
     <div class="section-title" style="margin-top:0"><h1 style="font-size:clamp(26px,3.6vw,36px)">Stats</h1>
-      <span class="muted">${latest.date ? `Collected ${esc(fmtDay(latest.date))}, 23:30 IST daily` : "Collected daily at 23:30 IST once the secrets are set"}</span></div>
+      <span class="muted">${latest.collected_at ? `Updated ${esc(whenText(latest.collected_at))} IST · collected daily at 23:30` : "Collected daily at 23:30 IST once the secrets are set"}</span></div>
     <div class="ptiles">${PLATFORMS.map((p) => platformTile(st, p)).join("")}</div>
     <div class="stages align-top">
       <section class="card two-thirds"><div class="card-head"><h3>Website visitors per day</h3><span class="muted" style="font-size:13px">GoatCounter</span></div>
-        ${web ? visitsChart(web.daily) : `<p class="empty">Connect GoatCounter to see daily visits.</p>`}</section>
+        ${web ? visitsChart(web.daily.filter((d) => notFuture(d.day))) : `<p class="empty">Connect GoatCounter to see daily visits.</p>`}</section>
       <section class="card third"><div class="card-head"><h3>Where readers came from</h3><span class="muted" style="font-size:13px">7 days</span></div>
         ${web?.top_refs?.length ? barList(web.top_refs, (r) => r.name, (r) => r.visitors) : `<p class="empty">No referrers yet.</p>`}</section>
       <section class="card"><div class="card-head"><h3>Most-read pages</h3><span class="muted" style="font-size:13px">7 days</span></div>
-        ${web?.top_paths?.length ? barList(web.top_paths, (r) => r.title || r.path, (r) => r.visitors, "stacked") : `<p class="empty">No page numbers yet.</p>`}</section>
+        ${web?.top_paths?.length ? barList(web.top_paths, (r) => (web.top_paths.filter((x) => x.title === r.title).length > 1 || !r.title ? `${r.title || ""} ${r.path}`.trim() : r.title), (r) => r.visitors, "stacked") : `<p class="empty">No page numbers yet.</p>`}</section>
       <section class="card"><div class="card-head"><h3>X and LinkedIn numbers</h3><span class="muted" style="font-size:13px">typed in</span></div>
         <p class="note" style="margin:0 0 var(--s4)">Neither has a free API for stats. Copy them from each app's analytics once a week.</p>
         ${manualForm(st)}</section>
@@ -824,7 +949,7 @@ const pageHead = (title, right = "") => `<div class="section-title" style="margi
 // ---------- posts: media, social queue, blog posts ----------
 async function renderPosts() {
   try {
-    [state.social, state.history] = await Promise.all([state.social || api("social"), state.history || api("history")]);
+    [state.social, state.history] = await Promise.all([load("social"), load("history")]);
   } catch (err) {
     view.innerHTML = problem(err, "posts");
     return;
@@ -832,15 +957,11 @@ async function renderPosts() {
   renderCounts();
   const posts = state.history.days.filter((d) => d.post);
   const newest = posts[0]?.date;
-  let media = newest ? state.media.get(newest) : null;
-  if (newest && !media) {
-    media = await api(`media?date=${newest}`).catch(() => null);
-    if (media) state.media.set(newest, media);
-  }
   const days = state.social.days;
-  // the "not in this set" line needs each shown day's share page (music Reel or not); cached after the first look
-  await Promise.all(days.slice(0, 2).filter((d) => d.items.some(isReel) && !state.media.has(d.date)).map((d) =>
-    api(`media?date=${d.date}`).then((m) => state.media.set(d.date, m)).catch(() => {})));
+  // each shown day's share page: carousel slides (if any were made), the music Reel; for "not in this set"
+  const mediaDays = [...new Set([newest, ...days.slice(0, 2).map((d) => d.date)].filter(Boolean))];
+  await Promise.all(mediaDays.map((d) => load(`media?date=${d}`).catch(() => null)));
+  const media = newest ? state.media.get(newest) : null;
   view.innerHTML = `
     ${pageHead("Posts", `<span class="muted">${state.status?.dryRun ? "Dry run: approving and scheduling only show what would happen" : "Live"}</span>`)}
     ${days.slice(0, 2).map(reelsSection).join("")}
@@ -851,14 +972,12 @@ async function renderPosts() {
         ${media.slides.length ? `<div class="slides" role="list" aria-label="Carousel, ${media.slides.length} slides">${media.slides.map((u, n) =>
           `<a role="listitem" href="${esc(safeUrl(u))}" target="_blank" rel="noopener noreferrer" class="slide"><img src="${esc(safeUrl(u))}" alt="Slide ${n + 1}" loading="lazy" width="1080" height="1350"><span>${n + 1}</span></a>`).join("")}</div>` : ""}
         ${media.reel ? `<figure class="reel"><video src="${esc(safeUrl(media.reel))}" controls preload="metadata" playsinline ${media.slides[0] ? `poster="${esc(safeUrl(media.slides[0]))}"` : ""}></video><figcaption>Reel · original music</figcaption></figure>` : ""}
-      </div><p class="note">Made by the blog pipeline on every deploy, for the newest post. The carousel posts to Instagram when you approve it below.</p>`
+      </div><p class="note">Made by the blog pipeline on every deploy, for the newest post. The daily Story Reels are what posts; the carousel only goes out if you choose "Post it anyway" below.</p>`
       : `<p class="empty">${newest ? "No carousel or Reel on the share page yet: the deploy makes them for the newest post." : "No posts yet."}</p>`}
     </section>
     <div class="section-title"><h2>Social queue</h2><span class="muted">Approve, edit, skip or schedule each post</span></div>
-    ${days.length ? days.map((d) => `<section class="sday">
-      <div class="sday-head"><div><span class="eyebrow">${esc(longDate(d.date))}</span><h2>${esc(plain(d.headline))}</h2></div>
-        <a href="${esc(safeUrl(d.url))}" target="_blank" rel="noopener noreferrer" class="btn ghost">Read the post ${svg("ext")}</a></div>
-      <div class="queue">${d.items.filter((i) => !isReel(i)).map(itemCard).join("")}</div></section>`).join("")
+    ${days.length ? days.slice(0, 2).map(queueDay).join("") + (days.length > 2 ? `<details class="more older"><summary>Earlier days (${days.length - 2})</summary>
+      <div>${days.slice(2).map(queueDay).join("")}</div></details>` : "")
       : `<div class="banner">${svg("warn")}<div><h2>Nothing in the queue</h2><p>The daily run writes <code>data/social/&lt;date&gt;.json</code> next to each new post.</p></div></div>`}
     <div class="section-title"><h2>Blog posts</h2><span class="muted">${posts.length} in the last three weeks</span></div>
     <section class="card"><ul class="postlist">${posts.map((d) => `<li>
@@ -875,7 +994,8 @@ async function renderPosts() {
 async function renderMail(refresh = false) {
   if (refresh) view.querySelector("[data-mail-refresh]")?.setAttribute("disabled", "");
   try {
-    state.mail = (!refresh && state.mail) || await api(`local/mail${refresh ? "?refresh=1" : ""}`);
+    state.mail = refresh ? await api("local/mail?refresh=1") : await load("local/mail");
+    if (refresh) DATA.set("local/mail", { at: Date.now(), value: state.mail });
   } catch (err) {
     view.innerHTML = pageHead("Mail") + problem(err, "mail");
     return;
@@ -883,17 +1003,21 @@ async function renderMail(refresh = false) {
   const m = state.mail;
   renderCounts();
   if (!m.connected) {
+    // Checked 1 Nov 2026: Zoho's free plan shows IMAP as "not available for your account" (POP and forwarding are
+    // paid too), so the inbox can't be read from here until the plan changes. hello@ is an alias of pavan@.
     view.innerHTML = `${pageHead("Mail")}
-      <section class="card setup-card"><div class="card-head"><h3>Connect hello@fiveminuteai.net</h3>${tag("pending")}</div>
-        <p class="note" style="margin:0 0 var(--s4)">The app reads the inbox with a Zoho <b>app password</b> (not your login password), kept in Windows Credential Manager. It only reads: nothing is sent, deleted or marked as read.</p>
+      <section class="card setup-card"><div class="card-head"><h3>pavan@fiveminuteai.net</h3><span class="status-tag t-skipped">Opens in Zoho</span></div>
+        <p class="note" style="margin:0 0 var(--s4)">Mail sent to hello@ lands in the pavan@ inbox. Zoho's free plan doesn't allow other apps to read mail (IMAP, POP and forwarding are paid features), so this screen opens Zoho Mail instead.</p>
+        <div class="actions"><a class="btn primary" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+        <details class="more"><summary>If you move to a paid Zoho plan</summary><div>
         <ol class="steps">
-          <li>In Zoho Mail: your profile → <b>My Account</b> → <b>Security</b> → <b>App Passwords</b> → generate one named "Five Minute AI app". Turn on IMAP access in Mail settings if it is off.</li>
+          <li>Zoho Mail → Settings → <b>Mail Accounts</b> → <b>IMAP</b>: turn IMAP access on.</li>
+          <li>Your profile → <b>My Account</b> → <b>Security</b> → <b>App Passwords</b>: create one named "Five Minute AI app".</li>
           <li>In PowerShell, run this. It asks for the password; paste the app password (nothing shows on screen):
             <div class="cmd"><code>${esc(m.add)}</code><button class="btn ghost" data-copy="${esc(m.add)}" data-copy-label="Command copied.">${svg("copy")}Copy</button></div></li>
-          <li>Come back and press <b>Check again</b>.</li>
+          <li>Press <b>Check again</b>: the inbox shows here, read-only (nothing is sent, deleted or marked as read).</li>
         </ol>
-        <div class="actions"><button class="btn primary" data-mail-refresh>Check again</button>
-          <a class="btn ghost" href="${esc(safeUrl(m.web))}" target="_blank" rel="noopener noreferrer">Open Zoho Mail ${svg("ext")}</a></div>
+        <div class="actions"><button class="btn" data-mail-refresh>Check again</button></div></div></details>
       </section>`;
     return;
   }
@@ -915,7 +1039,7 @@ async function renderMail(refresh = false) {
 // ---------- accounts and passwords ----------
 async function renderAccounts() {
   try {
-    state.accounts = state.accounts || await api("local/accounts");
+    state.accounts = await load("local/accounts");
   } catch (err) {
     view.innerHTML = pageHead("Accounts") + problem(err, "accounts");
     return;
@@ -1025,7 +1149,7 @@ function incomeCard(inc, accounts) {
 
 async function renderPages() {
   try {
-    state.pages = state.pages || await api("local/pages");
+    state.pages = await load("local/pages");
   } catch (err) {
     view.innerHTML = pageHead("Pages") + problem(err, "the pages feed");
     return;
@@ -1070,7 +1194,7 @@ async function saveRoadmap(next, msg) {
 
 async function renderRoadmap() {
   try {
-    state.roadmap = state.roadmap || await api("local/roadmap");
+    state.roadmap = state.roadmap || await load("local/roadmap");
   } catch (err) {
     view.innerHTML = pageHead("Roadmap") + problem(err, "the roadmap");
     return;
@@ -1107,8 +1231,8 @@ function renderRoadmapBoard() {
         <p class="rtitle">${esc(c.title)}</p>${c.note ? `<p class="rnote">${esc(c.note)}</p>` : ""}
         <div class="rfoot">${c.tag ? `<span class="rtag">${esc(c.tag)}</span>` : "<span></span>"}
           <span class="rbtns">
-            <button class="ib" data-card="left" data-id="${esc(c.id)}" ${ci === 0 ? "disabled" : ""} aria-label="Move to ${ci ? COLS[ci - 1][1] : ""}">${svg("left")}</button>
-            <button class="ib" data-card="right" data-id="${esc(c.id)}" ${ci === COLS.length - 1 ? "disabled" : ""} aria-label="Move to ${COLS[ci + 1]?.[1] || ""}">${svg("right")}</button>
+            <button class="ib" data-card="left" data-id="${esc(c.id)}" ${ci === 0 ? "disabled" : ""} aria-label="${ci ? `Move to ${COLS[ci - 1][1]}` : "Already in the first column"}">${svg("left")}</button>
+            <button class="ib" data-card="right" data-id="${esc(c.id)}" ${ci === COLS.length - 1 ? "disabled" : ""} aria-label="${COLS[ci + 1] ? `Move to ${COLS[ci + 1][1]}` : "Already in the last column"}">${svg("right")}</button>
             <button class="ib" data-card="edit" data-id="${esc(c.id)}" aria-label="Edit">${svg("write")}</button>
             <button class="ib danger" data-card="delete" data-id="${esc(c.id)}" aria-label="Delete">${svg("x")}</button></span></div>
       </article>`).join("") || `<p class="empty small">Nothing here.</p>`}</section>`;
@@ -1152,7 +1276,7 @@ async function onCardAction(btn) {
 // ---------- settings ----------
 async function renderSettings() {
   try {
-    state.info = await api("local/info");
+    state.info = await load("local/info");
   } catch (err) {
     view.innerHTML = pageHead("Settings") + problem(err, "settings");
     return;
@@ -1192,6 +1316,8 @@ async function renderSettings() {
     try {
       await api("local/settings", { method: "POST", body: { imapHost: f.get("imapHost").trim(), mailWeb: f.get("mailWeb").trim() } });
       state.mail = null;
+      DATA.delete("local/mail");
+      DATA.delete("local/info");
       toast("Mail settings saved.");
     } catch (err) {
       toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
@@ -1202,6 +1328,8 @@ async function renderSettings() {
     try {
       await api("local/settings", { method: "POST", body: { pagesFeed: String(new FormData(e.target).get("pagesFeed")).trim() } });
       state.pages = null;
+      DATA.delete("local/pages");                // the next visit reads the new path, not the remembered feed
+      DATA.delete("local/info");
       toast("Pages feed path saved.");
     } catch (err) {
       toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
@@ -1273,9 +1401,33 @@ async function onControl(btn) {
   }
 }
 
+/** Reel videos are heavy: each one starts loading only when it comes near the screen. */
+let videoObserver = null;
+function wireLazyVideos() {
+  const vids = view.querySelectorAll("video[data-src]");
+  if (!vids.length) return;
+  videoObserver?.disconnect();
+  const start = (v) => {
+    // a video the site no longer has becomes a tile with the Instagram link, never a broken player
+    v.addEventListener("error", () => {
+      const link = v.dataset.posted;
+      v.parentElement.innerHTML = `<div class="reel-gone"><span>Video no longer on the site</span>${link ? `<a href="${esc(safeUrl(link))}" target="_blank" rel="noopener noreferrer">Watch on Instagram ${svg("ext")}</a>` : ""}</div>`;
+    }, { once: true });
+    v.src = v.dataset.src; v.preload = "metadata"; v.removeAttribute("data-src");
+  };
+  if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
+  videoObserver = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { videoObserver.unobserve(e.target); start(e.target); }
+  }, { rootMargin: "120px 0px" });
+  vids.forEach((v) => videoObserver.observe(v));
+}
+
 // ---------- routing ----------
-async function route() {
+async function route({ keepScroll = false } = {}) {
   clearTimeout(timer);
+  const myTurn = ++routeTurn;
+  usedPaths = new Set();
+  const scrollY = window.scrollY;
   const [tab = "today", arg] = location.hash.replace(/^#/, "").split("/");
   const desk = ["pages", "mail", "accounts", "roadmap", "settings"];
   const all = ["today", "history", "posts", "stats", "controls", "more", ...(state.status?.desktop ? desk : [])];
@@ -1285,7 +1437,11 @@ async function route() {
   });
   document.title = `${name[0].toUpperCase()}${name.slice(1)} · Five Minute AI Control`;
   view.setAttribute("aria-busy", "true");
-  if (!view.querySelector(".loading")) view.insertAdjacentHTML("afterbegin", `<div class="loading" style="padding:0 0 var(--s4)"><span class="spinner" aria-hidden="true"></span></div>`);
+  document.body.classList.add("loading-data");
+  // a screen that has to wait shows a quiet placeholder after 150 ms instead of leaving the old one frozen
+  const slow = keepScroll ? null : setTimeout(() => {
+    if (myTurn === routeTurn) view.innerHTML = `<div class="skeleton" aria-hidden="true"><i></i><i></i><i></i></div>`;
+  }, 150);
   const date = /^\d{4}-\d\d-\d\d$/.test(arg || "") ? arg : null;
   if (name === "today") await renderToday(date);
   else if (name === "history") await renderHistory();
@@ -1298,8 +1454,14 @@ async function route() {
   else if (name === "settings") await renderSettings();
   else if (name === "more") renderMore();
   else renderControls();
+  clearTimeout(slow);
+  if (myTurn !== routeTurn) return;             // the user moved on while this screen was loading
   view.setAttribute("aria-busy", "false");
+  document.body.classList.remove("loading-data");
+  if (keepScroll) window.scrollTo(0, scrollY);
+  wireLazyVideos();
 }
+let routeTurn = 0;
 
 view.addEventListener("click", (e) => {
   const t = e.target.closest("button, a");
@@ -1310,10 +1472,19 @@ view.addEventListener("click", (e) => {
   if (t.dataset.control) { onControl(t); return; }
   if (t.dataset.card) { onCardAction(t); return; }
   if (t.dataset.copy != null) { copyText(t.dataset.copy, t.dataset.copyLabel || "Copied."); return; }
-  if (t.dataset.mailRefresh != null) { renderMail(true); return; }
-  if (t.dataset.pagesRefresh != null) { state.pages = null; renderPages(); return; }
+  if (t.dataset.mailRefresh != null) {
+    renderMail(true).then(() => toast(state.mail?.connected ? `Mail checked: ${num(state.mail.unread)} unread.` : "Still not connected: Zoho's free plan has no IMAP."));
+    return;
+  }
+  if (t.dataset.pagesRefresh != null) {
+    state.pages = null;
+    DATA.delete("local/pages");
+    renderPages().then(() => toast("Pages feed reloaded."));
+    return;
+  }
   if (t.hasAttribute("data-retry")) {
     Object.assign(state, { history: null, social: null, stats: null, mail: null, accounts: null, roadmap: null, info: null, pages: null });
+    DATA.clear();
     state.days.clear();
     route();
   }
@@ -1323,9 +1494,10 @@ window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => { if (location.hash.startsWith("#stats") && state.stats) renderStats(); }, 250);
 });
-window.addEventListener("hashchange", () => { $("#tip").hidden = true; route(); window.scrollTo(0, 0); });
+window.addEventListener("hashchange", () => { $("#tip").hidden = true; window.scrollTo(0, 0); route(); });
 
 (async function start() {
+  load(`day?date=${todayIstClient()}`).catch(() => {});      // the first screen's data, alongside the status call
   try {
     state.status = await api("status");
   } catch (err) {
@@ -1336,9 +1508,8 @@ window.addEventListener("hashchange", () => { $("#tip").hidden = true; route(); 
   }
   renderMode();
   route();
-  if (state.status.configured) api("social").then((s) => { state.social = state.social || s; renderCounts(); }).catch(() => {});
+  prefetch();
   if (state.status.desktop) {
-    api("local/mail").then((m) => { state.mail = state.mail || m; renderCounts(); }).catch(() => {});
     setInterval(() => fetch("/api/ping", { cache: "no-store" }).catch(() => {}), 60e3);   // keeps the desktop server running
   }
 })();

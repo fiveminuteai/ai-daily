@@ -681,6 +681,9 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
 .reelcard.is-posted { border-color: color-mix(in srgb, var(--ok) 40%, var(--line)); }
 .reelcard.is-failed { border-color: color-mix(in srgb, var(--bad) 50%, var(--line)); }
 .reel-video { background: #000; display: flex; justify-content: center; }
+.reel-gone { width: 100%; aspect-ratio: 9 / 16; max-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; background: var(--bg); }
+.reel-gone a { color: var(--ok); font-weight: 650; text-decoration: none; display: inline-flex; gap: 5px; align-items: center; }
+.reel-gone svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; }
 .reel-video video { width: 100%; max-height: 420px; aspect-ratio: 9 / 16; object-fit: contain; display: block; background: #000; }
 .reel-body { padding: var(--s4); display: flex; flex-direction: column; gap: 10px; }
 .rnum { font: 700 14px/1 var(--display); }
@@ -705,6 +708,24 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
   .reel-video video { max-height: 520px; }
   .reels-card .card-head .btn { width: 100%; }
 }
+
+/* ---------- loading: a thin bar instead of frozen screens ---------- */
+body::before {
+  content: ""; position: fixed; z-index: 80; top: 0; left: 0; height: 2px; width: 0; opacity: 0; pointer-events: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+body.loading-data::before { opacity: 1; animation: loadbar 1.4s var(--ease) infinite; }
+@keyframes loadbar { 0% { left: 0; width: 0; } 50% { left: 15%; width: 55%; } 100% { left: 100%; width: 10%; } }
+.skeleton { display: flex; flex-direction: column; gap: var(--s4); padding-top: var(--s2); }
+.skeleton i { display: block; border-radius: var(--r); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%);
+  background-size: 200% 100%; animation: shimmer 1.2s linear infinite; }
+.skeleton i:nth-child(1) { height: 56px; width: 42%; }
+.skeleton i:nth-child(2) { height: 140px; }
+.skeleton i:nth-child(3) { height: 320px; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.t-off, .t-expired { color: var(--faint); background: color-mix(in srgb, var(--faint) 12%, transparent); }
+.item.is-expired { opacity: .55; }
+details.older > div { margin-top: var(--s4); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
