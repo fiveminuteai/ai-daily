@@ -10,10 +10,10 @@
    "platform": "instagram",
    "kind": "carousel",
    "posting": "api",
-   "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
    "text": "AI-enhanced malware automates victim profiling for faster credential theft\n\n• Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.\n• Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake.\n• Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "pending",
+   "status": "skipped",
    "decided_at": null,
    "posted_url": null,
    "media": [
@@ -75,14 +75,15 @@
    "hook": "OpenAI cut its funding goal to $20 billion[S5].",
    "text": "OpenAI cut its funding goal to $20 billion.\n\n• It has $11 billion in commitments so far.\n• Its valuation fell from $1.4 trillion to $1.25 trillion.\n• Big investors’ response was described as tepid.\n\nOur read: Wall Street is getting cautious about heavy AI spending.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": "2026-11-01T06:01:56+00:00",
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-01T07:45:44+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfMOdXcgWky/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-01/reels/02.mp4"
    ],
    "scheduled_at": "2026-11-01T07:30:00+00:00",
-   "error": null
+   "error": null,
+   "media_id": "17916240315549399"
   },
   {
    "id": "2026-11-01-reel-3",

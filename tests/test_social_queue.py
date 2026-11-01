@@ -22,7 +22,8 @@ def test_queue_holds_one_pending_item_per_platform_from_share_texts():
     texts = share_texts(POST, SITE)
     assert [i["platform"] for i in q["items"]] == ["instagram", "x", "linkedin"]
     for i in q["items"]:
-        assert i["status"] == "pending" and i["text"] == texts[i["platform"]] and i["id"] == f"2026-10-31-{i['platform']}"
+        assert i["text"] == texts[i["platform"]] and i["id"] == f"2026-10-31-{i['platform']}"
+    assert [i["status"] for i in q["items"]] == ["skipped", "pending", "pending"]   # carousel off since 1 Nov
     assert q["items"][0]["media"] == ["https://fiveminuteai.net/share/2026-10-31/instagram.png"]
     assert q["items"][1]["chars"] <= 280
     assert [i["posting"] for i in q["items"]] == ["api", "paid", "manual"]
@@ -35,7 +36,7 @@ def test_rebuild_keeps_decisions(root):
     path.write_text(json.dumps(q), encoding="utf-8")
     again = json.loads(sq.write_queue(root, "2026-10-31", SITE).read_text(encoding="utf-8"))
     assert again["items"][2]["status"] == "skipped" and again["items"][2]["edited_text"] == "mine"
-    assert again["items"][0]["status"] == "pending"
+    assert again["items"][0]["status"] == "skipped" and again["items"][1]["status"] == "pending"   # defaults kept
 
 
 def test_plan_action_uses_edited_text_and_refuses_bad_input(root):
@@ -56,7 +57,7 @@ def test_cli_dry_run_changes_nothing(root, monkeypatch, capsys):
     sq.write_queue(root, "2026-10-31", SITE)
     assert sq.main(["act", "2026-10-31-instagram", "--action", "approve", "--dry-run"]) == 0
     assert "DRY RUN, nothing posted" in capsys.readouterr().out
-    assert json.loads(sq.queue_path(root, "2026-10-31").read_text(encoding="utf-8"))["items"][0]["status"] == "pending"
+    assert json.loads(sq.queue_path(root, "2026-10-31").read_text(encoding="utf-8"))["items"][0]["status"] == "skipped"   # unchanged by a dry run
 
 
 # ---------------------------------------------------------------- live actions (fake Instagram)

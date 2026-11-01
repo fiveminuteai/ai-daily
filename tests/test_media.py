@@ -56,7 +56,7 @@ def test_build_with_media_links_the_reel_and_slides(tmp_path, monkeypatch):
         return out
     monkeypatch.setattr("fma.reel.reel", fake_reel)
 
-    def fake_story_reel(post, section, n, site, out):
+    def fake_story_reel(post, section, n, site, out, palette=None):
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_bytes(b"mp4")
         return out
@@ -84,3 +84,17 @@ def test_every_doodle_cue_has_a_drawing_and_every_drawing_renders_in_every_look(
             sketch.draw(ld, name, (20, 20, 300), 3.0, (30, 35, 60, 235), (38, 150, 140, 255), mode=mode)
     assert sketch.pick("A hacked Claude Code update reached up to 5,000 developers") == "padlock"   # not "up" -> chart
     assert sketch.pick("Amazon cut 14,000 jobs") == "briefcase"
+
+
+def test_each_reel_of_the_day_gets_its_own_colour_set_and_changes_get_a_badge():
+    from fma.story_reel import change_in, palettes_for
+    pals = palettes_for([(0, {"category": "impact"}), (1, {"category": "products"}), (2, {"category": "impact"})])
+    assert pals[0] == "dusk" and pals[1] == "cream" and len(set(pals)) == 3          # home set first, never repeated
+    assert change_in("Its valuation fell from $1.4 trillion to $1.25 trillion.") == ("$1.4T", "$1.25T")
+    assert change_in("It costs $5 a month.") is None
+
+
+def test_reels_already_approved_keep_their_look():
+    from fma.story_reel import palettes_for
+    assert palettes_for([(0, {"category": "impact"})], "2026-11-01") == ["classic"]
+    assert palettes_for([(0, {"category": "impact"})], "2026-11-02") == ["dusk"]
