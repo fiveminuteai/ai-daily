@@ -26,6 +26,18 @@ class PublishError(Exception):
     """Posting failed. The message never contains a URL or a token."""
 
 
+def find_posted(http, ig_id: str, token: str, caption: str) -> dict | None:
+    """The recent post with this caption, if there is one: {"id", "permalink"}. Before a retry, so a post that went
+    out although its run reported a failure (a timeout after media_publish, say) is recorded, not posted twice."""
+    want = caption.strip()[:100]
+    data = _call(http, "get", f"{API}/{ig_id}/media", "recent posts",
+                 params={"fields": "id,caption,permalink", "limit": "15", "access_token": token}).get("data") or []
+    for media in data:
+        if (media.get("caption") or "").strip()[:100] == want:
+            return {"id": media.get("id"), "permalink": media.get("permalink")}
+    return None
+
+
 def _json(resp, what: str) -> dict:
     if resp.status_code >= 400:
         try:

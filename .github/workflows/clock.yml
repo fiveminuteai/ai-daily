@@ -1,0 +1,60 @@
+name: Clock
+
+# Starts the daily post (05:45 India time) and the three Reel slots (09:00, 13:00, 19:00) on time. GitHub's own
+# scheduler drops runs; runs started by workflow_dispatch are not dropped. Each clock run sleeps until the next event
+# (or for at most 5.5 hours), starts that event's workflow, then starts the next clock run. fma/clock.py has the
+# times. The crons in daily.yml and post-scheduled.yml and the laptop trigger restart the chain if it stops.
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_hop_minutes:
+        description: "Test only: hop after this many minutes (the next run is normal)"
+        required: false
+        default: ""
+
+permissions:
+  actions: write              # start the event's workflow and the next clock run
+  contents: read
+
+concurrency:
+  group: clock                # one chain: a second start waits, and a third replaces the waiting one
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          sparse-checkout: fma/clock.py
+          sparse-checkout-cone-mode: false
+      - name: Work out the next event
+        id: plan
+        env:
+          CLOCK_TEST_HOP_MINUTES: ${{ inputs.test_hop_minutes }}
+        run: python3 fma/clock.py | tee -a "$GITHUB_OUTPUT"
+      - name: Sleep until then
+        run: sleep ${{ steps.plan.outputs.sleep }}
+      - name: Start ${{ steps.plan.outputs.workflow || 'nothing (a hop)' }}
+        if: steps.plan.outputs.workflow != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in 1 2 3 4 5; do
+            gh workflow run "${{ steps.plan.outputs.workflow }}" --repo "$GITHUB_REPOSITORY" --ref main && exit 0
+            sleep 20
+          done
+          exit 1
+      - name: Start the next clock run
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in 1 2 3 4 5; do
+            gh workflow run clock.yml --repo "$GITHUB_REPOSITORY" --ref main && exit 0
+            sleep 20
+          done
+          exit 1

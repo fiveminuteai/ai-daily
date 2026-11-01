@@ -226,3 +226,72 @@ def test_reels_are_queued_approved_when_auto_posting_is_on(tmp_path):
     for auto, want in ((True, "approved"), (False, "pending")):
         q = sq.build_queue(post, {**LIVE_SITE, "auto_post_reels": auto})
         assert next(i for i in q["items"] if i["platform"] == "instagram_reel")["status"] == want
+
+
+def test_a_failed_reel_is_tried_again_and_never_posted_twice(reel_root):
+    from datetime import datetime, timezone
+
+    late = datetime(2026, 10, 31, 4, 0, tzinfo=timezone.utc)
+
+    class Flaky(FakeGraph):
+        """The video is missing on the first try; `posted` is what Instagram's recent-posts list shows."""
+        def __init__(self, posted=()):
+            super().__init__()
+            self.posted, self.video = list(posted), False
+
+        def head(self, url, **kw):
+            from conftest import FakeResponse
+            return FakeResponse(200 if self.video else 404, b"")
+
+        def get(self, url, params=None, **kw):
+            from conftest import FakeResponse
+            if url == f"{GRAPH}/1784/media":
+                self.calls.append(("GET", url, params))
+                return FakeResponse(200, json_data={"data": [{"id": "OLD", "caption": "something else"}, *self.posted]})
+            return super().get(url, params, **kw)
+
+    g = Flaky()
+    sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "T", now=datetime(2026, 10, 31, 2, 0,
+                                                                                         tzinfo=timezone.utc))
+    assert "FAILED" in sq.due(reel_root, LIVE_SITE, g, "T", now=late)[0]
+    assert item(reel_root, "instagram_reel")["attempts"] == 1
+    g.video = True                                           # the deploy finished: the retry posts it
+    assert "posted to Instagram" in sq.due(reel_root, LIVE_SITE, g, "T", now=late)[0]
+    assert any(u == f"{GRAPH}/1784/media" for _, u, _ in g.calls)                    # looked first
+    assert sum(1 for m, _, d in g.calls if m == "POST" and d.get("media_type") == "REELS") == 1
+
+    # an error after Instagram had already published: the retry finds the post and records it, posting nothing
+    reel = item(reel_root, "instagram_reel")
+    path = sq.queue_path(reel_root, "2026-10-31")
+    q = json.loads(path.read_text(encoding="utf-8"))
+    next(i for i in q["items"] if i["id"] == reel["id"]).update(status="failed", attempts=1, posted_url=None)
+    path.write_text(json.dumps(q), encoding="utf-8")
+    g2 = Flaky(posted=[{"id": "LIVE", "caption": reel["text"], "permalink": "https://www.instagram.com/reel/x/"}])
+    g2.video = True
+    assert "found on Instagram" in sq.due(reel_root, LIVE_SITE, g2, "T", now=late)[0]
+    assert not any(m == "POST" for m, _, _ in g2.calls)
+    assert item(reel_root, "instagram_reel")["posted_url"] == "https://www.instagram.com/reel/x/"
+
+    # and it gives up after MAX_ATTEMPTS failures
+    q = json.loads(path.read_text(encoding="utf-8"))
+    next(i for i in q["items"] if i["id"] == reel["id"]).update(status="failed", attempts=sq.MAX_ATTEMPTS)
+    path.write_text(json.dumps(q), encoding="utf-8")
+    assert sq.due(reel_root, LIVE_SITE, Flaky(), "T", now=late) == []
+
+
+def test_the_clock_starts_each_event_on_time_and_hops_long_gaps():
+    from datetime import datetime, timedelta, timezone
+
+    from fma import clock
+    ist = timezone(timedelta(hours=5, minutes=30))
+    assert [datetime(2026, 11, 2, *map(int, t.split(":")), tzinfo=timezone.utc).astimezone(ist).strftime("%H:%M")
+            for t, wf in clock.EVENTS if wf == "post-scheduled.yml"] == list(sq.REEL_SLOTS)
+    utc = lambda h, m=0: datetime(2026, 11, 2, h, m, tzinfo=timezone.utc)
+    assert clock.plan(utc(0, 20)) == (3 * 3600 + 10 * 60 + 16, "post-scheduled.yml")     # 09:00 India time
+    assert clock.plan(utc(3, 30, ) + timedelta(seconds=16))[1] == "post-scheduled.yml"   # the next slot, 13:00
+    assert clock.plan(utc(7, 31)) == (int(clock.MAX_SLEEP.total_seconds()), "")        # 6 hours away: a hop first
+    assert clock.plan(utc(13, 1)) == (29 * 60 + 16, "post-scheduled.yml")
+    assert clock.plan(utc(13, 31)) == (int(clock.MAX_SLEEP.total_seconds()), "")        # overnight: hops
+    assert clock.plan(utc(23, 0))[1] == "daily.yml"
+    for h in range(24):                                     # every plan fits in one job
+        assert 0 <= clock.plan(utc(h, 7))[0] <= clock.MAX_SLEEP.total_seconds()

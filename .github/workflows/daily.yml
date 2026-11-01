@@ -2,6 +2,7 @@ name: Daily post
 
 on:
   schedule:
+    # On time comes from clock.yml, which starts this workflow at 05:45 India time; these crons are backups.
     # GitHub's scheduler is best effort: it delays runs and sometimes drops them (31 Oct 2026 lost
     # both morning runs). So there are many tries, at odd minutes away from the busy top of the hour.
     # Once the day's post exists the rest skip themselves in seconds, so only one post goes out.
@@ -93,3 +94,23 @@ jobs:
     needs: generate
     if: needs.generate.outputs.published == 'true'
     uses: ./.github/workflows/deploy.yml
+
+  # The crons are the clock's backup: if no clock run is going (a lost runner, a GitHub outage), start one.
+  clock-watchdog:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Restart the clock if it stopped
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          going=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow clock.yml --limit 5 --json status -q '[.[] | select(.status != "completed")] | length')
+          if [ "$going" = "0" ]; then
+            echo "::warning::The clock had stopped; restarting it"
+            gh workflow run clock.yml --repo "$GITHUB_REPOSITORY" --ref main
+          else
+            echo "Clock is running"
+          fi

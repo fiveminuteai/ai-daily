@@ -2,8 +2,10 @@ name: Post scheduled social
 
 # Posts every approved Instagram item whose time has come (data/social/<date>.json, scheduled_at). The story Reels
 # are scheduled for 09:00, 13:00 and 19:00 India time; approving in the control app only marks them approved.
-# GitHub's scheduler sometimes drops runs, so each slot has a second try 30 minutes later. An item is posted once:
-# after posting it is "posted" and later runs skip it.
+# On time comes from clock.yml, which starts this workflow at each slot; GitHub's own scheduler drops runs, so the
+# crons below are only backups (and restart the clock if it stopped). An item is posted once: after posting it is
+# "posted" and later runs skip it. A failed post is tried again (3 times in this run, 5 in all), and every retry first
+# looks for the post on Instagram, so a post that went out despite an error is recorded, never posted twice.
 
 on:
   schedule:
@@ -25,7 +27,7 @@ concurrency:
 jobs:
   due:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
         with:
@@ -38,7 +40,12 @@ jobs:
       - name: Post what is due
         env:
           INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
-        run: python -m fma.social_queue due
+        run: |
+          for i in 1 2 3; do
+            python -m fma.social_queue due && exit 0
+            [ "$i" = 3 ] || { echo "Trying the failed post again in 4 minutes"; sleep 240; }
+          done
+          exit 1
       - name: Record the result
         if: ${{ always() }}
         run: |
@@ -52,3 +59,23 @@ jobs:
             sleep 10
           done
           exit 1
+
+  # The crons are the clock's backup: if no clock run is going (a lost runner, a GitHub outage), start one.
+  clock-watchdog:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Restart the clock if it stopped
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          going=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow clock.yml --limit 5 --json status -q '[.[] | select(.status != "completed")] | length')
+          if [ "$going" = "0" ]; then
+            echo "::warning::The clock had stopped; restarting it"
+            gh workflow run clock.yml --repo "$GITHUB_REPOSITORY" --ref main
+          else
+            echo "Clock is running"
+          fi

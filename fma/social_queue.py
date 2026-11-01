@@ -29,6 +29,7 @@ PLATFORMS = {
                  "note": "Company-page API needs Community Management approval: copy the text and post by hand"},
 }
 STATUSES = ("pending", "approved", "skipped", "posted", "failed")
+MAX_ATTEMPTS = 5            # a failed Instagram post is tried again by `due` until it has failed this many times
 # One Reel per story with a fact-checked card (fma/story_reel.py), posted at these India times after approval.
 REEL = {"kind": "reel", "posting": "api",
         "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time"}
@@ -136,13 +137,18 @@ def _now() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None, edited: str | None) -> str:
-    """Publish one Instagram item now and record the result. Raises PublishError (recorded) on failure."""
-    from .instagram import PublishError, publish_carousel, publish_reel, slide_urls
+def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None, edited: str | None,
+          attempts: int = 0) -> str:
+    """Publish one Instagram item now and record the result. Raises PublishError (recorded) on failure.
+    `attempts` is how many tries already failed; a retry first checks Instagram so nothing is posted twice."""
+    from .instagram import PublishError, find_posted, publish_carousel, publish_reel, slide_urls
 
     ig_id = str(site.get("instagram_id") or "")
     try:
-        if plan["platform"] == "instagram_reel":
+        found = find_posted(http, ig_id, token or "", plan["text"]) if attempts else None
+        if found:
+            result, what = found, "found on Instagram after a reported failure"
+        elif plan["platform"] == "instagram_reel":
             result = publish_reel(http, ig_id, token or "", plan["media"][0], plan["text"])
             what = "Reel"
         else:
@@ -152,7 +158,7 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
             result = publish_carousel(http, ig_id, token or "", images, plan["text"])
             what = f"{len(images)} slides"
     except PublishError as exc:
-        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited)
+        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited, attempts=attempts + 1)
         raise
     _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
                edited_text=edited)
@@ -183,22 +189,26 @@ def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, t
 
 
 def due(root: Path, site: dict, http, token: str | None, now: datetime | None = None) -> list[str]:
-    """Post every approved Instagram item whose time has come (today's and yesterday's queues). One failure is
-    recorded and the rest still go."""
+    """Post every approved Instagram item whose time has come (today's and yesterday's queues), and try failed ones
+    again until they have failed MAX_ATTEMPTS times. One failure is recorded and the rest still go."""
     from .instagram import PublishError
 
     now = now or _now()
     out = []
     for path in sorted(queue_path(root, "x").parent.glob("*.json"))[-2:]:
         for item in json.loads(path.read_text(encoding="utf-8"))["items"]:
-            if item["status"] != "approved" or item["platform"] not in ("instagram", "instagram_reel"):
+            if item["platform"] not in ("instagram", "instagram_reel"):
+                continue
+            tried = item.get("attempts", 1 if item["status"] == "failed" else 0)
+            retry = item["status"] == "failed" and tried < MAX_ATTEMPTS
+            if item["status"] != "approved" and not retry:
                 continue
             if item.get("scheduled_at") and datetime.fromisoformat(item["scheduled_at"]) > now:
                 continue
             plan = {"platform": item["platform"], "media": item.get("media", []),
                     "text": item.get("edited_text") or item["text"]}
             try:
-                out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text")))
+                out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text"), tried))
             except PublishError as exc:
                 out.append(f"{item['id']} FAILED (recorded): {exc}")
     return out
