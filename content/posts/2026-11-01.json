@@ -1,0 +1,219 @@
+{
+  "date": "2026-11-01",
+  "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
+  "headline": "AI‑enhanced malware automates victim profiling for faster credential theft",
+  "dek": "Cisco Talos reports Volta‑Autodoxer embeds a large language model to analyze stolen data and rank victim value, speeding up attacks[S1].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "impact",
+    "products",
+    "architecture",
+    "malware",
+    "ai",
+    "security",
+    "openai"
+  ],
+  "what_happened": [
+    "Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers[S1].",
+    "Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake[S2].",
+    "Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references[S3]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Volta-autodoxer adds AI to infostealer malware",
+      "category": "impact",
+      "paragraphs": [
+        "Cisco Talos researchers disclosed a new strain of infostealer malware called Volta-Autodoxer that incorporates large language model (LLM) functionality to profile victims and prioritize high‑value data[S1]. The malware automatically gathers credentials, tokens and payment information before sending a serialized dossier to an LLM for analysis[S1].",
+        "Volta-Autodoxer collects passwords, browser‑saved credentials, Microsoft OAuth tokens, cookies, payment cards and crypto‑wallet seed phrases, as well as active sessions on Discord, Telegram, Steam and Roblox[S1]. After the initial sweep it performs a deeper scan of central accounts such as Gmail, extracting receipts, order history and location data from services like UberEats[S1].",
+        "Infostealer malware has long been used to harvest login details that fuel large data breaches, including incidents involving Snowflake, AT&T, Ticketmaster and Disney[S1]. Cisco Talos flagged the tool using its new CAIRN framework, which detects hacking tools that embed AI capabilities, though the researchers have not observed active deployments in the wild[S1]."
+      ],
+      "card": null
+    },
+    {
+      "story": 2,
+      "title": "Apple CEO on AI strategy",
+      "category": "products",
+      "paragraphs": [
+        "Apple CEO John Ternus said the company will use artificial intelligence in upcoming devices, but it will not release AI features just for their own sake[S2]. He became CEO in September and addressed the topic in a Wired interview with Steven Levy[S2]. Ternus emphasized that the goal is to create products people love, regardless of whether AI is involved[S2].",
+        "Ternus noted that Apple has been perceived as lagging because Siri’s more powerful version only arrived this summer[S2]. He argued that when AI is applied correctly, users should not need to consider the underlying technology[S2]. He also said that AI could eventually make tasks like app creation easier, but product creation remains a human‑driven activity[S2].",
+        "The CEO’s comments come as the industry debates whether AI agents might replace traditional apps[S2]. Ternus’ stance suggests Apple will continue to prioritize user experience over showcasing AI for its own novelty[S2]."
+      ],
+      "card": {
+        "hook": "Apple will only ship AI when it adds clear user value[S2].",
+        "points": [
+          "Apple delayed a stronger Siri until summer 2026[S2].",
+          "CEO John Ternus became chief in September 2026[S2].",
+          "AI should be invisible to users if done right[S2]."
+        ],
+        "take": null,
+        "take_kind": "do"
+      }
+    },
+    {
+      "story": 3,
+      "title": "Pika H3 Flex video‑audio model architecture",
+      "category": "architecture",
+      "paragraphs": [
+        "Pika Labs released Pika H3 Flex, a post‑trained H3 model for professional creators, on 29 October 2026[S3]. The model generates video with synchronized stereo audio in six sampling steps[S3]. It supports up to 12 reference inputs and can produce native 480p or 768p video locally, with higher resolutions via the hosted API[S3].",
+        "The architecture adds two task adapters: FL2VA for text and endpoint‑frame conditioning, and Ref2VA for multimodal references[S3]. It builds on the MiniMax‑H3 base model and processes prompts and media through an encoder before producing video and audio latents[S3]. The inference pipeline then decodes these latents and combines them into an MP4 file, automatically downloading the pinned base components and selected adapter[S3].",
+        "Pika H3 Flex integrates both modalities, allowing creators to control motion and sound together, which simplifies multi‑shot storytelling and motion‑graphics workflows[S3]."
+      ],
+      "card": {
+        "hook": "12 reference inputs guide video generation[S3].",
+        "points": [
+          "Six sampling steps produce video and audio together[S3].",
+          "Two adapters handle text and multimodal references[S3]."
+        ],
+        "take": null,
+        "take_kind": "do"
+      }
+    },
+    {
+      "story": 4,
+      "title": "OpenAI lowers funding target to $20 billion",
+      "category": "products",
+      "paragraphs": [
+        "OpenAI announced that it has reduced the size of its upcoming financing round to a $20 billion target after earlier reports of a $30 billion raise[S5]. The revision follows a valuation drop from $1.4 trillion to $1.25 trillion and comes ahead of a planned initial public offering[S5]. Investors from the United Arab Emirates will lead the round, with a possible retail tranche for wealthy individuals[S5].",
+        "The company has already secured $11 billion in commitments, according to a Wall Street Journal follow‑up, but the overall response from large investors has been described as “tepid”[S5]. The first close of the round is expected to be below the $20 billion goal, and the total may only be reached through the additional retail offering[S5]. Analysts suggest that the softer fundraising environment is linked to Wall Street’s caution over heavy AI infrastructure spending and a broader sell‑off in tech stocks[S5]."
+      ],
+      "card": null
+    },
+    {
+      "story": 5,
+      "title": "AI agent performs brain injection on live mouse",
+      "category": "impact",
+      "paragraphs": [
+        "Biotech founder Gabriel Ocana Santero connected an AI agent to a robotic arm, injector and camera to perform a brain injection on a living mouse[S6]. The experiment was carried out by his company Exin Therapeutics in San Francisco and was reported on 31 October 2026[S6]. The AI chose a therapy from 19 options, set injection coordinates and controlled the needle during the procedure[S6].",
+        "The setup included a motorized device to immobilize the mouse, a camera for visual feedback and a robotic injector that the AI could move[S6]. The team first tried Anthropic’s Claude Opus 5.5, which refused to guide the needle, citing internal safety warnings[S6]. They switched to Claude Sonnet 5, which completed the injection as instructed[S6].",
+        "AI models used in research are typically trained on published papers, so they miss real‑time observations and failed experiments[S6]. By giving an AI direct control of lab hardware, researchers hope to make models more reliable and useful for experimental design[S6]. Santero’s test shows both the promise and the current safety limits of such integration[S6]."
+      ],
+      "card": {
+        "hook": "AI completed a live mouse brain injection[S6].",
+        "points": [
+          "19 therapy options were evaluated by the AI[S6].",
+          "Claude Opus 5.5 refused to inject, citing safety[S6].",
+          "Claude Sonnet 5 performed the injection successfully[S6]."
+        ],
+        "take": null,
+        "take_kind": "do"
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "The AI‑driven profiling could let cybercriminals prioritize high‑value accounts more quickly, increasing the risk of large‑scale data breaches for individuals and businesses that store credentials, payment info, and crypto wallets[S1].",
+      "speculative": true
+    },
+    {
+      "text": "OpenAI’s reduced $20 billion funding round reflects investor caution about costly AI infrastructure, which may slow the pace of new AI tools and affect market dynamics for companies relying on large‑scale models[S5].",
+      "speculative": true
+    }
+  ],
+  "quote": {
+    "text": "We’ve realized that we need to connect these agents to a lab to get the maximum value from them",
+    "speaker": "Gabriel Ocana Santero",
+    "source": "S6"
+  },
+  "chart": null,
+  "diagram": {
+    "title": "Pika H3 Flex inference pipeline compared to a standard transformer",
+    "source": "S3",
+    "steps": [
+      "Encode prompt and input media",
+      "Generate video and audio latents",
+      "Decode and combine into MP4"
+    ],
+    "kind": "compare",
+    "baseline": [
+      "Token embeddings",
+      "Output layer"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "2026-10-31T12:00:00+00:00",
+      "title": "Volta-autodoxer adds AI to infostealer malware",
+      "publisher": "WIRED",
+      "category": "impact"
+    },
+    {
+      "time": "2026-10-31T21:41:00+00:00",
+      "title": "Apple CEO on AI strategy",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-10-29T17:08:44+00:00",
+      "title": "Pika H3 Flex video‑audio model architecture",
+      "publisher": "Hugging Face model cards",
+      "category": "architecture"
+    },
+    {
+      "time": "2026-10-31T16:12:55+00:00",
+      "title": "OpenAI lowers funding target to $20 billion",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-10-31T10:00:00+00:00",
+      "title": "AI agent performs brain injection on live mouse",
+      "publisher": "WIRED",
+      "category": "impact"
+    }
+  ],
+  "visuals": [
+    "timeline",
+    "diagram"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims",
+      "url": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+      "publisher": "WIRED",
+      "published": "2026-10-31T12:00:00+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "publisher": "TechCrunch",
+      "published": "2026-10-31T21:41:00+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "New on Hugging Face: Pika-Labs/Pika-H3-Flex (image to video)",
+      "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+      "publisher": "Hugging Face model cards",
+      "published": "2026-10-29T17:08:44+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "OpenAI reportedly lowers funding target for new round",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "publisher": "TechCrunch",
+      "published": "2026-10-31T16:12:55+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+      "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+      "publisher": "WIRED",
+      "published": "2026-10-31T10:00:00+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-01T02:11:43+00:00",
+  "verification": {
+    "checked": 79,
+    "ok": 49,
+    "repaired": 12,
+    "dropped": 18,
+    "unused": 11,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 960,
+  "reading_minutes": 5
+}

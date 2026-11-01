@@ -1,0 +1,868 @@
+{
+  "checked": 79,
+  "ok": 49,
+  "repaired": 12,
+  "dropped": 18,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "AI‑enhanced malware automates victim profiling for faster credential theft",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "We’ve realized that we need to connect these agents to a lab to get the maximum value from them",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Cisco Talos reports Volta‑Autodoxer embeds a large language model to analyze stolen data and rank victim value, speeding up attacks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "OpenAI cut its funding target to $20 billion after securing $11 billion, citing tepid investor interest.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "An AI agent guided a robotic injector to deliver gene therapy into a live mouse’s brain, after switching from Claude Opus 5.5 to Claude Sonnet 5.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Cisco Talos researchers disclosed a new strain of infostealer malware called Volta-Autodoxer that incorporates large language model (LLM) functionality to profile victims and prioritize high‑value data.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The finding was published in the Kernel Panic newsletter on 31 October 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"WIRED — Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims (published 31 October 2026) ... Welcome to Kernel Panic , a weekly newsletter...\""
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The malware automatically gathers credentials, tokens and payment information before sending a serialized dossier to an LLM for analysis.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Volta-Autodoxer collects passwords, browser‑saved credentials, Microsoft OAuth tokens, cookies, payment cards and crypto‑wallet seed phrases, as well as active sessions on Discord, Telegram, Steam and Roblox.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "After the initial sweep it performs a deeper scan of central accounts such as Gmail, extracting receipts, order history and location data from services like UberEats.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The LLM is prompted to act as an intelligence analyst, producing a citation‑backed assessment that ranks the victim's value for the attacker.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a citation‑backed assessment but does not state that the LLM ranks the victim's value."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Infostealer malware has long been used to harvest login details that fuel large data breaches, including incidents involving Snowflake, AT&T, Ticketmaster and Disney.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "By adding AI, Volta-Autodoxer automates the profiling step that previously required manual analysis, potentially increasing the speed and precision of credential theft.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms automation of profiling and speed, but does not provide evidence that precision of credential theft is increased; the claim adds unsupported speculation."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Cisco Talos flagged the tool using its new CAIRN framework, which detects hacking tools that embed AI capabilities, though the researchers have not observed active deployments in the wild.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Volta-autodoxer adds AI to infostealer malware",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "AI speeds up credential profiling",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Collects passwords, tokens, cards, crypto seeds",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Scans Gmail for receipts and location data",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Scans' not in cited source"
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "LLM produces structured, citation‑backed victim assessment",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch for AI‑enhanced malware that can prioritize stolen data faster",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple CEO John Ternus said the company will use artificial intelligence in upcoming devices, but it will not release AI features just for their own sake.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "He became CEO in September and addressed the topic in a Wired interview with Steven Levy.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Ternus emphasized that the goal is to create products people love, regardless of whether AI is involved.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Ternus noted that Apple has been perceived as lagging because Siri’s more powerful version only arrived this summer.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "He argued that when AI is applied correctly, users should not need to consider the underlying technology.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "He also said that AI could eventually make tasks like app creation easier, but product creation remains a human‑driven activity.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple has historically focused on tightly integrated hardware and software, often delaying AI rollouts compared with competitors.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions delay but does not address Apple’s historic focus on tightly integrated hardware/software."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The CEO’s comments come as the industry debates whether AI agents might replace traditional apps.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Ternus’ stance suggests Apple will continue to prioritize user experience over showcasing AI for its own novelty.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Apple CEO on AI strategy",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Apple will only ship AI when it adds clear user value.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Apple delayed a stronger Siri until summer 2026",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "CEO John Ternus became chief in September 2026",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "AI should be invisible to users if done right",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Focus on how AI improves product usefulness, not on the technology itself.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Focus' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Pika Labs released Pika H3 Flex, a post‑trained H3 model for professional creators, on 29 October 2026.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The model generates video with synchronized stereo audio in six sampling steps.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It supports up to 12 reference inputs and can produce native 480p or 768p video locally, with higher resolutions via the hosted API.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The architecture adds two task adapters: FL2VA for text and endpoint‑frame conditioning, and Ref2VA for multimodal references.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It builds on the MiniMax‑H3 base model and processes prompts and media through an encoder before producing video and audio latents.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The inference pipeline then decodes these latents and combines them into an MP4 file, automatically downloading the pinned base components and selected adapter.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "In generative AI, video models often require separate audio synthesis, leading to mismatched timing.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that other video models require separate audio synthesis or cause mismatched timing."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Pika H3 Flex integrates both modalities, allowing creators to control motion and sound together, which simplifies multi‑shot storytelling and motion‑graphics workflows.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The six‑step generation balances quality and speed, making the model usable on consumer hardware for 480p and 768p outputs.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions six‑step generation and native resolutions but does not state that it balances quality and speed or is usable on consumer hardware."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Pika H3 Flex video‑audio model architecture",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "12 reference inputs guide video generation",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Six sampling steps produce video and audio together",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Two adapters handle text and multimodal references",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Native 480p/768p runs on consumer GPUs, 4K via API",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Try the hosted API for 4K output or run locally for quick 480p drafts",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Try' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "OpenAI announced that it has reduced the size of its upcoming financing round to a $20 billion target after earlier reports of a $30 billion raise.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The revision follows a valuation drop from $1.4 trillion to $1.25 trillion and comes ahead of a planned initial public offering.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Investors from the United Arab Emirates will lead the round, with a possible retail tranche for wealthy individuals.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company has already secured $11 billion in commitments, according to a Wall Street Journal follow‑up, but the overall response from large investors has been described as “tepid”.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The first close of the round is expected to be below the $20 billion goal, and the total may only be reached through the additional retail offering.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Analysts suggest that the softer fundraising environment is linked to Wall Street’s caution over heavy AI infrastructure spending and a broader sell‑off in tech stocks.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "OpenAI’s funding efforts have been closely watched because the firm’s valuation and capital needs influence the broader AI market.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that funding efforts are closely watched because valuation and capital needs influence the broader AI market."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Earlier expectations of a $30 billion raise reflected confidence in the company’s growth and its upcoming IPO.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports the $30 billion expectation but does not say it reflected confidence in growth or the IPO."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "However, recent market volatility and investor wariness about large AI‑related expenditures have prompted a more modest target, mirroring challenges faced by peers such as Anthropic.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions investor wariness and Anthropic challenges separately but does not directly link them to the modest target."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI lowers funding target to $20 billion",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Funding target lowered to $20 billion",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Secured $11 billion so far",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "UAE investors will lead the round",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'UAE' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Valuation now $1.25 trillion",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Watch for a smaller IPO and possible shifts in AI investment trends",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Biotech founder Gabriel Ocana Santero connected an AI agent to a robotic arm, injector and camera to perform a brain injection on a living mouse.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The experiment was carried out by his company Exin Therapeutics in San Francisco and was reported on 31 October 2026.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The AI chose a therapy from 19 options, set injection coordinates and controlled the needle during the procedure.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The setup included a motorized device to immobilize the mouse, a camera for visual feedback and a robotic injector that the AI could move.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "After a veterinary surgeon made a craniotomy, the AI selected a gene‑therapy candidate aimed at reducing seizures in an epileptic mouse, then set the injection volume and speed.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"A veterinary surgeon first performed a craniotomy on the mouse while the AI agent observed. The agent selected the therapy—a gene therapy to reduce seizures in an epileptic mouse—and set injection vol\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The team first tried Anthropic’s Claude Opus 5.5, which refused to guide the needle, citing internal safety warnings.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They switched to Claude Sonnet 5, which completed the injection as instructed.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "AI models used in research are typically trained on published papers, so they miss real‑time observations and failed experiments.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "By giving an AI direct control of lab hardware, researchers hope to make models more reliable and useful for experimental design.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Santero’s test shows both the promise and the current safety limits of such integration.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI agent performs brain injection on live mouse",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "AI completed a live mouse brain injection",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "19 therapy options were evaluated by the AI",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Claude Opus 5.5 refused to inject, citing safety",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Claude Sonnet 5 performed the injection successfully",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Consider safety checks when deploying AI agents in labs",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Consider' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The AI‑driven profiling could let cybercriminals prioritize high‑value accounts more quickly, increasing the risk of large‑scale data breaches for individuals and businesses that store credentials, payment info, and crypto wallets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "OpenAI’s reduced $20 billion funding round reflects investor caution about costly AI infrastructure, which may slow the pace of new AI tools and affect market dynamics for companies relying on large‑scale models.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "diagram",
+      "text": "Encode prompt and input media → Generate video and audio latents → Decode and combine into MP4",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "AI speeds up credential profiling.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Adding AI functionality makes it possible for the system to automatically profile victims and quickly surface the highest‑value targets.\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Native 480p/768p runs on consumer GPUs, 4K via API.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms native 480p/768p support and 4K via API, but does not state that native resolution runs on consumer GPUs."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Valuation now $1.25 trillion.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source describes $1.25 trillion valuation as a past report, not a current valuation; claim presents it as now"
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 13,
+  "unused": 11,
+  "date": "2026-11-01",
+  "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
+  "model": "groq:openai/gpt-oss-120b"
+}

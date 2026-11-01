@@ -1,0 +1,366 @@
+{
+ "date": "2026-11-01",
+ "started_at": "2026-11-01T02:00:29+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 13.6,
+   "items": 533,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 14
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 4
+    },
+    "github": {
+     "status": "ok",
+     "items": 10
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.0,
+   "stories": 109,
+   "editor": true,
+   "top": [
+    {
+     "title": "Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims",
+     "url": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+     "score": 3.15,
+     "interest": 8.0,
+     "category": "impact",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+     "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+     "score": 3.1,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "New on Hugging Face: Pika-Labs/Pika-H3-Flex (image to video)",
+     "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+     "score": 3.02,
+     "interest": 5.0,
+     "category": "architecture",
+     "outlets": [
+      "Hugging Face model cards"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI reportedly lowers funding target for new round",
+     "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+     "score": 2.99,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+     "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+     "score": 2.82,
+     "interest": 7.0,
+     "category": "impact",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+     "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+     "score": 2.79,
+     "interest": 6.0,
+     "category": "policy",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Cracks are emerging in the AI spending boom",
+     "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+     "score": 2.76,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The biggest names in AI are backing a new way to opt out of scraping",
+     "url": "https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out",
+     "score": 2.75,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "DoorDash said it’s only received ‘several hundred’ orders from AI agents",
+     "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+     "score": 2.74,
+     "interest": 4.0,
+     "category": "impact",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Xbox manager says AI is already being used in game development",
+     "url": "https://www.engadget.com/2302431/brandon-stirrup-xbox-manager-says-ai-used-game-development/",
+     "score": 2.5,
+     "interest": 6.0,
+     "category": "products",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+     "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+     "score": 2.5,
+     "interest": 6.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple Intelligence is finally coming to China with iOS 27.3",
+     "url": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+     "score": 2.47,
+     "interest": 6.0,
+     "category": "products",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims",
+     "url": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+     "score": 3.15,
+     "interest": 8.0,
+     "category": "impact",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+     "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+     "score": 3.1,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "New on Hugging Face: Pika-Labs/Pika-H3-Flex (image to video)",
+     "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+     "score": 3.02,
+     "interest": 5.0,
+     "category": "architecture",
+     "outlets": [
+      "Hugging Face model cards"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI reportedly lowers funding target for new round",
+     "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+     "score": 2.99,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "An AI Agent Injected Drugs Into a Live Mouse’s Brain",
+     "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/",
+     "score": 2.82,
+     "interest": 7.0,
+     "category": "impact",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.1,
+   "articles": 9,
+   "with_text": 9
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 2.0,
+   "word_count": 960,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.9,
+    "layer1": 0.1,
+    "layer2": 480.0,
+    "gate": 20.1
+   },
+   "layer1": {
+    "checked": 87,
+    "ok": 64,
+    "repaired": 18,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 79,
+    "ok": 49,
+    "repaired": 12,
+    "dropped": 18
+   },
+   "unused": 11,
+   "fails": []
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
+ "finished_at": "2026-11-01T02:12:05+00:00",
+ "seconds": 696.9
+}

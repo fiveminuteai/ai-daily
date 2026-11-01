@@ -346,5 +346,97 @@
     "their"
    ]
   ]
+ },
+ {
+  "date": "2026-11-01",
+  "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
+  "urls": [
+   "huggingface.co/pika-labs/pika-h3-flex",
+   "huggingface.co/speridlabs/idol",
+   "techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake",
+   "techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round",
+   "wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse",
+   "wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware"
+  ],
+  "tokens": [
+   "agent",
+   "apple",
+   "autodox",
+   "brain",
+   "ceo",
+   "company",
+   "doesn",
+   "drugs",
+   "face",
+   "funding",
+   "hugging",
+   "idol",
+   "image",
+   "infostealer",
+   "injected",
+   "live",
+   "lowers",
+   "malware",
+   "mouse",
+   "openai",
+   "pika-h3-flex",
+   "pika-labs",
+   "reportedly",
+   "round",
+   "sake",
+   "ship",
+   "speridlabs",
+   "spooky",
+   "target",
+   "uses",
+   "victims",
+   "video",
+   "want"
+  ],
+  "story_tokens": [
+   [
+    "autodox",
+    "infostealer",
+    "malware",
+    "spooky",
+    "uses",
+    "victims"
+   ],
+   [
+    "apple",
+    "ceo",
+    "company",
+    "doesn",
+    "sake",
+    "ship",
+    "want"
+   ],
+   [
+    "face",
+    "hugging",
+    "idol",
+    "image",
+    "pika-h3-flex",
+    "pika-labs",
+    "speridlabs",
+    "video"
+   ],
+   [
+    "funding",
+    "lowers",
+    "openai",
+    "reportedly",
+    "round",
+    "target"
+   ],
+   [
+    "agent",
+    "brain",
+    "drugs",
+    "injected",
+    "live",
+    "mouse"
+   ]
+  ]
  }
 ]

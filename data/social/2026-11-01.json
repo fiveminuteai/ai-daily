@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-01",
+ "slug": "2026-11-01-ai-enhanced-malware-automates-victim-profiling-for",
+ "headline": "AI‑enhanced malware automates victim profiling for faster credential theft",
+ "url": "https://fiveminuteai.net/posts/2026-11-01-ai-enhanced-malware-automates-victim-profiling-for/",
+ "generated_at": "2026-11-01T02:12:07+00:00",
+ "items": [
+  {
+   "id": "2026-11-01-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)",
+   "text": "AI-enhanced malware automates victim profiling for faster credential theft\n\n• Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.\n• Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake.\n• Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-01/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-01-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "AI-enhanced malware automates victim profiling for faster credential theft\n\n• Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.\n\nhttps://fiveminuteai.net/posts/2026-11-01-ai-enhanced-malware-automates-victim-profiling-for/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 204
+  },
+  {
+   "id": "2026-11-01-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: AI-enhanced malware automates victim profiling for faster credential theft\n\n• Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.\n• Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake.\n• Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-01-ai-enhanced-malware-automates-victim-profiling-for/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-01-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Apple will only ship AI when it adds clear user value[S2].",
+   "text": "Apple will only ship AI when it adds clear user value.\n\n• Apple delayed a stronger Siri until summer 2026.\n• CEO John Ternus became chief in September 2026.\n• AI should be invisible to users if done right.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-01/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-01T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-01-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "12 reference inputs guide video generation[S3].",
+   "text": "12 reference inputs guide video generation.\n\n• Six sampling steps produce video and audio together.\n• Two adapters handle text and multimodal references.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-01/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-01T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-01-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "AI completed a live mouse brain injection[S6].",
+   "text": "AI completed a live mouse brain injection.\n\n• 19 therapy options were evaluated by the AI.\n• Claude Opus 5.5 refused to inject, citing safety.\n• Claude Sonnet 5 performed the injection successfully.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-01/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-01T13:30:00+00:00"
+  }
+ ]
+}
