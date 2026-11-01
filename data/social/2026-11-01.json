@@ -10,10 +10,10 @@
    "platform": "instagram",
    "kind": "carousel",
    "posting": "api",
-   "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
    "text": "AI-enhanced malware automates victim profiling for faster credential theft\n\n• Volta-Autodoxer uses an LLM to automatically profile and prioritize stolen credentials for attackers.\n• Apple CEO John Ternus says AI will be used selectively, aiming for products people love rather than AI for AI’s sake.\n• Pika H3 Flex creates synchronized video and stereo audio in six steps, handling up to 12 references.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "pending",
+   "status": "skipped",
    "decided_at": null,
    "posted_url": null,
    "media": [

@@ -21,7 +21,8 @@ from .social import share_texts, x_length
 # How each platform gets posted, as checked on 31 Oct 2026. The dashboard shows this next to each item.
 PLATFORMS = {
     "instagram": {"kind": "carousel", "posting": "api",
-                  "note": "Free: Instagram Content Publishing API (Meta app, never-expiring system-user token)"},
+                  "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. "
+                          "Approve to post it anyway"},
     "x": {"kind": "post", "posting": "paid",
           "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision"},
     "linkedin": {"kind": "text", "posting": "manual",
@@ -57,6 +58,7 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
             item["chars"] = x_length(texts["x"])
         if platform == "instagram":
             item["media"] = [f"{site['base_url']}share/{post['date']}/instagram.png"]
+            item["status"] = "skipped"            # the story Reels replaced it; still postable on request
         prev = old.get(iid)
         if prev:
             item.update({k: prev[k] for k in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at", "media_id", "error")
