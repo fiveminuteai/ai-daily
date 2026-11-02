@@ -651,7 +651,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     """Ask the model which sentences their cited sources don't support, and drop those."""
     by_id = {s["id"]: s for s in sources}
     sentences: list[tuple[str, str, str]] = []   # (key, sentence, kind): fact | analysis | headline | title | quote
-    tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] ", "title": "[title] ", "quote": "[quote] "}
+    tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] ", "title": "[title] ", "quote": "[quote] ",
+            "ask": "[question] "}
 
     def collect(text: str, kind: str = "fact"):
         for s in split_sentences(text):
@@ -679,7 +680,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     for sec in post["sections"]:
         c = sec.get("card") or {}
         for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis"),
-                           (c.get("ask"), "analysis")]:
+                           (c.get("ask"), "ask")]:
             if text:
                 sentences.append((f"C{len(sentences) + 1}", text, kind))
     q = post.get("quote")
@@ -741,6 +742,11 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                           "as true now (who did what, numbers, names, dates) must be supported; copy the evidence for "
                           "that fact. If it states no fact at all, mark it supported and copy the source sentence it "
                           "builds on.\n")
+            if "ask" in kinds:
+                extra += ("A claim starting [question] is a question we ask viewers for their opinion. It is supported "
+                          "unless it slips in a fact that the sources contradict or don't state (for example 'Would you "
+                          "pay $2...' when no price is given). It needs no evidence; leave evidence empty if there is "
+                          "none.\n")
             prompt = (
                 "Fact-check each claim against the SOURCES. For every claim, first copy the exact sentence or phrase from "
                 "the sources that supports it (word for word, at most 40 words), then decide whether that evidence says "
@@ -763,6 +769,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                     bad[k] = "checker returned no verdict"
                 elif not c.get("supported", False):
                     bad[k] = str(c.get("reason") or "not supported by the source")
+                elif kind_of[k] == "ask":
+                    pass        # an opinion question has nothing to quote (2 Nov 2026: all four were dropped for that)
                 elif not evidence_found(str(c.get("evidence", "")), corpus_here):
                     bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
     head_bad = [bad[k] for k, _, kind in sentences if kind == "headline" and k in bad]

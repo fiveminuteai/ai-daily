@@ -406,3 +406,34 @@ def test_card_question_is_kept_only_if_it_is_a_question():
     assert card["ask"].startswith("Would you pay") and card["interest"] == "5" or card["interest"] == 5
     post, _ = verify_draft(_card_draft(ask="Cheaper models are coming"), SOURCES)
     assert post["sections"][0]["card"]["ask"] is None
+
+
+def test_card_question_survives_the_model_check_without_evidence_but_not_a_bad_fact():
+    from conftest import FakeChain
+
+    from fma.verify import llm_check
+
+    class NoQuoteForQuestions(FakeChain):           # what the real checker did on 2 Nov: no evidence for a question
+        def _check_reply(self, user):
+            r = super()._check_reply(user)
+            for c in r["checks"]:
+                if c["id"] in self.questions:
+                    c["evidence"] = ""
+            return r
+
+    post, report = verify_draft(_card_draft(ask="Would you switch to a cheaper model?[S1]"), SOURCES)
+    chain = NoQuoteForQuestions([])
+    chain.questions = set()
+    orig = chain.ask_json
+
+    def spy(system, user, **kw):
+        import re
+        chain.questions |= {i for i, c in re.findall(r"^(C\d+): (.*)$", user, flags=re.M) if c.startswith("[question]")}
+        return orig(system, user, **kw)
+    chain.ask_json = spy
+    checked, _ = llm_check(chain, post, SOURCES, report)
+    assert chain.questions and "cheaper model" in (checked["sections"][0]["card"]["ask"] or "")
+    post, report = verify_draft(_card_draft(ask="Would you pay $2 for a smarter model?[S1]"), SOURCES)
+    assert post["sections"][0]["card"]["ask"]
+    checked, _ = llm_check(FakeChain([], flag_text={"pay $2": "no price in the sources"}), post, SOURCES, report)
+    assert checked["sections"][0]["card"]["ask"] is None
