@@ -1,0 +1,396 @@
+{
+ "date": "2026-11-02",
+ "started_at": "2026-11-02T00:15:37+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.3,
+   "items": 469,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 12
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 2
+    },
+    "github": {
+     "status": "ok",
+     "items": 11
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.4,
+   "stories": 16,
+   "editor": true,
+   "top": [
+    {
+     "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+     "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+     "score": 3.42,
+     "interest": 6.0,
+     "category": "policy",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+     "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+     "score": 3.14,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+     "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+     "score": 2.94,
+     "interest": 5.0,
+     "category": "tools",
+     "outlets": [
+      "techcrunch.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "I built an AI Tamagotchi before Meta could",
+     "url": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code",
+     "score": 2.73,
+     "interest": 4.0,
+     "category": "impact",
+     "outlets": [
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Balanov/uncut: A 7 MB lossless coding-agent harness for shell, CI, and local models. No TUI. No silent context cuts.",
+     "url": "https://github.com/Balanov/uncut",
+     "score": 2.58,
+     "interest": 6.0,
+     "category": "models",
+     "outlets": [
+      "GitHub"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic updates Claude to stop it from recreating existing video games",
+     "url": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
+     "score": 2.55,
+     "interest": 6.0,
+     "category": "models",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "tavern-labs-ai/persona-ai-sdk: Persona AI SDK: default personas, durable character memory, and Bedrock/OpenAI adapters in one package.",
+     "url": "https://github.com/tavern-labs-ai/persona-ai-sdk",
+     "score": 2.42,
+     "interest": 6.0,
+     "category": "tools",
+     "outlets": [
+      "GitHub"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Data centers are now a midterm issue, even in Brooklyn",
+     "url": "https://techcrunch.com/2026/10/31/data-centers-are-now-a-midterm-issue-even-in-brooklyn/",
+     "score": 2.39,
+     "interest": 6.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The AI cost of JavaScript frameworks",
+     "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+     "score": 2.32,
+     "interest": 3.0,
+     "category": "tools",
+     "outlets": [
+      "nolanlawson.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI glasses can replace your prescription glasses, but should they?",
+     "url": "https://www.engadget.com/2300320/ai-glasses-replace-prescription-should-they/",
+     "score": 2.3,
+     "interest": 5.0,
+     "category": "products",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "TechCrunch Mobility: A new, bigger AV boom is here",
+     "url": "https://techcrunch.com/2026/11/01/techcrunch-mobility-a-new-bigger-av-boom-is-here/",
+     "score": 2.27,
+     "interest": 5.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Chatbots Are Leading Hikers Astray, With Dangerous Consequences",
+     "url": "https://www.wired.com/story/chatbots-are-leading-hikers-astray-with-dangerous-consequences/",
+     "score": 2.25,
+     "interest": 5.0,
+     "category": "impact",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+     "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+     "score": 3.42,
+     "interest": 6.0,
+     "category": "policy",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+     "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+     "score": 3.14,
+     "interest": 7.0,
+     "category": "products",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+     "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+     "score": 2.94,
+     "interest": 5.0,
+     "category": "tools",
+     "outlets": [
+      "techcrunch.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "I built an AI Tamagotchi before Meta could",
+     "url": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code",
+     "score": 2.73,
+     "interest": 4.0,
+     "category": "impact",
+     "outlets": [
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Balanov/uncut: A 7 MB lossless coding-agent harness for shell, CI, and local models. No TUI. No silent context cuts.",
+     "url": "https://github.com/Balanov/uncut",
+     "score": 2.58,
+     "interest": 6.0,
+     "category": "models",
+     "outlets": [
+      "GitHub"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 0.8,
+   "articles": 11,
+   "with_text": 11
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 2.0,
+   "word_count": 1007,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.9,
+    "layer1": 0.0,
+    "layer2": 510.2,
+    "gate": 0.5
+   },
+   "layer1": {
+    "checked": 90,
+    "ok": 67,
+    "repaired": 15,
+    "dropped": 8
+   },
+   "layer2": {
+    "checked": 77,
+    "ok": 32,
+    "repaired": 10,
+    "dropped": 35
+   },
+   "unused": 20,
+   "fails": [
+    "word count 610 outside 880-1150",
+    "no 'why it matters'"
+   ]
+  },
+  {
+   "n": 2,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 179.2,
+    "layer1": 0.0,
+    "layer2": 509.9,
+    "gate": 0.5
+   },
+   "layer1": {
+    "checked": 92,
+    "ok": 72,
+    "repaired": 17,
+    "dropped": 3
+   },
+   "layer2": {
+    "checked": 78,
+    "ok": 45,
+    "repaired": 8,
+    "dropped": 25
+   },
+   "unused": 21,
+   "fails": []
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+ "finished_at": "2026-11-02T00:38:46+00:00",
+ "seconds": 1388.8
+}

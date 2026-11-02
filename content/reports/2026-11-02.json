@@ -1,0 +1,976 @@
+{
+  "checked": 78,
+  "ok": 45,
+  "repaired": 8,
+  "dropped": 25,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "another important victory in our effort to hold xAI accountable",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "A federal judge rejected xAI's bid to dismiss the NAACP's Clean Air Act suit, finding the company lacked legal defenses and that the plaintiffs have standing.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Judge Brown lets NAACP’s Clean Air Act suit against xAI’s Memphis turbines proceed, rejecting dismissal claims.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Judge Debra M. Brown wrote ... the plaintiffs’ claims will proceed, allowing the NAACP Clean Air Act suit against xAI’s Memphis turbines to move forward.\""
+      ]
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "OpenAI may rebrand its data centers as “AI compute campuses” to improve public perception after the midterms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "AI has delivered zero financial payoff to non‑tech firms in the S&P 493, according to Apollo economist Torsten Slok.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Muse Charm costs $50, offers limited voice feedback, and sees low commercial uptake.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence confirms price and limited voice feedback, but provides no support for low commercial uptake of the Muse Charm."
+      ]
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Uncut provides a 7 MB, telemetry‑free harness that guarantees lossless model output for shell and CI workflows.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "A federal judge denied xAI's motion to dismiss a lawsuit filed by the NAACP that alleges the company operated at least 35 combustion turbines at its Colossus data centre in Memphis without required permits.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The suit, brought on behalf of the NAACP by the Southern Environmental Law Center, claims violations of the Clean Air Act.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Judge Debra M. Brown ruled the plaintiffs have statutory standing and the turbines are not mobile sources under Mississippi law.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The complaint says xAI, now known as SpaceXSI, installed and ran the turbines without pre‑construction or operating air permits, breaching federal clean‑air rules. xAI argued the turbines were mobile and thus exempt, and that the plaintiffs lacked standing, but the judge rejected both defenses.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The Justice Department had also sought dismissal, but its request was denied, leaving the case to move forward.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The NAACP’s environmental director Abre’ Connor called the decision “another important victory in our effort to hold xAI accountable”.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Under the Clean Air Act, companies must obtain permits before building or operating major sources of air pollution such as gas turbines.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Citizen‑suit provisions let groups like the NAACP sue to enforce these rules, a right the judge affirmed.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The case reflects growing scrutiny of AI data‑centre projects, with several states recently considering moratoria on new facilities.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Judge lets NAACP lawsuit over xAI data‑center emissions proceed",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "35 turbines operate without permits",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "xAI runs at least 35 combustion turbines at Colossus site",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Judge finds plaintiffs have standing under the Clean Air Act",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Justice Department’s dismissal request was denied",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch the lawsuit for potential impacts on AI data‑centre permitting rules",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will you support stricter permits for AI data centres?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI said it may rename its data centers to “AI compute campuses” as part of a public‑relations effort after the midterm elections.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says OpenAI might rebrand, not that OpenAI said it may rename."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The proposal was disclosed in a TechCrunch article on 1 November 2026.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"OpenAI might rebrand its data centers as ‘AI compute campuses’ (published 1 November 2026).\""
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Chief global affairs officer Chris Lehane discussed the idea while outlining broader AI policy proposals.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Lehane told Axios that the midterms will act like a “movie trailer for what you’re going to see in 2028,” and that AI will dominate the 2028 presidential race.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "He also mentioned plans for AI “speed limits,” public‑facing empowerment campaigns, and U.S. leadership on global standards alongside the rebranding.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The conversation around data centers has prompted Amazon and Microsoft to drop NDAs in local government deals, which Lehane described as “good and healthy”.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Data centers have become politically sensitive, with local communities often opposing them for perceived impacts.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "By calling them “AI compute campuses,” OpenAI hopes to shift the narrative toward benefits for residents and reduce opposition.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions benefits for communities but does not state that renaming aims to reduce opposition."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The timing aligns with a planned PR push after the midterms, when Democrats are expected to regain control of Congress.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Congress' not in cited source"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI proposes renaming data centers",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "1 new name could reshape community views",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Rebranding aims to soften data‑center backlash",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Lehane links the move to broader AI policy goals",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Amazon and Microsoft have already dropped NDAs in local talks",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch how naming changes affect local acceptance of AI infrastructure",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Would a new name change your view of data centers?",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Torsten Slok, chief economist at Apollo Global Management, reported that AI has not improved profit margins or revenue per worker for non‑tech firms in the S&P 493, a subset of the S&P 500 that excludes major tech companies.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He said the data show flat profit margins and revenue per employee despite large AI investments.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Slok expressed doubt that corporations can turn cheaper AI into higher growth or margins.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Slok’s analysis focused on the S&P 493, removing Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia and Tesla from the index.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He found no upward trend in profit margins or revenue per worker for the remaining firms.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He described AI as a “great calculator” but noted it lacks judgment, accountability, trust, culture, unwritten rules, ethical trade‑offs and fairness, which he says drive reputational risk and financial performance.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Recent studies cited in the same note also found no significant productivity gains from AI in these sectors.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The claim counters widespread hype that AI will boost productivity across all industries.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "While tech giants have reported AI‑driven revenue growth, the broader corporate landscape has not yet seen measurable financial benefits.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms lack of benefits for non‑tech firms but does not provide evidence that tech giants have reported AI‑driven revenue growth; that part of the claim is unsupported."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Slok’s skepticism highlights the gap between AI capabilities as a data‑processing tool and the human judgment required for business decisions.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI delivers zero financial payoff to most companies",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Zero financial payoff from AI for non‑tech firms",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Profit margins flat for S&P 493 firms despite AI spend",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Revenue per worker unchanged in the same group",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "AI lacks judgment, accountability and cultural understanding",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch AI investments closely and prioritize human judgment in strategy",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Do you think AI can ever replace business judgment?",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta released the Muse Charm, a $50 pocket‑watch AI assistant, in late October 2026.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms price and form factor but does not state a release date in late October 2026."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Early adopters reported that the device could display avatars and connect to the Muse cloud but struggled with voice output and smart‑home discovery.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Business analysts note that, despite hype, Muse‑driven purchases remain modest, with most companies seeing only “hundreds” of orders or “very, very small” activity.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The hardware is a Waveshare ESP32‑S3 1.75‑inch touchscreen pendant sourced from China and officially sanctioned by Meta as a “Muse Gadget”.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users must pair the device with the Muse phone app and provide Meta’s API keys, but initial interactions often misinterpret commands as transcription requests, leading to slow, text‑only replies.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta’s engineers Anant Narayanan and Jeremy Payne supplied a sample app for video streaming, yet the lack of a remote shutter button limited practical photo use.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Corporate reports show that agents like Muse generate average purchases of just over $200 per user, but overall transaction volume is low, with companies such as DoorDash and Hilton describing Muse‑originated orders as “insignificant” or “in the hundreds”.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Meta has claimed ... purchases of more than $200 on average. DoorDash described orders as in the “hundreds,” and Hilton called bookings “insignificant.”\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Muse is Meta’s agentic AI platform that lets users automate tasks through voice or text commands.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Muse Charm is one of the first consumer‑facing devices built on open‑source code and tokens provided by Meta, aiming to bring the AI assistant into a wearable form factor.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "While the concept mirrors earlier virtual pets, the device’s limited functionality and slow responses have kept it from achieving broad adoption, mirroring broader industry skepticism about AI agents’ immediate impact on commerce.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Muse charm’s limited impact on everyday use",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"the gadget really didn’t do anything useful after my initial install. Overall transaction volume is low, with orders described as “hundreds” or “insignificant.”\""
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Only $50 for a barely functional AI pocket watch",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Device uses Waveshare ESP32‑S3 hardware",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Voice replies are text‑only and slow",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Companies report Muse‑driven sales under $200 per user",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Consider the Muse Charm a niche experiment rather than a mainstream tool",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Would you try an AI pocket watch?",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "On 1 November 2026 GitHub user Balanov released Uncut, a 7 MB lossless coding‑agent harness for shell pipelines, CI jobs, containers, and local models.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"GitHub — Balanov/uncut: A 7 MB lossless coding-agent harness for shell, CI, and local models. (published 1 November 2026) UNCUT is a tiny coding-agent harness for shell pipelines, CI jobs, containers,\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The tool runs as a single statically linked Go binary on Linux, macOS, and Windows, supporting amd64 and arm64 architectures.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It deliberately omits a text user interface, telemetry, plugins, background agents, automatic retries, and context compaction, sending the full conversation on every model call.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Uncut’s design ensures that no part of a model’s output is silently truncated; if a provider cuts a response, the program exits with an error instead of returning a partial answer.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "All file contents and combined command output are preserved, and optional append‑only JSONL sessions record every message and tool result for resumability.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The harness works with any OpenAI‑compatible Chat Completions endpoint, including local servers, and emits structured NDJSON events via the ‑‑json flag while defaulting to plain stdout for final text.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Typical AI coding agents truncate long outputs or summarize silently to stay within token limits, which can hide errors from users.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source information about typical AI coding agents truncating or summarizing outputs."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Uncut counters this by being “lossless by default,” avoiding summarization, pruning, sliding windows, or silent output caps.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Its small footprint and lack of runtime dependencies make it easy to embed in CI pipelines or container images without adding overhead or privacy‑risking telemetry.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Uncut offers a 7 MB lossless coding‑agent harness",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "7 MB size ensures truly lossless AI output",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "No silent truncation; errors abort instead of hiding cuts",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Works with any OpenAI‑compatible endpoint, including local servers",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Single Go binary, no runtime dependencies, MIT licensed",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Use Uncut in CI pipelines to capture complete model responses without hidden limits",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Do you need lossless AI output in your workflows?",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The ruling means xAI may have to obtain air‑quality permits for its Memphis turbines, potentially delaying expansion and increasing compliance costs for AI data‑center operators, which could affect service availability for businesses that rely on those facilities.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "The case highlights growing legal scrutiny of AI infrastructure, signaling to other companies that community groups can use citizen‑suit provisions to enforce environmental rules, which may lead to tighter permitting processes and higher operational expenses across the sector.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "1 new name could reshape community views.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports the rename but does not claim it will reshape community views."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Rebranding aims to soften data‑center backlash.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state the rebranding’s purpose is to soften backlash."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Watch how naming changes affect local acceptance of AI infrastructure.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Watch AI investments closely and prioritize human judgment in strategy.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Companies report Muse‑driven sales under $200 per user.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions Muse‑driven sales under $200 per user; source cites average purchases over $200."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Consider the Muse Charm a niche experiment rather than a mainstream tool.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "7 MB size ensures truly lossless AI output.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes the harness is 7 MB and lossless, but does not claim the size guarantees lossless AI output."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 22,
+  "unused": 21,
+  "date": "2026-11-02",
+  "slug": "2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+  "model": "groq:openai/gpt-oss-120b"
+}

@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-02",
+ "slug": "2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+ "headline": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed",
+ "url": "https://fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/",
+ "generated_at": "2026-11-02T00:38:47+00:00",
+ "items": [
+  {
+   "id": "2026-11-02-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "Judge allows NAACP lawsuit against xAI over unpermitted data-center turbines to proceed\n\n• A federal judge denied xAI's motion to dismiss a lawsuit filed by the NAACP that alleges the company operated at least 35 combustion turbines at its Colossus data centre in Memphis without required permits.\n• AI has delivered zero financial payoff to non-tech firms in the S&P 493, according to Apollo economist Torsten Slok.\n• Early adopters reported that the device could display avatars and connect to the Muse cloud but struggled with voice output and smart-home discovery.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-02/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-02-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Judge allows NAACP lawsuit against xAI over unpermitted data-center turbines to proceed\n\nhttps://fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 112
+  },
+  {
+   "id": "2026-11-02-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Judge allows NAACP lawsuit against xAI over unpermitted data-center turbines to proceed\n\n• A federal judge denied xAI's motion to dismiss a lawsuit filed by the NAACP that alleges the company operated at least 35 combustion turbines at its Colossus data centre in Memphis without required permits.\n• AI has delivered zero financial payoff to non-tech firms in the S&P 493, according to Apollo economist Torsten Slok.\n• Early adopters reported that the device could display avatars and connect to the Muse cloud but struggled with voice output and smart-home discovery.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-02-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "35 turbines operate without permits[S1][S2].",
+   "text": "35 turbines operate without permits.\n\n• xAI runs at least 35 combustion turbines at Colossus site.\n• Judge finds plaintiffs have standing under the Clean Air Act.\n• Justice Department’s dismissal request was denied.\n\nOur read: Watch the lawsuit for potential impacts on AI data-centre permitting rules.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-02/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-02T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-02-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Zero financial payoff from AI for non‑tech firms[S4].",
+   "text": "Zero financial payoff from AI for non-tech firms.\n\n• Profit margins flat for S&P 493 firms despite AI spend.\n• Revenue per worker unchanged in the same Group.\n• AI lacks judgment, accountability and cultural understanding.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-02/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-02T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-02-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Only $50 for a barely functional AI pocket watch[S5].",
+   "text": "Only $50 for a barely functional AI pocket watch.\n\n• Device uses Waveshare ESP32-S3 hardware.\n• Voice replies are text-only and slow.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-02/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-02T13:30:00+00:00"
+  }
+ ]
+}
