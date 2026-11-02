@@ -21,6 +21,22 @@ Instagram. Accurate first, then worth watching to the end, then worth sharing.
 | Variety | Five colour sets by topic, seeded shapes, before/after cards (from 2 Nov) |
 | Auto-posting | 09:00, 13:00, 19:00 India time without approval; Skip still works |
 
+## Code red, 2 Nov: the newsroom rebuilt
+
+Pavan: the Reels "aren't interesting at all". Diagnosis from the run logs: the blog took a hobbyist's AI pocket
+watch (editor interest 4/10) over "chatbots are leading hikers astray" (5) because two outlets covered it; the editor
+rated a GitHub repo 6; the blog writer wrote the Reel lines as headlines with the story removed; and every day got
+three Reels, however weak the third.
+
+| Role | Brief | Change |
+|---|---|---|
+| Editor (`editor.py`) | Fifteen years on a consumer tech desk; anchored 0-10 scale (repos and model cards 0-2, people harmed or a giant in trouble 9-10) | Weight 1.5 -> 3; stories under 5 only fill gaps (`pick_lineup`) |
+| Producer (`reel_desk.py`) | Senior Instagram news producer; rubric (stakes 3, surprise 2, names 2, number 1, relatable 2); writes hook (who + stakes, a full sentence), three beats, take, question | New, one call per story; over-long lines sent back once; facts only from the section text |
+| Editor-in-chief (`reel_desk.py`) | Compares the day's scripts side by side | New; final score = mean of rubric and chief |
+| Quality bar | Only stories at 6/10 or more become Reels; a weak day posts its single best | `card_stories` |
+| Fact-check | Unchanged: both layers check every Reel line | Question openers no longer flagged as names |
+| Log | Every story's scores, the chief's reason and the hook | `reel_desk` in each run's attempt record |
+
 ## Next, in order
 
 1. **Two-source rule for Reels (accuracy).** When a Reel story has one source, search the day's feeds for a second

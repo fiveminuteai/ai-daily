@@ -19,6 +19,7 @@ from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
 from .rank import history_entry, pick_lineup, rank
+from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
 from .write import draft_post
 
@@ -167,6 +168,21 @@ def _counts(report: dict | None) -> dict:
     return {k: (report or {}).get(k, 0) for k in ("checked", "ok", "repaired", "dropped")}
 
 
+def reel_log(post: dict | None) -> list[dict]:
+    """The Reel desk's decisions after fact-checking, for the run log: every story's scores, the chief's reason, its
+    hook, and whether it gets a Reel (a story whose card the fact-check removed shows hook None)."""
+    if not post:
+        return []
+    from .story_reel import card_stories
+    chosen = {n for n, _ in card_stories(post)}
+    out = []
+    for n, sec in enumerate(post.get("sections", [])):
+        card = sec.get("card") or {}
+        out.append({"story": sec.get("title", ""), "reel": card.get("reel"), **(card.get("desk") or {}),
+                    "hook": plain(card["hook"]) if card.get("hook") else None, "chosen": n in chosen})
+    return out
+
+
 def _write_summary(root: Path, summary: dict, published: bool) -> None:
     text = json.dumps(summary, ensure_ascii=False, indent=1, default=str)
     targets = [root / "logs" / f"run-{summary['date']}.json"]
@@ -240,6 +256,9 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             t = time.monotonic()
             draft, sources = draft_post(chain, lineup, date_label, feedback, mode=pipe.get("write_mode", "sections"))
             times["write"], t = time.monotonic() - t, time.monotonic()
+            if pipe.get("reel_desk", True):          # the producer scores and scripts the Reels; checked below
+                draft = produce(chain, draft, sources)
+            times["reel_desk"], t = time.monotonic() - t, time.monotonic()
             verified, report = verify_draft(draft, sources, max_quotes=int(pipe.get("max_quotes", 1)))
             layer1 = _counts(report)
             times["layer1"], t = time.monotonic() - t, time.monotonic()
@@ -255,7 +274,8 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
         attempts.append({"n": attempt, "model": getattr(chain, "used", None) or "",
                          "seconds": {k: round(v, 1) for k, v in times.items()},
                          "layer1": layer1, "layer2": _counts(report) if report and report.get("layer2_done") else {},
-                         "unused": (report or {}).get("unused", 0), "fails": fails})
+                         "unused": (report or {}).get("unused", 0), "fails": fails,
+                         "reel_desk": reel_log(post)})
         _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
         if not fails:
             t = time.monotonic()

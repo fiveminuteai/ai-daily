@@ -34,7 +34,7 @@ audience:
     - "Tools we can use at work: AI features arriving in apps people already use"
     - "Big-tech moves and controversy: company shake-ups, money, lawsuits, copyright, policy fights"
     - "Security and India: AI in cybersecurity, Indian AI companies, policy and talent"
-  editor_weight: 1.5          # how much the editor's interest score counts against the importance score
+  editor_weight: 3            # how much the editor's interest score counts against the importance score
 
 pipeline:
   lookback_hours: 40          # only consider items published in this window

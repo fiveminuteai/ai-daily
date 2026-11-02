@@ -158,9 +158,14 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
     return out
 
 
-def pick_lineup(stories: list[Story], n: int = 5, max_per_category: int = 2, max_per_source: int = 1) -> list[Story]:
+def pick_lineup(stories: list[Story], n: int = 5, max_per_category: int = 2, max_per_source: int = 1,
+                min_interest: float = 5) -> list[Story]:
     """Top stories with caps per category and per single-source origin, so one busy topic or one prolific
-    blog can't take over the post, and with a research story included when one ranks in the top 15."""
+    blog can't take over the post, and with a research story included when one ranks in the top 15.
+    Stories the editor rated below `min_interest` only fill places nothing better can (2 Nov 2026: a hobbyist's AI
+    pocket watch, rated 4, took a place from stories rated 5 and 6 because two outlets covered it)."""
+    good = lambda s: s.interest is None or s.interest >= min_interest  # noqa: E731
+    stories = [s for s in stories if good(s)] + [s for s in stories if not good(s)]
     picked: list[Story] = []
     counts: dict[str, int] = {}
     solo: dict[str, int] = {}
@@ -182,7 +187,7 @@ def pick_lineup(stories: list[Story], n: int = 5, max_per_category: int = 2, max
         if src:
             solo[src] = solo.get(src, 0) + 1
     if picked and not any(s.category == "research" for s in picked):
-        research = next((s for s in stories[:15] if s.category == "research" and s not in picked), None)
+        research = next((s for s in stories[:15] if s.category == "research" and s not in picked and good(s)), None)
         if research:
             if len(picked) >= n:
                 picked[-1] = research

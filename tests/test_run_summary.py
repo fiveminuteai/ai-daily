@@ -42,7 +42,7 @@ def test_published_day_commits_a_summary_with_every_stage(proj, fake_web):
     (att,) = saved["attempts"]
     assert att["fails"] == [] and att["layer1"]["checked"] > 0
     assert att["layer2"] == {k: r.post["verification"][k] for k in ("checked", "ok", "repaired", "dropped")}
-    assert set(att["seconds"]) == {"write", "layer1", "layer2", "gate"}
+    assert set(att["seconds"]) == {"write", "reel_desk", "layer1", "layer2", "gate"}
 
 
 def test_skipped_day_summary_stays_in_logs(proj, fake_web):

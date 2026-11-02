@@ -8,8 +8,21 @@ from .models import Story
 
 log = logging.getLogger(__name__)
 
-EDITOR_SYSTEM = """You are the editor of a daily five-minute AI briefing. You pick what readers will find worth their
-time. You reply with one JSON object and nothing else."""
+EDITOR_SYSTEM = """You are the news editor of a daily AI briefing that also runs as short Instagram Reels. You spent
+fifteen years on a consumer technology desk and you know which stories people talk about at lunch and which only
+specialists read. You are hard to impress: most days, most candidates are filler. You reply with one JSON object and
+nothing else."""
+
+# Anchored scale (2 Nov 2026): without anchors the editor gave a GitHub repo 6 and "chatbots are leading hikers into
+# danger" 5, and a hobbyist's AI pocket watch made the post and a Reel.
+SCALE = """Score 0 to 10 with these anchors:
+9-10: affects or endangers many ordinary people, or a giant move everyone will hear about (a ban, a huge lawsuit or
+      fine, a major outage or breach, a launch from OpenAI, Google, Apple or Meta that people can use)
+7-8:  a big name in a fight or a surprise (a court ruling, a reversal, money trouble, a striking first), AI causing
+      real-world harm or help, a security threat to everyday users, a change arriving in apps people already use
+5-6:  a solid industry story with a clear consequence, but it stays inside the industry
+3-4:  product previews and reviews, hobby builds, renamings and rebrands, opinion essays, single-outlet rumours
+0-2:  code repositories, model cards, library releases, customer case studies, papers with no plain result"""
 
 
 def editor_prompt(stories: list[Story], audience: dict) -> str:
@@ -20,10 +33,8 @@ def editor_prompt(stories: list[Story], audience: dict) -> str:
         lines.append(f"{n}. {lead.title} | {', '.join(sorted(st.publishers))[:80]} | {blurb}")
     interests = "\n".join(f"- {i}" for i in audience.get("interests", []))
     return (f"READERS: {audience.get('description', '')}\nThey care most about:\n{interests}\n\n"
-            "Rate each candidate story from 0 to 10 for how interesting and useful it would be to these readers today. "
-            "High: major launches, surprising capabilities, things they can use at work, big company moves, "
-            "controversies, security, India. Low: customer case studies, routine product notes, niche academic papers "
-            "with no clear takeaway, opinion essays, and rumours carried by a single less-reliable outlet. "
+            "Rate each candidate story for how much these readers would want it today, as a story they would tell "
+            f"a friend.\n{SCALE}\n"
             "Give near-duplicates of the same event the same score.\n"
             'Reply as {"scores": [{"n": 1, "interest": 7}]} with one entry per candidate.\n\nCANDIDATES\n'
             + "\n".join(lines))

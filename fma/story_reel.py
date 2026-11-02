@@ -206,10 +206,18 @@ def reel_score(post: dict, section: dict) -> float:
 
 def card_stories(post: dict, limit: int = 3) -> list[tuple[int, dict]]:
     """The day's Reel stories: those with a complete fact-checked card. From 2 Nov 2026 the `limit` strongest by
-    reel_score are chosen (earlier days keep the first ones, so their Reels never change); always in post order."""
+    reel_score are chosen (earlier days keep the first ones, so their Reels never change); always in post order.
+    When the Reel desk scored the cards (from 3 Nov), only stories at REEL_BAR or above get a Reel, strongest first;
+    the best one still goes out on a weak day so the account never goes silent."""
+    from .reel_desk import REEL_BAR
+
     carded = [(n, s) for n, s in enumerate(post.get("sections", [])) if (s.get("card") or {}).get("hook")]
     if str(post.get("date", "9999")) < VARIETY_FROM:
         return carded[:limit]
+    scored = [(n, s) for n, s in carded if isinstance(s["card"].get("reel"), int)]
+    if scored:
+        scored.sort(key=lambda ns: (-ns[1]["card"]["reel"], ns[0]))
+        return [ns for ns in scored if ns[1]["card"]["reel"] >= REEL_BAR][:limit] or scored[:1]
     best = sorted(carded, key=lambda ns: (-reel_score(post, ns[1]), ns[0]))[:limit]
     return sorted(best, key=lambda ns: ns[0])
 

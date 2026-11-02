@@ -41,6 +41,9 @@ start stop test turn think note see learn switch protect secure delete change li
 scan scans collect collects add adds let lets help helps make makes run runs send sends target targets steal steals
 lower lowers raise raises build builds cut cuts give gives get gets take takes find finds show shows open opens move
 moves pay pays offer offers ship ships launch launches release releases block blocks bring brings""".split())
+# Question and negation openers of the Reel's lines ("Will you buy an AI pet?", "Don't count on it yet", 2 Nov 2026).
+COMMON_STARTERS |= set("""will would should could can do does did is are was were has have had don't doesn't isn't
+won't can't don’t doesn’t isn’t won’t can’t tech""".split())
 # Endings that mark an ordinary English word ("Traditional", "Recent", "Providing") rather than a product or person.
 ORDINARY_ENDINGS = ("ing", "ed", "al", "ly", "ent", "ant", "ive", "ion", "ions", "ous", "ful", "less", "able", "ible",
                     "ity", "ness", "ment", "ments", "ance", "ence", "ary", "ory", "ise", "ize", "ised", "ized")
@@ -393,7 +396,8 @@ class Verifier:
         if not hook or len(points) < 2:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
-                "interest": c.get("interest", 3)}
+                "interest": c.get("interest", 3),
+                **{k: c[k] for k in ("reel", "angle", "desk") if k in c}}   # the Reel desk: score, angle, reasons
 
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)
