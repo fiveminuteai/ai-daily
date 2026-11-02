@@ -1,0 +1,158 @@
+{
+ "updated": "2026-11-02T19:13:08+00:00",
+ "reels": [
+  {
+   "id": "2026-10-31-reel-1",
+   "date": "2026-10-31",
+   "slot": 1,
+   "category": "products",
+   "hook_number": true,
+   "hook_words": 10,
+   "desk": null,
+   "hook": "A hacked Claude Code update reached up to 5,000 developers.",
+   "reach": 48,
+   "watch_s": 4.1,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 49.1,
+   "outcome": 0.545
+  },
+  {
+   "id": "2026-10-31-reel-2",
+   "date": "2026-10-31",
+   "slot": 2,
+   "category": "impact",
+   "hook_number": true,
+   "hook_words": 9,
+   "desk": null,
+   "hook": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
+   "reach": 47,
+   "watch_s": 2.9,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 49.1,
+   "outcome": -1.026
+  },
+  {
+   "id": "2026-10-31-reel-3",
+   "date": "2026-10-31",
+   "slot": 3,
+   "category": "models",
+   "hook_number": false,
+   "hook_words": 12,
+   "desk": null,
+   "hook": "An AI coding agent sent Pentagon system logins to a risky website.",
+   "reach": 56,
+   "watch_s": 3.4,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 49.0,
+   "outcome": 0.481
+  }
+ ],
+ "effects": [
+  {
+   "feature": "category",
+   "value": "impact",
+   "n": 1,
+   "n_rest": 2,
+   "mean": -1.03,
+   "effect": -0.18,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "category",
+   "value": "models",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.48,
+   "effect": 0.08,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "category",
+   "value": "products",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.55,
+   "effect": 0.09,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "slot",
+   "value": "09:00",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.55,
+   "effect": 0.09,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "slot",
+   "value": "13:00",
+   "n": 1,
+   "n_rest": 2,
+   "mean": -1.03,
+   "effect": -0.18,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "slot",
+   "value": "19:00",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.48,
+   "effect": 0.08,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "number in hook",
+   "value": "no",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.48,
+   "effect": 0.08,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "number in hook",
+   "value": "yes",
+   "n": 2,
+   "n_rest": 1,
+   "mean": -0.24,
+   "effect": -0.08,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "hook length",
+   "value": "long (11+ words)",
+   "n": 1,
+   "n_rest": 2,
+   "mean": 0.48,
+   "effect": 0.08,
+   "se": 0.89,
+   "confident": false
+  },
+  {
+   "feature": "hook length",
+   "value": "short (<=10 words)",
+   "n": 2,
+   "n_rest": 1,
+   "mean": -0.24,
+   "effect": -0.08,
+   "se": 0.89,
+   "confident": false
+  }
+ ]
+}
