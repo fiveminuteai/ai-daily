@@ -397,7 +397,7 @@ class Verifier:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
                 "interest": c.get("interest", 3),
-                **{k: c[k] for k in ("reel", "angle", "desk") if k in c}}   # the Reel desk: score, angle, reasons
+                **{k: c[k] for k in ("reel", "angle", "desk", "bonus") if k in c}}   # the Reel desk: score, angle, reasons
 
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)

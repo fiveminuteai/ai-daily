@@ -291,7 +291,8 @@ def test_the_clock_starts_each_event_on_time_and_hops_long_gaps():
     assert clock.plan(utc(3, 30, ) + timedelta(seconds=16))[1] == "post-scheduled.yml"   # the next slot, 13:00
     assert clock.plan(utc(7, 31)) == (int(clock.MAX_SLEEP.total_seconds()), "")        # 6 hours away: a hop first
     assert clock.plan(utc(13, 1)) == (29 * 60 + 16, "post-scheduled.yml")
-    assert clock.plan(utc(13, 31)) == (int(clock.MAX_SLEEP.total_seconds()), "")        # overnight: hops
+    assert clock.plan(utc(13, 31)) == (4 * 3600 + 29 * 60 + 16, "collect-stats.yml")    # 23:30: stats, learning
+    assert clock.plan(utc(18, 1)) == (int(clock.MAX_SLEEP.total_seconds()), "")         # overnight: hops
     assert clock.plan(utc(23, 0))[1] == "daily.yml"
     for h in range(24):                                     # every plan fits in one job
         assert 0 <= clock.plan(utc(h, 7))[0] <= clock.MAX_SLEEP.total_seconds()

@@ -18,7 +18,8 @@ from datetime import datetime, timedelta, timezone
 EVENTS = (("00:15", "daily.yml"),
           ("03:30", "post-scheduled.yml"),     # 09:00 India time
           ("07:30", "post-scheduled.yml"),     # 13:00
-          ("13:30", "post-scheduled.yml"))     # 19:00
+          ("13:30", "post-scheduled.yml"),     # 19:00
+          ("18:00", "collect-stats.yml"))      # 23:30: the day's numbers, then the learning loop (fma/learn.py)
 MAX_SLEEP = timedelta(hours=5, minutes=30)     # under the 6-hour job limit with room for setup
 LATE = timedelta(seconds=15)                   # start just after the slot, so the item is already due
 

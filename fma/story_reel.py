@@ -215,8 +215,8 @@ def card_stories(post: dict, limit: int = 3) -> list[tuple[int, dict]]:
     if str(post.get("date", "9999")) < VARIETY_FROM:
         return carded[:limit]
     scored = [(n, s) for n, s in carded if isinstance(s["card"].get("reel"), int)]
-    if scored:
-        scored.sort(key=lambda ns: (-ns[1]["card"]["reel"], ns[0]))
+    if scored:        # the learned lean (bonus) only changes the order; the bar uses the desk score alone
+        scored.sort(key=lambda ns: (-(ns[1]["card"]["reel"] + ns[1]["card"].get("bonus", 0.0)), ns[0]))
         return [ns for ns in scored if ns[1]["card"]["reel"] >= REEL_BAR][:limit] or scored[:1]
     best = sorted(carded, key=lambda ns: (-reel_score(post, ns[1]), ns[0]))[:limit]
     return sorted(best, key=lambda ns: ns[0])

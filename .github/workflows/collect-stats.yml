@@ -6,7 +6,7 @@ name: Collect stats
 
 on:
   schedule:
-    - cron: "0 18 * * *"      # 18:00 UTC = 23:30 India time
+    - cron: "0 18 * * *"      # 18:00 UTC = 23:30 India time; clock.yml starts it on time, this cron is a backup
   workflow_dispatch:
 
 permissions:
@@ -34,11 +34,20 @@ jobs:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
           INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
         run: python -m fma.stats collect
+      # The learning loop (fma/learn.py): rebuild what our numbers say; on Sundays also this week's producer lessons.
+      # Never blocks the stats.
+      - name: Learn
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ "$(TZ=Asia/Kolkata date +%u)" = "7" ]; then python -m fma.learn update --lessons; else python -m fma.learn update; fi             || echo "::warning::learning loop failed; the stats are saved"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stats
+          git add data/stats data/learning data/learned.json 2>/dev/null || git add data/stats
           git diff --cached --quiet && exit 0
           git commit -m "Stats for $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do

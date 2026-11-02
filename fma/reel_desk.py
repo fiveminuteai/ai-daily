@@ -59,19 +59,23 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
-FACTS: use ONLY facts in the story's text below. Every sentence of hook, points and take ends with the citation
+FACTS: use O
+Y facts in the story's text below. Every sentence of hook, points and take ends with the citation
 markers ([S1]) of the sentence its facts come from. Never add a number, name, date or claim that is not in the text.
 Do not make the story bigger or closer to the viewer than the text does: no country, company, person or group
 ("Indian firms", "hundreds of companies") that the text does not name, and no rounded or invented numbers.
 """
 
 
-def producer_prompt(section: dict, sources: list[dict]) -> str:
+def producer_prompt(section: dict, sources: list[dict], lessons: list[dict] | None = None) -> str:
     by_id = {s["id"]: s for s in sources}
     ids = sorted({i for p in section.get("paragraphs", []) for i in re.findall(r"S\d+", p)}, key=lambda x: int(x[1:]))
     outlets = "; ".join(dict.fromkeys(f"{by_id[i].get('publisher', '')}: {by_id[i].get('title', '')}"
                                       for i in ids if i in by_id))
-    return (PRODUCER_RULES + '\nReply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, '
+    taught = "".join(f"- {x['lesson']} ({'; '.join(x.get('evidence', []))})\n" for x in lessons or [])
+    if taught:        # from our own Instagram numbers (fma/learn.py), each checked against the data
+        taught = "\nLESSONS FROM OUR OWN REEL RESULTS (follow them; they never override the FACTS rule):\n" + taught
+    return (PRODUCER_RULES + taught + '\nReply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, '
             '"relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], '
             '"take": "...[S1].", "take_kind": "read", "ask": "...?"}\n\n'
             f"STORY: {section.get('title', '')}\nReported by: {outlets[:400]}\nText:\n"
@@ -89,13 +93,13 @@ def total(score: dict) -> int:
     return out
 
 
-def script(chain, section: dict, sources: list[dict]) -> dict | None:
+def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None = None) -> dict | None:
     """The producer's card for one story, with its rubric score ("reel", 0-10) and angle; None on any failure.
     A script with a line over its word limit is sent back once: the fact-check drops an over-long line, and a hook
     over 14 words loses the whole Reel."""
     from .write import normalise_card
 
-    prompt = producer_prompt(section, sources)
+    prompt = producer_prompt(section, sources, lessons)
     for _try in range(2):
         try:
             x = chain.ask_json(PRODUCER_SYSTEM, prompt, temperature=0.4)
@@ -113,7 +117,7 @@ def script(chain, section: dict, sources: list[dict]) -> dict | None:
             score = total(x.get("score") if isinstance(x.get("score"), dict) else {})
             card.update(reel=score, interest=max(1, min(5, round(score / 2))), angle=str(x.get("angle") or "")[:300])
             return card
-        prompt = (producer_prompt(section, sources) + "\n\nYOUR LAST SCRIPT HAD LINES OVER THE WORD LIMIT. Rewrite "
+        prompt = (producer_prompt(section, sources, lessons) + "\n\nYOUR LAST SCRIPT HAD LINES OVER THE WORD LIMIT. Rewrite "
                   "them shorter, keeping the facts and citations:\n" + "\n".join(long))
     log.warning("Reel desk script for %r still too long", section.get("title"))
     return None
@@ -154,9 +158,13 @@ def produce(chain, draft: dict, sources: list[dict]) -> dict:
     score, so the Reel desk can improve a day but never cost one."""
     if not draft.get("sections") or not chain:
         return draft
+    from .learn import learned_settings
+    learned = learned_settings()
     out = []
     for sec in draft["sections"]:
-        card = script(chain, sec, sources)
+        card = script(chain, sec, sources, learned.get("lessons"))
+        if card:          # a bounded lean learned from our results; frozen into the card so Reels never change later
+            card["bonus"] = float(learned.get("category_bonus", {}).get(sec.get("category"), 0.0))
         out.append({**sec, "card": card} if card else sec)
     scripted = [(n, s["card"]) for n, s in enumerate(out, 1) if isinstance((s.get("card") or {}).get("reel"), int)]
     chief: dict[int, tuple[float, str]] = {}
