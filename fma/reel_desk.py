@@ -64,6 +64,10 @@ Y facts in the story's text below. Every sentence of hook, points and take ends 
 markers ([S1]) of the sentence its facts come from. Never add a number, name, date or claim that is not in the text.
 Do not make the story bigger or closer to the viewer than the text does: no country, company, person or group
 ("Indian firms", "hundreds of companies") that the text does not name, and no rounded or invented numbers.
+Keep the story's status and units (3 Nov 2026: "Apple unveils a robot" for a robot Apple only plans, and "billions
+of articles" for "30 billion web pages"): a plan, report or leak is not a launch or an unveiling; pages are not
+articles. A lawsuit's claims are accusations: write "sues X, saying it ..." or "accuses X of ...". No comparisons
+("far more than ...") that the text does not make.
 """
 
 
@@ -93,13 +97,15 @@ def total(score: dict) -> int:
     return out
 
 
-def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None = None) -> dict | None:
+def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None = None,
+           rejected: str = "") -> dict | None:
     """The producer's card for one story, with its rubric score ("reel", 0-10) and angle; None on any failure.
     A script with a line over its word limit is sent back once: the fact-check drops an over-long line, and a hook
     over 14 words loses the whole Reel."""
     from .write import normalise_card
 
-    prompt = producer_prompt(section, sources, lessons)
+    base = producer_prompt(section, sources, lessons) + rejected
+    prompt = base
     for _try in range(2):
         try:
             x = chain.ask_json(PRODUCER_SYSTEM, prompt, temperature=0.4)
@@ -117,7 +123,7 @@ def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None
             score = total(x.get("score") if isinstance(x.get("score"), dict) else {})
             card.update(reel=score, interest=max(1, min(5, round(score / 2))), angle=str(x.get("angle") or "")[:300])
             return card
-        prompt = (producer_prompt(section, sources, lessons) + "\n\nYOUR LAST SCRIPT HAD LINES OVER THE WORD LIMIT. Rewrite "
+        prompt = (base + "\n\nYOUR LAST SCRIPT HAD LINES OVER THE WORD LIMIT. Rewrite "
                   "them shorter, keeping the facts and citations:\n" + "\n".join(long))
     log.warning("Reel desk script for %r still too long", section.get("title"))
     return None
@@ -151,18 +157,21 @@ def plain_text(s: str) -> str:
     return re.sub(r"\[S\d+\]", "", s or "").strip()
 
 
-def produce(chain, draft: dict, sources: list[dict]) -> dict:
+def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None = None) -> dict:
     """Replace each section's card with the producer's script, then let the editor-in-chief compare the scripts. The
     card's "reel" score (0-10) is the mean of the producer's rubric and the chief's comparison, and "desk" keeps both
     with the chief's reason, for the run log. A story the desk could not script keeps the writer's card without a
-    score, so the Reel desk can improve a day but never cost one."""
+    score, so the Reel desk can improve a day but never cost one. On a retry, `rejected` holds the Reel lines the
+    fact-check dropped last time, with its reasons, so the producer does not write them again."""
     if not draft.get("sections") or not chain:
         return draft
     from .learn import learned_settings
     learned = learned_settings()
+    back = ("\n\nTHE FACT-CHECK REJECTED THESE REEL LINES LAST TIME. Do not repeat the error:\n"
+            + "\n".join(f"- {x}" for x in rejected[:8])) if rejected else ""
     out = []
     for sec in draft["sections"]:
-        card = script(chain, sec, sources, learned.get("lessons"))
+        card = script(chain, sec, sources, learned.get("lessons"), back)
         if card:          # a bounded lean learned from our results; frozen into the card so Reels never change later
             card["bonus"] = float(learned.get("category_bonus", {}).get(sec.get("category"), 0.0))
         out.append({**sec, "card": card} if card else sec)

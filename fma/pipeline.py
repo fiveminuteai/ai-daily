@@ -246,6 +246,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
     date_label = datetime.fromisoformat(date).strftime("%A %d %B %Y")
     recent = recent_posts(posts_dir)
     feedback, last_fail = "", ""
+    rejected_lines: list[str] = []
     attempts: list[dict] = []
     summary["attempts"] = attempts
     for attempt in range(1, int(pipe.get("attempts", 2)) + 1):
@@ -257,7 +258,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             draft, sources = draft_post(chain, lineup, date_label, feedback, mode=pipe.get("write_mode", "sections"))
             times["write"], t = time.monotonic() - t, time.monotonic()
             if pipe.get("reel_desk", True):          # the producer scores and scripts the Reels; checked below
-                draft = produce(chain, draft, sources)
+                draft = produce(chain, draft, sources, rejected_lines)
             times["reel_desk"], t = time.monotonic() - t, time.monotonic()
             verified, report = verify_draft(draft, sources, max_quotes=int(pipe.get("max_quotes", 1)))
             layer1 = _counts(report)
@@ -287,7 +288,9 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
         last_fail = "; ".join(fails)
         log.warning("attempt %d rejected: %s", attempt, last_fail)
         feedback = "\n".join(f"- {f}" for f in fails)
-        if report:
+        if report:          # Reel lines the fact-check dropped go back to the producer on the retry
+            rejected_lines = [f"{e['text'][:160]} ({'; '.join(e['problems'])[:200]})" for e in report["entries"]
+                              if e["status"] == "dropped" and str(e.get("where", "")).startswith("card")]
             dropped = [e for e in report["entries"] if e["status"] == "dropped"][:12]
             if dropped:
                 feedback += "\n- These sentences failed source checks and were removed; don't repeat the errors:\n" + \

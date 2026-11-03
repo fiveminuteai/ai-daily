@@ -92,3 +92,12 @@ def test_the_editor_in_chief_compares_scripts_and_its_score_is_blended_in():
     assert lawsuit["reel"] == 5 and watch["reel"] == 6            # (7+3)/2 and (4+9)/2, rounded to even
     assert watch["desk"] == {"rubric": 4, "chief": 9.0, "why": "people at risk"}
     assert [n for n, _ in card_stories(out)] == [1]
+
+
+def test_a_retry_tells_the_producer_which_reel_lines_the_fact_check_rejected():
+    chain = Producer([script(1, stakes=3), script(2, stakes=1), {"scores": []}])
+    produce(chain, draft(), SOURCES, ["Apple unveils a robot. (model check: Apple only plans it)"])
+    assert all("REJECTED THESE REEL LINES" in p and "Apple only plans it" in p for p in chain.prompts[:2])
+    chain = Producer([script(1, stakes=3), script(2, stakes=1), {"scores": []}])
+    produce(chain, draft(), SOURCES)
+    assert not any("REJECTED" in p for p in chain.prompts)
