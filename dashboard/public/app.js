@@ -742,6 +742,23 @@ const fmtDay = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { d
 /** [{date, value}] ascending, nulls dropped. */
 const notFuture = (d) => d <= (state.status?.today || todayIstClient());
 
+/** The day GoatCounter was read on, if the read came before that day was over (e.g. 0 visitors at 06:20). */
+function partialDay(latest) {
+  if (!latest?.collected_at) return null;
+  const at = new Date(latest.collected_at);
+  const day = at.toLocaleDateString("en-CA", IST);
+  const hour = Number(at.toLocaleString("en-GB", { ...IST, hour: "2-digit", hourCycle: "h23" }));
+  return day === latest.date && hour < 23 ? { day, time: time(latest.collected_at) } : null;
+}
+
+/** The days to chart: from the first day with visitors (at least the last 7), nothing in the future. */
+function chartDays(daily) {
+  const days = daily.filter((d) => notFuture(d.day));
+  const first = days.findIndex((d) => d.visitors > 0);
+  const start = Math.min(first < 0 ? days.length : first, Math.max(0, days.length - 7));
+  return days.slice(start);
+}
+
 function followerSeries(st, key) {
   if (key === "instagram") return st.days.map((d) => ({ date: d.date, value: d.instagram?.followers })).filter((p) => p.value != null);
   if (key === "website") return (st.days.at(-1)?.website?.daily || []).filter((d) => notFuture(d.day)).map((d) => ({ date: d.day, value: d.visitors }));
@@ -789,8 +806,12 @@ function platformTile(st, p) {
   const ch = p.key === "website" ? null : weekChange(series);
   const value = p.key === "website" ? snap.visitors_28d : last?.value;
   const label = p.key === "website" ? "visitors, last 28 days" : value === 1 ? "follower" : "followers";
+  const part = p.key === "website" ? partialDay(latest) : null;
+  const prev = part && snap.daily?.findLast((d) => d.day < part.day);
   const sub = p.key === "website"
-    ? `${num(snap.visitors_day ?? 0)} on ${fmtDay(latest.date)}`
+    ? part
+      ? `${prev ? `${num(prev.visitors)} on ${fmtDay(prev.day)} · ` : ""}${num(snap.visitors_day ?? 0)} on ${fmtDay(part.day)} by ${part.time}`
+      : `${num(snap.visitors_day ?? 0)} on ${fmtDay(latest.date)}`
     : p.key === "instagram" && snap.day?.reach != null ? `reach ${num(snap.day.reach)} on ${fmtDay(latest.date)}` : `as of ${fmtDay(last.date)}`;
   return `<section class="card ptile">${head}${auto ? "" : `<span class="status-tag t-pending">Manual</span>`}</div>
     <div class="pnum"><b>${num(value)}</b><span>${label}</span></div>
@@ -798,8 +819,9 @@ function platformTile(st, p) {
     ${sparkline(series, p.color)}</section>`;
 }
 
-function visitsChart(daily) {
+function visitsChart(daily, part) {
   if (!daily.length) return `<p class="empty">No daily numbers yet.</p>`;
+  const soFar = (d) => (part?.day === d.day ? ` so far (${part.time})` : "");
   // drawn at the card's real width, so axis text stays readable on a phone
   const W = Math.round(Math.min(760, Math.max(300, view.clientWidth * (window.innerWidth > 1080 ? 0.62 : 1) - 64)));
   const H = W < 500 ? 170 : 200, L = 34, B = 22, T = 10, n = daily.length;
@@ -816,15 +838,15 @@ function visitsChart(daily) {
     const r = Math.min(4, bw / 2, h);
     // rounded data end, square on the baseline
     const path = h <= 0 ? "" : `M${x} ${H - B}V${top + r}Q${x} ${top} ${x + r} ${top}H${x + bw - r}Q${x + bw} ${top} ${x + bw} ${top + r}V${H - B}Z`;
-    return `<g class="hit" data-tip="${esc(fmtDay(d.day))}: ${num(d.visitors)} visitors"><rect x="${L + i * step}" y="${T}" width="${step}" height="${H - T - B}" fill="transparent"/>
-      <path d="${path}" class="barfill"/></g>`;
+    return `<g class="hit" data-tip="${esc(fmtDay(d.day))}: ${num(d.visitors)} visitors${esc(soFar(d))}"><rect x="${L + i * step}" y="${T}" width="${step}" height="${H - T - B}" fill="transparent"/>
+      <path d="${path}" class="barfill${part?.day === d.day ? " partial" : ""}"/></g>`;
   }).join("");
   const anchor = (i) => (i === 0 ? "start" : i === n - 1 ? "end" : "middle");
   const tx = (i) => (i === 0 ? L + (step - bw) / 2 : i === n - 1 ? L + i * step + (step + bw) / 2 : L + i * step + step / 2);
   const ticks = [0, Math.floor((n - 1) / 2), n - 1].map((i) => `<text x="${tx(i)}" y="${H - 6}" class="axis" text-anchor="${anchor(i)}">${esc(fmtDay(daily[i].day))}</text>`).join("");
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Website visitors per day, ${esc(fmtDay(daily[0].day))} to ${esc(fmtDay(daily.at(-1).day))}">${grid}${bars}${ticks}</svg>
     <details class="more"><summary>Table</summary><div><table class="tbl"><thead><tr><th>Day</th><th>Visitors</th></tr></thead>
-    <tbody>${[...daily].reverse().map((d) => `<tr><td>${esc(fmtDay(d.day))}</td><td>${num(d.visitors)}</td></tr>`).join("")}</tbody></table></div></details>`;
+    <tbody>${[...daily].reverse().map((d) => `<tr><td>${esc(fmtDay(d.day))}</td><td>${num(d.visitors)}${esc(soFar(d))}</td></tr>`).join("")}</tbody></table></div></details>`;
 }
 
 function barList(rows, name, value, cls = "") {
@@ -874,7 +896,7 @@ async function renderStats() {
     <div class="ptiles">${PLATFORMS.map((p) => platformTile(st, p)).join("")}</div>
     <div class="stages align-top">
       <section class="card two-thirds"><div class="card-head"><h3>Website visitors per day</h3><span class="muted" style="font-size:13px">GoatCounter</span></div>
-        ${web ? visitsChart(web.daily.filter((d) => notFuture(d.day))) : `<p class="empty">Connect GoatCounter to see daily visits.</p>`}</section>
+        ${web ? visitsChart(chartDays(web.daily), partialDay(latest)) : `<p class="empty">Connect GoatCounter to see daily visits.</p>`}</section>
       <section class="card third"><div class="card-head"><h3>Where readers came from</h3><span class="muted" style="font-size:13px">7 days</span></div>
         ${web?.top_refs?.length ? barList(web.top_refs, (r) => r.name, (r) => r.visitors) : `<p class="empty">No referrers yet.</p>`}</section>
       <section class="card"><div class="card-head"><h3>Most-read pages</h3><span class="muted" style="font-size:13px">7 days</span></div>

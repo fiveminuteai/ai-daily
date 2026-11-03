@@ -442,6 +442,7 @@ dialog::backdrop { background: rgba(5, 8, 20, .7); backdrop-filter: blur(3px); }
 .chart .grid { stroke: var(--line); stroke-width: 1; }
 .chart .axis { fill: var(--muted); font: 11px var(--text); }
 .chart .barfill { fill: var(--accent); opacity: .85; transition: opacity .15s; }
+.chart .barfill.partial { opacity: .4; }               /* the day was still going when the numbers were read */
 .chart .hit { cursor: default; }
 .chart .hit.on .barfill { opacity: 1; fill: color-mix(in srgb, var(--accent) 80%, white); }
 .tip {
