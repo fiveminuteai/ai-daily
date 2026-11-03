@@ -1,0 +1,433 @@
+{
+ "date": "2026-11-03",
+ "started_at": "2026-11-03T03:50:06+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 22.6,
+   "items": 648,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 2
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 6
+    },
+    "github": {
+     "status": "ok",
+     "items": 11
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 21.3,
+   "stories": 213,
+   "editor": true,
+   "top": [
+    {
+     "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+     "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+     "score": 7.37,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+     "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+     "score": 7.22,
+     "interest": 9.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Coming in 2027: Apple’s $1,000 home robot for FaceTime and switching on lights",
+     "url": "https://arstechnica.com/apple/2026/11/apples-roaming-home-robot-may-do-facetime-switch-lights-on-and-yell-at-your-cat/",
+     "score": 6.7,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Elon Musk throttles Grok Bot limits due to ‘unsustainably high’ costs",
+     "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Gemini could be poking through your emails - here's how to stop it",
+     "url": "https://www.engadget.com/2300353/google-gemini-poking-through-email-how-to-stop/",
+     "score": 6.44,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
+     "url": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
+     "score": 6.29,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+     "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+     "score": 6.15,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "techpolicy.press (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic clamps down on Claude’s AI video game clones",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+     "score": 6.11,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Claude’s new rules against game cloning won’t stop the AI copying boom",
+     "url": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/",
+     "score": 6.09,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI is finally merging ChatGPT’s Chat and Work tabs",
+     "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+     "score": 6.03,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Scaling Git at OpenAI",
+     "url": "https://openai.com/index/scaling-git-at-openai",
+     "score": 5.58,
+     "interest": 3.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "openai.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI pitches data center power plants as a way to protect nearby areas",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1024604/openai-data-center-grid-protection-program",
+     "score": 5.49,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+     "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+     "score": 7.37,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+     "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+     "score": 7.22,
+     "interest": 9.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini could be poking through your emails - here's how to stop it",
+     "url": "https://www.engadget.com/2300353/google-gemini-poking-through-email-how-to-stop/",
+     "score": 6.44,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+     "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+     "score": 6.15,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "techpolicy.press (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic clamps down on Claude’s AI video game clones",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+     "score": 6.11,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 3.0,
+   "articles": 10,
+   "with_text": 10
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 5.8,
+   "word_count": 1131,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "Five Minute AI newsroom",
+   "seconds": {
+    "write": 28.1,
+    "reel_desk": 28.1,
+    "layer1": 0.1,
+    "layer2": 97.8,
+    "gate": 1.2
+   },
+   "layer1": {
+    "checked": 109,
+    "ok": 104,
+    "repaired": 5,
+    "dropped": 0
+   },
+   "layer2": {
+    "checked": 107,
+    "ok": 102,
+    "repaired": 5,
+    "dropped": 0
+   },
+   "unused": 2,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Anthropic says it may soon reach its own threshold for self-accelerating AI",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 9.0,
+     "why": "A giant AI lab warning investors its AI may soon accelerate itself; startling and widely discussed",
+     "hook": "Anthropic tells investors its AI may soon speed up its own progress.",
+     "chosen": true
+    },
+    {
+     "story": "The New York Times sues Brave over AI scraping and paywall bypassing",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Big-name lawsuit with AI giants named as buyers, but the defendant Brave is less known",
+     "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
+     "chosen": true
+    },
+    {
+     "story": "What Gemini does with your Gmail, according to Google",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Touches every Gmail user directly, with a clear check-your-settings angle",
+     "hook": "Gemini can read your Gmail, and many of its features are on by default.",
+     "chosen": true
+    },
+    {
+     "story": "An op-ed argues the SEC should block Anthropic's IPO",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "One critic's opinion with big numbers; finance insiders care more than most viewers",
+     "hook": "A critic says Anthropic's $582 billion in commitments should stop its IPO.",
+     "chosen": false
+    },
+    {
+     "story": "Anthropic steers Claude Code away from cloning existing video games",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "A clear AI refusal story, but mostly for developers and gamers",
+     "hook": "Anthropic told Claude Code to stop cloning existing video games.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-03-anthropic-warns-it-may-soon-cross-its",
+ "finished_at": "2026-11-03T03:53:39+00:00",
+ "seconds": 213.2
+}

@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-03",
+ "slug": "2026-11-03-anthropic-warns-it-may-soon-cross-its",
+ "headline": "Anthropic warns it may soon cross its own threshold for faster AI progress",
+ "url": "https://fiveminuteai.net/posts/2026-11-03-anthropic-warns-it-may-soon-cross-its/",
+ "generated_at": "2026-11-03T03:54:33+00:00",
+ "items": [
+  {
+   "id": "2026-11-03-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "Anthropic warns it may soon cross its own threshold for faster AI progress\n\n• Anthropic's new filing warns it may soon meet its own threshold for accelerated progress, though no current model crosses it.\n• The New York Times and three other papers sued Brave, alleging it scraped their articles and sold access to AI companies.\n• Gemini reads your Gmail to summarise and draft replies, and Google says it does not train its foundational AI models on personal emails.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-03-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Anthropic warns it may soon cross its own threshold for faster AI progress\n\n• Anthropic's new filing warns it may soon meet its own threshold for accelerated progress, though no current model crosses it.\n\nhttps://fiveminuteai.net/posts/2026-11-03-anthropic-warns-it-may-soon-cross-its/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 228
+  },
+  {
+   "id": "2026-11-03-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Anthropic warns it may soon cross its own threshold for faster AI progress\n\n• Anthropic's new filing warns it may soon meet its own threshold for accelerated progress, though no current model crosses it.\n• The New York Times and three other papers sued Brave, alleging it scraped their articles and sold access to AI companies.\n• Gemini reads your Gmail to summarise and draft replies, and Google says it does not train its foundational AI models on personal emails.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-03-anthropic-warns-it-may-soon-cross-its/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-03-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Anthropic tells investors its AI may soon speed up its own progress[S1].",
+   "text": "Anthropic tells investors its AI may soon speed up its own progress.\n\n• The warning sits in the Risk Factors of Anthropic's revised S-1A filing.\n• It says capabilities may advance faster than its safety, alignment and security measures.\n• Anthropic says it has missed such jumps before, and no current model crosses the line.\n\nOur read: When the builder itself warns that safety may lag, the debate about AI speed stops being theory.\n\nYour take: Should AI labs slow down when safety lags? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-03T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-03-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Gemini can read your Gmail, and many of its features are on by default[S4].",
+   "text": "Gemini can read your Gmail, and many of its features are on by default.\n\n• Gemini summarises recent emails, creates to-do lists and drafts replies.\n• Google says it does not train Gemini on your personal emails.\n• Google says Gemini does not hold onto your data after each request.\n\nDo this: Open your Gmail settings and check which Gemini features are switched on.\n\nYour take: Do you let AI read your work email? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-03T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-03-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms[S3].",
+   "text": "The New York Times sues Brave, saying it sold scraped news to AI firms.\n\n• The suit says Brave indexed more than 30 billion web pages with an unidentified crawler.\n• Named customers include Anthropic, Perplexity, Mistral, xAI and Cohere.\n• Three more papers filed a similar lawsuit the same day in Manhattan.\n\nOur read: The copyright fight is moving from AI labs to the companies that supply their data.\n\nYour take: Should AI companies pay for the news they use? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-03T13:30:00+00:00"
+  }
+ ]
+}

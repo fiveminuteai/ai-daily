@@ -1,0 +1,282 @@
+{
+  "date": "2026-11-03",
+  "slug": "2026-11-03-anthropic-warns-it-may-soon-cross-its",
+  "headline": "Anthropic warns it may soon cross its own threshold for faster AI progress",
+  "dek": "Anthropic's IPO filing warns it may imminently meet a threshold in its own Responsible Scaling Policy, as The New York Times sues Brave over scraping[S1][S3].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "policy",
+    "products",
+    "anthropic",
+    "google",
+    "copyright",
+    "ai-safety",
+    "ipo"
+  ],
+  "what_happened": [
+    "Anthropic's new filing warns it may soon meet its own threshold for accelerated progress, though no current model crosses it[S1].",
+    "The New York Times and three other papers sued Brave, alleging it scraped their articles and sold access to AI companies[S3].",
+    "Gemini reads your Gmail to summarise and draft replies, and Google says it does not train its foundational AI models on personal emails[S4]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Anthropic says it may soon reach its own threshold for self-accelerating AI",
+      "category": "policy",
+      "paragraphs": [
+        "Anthropic added new warnings to the Risk Factors section of its revised S-1A filing on Monday[S1]. The filing says the company may imminently meet a threshold set in its own Responsible Scaling Policy[S1]. TechCrunch reads this as a warning that Anthropic is close to recursive self-improvement, or RSI[S1]. The same filing also updated the company's financials, showing revenue and expenses both rising[S1].",
+        "Anthropic says it uses AI in its own research and development[S1]. The filing warns this may cause its models' capabilities to advance faster than its ability to build matching safety, alignment and security measures[S1]. It also says the company has in the past not identified a significant acceleration in its rate of development until after it happened[S1]. Anthropic says it has not designated any of its current models as exceeding this threshold[S1]. The warning rests on internal estimates and expectations about future models, not current ones[S1].",
+        "RSI is the point where AI becomes good enough at training itself that progress speeds up sharply[S1]. Some people see it as a danger that could slip beyond human control[S1]. Others see it as a source of huge productivity and scientific discovery[S1]. Anthropic's Responsible Scaling Policy is its plan to monitor and reduce these risks as that point approaches[S1]."
+      ],
+      "card": {
+        "hook": "Anthropic tells investors its AI may soon speed up its own progress[S1].",
+        "points": [
+          "The warning sits in the Risk Factors of Anthropic's revised S-1A filing[S1].",
+          "It says capabilities may advance faster than its safety, alignment and security measures[S1].",
+          "Anthropic says it has missed such jumps before, and no current model crosses the line[S1]."
+        ],
+        "take": "When the builder itself warns that safety may lag, the debate about AI speed stops being theory[S1].",
+        "take_kind": "read",
+        "ask": "Should AI labs slow down when safety lags[S1]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "The lab building frontier AI tells investors its AI may soon speed up its own progress faster than safety can follow.",
+        "desk": {
+          "rubric": 8,
+          "chief": 9.0,
+          "why": "A giant AI lab warning investors its AI may soon accelerate itself; startling and widely discussed"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 2,
+      "title": "The New York Times sues Brave over AI scraping and paywall bypassing",
+      "category": "policy",
+      "paragraphs": [
+        "The New York Times sued Brave, the company behind the privacy-focused Brave browser, on Monday[S3]. The suit alleges Brave scraped the paper's copyrighted content and unlawfully distributed it to AI companies[S3]. The Daily News, the Chicago Tribune and the Orlando Sentinel filed a similar lawsuit the same day[S3]. Both cases were brought in federal court in Manhattan[S3].",
+        "The suit says Brave built an index of more than 30 billion web pages using an unidentified crawler, leaving publishers unable to block it[S3]. According to the complaints, Brave sells AI companies paid access to content from that index[S2]. The customers named are Anthropic, Perplexity, Mistral, xAI and Cohere[S3]. The suits also target a Brave browser feature that lets users bypass paywalls[S3]. The publishers say Brave never asked their permission or paid them[S2].",
+        "The New York Times has also sued OpenAI and Perplexity over similar claims[S3]. Brave did not immediately respond to a request for comment[S3]."
+      ],
+      "card": {
+        "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms[S3].",
+        "points": [
+          "The suit says Brave indexed more than 30 billion web pages with an unidentified crawler[S3].",
+          "Named customers include Anthropic, Perplexity, Mistral, xAI and Cohere[S3].",
+          "Three more papers filed a similar lawsuit the same day in Manhattan[S3]."
+        ],
+        "take": "The copyright fight is moving from AI labs to the companies that supply their data[S3].",
+        "take_kind": "read",
+        "ask": "Should AI companies pay for the news they use[S3][S2]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "The paywall fight reaches the companies that feed AI labs, and the named buyers include Anthropic and xAI.",
+        "desk": {
+          "rubric": 7,
+          "chief": 7.0,
+          "why": "Big-name lawsuit with AI giants named as buyers, but the defendant Brave is less known"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 3,
+      "title": "What Gemini does with your Gmail, according to Google",
+      "category": "products",
+      "paragraphs": [
+        "Google has rolled out many Gemini features across Gmail this year, Engadget reports[S4]. Gemini can summarise recent emails, create to-do lists and draft replies[S4]. Many of these free features are switched on by default[S4]. That has raised concerns about whether putting Gemini in Gmail violates users' privacy[S4].",
+        "To do these tasks, Gemini needs access to the content of your emails[S4]. In a statement from April 2026, Google says it does not train its foundational AI models, including Gemini, on personal emails[S4]. Google says Gemini only accesses your inbox for isolated tasks such as summarising or drafting[S4]. It says Gemini processes your information to complete the request and does not hold onto it afterwards[S4]. Google's support page says the same safeguards Cover Chat, Calendar, Docs, Drive, Sheets and Slides[S4].",
+        "A large language model is the kind of AI system behind chatbots like Gemini[S4]. Many AI companies also face lawsuits accusing them of mass copyright infringement[S4]. That is why users ask whether their own emails could end up as training data[S4]. Engadget says turning off smart features can also switch off spelling and grammar checks[S4]."
+      ],
+      "card": {
+        "hook": "Gemini can read your Gmail, and many of its features are on by default[S4].",
+        "points": [
+          "Gemini summarises recent emails, creates to-do lists and drafts replies[S4].",
+          "Google says it does not train Gemini on your personal emails[S4].",
+          "Google says Gemini does not hold onto your data after each request[S4]."
+        ],
+        "take": "Open your Gmail settings and check which Gemini features are switched on[S4].",
+        "take_kind": "do",
+        "ask": "Do you let AI read your work email[S4]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "Gemini is already reading the inbox of anyone on Gmail, often by default; what Google says it does with that.",
+        "desk": {
+          "rubric": 7,
+          "chief": 8.0,
+          "why": "Touches every Gmail user directly, with a clear check-your-settings angle"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 4,
+      "title": "An op-ed argues the SEC should block Anthropic's IPO",
+      "category": "policy",
+      "paragraphs": [
+        "Anthropic filed the registration statement for its initial public offering last week, ahead of a planned November stock market debut[S5]. In an opinion piece, Matt Scherer argues the SEC should block the listing[S5]. Scherer is co-author of a report on protecting people and the economy if an AI bubble bursts[S5]. He says the company's finances look stronger on the surface than underneath[S5].",
+        "Scherer writes that Anthropic has $96 billion in cash reserves[S5]. He says its amended registration statement shows at least $582 billion in non-cancelable spending commitments to five companies: Amazon, AMD, Broadcom, Google and Microsoft[S5]. He says footnotes reveal nearly $900 billion in spending commitments in total, most stretching into the 2030s[S5]. He notes the 2026 results have not been formally audited[S5]. He argues third-quarter results suggest revenue growth slowed over the summer[S5].",
+        "Scherer argues that spending commitments like these work like debts, because the payments are contractually required in future[S5]. His worry is that workers, retail investors and retirees could be left holding the bag[S5]."
+      ],
+      "card": {
+        "hook": "A critic says Anthropic's $582 billion in commitments should stop its IPO[S5].",
+        "points": [
+          "Anthropic plans a November stock market debut, the op-ed says[S5].",
+          "Matt Scherer counts $96 billion in cash against far larger spending commitments[S5].",
+          "He notes Anthropic's 2026 results have not been formally audited[S5]."
+        ],
+        "take": "This is one critic's reading of the filing, not a regulator's decision[S5].",
+        "take_kind": "read",
+        "ask": "Would you buy shares in an AI lab[S5]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "One critic reads Anthropic's IPO filing and sees giant bills; an opinion, not a ruling.",
+        "desk": {
+          "rubric": 6,
+          "chief": 5.0,
+          "why": "One critic's opinion with big numbers; finance insiders care more than most viewers"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 5,
+      "title": "Anthropic steers Claude Code away from cloning existing video games",
+      "category": "products",
+      "paragraphs": [
+        "Anthropic has updated Claude Code's system prompt so the tool is not used to re-create existing video games, The Verge reports[S6]. Users can still use Claude Code to make their own games[S6]. Anthropic's Addy Osmani said the change applies to Claude Code on Opus 5.5[S6]. Tom's Hardware first reported the change, according to The Verge[S6].",
+        "Last week, a user on X posted a screenshot said to show two new sentences in the prompt[S6]. Osmani did not confirm that exact wording, but said Anthropic had added two sentences to the prompt[S6]. He said the aim is to steer Claude away from recreating someone else's specific game[S6]. He said using Claude to infringe intellectual property is against Anthropic's usage policy[S6]. Original games, genre games and games built from a user's own designs and assets are meant to keep working, he said[S6].",
+        "Retro gaming is being flooded with AI-made decompilations, recompilations and ports, The Verge reports[S6]. Osmani said Anthropic will keep adjusting the rule to strike the right balance[S6]. The Verge has asked whether other Claude system prompts will change too[S6]."
+      ],
+      "card": {
+        "hook": "Anthropic told Claude Code to stop cloning existing video games[S6].",
+        "points": [
+          "Anthropic added two sentences to Claude Code's prompt on Opus 5.5[S6].",
+          "Original games and games from your own designs are meant to keep working[S6].",
+          "Anthropic says using Claude to infringe intellectual property breaks its usage policy[S6]."
+        ],
+        "take": "If Claude refuses a game that is yours, Anthropic's Addy Osmani asked users to send it to him[S6].",
+        "take_kind": "read",
+        "ask": "Should AI tools refuse to copy games[S6]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "An AI lab quietly told its coding tool to refuse game clones; creators and gamers both have a stake.",
+        "desk": {
+          "rubric": 6,
+          "chief": 6.0,
+          "why": "A clear AI refusal story, but mostly for developers and gamers"
+        },
+        "bonus": 0.0
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "Anthropic's warning sits in its IPO filing, not a blog post[S1]. The filing says safety, alignment and security work may not keep pace with its models' capabilities[S1]. It also says the company has missed such accelerations before, until after they happened[S1].",
+      "speculative": true
+    },
+    {
+      "text": "The Brave case targets a supplier of content to AI firms rather than an AI lab itself[S3]. The named customers include Anthropic, Perplexity, Mistral, xAI and Cohere[S3]. A win for the Publishers could change where AI companies get their fresh text[S3].",
+      "speculative": true
+    }
+  ],
+  "quote": {
+    "text": "dramatically accelerated progress attributable to AI",
+    "speaker": "Anthropic",
+    "source": "S1"
+  },
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-02T22:14:50+00:00",
+      "title": "Anthropic says it may soon reach its own threshold for self-accelerating AI",
+      "publisher": "TechCrunch",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-02T19:19:17+00:00",
+      "title": "The New York Times sues Brave over AI scraping and paywall bypassing",
+      "publisher": "TechCrunch",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-02T17:15:00+00:00",
+      "title": "What Gemini does with your Gmail, according to Google",
+      "publisher": "Engadget",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-02T22:30:47+00:00",
+      "title": "An op-ed argues the SEC should block Anthropic's IPO",
+      "publisher": "techpolicy.press (via Hacker News)",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-02T18:56:02+00:00",
+      "title": "Anthropic steers Claude Code away from cloning existing video games",
+      "publisher": "The Verge",
+      "category": "products"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-02T22:14:50+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "The New York Times sues Brave web browser for AI scraping and bypassing paywalls",
+      "url": "https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times",
+      "publisher": "The Verge",
+      "published": "2026-11-02T17:51:19+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+      "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-02T19:19:17+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Gemini could be poking through your emails - here's how to stop it",
+      "url": "https://www.engadget.com/2300353/google-gemini-poking-through-email-how-to-stop/",
+      "publisher": "Engadget",
+      "published": "2026-11-02T17:15:00+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "publisher": "techpolicy.press (via Hacker News)",
+      "published": "2026-11-02T22:30:47+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Anthropic clamps down on Claude’s AI video game clones",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+      "publisher": "The Verge",
+      "published": "2026-11-02T18:56:02+00:00"
+    }
+  ],
+  "model": "Five Minute AI newsroom",
+  "generated_at": "2026-11-03T03:53:27+00:00",
+  "verification": {
+    "checked": 107,
+    "ok": 102,
+    "repaired": 5,
+    "dropped": 0,
+    "unused": 2,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1131,
+  "reading_minutes": 6
+}

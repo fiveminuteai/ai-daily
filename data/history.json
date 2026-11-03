@@ -566,5 +566,115 @@
     "uncut"
    ]
   ]
+ },
+ {
+  "date": "2026-11-03",
+  "slug": "2026-11-03-anthropic-warns-it-may-soon-cross-its",
+  "urls": [
+   "engadget.com/2300353/google-gemini-poking-through-email-how-to-stop",
+   "techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai",
+   "techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping",
+   "techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public",
+   "theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones",
+   "theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times"
+  ],
+  "tokens": [
+   "aka",
+   "alleged",
+   "anthropic",
+   "block",
+   "brave",
+   "browser",
+   "bypassing",
+   "capability",
+   "clamps",
+   "claude",
+   "clones",
+   "close",
+   "content",
+   "could",
+   "down",
+   "emails",
+   "game",
+   "gemini",
+   "here",
+   "ipo",
+   "other",
+   "outlets",
+   "paywalls",
+   "poking",
+   "protect",
+   "public",
+   "rsi",
+   "scraping",
+   "sec",
+   "self-building",
+   "should",
+   "stop",
+   "sue",
+   "sues",
+   "through",
+   "times",
+   "very",
+   "video",
+   "warns",
+   "web",
+   "york"
+  ],
+  "story_tokens": [
+   [
+    "aka",
+    "anthropic",
+    "capability",
+    "close",
+    "rsi",
+    "self-building",
+    "very",
+    "warns"
+   ],
+   [
+    "alleged",
+    "brave",
+    "browser",
+    "bypassing",
+    "content",
+    "other",
+    "outlets",
+    "paywalls",
+    "scraping",
+    "sue",
+    "sues",
+    "times",
+    "web",
+    "york"
+   ],
+   [
+    "could",
+    "emails",
+    "gemini",
+    "here",
+    "poking",
+    "stop",
+    "through"
+   ],
+   [
+    "anthropic",
+    "block",
+    "ipo",
+    "protect",
+    "public",
+    "sec",
+    "should"
+   ],
+   [
+    "anthropic",
+    "clamps",
+    "claude",
+    "clones",
+    "down",
+    "game",
+    "video"
+   ]
+  ]
  }
 ]
