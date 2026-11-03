@@ -6,7 +6,7 @@
 // "–") plus a warning, so one bad field never blanks the whole screen.
 
 import { readFile, stat } from "node:fs/promises";
-import { dirname, isAbsolute, join, normalize } from "node:path";
+import { dirname, join, normalize, win32 } from "node:path";
 import { fileURLToPath } from "node:url";
 
 // ai-daily and faceless-ig sit side by side in Projects/AI; Settings can point somewhere else.
@@ -92,8 +92,9 @@ export function parseFeed(raw) {
   return { version: data.version, generatedAt: isoish(data.generated_at), accounts, income, warnings };
 }
 
+// Windows path rules on every OS: the desktop app runs on Windows, and the tests also run on Linux in Actions
 export function validFeedPath(p) {
-  return typeof p === "string" && p.length < 400 && isAbsolute(p) && /\.json$/i.test(p) && !/[\0"<>|?*]/.test(p);
+  return typeof p === "string" && p.length < 400 && win32.isAbsolute(p) && /\.json$/i.test(p) && !/[\0"<>|?*]/.test(p);
 }
 
 /** The whole GET local/pages answer. readImpl/statImpl are injectable for tests. */
