@@ -1,10 +1,10 @@
 {
  "date": "2026-11-03",
- "collected_at": "2026-11-03T00:50:20+00:00",
+ "collected_at": "2026-11-03T18:00:54+00:00",
  "website": {
   "status": "ok",
-  "visitors_28d": 102,
-  "visitors_day": 0,
+  "visitors_28d": 114,
+  "visitors_day": 12,
   "daily": [
    {
     "day": "2026-10-07",
@@ -116,7 +116,7 @@
    },
    {
     "day": "2026-11-03",
-    "visitors": 0
+    "visitors": 12
    },
    {
     "day": "2026-11-04",
@@ -127,7 +127,7 @@
    {
     "path": "/",
     "title": "Five Minute AI",
-    "visitors": 59
+    "visitors": 67
    },
    {
     "path": "/ai-daily",
@@ -137,6 +137,11 @@
    {
     "path": "/about",
     "title": "How this blog is made · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
     "visitors": 5
    },
    {
@@ -153,11 +158,6 @@
     "path": "/ai-daily/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
     "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
     "visitors": 4
-   },
-   {
-    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
-    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
-    "visitors": 2
    },
    {
     "path": "/share/2026-10-30",
@@ -178,34 +178,34 @@
   "top_refs": [
    {
     "name": "(direct)",
-    "visitors": 56
+    "visitors": 61
    },
    {
     "name": "fiveminuteai.net",
-    "visitors": 15
+    "visitors": 16
    },
    {
     "name": "fiveminuteai.net/about",
     "visitors": 5
    },
    {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 4
+   },
+   {
     "name": "Google",
     "visitors": 3
    },
    {
-    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
     "visitors": 3
    },
    {
+    "name": "com.linkedin.android",
+    "visitors": 2
+   },
+   {
     "name": "www.facebook.com",
-    "visitors": 2
-   },
-   {
-    "name": "fiveminuteai.net/archive",
-    "visitors": 2
-   },
-   {
-    "name": "fiveminuteai.net/tags",
     "visitors": 2
    }
   ]
@@ -214,28 +214,73 @@
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 1,
-  "media_count": 9,
+  "media_count": 12,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 12,
+   "views": 19,
+   "accounts_engaged": 1,
+   "total_interactions": 2
   },
   "posts": [
+   {
+    "id": "18052874651820583",
+    "timestamp": "2026-11-03T13:31:37+0000",
+    "permalink": "https://www.instagram.com/reel/DfR_opvGY_k/",
+    "type": "VIDEO",
+    "caption": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 1,
+    "views": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 3.1
+   },
+   {
+    "id": "18353347291267090",
+    "timestamp": "2026-11-03T07:31:32+0000",
+    "permalink": "https://www.instagram.com/reel/DfRWaqnE0mS/",
+    "type": "VIDEO",
+    "caption": "Gemini can read your Gmail, and many of its features are on by default.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 5,
+    "views": 6,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 4.3
+   },
+   {
+    "id": "18132533923833435",
+    "timestamp": "2026-11-03T04:00:29+0000",
+    "permalink": "https://www.instagram.com/reel/DfQ-R30k4UP/",
+    "type": "VIDEO",
+    "caption": "Anthropic tells investors its AI may soon speed up its own progress.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 10,
+    "views": 13,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 6.0
+   },
    {
     "id": "18125795491913483",
     "timestamp": "2026-11-02T13:31:18+0000",
     "permalink": "https://www.instagram.com/reel/DfPa0AViE2P/",
     "type": "VIDEO",
     "caption": "Only $50 for a barely functional AI pocket watch.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
-    "reach": 2,
-    "views": 3,
+    "reach": 3,
+    "views": 7,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 12.3
+    "total_interactions": 1,
+    "avg_watch_s": 10.4
    },
    {
     "id": "18214633642367321",
@@ -246,11 +291,11 @@
     "likes": 1,
     "comments": 0,
     "reach": 30,
-    "views": 40,
+    "views": 42,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 8.6
+    "avg_watch_s": 8.0
    },
    {
     "id": "17978227025935203",
@@ -260,8 +305,8 @@
     "caption": "35 turbines operate without permits.",
     "likes": 1,
     "comments": 0,
-    "reach": 48,
-    "views": 51,
+    "reach": 49,
+    "views": 52,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
@@ -355,7 +400,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 2,
-    "avg_watch_s": 4.1
+    "avg_watch_s": 4.0
    }
   ]
  }
