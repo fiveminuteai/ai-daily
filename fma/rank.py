@@ -99,6 +99,21 @@ def guess_category(story: Story, hints: dict[str, list[str]]) -> str:
     return max(set(cats), key=cats.count)
 
 
+LISTINGS = {"github", "hf-models", "hf-papers"}    # repositories, model cards and paper lists, not news
+
+
+def player_of(text: str, players: dict) -> str:
+    """Which of the players our readers follow a headline is about: "rivalry" (a challenger next to a giant, or a
+    challenger that beats, tops or undercuts), "giant", "challenger", or ""."""
+    def named(kind: str) -> bool:
+        return any(re.search(r"(?<![\w-])" + re.escape(w) + r"(?![\w-])", text, 0 if w != w.lower() else re.I)
+                   for w in players.get(kind, []))
+    giant, challenger = named("giant"), named("challenger")
+    if challenger and (giant or re.search(players.get("beats") or r"(?!x)x", text, re.I)):
+        return "rivalry"
+    return "giant" if giant else "challenger" if challenger else ""
+
+
 def score_story(story: Story, now: datetime, half_life_h: float = 18.0) -> float:
     """Importance = best single item + breadth of coverage + community attention."""
     best = 0.0
@@ -141,6 +156,7 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
     hints = cfg.get("category_hints", {})
     demote = [re.compile(p, re.I) for p in cfg.get("demote_patterns", [])]
     boost = [re.compile(p, re.I) for p in cfg.get("boost_patterns", [])]
+    players, player_boost = cfg.get("players", {}), cfg.get("player_boost", {})
     out = []
     for st in stories:
         if already_covered(st, history, today, int(pipe.get("dedupe_days", 14)), int(pipe.get("similar_title_days", 3))):
@@ -151,6 +167,10 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
             st.score = round(st.score * 0.5, 4)
         if any(i.primary and p.search(i.title) for i in st.items for p in boost):
             st.score = round(st.score + 0.6, 4)
+        news = [i for i in st.items if i.source_id not in LISTINGS][:3]     # a repo naming "Claude" is not about Anthropic
+        st.player = player_of(" ".join(i.title for i in news), players) if news else ""
+        if st.player:
+            st.score = round(st.score + float(player_boost.get(st.player, 0.0)), 4)
         if st.category == "architecture":
             st.score = round(st.score + 0.25, 4)   # a real architecture development should make the cut
         out.append(st)

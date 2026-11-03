@@ -29,6 +29,7 @@ from pathlib import Path
 from statistics import mean, pstdev
 
 from . import config
+from .rank import player_of
 
 log = logging.getLogger(__name__)
 
@@ -38,6 +39,14 @@ MIN_N = 8             # Reels needed on each side before a feature can count
 MAX_BONUS = 1.0       # a category's learned bonus, in Reel-desk points (the bar is 6 of 10)
 STEP = 0.25           # largest change to a bonus in one week
 LESSONS_MAX, LESSON_DAYS = 5, 28
+
+
+def _yaml(path: Path) -> dict | None:
+    try:
+        import yaml
+        return yaml.safe_load(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, ImportError):
+        return None
 
 
 def _load(path: Path):
@@ -67,6 +76,7 @@ def dataset(root: Path) -> list[dict]:
     """One row per posted Reel with mature numbers: what we decided (features) and what happened (outcome)."""
     numbers = latest_numbers(root)
     rows = []
+    players = (_yaml(root / "config/sources.yaml") or {}).get("players", {})
     for qpath in sorted((root / "data/social").glob("20*.json")):
         queue = _load(qpath) or {}
         post = _load(root / "content/posts" / qpath.name) or {}
@@ -83,6 +93,7 @@ def dataset(root: Path) -> list[dict]:
             rows.append({
                 "id": item["id"], "date": qpath.stem, "slot": int(item["id"].rsplit("-", 1)[-1]),
                 "category": sec.get("category") or "unknown",
+                "player": player_of(" ".join([sec.get("title") or "", hook]), players) or "other",
                 "hook_number": bool(re.search(r"\d", hook)), "hook_words": len(hook.split()),
                 "desk": card.get("reel"), "hook": hook.strip(),
                 "reach": got["reach"], "watch_s": got.get("avg_watch_s"), "shares": got.get("shares") or 0,
@@ -109,6 +120,7 @@ def _score(rows: list[dict]) -> None:
 
 FEATURES = {
     "category": lambda r: r["category"],
+    "player": lambda r: r.get("player", "other"),
     "slot": lambda r: {1: "09:00", 2: "13:00", 3: "19:00"}.get(r["slot"], str(r["slot"])),
     "number in hook": lambda r: "yes" if r["hook_number"] else "no",
     "hook length": lambda r: "short (<=10 words)" if r["hook_words"] <= 10 else "long (11+ words)",

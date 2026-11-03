@@ -125,3 +125,28 @@ def test_outlet_read_through_two_feeds_counts_once_and_brain_implants_pass_the_a
     names = [s["name"] for s in config.sources_config()["sources"]]
     from fma.site import first_by_name
     assert len({s["name"] for s in first_by_name(config.sources_config()["sources"])}) == len(set(names))
+
+
+def test_player_tags_giants_challengers_and_rivalries():
+    from fma.config import sources_config
+    from fma.rank import player_of
+    players = sources_config()["players"]
+    assert player_of("Anthropic warns it is close to self-improving AI", players) == "giant"
+    assert player_of("Mistral releases open weights for a trillion-parameter model", players) == "challenger"
+    assert player_of("DeepSeek's new model beats GPT-6 at half the price", players) == "rivalry"
+    assert player_of("Perplexity takes on Google search", players) == "rivalry"
+    assert player_of("A hobbyist built an AI pocket watch", players) == ""
+    assert player_of("Metadata tools for LLM pipelines", players) == ""          # whole words only
+
+
+def test_stories_about_the_giants_outrank_equal_ones_and_repos_get_no_boost():
+    cfg = {"players": {"giant": ["OpenAI", "Claude"], "challenger": ["Mistral"]},
+           "player_boost": {"giant": 1.0, "challenger": 0.6}}
+    items = [item("OpenAI cuts its funding target", "https://a.com/1"),
+             item("City council debates parking rules", "https://b.com/2"),
+             item("Mistral opens a Paris data centre", "https://c.com/3"),
+             item("acme/claude-tools: helpers for Claude", "https://github.com/acme/x", src="github")]
+    out = rank(items, cfg, {}, [], NOW, "2026-11-03")
+    by = {s.title[:6]: s for s in out}
+    assert by["OpenAI"].player == "giant" and by["Mistra"].player == "challenger" and by["acme/c"].player == ""
+    assert by["OpenAI"].score > by["Mistra"].score > by["City c"].score

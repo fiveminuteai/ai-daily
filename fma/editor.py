@@ -15,13 +15,18 @@ nothing else."""
 
 # Anchored scale (2 Nov 2026): without anchors the editor gave a GitHub repo 6 and "chatbots are leading hikers into
 # danger" 5, and a hobbyist's AI pocket watch made the post and a Reel.
-SCALE = """Score 0 to 10 with these anchors:
-9-10: affects or endangers many ordinary people, or a giant move everyone will hear about (a ban, a huge lawsuit or
-      fine, a major outage or breach, a launch from OpenAI, Google, Apple or Meta that people can use)
-7-8:  a big name in a fight or a surprise (a court ruling, a reversal, money trouble, a striking first), AI causing
-      real-world harm or help, a security threat to everyday users, a change arriving in apps people already use
-5-6:  a solid industry story with a clear consequence, but it stays inside the industry
-3-4:  product previews and reviews, hobby builds, renamings and rebrands, opinion essays, single-outlet rumours
+# 3 Nov 2026 (Pavan): the AI giants and the companies that challenge them are what bring readers to the page.
+SCALE = """THE PLAYERS: the giants are OpenAI, Anthropic, Google (Gemini, DeepMind), Meta, Microsoft, Apple, Nvidia,
+xAI and Amazon; the challengers are the labs and companies taking them on (DeepSeek, Mistral, Qwen, Kimi,
+Perplexity, Cursor and the like). Our readers follow this race like sport.
+Score 0 to 10 with these anchors:
+9-10: a giant's big move (a new frontier model, a major outage or breach, a huge lawsuit, deal, fine or leadership
+      fight), a challenger beating or undercutting a giant, or AI harming or endangering many ordinary people
+7-8:  a giant or challenger in a fight, a reversal, money trouble or a striking first; a giant's feature arriving
+      in apps people already use; a security threat to everyday users
+5-6:  a solid industry story with a clear consequence, but no giant or challenger at its centre
+3-4:  product previews and reviews from small companies, hobby builds, renamings and rebrands, opinion essays,
+      single-outlet rumours
 0-2:  code repositories, model cards, library releases, customer case studies, papers with no plain result"""
 
 

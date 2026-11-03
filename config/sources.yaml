@@ -58,6 +58,21 @@ ai_terms: [AI, A.I., LLM, LLMs, GPT, ChatGPT, Gemini, Claude, Anthropic, OpenAI,
   agentic, chatbot, Copilot, "artificial intelligence", inference, GPU, GPUs, "foundation model", multimodal, robotics, "AI safety",
   Neuralink, "brain-computer interface", "brain-computer interfaces", BCI, "brain implant", "brain implants"]
 
+# The players our readers follow (Pavan, 3 Nov 2026: stories about the AI giants, and the companies that challenge
+# them or beat their advantages, are what bring people to the page; our own top pages agree: Gemini 4, Mistral's open
+# weights, OpenAI). Matched as whole words in a story's headlines. A story naming a giant gets player_boost.giant; a
+# challenger gets .challenger; a challenger next to a giant, or a challenger that beats/tops/undercuts, is a rivalry.
+# fma/learn.py tracks how each kind performs, so this lean is checked against our own numbers every week.
+players:
+  giant: [OpenAI, ChatGPT, Sora, "Sam Altman", Altman, Anthropic, Claude, "Dario Amodei", Google, Gemini, DeepMind, Alphabet,
+    "Sundar Pichai", Meta, Llama, Zuckerberg, Microsoft, Copilot, "Satya Nadella", Apple, "Apple Intelligence", Siri, Nvidia,
+    "Jensen Huang", xAI, Grok, Musk, Amazon, AWS]
+  challenger: [DeepSeek, Mistral, Qwen, Alibaba, Moonshot, Kimi, Zhipu, GLM, MiniMax, ByteDance, Perplexity, Cursor, Anysphere,
+    Cohere, "Safe Superintelligence", "Ilya Sutskever", "Thinking Machines", "Mira Murati", Reflection,
+    Cerebras, Groq, AMD, Huawei, Samsung, "Stability AI", Midjourney, Runway, ElevenLabs, "Character.AI", Sarvam, Krutrim]
+  beats: "\\b(beats?|tops?|outperforms?|surpass(es)?|overtakes?|rivals?|undercuts?|cheaper|matches|challenges?|takes on|vs\\.?|versus)\\b"
+player_boost: {rivalry: 1.2, giant: 1.0, challenger: 0.6}
+
 # Titles matching these patterns (regex, case-insensitive) are customer stories, tutorials or
 # marketing rather than news; their score is halved.
 demote_patterns:

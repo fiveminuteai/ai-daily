@@ -36,6 +36,7 @@ three Reels, however weak the third.
 | Quality bar | Only stories at 6/10 or more become Reels; a weak day posts its single best | `card_stories` |
 | Fact-check | Unchanged: both layers check every Reel line | Question openers no longer flagged as names |
 | Log | Every story's scores, the chief's reason and the hook | `reel_desk` in each run's attempt record |
+| The AI race (3 Nov) | Stories about the giants (OpenAI, Anthropic, Google Gemini, Meta, xAI, Microsoft, Apple, Nvidia, Amazon) and the challengers that take them on rank first; our own top pages (Gemini 4, Mistral, OpenAI) agreed | `players` + `player_boost` in sources.yaml (rivalry 1.2, giant 1.0, challenger 0.6; repos excluded); editor scale rebuilt around the race; `learn.py` tracks "player" so the lean is checked against our numbers |
 
 ## Next, in order
 

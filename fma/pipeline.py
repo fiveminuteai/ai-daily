@@ -161,7 +161,7 @@ def _source_stats(stats: dict) -> dict:
 
 def _story_row(st, picked: bool) -> dict:
     return {"title": st.title, "url": st.lead.url, "score": round(st.score, 2),
-            "interest": st.interest, "category": st.category, "outlets": sorted(st.publishers), "picked": picked}
+            "interest": st.interest, "category": st.category, "player": st.player, "outlets": sorted(st.publishers), "picked": picked}
 
 
 def _counts(report: dict | None) -> dict:
