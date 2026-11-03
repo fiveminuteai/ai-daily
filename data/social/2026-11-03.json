@@ -75,13 +75,15 @@
    "hook": "Gemini can read your Gmail, and many of its features are on by default[S4].",
    "text": "Gemini can read your Gmail, and many of its features are on by default.\n\n• Gemini summarises recent emails, creates to-do lists and drafts replies.\n• Google says it does not train Gemini on your personal emails.\n• Google says Gemini does not hold onto your data after each request.\n\nDo this: Open your Gmail settings and check which Gemini features are switched on.\n\nYour take: Do you let AI read your work email? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-03T07:31:38+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfRWaqnE0mS/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-03/reels/02.mp4"
    ],
-   "scheduled_at": "2026-11-03T07:30:00+00:00"
+   "scheduled_at": "2026-11-03T07:30:00+00:00",
+   "media_id": "18353347291267090",
+   "error": null
   },
   {
    "id": "2026-11-03-reel-3",
