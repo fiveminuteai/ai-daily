@@ -1,0 +1,883 @@
+{
+  "checked": 86,
+  "ok": 58,
+  "repaired": 12,
+  "dropped": 16,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Publishers sue Brave over AI scraping and paywall bypass",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "Brave has never asked for the Publishers’ permission to access their websites",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check (speaker): The source attributes the quote to the complaint, not to Graham James, so the claim that Graham James said it is not supported."
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "The New York Times and other publishers filed lawsuits accusing Brave’s pay‑wall blocker of scraping copyrighted articles and selling an index of over 30 billion pages to AI firms such as Anthropic and Perplexity",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Brave is sued for building a 30 billion‑page index and selling it to AI firms while its paywall blocker bypasses publisher restrictions.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic warns its AI research may soon achieve recursive self‑improvement, outpacing safety controls.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Apple targets a $1,000 mobile robot for FaceTime calls and automatic lighting by 2027.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Oracle plans a $20 billion stock and bond issuance to fund its AI expansion, aiming for positive free cash flow by late 2028.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "42AI’s new transformer model predicts trader decisions by converting interaction data into trait vectors and probability scores.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The New York Times filed a lawsuit against Brave Software on 2 November 2026, accusing the privacy‑focused browser of scraping copyrighted articles and providing them to AI firms.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The complaint was joined by the New York Daily News, Chicago Tribune and Orlando Sentinel, which filed similar claims the same day.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The suits allege that Brave’s “Paywall blocker” lets users read articles without publisher consent while the company sells an index of the scraped pages to AI companies such as Anthropic, Perplexity, Mistral, xAI and Cohere.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "According to the filings, Brave built an index of more than 30 billion web pages using an undisclosed crawler, a scale that prevents publishers from blocking the collection.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The index is offered to AI developers as “real‑time online content,” enabling models to train on or retrieve news articles for user queries.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The complaint states Brave never asked publishers for permission, nor compensated them for the copying and distribution of their material.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Graham James, a spokesperson for The New York Times, said Brave “stealing our content to power its own products and to provide it to some of the most prominent and well‑resourced generative AI companies in the world”.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Web browsers can crawl and store web pages, creating searchable indexes that third parties may license.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "In recent years, AI developers have sought large, up‑to‑date text corpora to improve language models, leading to legal scrutiny of how that data is obtained.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The lawsuits represent a broader push by publishers to protect revenue from paywalls and to enforce copyright against unauthorized data harvesting.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Brave browser sued for AI scraping and paywall bypass",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "New York Times sues Brave for stealing billions of articles to feed AI firms.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Brave’s pay‑wall blocker let users read articles while selling an index to AI firms.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The index covers over 30 billion pages, too large for publishers to block.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Publishers like the NYT risk losing revenue as their content powers AI.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not state that publishers risk losing revenue; they only allege unauthorized copying."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "If you rely on paywalls, expect browsers to monetize your reading without consent.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Brave allows its users to bypass the Publishers’ paywalls without their consent, and sells a back‑door index to AI companies.\""
+      ]
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should browsers be allowed to sell your reads?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic added new language to its Risk Factors in a filing on 2 November 2026, warning it may soon meet its own definition of recursive self‑improvement (RSI).",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company says its use of AI to accelerate research could cause model capabilities to grow faster than safety measures can keep up.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It notes past instances where AI‑developed models showed unexpected capability jumps that were not recognized at the time.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The filing states that Anthropic has already used AI to create new models whose capability leaps were missed initially.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It further claims that internal estimates suggest it could imminently reach a threshold of \"dramatically accelerated progress attributable to AI\" as defined in its Responsible Scaling Policy.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic cautions that such acceleration may outpace its ability to validate, align, and secure the models, posing a considerable safety risk.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Recursive self‑improvement describes a scenario where an AI system becomes capable of improving its own design, leading to rapid capability gains.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "While some view RSI as a potential existential threat, others see it as a path to major productivity gains.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic’s warning reflects broader industry concerns about balancing rapid AI advancement with robust safety and alignment practices.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic flags imminent recursive self‑improvement risk",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Anthropic warns its AI could soon self‑improve faster than safety can keep up.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anthropic added an RSI warning to its risk filing.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "It says AI‑created models already showed capability jumps that were missed.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Rapid self‑improvement could outpace alignment, threatening users and developers.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Rapid' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch AI safety updates closely, as unchecked self‑improvement could affect your tools.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should AI labs be forced to pause risky research?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Apple is developing a home robot that can move around a house, support FaceTime calls and turn lights on when someone enters a room.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The robot, code‑named J595 and possibly called HomeView Ultra, is being pushed by CEO John Ternus and is slated for a launch in 2027 or later.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Apple aims to price the device at $1,000 or more.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The project began with early prototypes in 2018, which received approval from former CEO Tim Cook to continue development.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Apple’s robotic team is small, about ten true roboticists, while the software side includes roughly 300 engineers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Engineers are adding AI capabilities beyond simple video calls to justify the high price, though current features appear modest compared with existing smart‑home products.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Apple’s HomeView Ultra would join a market of stationary smart displays and robot vacuums, but it differs by being mobile and integrating video communication.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company also backs another robot effort aimed at tasks like folding clothes, suggesting a longer‑term interest in household robotics.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Safety concerns favor a limited‑purpose robot over a general‑purpose humanoid at this stage.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Apple plans $1,000 home robot for FaceTime and lights",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Apple unveils a $1,000 home robot that answers FaceTime calls and flips lights on.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says Apple is aiming to launch, not that it has unveiled the robot; claim of unveiling is not supported."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Apple’s robotics team is building a mobile device that moves around rooms for FaceTime.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The robot will cost at least $1,000, far more than current smart‑home gadgets.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Price >= $1,000 is supported, but the claim that it is \"far more than current smart‑home gadgets\" is not directly stated in the source."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "If released, it could become a pricey addition to any tech‑savvy household.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Consider whether you’d spend a grand on a robot that only makes video calls and lights work.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Would you buy a $1,000 robot for FaceTime?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Oracle filed plans on Monday to issue $10 billion in common stock and $10 billion in senior notes to finance its artificial intelligence buildout.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The filing followed an investor‑day presentation that outlined the fundraising strategy.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Shares fell 8.8% after the announcement despite the company’s earlier revenue forecast of at least $225 billion for fiscal 2030.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company intends to use the proceeds for general corporate purposes, which may include capital expenditures, debt repayments and future investments.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Oracle expects to achieve positive free cash flow in the second half of 2028 by leveraging vendor financing, customer‑provided hardware and pre‑payments.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Its stock has dropped 33% in 2026 and 50% over the past year, while its investment‑grade 4.95% bond due 2031 yields 7.276%.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Oracle, co‑founded by former CEO Larry Ellison, is expanding its AI infrastructure amid a broader industry push for large‑scale compute resources.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions funding AI infrastructure but does not describe an expansion or a broader industry push for large‑scale compute resources."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The financing comes as debt markets tighten, prompting analysts to note the significance of the $20 billion raise for the company’s cash‑flow outlook.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes debt‑market concerns but does not state analysts highlighted the $20 billion raise as significant for the cash‑flow outlook."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Execution of the AI strategy will determine whether the funding translates into sustainable growth.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Oracle seeks $20 billion to fund AI buildout",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Oracle launches a $20 billion fundraise to power its AI buildout, shaking its stock.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Oracle filed to sell $10 billion in stock and $10 billion in bonds for AI funding.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Shares dropped 8.8% after the plan, despite a $225 billion revenue forecast.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The raise could affect tech workers and investors as Oracle bets on AI growth.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention impact on tech workers or investors; it only discusses financing and market pressure."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Watch your tech budget—Oracle’s AI gamble may reshape cloud pricing.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"\""
+      ]
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will big AI bets pay off?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Israeli startup 42AI announced its first product, a behavioral world model, after emerging from stealth with $62.5 million in seed funding on 2 November 2026.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The model is being piloted at a few financial brokerages to forecast how individual traders will react to market volatility.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The company says the system predicts decision probabilities rather than deterministic outcomes.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The model ingests diverse signals such as KYC completion, onboarding interactions, support calls, voice sentiment, and trading activity to infer underlying psychological traits.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Those traits are encoded as mathematical vectors and fed into a transformer‑based world model that outputs probability distributions for future actions.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "A separate language model generates natural‑language explanations for each prediction.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "42AI’s CEO Amit Gal‑Or emphasizes that behavior is probabilistic, while CTO Ehud Ezra notes the model preserves a person’s risk‑aversion tendency across simulations.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Traditional predictive systems rely on past behavior patterns; 42AI instead attempts to model internal motivations, treating each individual as a miniature world.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This approach aims to improve forecasts in novel situations where historical data may be sparse.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions new situations but does not claim the approach improves forecasts where historical data is sparse."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The startup’s early focus on finance reflects the sector’s demand for granular risk assessment and trader‑level insight.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "42ai unveils behavioral world model",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "42AI launches a model that predicts traders’ moves during market swings.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The startup unveiled a behavioral world model for finance pilots.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "It’s backed by $62.5 million seed funding and reads KYC to sentiment.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Brokerages will get probabilistic trader risk scores for volatile markets.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Expect your broker to use AI forecasts that gauge your risk appetite, influencing trade offers.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim that brokers will use AI forecasts to gauge risk appetite and influence trade offers is not directly stated in the source."
+      ]
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will AI predictions change how you trade?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "If courts uphold the suits, browsers may have to stop providing free access to paywalled content, reducing users' ability to read articles without subscriptions and potentially cutting revenue streams that AI developers rely on for training data",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 13,
+  "unused": 5,
+  "date": "2026-11-03",
+  "slug": "2026-11-03-publishers-sue-brave-over-ai-scraping-and",
+  "model": "groq:openai/gpt-oss-120b"
+}

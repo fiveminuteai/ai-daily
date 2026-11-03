@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-03",
+ "slug": "2026-11-03-publishers-sue-brave-over-ai-scraping-and",
+ "headline": "Publishers sue Brave over AI scraping and paywall bypass",
+ "url": "https://fiveminuteai.net/posts/2026-11-03-publishers-sue-brave-over-ai-scraping-and/",
+ "generated_at": "2026-11-03T00:45:42+00:00",
+ "items": [
+  {
+   "id": "2026-11-03-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "Publishers sue Brave over AI scraping and paywall bypass\n\n• Brave is sued for building a 30 billion-page index and selling it to AI firms while its paywall blocker bypasses publisher restrictions.\n• Anthropic warns its AI research may soon achieve recursive self-improvement, outpacing safety controls.\n• Apple targets a $1,000 mobile robot for FaceTime calls and automatic lighting by 2027.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-03-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Publishers sue Brave over AI scraping and paywall bypass\n\n• Brave is sued for building a 30 billion-page index and selling it to AI firms while its paywall blocker bypasses publisher restrictions.\n\nhttps://fiveminuteai.net/posts/2026-11-03-publishers-sue-brave-over-ai-scraping-and/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 221
+  },
+  {
+   "id": "2026-11-03-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Publishers sue Brave over AI scraping and paywall bypass\n\n• Brave is sued for building a 30 billion-page index and selling it to AI firms while its paywall blocker bypasses publisher restrictions.\n• Anthropic warns its AI research may soon achieve recursive self-improvement, outpacing safety controls.\n• Apple targets a $1,000 mobile robot for FaceTime calls and automatic lighting by 2027.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-03-publishers-sue-brave-over-ai-scraping-and/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-03-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "New York Times sues Brave for stealing billions of articles to feed AI firms[S1].",
+   "text": "New York Times sues Brave for stealing billions of articles to feed AI firms.\n\n• Brave’s pay-wall blocker let users read articles while selling an index to AI firms.\n• The index covers over 30 billion pages, too large for publishers to block.\n\nYour take: Should browsers be allowed to sell your reads? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-03T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-03-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Oracle launches a $20 billion fundraise to power its AI buildout, shaking its stock[S5].",
+   "text": "Oracle launches a $20 billion fundraise to power its AI buildout, shaking its stock.\n\n• Oracle filed to sell $10 billion in stock and $10 billion in bonds for AI funding.\n• Shares dropped 8.8% after the plan, despite a $225 billion revenue forecast.\n\nYour take: Will big AI bets pay off? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-03T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-03-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Anthropic warns its AI could soon self‑improve faster than safety can keep up[S3].",
+   "text": "Anthropic warns its AI could soon self-improve faster than safety can keep up.\n\n• Anthropic added an RSI warning to its risk filing.\n• It says AI-created models already showed capability jumps that were missed.\n\nYour take: Should AI labs be forced to pause risky research? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-03/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-03T13:30:00+00:00"
+  }
+ ]
+}
