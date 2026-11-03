@@ -95,13 +95,15 @@
    "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms[S3].",
    "text": "The New York Times sues Brave, saying it sold scraped news to AI firms.\n\n• The suit says Brave indexed more than 30 billion web pages with an unidentified crawler.\n• Named customers include Anthropic, Perplexity, Mistral, xAI and Cohere.\n• Three more papers filed a similar lawsuit the same day in Manhattan.\n\nOur read: The copyright fight is moving from AI labs to the companies that supply their data.\n\nYour take: Should AI companies pay for the news they use? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-03T13:31:42+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfR_opvGY_k/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-03/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-03T13:30:00+00:00"
+   "scheduled_at": "2026-11-03T13:30:00+00:00",
+   "media_id": "18052874651820583",
+   "error": null
   }
  ]
 }
