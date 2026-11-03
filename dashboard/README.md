@@ -177,7 +177,13 @@ Copy it straight into the Cloudflare secret in step 3. Do not save it in a file,
 
 ### 2. The Pages project
 
-Cloudflare dashboard → Workers & Pages → Create → Pages → **Connect to Git** → `fiveminuteai/ai-daily`.
+**How it is set up now (3 Nov 2026):** `.github/workflows/deploy-dashboard.yml` deploys `dashboard/` with Wrangler
+on every push to `main` that touches it (or by hand: Actions → Deploy control app → Run workflow). The first run
+creates the `fma-control` project. It needs one repository secret, `CLOUDFLARE_API_TOKEN` (Cloudflare → My Profile
+→ API Tokens → Custom token: Account · Cloudflare Pages · Edit, 1 year). The Git-connected route below would not
+link the repository, so it is kept only as the alternative.
+
+Alternative: Cloudflare dashboard → Workers & Pages → Create → Pages → **Connect to Git** → `fiveminuteai/ai-daily`.
 
 - Project name: e.g. `fma-control` (the address becomes `fma-control.pages.dev`).
 - Production branch: `main`.
