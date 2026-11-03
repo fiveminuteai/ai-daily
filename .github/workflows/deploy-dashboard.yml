@@ -1,0 +1,49 @@
+name: Deploy control app
+
+# The control dashboard (dashboard/) on Cloudflare Pages as fma-control.pages.dev, behind Cloudflare Access.
+# Deployed from here with Wrangler because the Cloudflare-GitHub connection would not link (3 Nov 2026).
+# CLOUDFLARE_API_TOKEN is a repository secret limited to Account > Cloudflare Pages > Edit.
+# The app's own settings (GITHUB_TOKEN, ACCESS_*, ALLOWED_EMAILS, DRY_RUN) live on the Pages project, not here.
+
+on:
+  push:
+    branches: [main]
+    paths: ["dashboard/**", ".github/workflows/deploy-dashboard.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-dashboard
+  cancel-in-progress: false
+
+env:
+  PROJECT: fma-control
+  WRANGLER: wrangler@4.151.0
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: eff11707b2682f8918f4d86f306a7662
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - run: node --test test/*.test.mjs
+      # the first run creates the project; later runs find it
+      - name: Pages project
+        run: |
+          if npx --yes "$WRANGLER" pages project list | grep -q "\b$PROJECT\b"; then
+            echo "$PROJECT exists"
+          else
+            npx --yes "$WRANGLER" pages project create "$PROJECT" --production-branch main
+          fi
+      # public/ is the page; functions/ (picked up from this folder) runs /api through lib/api.js
+      - run: npx --yes "$WRANGLER" pages deploy public --project-name "$PROJECT" --branch main --commit-hash "$GITHUB_SHA" --commit-message "deploy ${GITHUB_SHA::7}"
