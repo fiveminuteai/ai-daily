@@ -138,7 +138,7 @@ def test_voiced_scenes_fit_the_voice_on_the_beat(monkeypatch):
 
 def test_names_are_respelled_for_the_narrator():
     from fma import voice
-    assert voice.spoken("NotebookLM hit $17 billion for K-12[S1].") == "Notebook L M hit 17 billion dollars for K to 12."
+    assert voice.spoken("NotebookLM hit $17 billion for K-12[S1].") == "NotebookLM hit 17 billion dollars for K to 12."
 
 
 def test_pulse_numbers_appear_only_when_spoken():
@@ -165,5 +165,23 @@ def test_decimals_are_read_digit_by_digit():
     # 5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"
     from fma import voice
     assert voice.spoken("up from $11.5 billion") == "up from 11 point 5 billion dollars"
-    assert voice.spoken("paying SpaceX $1.25 billion") == "paying Space X 1 point 2 5 billion dollars"
+    assert voice.spoken("paying SpaceX $1.25 billion") == "paying SpaceX 1 point 2 5 billion dollars"
     assert voice.spoken("with $5.0 billion") == "with 5 billion dollars"
+
+
+def test_hard_names_are_spoken_from_fixed_phonemes(monkeypatch):
+    # 5 Nov 2026: "SpaceX" was read as two stressed words ("Space X"), AWS as "awes", Qwen as "queue-wen"
+    from fma import voice
+
+    class Tok:
+        def phonemize(self, text, lang):
+            return f"<{text.strip()}>"
+
+    class Engine:
+        tokenizer = Tok()
+
+    monkeypatch.setattr(voice, "_engine", lambda: Engine())
+    assert voice.phonemes("paying SpaceX now", "en-us") == "<paying> spˈeɪsɛks <now>"
+    assert voice.phonemes("AWS and Qwen.", "en-us") == "ˈeɪ dˈʌbəljˌuː ˈɛs <and> tʃwˈɛn <.>"
+    assert voice.phonemes("nothing hard here", "en-us") is None
+    assert voice.phonemes("SpaceXR is not SpaceX", "en-us").endswith("spˈeɪsɛks")     # whole words only

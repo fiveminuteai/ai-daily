@@ -20,8 +20,6 @@ OUTRO = "Tell us in the comments below and follow us for such updates."    # Pav
 
 # How names should be read. Kokoro reads most brand names well; these it spells or stresses wrongly.
 PRONOUNCE = {
-    r"\bNotebookLM\b": "Notebook L M",
-    r"\bxAI\b": "x A I",
     r"\bGPT-(\d)": r"G P T \1",
     r"\bK-12\b": "K to 12",
     r"\bS-1\b": "S 1",
@@ -29,8 +27,29 @@ PRONOUNCE = {
     # decimals digit by digit (5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"); x.0 drops the 0
     r"(\d+)\.0\b": r"\1",
     r"(\d+)\.(\d+)": lambda m: f"{m.group(1)} point {' '.join(m.group(2))}",
-    r"\bSpaceX\b": "Space X",
 }
+
+# Names whose sound no spelling gets right are given as phonemes (IPA, as Kokoro's own tokenizer writes them).
+# Found 5 Nov 2026 by phonemising every name in config/sources.yaml: "SpaceX" came out as two stressed words
+# ("Space X", Pavan heard it), AWS as "awes", xAI as "ex-uh-eye" (a lone "A" is read as the article), Qwen as
+# "queue-wen". A name not listed here is left to Kokoro, which reads the rest of the list well.
+PHONEMES = {
+    "SpaceX": "spˈeɪsɛks",
+    "AWS": "ˈeɪ dˈʌbəljˌuː ˈɛs",
+    "xAI": "ˈɛks ˈeɪ ˈaɪ",
+    "Qwen": "tʃwˈɛn",
+    "Huawei": "wˈɑːweɪ",
+}
+_NAME_RE = re.compile(r"\b(" + "|".join(map(re.escape, PHONEMES)) + r")\b")
+
+
+def phonemes(text: str, lang: str) -> str | None:
+    """The line as phonemes with the fixed names spliced in, or None when it has none of them."""
+    parts = _NAME_RE.split(text)
+    if len(parts) == 1:
+        return None
+    tok = _engine().tokenizer
+    return " ".join(PHONEMES[p] if p in PHONEMES else tok.phonemize(p, lang) for p in parts if p.strip()).strip()
 
 _ENGINE = None
 
@@ -113,9 +132,13 @@ def say(text: str, voice: str | None = None, speed: float = SPEED, pace: float |
     c = CHARACTERS.get(voice, {})
     pitch, lang = c.get("pitch", 1.0), c.get("lang", "en-gb")
     style = _style(voice)
+    ph = phonemes(words, lang)
 
     def make(sp: float) -> np.ndarray:
-        s, sr = _engine().create(words, voice=style, speed=sp / pitch, lang=lang)
+        if ph:
+            s, sr = _engine().create(ph, voice=style, speed=sp / pitch, lang=lang, is_phonemes=True)
+        else:
+            s, sr = _engine().create(words, voice=style, speed=sp / pitch, lang=lang)
         assert sr == SR, sr
         return pitch_up(trim(np.asarray(s, np.float32)), pitch)
 
