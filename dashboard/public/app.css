@@ -739,6 +739,12 @@ details.older > div { margin-top: var(--s4); }
 .setlab small { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
 .setrow input[type=number], .srctbl input[type=number] { width: 88px; flex: none; padding: 7px 9px; border-radius: 9px; border: 1px solid var(--line-2);
   background: var(--bg); color: var(--ink); font: inherit; font-size: 14px; text-align: right; }
+.setrow input[type=time], .setrow input.times { flex: none; padding: 7px 9px; border-radius: 9px; border: 1px solid var(--line-2);
+  background: var(--bg); color: var(--ink); font: inherit; font-size: 14px; color-scheme: dark; }
+.setrow input[type=time] { width: 110px; }
+.setrow input.times { width: 190px; }
+.setlab .cost { font-size: 12.5px; color: var(--ok); font-weight: 600; }
+.setlab .cost.over { color: var(--warn); }
 .setrow input:focus-visible, .srctbl input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .setrow.changed .setlab b::after, .srctbl tr.changed td:first-child::after { content: " · changed"; color: var(--accent); font-weight: 600; font-size: 12px; }
 .switch { position: relative; display: inline-block; flex: none; width: 42px; height: 24px; cursor: pointer; }

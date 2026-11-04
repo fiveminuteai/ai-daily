@@ -1,8 +1,9 @@
 name: Clock
 
-# Starts the daily post (05:45 India time) and the three Reel slots (09:00, 13:00, 19:00) on time. GitHub's own
+# Starts the daily post and the Reel slots on time (India time, from schedule: in config/site.yaml; by default 05:45,
+# then Reels at 09:00, 13:00, 19:00). GitHub's own
 # scheduler drops runs; runs started by workflow_dispatch are not dropped. Each clock run sleeps until the next event
-# (or for at most 5.5 hours), starts that event's workflow, then starts the next clock run. fma/clock.py has the
+# (or for at most 5.5 hours), starts that event's workflow, then starts the next clock run. fma/clock.py reads the
 # times. The crons in daily.yml and post-scheduled.yml and the laptop trigger restart the chain if it stops.
 
 on:
@@ -29,7 +30,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: main
-          sparse-checkout: fma/clock.py
+          sparse-checkout: |
+            fma/clock.py
+            config/site.yaml
           sparse-checkout-cone-mode: false
       - name: Work out the next event
         id: plan

@@ -33,7 +33,12 @@ MAX_ATTEMPTS = 5            # a failed Instagram post is tried again by `due` un
 # One Reel per story with a fact-checked card (fma/story_reel.py), posted at these India times after approval.
 REEL = {"kind": "reel", "posting": "api",
         "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time"}
-REEL_SLOTS = ("09:00", "13:00", "19:00")
+REEL_SLOTS = ("09:00", "13:00", "19:00")     # the default; schedule.reels in config/site.yaml (control app) wins
+
+
+def reel_slots(site: dict) -> tuple[str, ...]:
+    from .clock import schedule
+    return tuple(schedule(site.get("schedule"))["reels"])
 
 
 def slot_utc(date: str, hhmm: str) -> str:
@@ -67,7 +72,8 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
         items.append(item)
     from .social import reel_caption
     from .story_reel import card_stories
-    for k, (n, sec) in enumerate(card_stories(post, limit=len(REEL_SLOTS))):
+    slots = reel_slots(site)
+    for k, (n, sec) in enumerate(card_stories(post, limit=len(slots))):
         iid = f"{post['date']}-reel-{k + 1}"
         item = {"id": iid, "platform": "instagram_reel", **REEL, "story": n, "hook": sec["card"]["hook"],
                 "text": reel_caption(sec, site), "edited_text": None,
@@ -75,12 +81,16 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
                 # post-scheduled.yml posts each at its time; Skip in the control app before then still stops it
                 "status": "approved" if site.get("auto_post_reels") else "pending", "decided_at": None,
                 "posted_url": None, "media": [f"{site['base_url']}share/{post['date']}/reels/{k + 1:02d}.mp4"],
-                "scheduled_at": slot_utc(post["date"], REEL_SLOTS[k])}
+                "scheduled_at": slot_utc(post["date"], slots[k])}
         prev = old.get(iid)
         if prev:
             item.update({k2: prev[k2] for k2 in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at",
                                                   "media_id", "error") if k2 in prev})
         items.append(item)
+    # a Reel already in this day's queue stays, unchanged, even if the schedule now has fewer slots: a change of
+    # times only shapes new queues, never what is already queued, approved or posted
+    have = {i["id"] for i in items}
+    items += [i for iid, i in old.items() if iid not in have and i.get("platform") == "instagram_reel"]
     return {"date": post["date"], "slug": post["slug"], "headline": post["headline"], "url": texts["url"],
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
 

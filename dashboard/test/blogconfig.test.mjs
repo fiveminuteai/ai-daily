@@ -16,10 +16,15 @@ test("every whitelisted setting is found exactly once in the real config, with t
   const by = Object.fromEntries(settings.map((s) => [s.id, s.value]));
   for (const s of SETTINGS) assert.ok(s.id in by, s.id);
   for (const s of settings) {
-    const want = s.type === "bool" || s.type === "enabled" ? "boolean" : "number";
+    if (s.type === "times") { assert.ok(Array.isArray(s.value) && s.value.every((t) => /^\d\d:\d\d$/.test(t)), s.id); continue; }
+    const want = s.type === "bool" || s.type === "enabled" ? "boolean" : s.type === "time" ? "string" : "number";
     assert.equal(typeof s.value, want, s.id);
     if (want === "number") assert.ok(Number.isFinite(s.value), s.id);
   }
+  assert.equal(by["schedule.daily"], "05:45");
+  assert.deepEqual(by["schedule.reels"], ["09:00", "13:00", "19:00"]);
+  assert.equal(by["schedule.stats"], "23:30");
+  assert.equal(by["pipeline.max_per_category"], 2);
   assert.ok(by["pipeline.words_min"] < by["pipeline.words_max"]);
   assert.ok(sources.length >= 20);
   assert.equal(new Set(sources.map((s) => s.id)).size, sources.length);
@@ -43,6 +48,43 @@ test("a save changes exactly the requested values and nothing else in either fil
   for (const [id, v] of Object.entries(wanted)) assert.equal(after[id], v, id);
   assert.match(r.message, /^Blog settings: words_min 880 -> 800, attempts 2 -> 3, /);
   assert.match(r.message, /\+3 more \(from the control dashboard\)$/);
+});
+
+test("schedule times are written in the form fma/clock.py reads", () => {
+  const r = applyChanges(real, { "schedule.daily": "05:15", "schedule.reels": ["08:00", "12:30", "20:00"], "schedule.stats": "22:30" });
+  assert.deepEqual(changedLines(real.site, r.texts.site).map(([, b]) => b), ['  daily: "05:15"', '  reels: ["08:00", "12:30", "20:00"]', '  stats: "22:30"']);
+  assert.match(r.message, /reels 09:00,13:00,19:00 -> 08:00,12:30,20:00/);
+  // fewer Reels is allowed; the clock and the queue use the new list from the next day
+  const two = applyChanges(real, { "schedule.reels": ["10:00", "18:00"] });
+  assert.match(two.texts.site, /^ {2}reels: \["10:00", "18:00"\]$/m);
+  assert.equal(applyChanges(real, { "schedule.reels": ["09:00", "13:00", "19:00"] }).changes.length, 0);   // same list: no change
+});
+
+test("schedule rules match the clock's, so a saved schedule is never silently ignored", () => {
+  const bad = [
+    [{ "schedule.daily": "08:00" }, /between 03:00 and 07:00/],
+    [{ "schedule.daily": "5:45" }, /time like 05:45/],
+    [{ "schedule.daily": "05:45:00" }, /time like 05:45/],
+    [{ "schedule.reels": ["06:30"] }, /90 minutes after/],
+    [{ "schedule.reels": ["09:00", "09:20"] }, /30 minutes apart/],
+    [{ "schedule.reels": ["13:00", "09:00"] }, /30 minutes apart/],
+    [{ "schedule.reels": ["09:00", "12:00", "15:00", "18:00"] }, /1 to 3 times/],
+    [{ "schedule.reels": [] }, /1 to 3 times/],
+    [{ "schedule.reels": "09:00" }, /1 to 3 times/],
+    [{ "schedule.reels": ["09:00", "23:30"] }, /by 23:00/],
+    [{ "schedule.stats": "19:30" }, /between 20:00 and 23:45/],
+    [{ "schedule.reels": ["09:00", "13:00", "23:00"], "schedule.stats": "22:00" }, /after the last Reel/],
+    [{ "schedule.daily": "07:00", "schedule.reels": ["08:00"] }, /90 minutes after/],
+  ];
+  for (const [wanted, msg] of bad) assert.throws(() => applyChanges(real, wanted), (e) => e instanceof ConfigError && msg.test(e.message), JSON.stringify(wanted));
+});
+
+test("tries per day carries its token cost and a warning past what Groq's free day allows", () => {
+  const s = readSettings(real).settings.find((x) => x.id === "pipeline.attempts");
+  assert.deepEqual(s.cost, { per: 86, of: 200, unit: "K Groq tokens a day" });
+  assert.equal(applyChanges(real, { "pipeline.attempts": 2 }).changes.length, 0);
+  assert.equal(applyChanges(real, { "pipeline.attempts": 3 }).changes[0].warn, true);      // 258K > 200K
+  assert.equal(applyChanges(real, { "pipeline.attempts": 1 }).changes[0].warn, undefined);
 });
 
 test("turning a source off and on again gives back the same file", () => {

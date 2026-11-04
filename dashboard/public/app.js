@@ -1369,20 +1369,26 @@ function renderMore() {
 const blog = { data: null, edits: new Map(), last: null };
 
 const blogValue = (s) => (blog.edits.has(s.id) ? blog.edits.get(s.id) : s.value);
-const fmtSetting = (s, v) => (typeof v === "boolean" ? (v ? "On" : "Off") : num(v));
+const sameValue = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const fmtSetting = (s, v) => (typeof v === "boolean" ? (v ? "On" : "Off") : Array.isArray(v) ? v.join(", ") : typeof v === "string" ? v : num(v));
 const risky = (s, v) => (s.warnAbove != null && v > s.warnAbove) || (s.warnWhen !== undefined && v === s.warnWhen);
+const costText = (s, v) => (s.cost ? `about ${num(v * s.cost.per)}${s.cost.unit.split(" ")[0]} of ${num(s.cost.of)}${s.cost.unit}` : "");
 
 function blogInput(s) {
-  const v = blogValue(s);
+  const v = blogValue(s), id = esc(s.id), label = esc(s.label);
   const field = s.type === "bool" || s.type === "enabled"
-    ? `<label class="switch"><input type="checkbox" data-setting="${esc(s.id)}" ${v ? "checked" : ""}><span aria-hidden="true"></span><b class="sr">${esc(s.label)}</b></label>`
-    : `<input type="number" inputmode="decimal" data-setting="${esc(s.id)}" value="${esc(v)}" min="${s.min}" max="${s.max}" step="${s.step || 1}" aria-label="${esc(s.label)}">`;
+    ? `<label class="switch"><input type="checkbox" data-setting="${id}" ${v ? "checked" : ""}><span aria-hidden="true"></span><b class="sr">${label}</b></label>`
+    : s.type === "time" ? `<input type="time" data-setting="${id}" value="${esc(v)}" min="${esc(s.min)}" max="${esc(s.max)}" aria-label="${label}">`
+    : s.type === "times" ? `<input type="text" class="times" data-setting="${id}" value="${esc(v.join(", "))}" placeholder="09:00, 13:00, 19:00" aria-label="${label}" spellcheck="false">`
+    : `<input type="number" inputmode="decimal" data-setting="${id}" value="${esc(v)}" min="${s.min}" max="${s.max}" step="${s.step || 1}" aria-label="${label}">`;
   return { field, changed: blog.edits.has(s.id) };
 }
 
 function blogRow(s) {
   const { field, changed } = blogInput(s);
-  return `<div class="setrow${changed ? " changed" : ""}"><div class="setlab"><b>${esc(s.label)}</b><small>${esc(s.help)}${s.min != null ? ` (${num(s.min)} to ${num(s.max)})` : ""}</small></div>${field}</div>`;
+  const range = s.min == null ? "" : s.type === "time" ? ` (${s.min} to ${s.max})` : ` (${num(s.min)} to ${num(s.max)})`;
+  const cost = s.cost ? `<span class="cost${risky(s, blogValue(s)) ? " over" : ""}" data-cost="${esc(s.id)}">${esc(costText(s, blogValue(s)))}</span>` : "";
+  return `<div class="setrow${changed ? " changed" : ""}"><div class="setlab"><b>${esc(s.label)}</b><small>${esc(s.help)}${range}</small>${cost}</div>${field}</div>`;
 }
 
 function blogSources(list) {
@@ -1406,19 +1412,19 @@ function blogResult(r) {
   return `<div class="card"><div class="card-head"><h3>${esc(r.what)}</h3>${r.dryRun ? `<span class="status-tag t-warn">Dry run</span>` : tag(r.done ? "ok" : "pending")}</div>
     <p class="note" style="margin:0 0 var(--s3)">${r.dryRun ? "Dry run: nothing was committed. This is the commit it would make:" : esc(r.note || "Saved.")}</p>
     <p class="mono" style="margin:0 0 var(--s3);font-size:13px">${esc(r.request?.message || "")}</p>
-    <ul class="changes">${(r.changes || []).map((c) => `<li>${esc(c.label)}: <code>${esc(String(c.from))}</code> → <code>${esc(String(c.to))}</code> <span class="faint">${esc(c.file)}</span></li>`).join("")}</ul></div>`;
+    <ul class="changes">${(r.changes || []).map((c) => `<li>${esc(c.label)}: <code>${esc(fmtSetting(c, c.from))}</code> → <code>${esc(fmtSetting(c, c.to))}</code> <span class="faint">${esc(c.file)}</span></li>`).join("")}</ul></div>`;
 }
 
 function drawBlog() {
   const d = blog.data, inGroup = (id) => d.settings.filter((s) => s.group === id);
-  const cards = d.groups.filter((g) => g.id !== "sources")
-    .map((g) => `<section class="card blogcard"><div class="card-head"><h3>${esc(g.title)}</h3></div>${inGroup(g.id).map(blogRow).join("")}</section>`).join("");
+  const card = (g) => `<section class="card blogcard"><div class="card-head"><h3>${esc(g.title)}</h3></div>${inGroup(g.id).map(blogRow).join("")}
+    ${g.note ? `<p class="note" style="margin:var(--s3) 0 0">${esc(g.note)}</p>` : ""}</section>`;
+  const cards = d.groups.filter((g) => g.id !== "sources" && g.id !== "schedule").map(card).join("");
+  const sched = d.groups.find((g) => g.id === "schedule");
   view.innerHTML = `
     <div class="section-title" style="margin-top:0"><h1 style="font-size:clamp(26px,3.6vw,36px)">Blog settings</h1>
       <span class="muted">From <code>config/site.yaml</code> and <code>config/sources.yaml</code> on main. A save is one commit; the next run uses it.</span></div>
-    <section class="card blogcard"><div class="card-head"><h3>Schedule</h3><span class="muted" style="font-size:13px">India time</span></div>
-      <dl class="kv"><dt>Daily post</dt><dd>05:45, with backup tries until about 12:00</dd><dt>Reels</dt><dd>09:00, 13:00, 19:00</dd><dt>Stats and learning</dt><dd>23:30</dd></dl>
-      <p class="note" style="margin:var(--s3) 0 0">These times are still set in code (<code>fma/clock.py</code>). They become editable here once they move into the config.</p></section>
+    ${sched ? card(sched) : ""}
     <div class="blogcards">${cards}</div>
     <section class="card blogcard"><div class="card-head"><h3>News sources</h3><span class="muted" style="font-size:13px">${num(d.sources.length)} sources · weight 1 = normal</span></div>${blogSources(d.sources)}</section>
     <section class="result" id="result">${blog.last ? blogResult(blog.last) : ""}</section>
@@ -1440,14 +1446,18 @@ view.addEventListener("change", (e) => {
   const el = e.target.closest("[data-setting]");
   const s = el && blog.data?.settings.find((x) => x.id === el.dataset.setting);
   if (!s) return;
-  const v = el.type === "checkbox" ? el.checked : el.value === "" ? NaN : Number(el.value);
+  const v = el.type === "checkbox" ? el.checked : s.type === "time" ? el.value
+    : s.type === "times" ? el.value.split(/[\s,]+/).filter(Boolean) : el.value === "" ? NaN : Number(el.value);
+  const back = (msg) => { toast(`<b>${esc(s.label)}</b> ${msg}`, "err"); el.value = fmtSetting(s, blogValue(s)); };
+  if (s.type === "time" && !/^\d\d:\d\d$/.test(v)) return back("needs a time like 05:45.");
+  if (s.type === "times" && (!v.length || v.length > 3 || !v.every((t) => /^\d\d:\d\d$/.test(t)))) return back("needs 1 to 3 times like 09:00, 13:00, 19:00.");
   if (typeof v === "number" && (!Number.isFinite(v) || v < s.min || v > s.max || (s.type === "int" && !Number.isInteger(v)))) {
-    toast(`<b>${esc(s.label)}</b> must be ${s.type === "int" ? "a whole number " : ""}between ${num(s.min)} and ${num(s.max)}.`, "err");
-    el.value = blogValue(s);
-    return;
+    return back(`must be ${s.type === "int" ? "a whole number " : ""}between ${num(s.min)} and ${num(s.max)}.`);
   }
-  if (v === s.value) blog.edits.delete(s.id); else blog.edits.set(s.id, v);
+  if (sameValue(v, s.value)) blog.edits.delete(s.id); else blog.edits.set(s.id, v);
   el.closest(".setrow, tr")?.classList.toggle("changed", blog.edits.has(s.id));
+  const cost = view.querySelector(`[data-cost="${CSS.escape(s.id)}"]`);
+  if (cost) { cost.textContent = costText(s, v); cost.classList.toggle("over", risky(s, v)); }
   $(".savebar").outerHTML = blogBar();
 });
 
@@ -1456,7 +1466,7 @@ async function onBlog(btn) {
   const by = new Map(blog.data.settings.map((s) => [s.id, s])), dry = state.status?.dryRun;
   const rows = [...blog.edits].map(([id, v]) => {
     const s = by.get(id), warn = risky(s, v);
-    return `<li${warn ? ` class="warnline"` : ""}>${esc(s.label)}: <b>${esc(fmtSetting(s, s.value))}</b> → <b>${esc(fmtSetting(s, v))}</b>${warn ? `<br><span class="faint">${esc(s.help)}</span>` : ""}</li>`;
+    return `<li${warn ? ` class="warnline"` : ""}>${esc(s.label)}: <b>${esc(fmtSetting(s, s.value))}</b> → <b>${esc(fmtSetting(s, v))}</b>${s.cost ? ` <span class="faint">(${esc(costText(s, v))})</span>` : ""}${warn ? `<br><span class="faint">${esc(s.help)}</span>` : ""}</li>`;
   }).join("");
   const n = blog.edits.size;
   const ok = await confirmDialog(`Save ${n} change${n > 1 ? "s" : ""}?`,

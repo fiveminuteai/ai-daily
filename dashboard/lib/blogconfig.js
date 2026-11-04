@@ -41,7 +41,10 @@ const sourceLine = (id) => (text) => {
   return m ? [m.index, m.index + m[0].length] : null;
 };
 
-const VALUE = { int: "-?\\d+", float: "-?\\d+(?:\\.\\d+)?", bool: "true|false" };
+const VALUE = { int: "-?\\d+", float: "-?\\d+(?:\\.\\d+)?", bool: "true|false", time: '"\\d\\d:\\d\\d"', times: "\\[[^\\]\\n]*\\]" };
+const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
+const mins = (t) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3, 5));
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 // ---------- the settings ----------
 
@@ -49,6 +52,13 @@ const S = (id, file, scope, key, type, min, max, label, help, group, extra = {})
   ({ id, file, scope, key, type, min, max, label, help, group, ...extra });
 
 export const SETTINGS = [
+  S("schedule.daily", "site", block("schedule"), "daily", "time", "03:00", "07:00", "Daily post",
+    "When the day's post is written. Kept before 07:30, when the laptop backup checks for a missing post.", "schedule"),
+  S("schedule.reels", "site", block("schedule"), "reels", "times", null, null, "Reel times",
+    "1 to 3 times, like 09:00, 13:00, 19:00: the first at least 90 minutes after the post, 30 minutes apart, the last by 23:00. Applies from the next day's queue; Reels already queued keep their times.", "schedule"),
+  S("schedule.stats", "site", block("schedule"), "stats", "time", "20:00", "23:45", "Stats and learning",
+    "When the day's numbers are collected and the learning loop runs. After the last Reel.", "schedule"),
+
   S("paused", "site", whole, "paused", "bool", null, null, "Daily posts paused",
     "On: no post is made until you turn it off. The same switch as Pause on Controls.", "posting"),
   S("auto_post_reels", "site", whole, "auto_post_reels", "bool", null, null, "Reels post by themselves",
@@ -59,8 +69,8 @@ export const SETTINGS = [
   S("pipeline.words_max", "site", block("pipeline"), "words_max", "int", 500, 2500, "Most words",
     "A post longer than this is not published.", "gate"),
   S("pipeline.attempts", "site", block("pipeline"), "attempts", "int", 1, 4, "Tries per day",
-    "How many times the writer may try before the day is skipped. Each try uses about 50K of Groq's 200K free tokens a day.", "gate",
-    { warnAbove: 3 }),
+    "How many times the writer may try before the day is skipped. Past Groq's free 200K tokens a day, the backup model (Gemini) takes over.", "gate",
+    { warnAbove: 2, cost: { per: 86, of: 200, unit: "K Groq tokens a day" } }),
   S("pipeline.llm_check", "site", block("pipeline"), "llm_check", "bool", null, null, "Second fact-check",
     "The model re-reads the sources and drops sentences they don't support. Off means only the rule checks run.", "gate",
     { warnWhen: false }),
@@ -71,6 +81,10 @@ export const SETTINGS = [
     "How many stories the editor aims for.", "stories"),
   S("pipeline.min_stories", "site", block("pipeline"), "min_stories", "int", 1, 6, "Fewest stories",
     "With fewer good stories than this, the day is skipped.", "stories"),
+  S("pipeline.max_per_category", "site", block("pipeline"), "max_per_category", "int", 1, 5, "Stories per topic",
+    "At most this many stories from one topic (models, products, policy...) in a post.", "stories"),
+  S("pipeline.max_per_source", "site", block("pipeline"), "max_per_source", "int", 1, 3, "Single-outlet stories",
+    "At most this many stories that only one outlet reported.", "stories"),
   S("pipeline.lookback_hours", "site", block("pipeline"), "lookback_hours", "int", 12, 96, "News window (hours)",
     "Only items published in this many hours are considered.", "stories"),
   S("pipeline.dedupe_days", "site", block("pipeline"), "dedupe_days", "int", 1, 60, "Never repeat a link for (days)",
@@ -96,6 +110,7 @@ export const SETTINGS = [
 ];
 
 export const GROUPS = [
+  { id: "schedule", title: "Schedule", note: "India time. The Clock starts each run at these times. The backup runs in daily.yml, post-scheduled.yml and collect-stats.yml keep their fixed times: a daily backup before the post's time skips itself, and the Reel and stats backups only act on what is already due." },
   { id: "posting", title: "Posting" },
   { id: "gate", title: "Quality gate" },
   { id: "stories", title: "Story picking" },
@@ -150,7 +165,8 @@ function locate(text, s) {
   return { start: at, end: at + hits[0][1].length, raw: hits[0][1] };
 }
 
-const parse = (s, raw) => (s.type === "bool" || s.type === "enabled" ? raw === "true" : Number(raw));
+const parse = (s, raw) => (s.type === "bool" || s.type === "enabled" ? raw === "true"
+  : s.type === "time" ? raw.slice(1, -1) : s.type === "times" ? raw.match(/\d\d:\d\d/g) || [] : Number(raw));
 
 /** Every setting's current value: {settings: [...public fields, value], sources: [...]}. */
 export function readSettings(texts) {
@@ -164,6 +180,19 @@ export function readSettings(texts) {
 // ---------- write ----------
 
 function check(s, v) {
+  if (s.type === "time") {
+    if (typeof v !== "string" || !HHMM.test(v)) throw new ConfigError(`${s.label} must be a time like 05:45`);
+    if (mins(v) < mins(s.min) || mins(v) > mins(s.max)) throw new ConfigError(`${s.label} must be between ${s.min} and ${s.max}`);
+    return;
+  }
+  if (s.type === "times") {
+    if (!Array.isArray(v) || v.length < 1 || v.length > 3 || !v.every((t) => typeof t === "string" && HHMM.test(t))) {
+      throw new ConfigError(`${s.label} must be 1 to 3 times like 09:00`);
+    }
+    if (v.some((t, i) => i && mins(t) - mins(v[i - 1]) < 30)) throw new ConfigError(`${s.label} must be in order, at least 30 minutes apart`);
+    if (mins(v.at(-1)) > mins("23:00")) throw new ConfigError(`${s.label}: the last one must be by 23:00`);
+    return;
+  }
   if (s.type === "bool" || s.type === "enabled") {
     if (typeof v !== "boolean") throw new ConfigError(`${s.label} must be on or off`);
     return;
@@ -173,7 +202,8 @@ function check(s, v) {
   if (v < s.min || v > s.max) throw new ConfigError(`${s.label} must be between ${s.min} and ${s.max}`);
 }
 
-const format = (s, v) => (typeof v === "boolean" ? String(v) : s.type === "int" ? String(v) : String(Number(v.toFixed(2))));
+const format = (s, v) => (typeof v === "boolean" ? String(v) : s.type === "time" ? `"${v}"`
+  : s.type === "times" ? `[${v.map((t) => `"${t}"`).join(", ")}]` : s.type === "int" ? String(v) : String(Number(v.toFixed(2))));
 
 function edit(text, s, v) {
   const at = locate(text, s);
@@ -189,6 +219,9 @@ function crossCheck(values) {
   const v = (id) => values.get(id);
   if (v("pipeline.words_min") + 100 > v("pipeline.words_max")) throw new ConfigError("Most words must be at least 100 more than fewest words");
   if (v("pipeline.min_stories") > v("pipeline.stories_per_post")) throw new ConfigError("Fewest stories can't be more than stories per post");
+  // the same rules fma/clock.py applies (it falls back to the defaults for anything that breaks them)
+  if (mins(v("schedule.reels")[0]) < mins(v("schedule.daily")) + 90) throw new ConfigError("The first Reel must be at least 90 minutes after the daily post");
+  if (mins(v("schedule.stats")) <= mins(v("schedule.reels").at(-1))) throw new ConfigError("Stats must run after the last Reel");
 }
 
 /**
@@ -208,7 +241,7 @@ export function applyChanges(texts, wanted) {
     if (!s) throw new ConfigError(`unknown setting ${String(id).slice(0, 60)}`);
     const v = wanted[id];
     check(s, v);
-    if (v === before.get(id)) continue;
+    if (same(v, before.get(id))) continue;
     out[s.file] = edit(out[s.file], s, v);
     const warn = (s.warnAbove != null && v > s.warnAbove) || (s.warnWhen !== undefined && v === s.warnWhen);
     changes.push({ id, label: s.label, file: FILES[s.file], from: before.get(id), to: v, ...(warn ? { warn: true } : {}) });
@@ -217,7 +250,7 @@ export function applyChanges(texts, wanted) {
   const after = new Map(allSettings(out).map((s) => [s.id, parse(s, locate(out[s.file], s).raw)]));
   for (const [id, was] of before) {
     const want = Object.hasOwn(wanted, id) ? wanted[id] : was;
-    if (after.get(id) !== want) throw new ConfigError(`${id} would read ${after.get(id)} after the edit, not ${want}`);
+    if (!same(after.get(id), want)) throw new ConfigError(`${id} would read ${after.get(id)} after the edit, not ${want}`);
   }
   if (after.size !== before.size) throw new ConfigError("the edit changed the list of sources");
   for (const f of Object.keys(FILES)) {
