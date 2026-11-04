@@ -437,3 +437,36 @@ def test_card_question_survives_the_model_check_without_evidence_but_not_a_bad_f
     assert post["sections"][0]["card"]["ask"]
     checked, _ = llm_check(FakeChain([], flag_text={"pay $2": "no price in the sources"}), post, SOURCES, report)
     assert checked["sections"][0]["card"]["ask"] is None
+
+
+def test_checker_quoting_the_source_header_line_is_found():
+    # 1 Nov 2026: "WIRED — <title> (published 31 October 2026) ... <text>" was dropped as "not in the source"
+    from conftest import FakeChain
+
+    class HeaderQuoter(FakeChain):
+        def _check_reply(self, user):
+            reply = super()._check_reply(user)
+            header = next(ln for ln in user.split("\n\nSOURCES\n", 1)[1].splitlines() if ln.startswith("[S"))
+            for c in reply["checks"]:
+                c["evidence"] = header.split("] ", 1)[1] + " ... " + c["evidence"]
+            return reply
+
+    _, report = _checked(HeaderQuoter([]))
+    assert not any("not in the source" in p for e in report["entries"] for p in e.get("problems", []))
+
+
+def test_pure_judgement_with_empty_evidence_is_kept_but_facts_are_not():
+    # 2 Nov 2026: takes like "Consider the Muse Charm a niche experiment" came back supported with no quote
+    from conftest import FakeChain
+
+    class EmptyQuoter(FakeChain):
+        def _check_reply(self, user):
+            reply = super()._check_reply(user)
+            for c in reply["checks"]:
+                c["evidence"] = ""
+            return reply
+
+    post, report = _checked(EmptyQuoter([]))
+    dropped = [e for e in report["entries"] if e["status"] == "dropped"]
+    assert dropped and all("not in the source" in " ".join(e["problems"]) for e in dropped)
+    assert len(post["why_it_matters"]) == 2          # both are [analysis] here, so both stay

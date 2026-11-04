@@ -721,7 +721,10 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         room = max(2600, 7000 // max(1, len(used)))    # a fixed text budget shared out; fits per-minute limits
         src_block = "\n\n".join(f"[{i}] {by_id[i]['publisher']} — {by_id[i]['title']}{pub_label(by_id[i])}\n"
                                 f"{by_id[i]['text'][:room]}" for i in used if i in by_id)
-        corpus_here = " ".join(corpus(by_id[i]) + " " + norm(pub_label(by_id[i])) for i in used if i in by_id)
+        # the header line exactly as the prompt shows it, then the body: on 1 Nov 2026 a checker quoting
+        # "WIRED — <title> (published 31 October 2026) ... <text>" was dropped as "not in the source"
+        corpus_here = " ".join(norm(f"{by_id[i]['publisher']} — {by_id[i]['title']}{pub_label(by_id[i])}") + " "
+                               + corpus(by_id[i]) for i in used if i in by_id)
         for start in range(0, len(items), 6):          # small batches keep each reply short
             batch = items[start:start + 6]
             claims = "\n".join(f"{k}: {tags[kind_of[k]]}{plain(s)}" for k, s in batch)
@@ -775,6 +778,9 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                     bad[k] = str(c.get("reason") or "not supported by the source")
                 elif kind_of[k] == "ask":
                     pass        # an opinion question has nothing to quote (2 Nov 2026: all four were dropped for that)
+                elif kind_of[k] == "analysis" and not str(c.get("evidence") or "").strip():
+                    pass        # a pure judgement states no fact to quote (2 Nov 2026: "Consider the Muse Charm a
+                    #             niche experiment" was dropped for an empty quote the checker had marked supported)
                 elif not evidence_found(str(c.get("evidence", "")), corpus_here):
                     bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
     head_bad = [bad[k] for k, _, kind in sentences if kind == "headline" and k in bad]
