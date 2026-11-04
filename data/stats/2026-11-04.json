@@ -1,22 +1,272 @@
 {
  "date": "2026-11-04",
- "collected_at": "2026-11-03T23:06:47+00:00",
+ "collected_at": "2026-11-04T18:00:35+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 120,
+  "visitors_day": 6,
+  "daily": [
+   {
+    "day": "2026-10-08",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-09",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-10",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-11",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-12",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 71
+   },
+   {
+    "path": "/ai-daily",
+    "title": "Five Minute AI",
+    "visitors": 14
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "title": "Mistral releases open weights for trillion‑parameter model · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+    "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/ai-daily/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+    "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/share/2026-10-30",
+    "title": "Share kit · 30 Oct 2026 · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/archive",
+    "title": "Archive · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 64
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 17
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 5
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 4
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 4
+   },
+   {
+    "name": "Google",
+    "visitors": 3
+   },
+   {
+    "name": "com.linkedin.android",
+    "visitors": 2
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 2
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 1,
-  "media_count": 12,
+  "media_count": 15,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 99,
+   "views": 111,
+   "accounts_engaged": 1,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "18050438846816093",
+    "timestamp": "2026-11-04T13:31:17+0000",
+    "permalink": "https://www.instagram.com/reel/DfUkZCVD4Rs/",
+    "type": "VIDEO",
+    "caption": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 3,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 11.2
+   },
+   {
+    "id": "18182400415430796",
+    "timestamp": "2026-11-04T07:31:47+0000",
+    "permalink": "https://www.instagram.com/reel/DfT7Pq9kYYu/",
+    "type": "VIDEO",
+    "caption": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 15,
+    "views": 18,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 4.7
+   },
+   {
+    "id": "18078636134734013",
+    "timestamp": "2026-11-04T05:02:23+0000",
+    "permalink": "https://www.instagram.com/reel/DfTqIGwEtT0/",
+    "type": "VIDEO",
+    "caption": "Google says schools that switch off its AI will lose Google Search too.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 7,
+    "views": 7,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 10.9
+   },
    {
     "id": "18052874651820583",
     "timestamp": "2026-11-03T13:31:37+0000",
@@ -25,12 +275,12 @@
     "caption": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
     "likes": 0,
     "comments": 0,
-    "reach": 1,
-    "views": 1,
+    "reach": 83,
+    "views": 90,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 3.1
+    "avg_watch_s": 0.9
    },
    {
     "id": "18353347291267090",
@@ -40,12 +290,12 @@
     "caption": "Gemini can read your Gmail, and many of its features are on by default.",
     "likes": 1,
     "comments": 0,
-    "reach": 5,
-    "views": 6,
+    "reach": 15,
+    "views": 17,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 4.3
+    "avg_watch_s": 2.0
    },
    {
     "id": "18132533923833435",
@@ -151,51 +401,6 @@
     "shares": 0,
     "total_interactions": 2,
     "avg_watch_s": 2.3
-   },
-   {
-    "id": "18125094034900078",
-    "timestamp": "2026-10-31T18:10:50+0000",
-    "permalink": "https://www.instagram.com/reel/DfKxNIIkai5/",
-    "type": "VIDEO",
-    "caption": "An AI coding agent sent Pentagon system logins to a risky website.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 56,
-    "views": 66,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 3.4
-   },
-   {
-    "id": "18038621561913181",
-    "timestamp": "2026-10-31T18:09:06+0000",
-    "permalink": "https://www.instagram.com/reel/DfKxBcCDEuh/",
-    "type": "VIDEO",
-    "caption": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 47,
-    "views": 57,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 2.9
-   },
-   {
-    "id": "18132685601497886",
-    "timestamp": "2026-10-31T18:07:50+0000",
-    "permalink": "https://www.instagram.com/reel/DfKw3Zzkv3p/",
-    "type": "VIDEO",
-    "caption": "A hacked Claude Code update reached up to 5,000 developers.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 48,
-    "views": 52,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 4.0
    }
   ]
  }
