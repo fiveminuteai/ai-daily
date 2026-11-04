@@ -5,11 +5,42 @@ import { readFileSync } from "node:fs";
 import { ConfigError, SETTINGS, applyChanges, listSources, readSettings } from "../lib/blogconfig.js";
 import { handle } from "../lib/api.js";
 
-const real = {
+const live = {
   site: readFileSync(new URL("../../config/site.yaml", import.meta.url), "utf8"),
   sources: readFileSync(new URL("../../config/sources.yaml", import.meta.url), "utf8"),
 };
+// The real files' layout with every value the tests assume pinned, so a setting saved from the dashboard (a pause, a
+// new word range) never fails these tests in a deploy.
+const PINNED = {
+  "schedule.daily": "05:45", "schedule.reels": ["09:00", "13:00", "19:00"], "schedule.stats": "23:30",
+  paused: false, auto_post_reels: true, "pipeline.words_min": 880, "pipeline.words_max": 1150, "pipeline.attempts": 2,
+  "pipeline.llm_check": true, "pipeline.max_quotes": 1, "pipeline.stories_per_post": 5, "pipeline.min_stories": 3,
+  "pipeline.max_per_category": 2, "pipeline.max_per_source": 1, "pipeline.lookback_hours": 40, "pipeline.dedupe_days": 14,
+  "pipeline.similar_title_days": 3, "audience.editor_weight": 3, "player_boost.rivalry": 1.2, "player_boost.giant": 1,
+  "player_boost.challenger": 0.6, "groq.min_interval_s": 30, "groq.max_completion_tokens": 2500,
+  "source.hn.weight": 0.8, "source.hn.enabled": true, "source.techcrunch.enabled": true, "source.venturebeat.enabled": false,
+  "source.arxiv-ai.weight": 0.15,
+};
+function pin(texts) {
+  // two passes: the cross-rules (words, schedule) can refuse one order of edits but not the other
+  let t = texts;
+  for (let pass = 0; pass < 2; pass++) {
+    for (const [id, v] of Object.entries(PINNED)) {
+      try { t = applyChanges(t, { [id]: v }).texts; } catch (e) { if (!(e instanceof ConfigError)) throw e; }
+    }
+  }
+  return t;
+}
+const real = pin(live);
 const changedLines = (a, b) => a.split("\n").map((l, i) => [l, b.split("\n")[i]]).filter(([x, y]) => x !== y);
+
+test("the live config, whatever was last saved, is fully readable and within every rule", () => {
+  const { settings } = readSettings(live);
+  for (const s of SETTINGS) assert.ok(settings.some((x) => x.id === s.id), s.id);
+  for (const [id, v] of Object.entries(Object.fromEntries(readSettings(real).settings.map((s) => [s.id, s.value])))) {
+    if (Object.hasOwn(PINNED, id)) assert.deepEqual(v, PINNED[id], `pinning failed for ${id}`);
+  }
+});
 
 test("every whitelisted setting is found exactly once in the real config, with the right type", () => {
   const { settings, sources } = readSettings(real);

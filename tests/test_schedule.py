@@ -13,13 +13,19 @@ ROOT = Path(__file__).resolve().parents[1]
 utc = lambda h, m=0, d=4: datetime(2026, 11, d, h, m, tzinfo=timezone.utc)  # noqa: E731
 
 
-def test_the_real_config_reproduces_the_original_times():
-    sched = clock.read_schedule((ROOT / "config/site.yaml").read_text(encoding="utf-8"))
-    assert sched == {"daily": "05:45", "reels": ("09:00", "13:00", "19:00"), "stats": "23:30"}
+def test_the_defaults_reproduce_the_original_times():
     # exactly the five events the clock ran before the times moved into config
-    assert clock.events(sched) == (("00:15", "daily.yml"), ("03:30", "post-scheduled.yml"), ("07:30", "post-scheduled.yml"),
-                                   ("13:30", "post-scheduled.yml"), ("18:00", "collect-stats.yml"))
-    assert clock.EVENTS == clock.events(sched)
+    assert clock.EVENTS == (("00:15", "daily.yml"), ("03:30", "post-scheduled.yml"), ("07:30", "post-scheduled.yml"),
+                            ("13:30", "post-scheduled.yml"), ("18:00", "collect-stats.yml"))
+    assert clock.events(clock.DEFAULT) == clock.EVENTS
+
+
+def test_the_live_config_schedule_is_valid_and_read_the_same_by_the_clock_and_yaml():
+    # whatever the control app last saved: the clock's own parser and the YAML loader agree, and nothing fell back
+    text = (ROOT / "config/site.yaml").read_text(encoding="utf-8")
+    raw = __import__("yaml").safe_load(text)["schedule"]
+    sched = clock.read_schedule(text)
+    assert sched == {"daily": raw["daily"], "reels": tuple(raw["reels"]), "stats": raw["stats"]}
 
 
 def test_an_edited_schedule_moves_the_clock():
@@ -123,8 +129,8 @@ def test_lineup_caps_come_from_config_within_bounds():
     assert lineup_caps({"max_per_category": 3, "max_per_source": 2}) == {"max_per_category": 3, "max_per_source": 2}
     for bad in (0, 9, "2", 2.5, True, None):
         assert lineup_caps({"max_per_category": bad, "max_per_source": bad}) == {"max_per_category": 2, "max_per_source": 1}
-    real = __import__("yaml").safe_load((ROOT / "config/site.yaml").read_text(encoding="utf-8"))
-    assert lineup_caps(real["pipeline"]) == {"max_per_category": 2, "max_per_source": 1}
+    real = __import__("yaml").safe_load((ROOT / "config/site.yaml").read_text(encoding="utf-8"))["pipeline"]
+    assert lineup_caps(real) == {"max_per_category": real["max_per_category"], "max_per_source": real["max_per_source"]}
 
 
 def test_learning_rows_are_labelled_with_the_time_they_were_scheduled():

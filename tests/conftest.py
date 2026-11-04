@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 import re
-import shutil
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -204,13 +203,38 @@ def fake_web():
     })
 
 
+# The values the tests were written against for every setting the control app can change (Blog settings, Pause).
+# The project copy pins them, so a live edit (a pause, a new word range) never fails the tests in a deploy. Found 4 Nov
+# 2026: pausing from the dashboard failed the site deploy, because the pipeline tests read paused: true.
+CONTROL_APP_DEFAULTS = {
+    "paused": False, "auto_post_reels": True,
+    "schedule": {"daily": "05:45", "reels": ["09:00", "13:00", "19:00"], "stats": "23:30"},
+    "pipeline": {"lookback_hours": 40, "stories_per_post": 5, "min_stories": 3, "dedupe_days": 14, "similar_title_days": 3,
+                 "words_min": 880, "words_max": 1150, "max_quotes": 1, "max_per_category": 2, "max_per_source": 1,
+                 "llm_check": True, "attempts": 2},
+    "audience": {"editor_weight": 3},
+}
+
+
+def pinned_site(cfg: dict) -> dict:
+    """`cfg` with every control-app setting at CONTROL_APP_DEFAULTS (Groq pacing included)."""
+    out = {**cfg, "paused": False, "auto_post_reels": True, "schedule": dict(CONTROL_APP_DEFAULTS["schedule"])}
+    out["pipeline"] = {**cfg.get("pipeline", {}), **CONTROL_APP_DEFAULTS["pipeline"]}
+    out["audience"] = {**cfg.get("audience", {}), **CONTROL_APP_DEFAULTS["audience"]}
+    out["providers"] = [({**p, "min_interval_s": 30, "extra": {**(p.get("extra") or {}), "max_completion_tokens": 2500}}
+                         if p.get("name") == "groq" else p) for p in cfg.get("providers", [])]
+    return out
+
+
 @pytest.fixture
 def project(tmp_path):
-    """A throwaway copy of the project config with a one-feed source list."""
+    """A throwaway copy of the project config with a one-feed source list and the control-app settings pinned."""
     (tmp_path / "config").mkdir()
-    shutil.copy(ROOT / "config/site.yaml", tmp_path / "config/site.yaml")
     import yaml
+    site = yaml.safe_load((ROOT / "config/site.yaml").read_text(encoding="utf-8"))
+    (tmp_path / "config/site.yaml").write_text(yaml.safe_dump(pinned_site(site), allow_unicode=True), encoding="utf-8")
     srcs = yaml.safe_load((ROOT / "config/sources.yaml").read_text(encoding="utf-8"))
+    srcs["player_boost"] = {"rivalry": 1.2, "giant": 1.0, "challenger": 0.6}
     srcs["sources"] = [{"id": "test", "name": "Test News", "kind": "rss", "url": "https://feed.example/rss",
                         "weight": 1.0, "category": "products"},
                        {"id": "lab", "name": "Acme", "kind": "rss", "url": "https://lab.example/rss",
