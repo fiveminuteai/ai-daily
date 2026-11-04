@@ -1,0 +1,315 @@
+{
+ "date": "2026-11-04",
+ "slug": "2026-11-04-google-will-switch-off-search-in-schools",
+ "headline": "Google will switch off Search in schools that turn off its AI",
+ "dek": "Schools that refuse Google's AI tools will lose Google Search too, while Anthropic's new filing shows compute now takes 58% of its revenue[S1][S3][S6].",
+ "byline": "Sai Pavan UE",
+ "tags": [
+  "impact",
+  "products",
+  "models",
+  "tools",
+  "google",
+  "anthropic",
+  "apple"
+ ],
+ "what_happened": [
+  "Google will turn its AI tools off for K-12 students unless schools opt in, and schools that refuse AI lose Google Search too[S1][S3].",
+  "Siri AI can now act inside third-party apps in a developer Preview, as Apple hints that third-party AI could bring in new revenue[S5][S4].",
+  "Anthropic's quarterly revenue hit $17 billion, but compute took 58% of it, up from 48%, as it paid more for short-term capacity[S6]."
+ ],
+ "sections": [
+  {
+   "story": 1,
+   "title": "Google will switch off Search in schools that turn off its AI",
+   "category": "impact",
+   "paragraphs": [
+    "Google announced on Tuesday that it plans to disable AI tools for K-12 students next year unless school administrators explicitly turn them on[S1]. The change covers Gemini, NotebookLM, Gemini in Classroom and Google Search[S1]. Schools that restrict AI altogether will lose access to Google Search as well, because AI features are now part of the search engine[S1][S3].",
+    "Administrators will not get an option to switch off the Gemini-powered features while keeping Search[S3]. Chris Phillips, Google's vice president for education, told The New York Times that Search and AI are deeply integrated[S1][S3]. Students in schools that block AI will see a message from their school saying Search is not available[S1][S3]. Google says it will share more specifics with schools in the coming months, before the changes roll out[S1].",
+    "Teachers may not want students to use AI Overviews for research or assignments, but they likely still want them to reach the search engine for sources[S1]. TechCrunch says the decision shows Google's influence over schools, given how common its apps and Chromebooks are in classrooms.[S1]."
+   ],
+   "card": {
+    "hook": "Google says schools that switch off its AI will lose Google Search too[S1][S3].",
+    "points": [
+     "Google plans to turn AI tools off for K-12 students unless administrators turn them on[S1].",
+     "There is no option to switch off the Gemini features but keep Search[S3].",
+     "Students in schools that block AI will see a notice that Search is not available[S1][S3]."
+    ],
+    "take": "Schools that rely on Google will have to accept its AI features to keep Search[S1].",
+    "take_kind": "read",
+    "ask": "Should schools be able to keep Search without AI[S1][S3]?",
+    "interest": 4,
+    "reel": 8,
+    "angle": "Google is making schools choose between its AI and Search itself, a choice that touches millions of students.",
+    "desk": {
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "Google forcing an AI-or-nothing choice on schools; clear stakes and a giant"
+    },
+    "bonus": 0.0
+   }
+  },
+  {
+   "story": 2,
+   "title": "Apple opens Siri AI to third-party apps as it hunts for new revenue",
+   "category": "products",
+   "paragraphs": [
+    "Apple will let Siri AI perform actions across third-party apps[S5]. As part of the iOS 27.3 update rolling out on Tuesday, developers can now build Siri AI's new features into all apps[S5]. The update is rolling out as part of a Developer Preview[S5]. The day before, on Apple's earnings call, its finance chief pointed to third-party apps as a possible source of AI revenue[S4].",
+    "Siri AI can draw on a user's personal context, understand natural language requests and use on-screen awareness to complete tasks[S5]. A new app skills feature lets developers combine several tasks into a single action.[S5]. Chief financial officer Kevan Parekh said there are opportunities across third-party apps and partnerships, but did not say what they are[S4].",
+    "Apple's App Store has faced regulatory pressure and a slump in mobile gaming, which have hurt services growth[S4]. Third-party estimates in August suggested an 18% drop in Apple's U.S. commission revenue.[S4]. Apple expects services growth of 8 to 9% in the December quarter[S4]."
+   ],
+   "card": {
+    "hook": "Apple is letting Siri AI carry out tasks inside third-party apps[S5].",
+    "points": [
+     "Developers can build Siri AI's new features into all apps with iOS 27.3[S5].",
+     "A new app skills feature combines several tasks into a single action[S5].",
+     "Apple's finance chief says there are opportunities across third-party apps and partnerships[S4]."
+    ],
+    "take": "Expect your apps to start offering Siri AI actions, starting with a developer Preview[S5].",
+    "take_kind": "read",
+    "ask": "Would you let Siri act inside your apps[S5][S4]?",
+    "interest": 3,
+    "reel": 6,
+    "angle": "Siri AI is starting to work inside the apps people already use, and Apple sees money in it.",
+    "desk": {
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "useful Apple feature news, but a developer preview with little drama"
+    },
+    "bonus": 0.0
+   }
+  },
+  {
+   "story": 3,
+   "title": "Anthropic's revenue jumps, but compute now eats 58% of it",
+   "category": "products",
+   "paragraphs": [
+    "Anthropic released new financial data in a filing on Monday, an update to the S-1 it filed last week.[S6]. Revenue reached $17 billion in the quarter, up from $11.5 billion in the quarter before[S6]. Its operating loss also grew, largely because of rising compute costs[S6].",
+    "Compute took up 58% of Anthropic's revenue in the new quarter, up from 48% the quarter before[S6]. Revenue for every dollar spent on compute fell to 1.72x, after peaking at just over 2x[S6]. The compute bill reached $10 billion for the quarter[S6]. That included $5.0 billion of compute under short-term commitments, which the filing says costs significantly more than compute bought under multi-year deals[S6].",
+    "TechCrunch says demand grew so fast that Anthropic had to scramble for compute, which meant paying higher rates[S6]. It has been paying SpaceX $1.25 billion a month for compute, alongside multibillion-dollar deals with Nscale, Akamai and Volta.[S6]. The filing says it expects compute and infrastructure costs to keep increasing in absolute dollars[S6]."
+   ],
+   "card": {
+    "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%[S6].",
+    "points": [
+     "Quarterly revenue reached $17 billion, up from $11.5 billion[S6].",
+     "Its compute bill hit $10 billion, with $5.0 billion on pricier short-term deals[S6].",
+     "It has been paying SpaceX $1.25 billion a month for compute[S6]."
+    ],
+    "take": "As Anthropic heads for an IPO, its margins are getting worse, not better[S6].",
+    "take_kind": "read",
+    "ask": "Is the AI boom worth what it costs[S6]?",
+    "interest": 4,
+    "reel": 7,
+    "angle": "The AI boom's hidden cost: Anthropic's revenue is soaring but compute is eating more of it.",
+    "desk": {
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "striking money numbers about a giant: $17 billion revenue, 58% on compute"
+    },
+    "bonus": 0.0
+   }
+  },
+  {
+   "story": 4,
+   "title": "Anthropic is working on a way to prove which model wrote an answer",
+   "category": "models",
+   "paragraphs": [
+    "Anthropic is working on an open source system to verify which AI model produced a given output, according to a blog post published Tuesday[S7]. The system is called FlashProve[S7]. It is built to provide a cryptographic proof that a given output came from a specific model[S7]. The aim is to let users confirm that an answer really came from the model they think they are using[S7].",
+    "The system requires AI labs to publish a fingerprint of each model they release, which can later be matched to specific outputs[S7]. The fingerprints don't reveal a model's weights, the internal numbers that define how it behaves[S7]. That means closed-model makers could publish them without giving up their most valuable asset[S7]. The system is designed to be lightweight, so checks could run on a local device[S7].",
+    "The researchers say it could stop an AI company from secretly swapping in a cheaper model to cut costs.[S7]. Research is ongoing, and there are no plans to deploy it at Anthropic or any other lab[S7]."
+   ],
+   "card": {
+    "hook": "Anthropic is researching a way to prove which AI model wrote an answer[S7].",
+    "points": [
+     "The system, FlashProve, would give a cryptographic proof that an output came from a specific model[S7].",
+     "Labs would publish a fingerprint of each model, without revealing its weights[S7].",
+     "Research is ongoing, with no plans yet to deploy it at any lab[S7]."
+    ],
+    "take": "It could one day stop companies secretly swapping in a cheaper model[S7].",
+    "take_kind": "read",
+    "ask": "Do you trust your AI app uses the model it claims[S7]?",
+    "interest": 2,
+    "reel": 5,
+    "angle": "You can't currently prove which model answered you; Anthropic is researching a fix.",
+    "desk": {
+     "rubric": 5,
+     "chief": 5.0,
+     "why": "interesting idea, but research only and abstract"
+    },
+    "bonus": 0.0
+   }
+  },
+  {
+   "story": 5,
+   "title": "A Postman user says it installed plugins into their coding agents",
+   "category": "tools",
+   "paragraphs": [
+    "A user opened a GitHub issue saying the Postman desktop app automatically installed plugins into their coding agents, Codex and Claude Code[S8]. The user, indicava, says the changes followed opening Postman on a Mac[S8]. They describe it as a severe consent and trust problem.[S8].",
+    "The user says they found a user-wide Postman plugin, a startup instruction hook, a remote MCP connection, a Claude Code plugin and a separately installed Postman CLI[S8]. They quote Postman's own log, which records claude-code and Codex as installed by a script.[S8]. It also says the installer tried to mark its own startup hook as trusted in the Codex settings file[S8].",
+    "According to the report, the hook tells the agent to route API engineering tasks through Postman[S8]. The user argues that an API client should not make itself the default workflow in other tools simply because it was opened.[S8]."
+   ],
+   "card": {
+    "hook": "A user says Postman installed plugins into their AI coding agents without asking[S8].",
+    "points": [
+     "The user reports plugins for Codex and Claude Code after opening Postman on a Mac[S8].",
+     "Postman's own log records claude-code and Codex as installed by a script, the user says[S8].",
+     "The installer also tried to mark its own startup hook as trusted, according to the report[S8]."
+    ],
+    "take": "If you use Postman with coding agents, check their plugin and hook settings[S8].",
+    "take_kind": "do",
+    "ask": "Should apps ever change your AI tools without asking[S8]?",
+    "interest": 3,
+    "reel": 6,
+    "angle": "A developer tool allegedly rewired other AI agents on the machine without asking, a trust problem for anyone using coding agents.",
+    "desk": {
+     "rubric": 5,
+     "chief": 7.0,
+     "why": "an app quietly changing AI agents on your machine; strong for tech viewers, single user report"
+    },
+    "bonus": 0.0
+   }
+  }
+ ],
+ "why_it_matters": [
+  {
+   "text": "Google is tying Search to its AI features for K-12 student accounts, so schools cannot keep one without the other[S3]. TechCrunch says that shows how much influence Google has over classrooms, given how common its apps and Chromebooks are[S1].",
+   "speculative": true
+  },
+  {
+   "text": "Anthropic's revenue grew to $17 billion in a quarter, but compute took 58% of it, up from 48%[S6]. If those costs keep rising, AI companies may find it harder to keep prices low for the tools people use at work[S6].",
+   "speculative": true
+  }
+ ],
+ "quote": {
+  "text": "Search and AI are deeply integrated",
+  "speaker": "Chris Phillips",
+  "source": "S1"
+ },
+ "chart": {
+  "title": "Share of Anthropic's revenue spent on compute",
+  "unit": "%",
+  "source": "S6",
+  "bars": [
+   {
+    "label": "Previous quarter",
+    "value": 48.0
+   },
+   {
+    "label": "Quarter to Sept 30",
+    "value": 58.0
+   }
+  ]
+ },
+ "diagram": {
+  "title": "How FlashProve would check an answer",
+  "source": "S7",
+  "steps": [
+   "Lab publishes model fingerprint",
+   "Model produces an output",
+   "Output matched to fingerprint",
+   "Proof checked on a device"
+  ],
+  "kind": "flow"
+ },
+ "timeline": [
+  {
+   "time": "2026-11-03T16:30:34+00:00",
+   "title": "Google will switch off Search in schools that turn off its AI",
+   "publisher": "TechCrunch",
+   "category": "impact"
+  },
+  {
+   "time": "2026-11-03T20:16:17+00:00",
+   "title": "Apple opens Siri AI to third-party apps as it hunts for new revenue",
+   "publisher": "The Verge",
+   "category": "products"
+  },
+  {
+   "time": "2026-11-03T17:07:01+00:00",
+   "title": "Anthropic's revenue jumps, but compute now eats 58% of it",
+   "publisher": "TechCrunch",
+   "category": "products"
+  },
+  {
+   "time": "2026-11-03T22:41:03+00:00",
+   "title": "Anthropic is working on a way to prove which model wrote an answer",
+   "publisher": "TechCrunch",
+   "category": "models"
+  },
+  {
+   "time": "2026-11-03T17:22:37+00:00",
+   "title": "A Postman user says it installed plugins into their coding agents",
+   "publisher": "github.com (via Hacker News)",
+   "category": "tools"
+  }
+ ],
+ "visuals": [
+  "timeline",
+  "chart",
+  "diagram"
+ ],
+ "sources": [
+  {
+   "id": "S1",
+   "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+   "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+   "publisher": "TechCrunch",
+   "published": "2026-11-03T16:30:34+00:00"
+  },
+  {
+   "id": "S3",
+   "title": "Google is entirely disabling Search in schools that don’t want AI",
+   "url": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
+   "publisher": "The Verge",
+   "published": "2026-11-03T17:00:04+00:00"
+  },
+  {
+   "id": "S4",
+   "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+   "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+   "publisher": "TechCrunch",
+   "published": "2026-11-03T01:49:52+00:00"
+  },
+  {
+   "id": "S5",
+   "title": "Apple starts giving Siri AI access to third-party apps",
+   "url": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
+   "publisher": "The Verge",
+   "published": "2026-11-03T20:16:17+00:00"
+  },
+  {
+   "id": "S6",
+   "title": "Anthropic is still grappling with the economics of compute",
+   "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+   "publisher": "TechCrunch",
+   "published": "2026-11-03T17:07:01+00:00"
+  },
+  {
+   "id": "S7",
+   "title": "Anthropic is working on a system to prove AI models’ identity",
+   "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+   "publisher": "TechCrunch",
+   "published": "2026-11-03T22:41:03+00:00"
+  },
+  {
+   "id": "S8",
+   "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+   "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+   "publisher": "github.com (via Hacker News)",
+   "published": "2026-11-03T17:22:37+00:00"
+  }
+ ],
+ "model": "Five Minute AI newsroom",
+ "generated_at": "2026-11-04T04:50:11+00:00",
+ "verification": {
+  "checked": 96,
+  "ok": 90,
+  "repaired": 5,
+  "dropped": 1,
+  "unused": 2,
+  "layer1_done": true,
+  "layer2_done": true
+ },
+ "word_count": 1059,
+ "reading_minutes": 5
+}

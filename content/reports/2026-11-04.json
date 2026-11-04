@@ -1,0 +1,921 @@
+{
+  "checked": 96,
+  "ok": 90,
+  "repaired": 5,
+  "dropped": 1,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Google will switch off Search in schools that turn off its AI",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "Search and AI are deeply integrated",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Schools that refuse Google's AI tools will lose Google Search too, while Anthropic's new filing shows compute now takes 58% of its revenue.",
+      "sources": [
+        "S1",
+        "S3",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google will turn its AI tools off for K-12 students unless schools opt in, and schools that refuse AI lose Google Search too.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Siri AI can now act inside third-party apps in a developer preview, as Apple hints that third-party AI could bring in new revenue.",
+      "sources": [
+        "S5",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Anthropic's quarterly revenue hit $17 billion, but compute took 58% of it, up from 48%, as it paid more for short-term capacity.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Anthropic is researching FlashProve, a system that would let anyone check which AI model produced an answer; it is not deployed yet.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "A user reports that Postman's desktop app installed plugins into Codex and Claude Code without asking, and tried to trust its own startup hook.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google announced on Tuesday that it plans to disable AI tools for K-12 students next year unless school administrators explicitly turn them on.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The change covers Gemini, NotebookLM, Gemini in Classroom and Google Search.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Schools that restrict AI altogether will lose access to Google Search as well, because AI features are now part of the search engine.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Administrators will not get an option to switch off the Gemini-powered features while keeping Search.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Chris Phillips, Google's vice president for education, told The New York Times that Search and AI are deeply integrated.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Students in schools that block AI will see a message from their school saying Search is not available.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google says it will share more specifics with schools in the coming months, before the changes roll out.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Teachers may not want students to use AI Overviews for research or assignments, but they likely still want them to reach the search engine for sources.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "TechCrunch says the decision shows Google's influence over schools, given how common its apps and Chromebooks are in classrooms..",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google will switch off Search in schools that turn off its AI",
+      "sources": [
+        "S1",
+        "S3",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Google says schools that switch off its AI will lose Google Search too.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Google plans to turn AI tools off for K-12 students unless administrators turn them on.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "There is no option to switch off the Gemini features but keep Search.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Students in schools that block AI will see a notice that Search is not available.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Schools that rely on Google will have to accept its AI features to keep Search.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should schools be able to keep Search without AI?",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple will let Siri AI perform actions across third-party apps.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "As part of the iOS 27.3 update rolling out on Tuesday, developers can now build Siri AI's new features into all apps.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The update is rolling out as part of a Developer Preview.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The day before, on Apple's earnings call, its finance chief pointed to third-party apps as a possible source of AI revenue.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Siri AI can draw on a user's personal context, understand natural language requests and use on-screen awareness to complete tasks.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "A new app skills feature lets developers combine several tasks into a single action..",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Chief financial officer Kevan Parekh said there are opportunities across third-party apps and partnerships, but did not say what they are.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple's App Store has faced regulatory pressure and a slump in mobile gaming, which have hurt services growth.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Third-party estimates in August suggested an 18% drop in Apple's U.S. commission revenue..",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple expects services growth of 8 to 9% in the December quarter.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Apple opens Siri AI to third-party apps as it hunts for new revenue",
+      "sources": [
+        "S5",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Developers can build Siri AI's new features into all apps with iOS 27.3.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "A new app skills feature combines several tasks into a single action.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Apple's finance chief says there are opportunities across third-party apps and partnerships.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Expect your apps to start offering Siri AI actions, starting with a developer preview.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Would you let Siri act inside your apps?",
+      "sources": [
+        "S5",
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Anthropic released new financial data in a filing on Monday, an update to the S-1 it filed last week..",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Revenue reached $17 billion in the quarter, up from $11.5 billion in the quarter before.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Its operating loss also grew, largely because of rising compute costs.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Compute took up 58% of Anthropic's revenue in the new quarter, up from 48% the quarter before.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Revenue for every dollar spent on compute fell to 1.72x, after peaking at just over 2x.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The compute bill reached $10 billion for the quarter.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "That included $5.0 billion of compute under short-term commitments, which the filing says costs significantly more than compute bought under multi-year deals.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "TechCrunch says demand grew so fast that Anthropic had to scramble for compute, which meant paying higher rates.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It has been paying SpaceX $1.25 billion a month for compute, alongside multibillion-dollar deals with Nscale, Akamai and Volta..",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The filing says it expects compute and infrastructure costs to keep increasing in absolute dollars.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic's revenue jumps, but compute now eats 58% of it",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Quarterly revenue reached $17 billion, up from $11.5 billion.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Its compute bill hit $10 billion, with $5.0 billion on pricier short-term deals.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "It has been paying SpaceX $1.25 billion a month for compute.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "As Anthropic heads for an IPO, its margins are getting worse, not better.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Is the AI boom worth what it costs?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic is working on an open source system to verify which AI model produced a given output, according to a blog post published Tuesday.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The system is called FlashProve.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is built to provide a cryptographic proof that a given output came from a specific model.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The aim is to let users confirm that an answer really came from the model they think they are using.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The system requires AI labs to publish a fingerprint of each model they release, which can later be matched to specific outputs.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The fingerprints don't reveal a model's weights, the internal numbers that define how it behaves.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "That means closed-model makers could publish them without giving up their most valuable asset.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The system is designed to be lightweight, so checks could run on a local device.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The researchers say it could stop an AI company from secretly swapping in a cheaper model to cut costs...",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Research is ongoing, and there are no plans to deploy it at Anthropic or any other lab.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic is working on a way to prove which model wrote an answer",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Anthropic is researching a way to prove which AI model wrote an answer.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The system, FlashProve, would give a cryptographic proof that an output came from a specific model.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Labs would publish a fingerprint of each model, without revealing its weights.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Research is ongoing, with no plans yet to deploy it at any lab.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "It could one day stop companies secretly swapping in a cheaper model.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Do you trust your AI app uses the model it claims?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "A user opened a GitHub issue saying the Postman desktop app automatically installed plugins into their coding agents, Codex and Claude Code.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The user, indicava, says the changes followed opening Postman on a Mac.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They describe it as a severe consent and trust problem..",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The user says they found a user-wide Postman plugin, a startup instruction hook, a remote MCP connection, a Claude Code plugin and a separately installed Postman CLI.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They quote Postman's own log, which records claude-code and codex as installed by a script..",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It also says the installer tried to mark its own startup hook as trusted in the Codex settings file.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": ".",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: empty sentence left by an edit"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "According to the report, the hook tells the agent to route API engineering tasks through Postman.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The user argues that an API client should not make itself the default workflow in other tools simply because it was opened..",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "A Postman user says it installed plugins into their coding agents",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "A user says Postman installed plugins into their AI coding agents without asking.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The user reports plugins for Codex and Claude Code after opening Postman on a Mac.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Postman's own log records claude-code and codex as installed by a script, the user says.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The installer also tried to mark its own startup hook as trusted, according to the report.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "If you use Postman with coding agents, check their plugin and hook settings.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should apps ever change your AI tools without asking?",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Google is tying Search to its AI features for K-12 student accounts, so schools cannot keep one without the other.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "TechCrunch says that shows how much influence Google has over classrooms, given how common its apps and Chromebooks are.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Anthropic's revenue grew to $17 billion in a quarter, but compute took 58% of it, up from 48%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "If those costs keep rising, AI companies may find it harder to keep prices low for the tools people use at work.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Previous quarter: 48",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Quarter to Sept 30: 58",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "diagram",
+      "text": "Lab publishes model fingerprint → Model produces an output → Output matched to fingerprint → Proof checked on a device",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 1,
+  "unused": 2,
+  "date": "2026-11-04",
+  "slug": "2026-11-04-google-will-switch-off-search-in-schools",
+  "model": "Five Minute AI newsroom"
+}

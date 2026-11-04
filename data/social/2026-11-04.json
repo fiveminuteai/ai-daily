@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-04",
+ "slug": "2026-11-04-google-will-switch-off-search-in-schools",
+ "headline": "Google will switch off Search in schools that turn off its AI",
+ "url": "https://fiveminuteai.net/posts/2026-11-04-google-will-switch-off-search-in-schools/",
+ "generated_at": "2026-11-04T04:51:18+00:00",
+ "items": [
+  {
+   "id": "2026-11-04-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "Google will switch off Search in schools that turn off its AI\n\n• Google will turn its AI tools off for K-12 students unless schools opt in, and schools that refuse AI lose Google Search too.\n• Siri AI can now act inside third-party apps in a developer Preview, as Apple hints that third-party AI could bring in new revenue.\n• Anthropic's quarterly revenue hit $17 billion, but compute took 58% of it, up from 48%, as it paid more for short-term capacity.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-04/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-04-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Google will switch off Search in schools that turn off its AI\n\n• Google will turn its AI tools off for K-12 students unless schools opt in, and schools that refuse AI lose Google Search too.\n\nhttps://fiveminuteai.net/posts/2026-11-04-google-will-switch-off-search-in-schools/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 215
+  },
+  {
+   "id": "2026-11-04-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Google will switch off Search in schools that turn off its AI\n\n• Google will turn its AI tools off for K-12 students unless schools opt in, and schools that refuse AI lose Google Search too.\n• Siri AI can now act inside third-party apps in a developer Preview, as Apple hints that third-party AI could bring in new revenue.\n• Anthropic's quarterly revenue hit $17 billion, but compute took 58% of it, up from 48%, as it paid more for short-term capacity.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-04-google-will-switch-off-search-in-schools/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-04-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Google says schools that switch off its AI will lose Google Search too[S1][S3].",
+   "text": "Google says schools that switch off its AI will lose Google Search too.\n\n• Google plans to turn AI tools off for K-12 students unless administrators turn them on.\n• There is no option to switch off the Gemini features but keep Search.\n• Students in schools that block AI will see a notice that Search is not available.\n\nOur read: Schools that rely on Google will have to accept its AI features to keep Search.\n\nYour take: Should schools be able to keep Search without AI? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-04/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-04T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-04-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%[S6].",
+   "text": "Anthropic now spends 58% of its revenue on compute, up from 48%.\n\n• Quarterly revenue reached $17 billion, up from $11.5 billion.\n• Its compute bill hit $10 billion, with $5.0 billion on pricier short-term deals.\n• It has been paying SpaceX $1.25 billion a month for compute.\n\nOur read: As Anthropic heads for an IPO, its margins are getting worse, not better.\n\nYour take: Is the AI boom worth what it costs? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-04/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-04T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-04-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Apple is letting Siri AI carry out tasks inside third-party apps[S5].",
+   "text": "Apple is letting Siri AI carry out tasks inside third-party apps.\n\n• Developers can build Siri AI's new features into all apps with iOS 27.3.\n• A new app skills feature combines several tasks into a single action.\n• Apple's finance chief says there are opportunities across third-party apps and partnerships.\n\nOur read: Expect your apps to start offering Siri AI actions, starting with a developer Preview.\n\nYour take: Would you let Siri act inside your apps? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-04/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-04T13:30:00+00:00"
+  }
+ ]
+}

@@ -1,0 +1,516 @@
+{
+ "date": "2026-11-04",
+ "started_at": "2026-11-04T04:33:35+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 45.8,
+   "items": 651,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 14
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 6
+    },
+    "github": {
+     "status": "ok",
+     "items": 10
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 17.4,
+   "stories": 255,
+   "editor": true,
+   "top": [
+    {
+     "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+     "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+     "score": 9.09,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+     "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+     "score": 7.62,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic is still grappling with the economics of compute",
+     "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple’s latest watchOS beta includes its new always-on Audio Intelligence features",
+     "url": "https://www.theverge.com/tech/1025002/apple-watch-audio-intelligence-watchos-beta",
+     "score": 6.39,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic is working on a system to prove AI models’ identity",
+     "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+     "score": 6.17,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Netflix will show you themed recommendations through a new ‘AI Discover’ tab",
+     "url": "https://www.theverge.com/streaming/1025029/netflix-ai-discover-recommendations",
+     "score": 5.92,
+     "interest": 6.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+     "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+     "score": 5.58,
+     "interest": 4.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "honnibal.dev (via Hacker News)",
+      "simonwillison.net (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple restricts dating apps and AI companions to users 18 and up",
+     "url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/",
+     "score": 5.44,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "score": 5.3,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
+     "url": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
+     "score": 5.29,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Coming in 2027: Apple’s $1,000 home robot for FaceTime and switching on lights",
+     "url": "https://arstechnica.com/apple/2026/11/apples-roaming-home-robot-may-do-facetime-switch-lights-on-and-yell-at-your-cat/",
+     "score": 5.22,
+     "interest": 6.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Claude’s new rules against game cloning won’t stop the AI copying boom",
+     "url": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/",
+     "score": 5.21,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+     "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+     "score": 9.09,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+     "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+     "score": 7.62,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic is still grappling with the economics of compute",
+     "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic is working on a system to prove AI models’ identity",
+     "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+     "score": 6.17,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+     "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+     "score": 5.3,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 4.6,
+   "articles": 10,
+   "with_text": 10
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 6.8,
+   "word_count": 1059,
+   "sources": 7
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "Five Minute AI newsroom",
+   "seconds": {
+    "write": 133.2,
+    "reel_desk": 100.1,
+    "layer1": 0.1,
+    "layer2": 399.4,
+    "gate": 3.2
+   },
+   "layer1": {
+    "checked": 110,
+    "ok": 105,
+    "repaired": 5,
+    "dropped": 0
+   },
+   "layer2": {
+    "checked": 108,
+    "ok": 98,
+    "repaired": 4,
+    "dropped": 6
+   },
+   "unused": 3,
+   "fails": [
+    "word count 1217 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Google will switch off Search in schools that turn off its AI",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "Google forcing an AI-or-nothing choice on schools; clear stakes and a giant",
+     "hook": "Google says schools that switch off its AI will lose Google Search too.",
+     "chosen": true
+    },
+    {
+     "story": "Apple opens Siri AI to third-party apps as it hunts for new revenue",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "useful Apple feature news, but a developer preview with little drama",
+     "hook": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic's revenue jumps, but compute now eats 58% of it",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "striking money numbers about a giant: $17 billion revenue, 58% on compute",
+     "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic is working on a way to prove which model wrote an answer",
+     "reel": 5,
+     "rubric": 5,
+     "chief": 5.0,
+     "why": "interesting idea, but research only and abstract",
+     "hook": "Anthropic is researching a way to prove which AI model wrote an answer.",
+     "chosen": false
+    },
+    {
+     "story": "A Postman user says the App installed plugins into their coding agents",
+     "reel": 6,
+     "rubric": 5,
+     "chief": 7.0,
+     "why": "an app quietly changing AI agents on your machine; strong for tech viewers, single user report",
+     "hook": "A user says Postman installed plugins into their AI coding agents without asking.",
+     "chosen": false
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "model": "Five Minute AI newsroom",
+   "seconds": {
+    "write": 110.2,
+    "reel_desk": 44.1,
+    "layer1": 0.1,
+    "layer2": 133.9,
+    "gate": 2.4
+   },
+   "layer1": {
+    "checked": 98,
+    "ok": 92,
+    "repaired": 6,
+    "dropped": 0
+   },
+   "layer2": {
+    "checked": 96,
+    "ok": 90,
+    "repaired": 5,
+    "dropped": 1
+   },
+   "unused": 2,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Google will switch off Search in schools that turn off its AI",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "Google forcing an AI-or-nothing choice on schools; clear stakes and a giant",
+     "hook": "Google says schools that switch off its AI will lose Google Search too.",
+     "chosen": true
+    },
+    {
+     "story": "Apple opens Siri AI to third-party apps as it hunts for new revenue",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "useful Apple feature news, but a developer preview with little drama",
+     "hook": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic's revenue jumps, but compute now eats 58% of it",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "striking money numbers about a giant: $17 billion revenue, 58% on compute",
+     "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic is working on a way to prove which model wrote an answer",
+     "reel": 5,
+     "rubric": 5,
+     "chief": 5.0,
+     "why": "interesting idea, but research only and abstract",
+     "hook": "Anthropic is researching a way to prove which AI model wrote an answer.",
+     "chosen": false
+    },
+    {
+     "story": "A Postman user says it installed plugins into their coding agents",
+     "reel": 6,
+     "rubric": 5,
+     "chief": 7.0,
+     "why": "an app quietly changing AI agents on your machine; strong for tech viewers, single user report",
+     "hook": "A user says Postman installed plugins into their AI coding agents without asking.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-04-google-will-switch-off-search-in-schools",
+ "finished_at": "2026-11-04T04:50:21+00:00",
+ "seconds": 1005.3
+}
