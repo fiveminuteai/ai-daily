@@ -11,6 +11,7 @@
 
 import { GitHub, GitHubError, b64decode } from "./github.js";
 import { buildDay, buildHistory, dayRange, parseLog, todayIst } from "./parse.js";
+import { ConfigError, FILES, GROUPS, applyChanges, readSettings } from "./blogconfig.js";
 
 const WORKFLOWS = { daily: "daily.yml", deploy: "deploy.yml", social: "publish-social.yml" };
 const DATE_RE = /^\d{4}-\d\d-\d\d$/;
@@ -51,6 +52,8 @@ export async function handle(request, env = {}, { fetchImpl, local, desktop } = 
     if (key === "GET history") return json(await history(ctx));
     if (key === "GET social") return json(await social(ctx));
     if (key === "GET stats") return json(await stats(ctx));
+    if (key === "GET blog/settings") return json(await blogSettings(ctx));
+    if (key === "POST blog/settings") return json(await saveBlogSettings(ctx, await body(request)));
     if (key === "POST control/pause") return json(await pause(ctx, await body(request)));
     if (key === "POST control/rerun") return json(await dispatch(ctx, WORKFLOWS.daily, {}, "Rerun today's daily post"));
     if (key === "POST control/redeploy") return json(await dispatch(ctx, WORKFLOWS.deploy, {}, "Retry the site deploy"));
@@ -238,6 +241,52 @@ async function pause({ gh, dryRun, repo }, { paused }) {
   if (dryRun) return { dryRun: true, done: false, what, request, diff };
   await gh.putFile("config/site.yaml", { content: after, sha: meta.sha, message });
   return { dryRun: false, done: true, what, request, diff };
+}
+
+// ---------- blog settings (config/site.yaml + config/sources.yaml, whitelisted keys only; see blogconfig.js) ----------
+
+async function readConfig(gh) {
+  const [site, sources] = await Promise.all([gh.fileMeta(FILES.site), gh.fileMeta(FILES.sources)]);   // always fresh
+  if (!site || !sources) throw new BadInput("config files not found on main");
+  return { texts: { site: b64decode(site.content), sources: b64decode(sources.content) }, shas: { site: site.sha, sources: sources.sha } };
+}
+
+const configError = (err) => (err instanceof ConfigError ? new BadInput(err.message) : err);
+
+async function blogSettings({ gh }) {
+  if (!gh) throw new BadInput("No GITHUB_TOKEN set.");
+  const { texts, shas } = await readConfig(gh);
+  try {
+    return { ...readSettings(texts), groups: GROUPS, shas };
+  } catch (err) {
+    throw configError(err);
+  }
+}
+
+/**
+ * Save {changes: {settingId: value}, shas: {site, sources}} (the shas the page was drawn from). One commit per file that
+ * changes. If a file moved on since the page loaded, nothing is saved and the page is asked to reload.
+ */
+async function saveBlogSettings({ gh, dryRun, repo }, { changes, shas } = {}) {
+  if (!gh) throw new BadInput("No GITHUB_TOKEN set.");
+  const cur = await readConfig(gh);
+  if (shas && Object.keys(FILES).some((f) => shas[f] && shas[f] !== cur.shas[f])) {
+    throw new BadInput("The blog's config changed since this page loaded. Reload and make the change again.");
+  }
+  let res;
+  try {
+    res = applyChanges(cur.texts, changes);
+  } catch (err) {
+    throw configError(err);
+  }
+  const what = res.changes.length ? `Change ${res.changes.length} blog setting${res.changes.length > 1 ? "s" : ""}` : "No change";
+  const files = Object.keys(FILES).filter((f) => res.texts[f] !== cur.texts[f]);
+  const request = { method: "PUT", paths: files.map((f) => `/repos/${repo}/contents/${FILES[f]}`), message: res.message };
+  if (!files.length) return { dryRun, done: false, what, request, changes: [], note: "Those are already the values." };
+  if (dryRun) return { dryRun: true, done: false, what, request, changes: res.changes };
+  for (const f of files) await gh.putFile(FILES[f], { content: res.texts[f], sha: cur.shas[f], message: res.message });
+  return { dryRun: false, done: true, what, request, changes: res.changes,
+           note: "Saved to main. The next daily run uses the new values; the site redeploys in a few minutes." };
 }
 
 async function socialAction(ctx, { item_id, action, text }) {

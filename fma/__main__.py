@@ -17,7 +17,7 @@ from . import config
 from .feeds import Http, fetch_all
 from .llm import Chain, providers_from_config
 from .pipeline import load_json, run_day, today_in
-from .rank import pick_lineup, rank
+from .rank import lineup_caps, pick_lineup, rank
 from .site import build
 
 
@@ -82,9 +82,21 @@ def main(argv=None) -> int:
         for st in ranked[:20]:
             print(f"{st.score:6.2f}  {st.category:9} {len(st.items)}x  {st.title[:90]}  [{', '.join(sorted(st.publishers))}]")
         print("\nLINEUP")
-        for st in pick_lineup(ranked, n=int(site["pipeline"]["stories_per_post"])):
+        for st in pick_lineup(ranked, n=int(site["pipeline"]["stories_per_post"]), **lineup_caps(site["pipeline"])):
             print(f"{st.score:6.2f}  {st.category:9} {st.title[:90]}")
         return 0
+
+    # The crons in daily.yml are fixed backups and can't read config/site.yaml: one that fires before the configured
+    # time (schedule.daily, set in the control app) skips itself rather than posting early.
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and not args.date:
+        from datetime import datetime, timezone
+
+        from .clock import daily_not_yet, schedule
+        sched = schedule(site.get("schedule"))
+        if daily_not_yet(datetime.now(timezone.utc), sched):
+            print(f"Not yet: today's post is set for {sched['daily']} India time, so this backup run skips.")
+            set_output("published", "false")
+            return 0
 
     date = args.date or today_in(site["timezone"])
     chain = Chain(providers_from_config(site, only=args.provider))

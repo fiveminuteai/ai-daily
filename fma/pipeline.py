@@ -18,7 +18,7 @@ from .editor import apply_editor
 from .extract import extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
-from .rank import history_entry, pick_lineup, rank
+from .rank import history_entry, lineup_caps, pick_lineup, rank
 from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
 from .write import draft_post
@@ -226,7 +226,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
     except OSError:
         pass
     want = int(pipe.get("stories_per_post", 5))
-    candidates = pick_lineup(ranked, n=want + 2)
+    candidates = pick_lineup(ranked, n=want + 2, **lineup_caps(pipe))
     _stage(summary, "rank", t, stories=len(ranked), editor=any(st.interest is not None for st in ranked))
     t = time.monotonic()
     for st in candidates:

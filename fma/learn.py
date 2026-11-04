@@ -91,7 +91,7 @@ def dataset(root: Path) -> list[dict]:
             card = sec.get("card") or {}
             hook = re.sub(r"\[S\d+\]", "", item.get("hook") or card.get("hook") or "")
             rows.append({
-                "id": item["id"], "date": qpath.stem, "slot": int(item["id"].rsplit("-", 1)[-1]),
+                "id": item["id"], "date": qpath.stem, "slot": int(item["id"].rsplit("-", 1)[-1]), "time": _ist_hhmm(item.get("scheduled_at")),
                 "category": sec.get("category") or "unknown",
                 "player": player_of(" ".join([sec.get("title") or "", hook]), players) or "other",
                 "hook_number": bool(re.search(r"\d", hook)), "hook_words": len(hook.split()),
@@ -118,10 +118,18 @@ def _score(rows: list[dict]) -> None:
         r["outcome"] = round(0.6 * zw[r["id"]] + 0.4 * z if r["id"] in zw else z, 3)
 
 
+def _ist_hhmm(iso: str | None) -> str | None:
+    try:
+        return datetime.fromisoformat(iso).astimezone(timezone(timedelta(hours=5, minutes=30))).strftime("%H:%M")
+    except (TypeError, ValueError):
+        return None
+
+
 FEATURES = {
     "category": lambda r: r["category"],
     "player": lambda r: r.get("player", "other"),
-    "slot": lambda r: {1: "09:00", 2: "13:00", 3: "19:00"}.get(r["slot"], str(r["slot"])),
+    # the time it was scheduled for (schedule.reels can change); older rows fall back to the original slot times
+    "slot": lambda r: r.get("time") or {1: "09:00", 2: "13:00", 3: "19:00"}.get(r["slot"], str(r["slot"])),
     "number in hook": lambda r: "yes" if r["hook_number"] else "no",
     "hook length": lambda r: "short (<=10 words)" if r["hook_words"] <= 10 else "long (11+ words)",
     "desk score": lambda r: "none" if r["desk"] is None else ("7+" if r["desk"] >= 7 else "under 7"),

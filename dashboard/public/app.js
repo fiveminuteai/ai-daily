@@ -1365,6 +1365,127 @@ function renderMore() {
   view.innerHTML = `${pageHead("Everything")}<nav class="more-list">${items.map((a) => `<a href="${a.getAttribute("href")}">${a.querySelector("svg").outerHTML}<span>${esc([...a.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join("").trim())}</span>${svg("right")}</a>`).join("")}</nav>`;
 }
 
+// ---------- blog settings (config/site.yaml + sources.yaml; the server keeps the list and the ranges) ----------
+const blog = { data: null, edits: new Map(), last: null };
+
+const blogValue = (s) => (blog.edits.has(s.id) ? blog.edits.get(s.id) : s.value);
+const sameValue = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const fmtSetting = (s, v) => (typeof v === "boolean" ? (v ? "On" : "Off") : Array.isArray(v) ? v.join(", ") : typeof v === "string" ? v : num(v));
+const risky = (s, v) => (s.warnAbove != null && v > s.warnAbove) || (s.warnWhen !== undefined && v === s.warnWhen);
+const costText = (s, v) => (s.cost ? `about ${num(v * s.cost.per)}${s.cost.unit.split(" ")[0]} of ${num(s.cost.of)}${s.cost.unit}` : "");
+
+function blogInput(s) {
+  const v = blogValue(s), id = esc(s.id), label = esc(s.label);
+  const field = s.type === "bool" || s.type === "enabled"
+    ? `<label class="switch"><input type="checkbox" data-setting="${id}" ${v ? "checked" : ""}><span aria-hidden="true"></span><b class="sr">${label}</b></label>`
+    : s.type === "time" ? `<input type="time" data-setting="${id}" value="${esc(v)}" min="${esc(s.min)}" max="${esc(s.max)}" aria-label="${label}">`
+    : s.type === "times" ? `<input type="text" class="times" data-setting="${id}" value="${esc(v.join(", "))}" placeholder="09:00, 13:00, 19:00" aria-label="${label}" spellcheck="false">`
+    : `<input type="number" inputmode="decimal" data-setting="${id}" value="${esc(v)}" min="${s.min}" max="${s.max}" step="${s.step || 1}" aria-label="${label}">`;
+  return { field, changed: blog.edits.has(s.id) };
+}
+
+function blogRow(s) {
+  const { field, changed } = blogInput(s);
+  const range = s.min == null ? "" : s.type === "time" ? ` (${s.min} to ${s.max})` : ` (${num(s.min)} to ${num(s.max)})`;
+  const cost = s.cost ? `<span class="cost${risky(s, blogValue(s)) ? " over" : ""}" data-cost="${esc(s.id)}">${esc(costText(s, blogValue(s)))}</span>` : "";
+  return `<div class="setrow${changed ? " changed" : ""}"><div class="setlab"><b>${esc(s.label)}</b><small>${esc(s.help)}${range}</small>${cost}</div>${field}</div>`;
+}
+
+function blogSources(list) {
+  const by = new Map(blog.data.settings.map((s) => [s.id, s]));
+  return `<div class="tbl-wrap"><table class="tbl srctbl"><thead><tr><th>Source</th><th>Topic</th><th>Weight</th><th>On</th></tr></thead><tbody>
+    ${list.map((src) => {
+      const w = blogInput(by.get(`source.${src.id}.weight`)), on = blogInput(by.get(`source.${src.id}.enabled`));
+      return `<tr class="${w.changed || on.changed ? "changed" : ""}"><td>${esc(src.name)}<small class="faint mono">${esc(src.id)}</small></td><td>${esc(src.category)}</td><td>${w.field}</td><td>${on.field}</td></tr>`;
+    }).join("")}</tbody></table></div>`;
+}
+
+function blogBar() {
+  const n = blog.edits.size, dry = state.status?.dryRun;
+  return `<div class="savebar${n ? " on" : ""}" role="region" aria-label="Unsaved changes">
+    <span>${n ? `<b>${n}</b> unsaved change${n > 1 ? "s" : ""}` : "No changes"}${dry ? ` · <span class="faint">dry run: saving only shows the commit</span>` : ""}</span>
+    <button class="btn" data-blog="undo" ${n ? "" : "disabled"}>Undo all</button>
+    <button class="btn primary" data-blog="review" ${n ? "" : "disabled"}>Review and save</button></div>`;
+}
+
+function blogResult(r) {
+  return `<div class="card"><div class="card-head"><h3>${esc(r.what)}</h3>${r.dryRun ? `<span class="status-tag t-warn">Dry run</span>` : tag(r.done ? "ok" : "pending")}</div>
+    <p class="note" style="margin:0 0 var(--s3)">${r.dryRun ? "Dry run: nothing was committed. This is the commit it would make:" : esc(r.note || "Saved.")}</p>
+    <p class="mono" style="margin:0 0 var(--s3);font-size:13px">${esc(r.request?.message || "")}</p>
+    <ul class="changes">${(r.changes || []).map((c) => `<li>${esc(c.label)}: <code>${esc(fmtSetting(c, c.from))}</code> → <code>${esc(fmtSetting(c, c.to))}</code> <span class="faint">${esc(c.file)}</span></li>`).join("")}</ul></div>`;
+}
+
+function drawBlog() {
+  const d = blog.data, inGroup = (id) => d.settings.filter((s) => s.group === id);
+  const card = (g) => `<section class="card blogcard"><div class="card-head"><h3>${esc(g.title)}</h3></div>${inGroup(g.id).map(blogRow).join("")}
+    ${g.note ? `<p class="note" style="margin:var(--s3) 0 0">${esc(g.note)}</p>` : ""}</section>`;
+  const cards = d.groups.filter((g) => g.id !== "sources" && g.id !== "schedule").map(card).join("");
+  const sched = d.groups.find((g) => g.id === "schedule");
+  view.innerHTML = `
+    <div class="section-title" style="margin-top:0"><h1 style="font-size:clamp(26px,3.6vw,36px)">Blog settings</h1>
+      <span class="muted">From <code>config/site.yaml</code> and <code>config/sources.yaml</code> on main. A save is one commit; the next run uses it.</span></div>
+    ${sched ? card(sched) : ""}
+    <div class="blogcards">${cards}</div>
+    <section class="card blogcard"><div class="card-head"><h3>News sources</h3><span class="muted" style="font-size:13px">${num(d.sources.length)} sources · weight 1 = normal</span></div>${blogSources(d.sources)}</section>
+    <section class="result" id="result">${blog.last ? blogResult(blog.last) : ""}</section>
+    ${blogBar()}`;
+}
+
+async function renderBlog(fresh = false) {
+  try {
+    if (!blog.data || fresh) { blog.data = await api("blog/settings"); blog.edits.clear(); }
+  } catch (err) {
+    view.innerHTML = problem(err, "the blog settings");
+    return;
+  }
+  drawBlog();
+}
+
+/** Typing or toggling records an edit only when it differs from the saved value. */
+view.addEventListener("change", (e) => {
+  const el = e.target.closest("[data-setting]");
+  const s = el && blog.data?.settings.find((x) => x.id === el.dataset.setting);
+  if (!s) return;
+  const v = el.type === "checkbox" ? el.checked : s.type === "time" ? el.value
+    : s.type === "times" ? el.value.split(/[\s,]+/).filter(Boolean) : el.value === "" ? NaN : Number(el.value);
+  const back = (msg) => { toast(`<b>${esc(s.label)}</b> ${msg}`, "err"); el.value = fmtSetting(s, blogValue(s)); };
+  if (s.type === "time" && !/^\d\d:\d\d$/.test(v)) return back("needs a time like 05:45.");
+  if (s.type === "times" && (!v.length || v.length > 3 || !v.every((t) => /^\d\d:\d\d$/.test(t)))) return back("needs 1 to 3 times like 09:00, 13:00, 19:00.");
+  if (typeof v === "number" && (!Number.isFinite(v) || v < s.min || v > s.max || (s.type === "int" && !Number.isInteger(v)))) {
+    return back(`must be ${s.type === "int" ? "a whole number " : ""}between ${num(s.min)} and ${num(s.max)}.`);
+  }
+  if (sameValue(v, s.value)) blog.edits.delete(s.id); else blog.edits.set(s.id, v);
+  el.closest(".setrow, tr")?.classList.toggle("changed", blog.edits.has(s.id));
+  const cost = view.querySelector(`[data-cost="${CSS.escape(s.id)}"]`);
+  if (cost) { cost.textContent = costText(s, v); cost.classList.toggle("over", risky(s, v)); }
+  $(".savebar").outerHTML = blogBar();
+});
+
+async function onBlog(btn) {
+  if (btn.dataset.blog === "undo") { blog.edits.clear(); drawBlog(); return; }
+  const by = new Map(blog.data.settings.map((s) => [s.id, s])), dry = state.status?.dryRun;
+  const rows = [...blog.edits].map(([id, v]) => {
+    const s = by.get(id), warn = risky(s, v);
+    return `<li${warn ? ` class="warnline"` : ""}>${esc(s.label)}: <b>${esc(fmtSetting(s, s.value))}</b> → <b>${esc(fmtSetting(s, v))}</b>${s.cost ? ` <span class="faint">(${esc(costText(s, v))})</span>` : ""}${warn ? `<br><span class="faint">${esc(s.help)}</span>` : ""}</li>`;
+  }).join("");
+  const n = blog.edits.size;
+  const ok = await confirmDialog(`Save ${n} change${n > 1 ? "s" : ""}?`,
+    `<ul class="changes">${rows}</ul><p class="muted">${dry ? "Dry run: you will see the commit; nothing is saved." : "Live: one commit to main per file. The site redeploys, and the next daily run uses the new values."}</p>`,
+    dry ? "Show the commit" : "Save");
+  if (!ok) return;
+  btn.disabled = true;
+  try {
+    const r = await api("blog/settings", { method: "POST", body: { changes: Object.fromEntries(blog.edits), shas: blog.data.shas } });
+    blog.last = r;
+    if (r.done) { await renderBlog(true); toast(esc(r.note)); }
+    else { drawBlog(); toast(r.dryRun ? "<b>Dry run.</b> The commit is shown below; nothing was saved." : esc(r.note || "Nothing changed."), r.dryRun ? "dry" : ""); }
+    $("#result")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  } catch (err) {
+    toast(`<b>Not saved.</b> ${esc(err.message)}`, "err");
+    btn.disabled = false;
+  }
+}
+
 // ---------- controls ----------
 function renderControls() {
   const s = state.status || {};
@@ -1462,7 +1583,7 @@ async function route({ keepScroll = false } = {}) {
   const scrollY = window.scrollY;
   const [tab = "today", arg] = location.hash.replace(/^#/, "").split("/");
   const desk = ["pages", "mail", "accounts", "roadmap", "settings"];
-  const all = ["today", "history", "posts", "stats", "controls", "more", ...(state.status?.desktop ? desk : [])];
+  const all = ["today", "history", "posts", "stats", "controls", "blog", "more", ...(state.status?.desktop ? desk : [])];
   const name = tab === "social" ? "posts" : all.includes(tab) ? tab : "today";
   document.querySelectorAll("[data-tab]").forEach((a) => {
     if (a.dataset.tab === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
@@ -1484,6 +1605,7 @@ async function route({ keepScroll = false } = {}) {
   else if (name === "accounts") await renderAccounts();
   else if (name === "roadmap") await renderRoadmap();
   else if (name === "settings") await renderSettings();
+  else if (name === "blog") await renderBlog();
   else if (name === "more") renderMore();
   else renderControls();
   clearTimeout(slow);
@@ -1502,6 +1624,7 @@ view.addEventListener("click", (e) => {
   if (t.dataset.approveReels) { onApproveReels(t); return; }
   if (t.dataset.act) { onItemAction(t); return; }
   if (t.dataset.control) { onControl(t); return; }
+  if (t.dataset.blog) { onBlog(t); return; }
   if (t.dataset.card) { onCardAction(t); return; }
   if (t.dataset.copy != null) { copyText(t.dataset.copy, t.dataset.copyLabel || "Copied."); return; }
   if (t.dataset.mailRefresh != null) {

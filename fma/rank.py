@@ -178,6 +178,15 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
     return out
 
 
+def lineup_caps(pipe: dict) -> dict:
+    """pick_lineup's caps from config/site.yaml `pipeline:` (set in the control app); a missing or out-of-range value
+    keeps the default (2 stories per category, 1 per single-source origin)."""
+    def cap(key: str, default: int, top: int) -> int:
+        v = pipe.get(key, default)
+        return v if isinstance(v, int) and not isinstance(v, bool) and 1 <= v <= top else default
+    return {"max_per_category": cap("max_per_category", 2, 5), "max_per_source": cap("max_per_source", 1, 3)}
+
+
 def pick_lineup(stories: list[Story], n: int = 5, max_per_category: int = 2, max_per_source: int = 1,
                 min_interest: float = 5) -> list[Story]:
     """Top stories with caps per category and per single-source origin, so one busy topic or one prolific
