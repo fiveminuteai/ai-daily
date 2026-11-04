@@ -1,0 +1,34 @@
+name: Check models
+
+# Manual only: lists the models each provider key can use and probes the fallbacks with a one-token call,
+# printing status and rate-limit headers (never the keys). Use it before changing providers in config/site.yaml.
+
+on:
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "Extra models to probe, as provider:model separated by spaces"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: List and probe
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PROBE: ${{ inputs.probe }}
+        run: python -m fma.models_check $PROBE
