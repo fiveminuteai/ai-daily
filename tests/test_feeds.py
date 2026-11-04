@@ -92,3 +92,26 @@ def test_rate_limit_kinds(monkeypatch):
     except llm.LLMError:
         pass
     assert p2.exhausted
+
+
+def test_github_issue_link_reads_the_issue_not_the_readme():
+    # 4 Nov 2026: a Postman issue reached the writer as Postman's README, so nothing in it could be cited
+    from fma.extract import extract_item
+    from fma.models import Item
+    issue = {"title": "Desktop auto-installs Codex/Claude plugins", "user": {"login": "indicava"},
+             "body": "<!-- template -->Opening Postman installed a Claude Code plugin without asking."}
+    http = FakeHttp({"https://api.github.com/repos/postmanlabs/app/issues/7": FakeResponse(json_data=issue),
+                     "https://raw.githubusercontent.com/": FakeResponse(content=b"# Postman README")})
+    it = Item("hn", "github.com", "Postman auto-installs AI plugins", "https://github.com/postmanlabs/app/issues/7", None)
+    text = extract_item(it, http)
+    assert text.startswith("GitHub issue opened by indicava in postmanlabs/app: Desktop auto-installs")
+    assert "installed a Claude Code plugin" in text and "README" not in text and "template" not in text
+    assert not any("raw.githubusercontent" in c for c in http.calls)
+
+
+def test_text_that_is_not_about_the_title_is_caught():
+    from fma.extract import about_title
+    title = "Postman silently auto-installs AI plugins and attempts to share all API data"
+    assert not about_title(title, "Postman is an API platform. File a bug report on our issue tracker. We are hiring!")
+    assert about_title(title, "Postman auto-installs plugins for coding agents and attempts to share API data.")
+    assert about_title("AI", "anything")           # no content words: nothing to judge, so keep it

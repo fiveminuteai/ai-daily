@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 
 from . import config
 from .editor import apply_editor
-from .extract import extract_item
+from .extract import about_title, extract_item
 from .feeds import fetch_all
 from .gate import check_images, run_gate, word_count
 from .rank import history_entry, lineup_caps, pick_lineup, rank
@@ -232,7 +232,8 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
     for st in candidates:
         for it in ([st.lead] + [i for i in st.items if i is not st.lead])[:3]:
             it.text = extract_item(it, http)
-    candidates = [st for st in candidates if len(st.lead.text or st.lead.summary) >= 200] or candidates
+    candidates = [st for st in candidates if len(st.lead.text or st.lead.summary) >= 200
+                  and about_title(st.lead.title, st.lead.text or st.lead.summary)] or candidates
     lineup = candidates[:want]
     _stage(summary, "extract", t, articles=sum(min(3, len(st.items)) for st in candidates),
            with_text=sum(1 for st in candidates for i in st.items[:3] if len(i.text) >= 600))
