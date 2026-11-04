@@ -112,3 +112,58 @@ def test_reels_go_to_the_strongest_stories_from_2_nov():
     assert [n for n, _ in new] == [2, 3, 4]          # interest 5, two publishers, interest 4; post order kept
     old = card_stories({"date": "2026-11-01", "sections": secs, "sources": sources})
     assert [n for n, _ in old] == [0, 1, 2]          # approved days never change
+
+
+def test_voiced_scenes_fit_the_voice_on_the_beat(monkeypatch):
+    # 4 Nov 2026: Pavan heard the speed change line to line, because long lines were sped up to fit fixed scenes.
+    # Now one pace for every line and the scenes stretch to fit, ending on a beat, never shorter than 2 bars.
+    import numpy as np
+
+    from fma import story_reel, voice
+    lengths = {"short": 1.0, "long line here": 7.0, "q?": 2.0, voice.OUTRO: 3.0}
+    monkeypatch.setattr(voice, "say", lambda text, **kw: np.full(int(lengths.get(text, 4.0) * voice.SR), 0.2,
+                                                                   np.float32))
+    card = {"hook": "short", "points": ["long line here", "short"], "take": "short", "ask": "q?"}
+    plan = story_reel.voice_plan(card, 1)
+    assert len(plan["lens"]) == 4
+    for k, spoken_s in zip(["hook", "p0", "p1", "take"], plan["lens"]):
+        assert spoken_s >= 2 * story_reel.BAR - 1e-9
+        assert abs(spoken_s / story_reel.BEAT - round(spoken_s / story_reel.BEAT)) < 1e-6
+        assert spoken_s >= plan["said"][k] + 0.3
+    assert plan["lens"][1] > 2 * story_reel.BAR             # the long line got a longer scene, not a faster voice
+    assert plan["outro_at"] > plan["said"]["ask"]           # the closing line comes after the question
+    assert plan["seconds"] > sum(plan["lens"]) + plan["outro_at"] + 3.0
+    assert len(plan["mouth"]) and plan["mouth"].max() > 0.5
+
+
+def test_names_are_respelled_for_the_narrator():
+    from fma import voice
+    assert voice.spoken("NotebookLM hit $17 billion for K-12[S1].") == "Notebook L M hit 17 billion dollars for K to 12."
+
+
+def test_pulse_numbers_appear_only_when_spoken():
+    # 5 Nov 2026: a count-up showed "$15B" and "$1B" on the way to a $17 billion line; now the real figure appears,
+    # whole, when the voice reaches it
+    from fma import pulse_reel as pr
+    assert pr.figure("Quarterly revenue reached $17 billion, up from $11.5 billion[S6].") == "$17B"
+    assert pr.figure("Anthropic now spends 58% of its revenue on compute[S6].") == "58%"
+    assert pr.figure("Apple is letting Siri act inside apps[S5].") == ""
+    timed = pr.word_times("Quarterly revenue reached $17 billion, up from $11.5 billion.", 4.0, 0.3)
+    at = pr.figure_time(timed, "$17B")
+    assert [w for w, t in timed if t == at] == ["$17"]
+    assert all(t2 > t1 for (_, t1), (_, t2) in zip(timed, timed[1:]))
+
+
+def test_pulse_captions_come_in_short_chunks():
+    from fma import pulse_reel as pr
+    groups = pr.chunks(pr.word_times("Should schools be able to keep Search without AI?", 3.0, 0.3))
+    assert all(len(g) <= 3 and len(" ".join(w for w, _ in g)) <= 18 for g in groups)
+    assert " ".join(w for g in groups for w, _ in g) == "Should schools be able to keep Search without AI?"
+
+
+def test_decimals_are_read_digit_by_digit():
+    # 5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"
+    from fma import voice
+    assert voice.spoken("up from $11.5 billion") == "up from 11 point 5 billion dollars"
+    assert voice.spoken("paying SpaceX $1.25 billion") == "paying Space X 1 point 2 5 billion dollars"
+    assert voice.spoken("with $5.0 billion") == "with 5 billion dollars"
