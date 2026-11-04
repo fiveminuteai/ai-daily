@@ -7,6 +7,7 @@ Drawn at 2x and scaled down for smooth edges."""
 from __future__ import annotations
 
 import math
+import re
 from functools import lru_cache
 
 import numpy as np
@@ -40,13 +41,46 @@ def _shade(size: int) -> Image.Image:
     return Image.fromarray(np.dstack([rgb, np.full((S, S, 1), 255)]).astype(np.uint8), "RGBA")
 
 
-def _blob(cx, cy, r, t, sx, sy, n=72):
+# Shapeshifting (5 Nov 2026, Pavan: "can spark be shapeshifting too?"): instead of a doodle beside it, Spark becomes
+# the idea of the line. Each shape is a radius per angle around the centre, so any shape morphs smoothly into any
+# other: the outline is a mix of the two radii.
+SHAPES = ("blob", "coin", "chip", "star", "bubble")
+
+
+def _shape_r(shape: str, a: float) -> float:
+    if shape == "chip":                       # a rounded square: a superellipse
+        p = 6.0
+        return 0.9 / (abs(math.cos(a)) ** p + abs(math.sin(a)) ** p) ** (1 / p)
+    if shape == "star":                       # five soft points, one straight up
+        return 0.86 + 0.2 * math.cos(5 * (a + math.pi / 2))
+    if shape == "bubble":                     # a speech bubble: round, a little wider than tall
+        return 1.0 / math.sqrt((math.cos(a) / 1.06) ** 2 + (math.sin(a) / 0.94) ** 2)
+    return 1.0                                # blob and coin: round (the coin is the flat, still one)
+
+
+def _blob(cx, cy, r, t, sx, sy, n=96, shape="blob", shape_from="blob", morph=1.0):
     pts = []
+    calm = morph if shape != "blob" else 1 - morph if shape_from != "blob" else 0.0     # shapes hold still
     for i in range(n):
         a = 2 * math.pi * i / n
-        k = 1 + 0.022 * math.sin(3 * a + t * 2.1) + 0.014 * math.sin(5 * a - t * 3.3)
+        wob = (0.022 * math.sin(3 * a + t * 2.1) + 0.014 * math.sin(5 * a - t * 3.3)) * (1 - 0.8 * calm)
+        k = (_shape_r(shape_from, a) * (1 - morph) + _shape_r(shape, a) * morph) * (1 + wob)
         pts.append((cx + math.cos(a) * r * k * sx, cy + math.sin(a) * r * k * sy))
     return pts
+
+
+def shape_for(text: str) -> str:
+    """Which shape a line asks for, from its words. Most lines stay a blob: the shape is an accent, not a rule."""
+    low = text.lower()
+    if text.rstrip().endswith("?"):
+        return "bubble"
+    if re.search(r"\b(compute|chips?|gpus?|servers?|data cent(re|er)s?|processors?)\b", low):
+        return "chip"
+    if re.search(r"\$\d|\b(revenue|billion|million|pay(s|ing)?|price|cost|funding|raises?)\b", low):
+        return "coin"
+    if re.search(r"\b(launch(es|ed)?|first|beats?|record|tops?|wins?|new model)\b", low):
+        return "star"
+    return "blob"
 
 
 def _star(d, x, y, r, a, colour):
@@ -58,9 +92,49 @@ def _star(d, x, y, r, a, colour):
     d.polygon(pts, fill=colour)
 
 
+def _trim(im, shape: str, k: float, cx, cy, r, u) -> None:
+    """The details that make a shape read: a coin's rim and stamp, a chip's pins, a bubble's tail, a star's glint.
+    Faded in with the morph (k)."""
+    if k <= 0.02 or shape == "blob":
+        return
+    a = int(255 * min(1.0, k))
+    layer = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    gold = (255, 214, 90)
+    if shape == "coin":
+        d.ellipse([cx - r * 0.86, cy - r * 0.86, cx + r * 0.86, cy + r * 0.86], outline=gold + (a,), width=int(1.6 * u))
+        for i in range(36):                   # the milled edge
+            ang = i * math.pi / 18
+            d.line([cx + math.cos(ang) * r * 0.93, cy + math.sin(ang) * r * 0.93,
+                    cx + math.cos(ang) * r * 1.0, cy + math.sin(ang) * r * 1.0], fill=gold + (a // 2,), width=int(0.8 * u))
+        f = _stamp_font(int(9 * u))
+        d.text((cx, cy + r * 0.68), "$", font=f, fill=gold + (a,), anchor="mm")      # below the mouth, clear of the brows
+    elif shape == "chip":
+        for side in range(4):
+            for j in range(-2, 3):
+                o = j * r * 0.32
+                L = r * 0.16
+                x0, y0 = [(cx + o, cy - r * 0.9), (cx + r * 0.9, cy + o), (cx + o, cy + r * 0.9), (cx - r * 0.9, cy + o)][side]
+                dx, dy = [(0, -1), (1, 0), (0, 1), (-1, 0)][side]
+                d.line([x0, y0, x0 + dx * L, y0 + dy * L], fill=gold + (a,), width=int(2 * u))
+    elif shape == "bubble":
+        d.polygon([(cx - r * 0.55, cy + r * 0.72), (cx - r * 0.15, cy + r * 0.86), (cx - r * 0.86, cy + r * 1.18)],
+                  fill=(232, 106, 84, a))
+    elif shape == "star":
+        d.ellipse([cx - r * 0.07, cy - r * 0.98, cx + r * 0.07, cy - r * 0.84], fill=(255, 255, 255, a))   # the top point
+    im.alpha_composite(layer)
+
+
+def _stamp_font(px: int):
+    from .visuals import _font
+    return _font("serif", px)
+
+
 def draw(size: int, t: float, mouth: float, mood: str = "talk", beat: float = 0.6, seed: int = 0,
-         look: tuple[float, float] = (0.0, 0.25)) -> Image.Image:
-    """One frame, `size` px square, RGBA. mood: "talk", "wow" (a big number), "ask" (a question), "idle"."""
+         look: tuple[float, float] = (0.0, 0.25), shape: str = "blob", shape_from: str = "blob",
+         morph: float = 1.0) -> Image.Image:
+    """One frame, `size` px square, RGBA. mood: "talk", "wow" (a big number), "ask" (a question), "idle".
+    shape: what Spark has turned into (SHAPES); it is `morph` (0..1) of the way there from `shape_from`."""
     S = size * 2
     im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     im.alpha_composite(_halo(size))
@@ -72,13 +146,14 @@ def draw(size: int, t: float, mouth: float, mood: str = "talk", beat: float = 0.
 
     # body: shaded jelly in the blob's shape, a rim light and a glossy highlight
     mask = Image.new("L", (S, S), 0)
-    ImageDraw.Draw(mask).polygon(_blob(cx, cy, r, t + seed, sx, sy), fill=255)
+    outline = _blob(cx, cy, r, t + seed, sx, sy, shape=shape, shape_from=shape_from, morph=morph)
+    ImageDraw.Draw(mask).polygon(outline, fill=255)
     im.paste(_shade(size), (0, 0), mask)
     # see-through pieces go on their own layer and are blended: drawn straight onto the image they replace the
     # pixels and show the dark background through (pass 1, 5 Nov 2026: grey "bruises" for highlights)
     gloss = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     g = ImageDraw.Draw(gloss)
-    rim = _blob(cx, cy, r * 0.985, t + seed, sx, sy)
+    rim = _blob(cx, cy, r * 0.985, t + seed, sx, sy, shape=shape, shape_from=shape_from, morph=morph)
     g.line(rim + [rim[0]], fill=(255, 214, 180, 140), width=int(0.9 * u))
     g.ellipse([cx - 17 * u, cy - 22 * u, cx - 5 * u, cy - 15 * u], fill=(255, 255, 255, 110))
     g.ellipse([cx - 3 * u, cy - 24.5 * u, cx + 1 * u, cy - 21.5 * u], fill=(255, 255, 255, 90))
@@ -87,6 +162,9 @@ def draw(size: int, t: float, mouth: float, mood: str = "talk", beat: float = 0.
                   fill=(255, 80, 110, 110))
     im.alpha_composite(gloss)
     d = ImageDraw.Draw(im)
+    _trim(im, shape, morph, cx, cy, r, u)
+    if shape_from != shape:
+        _trim(im, shape_from, 1 - morph, cx, cy, r, u)
 
     # eyes: blink every few seconds; wide at a big number; pupils look where told (the caption, by default)
     period = 3.3 + (seed % 3) * 0.5
