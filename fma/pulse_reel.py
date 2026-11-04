@@ -221,7 +221,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
     end_timed = []
     if card.get("ask"):
         end_timed += word_times(card["ask"], plan["said"]["ask"], lead)
-    end_timed += word_times(voice.OUTRO, len(voice.say(voice.OUTRO)) / SR, plan["outro_at"])
+    end_timed += word_times(voice.OUTRO, plan["said"]["outro"], plan["outro_at"])
     groups["end"] = chunks(end_timed)
     figs = {key: figure(text) for key, text in lines}
     fig_at = {key: figure_time(word_times(text, plan["said"][key], lead), figs[key]) for key, text in lines if figs[key]}
@@ -230,6 +230,79 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
     for key, text in lines:
         doodles[key] = sketch.pick(plain(text), used, section.get("category", ""))
         used.add(doodles[key])
+    # Spark's choreography: where it arrives and when (5 Nov 2026, Pavan: its movement was "restricted to only one
+    # side"). It hops in an arc from spot to spot, lands with a squash, and floats a little while it talks.
+    # Spots are (centre x, bottom y, size). Plain lines alternate sides (the doodle takes the other); a number line
+    # starts centre stage, jumps aside as the number lands, then crosses over; the end hops centre for the question
+    # and aside for the closing line, with a jump on the Follow tap.
+    SIDE = [(300, 1100, 440), (780, 1100, 440)]
+    CORNER = [(205, 1110, 300), (875, 1110, 300)]
+    CENTRE = (540, 1100, 470)
+    keys_ = [(0.0, *(CORNER[1] if figs["hook"] else SIDE[0]), 0)]
+    side = 0 if figs["hook"] else 1
+    for k, (sa, sb, skey, _) in enumerate(scenes):
+        if skey == "end":
+            keys_.append((sa + 0.45, 540, 1080, 500, 150))
+            out_t = sa + plan["outro_at"] + 0.55
+            keys_.append((out_t, 800, 1080, 380, 150))
+            tap = sa + plan["outro_at"] + 1.6
+            keys_ += [(tap + 0.05, 800, 1080, 380, 110)]          # the jump that "presses" the button
+            continue
+        if k == 0:
+            continue
+        if figs[skey]:
+            keys_.append((sa + 0.45, *CENTRE, 150))
+            land = sa + fig_at[skey] - 0.25 + 0.4
+            keys_.append((land, *CORNER[side], 170))
+            if land + 2.2 < sb - 0.7:
+                keys_.append((land + 2.2, *CORNER[1 - side], 170))
+                side = 1 - side
+        else:
+            keys_.append((sa + 0.45, *SIDE[side], 150))
+        side = 1 - side
+    keys_.sort()
+    HOP = 0.45
+
+    def pose(tt: float):
+        """(centre x, bottom y, size, squash x, squash y) at time tt."""
+        prev = keys_[0]
+        for kf in keys_[1:]:
+            if tt < kf[0] - HOP:
+                break
+            if tt < kf[0]:                           # mid-hop: an arc from the last spot to this one
+                p = ease((tt - (kf[0] - HOP)) / HOP)
+                x = prev[1] + (kf[1] - prev[1]) * p
+                y = prev[2] + (kf[2] - prev[2]) * p - kf[4] * math.sin(math.pi * p)
+                s = prev[3] + (kf[3] - prev[3]) * p
+                st = 1 + 0.08 * math.sin(math.pi * p)          # stretched in the air
+                return x, y, s, 1 / st, st
+            prev = kf
+        since = tt - prev[0]
+        sq = 0.12 * max(0.0, 1 - since / 0.2) if prev[4] else 0.0  # squash on landing
+        x = prev[1] + math.sin(tt * 1.3 + n) * 16                 # floating while it talks
+        y = prev[2] + math.sin(tt * 2.1) * 8
+        return x, y, prev[3], 1 + sq, 1 - sq
+
+    def hopping(tt: float) -> bool:
+        return any(kf[0] - HOP <= tt < kf[0] for kf in keys_[1:])
+
+    def place_spark(layer, tt, mth, mood, look_at=None):
+        if hopping(tt):                              # a fading light trail behind a hop
+            for back, alpha in ((0.10, 70), (0.05, 120)):
+                gx, gy, gs, _, _ = pose(tt - back)
+                ghost = spark.draw(int(gs), tt - back, 0.0, mood, beat=BEAT, seed=n)
+                ghost.putalpha(ghost.getchannel("A").point(lambda v, a=alpha: v * a // 255))
+                layer.alpha_composite(ghost, (int(gx - ghost.width / 2), int(gy - ghost.height)))
+        x, y, s, kx, ky = pose(tt)
+        look = (0.0, 0.6)
+        if look_at:
+            dx, dy = look_at[0] - x, look_at[1] - (y - s / 2)
+            r = max(1.0, math.hypot(dx, dy))
+            look = (dx / r, dy / r)
+        im = spark.draw(int(s), tt, mth, mood, beat=BEAT, seed=n, look=look)
+        im = im.resize((max(8, int(s * kx)), max(8, int(s * ky))), Image.BILINEAR)
+        layer.alpha_composite(im, (int(x - im.width / 2), int(y - im.height)))
+
     dots = _bokeh(n)
     source = publishers(post, section)
     label = CAT_NAMES.get(section.get("category", ""), "").upper()
@@ -268,7 +341,9 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
             fig = figs[key]
             if fig:                                  # a giant number lands as the voice says it
                 vs = fig_at[key] - 0.25
-                pc = 1.0 if (i == 0 and fi == 0) else (lt - vs) / 0.6      # frame one: the hook's number, whole
+                # the hook's number is on screen from frame one (the cover) and stays: it showing on frame one, then
+                # vanishing until spoken, read as a flicker (5 Nov 2026)
+                pc = 1.0 if i == 0 else (lt - vs) / 0.6
                 big = _font("serif", 250 if len(fig) <= 6 else 190)
                 tw = d.textlength(fig, font=big)
                 if pc > 0:
@@ -282,23 +357,15 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                     w2 = d.textlength(fig, font=f2)
                     d.text(((W - w2) / 2 + slide, 650 - fsz * 0.52), fig, font=f2, fill=YELLOW + (int(255 * min(1, q * 2)),),
                            stroke_width=6, stroke_fill=BG_TOP + (255,))
-                # Spark holds centre stage until the number lands, then steps aside to the corner (pass 3:
-                # figure scenes sat empty for up to 2 s before the number)
-                g = ease(max(0.0, min(1.0, (pc if pc > 0 else 0) / 0.5)))
-                size = int(500 - 170 * g)
-                x = (W // 2 - 330) * (1 - g) + (W - M - 330) * g
-                y = 520 * (1 - g) + 760 * g
-                im = spark.draw(size, tt, m, "wow" if 0 < pc < 2.2 else "talk", beat=BEAT, seed=n,
-                                look=(-0.6, -0.5) if g > 0.5 else (0.0, 0.6))
-                layer.alpha_composite(im, (int(x + slide), int(y)))
-            else:                                    # Spark centre stage, a doodle pops in beside it
-                im = spark.draw(500, tt, m, "talk", beat=BEAT, seed=n,
-                                look=(0.7, -0.5) if 0.4 < lt < 1.4 else (0.0, 0.6))
-                layer.alpha_composite(im, (int(W // 2 - 330 + slide), 520))
-                pop = ease((lt - 0.35) / 0.25)
+                place_spark(layer, tt, m, "wow" if 0 < pc < 2.2 else "talk", look_at=(W / 2, 650) if pc > 0 else None)
+            else:                                    # Spark on one side, a doodle pops in on the other
+                cx = pose(tt)[0]
+                place_spark(layer, tt, m, "talk", look_at=None)
+                pop = ease((lt - 0.55) / 0.25)
                 if pop > 0:
-                    size = int(250 * (0.6 + 0.4 * pop))
-                    sketch.draw(d, doodles[key], (W - M - 60 - size + slide, 520 + (250 - size) / 2, size), lt - 0.35,
+                    size = int(270 * (0.6 + 0.4 * pop))
+                    dx = (W - M - 40 - size) if cx < W / 2 else (M + 20)      # the side Spark isn't on
+                    sketch.draw(d, doodles[key], (dx, 560 + (270 - size) / 2, size), lt - 0.55,
                                 INK + (240,), YELLOW + (255,), seed=n * 7 + i, mode="cutout",
                                 fills=[(255, 132, 96), (64, 214, 196), (255, 214, 90)])
             draw_caption(layer, groups[key], lt)
@@ -315,8 +382,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                 a = ease(lt / 0.25)
                 d.rounded_rectangle([(W - tw) / 2 - 28, 470, (W + tw) / 2 + 28, 530], radius=30, fill=YELLOW + (int(255 * a),))
                 d.text(((W - tw) / 2, 478), tag, font=cf, fill=BG_TOP + (int(255 * a),))
-            im = spark.draw(520, tt, m, "ask" if asking else "talk", beat=BEAT, seed=n, look=(0.0, 0.7))
-            layer.alpha_composite(im, (W // 2 - 260, 560))
+            place_spark(layer, tt, m, "ask" if asking else "talk", look_at=None)
             draw_caption(layer, groups["end"], lt)
             # the follow button: it arrives with the closing line and gets a tap
             fa = ease((lt - plan["outro_at"] - 0.2) / 0.3)
@@ -350,10 +416,10 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
         yield frame.convert("RGB").tobytes()
 
 
-def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path) -> Path:
+def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path, who: str = "spark-neutral") -> Path:
     """Render the pulse Reel. Needs the narrator (voice.available()) and ffmpeg."""
     card = section["card"]
-    plan = voice_plan(card, n)
+    plan = voice_plan(card, n, who)
     seconds = plan["seconds"]
     out.parent.mkdir(parents=True, exist_ok=True)
     music, _ = write_wav(out.with_suffix(".m.wav"), bars=math.ceil(seconds / BAR) + 1, seed=7 + n)
