@@ -69,6 +69,13 @@ providers:
   # so calls are spaced 30 s apart and reasoning is kept short.
   - {name: groq, base_url: "https://api.groq.com/openai/v1/", model: openai/gpt-oss-120b, key_env: GROQ_API_KEY,
      min_interval_s: 30, extra: {reasoning_effort: low, max_completion_tokens: 2500}}
+  # Fallbacks with their own daily quotas on the same two keys (4 Nov 2026: Groq's daily tokens ran out and
+  # gemini-3.8-flash was overloaded, then over quota, so the post was skipped). Probed that day with the
+  # "Check models" workflow: all answered.
+  - {name: groq, base_url: "https://api.groq.com/openai/v1/", model: qwen/qwen3.8-27b, key_env: GROQ_API_KEY,
+     min_interval_s: 30, extra: {reasoning_format: hidden, max_completion_tokens: 4000}}
   - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.8-flash, key_env: GEMINI_API_KEY}
+  - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.6-flash, key_env: GEMINI_API_KEY}
+  - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.5-flash, key_env: GEMINI_API_KEY}
   - {name: openrouter, base_url: "https://openrouter.ai/api/v1/", model: "openai/gpt-oss-120b:free", key_env: OPENROUTER_API_KEY}
   - {name: ollama, base_url: "http://localhost:11434", model: "qwen2.5:14b", key_env: null, local: true}

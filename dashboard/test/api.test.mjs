@@ -197,9 +197,11 @@ test("India-time day windows and schedules", () => {
   assert.equal(a.toISOString(), "2026-10-30T18:30:00.000Z");
   assert.equal(b.toISOString(), "2026-10-31T18:30:00.000Z");
   assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T01:00:00Z")), "2026-10-31T01:23:00.000Z");
-  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T01:00:00Z")), 8);
-  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T06:40:00Z")), null);
-  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T06:40:00Z")), 0);
+  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T01:00:00Z")), 9);
+  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T06:40:00Z")), "2026-10-31T08:53:00.000Z");
+  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T06:40:00Z")), 1);   // the after-reset try
+  assert.equal(nextSchedule("2026-10-31", new Date("2026-10-31T08:55:00Z")), null);
+  assert.equal(schedulesLeft("2026-10-31", new Date("2026-10-31T08:55:00Z")), 0);
 });
 
 test("history marks the publishing run from the post's time, and earlier real runs as skipped", () => {
@@ -305,8 +307,8 @@ test("a skipped early run still shows the next try and how many are left", () =>
   const d = buildDay({ date: "2026-10-31", now: new Date("2026-10-31T00:45:00Z"), runs: [{ run, jobs: [], log }] });
   assert.equal(d.verdict, "bad");
   assert.equal(d.nextRun, "2026-10-31T00:47:00.000Z");
-  assert.equal(d.triesLeft, 9);
-  assert.equal(d.lastTry, "2026-10-31T06:37:00.000Z");
+  assert.equal(d.triesLeft, 10);
+  assert.equal(d.lastTry, "2026-10-31T08:53:00.000Z");
   assert.equal(d.runs[0].trigger, "scheduled");
 });
 

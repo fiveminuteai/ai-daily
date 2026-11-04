@@ -15,7 +15,10 @@ on:
     - cron: "43 3 * * *"      # 09:13
     - cron: "19 4 * * *"      # 09:49
     - cron: "11 5 * * *"      # 10:41
-    - cron: "37 6 * * *"      # 12:07, last try; raises the alert below if there is still no post
+    - cron: "37 6 * * *"      # 12:07
+    # After Gemini's free daily quota resets (midnight Pacific: 13:30 India time in winter, 12:30 in summer).
+    # 4 Nov 2026 every model's quota was gone by 09:15 and the 12:07 try was the last one.
+    - cron: "53 8 * * *"      # 14:23, last try; raises the alert below if there is still no post
   workflow_dispatch:          # "Run workflow" button for a manual run
 
 permissions:
@@ -30,7 +33,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 55          # a run waits out brief model outages (fma.llm Chain.ROUND_WAITS)
     outputs:
       published: ${{ steps.run.outputs.published }}
     steps:
@@ -81,7 +84,7 @@ jobs:
 
       # The last backup of the day turns a missed day into a red run, so GitHub emails about it.
       - name: Alert if there is still no post today
-        if: always() && github.event.schedule == '37 6 * * *'
+        if: always() && github.event.schedule == '53 8 * * *'
         run: |
           git pull -q origin main || true
           day=$(TZ=Asia/Kolkata date +%F)

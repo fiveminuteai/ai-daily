@@ -115,3 +115,55 @@ def test_text_that_is_not_about_the_title_is_caught():
     assert not about_title(title, "Postman is an API platform. File a bug report on our issue tracker. We are hiring!")
     assert about_title(title, "Postman auto-installs plugins for coding agents and attempts to share API data.")
     assert about_title("AI", "anything")           # no content words: nothing to judge, so keep it
+
+
+class _Flaky:
+    """A provider that fails `fails` times with a passing error, then answers; or hits its daily cap."""
+
+    def __init__(self, name, fails=0, daily=False):
+        self.name, self.model, self.fails, self.daily, self.exhausted, self.calls = name, "m", fails, daily, False, 0
+
+    def available(self):
+        return True
+
+    def chat(self, system, user, temperature=0.3, careful=False):
+        import fma.llm as llm
+        self.calls += 1
+        if self.daily:
+            self.exhausted = True
+            raise llm.LLMError(f"{self.name} daily limit reached (HTTP 429)")
+        if self.calls <= self.fails:
+            raise llm.LLMError(f"{self.name} HTTP 503: high demand")
+        return '{"ok": true}'
+
+
+def test_chain_waits_and_retries_when_every_provider_is_briefly_down(monkeypatch):
+    # 4 Nov 2026: Groq was at its daily cap and one Gemini 503 crashed the whole attempt
+    import fma.llm as llm
+    waits = []
+    monkeypatch.setattr(llm.time, "sleep", waits.append)
+    groq, gemini = _Flaky("groq", daily=True), _Flaky("gemini", fails=2)
+    chain = llm.Chain([groq, gemini])
+    assert chain.ask_json("s", "u") == {"ok": True}
+    assert waits == [60, 180] and groq.calls == 1          # the capped provider isn't asked again
+
+
+def test_chain_gives_up_at_once_when_every_provider_is_out_for_the_day(monkeypatch):
+    import fma.llm as llm
+    waits = []
+    monkeypatch.setattr(llm.time, "sleep", waits.append)
+    chain = llm.Chain([_Flaky("groq", daily=True), _Flaky("gemini", daily=True)])
+    try:
+        chain.ask_json("s", "u")
+        raise AssertionError("should have raised")
+    except llm.LLMError:
+        pass
+    assert waits == []
+
+
+def test_fallback_models_are_configured_in_order():
+    from fma import config
+    from fma.llm import providers_from_config
+    names = [f"{p.name}:{p.model}" for p in providers_from_config(config.site_config())]
+    assert names[:5] == ["groq:openai/gpt-oss-120b", "groq:qwen/qwen3.8-27b", "gemini:gemini-3.8-flash",
+                         "gemini:gemini-3.6-flash", "gemini:gemini-3.5-flash"]

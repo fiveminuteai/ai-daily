@@ -6,9 +6,9 @@ export const STAGES = [
   ["gate", "Gate"], ["publish", "Publish"], ["deploy", "Deploy"], ["social", "Social"],
 ];
 
-// Scheduled tries, UTC "HH:MM": 05:45 to 12:07 India time. test/api.test.mjs fails if this stops matching the cron
+// Scheduled tries, UTC "HH:MM": 05:45 to 14:23 India time. test/api.test.mjs fails if this stops matching the cron
 // lines in .github/workflows/daily.yml.
-export const SCHEDULE_UTC = ["00:15", "00:47", "01:23", "01:53", "02:29", "03:07", "03:43", "04:19", "05:11", "06:37"];
+export const SCHEDULE_UTC = ["00:15", "00:47", "01:23", "01:53", "02:29", "03:07", "03:43", "04:19", "05:11", "06:37", "08:53"];
 const IST_MS = 330 * 60 * 1000;
 
 /** The UTC window of one India-time calendar day. */

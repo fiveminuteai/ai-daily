@@ -149,7 +149,22 @@ class Chain:
     def __bool__(self) -> bool:
         return bool(self.providers)
 
+    # Waits before trying every provider again when they all failed for a passing reason (overload, a timeout).
+    # 4 Nov 2026: one Gemini "high demand" 503 after Groq's daily cap crashed the whole attempt.
+    ROUND_WAITS = (60, 180, 300)
+
     def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False) -> dict:
+        for wait in (*self.ROUND_WAITS, None):
+            try:
+                return self._ask_round(system, user, temperature, careful)
+            except LLMError as exc:
+                if wait is None or all(p.exhausted for p in self.providers):
+                    raise
+                log.warning("every provider failed (%s); trying them all again in %ss", str(exc)[:200], wait)
+                time.sleep(wait)
+        raise LLMError("unreachable")
+
+    def _ask_round(self, system: str, user: str, temperature: float, careful: bool) -> dict:
         errors = []
         for p in self.providers:
             if p.exhausted:

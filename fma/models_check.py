@@ -10,13 +10,29 @@ import sys
 import requests
 
 from . import config
-from .llm import providers_from_config
+from .llm import LLMError, parse_json, providers_from_config
 
 LIMIT_HEADERS = ("x-ratelimit-limit-requests", "x-ratelimit-limit-tokens", "x-ratelimit-remaining-requests",
                  "x-ratelimit-remaining-tokens", "retry-after")
 
 
+def check_configured() -> None:
+    """One real JSON call through each configured provider, with its own settings, the way a post run makes it."""
+    print("== configured providers, one JSON call each")
+    for p in providers_from_config(config.site_config()):
+        if not p.available():
+            print(f"   {p.name}:{p.model}: not available here")
+            continue
+        try:
+            reply = p.chat("You reply with one JSON object and nothing else.",
+                           'Reply as {"ok": true, "word": "<one word for the sky\'s colour>"}', temperature=0.0)
+            print(f"   {p.name}:{p.model}: ok {parse_json(reply)}")
+        except (LLMError, ValueError, requests.RequestException) as exc:
+            print(f"   {p.name}:{p.model}: FAILED {str(exc)[:200]}")
+
+
 def main(probe: list[str]) -> int:
+    check_configured()
     for p in providers_from_config(config.site_config()):
         if p.local or not p.key:
             print(f"== {p.name}: no key here, skipped")
