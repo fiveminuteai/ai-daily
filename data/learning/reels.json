@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T23:30:01+00:00",
+ "updated": "2026-11-05T18:00:53+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -18,7 +18,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": 0.097
+   "outcome": 0.209
   },
   {
    "id": "2026-10-31-reel-2",
@@ -37,7 +37,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.155
+   "outcome": -0.048
   },
   {
    "id": "2026-10-31-reel-3",
@@ -56,7 +56,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": 0.042
+   "outcome": 0.147
   },
   {
    "id": "2026-11-01-reel-1",
@@ -74,8 +74,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 89.5,
-   "outcome": -0.447
+   "age_h": 84.0,
+   "outcome": -0.336
   },
   {
    "id": "2026-11-01-reel-2",
@@ -93,8 +93,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 87.7,
-   "outcome": -0.006
+   "age_h": 82.2,
+   "outcome": 0.096
   },
   {
    "id": "2026-11-01-reel-3",
@@ -112,8 +112,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 81.7,
-   "outcome": -0.554
+   "age_h": 100.2,
+   "outcome": -0.451
   },
   {
    "id": "2026-11-02-reel-1",
@@ -131,8 +131,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 68.0,
-   "outcome": 0.051
+   "age_h": 86.5,
+   "outcome": 0.161
   },
   {
    "id": "2026-11-02-reel-2",
@@ -150,8 +150,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 64.0,
-   "outcome": 0.742
+   "age_h": 82.5,
+   "outcome": 0.885
   },
   {
    "id": "2026-11-02-reel-3",
@@ -169,8 +169,65 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 58.0,
-   "outcome": 0.23
+   "age_h": 76.5,
+   "outcome": 0.433
+  },
+  {
+   "id": "2026-11-03-reel-1",
+   "date": "2026-11-03",
+   "slot": 1,
+   "time": "09:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 12,
+   "desk": 8,
+   "hook": "Anthropic tells investors its AI may soon speed up its own progress.",
+   "reach": 10,
+   "watch_s": 5.9,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 62.0,
+   "outcome": -0.088
+  },
+  {
+   "id": "2026-11-03-reel-2",
+   "date": "2026-11-03",
+   "slot": 2,
+   "time": "13:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 14,
+   "desk": 8,
+   "hook": "Gemini can read your Gmail, and many of its features are on by default.",
+   "reach": 15,
+   "watch_s": 2.0,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.5,
+   "outcome": -0.782
+  },
+  {
+   "id": "2026-11-03-reel-3",
+   "date": "2026-11-03",
+   "slot": 3,
+   "time": "19:00",
+   "category": "policy",
+   "player": "other",
+   "hook_number": false,
+   "hook_words": 14,
+   "desk": 7,
+   "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
+   "reach": 83,
+   "watch_s": 0.9,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 52.5,
+   "outcome": -0.226
   }
  ],
  "effects": [
@@ -178,69 +235,69 @@
    "feature": "category",
    "value": "impact",
    "n": 4,
-   "n_rest": 5,
-   "mean": -0.23,
-   "effect": -0.13,
-   "se": 0.24,
+   "n_rest": 8,
+   "mean": -0.1,
+   "effect": -0.05,
+   "se": 0.25,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 1,
-   "n_rest": 8,
-   "mean": 0.04,
-   "effect": 0.01,
-   "se": 0.38,
+   "n_rest": 11,
+   "mean": 0.15,
+   "effect": 0.02,
+   "se": 0.43,
    "confident": false
   },
   {
    "feature": "category",
    "value": "policy",
-   "n": 1,
-   "n_rest": 8,
-   "mean": 0.05,
-   "effect": 0.01,
-   "se": 0.38,
+   "n": 3,
+   "n_rest": 9,
+   "mean": -0.05,
+   "effect": -0.02,
+   "se": 0.28,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
-   "n": 2,
-   "n_rest": 7,
-   "mean": 0.05,
-   "effect": 0.01,
-   "se": 0.29,
+   "n": 3,
+   "n_rest": 9,
+   "mean": -0.16,
+   "effect": -0.06,
+   "se": 0.28,
    "confident": false
   },
   {
    "feature": "category",
    "value": "tools",
    "n": 1,
-   "n_rest": 8,
-   "mean": 0.74,
-   "effect": 0.11,
-   "se": 0.38,
+   "n_rest": 11,
+   "mean": 0.89,
+   "effect": 0.12,
+   "se": 0.43,
    "confident": false
   },
   {
    "feature": "player",
    "value": "giant",
-   "n": 4,
-   "n_rest": 5,
-   "mean": 0.08,
-   "effect": 0.04,
+   "n": 6,
+   "n_rest": 6,
+   "mean": -0.01,
+   "effect": -0.0,
    "se": 0.24,
    "confident": false
   },
   {
    "feature": "player",
    "value": "other",
-   "n": 4,
-   "n_rest": 5,
-   "mean": -0.1,
-   "effect": -0.06,
+   "n": 5,
+   "n_rest": 7,
+   "mean": -0.04,
+   "effect": -0.02,
    "se": 0.24,
    "confident": false
   },
@@ -248,49 +305,49 @@
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 8,
-   "mean": 0.1,
-   "effect": 0.01,
-   "se": 0.38,
+   "n_rest": 11,
+   "mean": 0.21,
+   "effect": 0.03,
+   "se": 0.43,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "09:00",
-   "n": 3,
-   "n_rest": 6,
-   "mean": -0.1,
-   "effect": -0.04,
+   "n": 4,
+   "n_rest": 8,
+   "mean": -0.01,
+   "effect": -0.01,
    "se": 0.25,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "13:00",
-   "n": 3,
-   "n_rest": 6,
-   "mean": 0.19,
-   "effect": 0.08,
+   "n": 4,
+   "n_rest": 8,
+   "mean": 0.04,
+   "effect": 0.02,
    "se": 0.25,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
-   "n": 3,
-   "n_rest": 6,
-   "mean": -0.09,
-   "effect": -0.04,
+   "n": 4,
+   "n_rest": 8,
+   "mean": -0.02,
+   "effect": -0.01,
    "se": 0.25,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 4,
+   "n": 7,
    "n_rest": 5,
-   "mean": -0.05,
-   "effect": -0.03,
+   "mean": -0.12,
+   "effect": -0.11,
    "se": 0.24,
    "confident": false
   },
@@ -298,30 +355,50 @@
    "feature": "number in hook",
    "value": "yes",
    "n": 5,
-   "n_rest": 4,
-   "mean": 0.04,
-   "effect": 0.03,
+   "n_rest": 7,
+   "mean": 0.17,
+   "effect": 0.11,
    "se": 0.24,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 2,
+   "n": 5,
    "n_rest": 7,
-   "mean": -0.2,
-   "effect": -0.06,
-   "se": 0.29,
+   "mean": -0.26,
+   "effect": -0.16,
+   "se": 0.24,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
    "n": 7,
-   "n_rest": 2,
-   "mean": 0.06,
-   "effect": 0.06,
-   "se": 0.29,
+   "n_rest": 5,
+   "mean": 0.18,
+   "effect": 0.16,
+   "se": 0.24,
+   "confident": false
+  },
+  {
+   "feature": "desk score",
+   "value": "7+",
+   "n": 3,
+   "n_rest": 9,
+   "mean": -0.37,
+   "effect": -0.14,
+   "se": 0.28,
+   "confident": false
+  },
+  {
+   "feature": "desk score",
+   "value": "none",
+   "n": 9,
+   "n_rest": 3,
+   "mean": 0.12,
+   "effect": 0.14,
+   "se": 0.28,
    "confident": false
   }
  ]

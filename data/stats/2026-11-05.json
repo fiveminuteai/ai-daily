@@ -1,22 +1,257 @@
 {
  "date": "2026-11-05",
- "collected_at": "2026-11-04T23:29:45+00:00",
+ "collected_at": "2026-11-05T18:00:35+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 125,
+  "visitors_day": 5,
+  "daily": [
+   {
+    "day": "2026-10-09",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-10",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-11",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-12",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 58
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 7
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "title": "Mistral releases open weights for trillion‑parameter model · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/ai-daily",
+    "title": "Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/share/2026-10-30",
+    "title": "Share kit · 30 Oct 2026 · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/archive",
+    "title": "Archive · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-10-29-google-deepmind-s-gemini-4-carbon-tops",
+    "title": "Google DeepMind's Gemini 4 Carbon tops AI benchmark with strong security focus · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 44
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 16
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 5
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 5
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 4
+   },
+   {
+    "name": "com.linkedin.android",
+    "visitors": 2
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 2
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 2
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 1,
-  "media_count": 15,
+  "media_count": 17,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 13,
+   "views": 19,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "18236013835323296",
+    "timestamp": "2026-11-05T07:31:20+0000",
+    "permalink": "https://www.instagram.com/reel/DfWgAmjDtf2/",
+    "type": "VIDEO",
+    "caption": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 12,
+    "views": 18,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 1.3
+   },
+   {
+    "id": "17884128393629513",
+    "timestamp": "2026-11-05T03:31:25+0000",
+    "permalink": "https://www.instagram.com/reel/DfWEikLj-yj/",
+    "type": "VIDEO",
+    "caption": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 4,
+    "views": 4,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 2.5
+   },
    {
     "id": "18050438846816093",
     "timestamp": "2026-11-04T13:31:17+0000",
@@ -30,7 +265,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 11.2
+    "avg_watch_s": 10.1
    },
    {
     "id": "18182400415430796",
@@ -55,12 +290,12 @@
     "caption": "Google says schools that switch off its AI will lose Google Search too.",
     "likes": 0,
     "comments": 0,
-    "reach": 7,
-    "views": 7,
+    "reach": 18,
+    "views": 19,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 10.9
+    "avg_watch_s": 5.1
    },
    {
     "id": "18052874651820583",
@@ -166,36 +401,6 @@
     "shares": 0,
     "total_interactions": 1,
     "avg_watch_s": 1.5
-   },
-   {
-    "id": "17916240315549399",
-    "timestamp": "2026-11-01T07:45:39+0000",
-    "permalink": "https://www.instagram.com/reel/DfMOdXcgWky/",
-    "type": "VIDEO",
-    "caption": "OpenAI cut its funding goal to $20 billion.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 58,
-    "views": 66,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 3.1
-   },
-   {
-    "id": "18065605586789086",
-    "timestamp": "2026-11-01T06:01:13+0000",
-    "permalink": "https://www.instagram.com/reel/DfMCgctin89/",
-    "type": "VIDEO",
-    "caption": "New malware uses an AI model to size up its victims.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 34,
-    "views": 41,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 2.3
    }
   ]
  }
