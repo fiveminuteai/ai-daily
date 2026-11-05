@@ -500,7 +500,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
         yield frame.convert("RGB").tobytes()
 
 
-def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path, who: str = "spark-american") -> Path:
+def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path, who: str = "spark-strong") -> Path:
     """Render the pulse Reel. Needs the narrator (voice.available()) and ffmpeg."""
     card = section["card"]
     plan = voice_plan(card, n, who, sign_off=f"{site['name']}. {SLOGAN}")

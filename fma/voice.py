@@ -115,6 +115,10 @@ CHARACTERS = {
     # Accent cast (5 Nov 2026, Pavan: "doubt having british accent"): accents tell the characters apart by ear alone.
     # Spark goes warm American so a British Doubt contrasts; Kokoro's Hindi voices speaking English give an Indian
     # accent (clear on whisper read-back); its Italian one garbled "fossil", so it is out.
+    # Strong Spark (5 Nov 2026, Pavan: "spark voice doesn't stand... something strong, opposite to other characters"):
+    # bright, young and lively against two low male guests. Measured: median pitch 231 Hz (Doubt 113, Rex 123), pitch
+    # spread 55 Hz (the soft one was 43): the spread is what reads as energy.
+    "spark-strong": {"blend": ["af_bella", "af_jessica"], "pitch": 1.13, "lang": "en-us", "rate": 5.0},
     "spark-american": {"blend": ["af_heart", "af_bella"], "pitch": 1.03, "lang": "en-us", "rate": 4.8},
     "doubt-british": {"blend": ["bm_fable", "bm_lewis"], "pitch": 0.97, "lang": "en-gb", "rate": 4.8},
     "rex-grandpa": {"blend": ["am_fenrir", "am_michael"], "pitch": 0.88, "lang": "en-us", "rate": 4.6},
