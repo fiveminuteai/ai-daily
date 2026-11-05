@@ -33,7 +33,7 @@ from .visuals import _font
 
 SPARK_AT = (330, 1110, 400)          # centre x, bottom y, size
 PANEL_Y = 560                        # the hologram's centre: clear of Spark's head
-SPARK_VOICE = os.environ.get("FMA_SPARK_VOICE", "spark-soft")           # 5 Nov 2026, Pavan: Spark's voice should be soothing
+SPARK_VOICE = os.environ.get("FMA_SPARK_VOICE", "spark-american")           # 5 Nov 2026, Pavan: Spark's voice should be soothing
 GUESTS = {
     "doubt": {"draw": doubt.draw, "hi": (160, 178, 255), "tag": "DOUBT", "at": (785, 1100, 320), "voice": os.environ.get("FMA_DOUBT_VOICE", "doubt")},
     "rex": {"draw": rex.draw, "hi": (152, 216, 140), "tag": "REX", "at": (790, 1120, 400), "voice": os.environ.get("FMA_REX_VOICE", "rex")},
@@ -43,6 +43,7 @@ GUESTS = {
 GAP = {"spark": 0.16}
 GUEST_GAP = 0.1
 BEAT_PAUSE = 0.45
+MAX_SECONDS = 45.0
 FX = {"card", "beat", "confetti", "drop", "sweat"}
 
 
@@ -66,6 +67,8 @@ def plan(script: list[tuple], guest: str) -> dict:
         clips.append((who, t + lead, s))
         t = lines[-1]["end"]
     seconds = t + 1.4
+    if seconds > MAX_SECONDS:            # 5 Nov 2026, Pavan: 40-45 s at most; cut lines, never speed the voice up
+        raise ValueError(f"duo script runs {seconds:.1f} s, over the {MAX_SECONDS} s cap: cut a beat")
     tracks = {w: np.zeros(int((seconds + 1) * voice.SR), np.float32) for w in voices}
     for who, at, s in clips:
         i = int(at * voice.SR)

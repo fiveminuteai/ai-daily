@@ -24,6 +24,23 @@ def draw(size: int, t: float, mouth: float, talking: bool, seed: int = 0, look: 
     sh = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     ImageDraw.Draw(sh).ellipse([30 * u, 92 * u, 88 * u, 99 * u], fill=(0, 0, 0, 70))
     im.alpha_composite(sh)
+    # legs (5 Nov 2026, Pavan: "why don't rex have legs?"): two thick T. rex legs with clawed feet; when Rex talks,
+    # the front foot taps. The body is drawn on its own layer and lifted to stand on them.
+    lift = 12 * u
+    tap = max(0.0, math.sin(t * 5.0)) * 2.2 * u if talking else 0.0
+    for k, (lx, foot_y) in enumerate(((47 * u, 95 * u - tap), (64 * u, 95 * u))):
+        col = SKIN if k == 0 else SKIN_DARK
+        d.ellipse([lx - 7 * u, 66 * u, lx + 7 * u, 84 * u], fill=col + (255,))                    # thigh
+        d.polygon([(lx - 4.5 * u, 80 * u), (lx + 4.5 * u, 80 * u), (lx + 3 * u, foot_y - 2 * u),
+                   (lx - 3 * u, foot_y - 2 * u)], fill=col + (255,))                              # shin
+        d.rounded_rectangle([lx - 9 * u, foot_y - 4 * u, lx + 4 * u, foot_y + 1 * u], radius=2 * u,
+                            fill=col + (255,))                                                    # foot, toes left
+        for c in range(3):                                                                         # claws
+            cx = lx - 8.5 * u + c * 3.2 * u
+            d.polygon([(cx, foot_y - 0.5 * u), (cx - 2.2 * u, foot_y + 0.8 * u), (cx + 0.6 * u, foot_y + 1 * u)],
+                      fill=(250, 248, 236, 255))
+    body = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(body)
     # body and tail
     d.polygon([(64 * u, 60 * u), (98 * u, 86 * u), (96 * u, 92 * u), (70 * u, 88 * u)], fill=SKIN_DARK + (255,))
     d.ellipse([40 * u, 50 * u + breathe, 80 * u, 96 * u], fill=SKIN + (255,))
@@ -65,4 +82,5 @@ def draw(size: int, t: float, mouth: float, talking: bool, seed: int = 0, look: 
     d.arc([ex - 6.5 * u, ey - 8 * u, ex + 6.5 * u, ey - 1 * u], 200, 340, fill=SKIN_DARK + (255,), width=int(1.6 * u))
     d.ellipse([ex - 7 * u, ey - 7 * u, ex + 7 * u, ey + 7 * u], outline=GLASS + (255,), width=int(1.2 * u))
     d.line([ex + 7 * u, ey - 1 * u, ex + 14 * u, ey - 3 * u], fill=GLASS + (255,), width=int(1.2 * u))
+    im.alpha_composite(body, dest=(0, 0), source=(0, int(lift)))     # the body stands on the legs
     return im.resize((size, size), Image.LANCZOS)
