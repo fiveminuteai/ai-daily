@@ -93,8 +93,9 @@ def trim(s: np.ndarray, floor: float = 0.01, pad: float = 0.04) -> np.ndarray:
     return s[a:b]
 
 
-PACE = 160                     # words per minute, held for every line: Kokoro reads short lines faster on its own
-                               # (sample 2, 4 Nov 2026: 144 to 209 wpm line to line at one speed setting)
+PACE = 160                     # kept for callers that pass pace=None to turn pacing off
+RATE = 4.3                     # syllables per second, held for every line (Kokoro reads short lines faster on its
+                               # own: 144 to 209 wpm line to line at one speed setting, 4 Nov 2026)
 
 
 # Character voices: a blend of Kokoro voices (the mean of their style vectors) and a pitch lift, so the
@@ -104,8 +105,15 @@ CHARACTERS = {
     "spark-bright": {"blend": ["af_nova", "af_sky"], "pitch": 1.08, "lang": "en-us"},
     "spark-neutral": {"blend": ["am_puck", "af_river"], "pitch": 1.06, "lang": "en-us"},
     "spark-cheeky": {"blend": ["bf_lily", "af_jessica"], "pitch": 1.10, "lang": "en-gb"},
-    # Doubt, the duo's sceptic: lower and drier than Spark, so the two never sound alike
-    "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb"},
+    # Soothing Spark candidates (5 Nov 2026, Pavan: "I need something soothing"): warm voices, almost no pitch lift,
+    # a calmer rate
+    "spark-calm": {"blend": ["af_heart", "af_river"], "pitch": 1.02, "lang": "en-us", "rate": 3.9},
+    "spark-warm": {"blend": ["af_heart", "am_puck"], "pitch": 1.03, "lang": "en-us", "rate": 3.9},
+    "spark-soft": {"blend": ["bf_emma", "af_river"], "pitch": 1.0, "lang": "en-gb", "rate": 4.0},
+    # Doubt, the duo's sceptic: lower and drier than Spark, so the two never sound alike; it comes in quick
+    "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb", "rate": 4.4},
+    # Rex, a guest: a tired old dinosaur, deep and slow, for stories about fossil fuels, power and emissions
+    "rex": {"blend": ["am_fenrir", "bm_george"], "pitch": 0.88, "lang": "en-gb", "rate": 3.5},
 }
 
 
@@ -126,15 +134,46 @@ def pitch_up(s: np.ndarray, factor: float) -> np.ndarray:
     return np.interp(np.linspace(0, len(s) - 1, n), np.arange(len(s)), s).astype(np.float32)
 
 
+VOWELS = re.compile(r"[aeiouyɑɐɒæɔəɘɚɛɜɝɞɤɨɪɯɵøœɶʉʊʌʏᵻ]+")
+
+
+def syllables(ph: str) -> int:
+    """Syllables in a phoneme string: one per vowel group (a diphthong like eɪ is one group)."""
+    return max(1, len(VOWELS.findall(ph)))
+
+
+def squeeze(s: np.ndarray, max_pause: float = 0.32, floor: float = 0.012) -> np.ndarray:
+    """Shorten any pause inside a line to at most `max_pause` s: Kokoro leaves 0.5-0.9 s at a full stop, which made
+    "Wait. Isn't..." drag and the pace jump around (5 Nov 2026)."""
+    hop = SR // 100
+    n = len(s) // hop
+    if n < 3:
+        return s
+    quiet = np.sqrt(np.mean(s[: n * hop].reshape(n, hop) ** 2, axis=1)) < floor
+    keep, run = [], 0
+    limit = int(max_pause * 100)
+    for k in range(n):
+        run = run + 1 if quiet[k] else 0
+        if run <= limit:
+            keep.append(k)
+    out = np.concatenate([s[k * hop:(k + 1) * hop] for k in keep] + [s[n * hop:]])
+    return out.astype(np.float32)
+
+
 def say(text: str, voice: str | None = None, speed: float = SPEED, pace: float | None = PACE) -> np.ndarray:
-    """One line, spoken. With `pace`, the line is measured and spoken again at the speed that lands it on that pace
-    (within 0.8x to 1.2x, so no line sounds stretched)."""
+    """One line, spoken. With `pace`, the line is measured and spoken again at the speed that lands it on the
+    character's rate (within 0.8x to 1.2x, so no line sounds stretched).
+
+    The rate is syllables per second, counted from Kokoro's own phonemes (5 Nov 2026, Pavan: "speech rate isn't
+    consistent", and "tell us..." came out slower: counting words treats "$17 billion dollars" like "it was")."""
     words = spoken(text)
     voice = voice or VOICE
     c = CHARACTERS.get(voice, {})
     pitch, lang = c.get("pitch", 1.0), c.get("lang", "en-gb")
+    rate = c.get("rate", RATE)
     style = _style(voice)
     ph = phonemes(words, lang)
+    n_syl = syllables(ph or _engine().tokenizer.phonemize(words, lang))
 
     def make(sp: float) -> np.ndarray:
         if ph:
@@ -142,16 +181,19 @@ def say(text: str, voice: str | None = None, speed: float = SPEED, pace: float |
         else:
             s, sr = _engine().create(words, voice=style, speed=sp / pitch, lang=lang)
         assert sr == SR, sr
-        return pitch_up(trim(np.asarray(s, np.float32)), pitch)
+        return squeeze(pitch_up(trim(np.asarray(s, np.float32)), pitch))
 
     s, sp = make(speed), speed
-    for _ in range(2 if pace else 0):          # speed doesn't map 1:1 to pace, so correct twice
-        wpm = len(words.split()) / max(0.3, len(s) / SR) * 60
-        fix = float(np.clip(sp * pace / wpm, 0.8, 1.2))
-        if abs(fix - sp) <= 0.02:
-            break
-        s, sp = make(fix), fix
-    return s
+    best = s
+    for _ in range(6 if pace else 0):          # speed doesn't map 1:1 to rate: correct until within 2.5%
+        now = n_syl / max(0.3, len(s) / SR)
+        if abs(now - rate) / rate <= 0.025:
+            return s
+        if abs(n_syl / max(0.3, len(s) / SR) - rate) < abs(n_syl / max(0.3, len(best) / SR) - rate):
+            best = s
+        sp = float(np.clip(sp * rate / now, 0.75, 1.25))
+        s = make(sp)
+    return s if abs(n_syl / max(0.3, len(s) / SR) - rate) < abs(n_syl / max(0.3, len(best) / SR) - rate) else best
 
 
 def envelope(track: np.ndarray, fps: int) -> np.ndarray:

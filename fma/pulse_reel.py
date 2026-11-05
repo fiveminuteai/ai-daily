@@ -93,7 +93,40 @@ def figure(text: str) -> str:
     if fig:
         return fig
     m = PCT_RE.search(t)
-    return m.group(0) if m else ""
+    if m:
+        return m.group(0)
+    return count_figure(t)
+
+
+COUNT_RE = re.compile(r"(?:\b(at least|more than|over|up to|as many as|nearly|about)\s+)?(?<![\d,.])"
+                      r"(\d{1,3}(?:,\d{3})+|\d{2,})\s+(?:(\w+)\s+)?([a-z]+s)\b", re.I)
+
+
+def fig_size(d, text: str, top: int = 250, width: int = 820) -> int:
+    """The largest size up to `top` at which `text` fits `width` px: "$17B" stays huge, "35+ turbines" shrinks."""
+    w = d.textlength(text, font=_font("serif", top))
+    return max(80, min(top, int(top * width / max(1.0, w))))
+
+
+def count_figure(text: str) -> str:
+    """A plain count with what it counts ("35 turbines"), keeping its limits: "at least 35" shows as "35+" and "up to
+    35" as "up to 35", never a bare number that claims more than the source (the ceiling rule, 31 Oct 2026). Years
+    and dates are skipped."""
+    for m in COUNT_RE.finditer(text):
+        qual, num, noun = (m.group(1) or "").lower(), m.group(2), m.group(4).lower()
+        mid = (m.group(3) or "").lower()
+        if mid and len(f"{num} {mid} {noun}") <= 16:          # "12 data centres" reads; "35 combustion turbines" won't fit
+            noun = f"{mid} {noun}"
+        if re.fullmatch(r"(19|20)\d\d", num) or noun in ("years", "days", "months", "weeks", "hours", "minutes"):
+            continue
+        if qual in ("at least", "more than", "over"):
+            return f"{num}+ {noun}"
+        if qual in ("up to", "as many as"):
+            return f"up to {num} {noun}"
+        if qual in ("nearly", "about"):
+            return f"~{num} {noun}"
+        return f"{num} {noun}"
+    return ""
 
 
 def figure_time(timed: list[tuple[str, float]], fig: str) -> float:
@@ -139,6 +172,20 @@ def hologram(layer: Image.Image, cx: float, cy: float, text_w: float, p: float, 
     for cxk in (x0, x1):                                     # corner ticks
         d.line([(cxk, y0 + 30), (cxk, y0 + 6)], fill=(180, 255, 245, int(255 * a)), width=6)
     layer.alpha_composite(hl)
+
+
+SLOGAN = "Hype not included."
+LOGO = (255, 122, 60)                # the brand's clock mark, lifted for the night background
+
+
+def draw_logo(layer: Image.Image, cx: float, cy: float, r: float, sweep: float, alpha: float) -> None:
+    """The brand mark: a ring and a five-minute slice, the slice sweeping round as the card arrives."""
+    d = ImageDraw.Draw(layer)
+    a = int(255 * alpha)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=LOGO + (a,), width=max(4, int(r * 0.19)))
+    if sweep > 0:
+        inner = r * 0.84
+        d.pieslice([cx - inner, cy - inner, cx + inner, cy + inner], -90, -90 + 60 * sweep, fill=LOGO + (a,))
 
 
 # ---------------------------------------------------------------- captions
@@ -369,7 +416,8 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                 # the hook's number is on screen from frame one (the cover) and stays: it showing on frame one, then
                 # vanishing until spoken, read as a flicker (5 Nov 2026)
                 pc = 1.0 if i == 0 else (lt - vs) / 0.6
-                big = _font("serif", 250 if len(fig) <= 6 else 190)
+                top = fig_size(d, fig)
+                big = _font("serif", top)
                 tw = d.textlength(fig, font=big)
                 if pc > 0:
                     # the real number, whole, popping in with an overshoot: no count-up, because a frame of a
@@ -377,7 +425,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                     hologram(layer, W / 2 + slide, 620, tw, pc, tt, 1110 - 360 + 20)
                     q = min(1.0, pc / 0.5)
                     scale = 1.0 if q >= 1 else 0.6 + 0.4 * q + 0.12 * math.sin(math.pi * q)
-                    fsz = max(40, int((250 if len(fig) <= 6 else 190) * scale))
+                    fsz = max(40, int(top * scale))
                     f2 = _font("serif", fsz)
                     w2 = d.textlength(fig, font=f2)
                     d.text(((W - w2) / 2 + slide, 650 - fsz * 0.52), fig, font=f2, fill=YELLOW + (int(255 * min(1, q * 2)),),
@@ -391,6 +439,24 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                 sf = _font("sans", 32)
                 st = f"Source: {source}"
                 d.text(((W - d.textlength(st, font=sf)) / 2, SOURCE_Y), st, font=sf, fill=MUTED + (255,))
+        elif plan.get("sign_at") is not None and lt >= plan["sign_at"] - 0.25:
+            # the logo card: the clock mark sweeps its five-minute slice; Spark says the name and the slogan
+            cp = ease((lt - plan["sign_at"] + 0.25) / 0.5)
+            draw_logo(layer, W / 2, 640, 150 * (0.7 + 0.3 * cp), ease((lt - plan["sign_at"]) / 0.8), cp)
+            d.text((W / 2, 880 + (1 - cp) * 30), site["name"], font=_font("serif", 92), fill=INK + (int(255 * cp),),
+                   anchor="mm")
+            sp = ease((lt - plan["sign_at"] - plan["said"]["sign"] * 0.45) / 0.3)
+            if sp > 0:
+                sf = _font("serif", int(66 * (0.85 + 0.15 * sp)))
+                tw = d.textlength(SLOGAN, font=sf)
+                d.rounded_rectangle([W / 2 - tw / 2 - 26, 958, W / 2 + tw / 2 + 26, 1052], radius=30,
+                                    fill=YELLOW + (int(255 * sp),))
+                d.text((W / 2, 1004), SLOGAN, font=sf, fill=BG_TOP + (int(255 * sp),), anchor="mm")
+            mth = float(mouth[min(len(mouth) - 1, fi)]) if len(mouth) else 0.0
+            im = spark.draw(300, tt, mth, "talk", beat=BEAT, seed=n, look=(0.0, 0.5))
+            layer.alpha_composite(im, (W // 2 - 150, 1110))
+            d.text((W / 2, 1490), "Follow @fiveminute_ai", font=_font("sans_bold", 40), fill=INK + (int(230 * cp),),
+                   anchor="mm")
         else:
             asking = card.get("ask") and lt < plan["outro_at"]
             if card.get("ask"):
@@ -434,10 +500,10 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
         yield frame.convert("RGB").tobytes()
 
 
-def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path, who: str = "spark-neutral") -> Path:
+def pulse_reel(post: dict, section: dict, n: int, site: dict, out: Path, who: str = "spark-soft") -> Path:
     """Render the pulse Reel. Needs the narrator (voice.available()) and ffmpeg."""
     card = section["card"]
-    plan = voice_plan(card, n, who)
+    plan = voice_plan(card, n, who, sign_off=f"{site['name']}. {SLOGAN}")
     seconds = plan["seconds"]
     out.parent.mkdir(parents=True, exist_ok=True)
     music, _ = write_wav(out.with_suffix(".m.wav"), bars=math.ceil(seconds / BAR) + 1, seed=7 + n)

@@ -528,7 +528,7 @@ def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: 
     return out
 
 
-def voice_plan(card: dict, n: int, who: str | None = None) -> dict:
+def voice_plan(card: dict, n: int, who: str | None = None, sign_off: str | None = None) -> dict:
     """Speak every line once, at one speed, and fit the scenes to the voice: each scene lasts at least 2 bars and
     always ends on a beat, so the cuts stay on the music. The end scene speaks the question, then the closing line."""
     gap, lead = 0.45, 0.3                          # silence after each line; the voice starts just after the cut
@@ -551,6 +551,13 @@ def voice_plan(card: dict, n: int, who: str | None = None) -> dict:
     said["outro"] = len(clips["outro"]) / voice.SR
     end_clips.append((outro_at, clips["outro"]))
     seconds = t0 + outro_at + len(clips["outro"]) / voice.SR + 1.6
+    sign_at = None
+    if sign_off:                       # the logo card: "Five Minute AI. Hype not included." after the closing line
+        sign_at = outro_at + said["outro"] + 0.7
+        clips["sign"] = voice.say(sign_off, voice=who)
+        said["sign"] = len(clips["sign"]) / voice.SR
+        end_clips.append((sign_at, clips["sign"]))
+        seconds = t0 + sign_at + said["sign"] + 1.4
     track = np.zeros(int((seconds + 1) * voice.SR), np.float32)
     t = 0.0
     for (key, _), length in zip(lines, lens):
@@ -561,5 +568,5 @@ def voice_plan(card: dict, n: int, who: str | None = None) -> dict:
         i = int((t0 + at) * voice.SR)
         track[i:i + len(clip)] += clip
     track = track / max(1e-6, float(np.abs(track).max())) * 0.9
-    return {"lens": lens, "said": said, "outro_at": outro_at, "seconds": seconds, "track": track,
+    return {"lens": lens, "said": said, "outro_at": outro_at, "sign_at": sign_at, "seconds": seconds, "track": track,
             "mouth": voice.envelope(track, FPS)}

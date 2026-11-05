@@ -201,3 +201,18 @@ def test_spark_shapes_follow_the_words():
     assert spark.shape_for("Quarterly revenue reached $17 billion") == "coin"
     assert spark.shape_for("Is the AI boom worth what it costs?") == "bubble"
     assert spark.shape_for("As Anthropic heads for an IPO, margins worsen") == "blob"
+
+
+def test_counts_keep_their_limits_on_screen():
+    # 5 Nov 2026: "at least 35 turbines" must never show as a bare "35"
+    from fma.pulse_reel import figure
+    assert figure("It alleges xAI ran at least 35 combustion turbines.") == "35+ turbines"
+    assert figure("Up to 5,000 users were exposed.") == "up to 5,000 users"
+    assert figure("It has 12 data centres.") == "12 data centres"
+    assert figure("In 2026 the judge ruled.") == ""
+
+
+def test_syllables_count_vowel_groups():
+    from fma import voice
+    assert voice.syllables("spˈeɪsɛks") == 2
+    assert voice.syllables("ˈeɪ dˈʌbəljˌuː ˈɛs") == 5
