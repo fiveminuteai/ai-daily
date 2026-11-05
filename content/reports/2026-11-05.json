@@ -1,0 +1,938 @@
+{
+  "checked": 76,
+  "ok": 44,
+  "repaired": 5,
+  "dropped": 27,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI pushes AI policy agenda ahead of 2028 election",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "first home security product to integrate with Google Home Premium",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI’s chief global affairs officer outlined five AI policy priorities aimed at worker protections, education, safety and data‑center development as the 2028 presidential race approaches, noting the growing voter concern over AI‑driven job loss and energy use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI proposes five AI policy priorities to guide the 2028 election debate.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Hugging Face released Kimi‑K3.1‑Pro and policy guidance on open‑source AI trade‑offs.",
+      "sources": [
+        "S2",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the model release but provides no evidence of policy guidance on open‑source AI trade‑offs."
+      ]
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "AT&T’s $29.99/month plan now lets Gemini AI summarize security footage and answer natural‑language queries.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Amazon Bedrock AgentCore now supports custom decision‑model evaluators for reliable, numeric scoring of AI agents.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "UK AI minister revises AI’s economic boost to £55‑£140 billion by 2030, down from the previously cited £400 billion.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI’s chief global affairs officer Chris Lehane published an essay on 4 November 2026 urging politicians to shape AI policy ahead of the 2028 presidential election.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "He compares AI’s economic impact to the New Deal and calls for a \"compelling third path\" that lets citizens share AI benefits.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Lehane lists five policy priorities covering worker protections, education, safety and data‑center development.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Lehane’s essay follows a Democratic midterm win that flipped Congress amid voter frustration over cost of living, a context that amplifies concerns about AI‑driven job loss and data‑center electricity use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Kate Brennan of the AI Now Institute noted the shift from OpenAI’s prior focus on accelerating development to advocating broader adoption and infrastructure support.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The proposals aim to expand AI use while addressing economic disruption, though critics say the New Deal analogy may serve OpenAI’s own interests.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Many of Lehane’s proposals would encourage wider AI adoption, yet Brennan notes the New Deal metaphor is written by a private company trying to advocate policies for its own benefit, and it’s unclear \""
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The United States is entering a period where AI is expected to influence elections, employment and energy consumption.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'United' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Voters are already uneasy about rising living costs and the environmental impact of data centers, making AI policy a potential flashpoint in the 2028 race.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI’s push for policy reflects a broader industry trend of seeking regulatory frameworks that balance innovation with public concerns.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention a broader industry trend; it only discusses OpenAI’s own policy push."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI outlines AI policy agenda for 2028 election",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "OpenAI urges lawmakers to shape AI rules before the 2028 election, warning job loss.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows urging but does not include a warning about job loss in the same statement."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "OpenAI’s chief global affairs officer published an essay calling for AI policy ahead of 2028 vote.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "He proposes five priorities covering worker protections, education, safety, and data‑center development.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "If adopted, voters, workers and tech firms could see new rules shaping jobs and energy use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source statement says that adoption would lead to new rules shaping jobs and energy use for voters, workers, or tech firms."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch the policy debate now—future AI rules could impact your job security and electricity bills.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should tech leaders shape election policies?",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Hugging Face released a model card for Kimi‑K3.1‑Pro on 2 November 2026, describing its architecture and capabilities.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"New on Hugging Face: moonshotai/Kimi-K3.1-Pro (published 2 November 2026) – Architecture Mixture-of-Experts, Total Parameters 2.8T, Activated Parameters 104B, Context Length 1,048,576 tokens.\""
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The same day, the company’s chief policy officer, Irene Solaiman, discussed the commercial and risk implications of open‑source AI in a TechCrunch Equity podcast released 4 November 2026.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The conversation highlighted how enterprises and governments are adopting open models to reduce costs while weighing security and value‑capture concerns.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Kimi‑K3.1‑Pro is a 2.8‑trillion‑parameter mixture‑of‑experts model with a 1‑million‑token context window and 104 billion activated parameters per inference.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It uses a hybrid attention design combining KDA and gated DeepSeek Sparse Attention to handle long contexts efficiently.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Solaiman explained that open models lower licensing fees but shift expenses to infrastructure, data curation, and compliance, and that companies must assess trade‑offs between model size, performance, and operational risk.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not contain Solaiman stating that open models lower licensing fees but shift costs to infrastructure, data curation, compliance, nor that firms must assess trade‑offs between size, performance, and risk."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "She also noted that Chinese open models are gaining market share, prompting U.S. firms to consider strategic responses.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Open‑source AI models allow users to run the code locally, giving more control over data and customization compared with proprietary services.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention lower costs and more control but do not state that open‑source models let users run code locally for greater data control and customization."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "However, larger models like Kimi‑K3.1‑Pro require substantial compute, which can offset cost savings and introduce new security considerations such as model misuse or data leakage.",
+      "sources": [
+        "S4",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source provides model size details but does not discuss compute requirements, cost offsets, or security concerns such as misuse or data leakage."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Hugging Face’s policy brief aims to guide adopters through these practical and regulatory challenges.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source references a Hugging Face policy brief aimed at guiding adopters through practical and regulatory challenges."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Hugging Face outlines policy for open‑source model use",
+      "sources": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources discuss a policy chief speaking on costs and trade‑offs, but do not show Hugging Face explicitly outlining a policy for open‑source model use."
+      ]
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Hugging Face warns AI can slash fees yet explode compute costs and security risks.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions lower costs only; it does not warn that AI will explode compute costs or create security risks."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Hugging Face released the 2.8‑trillion‑parameter Kimi‑K3.1‑Pro model on 2 Nov 2026.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Open models cut licensing fees but shift expenses to massive compute and compliance burdens.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source highlights lower costs but does not say expenses shift to massive compute or compliance burdens."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Enterprises and governments must weigh these trade‑offs as they adopt the model.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Expect higher infrastructure bills and tighter security checks when using open‑source giants.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will you trust open‑source AI with your data?",
+      "sources": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "AT&T announced that its Connected Life smart security system now includes Gemini‑powered features for home monitoring.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The integration lets users ask natural‑language questions about video footage and receive daily activity summaries.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The new capabilities are offered only to customers on the $29.99 per month professional monitoring plan.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Gemini for Home can describe events captured by security cameras, such as identifying a package delivery person and counting items dropped off.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users can query recordings with prompts like “What dug up the yard last night?” or “Who let the dogs out?” and receive detailed answers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "AT&T also added automatic arming and disarming based on the homeowner’s proximity, extending AI control beyond simple queries.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The Connected Life system launched in December 2025 through a partnership with Google and Abode, and now leverages Google’s Gemini Home APIs to add AI functions to smart‑home devices.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '2025' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This makes AT&T the first security provider to embed Google Home Premium’s Gemini technology, a step that other firms such as ADT are considering.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The move reflects a broader trend of embedding large language models in everyday consumer products to simplify interaction with video and sensor data.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions a broader trend of embedding LLMs in consumer products."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "AT&T adds Gemini AI to home security",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "AT&T’s Connected Life now includes Gemini‑powered video queries.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Only $29.99‑a‑month plan gets daily AI summaries and package ID.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Homeowners and renters can ask “Who let the dogs out?” for instant answers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Homeowners' not in cited source",
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Expect smarter alerts and AI‑driven home monitoring on your AT&T plan.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will you let AI watch your front door?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon Bedrock introduced AgentCore Evaluations, a feature that can score AI agents throughout their lifecycle using decision models that return calibrated probabilities instead of free‑form text.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The capability supports both built‑in evaluators and custom ones that you define as either an LLM‑as‑a‑judge or a code‑based evaluator running in AWS Lambda.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "By November 4, 2026 the service allowed users to connect external decision‑model backends such as Jev and Strands Decider 2B through code‑based evaluators.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Decision models answer fixed‑answer questions like whether a response stayed on policy or matched retrieved context, providing a label and a numeric score that can be thresholded for trust.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Custom LLM‑as‑a‑judge evaluators apply user‑provided instructions and rating scales, while code‑based evaluators can invoke any external system, model, or API, including hosted models like Jev from TypeSafe or the open‑source Strands Decider 2B that users run themselves.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The design lets multiple questions be answered in a single request, enabling a screening layer that flags turns for deeper analysis by built‑in evaluators, which also supply explanations for debugging.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Traditional agent evaluation relies on free‑form text outputs whose confidence can drift, making automated scoring difficult for compliance and safety checks.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Decision models, which output a probability over a predefined set of answers, offer a more stable metric for policy enforcement and harmfulness detection.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This approach aligns with broader industry moves toward structured evaluation to maintain auditability and reduce manual review effort.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source material mentions broader industry moves, auditability, or reduced manual review effort."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Decision models added to Amazon Bedrock AgentCore",
+      "sources": [
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Decision models can be used with Amazon Bedrock AgentCore Evaluations, allowing them to score agents throughout their lifecycle.\""
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Amazon introduced AgentCore Evaluations that score AI agents using calibrated decision‑model probabilities.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The feature lets users connect external models like Jev and Strands Decider 2B for automated policy scoring.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Developers can now flag risky responses automatically, reducing manual compliance work.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention automatic flagging of risky responses or reduction of manual compliance work."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "You can automate safety scoring for your Bedrock agents, cutting review time.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Amazon Bedrock AgentCore Evaluations ... scores an agent ... Decision models ... return calibrated probability ... can be used as a screening layer\""
+      ]
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will you trust AI agents with automated scores?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The UK AI minister Kanishka Narayan told parliament that AI could add between £55 billion and £140 billion to the economy by 2030, with a central estimate of £120 billion, after admitting the earlier £400 billion claim was overstated.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The earlier figure had been used by government departments for almost two years despite being based on a Google‑commissioned report.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Narayan said the new estimate remains highly uncertain.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The £400 billion number came from a 2023 report commissioned by Google and produced by Public First (now PF Global) and was promoted by the government to allay fears of job losses.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "PF Global’s head of economics Jonathan Dupont explained the gap as a result of the government assuming a slower AI adoption rate than the 2023 model projected.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Skills England continued to cite the £400 billion figure four months after the minister’s admission, showing lag in updating public communications.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The minister’s revised range of £55‑£140 billion reflects a more modest but still significant contribution of AI and data investment to the UK economy.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Economic impact estimates for AI are often based on models that assume how quickly businesses adopt the technology and how much data they invest in.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions model assumptions about adoption speed but does not mention assumptions about data‑investment levels."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The UK government had relied on a Google‑funded study, which inflated expectations, while internal projections were much lower.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Such discrepancies can affect policy decisions, public perception, and funding for AI‑related programs.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "UK AI economic estimates revised lower",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "UK AI minister Kanishka Narayan cuts £400 billion AI boost to £120 billion.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Narayan told parliament AI could add £55‑£140 billion by 2030, revising the earlier £400 billion estimate.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"AI minister Kanishka Narayan ... said AI adoption could add £55‑£140 billion by 2030, central estimate £120 billion, after admitting the earlier £400 billion figure was significantly higher than actua\""
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "The original £400 billion figure came from a Google‑commissioned 2023 report now deemed overstated.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "This downgrade may reshape funding and job‑impact policies for UK tech firms and workers.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not discuss any policy or job‑impact changes resulting from the downgrade."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "Expect slower AI‑driven growth and watch for revised government funding plans.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will you trust AI economic forecasts?",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "If Congress adopts OpenAI’s suggested framework, companies may face new compliance rules for AI‑related employment practices and data‑center emissions, while workers could gain clearer protections against automation‑induced layoffs, directly affecting household income and energy bills.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Embedding AI policy discussions into the 2028 campaign could shape public opinion on AI’s role in society, influencing voter decisions and prompting other tech firms to lobby for similar regulations, which may alter the competitive landscape for AI developers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "diagram",
+      "text": "AgentCore sends state to evaluator → Code‑based evaluator calls decision model → Decision model returns probabilities → AgentCore maps probabilities to pass/fail",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "The same day, the company’s Chief Policy officer, Irene Solaiman, discussed the commercial and risk implications of open‑source AI in a TechCrunch Equity podcast released 4 November 2026.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows the podcast on 4 Nov 2026 but does not indicate it occurred on the same day as the 2 Nov model‑card release."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 22,
+  "unused": 18,
+  "date": "2026-11-05",
+  "slug": "2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+  "model": "groq:openai/gpt-oss-120b"
+}

@@ -1,0 +1,420 @@
+{
+ "date": "2026-11-05",
+ "started_at": "2026-11-05T00:15:38+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.2,
+   "items": 653,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 14
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 9
+    },
+    "github": {
+     "status": "ok",
+     "items": 10
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.3,
+   "stories": 241,
+   "editor": true,
+   "top": [
+    {
+     "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+     "url": "https://openai.com/index/openai-to-acquire-pierre",
+     "score": 8.17,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "openai.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI is already trying to shape the 2028 election",
+     "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+     "score": 7.43,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+     "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+     "score": 6.93,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing Images 2.6",
+     "url": "https://openai.com/index/introducing-images-2-6",
+     "score": 6.42,
+     "interest": 8.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "New on Hugging Face: moonshotai/Kimi-K3.1-Pro (image text to text)",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "score": 6.36,
+     "interest": 5.0,
+     "category": "policy",
+     "player": "",
+     "outlets": [
+      "Hugging Face model cards",
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta acquires AI coding startup Conductor",
+     "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+     "score": 6.23,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Gemini for Home now plugs into AT&T’s smart security system",
+     "url": "https://www.theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+     "score": 6.21,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+     "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
+     "score": 6.07,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A thousand fewer paths to root",
+     "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+     "score": 5.95,
+     "interest": 8.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
+     "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+     "score": 5.59,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "ChatGPT will now make you animated GIFs",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1026474/openai-chatgpt-animated-gifs-images-2-6",
+     "score": 5.56,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple restricts dating apps and AI companions to users 18 and up",
+     "url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/",
+     "score": 5.23,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "OpenAI is already trying to shape the 2028 election",
+     "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+     "score": 7.43,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "New on Hugging Face: moonshotai/Kimi-K3.1-Pro (image text to text)",
+     "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+     "score": 6.36,
+     "interest": 5.0,
+     "category": "policy",
+     "player": "",
+     "outlets": [
+      "Hugging Face model cards",
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini for Home now plugs into AT&T’s smart security system",
+     "url": "https://www.theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+     "score": 6.21,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+     "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
+     "score": 6.07,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": true
+    },
+    {
+     "title": "UK Officials Said AI Would Add £400 Billion to the Economy. That Figure Mainly Came From Google",
+     "url": "https://www.wired.com/story/uk-officials-said-ai-would-add-400-billion-to-the-economy-that-figure-mainly-came-from-google/",
+     "score": 4.8,
+     "interest": 5.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.2,
+   "articles": 11,
+   "with_text": 10
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.4,
+   "word_count": 897,
+   "sources": 4
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.9,
+    "reel_desk": 239.5,
+    "layer1": 0.1,
+    "layer2": 510.4,
+    "gate": 0.2
+   },
+   "layer1": {
+    "checked": 93,
+    "ok": 78,
+    "repaired": 10,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 76,
+    "ok": 44,
+    "repaired": 5,
+    "dropped": 27
+   },
+   "unused": 18,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "OpenAI outlines AI policy agenda for 2028 election",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "AT&T adds Gemini AI to home security",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 5.0,
+     "why": "AT&T’s Gemini security feature is niche consumer tech",
+     "hook": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
+     "chosen": true
+    },
+    {
+     "story": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "Amazon adds safety scoring for AI agents, useful but less headline‑grabbing",
+     "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
+     "chosen": true
+    },
+    {
+     "story": "UK AI economic estimates revised lower",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+ "finished_at": "2026-11-05T00:31:19+00:00",
+ "seconds": 941.1
+}

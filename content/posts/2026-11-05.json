@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-05",
+  "slug": "2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+  "headline": "OpenAI pushes AI policy agenda ahead of 2028 election",
+  "dek": "OpenAI’s chief global affairs officer outlined five AI policy priorities aimed at worker protections, education, safety and data‑center development as the 2028 presidential race approaches, noting the growing voter concern over AI‑driven job loss and energy use[S1].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "products",
+    "policy",
+    "models",
+    "impact",
+    "openai",
+    "election",
+    "regulation"
+  ],
+  "what_happened": [
+    "OpenAI proposes five AI policy priorities to guide the 2028 election debate[S1].",
+    "AT&T’s $29.99/month plan now lets Gemini AI summarize security footage and answer natural‑language queries[S5].",
+    "Amazon Bedrock AgentCore now supports custom decision‑model evaluators for reliable, numeric scoring of AI agents[S6]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "OpenAI outlines AI policy agenda for 2028 election",
+      "category": "products",
+      "paragraphs": [
+        "OpenAI’s chief global affairs officer Chris Lehane published an essay on 4 November 2026 urging politicians to shape AI policy ahead of the 2028 presidential election[S1]. He compares AI’s economic impact to the New Deal and calls for a \"compelling third path\" that lets citizens share AI benefits[S1]. Lehane lists five policy priorities covering worker protections, education, safety and data‑center development[S1].",
+        "Lehane’s essay follows a Democratic midterm win that flipped Congress amid voter frustration over cost of living, a context that amplifies concerns about AI‑driven job loss and data‑center electricity use[S1]. Kate Brennan of the AI Now Institute noted the shift from OpenAI’s prior focus on accelerating development to advocating broader adoption and infrastructure support[S1].",
+        "Voters are already uneasy about rising living costs and the environmental impact of data centers, making AI policy a potential flashpoint in the 2028 race[S1]."
+      ],
+      "card": null
+    },
+    {
+      "story": 3,
+      "title": "AT&T adds Gemini AI to home security",
+      "category": "policy",
+      "paragraphs": [
+        "AT&T announced that its Connected Life smart security system now includes Gemini‑powered features for Home monitoring[S5]. The integration lets users ask natural‑language questions about video footage and receive daily activity summaries[S5]. The new capabilities are offered only to customers on the $29.99 per month professional monitoring plan[S5].",
+        "Gemini for Home can describe events captured by security cameras, such as identifying a package delivery person and counting items dropped off[S5]. AT&T also added automatic arming and disarming based on the homeowner’s proximity, extending AI control beyond simple queries[S5].",
+        "This makes AT&T the first security provider to embed Google Home Premium’s Gemini technology, a step that other firms such as ADT are considering[S5]."
+      ],
+      "card": {
+        "hook": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly[S5].",
+        "points": [
+          "AT&T’s Connected Life now includes Gemini‑powered video queries[S5].",
+          "Only $29.99‑a‑month plan gets daily AI summaries and package ID[S5]."
+        ],
+        "take": "Expect smarter alerts and AI‑driven home monitoring on your AT&T plan[S5].",
+        "take_kind": "read",
+        "ask": "Will you let AI watch your front door[S5]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "AT&T’s new Gemini AI feature turns home security into a conversational assistant.",
+        "desk": {
+          "rubric": 7,
+          "chief": 5.0,
+          "why": "AT&T’s Gemini security feature is niche consumer tech"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 4,
+      "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+      "category": "models",
+      "paragraphs": [
+        "Amazon Bedrock introduced AgentCore Evaluations, a feature that can score AI agents throughout their lifecycle using decision models that return calibrated probabilities instead of free‑form text[S6]. The capability supports both built‑in evaluators and custom ones that you define as either an LLM‑as‑a‑judge or a code‑based evaluator running in AWS Lambda[S6]. By November 4, 2026 the service allowed users to connect external decision‑model backends such as Jev and Strands Decider 2B through code‑based evaluators[S6].",
+        "Decision models answer fixed‑answer questions like whether a response stayed on policy or matched retrieved context, providing a label and a numeric score that can be thresholded for trust[S6]. Custom LLM‑as‑a‑judge evaluators apply user‑provided instructions and rating scales, while code‑based evaluators can invoke any external system, model, or API, including hosted models like Jev from TypeSafe or the open‑source Strands Decider 2B that users run themselves[S6]. The design lets multiple questions be answered in a single request, enabling a screening layer that flags turns for deeper analysis by built‑in evaluators, which also supply explanations for debugging[S6].",
+        "Traditional agent evaluation relies on free‑form text outputs whose confidence can drift, making automated scoring difficult for compliance and safety checks[S6]. Decision models, which output a probability over a predefined set of answers, offer a more stable metric for policy enforcement and harmfulness detection[S6]."
+      ],
+      "card": {
+        "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance[S6].",
+        "points": [
+          "Amazon introduced AgentCore Evaluations that score AI agents using calibrated decision‑model probabilities[S6].",
+          "The feature lets users connect external models like Jev and Strands Decider 2B for automated policy scoring[S6]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": "Will you trust AI agents with automated scores[S6]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "Tech pros need reliable AI safety checks without manual review.",
+        "desk": {
+          "rubric": 6,
+          "chief": 6.0,
+          "why": "Amazon adds safety scoring for AI agents, useful but less headline‑grabbing"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 5,
+      "title": "UK AI economic estimates revised lower",
+      "category": "impact",
+      "paragraphs": [
+        "The UK AI minister Kanishka Narayan told parliament that AI could add between £55 billion and £140 billion to the economy by 2030, with a central estimate of £120 billion, after admitting the earlier £400 billion claim was overstated[S9]. The earlier figure had been used by government departments for almost two years despite being based on a Google‑commissioned report[S9]. Narayan said the new estimate remains highly uncertain[S9].",
+        "The £400 billion number came from a 2023 report commissioned by Google and produced by Public First (now PF Global) and was promoted by the government to allay fears of job losses[S9]. PF Global’s head of economics Jonathan Dupont explained the gap as a result of the government assuming a slower AI adoption rate than the 2023 model projected[S9]. Skills England continued to cite the £400 billion figure four months after the minister’s admission, showing lag in updating public communications[S9]. The minister’s revised range of £55‑£140 billion reflects a more modest but still significant contribution of AI and data investment to the UK economy[S9].",
+        "The UK government had relied on a Google‑funded study, which inflated expectations, while internal projections were much lower[S9]. Such discrepancies can affect policy decisions, public perception, and funding for AI‑related programs[S9]."
+      ],
+      "card": null
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "If Congress adopts OpenAI’s suggested framework, companies may Face new compliance rules for AI‑related employment practices and data‑center emissions, while workers could gain clearer protections against automation‑induced layoffs, directly affecting household income and energy bills[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Embedding AI policy discussions into the 2028 campaign could shape public opinion on AI’s role in society, influencing voter decisions and prompting other tech firms to lobby for similar regulations, which may alter the competitive landscape for AI developers[S1].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": {
+    "title": "decision model evaluation flow",
+    "source": "S6",
+    "steps": [
+      "AgentCore sends state to evaluator",
+      "Code‑based evaluator calls decision model",
+      "Decision model returns probabilities",
+      "AgentCore maps probabilities to pass/fail"
+    ],
+    "kind": "compare",
+    "baseline": [
+      "Token embeddings",
+      "Every parameter used per token",
+      "Fixed context window"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "2026-11-04T21:25:44+00:00",
+      "title": "OpenAI outlines AI policy agenda for 2028 election",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-04T20:23:24+00:00",
+      "title": "AT&T adds Gemini AI to home security",
+      "publisher": "The Verge",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-04T18:46:36+00:00",
+      "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+      "publisher": "AWS Machine Learning",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-04T13:49:51+00:00",
+      "title": "UK AI economic estimates revised lower",
+      "publisher": "WIRED",
+      "category": "impact"
+    }
+  ],
+  "visuals": [
+    "timeline",
+    "diagram"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "OpenAI is already trying to shape the 2028 election",
+      "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-04T21:25:44+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Gemini for Home now plugs into AT&T’s smart security system",
+      "url": "https://www.theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+      "publisher": "The Verge",
+      "published": "2026-11-04T20:23:24+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
+      "publisher": "AWS Machine Learning",
+      "published": "2026-11-04T18:46:36+00:00"
+    },
+    {
+      "id": "S9",
+      "title": "UK Officials Said AI Would Add £400 Billion to the Economy. That Figure Mainly Came From Google",
+      "url": "https://www.wired.com/story/uk-officials-said-ai-would-add-400-billion-to-the-economy-that-figure-mainly-came-from-google/",
+      "publisher": "WIRED",
+      "published": "2026-11-04T13:49:51+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-05T00:31:14+00:00",
+  "verification": {
+    "checked": 76,
+    "ok": 44,
+    "repaired": 5,
+    "dropped": 27,
+    "unused": 18,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 897,
+  "reading_minutes": 4
+}

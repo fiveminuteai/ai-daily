@@ -1,0 +1,85 @@
+{
+ "date": "2026-11-05",
+ "slug": "2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+ "headline": "OpenAI pushes AI policy agenda ahead of 2028 election",
+ "url": "https://fiveminuteai.net/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of/",
+ "generated_at": "2026-11-05T00:31:20+00:00",
+ "items": [
+  {
+   "id": "2026-11-05-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "OpenAI pushes AI policy agenda ahead of 2028 election\n\n• OpenAI proposes five AI policy priorities to guide the 2028 election debate.\n• AT&T’s $29.99/month plan now lets Gemini AI summarize security footage and answer natural-language queries.\n• Amazon Bedrock AgentCore now supports custom decision-model evaluators for reliable, numeric scoring of AI agents.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-05/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-05-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI pushes AI policy agenda ahead of 2028 election\n\n• OpenAI proposes five AI policy priorities to guide the 2028 election debate.\n• AT&T’s $29.99/month plan now lets Gemini AI summarize security footage and answer natural-language queries.\n\nhttps://fiveminuteai.net/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 268
+  },
+  {
+   "id": "2026-11-05-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI pushes AI policy agenda ahead of 2028 election\n\n• OpenAI proposes five AI policy priorities to guide the 2028 election debate.\n• AT&T’s $29.99/month plan now lets Gemini AI summarize security footage and answer natural-language queries.\n• Amazon Bedrock AgentCore now supports custom decision-model evaluators for reliable, numeric scoring of AI agents.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-05-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly[S5].",
+   "text": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.\n\n• AT&T’s Connected Life now includes Gemini-powered video queries.\n• Only $29.99-a-month plan gets daily AI summaries and package ID.\n\nOur read: Expect smarter alerts and AI-driven home monitoring on your AT&T plan.\n\nYour take: Will you let AI watch your front door? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-05/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-05T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-05-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance[S6].",
+   "text": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.\n\n• Amazon introduced AgentCore Evaluations that score AI agents using calibrated decision-model probabilities.\n• The feature lets users connect external models like Jev and Strands Decider 2B for automated policy scoring.\n\nYour take: Will you trust AI agents with automated scores? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-05/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-05T07:30:00+00:00"
+  }
+ ]
+}
