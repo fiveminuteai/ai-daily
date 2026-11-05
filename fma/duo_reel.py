@@ -35,7 +35,7 @@ SPARK_AT = (330, 1110, 400)          # centre x, bottom y, size
 PANEL_Y = 560                        # the hologram's centre: clear of Spark's head
 SPARK_VOICE = os.environ.get("FMA_SPARK_VOICE", "spark-strong")   # 5 Nov 2026, Pavan: strong, opposite the guests
 GUESTS = {
-    "doubt": {"draw": doubt.draw, "hi": (160, 178, 255), "tag": "DOUBT", "at": (785, 1100, 320), "voice": os.environ.get("FMA_DOUBT_VOICE", "doubt")},
+    "doubt": {"draw": doubt.draw, "hi": (160, 178, 255), "tag": "DOUBT", "at": (785, 1100, 320), "voice": os.environ.get("FMA_DOUBT_VOICE", "doubt-british")},
     "rex": {"draw": rex.draw, "hi": (152, 216, 140), "tag": "REX", "at": (790, 1120, 400), "voice": os.environ.get("FMA_REX_VOICE", "rex")},
 }
 # Silence between lines, in seconds. Was 0.55-0.67 s and dragged (5 Nov 2026, Pavan: "speech has gone slow"): a

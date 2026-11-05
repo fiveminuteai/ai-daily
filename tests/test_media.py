@@ -216,3 +216,12 @@ def test_syllables_count_vowel_groups():
     from fma import voice
     assert voice.syllables("spˈeɪsɛks") == 2
     assert voice.syllables("ˈeɪ dˈʌbəljˌuː ˈɛs") == 5
+
+
+def test_locked_cast_voices():
+    # 5 Nov 2026, Pavan locked the cast: strong Spark, British Doubt
+    from fma import duo_reel, voice
+    assert duo_reel.SPARK_VOICE == "spark-strong"
+    assert duo_reel.GUESTS["doubt"]["voice"] == "doubt-british"
+    for name in ("spark-strong", "doubt-british", "rex"):
+        assert name in voice.CHARACTERS
