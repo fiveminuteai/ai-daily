@@ -75,13 +75,15 @@
    "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance[S6].",
    "text": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.\n\n• Amazon introduced AgentCore Evaluations that score AI agents using calibrated decision-model probabilities.\n• The feature lets users connect external models like Jev and Strands Decider 2B for automated policy scoring.\n\nYour take: Will you trust AI agents with automated scores? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-05T07:31:26+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfWgAmjDtf2/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-05/reels/02.mp4"
    ],
-   "scheduled_at": "2026-11-05T07:30:00+00:00"
+   "scheduled_at": "2026-11-05T07:30:00+00:00",
+   "media_id": "18236013835323296",
+   "error": null
   }
  ]
 }
