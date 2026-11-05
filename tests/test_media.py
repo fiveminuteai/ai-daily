@@ -185,3 +185,19 @@ def test_hard_names_are_spoken_from_fixed_phonemes(monkeypatch):
     assert voice.phonemes("AWS and Qwen.", "en-us") == "ˈeɪ dˈʌbəljˌuː ˈɛs <and> tʃwˈɛn <.>"
     assert voice.phonemes("nothing hard here", "en-us") is None
     assert voice.phonemes("SpaceXR is not SpaceX", "en-us").endswith("spˈeɪsɛks")     # whole words only
+
+
+def test_doubt_draws_talking_and_listening():
+    from fma import doubt
+    a = doubt.draw(200, 1.0, 0.8, True)
+    b = doubt.draw(200, 1.0, 0.0, False)
+    assert a.size == b.size == (200, 200) and a.getbbox() and b.getbbox()
+    assert list(a.getdata()) != list(b.getdata())          # talking and listening look different
+
+
+def test_spark_shapes_follow_the_words():
+    from fma import spark
+    assert spark.shape_for("Its compute bill hit $10 billion") == "chip"
+    assert spark.shape_for("Quarterly revenue reached $17 billion") == "coin"
+    assert spark.shape_for("Is the AI boom worth what it costs?") == "bubble"
+    assert spark.shape_for("As Anthropic heads for an IPO, margins worsen") == "blob"

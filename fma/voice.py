@@ -104,6 +104,8 @@ CHARACTERS = {
     "spark-bright": {"blend": ["af_nova", "af_sky"], "pitch": 1.08, "lang": "en-us"},
     "spark-neutral": {"blend": ["am_puck", "af_river"], "pitch": 1.06, "lang": "en-us"},
     "spark-cheeky": {"blend": ["bf_lily", "af_jessica"], "pitch": 1.10, "lang": "en-gb"},
+    # Doubt, the duo's sceptic: lower and drier than Spark, so the two never sound alike
+    "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb"},
 }
 
 

@@ -118,6 +118,29 @@ def burst(d, cx: float, cy: float, t: float, colour, half_w: float = 150) -> Non
                fill=colour + (int(255 * (1 - p)),), width=8)
 
 
+def hologram(layer: Image.Image, cx: float, cy: float, text_w: float, p: float, t: float, beam_from: float) -> None:
+    """The panel Spark projects a number onto: a soft beam up from Spark, a teal-edged pane with scan lines that
+    flickers on over its first 0.3 s. Drawn on its own layer and blended (see-through)."""
+    if p <= 0:
+        return
+    on = min(1.0, p / 0.5)
+    flick = 1.0 if p > 0.5 else (0.35 + 0.65 * (math.sin(p * 90) > -0.3))   # a quick flicker as it powers on
+    a = on * flick
+    w, h = text_w + 120, 300
+    x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    hl = Image.new("RGBA", layer.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(hl)
+    d.polygon([(cx - 46, beam_from), (cx + 46, beam_from), (x1 - 40, y1), (x0 + 40, y1)], fill=(64, 214, 196, int(46 * a)))
+    d.rounded_rectangle([x0, y0, x1, y1], radius=28, fill=(20, 60, 80, int(120 * a)),
+                        outline=(64, 214, 196, int(230 * a)), width=4)
+    for k in range(int(y0) + 12, int(y1) - 8, 9):            # scan lines, drifting
+        if (k + int(t * 60)) % 18 < 9:
+            d.line([(x0 + 14, k), (x1 - 14, k)], fill=(140, 240, 230, int(22 * a)))
+    for cxk in (x0, x1):                                     # corner ticks
+        d.line([(cxk, y0 + 30), (cxk, y0 + 6)], fill=(180, 255, 245, int(255 * a)), width=6)
+    layer.alpha_composite(hl)
+
+
 # ---------------------------------------------------------------- captions
 
 def word_times(text: str, said: float, lead: float) -> list[tuple[str, float]]:
@@ -146,8 +169,8 @@ def chunks(timed: list[tuple[str, float]], max_words: int = 3, max_chars: int = 
     return out
 
 
-def draw_caption(layer: Image.Image, groups, lt: float) -> None:
-    """The chunk being said, big and centred; the word being said sits on a yellow pill."""
+def draw_caption(layer: Image.Image, groups, lt: float, hi: tuple = YELLOW, y_mid: float = CAPTION_Y) -> None:
+    """The chunk being said, big and centred; the word being said sits on a pill in the speaker's colour."""
     k = max((i for i, g in enumerate(groups) if g[0][1] <= lt), default=0)
     g = groups[k]
     start = g[0][1] if k else min(0.0, g[0][1])
@@ -163,11 +186,11 @@ def draw_caption(layer: Image.Image, groups, lt: float) -> None:
             break
         size -= 6
     x = (W - total) / 2
-    y = CAPTION_Y - size / 2 + (1 - p) * 26
+    y = y_mid - size / 2 + (1 - p) * 26
     active = max((i for i, (_, t) in enumerate(g) if t <= lt), default=-1)
     for i, ((word, _), wd) in enumerate(zip(g, widths)):
         if i == active:
-            d.rounded_rectangle([x - 16, y - 6, x + wd + 16, y + size * 1.08], radius=22, fill=YELLOW + (int(255 * p),))
+            d.rounded_rectangle([x - 16, y - 6, x + wd + 16, y + size * 1.08], radius=22, fill=hi + (int(255 * p),))
             d.text((x, y), word, font=f, fill=BG_TOP + (int(255 * p),))
         else:
             d.text((x, y), word, font=f, fill=INK + (int(255 * p),), stroke_width=5, stroke_fill=BG_TOP + (int(200 * p),))
@@ -227,27 +250,28 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
     groups["end"] = chunks(end_timed)
     figs = {key: figure(text) for key, text in lines}
     fig_at = {key: figure_time(word_times(text, plan["said"][key], lead), figs[key]) for key, text in lines if figs[key]}
-    # Spark's choreography: it moves only when the story gives it a reason (5 Nov 2026, Pavan: "a lot of unnecessary
-    # movement... it should move but not unnecessarily"). Home is centre stage, where it shapeshifts into each
-    # line's idea instead of moving. It hops to a corner to make room for a number as the number lands, back home
-    # for the next line, and jumps to "press" Follow at the end. Spots are (centre x, bottom y, size).
-    CORNER = (860, 1110, 320)
+    # Spark's choreography: an anchor, not an acrobat (5 Nov 2026, Pavan: jumping to one corner for every number
+    # "making it comedy"). Spark keeps its place at centre stage and shapeshifts into each line's idea. When a number
+    # lands it glides a little smaller and lower, no hop, and projects the number above itself as a hologram; it
+    # glides back for the next line. The one jump left is the press on Follow. Spots: (centre x, bottom y, size);
+    # the last field is the hop height, 0 for a glide.
+    PRESENT = (540, 1110, 360)
     HOME = (540, 1100, 470)
-    keys_ = [(0.0, *(CORNER if figs["hook"] else HOME), 0)]
-    at_home = not figs["hook"]
+    keys_ = [(0.0, *(PRESENT if figs["hook"] else HOME), 0)]
+    presenting = bool(figs["hook"])
     for k, (sa, sb, skey, _) in enumerate(scenes):
         if skey == "end":
-            if not at_home:
-                keys_.append((sa + 0.45, 540, 1080, 500, 150))
+            if presenting:
+                keys_.append((sa + 0.45, *HOME, 0))
             tap = sa + plan["outro_at"] + 1.6
-            keys_.append((tap + 0.05, *(keys_[-1][1:4] if at_home else (540, 1080, 500)), 110))   # the Follow press
+            keys_.append((tap + 0.05, *HOME, 90))                  # the Follow press
             continue
-        if k and not at_home:                         # back home for a line, but only if it left
-            keys_.append((sa + 0.45, *HOME, 150))
-            at_home = True
+        if k and presenting:
+            keys_.append((sa + 0.45, *HOME, 0))
+            presenting = False
         if figs[skey] and k:
-            keys_.append((sa + fig_at[skey] - 0.25 + 0.4, *CORNER, 170))
-            at_home = False
+            keys_.append((sa + fig_at[skey] - 0.25 + 0.35, *PRESENT, 0))
+            presenting = True
     keys_.sort()
     HOP = 0.45
 
@@ -274,7 +298,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                 x = prev[1] + (kf[1] - prev[1]) * p
                 y = prev[2] + (kf[2] - prev[2]) * p - kf[4] * math.sin(math.pi * p)
                 s = prev[3] + (kf[3] - prev[3]) * p
-                st = 1 + 0.08 * math.sin(math.pi * p)          # stretched in the air
+                st = 1 + 0.08 * math.sin(math.pi * p) if kf[4] else 1.0     # stretched in the air (a hop, not a glide)
                 return x, y, s, 1 / st, st
             prev = kf
         since = tt - prev[0]
@@ -284,7 +308,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
         return x, y, prev[3], 1 + sq, 1 - sq
 
     def hopping(tt: float) -> bool:
-        return any(kf[0] - HOP <= tt < kf[0] for kf in keys_[1:])
+        return any(kf[0] - HOP <= tt < kf[0] and kf[4] for kf in keys_[1:])
 
     def place_spark(layer, tt, mth, mood, i, lt, look_at=None):
         frm, to, mp = shape_at(tt, i, lt)
@@ -350,7 +374,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
                 if pc > 0:
                     # the real number, whole, popping in with an overshoot: no count-up, because a frame of a
                     # climbing counter shows a false figure (pass 2, 5 Nov 2026: "$1B" on its way to $17B)
-                    burst(d, W / 2 + slide, 650, lt - vs - 0.25, YELLOW, tw / 2)
+                    hologram(layer, W / 2 + slide, 620, tw, pc, tt, 1110 - 360 + 20)
                     q = min(1.0, pc / 0.5)
                     scale = 1.0 if q >= 1 else 0.6 + 0.4 * q + 0.12 * math.sin(math.pi * q)
                     fsz = max(40, int((250 if len(fig) <= 6 else 190) * scale))
