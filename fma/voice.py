@@ -109,11 +109,11 @@ CHARACTERS = {
     # a calmer rate
     "spark-calm": {"blend": ["af_heart", "af_river"], "pitch": 1.02, "lang": "en-us", "rate": 3.9},
     "spark-warm": {"blend": ["af_heart", "am_puck"], "pitch": 1.03, "lang": "en-us", "rate": 3.9},
-    "spark-soft": {"blend": ["bf_emma", "af_river"], "pitch": 1.0, "lang": "en-gb", "rate": 4.0},
+    "spark-soft": {"blend": ["bf_emma", "af_river"], "pitch": 1.0, "lang": "en-gb", "rate": 4.8},
     # Doubt, the duo's sceptic: lower and drier than Spark, so the two never sound alike; it comes in quick
-    "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb", "rate": 4.4},
+    "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb", "rate": 4.8},
     # Rex, a guest: a tired old dinosaur, deep and slow, for stories about fossil fuels, power and emissions
-    "rex": {"blend": ["am_fenrir", "bm_george"], "pitch": 0.88, "lang": "en-gb", "rate": 3.5},
+    "rex": {"blend": ["am_fenrir", "bm_george"], "pitch": 0.88, "lang": "en-gb", "rate": 4.6},
 }
 
 

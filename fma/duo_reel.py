@@ -24,7 +24,7 @@ from . import doubt, rex, spark, voice
 from .carousel import CAT_NAMES, publishers
 from .music import BAR, BEAT, write_wav
 from .pulse_reel import (BG_TOP, INK, MUTED, SOURCE_Y, WASHES, YELLOW, _background, _bokeh, chunks, draw_caption,
-                         SLOGAN, draw_logo, fig_size, figure, figure_time, hologram, sfx_track,
+                         draw_logo, fig_size, figure, figure_time, hologram, sfx_track,
                          word_times)
 from .reel import FPS, H, M, W, ease
 from .social import plain
@@ -37,22 +37,31 @@ GUESTS = {
     "doubt": {"draw": doubt.draw, "hi": (160, 178, 255), "tag": "DOUBT", "at": (785, 1100, 320), "voice": "doubt"},
     "rex": {"draw": rex.draw, "hi": (152, 216, 140), "tag": "REX", "at": (790, 1120, 400), "voice": "rex"},
 }
-GAP = {"spark": 0.42}                # Spark takes a breath before the answer; guests come in quicker
-GUEST_GAP = 0.3
+# Silence between lines, in seconds. Was 0.55-0.67 s and dragged (5 Nov 2026, Pavan: "speech has gone slow"): a
+# conversation answers fast. A "beat" tag adds a comic pause before a punchline instead.
+GAP = {"spark": 0.16}
+GUEST_GAP = 0.1
+BEAT_PAUSE = 0.45
+FX = {"card", "beat", "confetti", "drop", "sweat"}
 
 
 def plan(script: list[tuple], guest: str) -> dict:
-    """Speak the script into one track per speaker (each mouth follows its own voice). A line is (who, text) or
-    (who, text, "card") for the closing logo card."""
+    """Speak the script into one track per speaker (each mouth follows its own voice). A line is (who, text, *tags):
+    "card" puts it on the closing logo card, "beat" holds a comic pause before it, "confetti" / "drop" / "sweat" are
+    the visual gags (a burst, the burst falling flat, a nervous sweat drop on the speaker)."""
     voices = {"spark": SPARK_VOICE, guest: GUESTS[guest]["voice"]}
-    lead, t, lines, clips = 0.25, 0.0, [], []
+    lead, t, lines, clips = 0.12, 0.0, [], []
     for entry in script:
-        who, text = entry[0], entry[1]
-        card = len(entry) > 2 and entry[2] == "card"
+        who, text, tags = entry[0], entry[1], set(entry[2:])
+        assert tags <= FX, tags
+        card = "card" in tags
+        if "beat" in tags:
+            t += BEAT_PAUSE
         s = voice.say(plain(text), voice=voices[who])
         dur = len(s) / voice.SR
-        gap = GAP.get(who, GUEST_GAP) + (0.25 if card else 0)
-        lines.append({"who": who, "text": text, "start": t, "said": dur, "end": t + lead + dur + gap, "card": card})
+        gap = GAP.get(who, GUEST_GAP)
+        lines.append({"who": who, "text": text, "start": t, "said": dur, "end": t + lead + dur + gap, "card": card,
+                      "tags": tags})
         clips.append((who, t + lead, s))
         t = lines[-1]["end"]
     seconds = t + 1.4
@@ -65,6 +74,60 @@ def plan(script: list[tuple], guest: str) -> dict:
         tracks[w] = tracks[w] / peak * 0.9
     return {"lines": lines, "seconds": seconds, "lead": lead, "tracks": tracks, "guest": guest,
             "mouth": {w: voice.envelope(tr, FPS) for w, tr in tracks.items()}}
+
+
+CONFETTI = [(255, 214, 90), (255, 132, 96), (64, 214, 196), (148, 110, 255), (250, 250, 255)]
+
+
+def confetti(layer: Image.Image, since: float, flop: float | None, seed: int) -> None:
+    """A burst of confetti from the top; once the letdown line starts (`flop` s ago) it drops to the floor and fades,
+    which is the joke."""
+    rnd = np.random.default_rng(seed + 11)
+    d = ImageDraw.Draw(layer)
+    n = 120
+    ang = rnd.uniform(-math.pi * 0.92, -math.pi * 0.08, n)           # a popper: fired upward, fanning out
+    speed = rnd.uniform(900, 2100, n)
+    vx, vy = np.cos(ang) * speed, np.sin(ang) * speed
+    spin, cols = rnd.uniform(0, 6.3, n), rnd.integers(0, len(CONFETTI), n)
+    drag, fall = 3.2, rnd.uniform(110, 210, n)                      # air drag, then a slow flutter down
+    for k in range(n):
+        t = since
+        e = (1 - math.exp(-drag * t)) / drag
+        x = W / 2 + vx[k] * e + 40 * math.sin(t * 3 + spin[k])
+        y = 900 + vy[k] * e + fall[k] * t
+        a = min(1.0, since / 0.08)
+        if flop is not None:                       # the party is cancelled: everything falls, fast, then fades
+            y += 900 * flop * flop
+            a *= max(0.0, 1 - flop / 0.9)
+        if a <= 0 or y > H:
+            continue
+        w = 6 + 16 * abs(math.sin(t * 5 + spin[k]))                  # flipping as it flutters
+        d.rectangle([x - w / 2, y - 8, x + w / 2, y + 8], fill=CONFETTI[cols[k]] + (int(255 * a),))
+
+
+def sweat_drop(layer: Image.Image, x: float, y: float, since: float) -> None:
+    """A cartoon sweat drop sliding down beside a nervous face."""
+    d = ImageDraw.Draw(layer)
+    y += 40 * min(1.0, since / 0.8)
+    a = int(255 * min(1.0, since / 0.15))
+    d.polygon([(x, y - 34), (x - 16, y), (x + 16, y)], fill=(130, 200, 255, a))
+    d.ellipse([x - 16, y - 16, x + 16, y + 16], fill=(130, 200, 255, a))
+    d.ellipse([x - 7, y - 8, x, y - 1], fill=(240, 250, 255, a))
+
+
+def sticker(layer: Image.Image, text: str, cx: float, cy: float, since: float) -> None:
+    """A tilted sticker slapped onto the card, with a little overshoot: the punchline after the slogan."""
+    k = min(1.0, since / 0.25)
+    scale = 1.0 + 0.25 * math.sin(math.pi * k) if k < 1 else 1.0
+    f = _font("serif", int(84 * scale))
+    tmp = Image.new("RGBA", (520, 200), (0, 0, 0, 0))
+    td = ImageDraw.Draw(tmp)
+    tw = td.textlength(text, font=f)
+    td.rounded_rectangle([260 - tw / 2 - 28, 100 - 58, 260 + tw / 2 + 28, 100 + 58], radius=18, fill=(255, 132, 96, 255))
+    td.text((260, 100), text, font=f, fill=(255, 255, 255, 255), anchor="mm")
+    tmp = tmp.rotate(-9, resample=Image.BICUBIC)
+    if since > 0:
+        layer.alpha_composite(tmp, (int(cx - 260), int(cy - 100)))
 
 
 def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
@@ -144,11 +207,15 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
             if slo:
                 sp = ease((tt - slo["start"] - 0.15) / 0.3)
                 if sp > 0:
-                    sf = _font("serif", int(66 * (0.85 + 0.15 * sp)))
-                    tw = d.textlength(SLOGAN, font=sf)
+                    text = plain(slo["text"])
+                    sf = _font("serif", int(62 * (0.85 + 0.15 * sp)))
+                    tw = d.textlength(text, font=sf)
                     d.rounded_rectangle([W / 2 - tw / 2 - 26, 958, W / 2 + tw / 2 + 26, 1052], radius=30,
                                         fill=YELLOW + (int(255 * sp),))
-                    d.text((W / 2, 1004), SLOGAN, font=sf, fill=BG_TOP + (int(255 * sp),), anchor="mm")
+                    d.text((W / 2, 1004), text, font=sf, fill=BG_TOP + (int(255 * sp),), anchor="mm")
+                after = [x for x in lines if x["card"] and x["start"] > slo["start"]]
+                if after and tt >= after[0]["start"]:
+                    sticker(layer, plain(after[0]["text"]), W / 2 + 20, 1150, tt - after[0]["start"])
 
         # Spark's shape follows its own lines and holds while the guest talks
         if speaking == "spark" and ln["shape"] != spark_shape[1]:
@@ -176,6 +243,17 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
             if not talking:                                  # the listener steps back a little
                 im.putalpha(im.getchannel("A").point(lambda v: v * 205 // 255))
             layer.alpha_composite(im, (int(cx - im.width / 2), int(base - im.height)))
+
+        # the gags: confetti bursts on a celebration, falls flat on the letdown; a sweat drop on a nervous line
+        party = next((x for x in lines if "confetti" in x["tags"]), None)
+        if party and tt >= party["start"]:
+            flop = next((x for x in lines if "drop" in x["tags"] and x["start"] > party["start"]), None)
+            confetti(layer, tt - party["start"], (tt - flop["start"]) if flop and tt >= flop["start"] else None, n)
+        if "sweat" in ln["tags"]:
+            cx, base, size = SPARK_AT if speaking == "spark" else g["at"]
+            if cp:
+                base, size = base + 230 * cp, size * (1 - 0.3 * cp)
+            sweat_drop(layer, cx + size * 0.36, base - size * 0.78, lt)
 
         # caption: the speaker's name, then their words lit as they say them (not on the card: the card says it)
         hi = YELLOW if speaking == "spark" else g["hi"]
