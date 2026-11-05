@@ -202,12 +202,34 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
     out["story_reels"] = []
     stories = card_stories(post)
     for k, ((n, sec), pal) in enumerate(zip(stories, palettes_for(stories, post["date"]))):   # up to three, each its own colours
+        path = folder / "reels" / f"{k + 1:02d}.mp4"
+        if duo_ok(post, sec):      # the duo Reel (5 Nov 2026); on any failure the story gets its ordinary Reel
+            try:
+                from .duo_desk import script as duo_script
+                from .duo_reel import duo_reel
+                from .voice import OUTRO
+                guest, lines = duo_script(sec["card"], OUTRO)
+                duo_reel(post, sec, n, site, path, lines, guest=guest)
+                out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
+                                           "duo": guest})
+                continue
+            except Exception as exc:  # noqa: BLE001
+                logging.getLogger(__name__).warning("duo reel %d failed, using the ordinary Reel: %s", k + 1, exc)
         try:
-            story_reel(post, sec, n, site, folder / "reels" / f"{k + 1:02d}.mp4", palette=pal)
+            story_reel(post, sec, n, site, path, palette=pal)
             out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})
         except Exception as exc:  # noqa: BLE001
             logging.getLogger(__name__).warning("story reel %d failed: %s", k + 1, exc)
     return out
+
+
+DUO_FROM = "2026-11-06"     # the first day of duo Reels: earlier days keep their Reels exactly as they were
+
+
+def duo_ok(post: dict, sec: dict) -> bool:
+    from . import voice
+    return (str(post.get("date", "")) >= DUO_FROM and bool((sec.get("card") or {}).get("duo"))
+            and voice.available())
 
 
 def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url: str | None = None,

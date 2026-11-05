@@ -33,7 +33,9 @@ experts analysts users people researchers companies developers engineers officia
 the investors employees governments lawmakers until within without during between among across against despite into
 through toward towards per unlike like rather whether either neither nor just much any every none nothing something
 someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long
-offline online""".split())
+offline online
+sales staff loss site pretty demand half""".split())
+# (the last row: the plain words the duo desk swaps in for jargon, fma/duo_desk.SWAPS, and its usual openers)
 # Verbs that open a "Do this" line or a short takeaway ("Try the hosted API", "Scans Gmail for receipts"). At the start
 # of a sentence they are instructions or actions, not names (1 Nov 2026: four card lines were dropped as "name 'Try'").
 COMMON_STARTERS |= set("""try check consider focus watch use update review expect look read ask avoid compare keep plan
@@ -397,7 +399,30 @@ class Verifier:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
                 "interest": c.get("interest", 3),
-                **{k: c[k] for k in ("reel", "angle", "desk", "bonus") if k in c}}   # the Reel desk: score, angle, reasons
+                **{k: c[k] for k in ("reel", "angle", "desk", "bonus") if k in c},   # the Reel desk: score, angle, reasons
+                **({"duo": d} if (d := self.duo(c.get("duo"), ids, n)) else {})}
+
+    def duo(self, d: dict | None, ids: list[str], n: int) -> dict | None:
+        """Layer 1 for the duo Reel script (fma/duo_desk.py). Each Spark line is checked like a sentence of the post;
+        the guest's lines are re-checked for no numbers, names or citations. All or nothing: a double act with a
+        line missing stops making sense, so one failed line drops the duo and the story keeps its ordinary Reel."""
+        if not d:
+            return None
+        from .duo_desk import problems
+        bad = problems(d)
+        if bad:
+            self.log.append({"where": f"card[{n}] duo", "text": "; ".join(bad)[:300], "sources": [],
+                             "status": "dropped", "problems": bad[:5]})
+            return None
+        lines = []
+        for k, ln in enumerate(d["lines"]):
+            if ln["who"] == "spark":
+                text = self.sentence(ln["text"], f"card[{n}] duo line {k + 1}", ids)
+                if not text:
+                    return None
+                ln = {**ln, "text": text}
+            lines.append(ln)
+        return {"guest": d["guest"], "lines": lines, **{k: d[k] for k in ("laughs", "laughs_why") if k in d}}
 
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)
@@ -565,6 +590,7 @@ def mark_unused(report: dict, post: dict) -> dict:
         shown += [sec.get("title", ""), *sec.get("paragraphs", [])]
         card = sec.get("card") or {}
         shown += [card.get("hook") or "", *card.get("points", []), card.get("take") or "", card.get("ask") or ""]
+        shown += [ln["text"] for ln in (card.get("duo") or {}).get("lines", []) if ln.get("who") == "spark"]
     shown += [w.get("text", "") for w in post.get("why_it_matters", [])]
     if post.get("quote"):
         shown.append(post["quote"].get("text", ""))
@@ -683,8 +709,9 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     # Instagram card lines are public claims too: hook and takeaways as facts, the take as commentary
     for sec in post["sections"]:
         c = sec.get("card") or {}
+        duo_facts = [(ln["text"], "fact") for ln in (c.get("duo") or {}).get("lines", []) if ln.get("who") == "spark"]
         for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis"),
-                           (c.get("ask"), "ask")]:
+                           (c.get("ask"), "ask"), *duo_facts]:
             if text:
                 sentences.append((f"C{len(sentences) + 1}", text, kind))
     q = post.get("quote")
@@ -810,6 +837,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
             c = {**c, "points": [p for p in c["points"] if p not in drop],
                  "take": None if c.get("take") in drop else c.get("take"),
                  "ask": None if c.get("ask") in drop else c.get("ask")}
+            if any(ln["text"] in drop for ln in (c.get("duo") or {}).get("lines", [])):
+                c.pop("duo")            # all or nothing, as in layer 1
             sec["card"] = None if c["hook"] in drop or len(c["points"]) < 2 else c
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]

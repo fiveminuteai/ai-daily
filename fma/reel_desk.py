@@ -192,4 +192,13 @@ def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None 
         if c_score is not None:
             card["reel"] = int(round((rubric + c_score) / 2))
             card["interest"] = max(1, min(5, round(card["reel"] / 2)))
+    # the duo desk (5 Nov 2026): each story that will get a Reel is also written as a Spark-and-guest comedy act;
+    # the strongest story always gets one, as card_stories always gives the best story a Reel
+    from .duo_desk import write as write_duo
+    ranked = sorted(scripted, key=lambda nc: -nc[1]["reel"])
+    for k, (n, card) in enumerate(ranked[:3]):
+        if k == 0 or card["reel"] >= REEL_BAR:
+            duo = write_duo(chain, out[n - 1], card)
+            if duo:
+                card["duo"] = duo
     return {**draft, "sections": out}

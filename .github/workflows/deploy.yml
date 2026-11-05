@@ -19,7 +19,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30          # the story Reels add about 3 minutes of encoding
+    timeout-minutes: 60          # duo Reels (voiced, 5 Nov 2026) take about 6 minutes each to render
     steps:
       - uses: actions/checkout@v7
         with:
@@ -32,6 +32,20 @@ jobs:
       - run: python -m pytest -q
       # the Instagram carousel and Reel for the newest post; the Reel is encoded with ffmpeg
       - run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+      # The voice for the duo Reels (Kokoro, run on the CPU): the package, then its model files, cached between runs.
+      # Without them the build still works and every story gets its ordinary Reel (fma.site.duo_ok).
+      - run: pip install kokoro-onnx==0.4.7
+      - uses: actions/cache@v4
+        with:
+          path: .cache/kokoro
+          key: kokoro-v1.0
+      - name: Voice model files
+        run: |
+          mkdir -p .cache/kokoro
+          base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
+          for f in kokoro-v1.0.onnx voices-v1.0.bin; do
+            [ -s ".cache/kokoro/$f" ] || curl -fsSL --retry 3 -o ".cache/kokoro/$f" "$base/$f" || echo "::warning::$f not downloaded: Reels will be unvoiced"
+          done
       - run: python -m fma build --media
       - uses: actions/upload-pages-artifact@v5
         with:
