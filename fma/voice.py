@@ -112,6 +112,13 @@ CHARACTERS = {
     "spark-soft": {"blend": ["bf_emma", "af_river"], "pitch": 1.0, "lang": "en-gb", "rate": 4.8},
     # Doubt, the duo's sceptic: lower and drier than Spark, so the two never sound alike; it comes in quick
     "doubt": {"blend": ["bm_lewis", "am_onyx"], "pitch": 0.97, "lang": "en-gb", "rate": 4.8},
+    # Accent cast (5 Nov 2026, Pavan: "doubt having british accent"): accents tell the characters apart by ear alone.
+    # Spark goes warm American so a British Doubt contrasts; Kokoro's Hindi voices speaking English give an Indian
+    # accent (clear on whisper read-back); its Italian one garbled "fossil", so it is out.
+    "spark-american": {"blend": ["af_heart", "af_bella"], "pitch": 1.03, "lang": "en-us", "rate": 4.8},
+    "doubt-british": {"blend": ["bm_fable", "bm_lewis"], "pitch": 0.97, "lang": "en-gb", "rate": 4.8},
+    "rex-grandpa": {"blend": ["am_fenrir", "am_michael"], "pitch": 0.88, "lang": "en-us", "rate": 4.6},
+    "rex-uncle": {"blend": ["hm_omega", "hm_psi"], "pitch": 0.9, "lang": "en-gb", "rate": 4.6},
     # Rex, a guest: a tired old dinosaur, deep and slow, for stories about fossil fuels, power and emissions
     "rex": {"blend": ["am_fenrir", "bm_george"], "pitch": 0.88, "lang": "en-gb", "rate": 4.6},
 }
