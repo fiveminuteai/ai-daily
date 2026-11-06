@@ -470,3 +470,10 @@ def test_pure_judgement_with_empty_evidence_is_kept_but_facts_are_not():
     dropped = [e for e in report["entries"] if e["status"] == "dropped"]
     assert dropped and all("not in the source" in " ".join(e["problems"]) for e in dropped)
     assert len(post["why_it_matters"]) == 2          # both are [analysis] here, so both stay
+
+
+def test_contractions_at_sentence_start_are_not_names():
+    # 6 Nov 2026: "They're spending $10 billion..." was dropped as "name 'They're' not in cited source"
+    from fma.verify import COMMON_STARTERS
+    for w in ("they're", "they’re", "it's", "it’s", "we're"):
+        assert w in COMMON_STARTERS

@@ -112,10 +112,23 @@ class Provider:
         return r.json().get("message", {}).get("content", "")
 
 
+def cloud_allowed() -> bool:
+    """The free cloud models have daily caps shared with the daily post. On 6 Nov 2026 local experiments the evening
+    before used up Groq's cap and the post was skipped twice. So off GitHub Actions the cloud providers are off
+    unless FMA_ALLOW_PROD_KEYS=1 is set on purpose; local work uses the local model."""
+    return bool(os.environ.get("GITHUB_ACTIONS")) or os.environ.get("FMA_ALLOW_PROD_KEYS") == "1"
+
+
 def providers_from_config(site_cfg: dict, only: str | None = None) -> list[Provider]:
     out = []
+    cloud = cloud_allowed()
+    if not cloud:
+        log.warning("not on GitHub Actions: cloud models are off to protect the daily post's quota "
+                    "(set FMA_ALLOW_PROD_KEYS=1 to use them anyway)")
     for p in site_cfg.get("providers", []):
         if only and p["name"] != only:
+            continue
+        if not cloud and not p.get("local"):
             continue
         out.append(Provider(name=p["name"], base_url=p["base_url"], model=p["model"],
                             key_env=p.get("key_env"), local=bool(p.get("local", False)),

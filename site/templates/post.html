@@ -6,6 +6,7 @@
     <p class="kicker"><span class="badge">{{ post.reading_minutes }} min read</span><time datetime="{{ post.date }}">{{ post.date_long }}</time></p>
     <h1 class="headline">{{ post.head_a }}{% if post.head_b %} <span class="glow">{{ post.head_b }}</span>{% endif %}</h1>
     <p class="dek">{{ post.dek_html }}</p>
+    {% if post.edition == "short" %}<p class="meta">Short edition: fewer stories passed our source checks today, so this one is shorter. Every claim is still checked.</p>{% endif %}
     <p class="byline">By <strong>{{ post.byline }}</strong> · drafted with AI, every line checked against its source. The small numbers<sup class="cite"><a href="#src-h">1</a></sup> link to the source list at the bottom.</p>
     {% for c in post.corrections or [] %}<p class="correction"><strong>Correction, {{ c.date }}.</strong> {{ c.text }}</p>
     {% endfor %}

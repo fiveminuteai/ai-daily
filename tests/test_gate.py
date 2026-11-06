@@ -123,3 +123,31 @@ def test_mojibake_is_repaired_at_the_source_and_refused_by_the_gate():
     assert fix_mojibake(odd) == odd                           # doesn't round-trip cleanly: left alone
     fails = run_gate(post(headline=f"OpenAI{junk}s model"), REPORT, PIPE, [], http=None)
     assert any("garbled" in f for f in fails)
+
+
+def test_a_stray_exclamation_is_calmed_not_fatal():
+    # 6 Nov 2026: one "!" threw away a draft that passed every other check
+    from fma.gate import calm, calm_post, unquoted
+    assert calm("Google did it! Again!! Now.") == "Google did it. Again. Now."
+    assert calm('He said "Order! Order!" and left!') == 'He said "Order! Order!" and left.'
+    assert "!" not in unquoted('A quote: "Wow!" stays')
+    post = calm_post({"dek": "Big day!", "what_happened": ["One!"], "sections": [{"title": "T!", "paragraphs": ["P!"]}],
+                      "why_it_matters": [{"text": "W!"}], "quote": {"text": "Q!"}})
+    assert post["dek"] == "Big day." and post["sections"][0]["paragraphs"] == ["P."]
+    assert post["quote"]["text"] == "Q!"            # quotes stay verbatim
+
+
+def test_short_edition_only_for_length_and_shape_failures():
+    from fma.gate import soft_only
+    assert soft_only(["word count 702 outside 880-1150", "no 'why it matters'"])
+    assert not soft_only(["word count 702 outside 880-1150", "hype words: ['revolutionary']"])
+    assert not soft_only(["model fact-check pass not run"])
+    assert not soft_only([])
+
+
+def test_headline_rescue_uses_the_checked_lead_title():
+    from fma.gate import rescue_headline
+    report = {"headline_problems": ["model check: joins two events"]}
+    post = rescue_headline({"headline": "Bad", "sections": [{"title": "Lead story title"}]}, report)
+    assert post["headline"] == "Lead story title" and not report.get("headline_problems")
+    assert report["headline_rescued"]["was"] == "Bad"

@@ -27,6 +27,57 @@ def body_texts(post: dict) -> list[str]:
     return parts
 
 
+QUOTED_RE = re.compile(r"[\"“][^\"“”]*[\"”]")
+
+
+def unquoted(text: str) -> str:
+    """The text without its quotations: a verbatim quote keeps its own punctuation."""
+    return QUOTED_RE.sub(" ", text)
+
+
+def calm(text: str) -> str:
+    """The writer's "!" becomes a full stop; quotations are left exactly as said. 6 Nov 2026: a draft that passed
+    every other check was thrown away for one exclamation mark, and with the main model over its daily limit the
+    retry was weaker, so the day was skipped."""
+    out, last = [], 0
+    for m in QUOTED_RE.finditer(text):
+        out.append(re.sub(r"!+", ".", text[last:m.start()]).replace("..", "."))
+        out.append(m.group(0))
+        last = m.end()
+    out.append(re.sub(r"!+", ".", text[last:]).replace("..", "."))
+    return "".join(out)
+
+
+def calm_post(post: dict) -> dict:
+    """calm() over the writer's prose: dek, bullets, section titles and paragraphs, why it matters (not the quote)."""
+    return {**post, "dek": calm(post.get("dek", "")), "what_happened": [calm(t) for t in post.get("what_happened", [])],
+            "sections": [{**sec, "title": calm(sec.get("title", "")), "paragraphs": [calm(p) for p in sec.get("paragraphs", [])]}
+                         for sec in post.get("sections", [])],
+            "why_it_matters": [{**w, "text": calm(w.get("text", ""))} for w in post.get("why_it_matters", [])]}
+
+
+def rescue_headline(post: dict, report: dict) -> dict:
+    """A headline that failed its check is replaced by the lead story's title, which passed both fact-check layers,
+    instead of failing the day (6 Nov 2026: a headline that mixed two stories cost a whole attempt)."""
+    if not report.get("headline_problems") or not post.get("sections"):
+        return post
+    title = post["sections"][0].get("title")
+    if not title:
+        return post
+    report["headline_rescued"] = {"was": post.get("headline", ""), "problems": report.pop("headline_problems")}
+    return {**post, "headline": title}
+
+
+# Rules a draft can fail and still be a true, fully fact-checked post: only its length and shape. On a day when every
+# attempt fails on these alone, the last attempt goes out as a short edition instead of the day being skipped.
+SOFT_FAILS = ("word count ", "no 'why it matters'")
+SHORT_EDITION = {"words_min": 450, "require_why": False}
+
+
+def soft_only(fails: list[str]) -> bool:
+    return bool(fails) and all(f.startswith(SOFT_FAILS) for f in fails)
+
+
 def word_count(post: dict) -> int:
     return sum(len(re.findall(r"[\w’'\-]+", plain(t))) for t in body_texts(post)) + len(post.get("headline", "").split())
 
@@ -102,7 +153,7 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
         fails.append(f"'what happened' has {len(post.get('what_happened', []))} bullets, needs 3")
     if not pipe.get("min_stories", 3) <= len(post.get("sections", [])) <= 5:
         fails.append(f"{len(post.get('sections', []))} sections, needs {pipe.get('min_stories', 3)}-5")
-    if not post.get("why_it_matters"):
+    if not post.get("why_it_matters") and pipe.get("require_why", True):
         fails.append("no 'why it matters'")
     if not report.get("layer1_done"):
         fails.append("verification pass not run")
@@ -112,7 +163,7 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
     hype = [w for w in HYPE_WORDS if re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", low)]
     if hype:
         fails.append(f"hype words: {hype}")
-    if "!" in low:
+    if "!" in unquoted(low):
         fails.append("exclamation mark in body")
     shown = [post.get("headline", "")] + body_texts(post) + [s.get("title", "") for s in post.get("sources", [])]
     garbled = [t[:60] for t in shown if MOJIBAKE_RE.search(t or "")]

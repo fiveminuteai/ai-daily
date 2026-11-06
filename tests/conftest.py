@@ -244,3 +244,9 @@ def project(tmp_path):
     (tmp_path / "content/reports").mkdir(parents=True)
     (tmp_path / "data").mkdir()
     return tmp_path
+
+
+@pytest.fixture(autouse=True)
+def _cloud_providers_listed(monkeypatch):
+    """Tests never call a real model; they only need the provider list as configured (fma.llm.cloud_allowed)."""
+    monkeypatch.setenv("FMA_ALLOW_PROD_KEYS", "1")

@@ -17,7 +17,7 @@ from . import config
 from .editor import apply_editor
 from .extract import about_title, extract_item
 from .feeds import fetch_all
-from .gate import check_images, run_gate, word_count
+from .gate import SHORT_EDITION, calm_post, check_images, rescue_headline, run_gate, soft_only, word_count
 from .rank import history_entry, lineup_caps, pick_lineup, rank
 from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
@@ -268,7 +268,17 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                 verified, report = llm_check(chain, verified, sources, report)
             times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
+            post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away
+            post = rescue_headline(post, report)   # so is a headline that failed its check
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
+            if fails and attempt == int(pipe.get("attempts", 2)) and soft_only(fails):
+                # the backup plan (6 Nov 2026): a true but short post beats no post. Every fact is still checked
+                # twice; only the length and "why it matters" rules are relaxed, and the post says so.
+                short = run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http, skip_links=skip_links)
+                if not short:
+                    log.warning("publishing a short edition: %s", "; ".join(fails))
+                    post = {**post, "edition": "short"}
+                    fails = []
             times["gate"] = time.monotonic() - t
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day
             log.exception("attempt %d crashed", attempt)
