@@ -288,7 +288,56 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
         yield frame.convert("RGB").tobytes()
 
 
-def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: list[tuple], guest: str = "doubt") -> Path:
+REELS = Path(__file__).resolve().parent.parent / "reels"      # the Remotion project (6 Nov 2026)
+
+
+def remotion_ready() -> bool:
+    import shutil
+    return bool(shutil.which("npx")) and (REELS / "node_modules" / "@remotion" / "cli").exists()
+
+
+def timeline(post: dict, section: dict, pl: dict) -> dict:
+    """What the Remotion drawing needs, from the same plan the audio was made from: lines with their word timings
+    and caption groups, the number to show, and each speaker's mouth openness per frame."""
+    lines = []
+    for ln in pl["lines"]:
+        timed = word_times(ln["text"], ln["said"], pl["lead"])
+        fig = figure(ln["text"]) if ln["who"] == "spark" and not ln["card"] else ""
+        lines.append({"who": ln["who"], "text": plain(ln["text"]), "start": ln["start"], "end": ln["end"],
+                      "card": ln["card"], "tags": sorted(ln["tags"]),
+                      "groups": [[{"w": w, "t": round(t, 3)} for w, t in g] for g in chunks(timed)],
+                      "fig": fig, "figAt": round(figure_time(timed, fig), 3) if fig else None})
+    return {"fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
+            "label": CAT_NAMES.get(section.get("category", ""), "").upper(), "site": "FIVE MINUTE AI", "lines": lines,
+            "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()}}
+
+
+def remotion_render(post: dict, section: dict, pl: dict, audio: Path, out: Path) -> Path:
+    """Draw the Reel with Remotion (reels/) over the finished soundtrack. Raises on any failure: the caller falls back
+    to the Python drawing, so a Reel is never lost to the new renderer."""
+    import json
+    import shutil
+    import uuid
+    job = REELS / "public" / "jobs" / uuid.uuid4().hex[:10]
+    job.mkdir(parents=True)
+    try:
+        shutil.copy(audio, job / "audio.wav")
+        props = {"timeline": timeline(post, section, pl), "audio": f"jobs/{job.name}/audio.wav"}
+        (job / "props.json").write_text(json.dumps(props, ensure_ascii=False), encoding="utf-8")
+        npx = shutil.which("npx")
+        r = subprocess.run([npx, "remotion", "render", "src/index.ts", "DuoReel", str(out.resolve()),
+                            f"--props={job / 'props.json'}", "--codec=h264", "--crf=18", "--log=error"],
+                           cwd=REELS, capture_output=True, text=True, timeout=1200)
+        if r.returncode != 0 or not out.exists():
+            raise RuntimeError(f"remotion render failed: {(r.stderr or r.stdout)[-800:]}")
+        return out
+    finally:
+        shutil.rmtree(job, ignore_errors=True)
+
+
+def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: list[tuple], guest: str = "doubt",
+             renderer: str = "auto") -> Path:
+    """renderer: "auto" (Remotion when installed, else Python), "remotion" (fail if it fails) or "python"."""
     pl = plan(script, guest)
     seconds = pl["seconds"]
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -304,6 +353,29 @@ def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: l
     if card:
         pops.append(card["start"] + 1.0)                      # a pop as the slice completes
     fx = voice.write_wav(out.with_suffix(".fx.wav"), sfx_track(seconds, cuts, pops))
+    mix = ("[2:a]aresample=48000,asplit=2[v][vk];[1:a]aresample=48000,volume=0.42[m];[3:a]aresample=48000[fx];"
+           "[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=400[md];"
+           "[md][v][fx]amix=inputs=3:weights=1 1.6 0.9:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]")
+    if renderer in ("auto", "remotion") and remotion_ready():
+        # Remotion draws over the finished soundtrack (6 Nov 2026: about 6x faster than the Python drawing, and
+        # smoother); any failure falls back to the Python drawing below
+        sound = out.with_suffix(".mix.wav")
+        try:
+            r = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo",
+                                "-i", str(music), "-i", str(vo), "-i", str(fx), "-filter_complex", mix, "-map", "[a]",
+                                "-t", f"{seconds:.2f}", "-ar", "48000", str(sound)], capture_output=True, text=True)
+            if r.returncode != 0:
+                raise RuntimeError(r.stderr[-400:])
+            remotion_render(post, section, pl, sound, out)
+            for p in (music, vo, fx, sound):
+                p.unlink(missing_ok=True)
+            return out
+        except Exception as exc:  # noqa: BLE001
+            if renderer == "remotion":
+                raise
+            import logging
+            logging.getLogger(__name__).warning("Remotion render failed, drawing in Python: %s", str(exc)[:300])
+            sound.unlink(missing_ok=True)
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-i", str(music), "-i", str(vo), "-i", str(fx), "-filter_complex",

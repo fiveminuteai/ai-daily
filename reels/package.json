@@ -1,0 +1,21 @@
+{
+  "name": "fma-reels",
+  "private": true,
+  "description": "Five Minute AI duo Reels, drawn with Remotion from a timeline that fma/duo_reel.py writes (audio, lines, words, mouths)",
+  "scripts": {
+    "render": "remotion render src/index.ts DuoReel"
+  },
+  "dependencies": {
+    "remotion": "4.0.541",
+    "@remotion/cli": "4.0.541",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.2.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}

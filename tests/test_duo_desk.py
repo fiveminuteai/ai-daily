@@ -57,3 +57,17 @@ def test_old_days_keep_their_reels():
     from fma import site
     sec = {"card": {"duo": good()}}
     assert not site.duo_ok({"date": "2026-11-05"}, sec)
+
+
+def test_remotion_timeline_and_fallback(monkeypatch, tmp_path):
+    """Remotion draws from a timeline built from the audio plan; when it fails, the Python drawing is used."""
+    from fma import duo_reel
+    pl = {"lines": [{"who": "spark", "text": "Revenue hit $17 billion[S1].", "start": 0.0, "end": 3.0, "said": 2.5,
+                     "card": False, "tags": set()},
+                    {"who": "doubt", "text": "Party!", "start": 3.0, "end": 4.0, "said": 0.6, "card": False,
+                     "tags": {"confetti"}}],
+          "seconds": 5.0, "lead": 0.12, "guest": "doubt", "mouth": {"spark": [0.1, 0.5], "doubt": [0.0, 0.2]}}
+    tl = duo_reel.timeline({"sources": []}, {"category": "products", "paragraphs": []}, pl)
+    assert tl["lines"][0]["fig"] == "$17B" and tl["lines"][0]["groups"] and tl["lines"][1]["tags"] == ["confetti"]
+    assert "[S1]" not in tl["lines"][0]["text"] and tl["label"] == "PRODUCTS"
+    assert tl['mouth']['spark'] == [0.1, 0.5] and tl['seconds'] == 5.0

@@ -82,13 +82,56 @@ def run(date: str, model: str = "qwen2.5:7b") -> dict:
     return out
 
 
+def render(date: str) -> list[str]:
+    """Turn the local model's finished scripts into real Reels (the same Remotion pipeline as a published day) and put
+    each beside the Reel that was published, in .shadow/<date>/: you watch the gap, not just the score."""
+    import subprocess
+    import urllib.request
+    from .duo_desk import script as duo_script
+    from .duo_reel import duo_reel
+    from .story_reel import card_stories
+    from .voice import OUTRO
+    post = json.loads((config.ROOT / "content/posts" / f"{date}.json").read_text(encoding="utf-8"))
+    res = json.loads((config.ROOT / "data/shadow" / f"{date}.json").read_text(encoding="utf-8"))
+    folder = config.ROOT / ".shadow" / date
+    folder.mkdir(parents=True, exist_ok=True)
+    order = [sec["title"] for _n, sec in card_stories(post)]         # reels/01.mp4 is the first of these
+    made = []
+    for r in res["stories"]:
+        if not r.get("script") or r["story"] not in order:
+            continue
+        k = order.index(r["story"]) + 1
+        sec = next(s for s in post["sections"] if s["title"] == r["story"])
+        guest, lines = duo_script({**sec["card"], "duo": r["script"]}, OUTRO)
+        local = folder / f"local-{k:02d}.mp4"
+        duo_reel(post, sec, k, config.site_config(), local, lines, guest=guest)
+        published = folder / f"published-{k:02d}.mp4"
+        url = f"{config.site_config()['base_url'].rstrip('/')}/share/{date}/reels/{k:02d}.mp4"
+        urllib.request.urlretrieve(url, published)
+        both = folder / f"side-by-side-{k:02d}.mp4"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(published), "-i", str(local), "-filter_complex",
+                        "[0:v]scale=540:960,setsar=1[a];[1:v]scale=540:960,setsar=1[b];[a][b]hstack=2[v];"
+                        "[0:a][1:a]amix=inputs=2:duration=longest:weights=0 1[au]",
+                        "-map", "[v]", "-map", "[au]", "-c:v", "libx264", "-crf", "21", "-preset", "fast", "-c:a", "aac",
+                        str(both)], check=True)
+        made.append(str(both))
+    return made
+
+
 def main() -> None:
     from .manual import _today
     ap = argparse.ArgumentParser(prog="python -m fma.shadow")
     ap.add_argument("date", nargs="?")
     ap.add_argument("--model", default="qwen2.5:7b")
+    ap.add_argument("--render", action="store_true", help="also render the local model's Reels beside the published ones")
+    ap.add_argument("--render-only", action="store_true", help="render the saved shadow scripts without running the model")
     a = ap.parse_args()
-    out = run(a.date or _today(), a.model)
+    date = a.date or _today()
+    if a.render_only:
+        for f in render(date):
+            print("wrote", f)
+        return
+    out = run(date, a.model)
     print(out["score"])
     for r in out["stories"]:
         print(f"\n== {r['story']} ({r['guest']}, {r.get('seconds')} s, {r['minutes']} min) -> {'PASS' if r['passed'] else 'FAIL'}")
@@ -101,6 +144,9 @@ def main() -> None:
                 print(f"  fact {f['verdict']}: {f['line'][:80]} ({f['why']})")
         if r.get("why"):
             print("  " + r["why"])
+    if a.render:
+        for f in render(date):
+            print("wrote", f)
 
 
 if __name__ == "__main__":
