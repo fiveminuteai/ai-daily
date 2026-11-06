@@ -4,7 +4,28 @@
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Audio, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame,
         useVideoConfig, Easing} from 'remotion';
-import {Doubt, Rex, Spark} from './Characters';
+import {Doubt, Rex, Spark, Vis} from './Characters';
+
+// Rhubarb's mouth shapes (fma/lipsync.py) as mouth geometry: how open, how wide, teeth showing, tongue up
+const SHAPES: Record<string, Vis> = {
+  A: {open: 0.04, wide: 0.9, teeth: 0, tongue: 0}, B: {open: 0.22, wide: 1.0, teeth: 1, tongue: 0},
+  C: {open: 0.45, wide: 1.05, teeth: 0.5, tongue: 0}, D: {open: 0.85, wide: 1.15, teeth: 0.3, tongue: 1},
+  E: {open: 0.5, wide: 0.72, teeth: 0, tongue: 0}, F: {open: 0.28, wide: 0.48, teeth: 0, tongue: 0},
+  G: {open: 0.18, wide: 0.95, teeth: 1, tongue: 0}, H: {open: 0.42, wide: 0.95, teeth: 0.3, tongue: 1},
+  X: {open: 0.06, wide: 0.85, teeth: 0, tongue: 0},
+};
+
+const shapeAt = (cues: any[] | undefined, t: number): Vis | null => {
+  if (!cues || !cues.length) return null;
+  let k = -1;
+  for (let i = 0; i < cues.length; i++) { if (cues[i][0] <= t) k = i; else break; }
+  if (k < 0 || t > cues[k][1] + 0.05) return SHAPES.X;
+  const cur = SHAPES[cues[k][2]] ?? SHAPES.X;
+  const prev = k > 0 && cues[k - 1][1] >= cues[k][0] - 0.02 ? SHAPES[cues[k - 1][2]] ?? SHAPES.X : SHAPES.X;
+  const m = Math.min(1, (t - cues[k][0]) / 0.06);              // ease from the last shape over about two frames
+  const mix = (a: number, b: number) => a + (b - a) * m;
+  return {open: mix(prev.open, cur.open), wide: mix(prev.wide, cur.wide), teeth: mix(prev.teeth, cur.teeth), tongue: mix(prev.tongue, cur.tongue)};
+};
 
 export type Timeline = any;
 
@@ -154,7 +175,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
     const s = talking ? 1 + 0.07 * pop : 0.95;
     const look = facing ? 0 : isSpark ? 1 : -1;
     const bob = Math.sin(t * 2.2 + (isSpark ? 0 : 1.7)) * 6;
-    const props = {t, mouth: mouthAt(who), talking, look, pop: talking ? 1 - pop : 0};
+    const vis = shapeAt((timeline.visemes || {})[who], t);
+    const props = {t, mouth: mouthAt(who), talking, look, pop: talking ? 1 - pop : 0, vis};
     return (
       <div key={who} style={{position: 'absolute', left: base.x - size / 2, top: y - size + bob, width: size, height: size * 1.05,
         transform: `scale(${s})`, transformOrigin: '50% 100%', opacity: talking || onCard ? 1 : 0.92,

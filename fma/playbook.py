@@ -79,10 +79,15 @@ def build() -> str:
                         duo_desk.FACTS_SYSTEM, duo_desk.FACTS_TASK + "\n\nSTORY: {story title}\nStory text:\n{paragraphs}"))
     for guest in duo_desk.GUESTS:
         name = guest.capitalize()
-        pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in duo_desk.JOKE_PAIRS[guest])
-        parts.append(_block(f"6. Duo desk, step 2: {name}'s reactions", "One call per story.", duo_desk.JOKES_SYSTEM,
-                            duo_desk.JOKES_TASK.format(name=name, name_up=name.upper(), persona=duo_desk.PERSONA[guest],
-                                                       n="{n}", pairs=pairs, lines="{Spark's numbered lines}")))
+        parts.append(_block(f"6. Duo desk, step 2: {name}'s reactions",
+                            "One call per Spark line, in order (6 Nov 2026: all at once, a 7B put the reactions on the "
+                            "wrong lines). The model writes 3 candidates, held to exactly 3 by a JSON schema; code picks "
+                            "the best (fma.duo_desk.rank_reaction: rules kept, not a copy, reacts to its own line and not "
+                            "a later one). The examples are the six approved pairs closest to the line, from the curated "
+                            "set and the knowledge bank.", duo_desk.JOKES_SYSTEM,
+                            duo_desk.JOKE_TASK.format(name=name, name_up=name.upper(), persona=duo_desk.PERSONA[guest], k=3,
+                                                      pairs="{the six closest approved pairs}",
+                                                      said="{the reactions already given}", line="{Spark's line}")))
     parts.append(_block("7. Comedy editor", f"Rewrites only the guest lines; below {duo_desk.EDITOR_BAR}/10 the story "
                         "keeps its ordinary Reel.", duo_desk.EDITOR_SYSTEM, duo_desk.editor_prompt(duo_sample, sample_section)))
     parts.append("\n## Step 3 of the duo (code, no model)\n\nSpark, guest, Spark, guest; a comic pause before the last "

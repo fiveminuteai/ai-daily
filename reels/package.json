@@ -6,14 +6,15 @@
     "render": "remotion render src/index.ts DuoReel"
   },
   "dependencies": {
-    "remotion": "4.0.541",
     "@remotion/cli": "4.0.541",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "remotion": "4.0.541"
   },
   "devDependencies": {
+    "@types/react": "19.2.2",
     "typescript": "5.9.3",
-    "@types/react": "19.2.2"
+    "zzfx": "^1.4.0"
   },
   "allowScripts": {
     "esbuild@0.28.1": true

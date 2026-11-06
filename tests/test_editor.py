@@ -11,7 +11,7 @@ class Chain:
     def __bool__(self):
         return True
 
-    def ask_json(self, system, user, temperature=0.3, careful=False):
+    def ask_json(self, system, user, temperature=0.3, careful=False, **kw):
         if self.fail:
             raise RuntimeError("down")
         return self.reply

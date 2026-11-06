@@ -80,7 +80,7 @@ class FakeChain:
         return {"checks": [{"id": i, "evidence": evidence, "supported": not reasons[i],
                             "reason": reasons[i] or "ok"} for i in claims]}
 
-    def ask_json(self, system, user, temperature=0.3, careful=False):
+    def ask_json(self, system, user, temperature=0.3, careful=False, **kw):
         self.prompts.append(user)
         if user.startswith("Fact-check each claim"):
             return self._check_reply(user)

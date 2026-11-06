@@ -11,3 +11,4 @@ reels/node_modules/
 reels/public/jobs/
 reels/out/
 .shadow/
+.tools/

@@ -47,7 +47,7 @@ MAX_SECONDS = 45.0
 FX = {"card", "beat", "confetti", "drop", "sweat"}
 
 
-def plan(script: list[tuple], guest: str) -> dict:
+def plan(script: list[tuple], guest: str, visemes: bool = False) -> dict:
     """Speak the script into one track per speaker (each mouth follows its own voice). A line is (who, text, *tags):
     "card" puts it on the closing logo card, "beat" holds a comic pause before it, "confetti" / "drop" / "sweat" are
     the visual gags (a burst, the burst falling flat, a nervous sweat drop on the speaker)."""
@@ -76,8 +76,12 @@ def plan(script: list[tuple], guest: str) -> dict:
     peak = max(float(np.abs(tr).max()) for tr in tracks.values()) or 1.0
     for w in tracks:
         tracks[w] = tracks[w] / peak * 0.9
-    return {"lines": lines, "seconds": seconds, "lead": lead, "tracks": tracks, "guest": guest,
-            "mouth": {w: voice.envelope(tr, FPS) for w, tr in tracks.items()}}
+    out = {"lines": lines, "seconds": seconds, "lead": lead, "tracks": tracks, "guest": guest,
+           "mouth": {w: voice.envelope(tr, FPS) for w, tr in tracks.items()}}
+    if visemes:                          # real mouth shapes per line (fma/lipsync.py, Rhubarb); empty when not installed
+        from .lipsync import visemes as shapes
+        out["visemes"] = shapes([(who, at, s, plain(ln["text"])) for (who, at, s), ln in zip(clips, lines)], voice.SR)
+    return out
 
 
 CONFETTI = [(255, 214, 90), (255, 132, 96), (64, 214, 196), (148, 110, 255), (250, 250, 255)]
@@ -289,6 +293,45 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
 
 
 REELS = Path(__file__).resolve().parent.parent / "reels"      # the Remotion project (6 Nov 2026)
+SFX = Path(__file__).resolve().parent / "sfx"                # cartoon sounds made with ZzFX (reels/tools/make_sfx.mjs)
+
+
+def _sfx(name: str) -> np.ndarray:
+    import wave
+    with wave.open(str(SFX / f"{name}.wav")) as w:
+        x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+        rate = w.getframerate()
+    n = int(len(x) * voice.SR / rate)                        # to the voice track's rate
+    return np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x).astype(np.float32)
+
+
+def gag_sounds(track: np.ndarray, pl: dict, level: float = 0.5) -> np.ndarray:
+    """The gags get their sounds (6 Nov 2026): a party pop and sparkle on the confetti line, a sad slide when it
+    falls flat, a gulp with the sweat drop, a slap when the sticker lands on the logo card."""
+    if not SFX.exists():
+        return track
+    lines = pl["lines"]
+    hits = []
+    for k, ln in enumerate(lines):
+        tags = ln["tags"]
+        if "confetti" in tags:
+            hits += [(ln["start"] + 0.05, "party_pop"), (ln["start"] + 0.15, "sparkle")]
+        if "drop" in tags:
+            hits.append((ln["start"] + 0.1, "sad_slide"))
+        if "sweat" in tags:
+            hits.append((ln["start"] + 0.35, "gulp"))
+        if ln["card"] and ln["who"] == "spark" and any(x["card"] and x["who"] != "spark" for x in lines[:k]):
+            hits.append((ln["start"], "slap"))
+    out = track.copy()
+    for at, name in hits:
+        try:
+            clip = _sfx(name) * level
+        except (OSError, EOFError):
+            continue
+        i = max(0, int(at * voice.SR))
+        j = min(len(out), i + len(clip))
+        out[i:j] += clip[: j - i]
+    return out
 
 
 def remotion_ready() -> bool:
@@ -309,7 +352,8 @@ def timeline(post: dict, section: dict, pl: dict) -> dict:
                       "fig": fig, "figAt": round(figure_time(timed, fig), 3) if fig else None})
     return {"fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
             "label": CAT_NAMES.get(section.get("category", ""), "").upper(), "site": "FIVE MINUTE AI", "lines": lines,
-            "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()}}
+            "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()},
+            "visemes": pl.get("visemes") or {}}
 
 
 def remotion_render(post: dict, section: dict, pl: dict, audio: Path, out: Path) -> Path:
@@ -338,7 +382,7 @@ def remotion_render(post: dict, section: dict, pl: dict, audio: Path, out: Path)
 def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: list[tuple], guest: str = "doubt",
              renderer: str = "auto") -> Path:
     """renderer: "auto" (Remotion when installed, else Python), "remotion" (fail if it fails) or "python"."""
-    pl = plan(script, guest)
+    pl = plan(script, guest, visemes=renderer in ("auto", "remotion") and remotion_ready())
     seconds = pl["seconds"]
     out.parent.mkdir(parents=True, exist_ok=True)
     music, _ = write_wav(out.with_suffix(".m.wav"), bars=math.ceil(seconds / BAR) + 1, seed=7 + n)
@@ -352,7 +396,7 @@ def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: l
     cuts = [card["start"]] if card else []                    # a whoosh as the logo card comes in
     if card:
         pops.append(card["start"] + 1.0)                      # a pop as the slice completes
-    fx = voice.write_wav(out.with_suffix(".fx.wav"), sfx_track(seconds, cuts, pops))
+    fx = voice.write_wav(out.with_suffix(".fx.wav"), gag_sounds(sfx_track(seconds, cuts, pops), pl))
     mix = ("[2:a]aresample=48000,asplit=2[v][vk];[1:a]aresample=48000,volume=0.42[m];[3:a]aresample=48000[fx];"
            "[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=400[md];"
            "[md][v][fx]amix=inputs=3:weights=1 1.6 0.9:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]")

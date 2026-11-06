@@ -2,7 +2,8 @@
 // fma/doubt.py: Spark a glowing, wobbly coral blob; Doubt a sceptical blue cube with heavy lids.
 import React from 'react';
 
-type Props = {t: number; mouth: number; talking: boolean; look: number; pop: number; sweat?: number};
+export type Vis = {open: number; wide: number; teeth: number; tongue: number};
+type Props = {t: number; mouth: number; talking: boolean; look: number; pop: number; sweat?: number; vis?: Vis | null};
 
 const blink = (t: number, seed: number) => {
   const period = 3.6 + seed * 0.7;
@@ -10,7 +11,8 @@ const blink = (t: number, seed: number) => {
   return ph < 0.12 ? 1 - Math.abs(ph - 0.06) / 0.06 : 0;   // 0 open .. 1 shut
 };
 
-export const Spark: React.FC<Props> = ({t, mouth, talking, look, pop, sweat = 0}) => {
+export const Spark: React.FC<Props> = ({t, mouth, talking, look, pop, sweat = 0, vis}) => {
+  if (vis) mouth = vis.open;
   // an organic outline: a circle whose radius wobbles with a few slow sine waves
   const pts: string[] = [];
   const n = 48;
@@ -49,8 +51,9 @@ export const Spark: React.FC<Props> = ({t, mouth, talking, look, pop, sweat = 0}
                 stroke="#8A2E22" strokeWidth="7" fill="none" strokeLinecap="round" />
         </g>
       ))}
-      <ellipse cx="200" cy="262" rx={24 + mouth * 10} ry={mo / 2} fill="#5A1A24" />
-      {mouth > 0.25 && <ellipse cx="200" cy={262 + mo / 4} rx={12 + mouth * 5} ry={mo / 6} fill="#FF8FA0" />}
+      <ellipse cx="200" cy="262" rx={(24 + mouth * 10) * (vis ? vis.wide : 1)} ry={mo / 2} fill="#5A1A24" />
+      {vis && vis.teeth > 0 && <rect x={200 - 18 * vis.wide} y={262 - mo / 2} width={36 * vis.wide} height={Math.min(10, mo / 2)} rx="3" fill="#FFF8F0" opacity={vis.teeth} />}
+      {mouth > 0.25 && (!vis || vis.tongue > 0.3 || vis.open > 0.4) && <ellipse cx="200" cy={262 + mo / 4} rx={(12 + mouth * 5) * (vis ? vis.wide : 1)} ry={mo / 6} fill="#FF8FA0" />}
       <ellipse cx="118" cy="240" rx="20" ry="11" fill="rgba(255,90,120,0.35)" />
       <ellipse cx="282" cy="240" rx="20" ry="11" fill="rgba(255,90,120,0.35)" />
       {sweat > 0 && (
@@ -63,7 +66,9 @@ export const Spark: React.FC<Props> = ({t, mouth, talking, look, pop, sweat = 0}
   );
 };
 
-export const Doubt: React.FC<Props> = ({t, mouth, talking, look, pop}) => {
+export const Doubt: React.FC<Props> = ({t, mouth, talking, look, pop, vis}) => {
+  if (vis) mouth = vis.open;
+  const dw = vis ? vis.wide : 1;
   const b = blink(t, 1);
   const tilt = talking ? Math.sin(t * 3.2) * 2.5 : -3;
   const lid = 0.45 + 0.55 * b;             // half-closed by default: the sceptic
@@ -90,13 +95,15 @@ export const Doubt: React.FC<Props> = ({t, mouth, talking, look, pop}) => {
         ))}
         <path d={`M104 ${180 - (talking ? 4 : 0)} L160 ${172 - (talking ? 10 * mouth : 6)}`} stroke="#2E3590" strokeWidth="7" strokeLinecap="round" />
         <path d="M200 176 L250 182" stroke="#2E3590" strokeWidth="7" strokeLinecap="round" />
-        <rect x={160 - mouth * 6} y={292 - mouth * 10} width={50 + mouth * 12} height={6 + mouth * 22} rx="5" fill="#1E2240" />
+        <rect x={185 - (25 + mouth * 6) * dw} y={292 - mouth * 10} width={(50 + mouth * 12) * dw} height={6 + mouth * 22} rx="5" fill="#1E2240" />
+        {vis && vis.teeth > 0 && <rect x={185 - 20 * dw} y={292 - mouth * 10} width={40 * dw} height="5" fill="#F2F0FF" opacity={vis.teeth} />}
       </g>
     </svg>
   );
 };
 
-export const Rex: React.FC<Props> = ({t, mouth, talking, look, pop}) => {
+export const Rex: React.FC<Props> = ({t, mouth, talking, look, pop, vis}) => {
+  if (vis) mouth = vis.open;
   const b = blink(t, 2);
   const nod = talking ? Math.sin(t * 3.2) * 3 : 0;
   const breathe = Math.sin(t * 1.6) * 2;

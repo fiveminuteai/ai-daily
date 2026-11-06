@@ -194,6 +194,14 @@ def problems(duo: dict) -> list[str]:
                 out.append(f"line {k + 1}: guest lines carry no citations (the guest states no facts)")
             caps = [w for i, w in enumerate(re.findall(r"[A-Za-z']+", text)) if w[0].isupper()
                     and w not in GUEST_NAMES_OK and not re.search(r"(^|[.!?]\s+|\"|“)" + re.escape(w), text)]
+            # a name Spark used is a name wherever the guest puts it, even first in a sentence (6 Nov 2026: Rex
+            # said "Texas? I thought I was the size of Texas.")
+            spark_names = {w.lower() for ln in lines if ln.get("who") == "spark"
+                           for w in re.findall(r"(?<![.!?]\s)(?<!^)\b[A-Z][a-zA-Z]+", plain(str(ln.get("text") or "")))}
+            spark_names |= {w.lower() for ln in lines if ln.get("who") == "spark"
+                            for w in re.findall(r"\b[A-Z][a-z]*[A-Z][A-Za-z]*\b", str(ln.get("text") or ""))}
+            caps += [w for w in re.findall(r"[A-Za-z]+", text) if w.lower() in spark_names and w not in caps
+                     and w not in GUEST_NAMES_OK]
             if caps:
                 out.append(f"line {k + 1}: the guest may not name anyone or anything ({', '.join(caps)})")
     if lines and lines[0].get("who") != "spark":
@@ -225,7 +233,9 @@ RULES (check every line against each rule before you reply)
 4. Keep every limit and doubt the text has: "at least 35" stays "at least 35"; "says", "claims", "is accused of"
    stay. A claim in a lawsuit is not a proven fact.
 5. End every line with its citation from the text, like [S1] or [S1][S2].
-6. Swap jargon for plain words: "sales" not "revenue", "losing money" not "operating loss", "the court said no" not
+6. Say who said or reported it, and when, as the text does: "Meta's president said on Wednesday...", "TechCrunch
+   reports...", "OpenAI says...". At least two of the four lines name the person, company or outlet behind the fact.
+7. Swap jargon for plain words: "sales" not "revenue", "losing money" not "operating loss", "the court said no" not
    "denied the motion to dismiss", "school staff" not "admins". Never use: allegedly, exempt, plaintiffs, standing.
 
 EXAMPLE
@@ -233,7 +243,7 @@ Story text: "A federal judge denied xAI's motion to dismiss a lawsuit filed by t
 operated at least 35 combustion turbines at its Colossus data centre in Memphis without required permits[S1]. xAI
 argued the turbines were mobile and thus exempt, but the judge rejected both defenses[S1][S2]."
 Reply: {"lines": ["xAI is accused of running at least 35 turbines at its Memphis data centre without the permission it needed[S1].",
-"The NAACP took xAI to court over it[S1].",
+"The NAACP took xAI to court over it, on clean air grounds[S1].",
 "xAI said the turbines can move, so the rules don't apply[S1][S2].",
 "The judge said no, and the case goes ahead[S1][S2]."]}
 
@@ -293,13 +303,41 @@ SPARK'S LINES
 Reply as {{"reactions": ["...", "..."]}}"""
 
 
-def _ask(chain, system: str, prompt: str, temperature: float) -> dict | None:
+def _list_schema(key: str, n: int) -> dict:
+    return {"type": "object", "required": [key],
+            "properties": {key: {"type": "array", "minItems": n, "maxItems": n, "items": {"type": "string"}}}}
+
+
+def _ask(chain, system: str, prompt: str, temperature: float, schema: dict | None = None) -> dict | None:
     try:
-        x = chain.ask_json(system, prompt, temperature=temperature, careful=True)
+        x = chain.ask_json(system, prompt, temperature=temperature, careful=True, schema=schema)
     except Exception as exc:  # noqa: BLE001
         log.warning("duo desk call failed: %s", exc)
         return None
     return x if isinstance(x, dict) else None
+
+
+NUM_NOUN = re.compile(r"(?<![\w.])(\$?\d[\d,.]*%?)\s+(?:\w+\s+)?([a-z]{3,})", re.I)
+
+
+def binding_problems(lines: list[str], source: str) -> list[str]:
+    """A number must stay with what it counts: "data centres in 23 states" must not become "23 data centres"
+    (6 Nov 2026 shadow run). For each number in a line that the source gives with a noun, the line must use one of the
+    source's nouns for it."""
+    from .judge import _stem
+    src_nouns: dict[str, set[str]] = {}
+    said: dict[str, str] = {}
+    for m in NUM_NOUN.finditer(plain(source)):
+        src_nouns.setdefault(m.group(1).rstrip(".,"), set()).add(_stem(m.group(2).lower()))
+        said.setdefault(m.group(1).rstrip(".,"), m.group(2))
+    out = []
+    for k, t in enumerate(lines):
+        for m in NUM_NOUN.finditer(plain(t)):
+            num, noun = m.group(1).rstrip(".,"), _stem(m.group(2).lower())
+            known = src_nouns.get(num)
+            if known and noun not in known and noun not in ("percent", "billion", "million", "per", "time", "times"):
+                out.append(f"line {k + 1}: the source says "{num} {said[num]}", not '{m.group(2)}'")
+    return out
 
 
 def facts_step(chain, section: dict) -> list[str] | None:
@@ -309,7 +347,7 @@ def facts_step(chain, section: dict) -> list[str] | None:
     base = FACTS_TASK + f"\n\nSTORY: {section.get('title', '')}\nStory text:\n" + "\n".join(section.get("paragraphs", []))
     prompt = base
     for _try in range(3):
-        x = _ask(chain, FACTS_SYSTEM, prompt, 0.3)
+        x = _ask(chain, FACTS_SYSTEM, prompt, 0.3, _list_schema("lines", 4))
         lines = [simplify(str(t).strip()) for t in (x or {}).get("lines") or [] if str(t).strip()][:4]
         bad = []
         if len(lines) < 3:
@@ -325,6 +363,7 @@ def facts_step(chain, section: dict) -> list[str] | None:
             if hard:
                 bad.append(f"line {k + 1}: replace {hard} with plain everyday words")
         bad += ceiling_problems([{"who": "spark", "text": t} for t in lines], source)
+        bad += binding_problems(lines, source)
         if not bad:
             return lines
         prompt = base + "\n\nYOUR LAST REPLY BROKE THESE RULES. Fix every one:\n" + "\n".join(f"- {b}" for b in bad)
@@ -332,32 +371,89 @@ def facts_step(chain, section: dict) -> list[str] | None:
     return None
 
 
-def jokes_step(chain, guest: str, lines: list[str]) -> list[str] | None:
-    """Step 2: one reaction per Spark line, from the guest's approved fact -> joke pairs; checked in code (no numbers,
-    names or citations, length), sent back once."""
+JOKE_TASK = """{name} is reacting, live, to what Spark just said. Write {k} different reactions.
+
+WHO {name_up} IS: {persona}
+
+RULES (check every reaction against each rule)
+1. React to THIS line only: what Spark just said, in its own words. Never mention anything Spark has not said yet.
+2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on {name}.
+3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
+4. Do not repeat a reaction {name} already gave (listed below), and do not copy the examples word for word.
+5. Never joke about victims, illness, death, groups of people or accents.
+
+EXAMPLES OF {name_up}'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
+{pairs}
+
+{name_up} ALREADY SAID: {said}
+
+SPARK JUST SAID: "{line}"
+
+Reply as {{"reactions": ["...", "...", "..."]}}"""
+
+
+def similar_pairs(guest: str, line: str, k: int = 6) -> list[tuple[str, str]]:
+    """The approved fact -> joke pairs closest in words to this line: curated ones and the bank's newest."""
+    from .bank import joke_pairs
+    from .judge import words
+    pool = JOKE_PAIRS[guest] + [p for p in joke_pairs(guest, 40) if p[1] not in {j for _, j in JOKE_PAIRS[guest]}]
+    lw = words(plain(line))
+    return sorted(pool, key=lambda fj: -len(lw & words(fj[0])))[:k]
+
+
+def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest: str) -> tuple[float, str]:
+    """(score, problem) for one candidate reaction; a non-empty problem means it is out. Code, not a model: the
+    reaction must keep the rules, must not be a copy, and must react to its own line rather than a later one."""
+    from .bank import joke_pairs
+    from .judge import words
+    from .shadow import copied
+    trial = {"guest": guest, "lines": [{"who": "spark", "text": line}, {"who": "guest", "text": cand}]}
+    bad = [b for b in problems(trial) if b.startswith("line 2")]
+    if bad:
+        return -1, bad[0]
+    n = len(cand.split())
+    if not 3 <= n <= 13:
+        return -1, f"{n} words"
+    examples = [j for _, j in JOKE_PAIRS[guest] + joke_pairs(guest, 50)] + said
+    if copied(cand, examples):
+        return -1, "a copy"
+    cw = {w for w in words(cand) if len(w) >= 4}
+    own = len(cw & words(plain(line)))
+    ahead = max([len(cw & words(plain(x))) for x in later] or [0])
+    if ahead > own:
+        return -1, "reacts to a later line"
+    score = 2.0 * own + (1.0 if cand.rstrip().endswith(("?", "!", ".")) else 0) + (0.5 if 4 <= n <= 10 else 0)
+    score += 0.5 if any(w in cand.lower() for w in ("i'm", "i ", "me", "my")) else 0      # turned back on itself
+    return score, ""
+
+
+def jokes_step(chain, guest: str, lines: list[str], k: int = 3) -> list[str] | None:
+    """Step 2: the guest's reactions, one Spark line at a time, in order. For each line the model sees only that
+    line, its own earlier reactions and the approved pairs closest to that line, and writes k candidates; code picks
+    the best one (rank_reaction). Two tries per line; a line with no good candidate fails the script."""
     name = guest.capitalize()
-    from .bank import joke_pairs           # the newest published punchlines join the curated ones (fma/bank.py)
-    seen = {j for _, j in JOKE_PAIRS[guest]}
-    examples = JOKE_PAIRS[guest] + [(f, j) for f, j in joke_pairs(guest) if j not in seen]
-    pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in examples)
-    base = JOKES_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], n=len(lines), pairs=pairs,
-                             lines="\n".join(f"{k + 1}. {plain(t)}" for k, t in enumerate(lines)))
-    prompt = base
-    for _try in range(3):
-        x = _ask(chain, JOKES_SYSTEM, prompt, 0.8)
-        jokes = [simplify(str(t).strip().strip('"')) for t in (x or {}).get("reactions") or [] if str(t).strip()]
-        trial = {"guest": guest, "lines": [ln for f, j in zip(lines, jokes)
-                                           for ln in ({"who": "spark", "text": f}, {"who": "guest", "text": j})]}
-        bad = [] if len(jokes) == len(lines) else [f"write exactly {len(lines)} reactions, not {len(jokes)}"]
-        bad += [b for b in problems(trial) if "guest" in b or "line " in b and not b.endswith("citation like [S1]")]
-        bad += [f"reaction {k + 1} has {len(j.split())} words; write 3 to 12" for k, j in enumerate(jokes)
-                if not 2 <= len(j.split()) <= 14]
-        bad = [b for b in bad if "words; write 50" not in b and "lines; write 6" not in b]
-        if not bad:
-            return jokes
-        prompt = base + "\n\nYOUR LAST REPLY BROKE THESE RULES. Fix every one:\n" + "\n".join(f"- {b}" for b in bad)
-    log.warning("duo jokes step failed: %s", "; ".join(bad))
-    return None
+    out: list[str] = []
+    for i, line in enumerate(lines):
+        pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in similar_pairs(guest, line))
+        best = None
+        for _try in range(2):
+            prompt = JOKE_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], k=k, pairs=pairs,
+                                      said="; ".join(f'"{x}"' for x in out) or "nothing yet", line=plain(line))
+            x = _ask(chain, JOKES_SYSTEM, prompt, 0.9, _list_schema("reactions", k))
+            cands = [simplify(str(c).strip().strip('"')) for c in (x or {}).get("reactions") or [] if str(c).strip()]
+            ranked = sorted(((rank_reaction(c, line, lines[i + 1:], out, guest), c) for c in cands),
+                            key=lambda r: -r[0][0])
+            ok = [(sc, c) for (sc, why), c in ranked if not why]
+            if ok:
+                best = ok[0][1]
+                break
+            log.info("duo jokes: no good reaction to line %d yet: %s", i + 1,
+                     "; ".join(f"{c!r} ({why})" for (sc, why), c in ranked)[:300])
+        if best is None:
+            log.warning("duo jokes step failed on line %d: %r", i + 1, plain(line))
+            return None
+        out.append(best)
+    return out
 
 
 def assemble(guest: str, lines: list[str], jokes: list[str]) -> dict:

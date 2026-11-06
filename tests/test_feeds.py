@@ -126,7 +126,7 @@ class _Flaky:
     def available(self):
         return True
 
-    def chat(self, system, user, temperature=0.3, careful=False):
+    def chat(self, system, user, temperature=0.3, careful=False, **kw):
         import fma.llm as llm
         self.calls += 1
         if self.daily:

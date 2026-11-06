@@ -211,7 +211,9 @@ RULES (check every line against each rule before you reply)
 4. Keep every limit and doubt the text has: "at least 35" stays "at least 35"; "says", "claims", "is accused of"
    stay. A claim in a lawsuit is not a proven fact.
 5. End every line with its citation from the text, like [S1] or [S1][S2].
-6. Swap jargon for plain words: "sales" not "revenue", "losing money" not "operating loss", "the court said no" not
+6. Say who said or reported it, and when, as the text does: "Meta's president said on Wednesday...", "TechCrunch
+   reports...", "OpenAI says...". At least two of the four lines name the person, company or outlet behind the fact.
+7. Swap jargon for plain words: "sales" not "revenue", "losing money" not "operating loss", "the court said no" not
    "denied the motion to dismiss", "school staff" not "admins". Never use: allegedly, exempt, plaintiffs, standing.
 
 EXAMPLE
@@ -219,7 +221,7 @@ Story text: "A federal judge denied xAI's motion to dismiss a lawsuit filed by t
 operated at least 35 combustion turbines at its Colossus data centre in Memphis without required permits[S1]. xAI
 argued the turbines were mobile and thus exempt, but the judge rejected both defenses[S1][S2]."
 Reply: {"lines": ["xAI is accused of running at least 35 turbines at its Memphis data centre without the permission it needed[S1].",
-"The NAACP took xAI to court over it[S1].",
+"The NAACP took xAI to court over it, on clean air grounds[S1].",
 "xAI said the turbines can move, so the rules don't apply[S1][S2].",
 "The judge said no, and the case goes ahead[S1][S2]."]}
 
@@ -232,7 +234,7 @@ Story text:
 
 ## 6. Duo desk, step 2: Doubt's reactions
 
-One call per story.
+One call per Spark line, in order (6 Nov 2026: all at once, a 7B put the reactions on the wrong lines). The model writes 3 candidates, held to exactly 3 by a JSON schema; code picks the best (fma.duo_desk.rank_reaction: rules kept, not a copy, reacts to its own line and not a later one). The examples are the six approved pairs closest to the line, from the curated set and the knowledge bank.
 
 **System prompt**
 
@@ -244,47 +246,30 @@ with one JSON object and nothing else.
 **User prompt** (the parts in braces are filled in by the code)
 
 ```text
-TASK: Spark, the presenter, will say the numbered lines below. After each one, Doubt reacts with one
-short line. Write those reactions.
+Doubt is reacting, live, to what Spark just said. Write 3 different reactions.
 
-WHO IS SPEAKING: Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan, unimpressed, a box (no hands, no legs, lives on a shelf), and always sees the catch.
+WHO DOUBT IS: Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan, unimpressed, a box (no hands, no legs, lives on a shelf), and always sees the catch.
 
-RULES (check every reaction against each rule before you reply)
-1. One reaction per numbered line, in the same order. Exactly {n} reactions.
-2. Each reaction: 3 to 12 words, something a real person would say out loud, reacting to THAT line.
-3. Make it funny: surprise, sarcasm, or turn it back on Doubt (see the examples). If a friend would say "what?",
-   rewrite it. Comparisons must point the right way ("move faster", never "slower").
-4. NO numbers or number words, NO names of people, companies, places or products, NO new facts. The reaction only
-   reacts.
+RULES (check every reaction against each rule)
+1. React to THIS line only: what Spark just said, in its own words. Never mention anything Spark has not said yet.
+2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on Doubt.
+3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
+4. Do not repeat a reaction Doubt already gave (listed below), and do not copy the examples word for word.
 5. Never joke about victims, illness, death, groups of people or accents.
 
-EXAMPLES OF DOUBT'S REACTIONS (copy the kind of joke, never the words)
-Spark: "Anthropic now spends 58 cents of every dollar it earns on computing power."
-Doubt: "Wait. All that? Just on computers?"
-Spark: "Its sales hit $17 billion this quarter."
-Doubt: "We're rich! Party!"
-Spark: "But it is also losing more money than before."
-Doubt: "Cancel the party."
-Spark: "Half of its computing bill went on short deals, which cost a lot more."
-Doubt: "So, like booking a taxi at midnight. In the rain."
-Spark: "Demand grew so fast, it grabbed whatever it could get."
-Doubt: "Even I plan ahead. And I am a box."
-Spark: "Google says schools that turn off its AI will also lose Search."
-Doubt: "So it's AI or nothing. Very relaxed."
-Spark: "The app can now read your bank statements."
-Doubt: "Great. Now my bank knows I talk to a box."
-Spark: "The company says the feature is safe."
-Doubt: "They always say that. Right before the sequel."
+EXAMPLES OF DOUBT'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
+{the six closest approved pairs}
 
-SPARK'S LINES
-{Spark's numbered lines}
+DOUBT ALREADY SAID: {the reactions already given}
 
-Reply as {"reactions": ["...", "..."]}
+SPARK JUST SAID: "{Spark's line}"
+
+Reply as {"reactions": ["...", "...", "..."]}
 ```
 
 ## 6. Duo desk, step 2: Rex's reactions
 
-One call per story.
+One call per Spark line, in order (6 Nov 2026: all at once, a 7B put the reactions on the wrong lines). The model writes 3 candidates, held to exactly 3 by a JSON schema; code picks the best (fma.duo_desk.rank_reaction: rules kept, not a copy, reacts to its own line and not a later one). The examples are the six approved pairs closest to the line, from the curated set and the knowledge bank.
 
 **System prompt**
 
@@ -296,40 +281,25 @@ with one JSON object and nothing else.
 **User prompt** (the parts in braces are filled in by the code)
 
 ```text
-TASK: Spark, the presenter, will say the numbered lines below. After each one, Rex reacts with one
-short line. Write those reactions.
+Rex is reacting, live, to what Spark just said. Write 3 different reactions.
 
-WHO IS SPEAKING: Rex, a grumpy old T. rex in reading glasses. Rex is old, a fossil, extinct, slow, tired, and takes anything about burning fuel personally.
+WHO REX IS: Rex, a grumpy old T. rex in reading glasses. Rex is old, a fossil, extinct, slow, tired, and takes anything about burning fuel personally.
 
-RULES (check every reaction against each rule before you reply)
-1. One reaction per numbered line, in the same order. Exactly {n} reactions.
-2. Each reaction: 3 to 12 words, something a real person would say out loud, reacting to THAT line.
-3. Make it funny: surprise, sarcasm, or turn it back on Rex (see the examples). If a friend would say "what?",
-   rewrite it. Comparisons must point the right way ("move faster", never "slower").
-4. NO numbers or number words, NO names of people, companies, places or products, NO new facts. The reaction only
-   reacts.
+RULES (check every reaction against each rule)
+1. React to THIS line only: what Spark just said, in its own words. Never mention anything Spark has not said yet.
+2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on Rex.
+3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
+4. Do not repeat a reaction Rex already gave (listed below), and do not copy the examples word for word.
 5. Never joke about victims, illness, death, groups of people or accents.
 
-EXAMPLES OF REX'S REACTIONS (copy the kind of joke, never the words)
-Spark: "xAI is accused of running at least 35 turbines without the permission it needed."
-Rex: "Turbines? The ones that burn fuel? I'm a fossil. I take that personally."
-Spark: "A group says it broke clean air rules."
-Rex: "Clean air. I remember clean air."
-Spark: "xAI said the turbines can move, so the rules don't apply."
-Rex: "They can move? I've seen glaciers move faster."
-Spark: "The judge said no, and the case goes ahead."
-Rex: "Even I did my paperwork. And I'm extinct."
-Spark: "Data centres now use as much power as a small country."
-Rex: "A small country? I used to be a small country."
-Spark: "The company says the new chip uses less energy."
-Rex: "Less energy. Finally, something my age."
-Spark: "Several states are thinking about pausing new data centres."
-Rex: "Pausing? I paused once. It did not go well."
+EXAMPLES OF REX'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
+{the six closest approved pairs}
 
-SPARK'S LINES
-{Spark's numbered lines}
+REX ALREADY SAID: {the reactions already given}
 
-Reply as {"reactions": ["...", "..."]}
+SPARK JUST SAID: "{Spark's line}"
+
+Reply as {"reactions": ["...", "...", "..."]}
 ```
 
 ## 7. Comedy editor

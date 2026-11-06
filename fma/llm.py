@@ -51,9 +51,10 @@ class Provider:
                 return False
         return bool(self.key)
 
-    def chat(self, system: str, user: str, temperature: float = 0.3, want_json: bool = True, careful: bool = False) -> str:
+    def chat(self, system: str, user: str, temperature: float = 0.3, want_json: bool = True, careful: bool = False,
+             schema: dict | None = None) -> str:
         if self.local:
-            return self._ollama(system, user, temperature, want_json)
+            return self._ollama(system, user, temperature, want_json, schema)
         return self._openai(system, user, temperature, want_json, careful)
 
     def _openai(self, system, user, temperature, want_json, careful=False) -> str:
@@ -100,12 +101,12 @@ class Provider:
                 raise LLMError(f"{self.name} bad response: {r.text[:300]}") from exc
         raise LLMError(f"{self.name}: gave up after retries")
 
-    def _ollama(self, system, user, temperature, want_json) -> str:
+    def _ollama(self, system, user, temperature, want_json, schema=None) -> str:
         body = {"model": self.model, "stream": False,
                 "options": {"temperature": temperature, "num_ctx": 24576},
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if want_json:
-            body["format"] = "json"
+            body["format"] = schema or "json"     # a schema becomes a grammar: the reply always has that shape
         r = requests.post(self.base_url.rstrip("/") + "/api/chat", json=body, timeout=self.timeout)
         if not r.ok:
             raise LLMError(f"ollama HTTP {r.status_code}: {r.text[:300]}")
@@ -166,10 +167,13 @@ class Chain:
     # 4 Nov 2026: one Gemini "high demand" 503 after Groq's daily cap crashed the whole attempt.
     ROUND_WAITS = (60, 180, 300)
 
-    def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False) -> dict:
+    def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False,
+                 schema: dict | None = None) -> dict:
+        """schema: a JSON schema the reply must match. Local models enforce it while generating (Ollama structured
+        outputs; 6 Nov 2026: "exactly 3 reactions" was unreliable for a 7B without it). Cloud providers ignore it."""
         for wait in (*self.ROUND_WAITS, None):
             try:
-                return self._ask_round(system, user, temperature, careful)
+                return self._ask_round(system, user, temperature, careful, schema)
             except LLMError as exc:
                 if wait is None or all(p.exhausted for p in self.providers):
                     raise
@@ -177,7 +181,7 @@ class Chain:
                 time.sleep(wait)
         raise LLMError("unreachable")
 
-    def _ask_round(self, system: str, user: str, temperature: float, careful: bool) -> dict:
+    def _ask_round(self, system: str, user: str, temperature: float, careful: bool, schema: dict | None = None) -> dict:
         errors = []
         for p in self.providers:
             if p.exhausted:
@@ -185,7 +189,7 @@ class Chain:
             for _try in range(2):              # one retry on the same provider for a broken or cut-off reply
                 try:
                     t0 = time.monotonic()
-                    reply = p.chat(system, user, temperature, careful=careful)
+                    reply = p.chat(system, user, temperature, careful=careful, schema=schema)
                     log.info("%s answered in %.0fs", p.name, time.monotonic() - t0)
                     self.last_raw = reply
                     data = parse_json(reply)

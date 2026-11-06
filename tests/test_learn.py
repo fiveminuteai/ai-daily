@@ -86,7 +86,7 @@ def test_learned_lessons_reach_the_producer_and_the_lean_is_frozen_into_the_card
     seen = []
 
     class Chain(FakeChain):
-        def ask_json(self, system, user, temperature=0.3, careful=False):
+        def ask_json(self, system, user, temperature=0.3, careful=False, **kw):
             seen.append(user)
             return {"score": {"stakes": 3, "names": 2, "surprise": 1}, "hook": "Acme is sued[S1].",
                     "points": ["a[S1].", "b[S1].", "c[S1]."], "take": "t[S1].", "angle": "x"}

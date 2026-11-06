@@ -21,7 +21,7 @@ class Producer(FakeChain):
         super().__init__([])
         self.queue = list(replies)
 
-    def ask_json(self, system, user, temperature=0.3, careful=False):
+    def ask_json(self, system, user, temperature=0.3, careful=False, **kw):
         self.prompts.append(user)
         return self.queue.pop(0)
 

@@ -71,11 +71,15 @@ def run(date: str, model: str = "qwen2.5:7b") -> dict:
                       if ln["who"] == "guest" and (ex := copied(ln["text"], examples))]
             secs = duo_seconds({**card, "duo": duo})
             row.update(script=duo, rules=rules, facts=facts, seconds=round(secs, 1),
-                       passed=not rules and all(f["verdict"] != "unsupported" for f in facts) and secs <= 44)
+                       passed=not rules and all(f["verdict"] != "unsupported" for f in facts) and secs <= 44,
+                       confirmed=all(f["verdict"] == "supported" for f in facts))
+            row["passed_strict"] = row["passed"] and row["confirmed"]   # every fact confirmed by code, none "unsure"
         row["minutes"] = round((time.monotonic() - t0) / 60, 1)
         stories.append(row)
     out = {"date": date, "model": model, "stories": stories,
-           "score": f"{sum(r['passed'] for r in stories)}/{len(stories)} Reel scripts pass every check"}
+           "score": f"{sum(r['passed'] for r in stories)}/{len(stories)} pass every check; "
+                    f"{sum(r.get('passed_strict', False) for r in stories)}/{len(stories)} with every fact confirmed by code "
+                    "(publishable without a reader)"}
     path = config.ROOT / "data/shadow" / f"{date}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
