@@ -426,6 +426,11 @@ def _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, roo
     history = [h for h in history if h.get("date") != post["date"]] + [history_entry(post["date"], post["slug"], lineup)]
     (data_dir / "history.json").write_text(json.dumps(history[-120:], ensure_ascii=False, indent=1), encoding="utf-8")
     (posts_dir / f"{post['date']}.json").write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")
+    try:                         # every published day becomes worked examples for smaller models (fma/bank.py)
+        from .bank import add as bank_add
+        bank_add(post["date"], posts_dir)
+    except Exception:  # noqa: BLE001 - the bank must never cost a post
+        log.exception("could not add %s to the knowledge bank", post["date"])
     return Result("published", slug=post["slug"], post=post, report=report_out)
 
 

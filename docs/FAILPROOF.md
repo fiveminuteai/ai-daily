@@ -28,14 +28,19 @@ Each layer catches what the one above lets through. Status: **done** = live in t
   checked twice, marked on the page).
 - Fact-check: contractions at the start of a sentence ("They're") are no longer read as unknown names.
 
-### 3. The writer must not depend on one free model (decision needed)
-Free tiers have daily caps and outages; small local models write well from examples but are too weak to fact-check
-(on 6 Nov a 7B model dropped 33 true sentences, e.g. "the evidence does not mention 30%" when it did). Options:
-- **A. A paid model for writing and layer 2 (recommended).** About 6 calls a day at a few thousand tokens each:
-  a few dollars a month. The free models stay as the fallback, never the checker.
-- **B. Free only.** Add more free providers (OpenRouter, Cerebras, Mistral) so one cap can't stop the day; accept
-  weaker comedy and more short editions.
-- **C. Hand-written days** (what ran on 6 Nov): Claude writes and checks in a session. Reliable, not automatic.
+### 3. The writer must not depend on one free model (decided 6 Nov 2026, Pavan: no paid models)
+1. **Groq and Gemini first** (the automatic daily run, free, with every safeguard above).
+2. **Claude as the backup:** a scheduled Claude run on Pavan's existing plan checks at 08:15 India time; if there is
+   still no post it writes and checks the day by hand, following docs/MANUAL_DAY.md (`python -m fma.manual`).
+3. **The local model, prepared to take over:** not by training its weights (that needs serious hardware, and
+   Anthropic's terms don't allow training other models on Claude's output) but by building everything around it:
+   - the knowledge bank (`fma/bank.py`, data/bank/): every published day's checked sections, Reel cards and duo
+     punchlines, used as worked examples (the duo writer already reads the newest punchlines);
+   - code doing the judging: layer-2 evidence found by code (`fma/review.py`), every rule checked by code;
+   - small steps a 7B model completes (the duo writer's facts / jokes / assembly);
+   - voice, characters, animation and music already run locally (Kokoro, fma/spark.py, doubt.py, rex.py, music.py).
+   To do: a daily shadow test (the local model writes the same day; scored against what was published), so the day
+   it is good enough is measured, not guessed.
 
 ### 4. The day always has a post (done + to do)
 - Done: the daily run retries, waits out outages, has backup runs until 14:23, and raises an alert after the last.

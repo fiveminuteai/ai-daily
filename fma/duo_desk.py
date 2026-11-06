@@ -336,7 +336,10 @@ def jokes_step(chain, guest: str, lines: list[str]) -> list[str] | None:
     """Step 2: one reaction per Spark line, from the guest's approved fact -> joke pairs; checked in code (no numbers,
     names or citations, length), sent back once."""
     name = guest.capitalize()
-    pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in JOKE_PAIRS[guest])
+    from .bank import joke_pairs           # the newest published punchlines join the curated ones (fma/bank.py)
+    seen = {j for _, j in JOKE_PAIRS[guest]}
+    examples = JOKE_PAIRS[guest] + [(f, j) for f, j in joke_pairs(guest) if j not in seen]
+    pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in examples)
     base = JOKES_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], n=len(lines), pairs=pairs,
                              lines="\n".join(f"{k + 1}. {plain(t)}" for k, t in enumerate(lines)))
     prompt = base
