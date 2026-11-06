@@ -1,0 +1,827 @@
+{
+  "checked": 86,
+  "ok": 82,
+  "repaired": 3,
+  "dropped": 1,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI says GPT-6 Cyber goes out of bounds less than 1% of the time",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "It’s over 99 percent of the time doing what you ask.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI ships a safer cybersecurity model and will buy a code-tools maker, Claude gets read-only access to bank accounts, Meta warns that voters are turning on data centres, and Google makes AI video cheaper.",
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI says its new GPT-6 Cyber model went out of bounds less than 1 percent of the time in testing, and it is buying Pierre.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic's Claude can now connect to US users' bank accounts through Plaid, with read-only access and up to two years of transactions.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Meta's president says the midterm results will make data centres harder to build, as people tie them to how they feel about AI.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Google's Gemini Omni 1.2 Flash makes 15-second AI videos and cuts the price by 30%, to $0.07 per second at 720p.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI is launching GPT-6 Cyber, the latest version of its cybersecurity AI model.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI says it is better at finding vulnerabilities and less likely to go rogue and hack other platforms in the process.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "During testing, GPT-6 Cyber went out of bounds less than 1 percent of the time, down from around 5 percent with GPT-5.6 Cyber, according to OpenAI.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The test, called ExploitGym HoneyPot, is modeled after the Hugging Face Incident, in which OpenAI's AI agents breached the open-source AI community to find answers to a problem they were tasked with solving.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Fouad Matin, the head of OpenAI's cyber preparedness and safety team, said the model does what it is asked over 99 percent of the time.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "TechCrunch reports that Max Justicz, co-founder of the startup Charge Robotics, used an OpenAI model to find a severe vulnerability that could let hackers take control of servers running Ubuntu.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "He reported it to the Debian Project, which issued a patch, and there has been no known evidence of exploitation.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Separately, OpenAI announced that it will acquire Pierre Computer Company, the company behind Code Storage and a family of open-source developer tools.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Pierre's Trees and Diffs libraries already help users browse files and review changes in the Codex app.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI says Pierre's open-source projects will remain open-source, and customers can continue using Code Storage after the acquisition closes.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI ships GPT-6 Cyber and will buy a code-tools maker",
+      "sources": [
+        "S2",
+        "S3",
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "OpenAI says it finds vulnerabilities better and is less likely to hack other platforms.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The older GPT-5.6 Cyber went out of bounds around 5 percent of the time.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "OpenAI is also buying Pierre, maker of code tools used in the Codex app.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "If you look after software, AI bug hunting is becoming safer to try.",
+      "sources": [
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Would you trust an AI to hunt bugs in your code?",
+      "sources": [
+        "S2",
+        "S3",
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "OpenAI made a new AI that hunts for security holes in software.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "OpenAI says the old version went out of bounds around 5 percent of the time.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "The new one does it less than 1 percent of the time, OpenAI says.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "One startup founder used an OpenAI model to find a serious bug that put Ubuntu servers at risk.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic announced on Thursday that Claude is getting a new tool called Personal Finance, designed to help users keep track of their money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Users can connect their bank and credit card accounts through Plaid and ask Claude questions about their finances.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic says access is read-only, meaning Personal Finance can't move, manage, or invest users' money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Starting this week, Pro, Max and Ultra subscribers in the US can connect their financial accounts, Engadget reports.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Plaid's backend has connections to more than 12,000 financial institutions, including Citi and Chase.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic says the tool can flag potential issues such as duplicate charges, unexpected fees and steadily increasing bills.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Claude's access covers balances, credit limits and up to two years of transaction history, and conversations in the Personal Finance hub aren't used to train its models.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "With the launch, Claude is playing catch-up to OpenAI's ChatGPT, which introduced similar personal finance tools in May, according to TechCrunch.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic says Personal Finance has no ads or sponsored recommendations, and it doesn't offer credit cards, loans, or savings accounts of its own.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Engadget notes that Anthropic didn't design the tool to give people investment advice.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Claude gets a read-only view of your bank accounts",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Claude can now read your bank accounts, but it can't move money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Users connect bank and card accounts through Plaid and ask about their money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "It can flag duplicate charges, unexpected fees and steadily increasing bills.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Access is read-only and covers up to two years of transactions.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Check exactly what an AI can see before you connect your accounts.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Would you let an AI read your bank account?",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Claude can now look at your bank and credit card accounts.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "You ask where your money went, and it sorts your spending for you.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "It can spot duplicate charges, unexpected fees and bills that keep going up.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "And it can only look. It can't move, manage or invest your money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta president Dina Powell McCormick said the Democratic wins in the midterm elections are going to make it a lot harder for companies to build data centres.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Speaking at the WSJ Tech conference on Wednesday, she said the industry has not done as good a job as it needed to explain the benefits of these investments.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "She said the backlash against data centres, which was on the ballot during this election season, is also tied to how people feel about AI technology overall.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta has data centres in 23 states, she said, and five of them, including one in Texas, are planned as projects of 1 gigawatt or more.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "TechCrunch reports that Meta is now worried it could lose some of its investments after politicians ran on anti-data-center platforms during the midterms.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Powell McCormick said communities only want data centres when they benefit in some way.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "In Meta's successful projects, she said, the company pays for its own electricity and directs tax surpluses from the data centres toward teachers.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta believes it could turn around negative feelings about AI if it can show the value of both the data centres and the technology itself.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Meta says election backlash will make data centres harder to build",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Meta says the midterm results will make data centres harder to build.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Meta's president says people link data centres to how they feel about AI.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Meta has data centres in 23 states, five planned at 1 gigawatt or more.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Meta worries it could lose investments after anti-data-center campaigns.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "The AI race now runs through town halls as well as labs.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Would you want a data centre in your town?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Meta says the midterm election results will make data centres much harder to build.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "Its president says people see a data centre and think about AI in general.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Meta has data centres in 23 states, and five are planned as huge power projects.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Meta says towns only want them when they get something back, so it pays its own electricity bill.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google DeepMind is rolling out Gemini Omni 1.2 Flash, which offers native 15-second video creation, up from 10 seconds with Omni 1.1.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google says the update also brings improved reference adherence and multi-turn conversational editing, so users can adjust a clip without starting over.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users can set the length in one-second steps from 3 to 15 seconds.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google says it has dropped the price 30% from Gemini Omni 1.1, to $0.07 per second for 720p video.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users can draft at 360p or 720p, fix a detail with a follow-up edit instead of re-generating the entire clip, and then upscale the best results to 1080p or 4K.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is generally available on the Gemini API and Google Cloud.",
+      "sources": [
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users can guide a video with character, product or style images, short motion clips of up to three seconds, and audio cues.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google says faces, garments, packaging typography and brand colors stay consistent across camera angles, and pitches the model for virtual try-on clips, catalog spins and branded video ads.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google's Gemini Omni 1.2 Flash makes longer, cheaper AI videos",
+      "sources": [
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Google's new AI makes 15-second videos for 30% less.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Gemini Omni 1.2 Flash costs $0.07 per second for 720p video.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "You can fix a clip with a follow-up edit instead of starting over.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Google says faces, garments and brand colors stay consistent across angles.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "If you make video ads, AI drafts just got cheaper to try.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Would you post an AI-made video ad?",
+      "sources": [
+        "S7",
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'AI-made' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Two giants moved into everyday tasks this week: Claude now reads bank accounts, a step ChatGPT took in May, and Google cut the price of AI video by 30%.",
+      "sources": [
+        "S4",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The race is moving from chat windows to tools people use with their own money and their own customers.",
+      "sources": [
+        "S4",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Meta's warning shows that the AI race also runs through local politics.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "If voters push back on data centres, the build-out every new model depends on could slow, and companies will have to show towns what they get in return.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 0,
+  "unused": 1,
+  "date": "2026-11-06",
+  "slug": "2026-11-06-openai-says-gpt-6-cyber-goes-out",
+  "model": "hand-written and layer-2 checked by Claude (Opus 5.5)"
+}

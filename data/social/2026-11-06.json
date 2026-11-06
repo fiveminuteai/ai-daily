@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-06",
+ "slug": "2026-11-06-openai-says-gpt-6-cyber-goes-out",
+ "headline": "OpenAI says GPT-6 Cyber goes out of bounds less than 1% of the time",
+ "url": "https://fiveminuteai.net/posts/2026-11-06-openai-says-gpt-6-cyber-goes-out/",
+ "generated_at": "2026-11-06T04:55:44+00:00",
+ "items": [
+  {
+   "id": "2026-11-06-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "OpenAI says GPT-6 Cyber goes out of bounds less than 1% of the time\n\n• OpenAI says its new GPT-6 Cyber model went out of bounds less than 1 percent of the time in testing, and it is buying Pierre.\n• Anthropic's Claude can now connect to US users' bank accounts through Plaid, with read-only access and up to two years of transactions.\n• Meta's president says the midterm results will make data centres harder to build, as people tie them to how they feel about AI.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-06/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-06-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI says GPT-6 Cyber goes out of bounds less than 1% of the time\n\n• OpenAI says its new GPT-6 Cyber model went out of bounds less than 1 percent of the time in testing, and it is buying Pierre.\n\nhttps://fiveminuteai.net/posts/2026-11-06-openai-says-gpt-6-cyber-goes-out/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 221
+  },
+  {
+   "id": "2026-11-06-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI says GPT-6 Cyber goes out of bounds less than 1% of the time\n\n• OpenAI says its new GPT-6 Cyber model went out of bounds less than 1 percent of the time in testing, and it is buying Pierre.\n• Anthropic's Claude can now connect to US users' bank accounts through Plaid, with read-only access and up to two years of transactions.\n• Meta's president says the midterm results will make data centres harder to build, as people tie them to how they feel about AI.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-06-openai-says-gpt-6-cyber-goes-out/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-06-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Claude can now read your bank accounts, but it can't move money[S4].",
+   "text": "Claude can now read your bank accounts, but it can't move money.\n\n• Users connect bank and card accounts through Plaid and ask about their money.\n• It can flag duplicate charges, unexpected fees and steadily increasing bills.\n• Access is read-only and covers up to two years of transactions.\n\nDo this: Check exactly what an AI can see before you connect your accounts.\n\nYour take: Would you let an AI read your bank account? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-06/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-06T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-06-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Meta says the midterm results will make data centres harder to build[S6].",
+   "text": "Meta says the midterm results will make data centres harder to build.\n\n• Meta's president says people link data centres to how they feel about AI.\n• Meta has data centres in 23 states, five planned at 1 gigawatt or more.\n• Meta worries it could lose investments after anti-data-center campaigns.\n\nOur read: The AI race now runs through town halls as well as labs.\n\nYour take: Would you want a data centre in your town? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-06/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-06T13:30:00+00:00"
+  },
+  {
+   "id": "2026-11-06-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "GPT-6 Cyber went out of bounds less than 1% of the time in testing[S2].",
+   "text": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.\n\n• OpenAI says it finds vulnerabilities better and is less likely to hack other platforms.\n• The older GPT-5.6 Cyber went out of bounds around 5 percent of the time.\n• OpenAI is also buying Pierre, maker of code tools used in the Codex app.\n\nOur read: If you look after software, AI bug hunting is becoming safer to try.\n\nYour take: Would you trust an AI to hunt bugs in your code? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-06/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-07T03:30:00+00:00"
+  }
+ ]
+}
