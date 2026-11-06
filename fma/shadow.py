@@ -102,13 +102,17 @@ def render(date: str) -> list[str]:
     order = [sec["title"] for _n, sec in card_stories(post)]         # reels/01.mp4 is the first of these
     made = []
     for r in res["stories"]:
-        if not r.get("script") or r["story"] not in order:
-            continue
+        if not r.get("script") or not r.get("passed") or r["story"] not in order:
+            continue                     # only scripts that pass every check become Reels
         k = order.index(r["story"]) + 1
         sec = next(s for s in post["sections"] if s["title"] == r["story"])
         guest, lines = duo_script({**sec["card"], "duo": r["script"]}, OUTRO)
         local = folder / f"local-{k:02d}.mp4"
-        duo_reel(post, sec, k, config.site_config(), local, lines, guest=guest)
+        try:
+            duo_reel(post, sec, k, config.site_config(), local, lines, guest=guest)
+        except Exception as exc:  # noqa: BLE001 - one story must not stop the others
+            print(f"could not render {r['story']!r}: {exc}")
+            continue
         published = folder / f"published-{k:02d}.mp4"
         url = f"{config.site_config()['base_url'].rstrip('/')}/share/{date}/reels/{k:02d}.mp4"
         urllib.request.urlretrieve(url, published)
