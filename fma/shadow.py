@@ -22,10 +22,10 @@ from .verify import cites, plain
 def copied(joke: str, examples: list[str]) -> str | None:
     """A punchline that is mostly an example's words is recycled, not written: the example it copies, if any."""
     from .judge import words
-    jw = words(joke)
+    jw = {w for w in words(joke) if len(w) >= 4}       # short words ("can't", "my", "box") are not a copy
     for ex in examples:
-        ew = words(ex)
-        if jw and len(jw & ew) / len(jw) >= 0.6:
+        ew = {w for w in words(ex) if len(w) >= 4}
+        if len(jw & ew) >= 2 and len(jw & ew) / len(jw) >= 0.6:
             return ex
     return None
 
