@@ -61,13 +61,15 @@ def test_next_day_does_not_repeat_yesterdays_stories(proj, fake_web):
     assert not (proj / "content/posts/2026-10-28.json").exists()
 
 
-def test_retry_once_then_publish(proj, fake_web):
+def test_unverifiable_headline_is_replaced_not_fatal(proj, fake_web):
+    # 6 Nov 2026 backup plan: a headline that fails its check becomes the lead story's checked title
     bad = good_draft()
-    bad["headline"] = "Globex buys Acme for $40 billion"      # unverifiable headline -> gate fails
+    bad["headline"] = "Globex buys Acme for $40 billion"      # unverifiable headline
     chain = FakeChain(replies(bad) + replies(good_draft()))
     r = run(proj, fake_web, chain)
     assert r.status == "published"
-    assert any("rejected" in q and "headline" in q for q in chain.prompts[4:])   # the retry was told why
+    post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
+    assert post["headline"] == post["sections"][0]["title"] and "Globex" not in post["headline"]
 
 
 def test_two_failures_skip_the_day_and_write_nothing(proj, fake_web):
@@ -198,12 +200,12 @@ def test_headings_get_capital_first_letter_and_short_forms():
     assert d["sections"][0]["title"] == "Nvidia beats the SEC"
 
 
-def test_headline_rejected_by_model_check_retries_then_skips(proj, fake_web):
+def test_headline_rejected_by_model_check_falls_back_to_the_lead_title(proj, fake_web):
     chain = FakeChain(replies(good_draft()) + replies(good_draft()), flag_text={"[headline]": "joins two events"})
     r = run(proj, fake_web, chain)
-    assert r.status == "skipped" and "headline not verified" in r.reason and "model check: joins two events" in r.reason
-    assert any("rejected" in p and "joins two events" in p for p in chain.prompts)   # the retry was told why
-    assert not (proj / "content/posts/2026-10-27.json").exists()
+    assert r.status == "published"
+    post = json.loads((proj / "content/posts/2026-10-27.json").read_text(encoding="utf-8"))
+    assert post["headline"] == post["sections"][0]["title"]
 
 
 def test_correction_with_suppress_withholds_the_words(proj, fake_web, tmp_path):

@@ -135,3 +135,19 @@ def test_a_stray_exclamation_is_calmed_not_fatal():
                       "why_it_matters": [{"text": "W!"}], "quote": {"text": "Q!"}})
     assert post["dek"] == "Big day." and post["sections"][0]["paragraphs"] == ["P."]
     assert post["quote"]["text"] == "Q!"            # quotes stay verbatim
+
+
+def test_short_edition_only_for_length_and_shape_failures():
+    from fma.gate import soft_only
+    assert soft_only(["word count 702 outside 880-1150", "no 'why it matters'"])
+    assert not soft_only(["word count 702 outside 880-1150", "hype words: ['revolutionary']"])
+    assert not soft_only(["model fact-check pass not run"])
+    assert not soft_only([])
+
+
+def test_headline_rescue_uses_the_checked_lead_title():
+    from fma.gate import rescue_headline
+    report = {"headline_problems": ["model check: joins two events"]}
+    post = rescue_headline({"headline": "Bad", "sections": [{"title": "Lead story title"}]}, report)
+    assert post["headline"] == "Lead story title" and not report.get("headline_problems")
+    assert report["headline_rescued"]["was"] == "Bad"

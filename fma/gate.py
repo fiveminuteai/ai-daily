@@ -56,6 +56,28 @@ def calm_post(post: dict) -> dict:
             "why_it_matters": [{**w, "text": calm(w.get("text", ""))} for w in post.get("why_it_matters", [])]}
 
 
+def rescue_headline(post: dict, report: dict) -> dict:
+    """A headline that failed its check is replaced by the lead story's title, which passed both fact-check layers,
+    instead of failing the day (6 Nov 2026: a headline that mixed two stories cost a whole attempt)."""
+    if not report.get("headline_problems") or not post.get("sections"):
+        return post
+    title = post["sections"][0].get("title")
+    if not title:
+        return post
+    report["headline_rescued"] = {"was": post.get("headline", ""), "problems": report.pop("headline_problems")}
+    return {**post, "headline": title}
+
+
+# Rules a draft can fail and still be a true, fully fact-checked post: only its length and shape. On a day when every
+# attempt fails on these alone, the last attempt goes out as a short edition instead of the day being skipped.
+SOFT_FAILS = ("word count ", "no 'why it matters'")
+SHORT_EDITION = {"words_min": 450, "require_why": False}
+
+
+def soft_only(fails: list[str]) -> bool:
+    return bool(fails) and all(f.startswith(SOFT_FAILS) for f in fails)
+
+
 def word_count(post: dict) -> int:
     return sum(len(re.findall(r"[\w’'\-]+", plain(t))) for t in body_texts(post)) + len(post.get("headline", "").split())
 
@@ -131,7 +153,7 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
         fails.append(f"'what happened' has {len(post.get('what_happened', []))} bullets, needs 3")
     if not pipe.get("min_stories", 3) <= len(post.get("sections", [])) <= 5:
         fails.append(f"{len(post.get('sections', []))} sections, needs {pipe.get('min_stories', 3)}-5")
-    if not post.get("why_it_matters"):
+    if not post.get("why_it_matters") and pipe.get("require_why", True):
         fails.append("no 'why it matters'")
     if not report.get("layer1_done"):
         fails.append("verification pass not run")
