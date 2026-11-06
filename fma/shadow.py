@@ -19,6 +19,17 @@ from . import config
 from .verify import cites, plain
 
 
+def copied(joke: str, examples: list[str]) -> str | None:
+    """A punchline that is mostly an example's words is recycled, not written: the example it copies, if any."""
+    from .judge import words
+    jw = words(joke)
+    for ex in examples:
+        ew = words(ex)
+        if jw and len(jw & ew) / len(jw) >= 0.6:
+            return ex
+    return None
+
+
 def local_chain(model: str):
     from .llm import Chain, Provider
     return Chain([Provider(name="ollama", base_url="http://localhost:11434", model=model, key_env=None, local=True,
@@ -53,6 +64,11 @@ def run(date: str, model: str = "qwen2.5:7b") -> dict:
                     text = " ".join(f"{src[i].get('title', '')}. {src[i].get('text', '')}" for i in cites(ln["text"]) if i in src)
                     verdict, _ev, why = judge(ln["text"], text) if text else ("unsupported", "", "cites no saved source")
                     facts.append({"line": plain(ln["text"]), "verdict": verdict, "why": why})
+            from .bank import joke_pairs
+            from .duo_desk import JOKE_PAIRS
+            examples = [j for _, j in JOKE_PAIRS[row["guest"]] + joke_pairs(row["guest"], 50)]
+            rules += [f"recycled punchline: \"{ln['text']}\" copies \"{ex}\"" for ln in duo["lines"]
+                      if ln["who"] == "guest" and (ex := copied(ln["text"], examples))]
             secs = duo_seconds({**card, "duo": duo})
             row.update(script=duo, rules=rules, facts=facts, seconds=round(secs, 1),
                        passed=not rules and all(f["verdict"] != "unsupported" for f in facts) and secs <= 44)

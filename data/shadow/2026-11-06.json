@@ -1,0 +1,288 @@
+{
+ "date": "2026-11-06",
+ "model": "qwen2.5:7b",
+ "stories": [
+  {
+   "story": "OpenAI ships GPT-6 Cyber and will buy a code-tools maker",
+   "published": {
+    "guest": "doubt",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "OpenAI made a new AI that hunts for security holes in software[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "A hacker that works for you. What could go wrong?"
+     },
+     {
+      "who": "spark",
+      "text": "OpenAI says the old version went out of bounds around 5 percent of the time[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "Out of bounds. So, like a puppy that eats the couch."
+     },
+     {
+      "who": "spark",
+      "text": "The new one does it less than 1 percent of the time, OpenAI says[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "So now it only eats the couch on weekends.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "One startup founder used an OpenAI model to find a serious bug that put Ubuntu servers at risk[S3]."
+     },
+     {
+      "who": "guest",
+      "text": "Meanwhile I can't even find my keys. I'm a box.",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "guest": "doubt",
+   "passed": false,
+   "why": "the local model did not finish the script within the retries",
+   "minutes": 1.7
+  },
+  {
+   "story": "Claude gets a read-only view of your bank accounts",
+   "published": {
+    "guest": "doubt",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "Claude can now look at your bank and credit card accounts[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "Great. Now even my money has a chatbot."
+     },
+     {
+      "who": "spark",
+      "text": "You ask where your money went, and it sorts your spending for you[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "I already know where it went. Snacks."
+     },
+     {
+      "who": "spark",
+      "text": "It can spot duplicate charges, unexpected fees and bills that keep going up[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "Finally, someone to blame that isn't me.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "And it can only look. It can't move, manage or invest your money[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "Same as me in a shop. Just looking.",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "guest": "doubt",
+   "script": {
+    "guest": "doubt",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "Claude is getting a new finance tool called Personal Finance[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "Finally, someone who can't handle my finances."
+     },
+     {
+      "who": "spark",
+      "text": "It lets users ask questions about their bank accounts[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "Why bother, I'm a box."
+     },
+     {
+      "who": "spark",
+      "text": "The tool can spot issues like extra fees and big bills[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "So helpful. Like a weather forecast.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "Claude can only read balances and past transactions[S4]."
+     },
+     {
+      "who": "guest",
+      "text": "And it can't add to my savings?",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "rules": [
+    "recycled punchline: \"Why bother, I'm a box.\" copies \"Meanwhile I can't even find my keys. I'm a box.\"",
+    "recycled punchline: \"And it can't add to my savings?\" copies \"Meanwhile I can't even find my keys. I'm a box.\""
+   ],
+   "facts": [
+    {
+     "line": "Claude is getting a new finance tool called Personal Finance.",
+     "verdict": "supported",
+     "why": "100% of the claim's words are in the evidence"
+    },
+    {
+     "line": "It lets users ask questions about their bank accounts.",
+     "verdict": "supported",
+     "why": "100% of the claim's words are in the evidence"
+    },
+    {
+     "line": "The tool can spot issues like extra fees and big bills.",
+     "verdict": "supported",
+     "why": "67% of the claim's words are in the evidence"
+    },
+    {
+     "line": "Claude can only read balances and past transactions.",
+     "verdict": "supported",
+     "why": "86% of the claim's words are in the evidence"
+    }
+   ],
+   "seconds": 33.7,
+   "passed": false,
+   "minutes": 0.4
+  },
+  {
+   "story": "Meta says election backlash will make data centres harder to build",
+   "published": {
+    "guest": "rex",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "Meta says the midterm election results will make data centres much harder to build[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "People voting against big power-hungry buildings? Finally, my people."
+     },
+     {
+      "who": "spark",
+      "text": "Meta has data centres in 23 states, and five are planned as huge power projects[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Huge and hungry. I remember huge and hungry. It ended badly.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "Meta says towns only want them when they get something back, so it pays its own electricity bill[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Paying your own bills. Even I never managed that.",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "guest": "rex",
+   "script": {
+    "guest": "rex",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "Meta says building new data centres will be tougher after the elections[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Bills? Even I never managed that in my heyday."
+     },
+     {
+      "who": "spark",
+      "text": "Communities only want them if they get something in return[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Huge and hungry? I remember huge and hungry dinosaurs. Worse."
+     },
+     {
+      "who": "spark",
+      "text": "Meta runs data centres in 23 states, some planned to be huge[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Communities? They just wanted to see me go.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "TechCrunch says Meta fears losing investments due to anti-data-center politicians[S6]."
+     },
+     {
+      "who": "guest",
+      "text": "Investments? I invested in extinction. Big mistake.",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "rules": [
+    "recycled punchline: \"Bills? Even I never managed that in my heyday.\" copies \"Paying your own bills. Even I never managed that.\"",
+    "recycled punchline: \"Huge and hungry? I remember huge and hungry dinosaurs. Worse.\" copies \"Huge and hungry. I remember huge and hungry. It ended badly.\""
+   ],
+   "facts": [
+    {
+     "line": "Meta says building new data centres will be tougher after the elections.",
+     "verdict": "supported",
+     "why": "67% of the claim's words are in the evidence"
+    },
+    {
+     "line": "Communities only want them if they get something in return.",
+     "verdict": "unsure",
+     "why": "the source says 'n't want this'; the claim has no negative"
+    },
+    {
+     "line": "Meta runs data centres in 23 states, some planned to be huge.",
+     "verdict": "supported",
+     "why": "78% of the claim's words are in the evidence"
+    },
+    {
+     "line": "TechCrunch says Meta fears losing investments due to anti-data-center politicians.",
+     "verdict": "supported",
+     "why": "60% of the claim's words are in the evidence"
+    }
+   ],
+   "seconds": 42.4,
+   "passed": false,
+   "minutes": 0.6
+  }
+ ],
+ "score": "0/3 Reel scripts pass every check",
+ "reviewer_note": "Claude, 6 Nov: the passing Doubt script is safe but flat (jokes don't follow their lines); not yet publishable quality."
+}
