@@ -336,7 +336,7 @@ def binding_problems(lines: list[str], source: str) -> list[str]:
             num, noun = m.group(1).rstrip(".,"), _stem(m.group(2).lower())
             known = src_nouns.get(num)
             if known and noun not in known and noun not in ("percent", "billion", "million", "per", "time", "times"):
-                out.append(f"line {k + 1}: the source says "{num} {said[num]}", not '{m.group(2)}'")
+                out.append(f"line {k + 1}: the source says '{num} {said[num]}', not '{num} {m.group(2)}'")
     return out
 
 
