@@ -103,8 +103,8 @@ def _programs():
 
 def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7) -> dict:
     import dspy
-    lm = dspy.LM(f"ollama_chat/{model}", api_base="http://localhost:11434", api_key="", temperature=0.4, max_tokens=700)
-    dspy.configure(lm=lm)
+    lm = dspy.LM(f"ollama_chat/{model}", api_base="http://localhost:11434", api_key="", temperature=0.4, max_tokens=900)
+    dspy.configure(lm=lm, adapter=dspy.JSONAdapter())   # 6 Nov 2026: the default text format confused the 7B
     facts, joke, persona = _programs()
     rnd = random.Random(seed)
 
