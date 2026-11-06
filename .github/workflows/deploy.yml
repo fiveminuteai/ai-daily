@@ -55,6 +55,16 @@ jobs:
       - name: Remotion
         run: |
           cd reels && npm ci --no-audit --no-fund && npx remotion browser ensure             || echo "::warning::Remotion not ready: Reels will be drawn in Python"
+      # Mouth shapes from the voice (Rhubarb Lip Sync, MIT; fma/lipsync.py). Without it the mouths follow loudness.
+      - uses: actions/cache@v4
+        with:
+          path: .tools
+          key: rhubarb-1.14.0
+      - name: Rhubarb
+        run: |
+          if [ ! -x .tools/Rhubarb-Lip-Sync-1.14.0-Linux/rhubarb ]; then
+            mkdir -p .tools && curl -fsSL --retry 3 -o .tools/rh.zip               https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.14.0/Rhubarb-Lip-Sync-1.14.0-Linux.zip               && unzip -q -o .tools/rh.zip -d .tools && rm .tools/rh.zip               || echo "::warning::Rhubarb not installed: mouths will follow loudness"
+          fi
       - run: python -m fma build --media
       - uses: actions/upload-pages-artifact@v5
         with:

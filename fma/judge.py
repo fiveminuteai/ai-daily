@@ -80,7 +80,8 @@ def judge(claim: str, source_text: str) -> tuple[str, str, str]:
     cover = len(cw & words(win)) / max(1, len(cw))
     if NEG.search(c_n) and not NEG.search(win_n):
         return "unsure", ev, "the claim has a negative ('not', 'can't'...) the evidence lacks"
-    if NEG.search(win_n) and not NEG.search(c_n):
+    soft = re.search(r"\b(less|fewer|lower|reduc\w*|avoid\w*|stop\w*|refus\w*)\b", c_n)   # "less likely to hack" ~ "not hacking"
+    if NEG.search(win_n) and not NEG.search(c_n) and not soft:
         for m in NEG.finditer(win_n):                  # a negative right before one of the claim's words
             after = words(" ".join(win_n[m.end():].split()[:3]))
             if after & cw:

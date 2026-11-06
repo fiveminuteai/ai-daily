@@ -340,7 +340,7 @@ def binding_problems(lines: list[str], source: str) -> list[str]:
     return out
 
 
-def facts_step(chain, section: dict) -> list[str] | None:
+def facts_step(chain, section: dict, check_facts: bool = True) -> list[str] | None:
     """Step 1: the story as 3-4 plain Spark lines with citations, checked in code (citations, hard words, length,
     limits like "at least"), sent back once with the problems."""
     source = " ".join(section.get("paragraphs", []))
@@ -364,6 +364,15 @@ def facts_step(chain, section: dict) -> list[str] | None:
                 bad.append(f"line {k + 1}: replace {hard} with plain everyday words")
         bad += ceiling_problems([{"who": "spark", "text": t} for t in lines], source)
         bad += binding_problems(lines, source)
+        if not bad and check_facts and _try < 2:   # the code fact-checker in the loop (fma/judge.py), firm on the
+            #                                          first two tries; an "unsure" line on the last try goes on to
+            #                                          the published day's own fact-check layers
+            from .judge import judge
+            for k, t in enumerate(lines):
+                verdict, _ev, why = judge(t, source)
+                if verdict != "supported":
+                    bad.append(f"line {k + 1} is not clearly backed by the story text ({why}): say it closer to the "
+                               "text's own words, keeping 'will', 'says', 'at least' and any 'not'")
         if not bad:
             return lines
         prompt = base + "\n\nYOUR LAST REPLY BROKE THESE RULES. Fix every one:\n" + "\n".join(f"- {b}" for b in bad)

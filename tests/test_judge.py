@@ -23,3 +23,10 @@ def test_broken_claims_never_pass():
     assert v("Users can add short motion clips of three seconds[S1].") == "unsupported"                # limit dropped
     assert v("OpenAI has acquired Pierre Computer Company[S1].") != "supported"                        # plan as done
     assert v("Personal Finance can move, manage and invest users' money[S1].") != "supported"          # negative lost
+
+
+def test_less_counts_as_negative_but_only_does_not():
+    src = ("OpenAI says GPT-6 Cyber is less likely to go rogue and hack other platforms. It is not hacking other companies. "
+           "Anthropic says access is read-only, meaning Personal Finance can't move, manage, or invest users' money.")
+    assert judge("It is less likely to hack[S1].", src)[0] == "supported"
+    assert judge("Access is read-only: it can move, manage or invest your money[S1].", src)[0] != "supported"   # flipped
