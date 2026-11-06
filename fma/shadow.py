@@ -134,7 +134,8 @@ def main() -> None:
     ap.add_argument("--render", action="store_true", help="also render the local model's Reels beside the published ones")
     ap.add_argument("--render-only", action="store_true", help="render the saved shadow scripts without running the model")
     a = ap.parse_args()
-    date = a.date or _today()
+    posts = sorted((config.ROOT / "content/posts").glob("*.json"))
+    date = a.date or (posts[-1].stem if posts else _today())     # the latest published day (the nightly run is at 1:00)
     if a.render_only:
         for f in render(date):
             print("wrote", f)
