@@ -462,6 +462,9 @@ def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest
     examples = [j for _, j in JOKE_PAIRS[guest] + joke_pairs(guest, 50)] + said
     if copied(cand, examples):
         return -1, "a copy"
+    opening = " ".join(re.findall(r"[a-z']+", cand.lower())[:2])
+    if opening and any(" ".join(re.findall(r"[a-z']+", x.lower())[:2]) == opening for x in said):
+        return -1, f"starts like an earlier reaction ('{opening}...')"   # 6 Nov 2026: three "Great. Now even my..."
     cw = {w for w in words(cand) if len(w) >= 4}
     own = len(cw & words(plain(line)))
     ahead = max([len(cw & words(plain(x))) for x in later] or [0])
