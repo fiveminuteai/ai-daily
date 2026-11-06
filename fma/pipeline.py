@@ -17,7 +17,7 @@ from . import config
 from .editor import apply_editor
 from .extract import about_title, extract_item
 from .feeds import fetch_all
-from .gate import check_images, run_gate, word_count
+from .gate import calm_post, check_images, run_gate, word_count
 from .rank import history_entry, lineup_caps, pick_lineup, rank
 from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
@@ -268,6 +268,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                 verified, report = llm_check(chain, verified, sources, report)
             times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
+            post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
             times["gate"] = time.monotonic() - t
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day

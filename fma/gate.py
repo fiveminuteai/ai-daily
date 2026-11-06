@@ -27,6 +27,35 @@ def body_texts(post: dict) -> list[str]:
     return parts
 
 
+QUOTED_RE = re.compile(r"[\"“][^\"“”]*[\"”]")
+
+
+def unquoted(text: str) -> str:
+    """The text without its quotations: a verbatim quote keeps its own punctuation."""
+    return QUOTED_RE.sub(" ", text)
+
+
+def calm(text: str) -> str:
+    """The writer's "!" becomes a full stop; quotations are left exactly as said. 6 Nov 2026: a draft that passed
+    every other check was thrown away for one exclamation mark, and with the main model over its daily limit the
+    retry was weaker, so the day was skipped."""
+    out, last = [], 0
+    for m in QUOTED_RE.finditer(text):
+        out.append(re.sub(r"!+", ".", text[last:m.start()]).replace("..", "."))
+        out.append(m.group(0))
+        last = m.end()
+    out.append(re.sub(r"!+", ".", text[last:]).replace("..", "."))
+    return "".join(out)
+
+
+def calm_post(post: dict) -> dict:
+    """calm() over the writer's prose: dek, bullets, section titles and paragraphs, why it matters (not the quote)."""
+    return {**post, "dek": calm(post.get("dek", "")), "what_happened": [calm(t) for t in post.get("what_happened", [])],
+            "sections": [{**sec, "title": calm(sec.get("title", "")), "paragraphs": [calm(p) for p in sec.get("paragraphs", [])]}
+                         for sec in post.get("sections", [])],
+            "why_it_matters": [{**w, "text": calm(w.get("text", ""))} for w in post.get("why_it_matters", [])]}
+
+
 def word_count(post: dict) -> int:
     return sum(len(re.findall(r"[\w’'\-]+", plain(t))) for t in body_texts(post)) + len(post.get("headline", "").split())
 
@@ -112,7 +141,7 @@ def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], htt
     hype = [w for w in HYPE_WORDS if re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", low)]
     if hype:
         fails.append(f"hype words: {hype}")
-    if "!" in low:
+    if "!" in unquoted(low):
         fails.append("exclamation mark in body")
     shown = [post.get("headline", "")] + body_texts(post) + [s.get("title", "") for s in post.get("sources", [])]
     garbled = [t[:60] for t in shown if MOJIBAKE_RE.search(t or "")]
