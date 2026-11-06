@@ -195,7 +195,8 @@ def publish(date: str) -> None:
         sys.exit(f"not published: the gate failed ({checked['fails']}). Run check again after fixing draft.json")
     lineup = pickle.load(open(w / "lineup.pkl", "rb"))
     r = _commit(checked["post"], checked["report"], lineup, load_json(ROOT / "data/history.json", []),
-                ROOT / "content/posts", ROOT / "content/reports", ROOT / "data", ROOT, lambda **kw: build(**kw))
+                ROOT / "content/posts", ROOT / "content/reports", ROOT / "data", ROOT, lambda **kw: build(**kw),
+                json.loads((w / "sources.json").read_text(encoding="utf-8")))
     if r.status != "published":
         sys.exit(f"not published: {r.reason}")
     print("published", r.slug)

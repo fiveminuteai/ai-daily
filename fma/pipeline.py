@@ -291,7 +291,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
         _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
         if not fails:
             t = time.monotonic()
-            result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn)
+            result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources)
             ok = result.status == "published"
             _stage(summary, "publish", t, "ok" if ok else "failed",
                    **({"word_count": post["word_count"], "sources": len(post["sources"])} if ok else {"error": result.reason}))
@@ -402,7 +402,7 @@ def _yaml(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
-def _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn) -> Result:
+def _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources=None) -> Result:
     """Build the whole site in a scratch folder with the new post first; only if that passes the image check
     do the post, report and history get written. Nothing half-made ever lands in content/."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -426,6 +426,9 @@ def _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, roo
     history = [h for h in history if h.get("date") != post["date"]] + [history_entry(post["date"], post["slug"], lineup)]
     (data_dir / "history.json").write_text(json.dumps(history[-120:], ensure_ascii=False, indent=1), encoding="utf-8")
     (posts_dir / f"{post['date']}.json").write_text(json.dumps(post, ensure_ascii=False, indent=2), encoding="utf-8")
+    if sources:                  # the day's numbered sources with their text, so any model can be tested on real days
+        (data_dir / "sources").mkdir(parents=True, exist_ok=True)
+        (data_dir / "sources" / f"{post['date']}.json").write_text(json.dumps(sources, ensure_ascii=False), encoding="utf-8")
     try:                         # every published day becomes worked examples for smaller models (fma/bank.py)
         from .bank import add as bank_add
         bank_add(post["date"], posts_dir)
