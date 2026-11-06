@@ -1,0 +1,397 @@
+{
+ "date": "2026-11-07",
+ "collected_at": "2026-11-06T22:56:37+00:00",
+ "website": {
+  "status": "ok",
+  "visitors_28d": 130,
+  "visitors_day": 0,
+  "daily": [
+   {
+    "day": "2026-10-11",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-12",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 0
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 36
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 7
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "title": "Verification log · 2 Nov 2026 · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "title": "Mistral releases open weights for trillion‑parameter model · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/ai-daily",
+    "title": "Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 29
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 8
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 5
+   },
+   {
+    "name": "com.linkedin.android",
+    "visitors": 2
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 2
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 2
+   },
+   {
+    "name": "www.bing.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 1
+   }
+  ]
+ },
+ "instagram": {
+  "status": "ok",
+  "username": "fiveminute_ai",
+  "followers": 2,
+  "media_count": 19,
+  "day": {
+   "reach": null,
+   "views": null,
+   "accounts_engaged": null,
+   "total_interactions": null
+  },
+  "posts": [
+   {
+    "id": "18018580688960509",
+    "timestamp": "2026-11-06T13:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/DfZt_AggoNH/",
+    "type": "VIDEO",
+    "caption": "Meta says the midterm results will make data centres harder to build.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 129,
+    "views": 156,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 7.5
+   },
+   {
+    "id": "18108967532213167",
+    "timestamp": "2026-11-06T07:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/DfZEyGDmf2_/",
+    "type": "VIDEO",
+    "caption": "Claude can now read your bank accounts, but it can't move money.",
+    "likes": 3,
+    "comments": 0,
+    "reach": 112,
+    "views": 123,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 3,
+    "avg_watch_s": 8.6
+   },
+   {
+    "id": "18236013835323296",
+    "timestamp": "2026-11-05T07:31:20+0000",
+    "permalink": "https://www.instagram.com/reel/DfWgAmjDtf2/",
+    "type": "VIDEO",
+    "caption": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 12,
+    "views": 21,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 1.5
+   },
+   {
+    "id": "17884128393629513",
+    "timestamp": "2026-11-05T03:31:25+0000",
+    "permalink": "https://www.instagram.com/reel/DfWEikLj-yj/",
+    "type": "VIDEO",
+    "caption": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 5,
+    "views": 7,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 1.8
+   },
+   {
+    "id": "18050438846816093",
+    "timestamp": "2026-11-04T13:31:17+0000",
+    "permalink": "https://www.instagram.com/reel/DfUkZCVD4Rs/",
+    "type": "VIDEO",
+    "caption": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 4,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 7.8
+   },
+   {
+    "id": "18182400415430796",
+    "timestamp": "2026-11-04T07:31:47+0000",
+    "permalink": "https://www.instagram.com/reel/DfT7Pq9kYYu/",
+    "type": "VIDEO",
+    "caption": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 15,
+    "views": 19,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 4.5
+   },
+   {
+    "id": "18078636134734013",
+    "timestamp": "2026-11-04T05:02:23+0000",
+    "permalink": "https://www.instagram.com/reel/DfTqIGwEtT0/",
+    "type": "VIDEO",
+    "caption": "Google says schools that switch off its AI will lose Google Search too.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 18,
+    "views": 20,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.8
+   },
+   {
+    "id": "18052874651820583",
+    "timestamp": "2026-11-03T13:31:37+0000",
+    "permalink": "https://www.instagram.com/reel/DfR_opvGY_k/",
+    "type": "VIDEO",
+    "caption": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 83,
+    "views": 90,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 0.9
+   },
+   {
+    "id": "18353347291267090",
+    "timestamp": "2026-11-03T07:31:32+0000",
+    "permalink": "https://www.instagram.com/reel/DfRWaqnE0mS/",
+    "type": "VIDEO",
+    "caption": "Gemini can read your Gmail, and many of its features are on by default.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 15,
+    "views": 17,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 2.0
+   },
+   {
+    "id": "18132533923833435",
+    "timestamp": "2026-11-03T04:00:29+0000",
+    "permalink": "https://www.instagram.com/reel/DfQ-R30k4UP/",
+    "type": "VIDEO",
+    "caption": "Anthropic tells investors its AI may soon speed up its own progress.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 10,
+    "views": 13,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 5.9
+   },
+   {
+    "id": "18125795491913483",
+    "timestamp": "2026-11-02T13:31:18+0000",
+    "permalink": "https://www.instagram.com/reel/DfPa0AViE2P/",
+    "type": "VIDEO",
+    "caption": "Only $50 for a barely functional AI pocket watch.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 3,
+    "views": 7,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 11.4
+   },
+   {
+    "id": "18214633642367321",
+    "timestamp": "2026-11-02T07:31:17+0000",
+    "permalink": "https://www.instagram.com/reel/DfOxmgClEh4/",
+    "type": "VIDEO",
+    "caption": "Zero financial payoff from AI for non-tech firms.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 30,
+    "views": 42,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 8.0
+   }
+  ]
+ }
+}
