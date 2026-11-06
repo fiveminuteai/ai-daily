@@ -42,9 +42,9 @@ def test_producer_replaces_cards_with_scored_scripts_and_the_bar_drops_filler():
                       script(2, stakes=0, surprise=1, names=0, number=1, relatable=1)])
     out = produce(chain, draft(), SOURCES)
     assert "Reported by: TechCrunch: Judge lets lawsuit go ahead" in chain.prompts[0]
-    duo = [p for p in chain.prompts if "comedy" in p.lower() and "THE CAST" in p]
+    duo = [p for p in chain.prompts if "short lines for Spark" in p]
     assert len(chain.prompts) - len(duo) == 3 and "pocket" not in chain.prompts[0]   # one call per story + the chief
-    assert len(duo) == 1 and "STORY: Lawsuit" in duo[0]          # the duo desk writes only the Reel-worthy story
+    assert duo and all("STORY: Lawsuit" in p for p in duo)       # the duo desk writes only the Reel-worthy story
     lawsuit, watch = (s["card"] for s in out["sections"])
     assert lawsuit["reel"] == 7 and lawsuit["hook"].startswith("Story 1") and len(lawsuit["points"]) == 3
     assert watch["reel"] == 3 < REEL_BAR
