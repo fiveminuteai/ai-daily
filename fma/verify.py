@@ -33,7 +33,9 @@ experts analysts users people researchers companies developers engineers officia
 the investors employees governments lawmakers until within without during between among across against despite into
 through toward towards per unlike like rather whether either neither nor just much any every none nothing something
 someone everyone nobody this that thanks taken put asked based given by beyond behind below above near far long
-offline online""".split())
+offline online
+they're it's we're you're there's here's that's what's i'm i've we've you've they've isn't aren't wasn't can't won't
+don't doesn't didn't let's""".split())
 # Verbs that open a "Do this" line or a short takeaway ("Try the hosted API", "Scans Gmail for receipts"). At the start
 # of a sentence they are instructions or actions, not names (1 Nov 2026: four card lines were dropped as "name 'Try'").
 COMMON_STARTERS |= set("""try check consider focus watch use update review expect look read ask avoid compare keep plan
@@ -44,6 +46,7 @@ moves pay pays offer offers ship ships launch launches release releases block bl
 # Question and negation openers of the Reel's lines ("Will you buy an AI pet?", "Don't count on it yet", 2 Nov 2026).
 COMMON_STARTERS |= set("""will would should could can do does did is are was were has have had don't doesn't isn't
 won't can't don’t doesn’t isn’t won’t can’t tech""".split())
+COMMON_STARTERS |= {w.replace("'", "’") for w in COMMON_STARTERS}   # model text often uses curly apostrophes
 # Endings that mark an ordinary English word ("Traditional", "Recent", "Providing") rather than a product or person.
 ORDINARY_ENDINGS = ("ing", "ed", "al", "ly", "ent", "ant", "ive", "ion", "ions", "ous", "ful", "less", "able", "ible",
                     "ity", "ness", "ment", "ments", "ance", "ence", "ary", "ory", "ise", "ize", "ised", "ized")
