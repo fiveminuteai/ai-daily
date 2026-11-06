@@ -11,6 +11,7 @@ numbers and no names, so it can state no facts. A duo that fails any check is dr
 ordinary Reel, so the desk can improve a day but never cost one."""
 from __future__ import annotations
 
+import json
 import logging
 import re
 
@@ -303,6 +304,38 @@ SPARK'S LINES
 Reply as {{"reactions": ["...", "..."]}}"""
 
 
+def is_local(chain) -> bool:
+    """True when every model in the chain runs on this machine (Ollama): the writer the tuning was done for."""
+    provs = getattr(chain, "providers", None)
+    return bool(provs) and all(getattr(p, "local", False) for p in provs)
+
+
+def tuned(step: str) -> dict | None:
+    """The overnight-tuned prompt for a step (fma/tune.py, data/tuned/local.json), or None."""
+    try:
+        import json
+        from . import config
+        t = json.loads((config.ROOT / "data" / "tuned" / "local.json").read_text(encoding="utf-8")).get(step)
+        return t if t and t.get("instructions") else None
+    except (OSError, ValueError):
+        return None
+
+
+def tuned_facts_prompt(t: dict, section: dict) -> str:
+    demos = "".join(f"\n\nEXAMPLE\nStory text: {d.get('story', '')[:900]}\nReply: "
+                    f"{json.dumps({'lines': d.get('lines', [])}, ensure_ascii=False)}" for d in t.get("demos", [])[:2])
+    return (t["instructions"] + demos + '\n\nReply as {"lines": ["...[S1].", "...[S1].", "...[S2].", "...[S1]."]}'
+            + f"\n\nSTORY: {section.get('title', '')}\nStory text:\n" + "\n".join(section.get("paragraphs", [])))
+
+
+def tuned_joke_prompt(t: dict, name: str, persona: str, k: int, pairs: str, said: str, line: str) -> str:
+    demos = "".join(f'\nSpark: "{d.get("spark_line", "")}"\n{name}: {json.dumps(d.get("reactions", []))}'
+                    for d in t.get("demos", [])[:4])
+    return (t["instructions"] + f"\n\nWHO {name.upper()} IS: {persona}\n\nEXAMPLES OF {name.upper()}'S REACTIONS"
+            f"\n{pairs}{demos}\n\n{name.upper()} ALREADY SAID: {said}\n\nSPARK JUST SAID: \"{line}\"\n\n"
+            f'Reply as {{"reactions": [{", ".join(chr(34) + "..." + chr(34) for _ in range(k))}]}}')
+
+
 def _list_schema(key: str, n: int) -> dict:
     return {"type": "object", "required": [key],
             "properties": {key: {"type": "array", "minItems": n, "maxItems": n, "items": {"type": "string"}}}}
@@ -345,6 +378,9 @@ def facts_step(chain, section: dict, check_facts: bool = True) -> list[str] | No
     limits like "at least"), sent back once with the problems."""
     source = " ".join(section.get("paragraphs", []))
     base = FACTS_TASK + f"\n\nSTORY: {section.get('title', '')}\nStory text:\n" + "\n".join(section.get("paragraphs", []))
+    t = tuned("facts") if is_local(chain) else None       # the local model gets its overnight-tuned prompt
+    if t:
+        base = tuned_facts_prompt(t, section)
     prompt = base
     for _try in range(3):
         x = _ask(chain, FACTS_SYSTEM, prompt, 0.3, _list_schema("lines", 4))
@@ -446,8 +482,11 @@ def jokes_step(chain, guest: str, lines: list[str], k: int = 3) -> list[str] | N
         pairs = "\n".join(f'Spark: "{f}"\n{name}: "{j}"' for f, j in similar_pairs(guest, line))
         best = None
         for _try in range(2):
-            prompt = JOKE_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], k=k, pairs=pairs,
-                                      said="; ".join(f'"{x}"' for x in out) or "nothing yet", line=plain(line))
+            said = "; ".join(f'"{x}"' for x in out) or "nothing yet"
+            tj = tuned("jokes") if is_local(chain) else None
+            prompt = (tuned_joke_prompt(tj, name, PERSONA[guest], k, pairs, said, plain(line)) if tj else
+                      JOKE_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], k=k, pairs=pairs,
+                                       said=said, line=plain(line)))
             x = _ask(chain, JOKES_SYSTEM, prompt, 0.9, _list_schema("reactions", k))
             cands = [simplify(str(c).strip().strip('"')) for c in (x or {}).get("reactions") or [] if str(c).strip()]
             ranked = sorted(((rank_reaction(c, line, lines[i + 1:], out, guest), c) for c in cands),

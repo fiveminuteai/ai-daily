@@ -41,3 +41,27 @@ def test_bank_keeps_checked_content_once_per_day(tmp_path, monkeypatch):
     bank.add("2026-11-06", tmp_path)                       # twice: still one of each
     assert bank.stats() == {"sections.jsonl": 1, "cards.jsonl": 1, "duo_pairs.jsonl": 1}
     assert bank.joke_pairs("rex") == [("Fact.", "Joke.")]
+
+
+def test_tuned_prompts_only_for_the_local_model(tmp_path, monkeypatch):
+    from fma import duo_desk
+
+    class P:
+        def __init__(self, local):
+            self.local = local
+
+    class C:
+        def __init__(self, *locals_):
+            self.providers = [P(x) for x in locals_]
+    assert duo_desk.is_local(C(True)) and not duo_desk.is_local(C(False, True)) and not duo_desk.is_local(object())
+
+
+def test_tuning_scores_reward_checked_facts():
+    from fma import tune
+    src = "OpenAI is launching GPT-6 Cyber, the latest version of its cybersecurity AI model[S2]. It went out of bounds less than 1 percent of the time[S2]."
+    good = ["OpenAI is launching GPT-6 Cyber, its latest cybersecurity AI model[S2].",
+            "OpenAI says it went out of bounds less than 1 percent of the time[S2].",
+            "GPT-6 Cyber is the latest version of the cybersecurity model[S2].",
+            "In testing it went out of bounds less than 1 percent of the time[S2]."]
+    bad = ["OpenAI launched GPT-9 last year.", "It went out of bounds 7 percent of the time.", "x", "y"]
+    assert tune.facts_score(good, src) > tune.facts_score(bad, src)
