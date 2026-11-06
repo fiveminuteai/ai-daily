@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T23:30:34+00:00",
+ "updated": "2026-11-06T18:00:58+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -18,7 +18,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": 0.209
+   "outcome": 0.195
   },
   {
    "id": "2026-10-31-reel-2",
@@ -37,7 +37,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.048
+   "outcome": -0.055
   },
   {
    "id": "2026-10-31-reel-3",
@@ -56,7 +56,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": 0.147
+   "outcome": 0.13
   },
   {
    "id": "2026-11-01-reel-1",
@@ -75,7 +75,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 84.0,
-   "outcome": -0.336
+   "outcome": -0.325
   },
   {
    "id": "2026-11-01-reel-2",
@@ -94,7 +94,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.2,
-   "outcome": 0.096
+   "outcome": 0.079
   },
   {
    "id": "2026-11-01-reel-3",
@@ -112,8 +112,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 105.7,
-   "outcome": -0.451
+   "age_h": 100.2,
+   "outcome": -0.442
   },
   {
    "id": "2026-11-02-reel-1",
@@ -131,8 +131,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 92.0,
-   "outcome": 0.161
+   "age_h": 86.5,
+   "outcome": 0.147
   },
   {
    "id": "2026-11-02-reel-2",
@@ -150,8 +150,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 88.0,
-   "outcome": 0.885
+   "age_h": 106.5,
+   "outcome": 0.872
   },
   {
    "id": "2026-11-02-reel-3",
@@ -165,12 +165,12 @@
    "desk": null,
    "hook": "Only $50 for a barely functional AI pocket watch.",
    "reach": 3,
-   "watch_s": 10.4,
+   "watch_s": 11.4,
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 82.0,
-   "outcome": 0.433
+   "age_h": 100.5,
+   "outcome": 0.72
   },
   {
    "id": "2026-11-03-reel-1",
@@ -188,8 +188,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 67.5,
-   "outcome": -0.088
+   "age_h": 86.0,
+   "outcome": -0.042
   },
   {
    "id": "2026-11-03-reel-2",
@@ -207,8 +207,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 64.0,
-   "outcome": -0.782
+   "age_h": 82.5,
+   "outcome": -0.733
   },
   {
    "id": "2026-11-03-reel-3",
@@ -226,179 +226,246 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 58.0,
-   "outcome": -0.226
+   "age_h": 76.5,
+   "outcome": -0.248
+  },
+  {
+   "id": "2026-11-04-reel-1",
+   "date": "2026-11-04",
+   "slot": 1,
+   "time": "09:00",
+   "category": "impact",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 13,
+   "desk": 8,
+   "hook": "Google says schools that switch off its AI will lose Google Search too.",
+   "reach": 18,
+   "watch_s": 4.8,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 61.0,
+   "outcome": -0.044
+  },
+  {
+   "id": "2026-11-04-reel-2",
+   "date": "2026-11-04",
+   "slot": 2,
+   "time": "13:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": true,
+   "hook_words": 12,
+   "desk": 7,
+   "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+   "reach": 15,
+   "watch_s": 4.5,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.5,
+   "outcome": -0.185
+  },
+  {
+   "id": "2026-11-04-reel-3",
+   "date": "2026-11-04",
+   "slot": 3,
+   "time": "19:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 11,
+   "desk": 6,
+   "hook": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+   "reach": 3,
+   "watch_s": 7.8,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 52.5,
+   "outcome": -0.069
   }
  ],
  "effects": [
   {
    "feature": "category",
    "value": "impact",
-   "n": 4,
-   "n_rest": 8,
-   "mean": -0.1,
-   "effect": -0.05,
-   "se": 0.25,
+   "n": 5,
+   "n_rest": 10,
+   "mean": -0.03,
+   "effect": -0.02,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 1,
-   "n_rest": 11,
-   "mean": 0.15,
+   "n_rest": 14,
+   "mean": 0.13,
    "effect": 0.02,
-   "se": 0.43,
+   "se": 0.41,
    "confident": false
   },
   {
    "feature": "category",
    "value": "policy",
    "n": 3,
-   "n_rest": 9,
+   "n_rest": 12,
    "mean": -0.05,
    "effect": -0.02,
-   "se": 0.28,
+   "se": 0.25,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
-   "n": 3,
-   "n_rest": 9,
-   "mean": -0.16,
-   "effect": -0.06,
-   "se": 0.28,
+   "n": 5,
+   "n_rest": 10,
+   "mean": -0.14,
+   "effect": -0.08,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "category",
    "value": "tools",
    "n": 1,
-   "n_rest": 11,
-   "mean": 0.89,
+   "n_rest": 14,
+   "mean": 0.87,
    "effect": 0.12,
-   "se": 0.43,
+   "se": 0.41,
    "confident": false
   },
   {
    "feature": "player",
    "value": "giant",
-   "n": 6,
+   "n": 9,
    "n_rest": 6,
-   "mean": -0.01,
-   "effect": -0.0,
-   "se": 0.24,
+   "mean": 0.0,
+   "effect": 0.0,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "player",
    "value": "other",
    "n": 5,
-   "n_rest": 7,
+   "n_rest": 10,
    "mean": -0.04,
    "effect": -0.02,
-   "se": 0.24,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 11,
-   "mean": 0.21,
+   "n_rest": 14,
+   "mean": 0.2,
    "effect": 0.03,
-   "se": 0.43,
+   "se": 0.41,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "09:00",
-   "n": 4,
-   "n_rest": 8,
+   "n": 5,
+   "n_rest": 10,
    "mean": -0.01,
    "effect": -0.01,
-   "se": 0.25,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "13:00",
-   "n": 4,
-   "n_rest": 8,
-   "mean": 0.04,
-   "effect": 0.02,
-   "se": 0.25,
+   "n": 5,
+   "n_rest": 10,
+   "mean": -0.0,
+   "effect": -0.0,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
-   "n": 4,
-   "n_rest": 8,
-   "mean": -0.02,
-   "effect": -0.01,
-   "se": 0.25,
+   "n": 5,
+   "n_rest": 10,
+   "mean": 0.02,
+   "effect": 0.01,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 7,
-   "n_rest": 5,
-   "mean": -0.12,
-   "effect": -0.11,
-   "se": 0.24,
+   "n": 9,
+   "n_rest": 6,
+   "mean": -0.1,
+   "effect": -0.1,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "yes",
-   "n": 5,
-   "n_rest": 7,
-   "mean": 0.17,
-   "effect": 0.11,
-   "se": 0.24,
+   "n": 6,
+   "n_rest": 9,
+   "mean": 0.15,
+   "effect": 0.1,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 5,
+   "n": 8,
    "n_rest": 7,
-   "mean": -0.26,
-   "effect": -0.16,
-   "se": 0.24,
+   "mean": -0.19,
+   "effect": -0.17,
+   "se": 0.2,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
    "n": 7,
-   "n_rest": 5,
-   "mean": 0.18,
-   "effect": 0.16,
-   "se": 0.24,
+   "n_rest": 8,
+   "mean": 0.22,
+   "effect": 0.17,
+   "se": 0.2,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 3,
-   "n_rest": 9,
-   "mean": -0.37,
-   "effect": -0.14,
-   "se": 0.28,
+   "n": 5,
+   "n_rest": 10,
+   "mean": -0.25,
+   "effect": -0.15,
+   "se": 0.21,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 3,
-   "mean": 0.12,
-   "effect": 0.14,
-   "se": 0.28,
+   "n_rest": 6,
+   "mean": 0.15,
+   "effect": 0.15,
+   "se": 0.21,
+   "confident": false
+  },
+  {
+   "feature": "desk score",
+   "value": "under 7",
+   "n": 1,
+   "n_rest": 14,
+   "mean": -0.07,
+   "effect": -0.01,
+   "se": 0.41,
    "confident": false
   }
  ]

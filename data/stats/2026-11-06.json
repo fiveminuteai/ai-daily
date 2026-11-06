@@ -1,36 +1,271 @@
 {
  "date": "2026-11-06",
- "collected_at": "2026-11-05T23:30:12+00:00",
+ "collected_at": "2026-11-06T18:00:38+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 130,
+  "visitors_day": 5,
+  "daily": [
+   {
+    "day": "2026-10-10",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-11",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-12",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 48
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 7
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "title": "Verification log · 2 Nov 2026 · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-10-31-anthropic-s-claude-vs-code-extension-compromised",
+    "title": "Anthropic’s Claude VS Code extension compromised, installing SSH backdoor on thousands of developers’ machines · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/search",
+    "title": "Search · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "title": "Mistral releases open weights for trillion‑parameter model · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/archive",
+    "title": "Archive · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 36
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 11
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 5
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 3
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-10-30-mistral-releases-open-weights-for-trillion-parameter",
+    "visitors": 3
+   },
+   {
+    "name": "com.linkedin.android",
+    "visitors": 2
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 2
+   },
+   {
+    "name": "ig",
+    "visitors": 1
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 1,
-  "media_count": 17,
+  "followers": 2,
+  "media_count": 19,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 231,
+   "views": 274,
+   "accounts_engaged": 3,
+   "total_interactions": 6
   },
   "posts": [
+   {
+    "id": "18018580688960509",
+    "timestamp": "2026-11-06T13:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/DfZt_AggoNH/",
+    "type": "VIDEO",
+    "caption": "Meta says the midterm results will make data centres harder to build.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 122,
+    "views": 149,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 6.6
+   },
+   {
+    "id": "18108967532213167",
+    "timestamp": "2026-11-06T07:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/DfZEyGDmf2_/",
+    "type": "VIDEO",
+    "caption": "Claude can now read your bank accounts, but it can't move money.",
+    "likes": 3,
+    "comments": 0,
+    "reach": 112,
+    "views": 123,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 3,
+    "avg_watch_s": 8.4
+   },
    {
     "id": "18236013835323296",
     "timestamp": "2026-11-05T07:31:20+0000",
     "permalink": "https://www.instagram.com/reel/DfWgAmjDtf2/",
     "type": "VIDEO",
     "caption": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "reach": 12,
-    "views": 18,
+    "views": 21,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 1.4
+    "total_interactions": 1,
+    "avg_watch_s": 1.6
    },
    {
     "id": "17884128393629513",
@@ -38,14 +273,14 @@
     "permalink": "https://www.instagram.com/reel/DfWEikLj-yj/",
     "type": "VIDEO",
     "caption": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "reach": 5,
-    "views": 5,
+    "views": 7,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 2.3
+    "total_interactions": 1,
+    "avg_watch_s": 1.8
    },
    {
     "id": "18050438846816093",
@@ -56,11 +291,11 @@
     "likes": 0,
     "comments": 0,
     "reach": 3,
-    "views": 3,
+    "views": 4,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 10.1
+    "avg_watch_s": 7.8
    },
    {
     "id": "18182400415430796",
@@ -71,11 +306,11 @@
     "likes": 1,
     "comments": 0,
     "reach": 15,
-    "views": 18,
+    "views": 19,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 4.7
+    "avg_watch_s": 4.5
    },
    {
     "id": "18078636134734013",
@@ -86,11 +321,11 @@
     "likes": 0,
     "comments": 0,
     "reach": 18,
-    "views": 19,
+    "views": 20,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.1
+    "avg_watch_s": 4.8
    },
    {
     "id": "18052874651820583",
@@ -150,7 +385,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 10.4
+    "avg_watch_s": 11.4
    },
    {
     "id": "18214633642367321",
@@ -166,36 +401,6 @@
     "shares": 0,
     "total_interactions": 1,
     "avg_watch_s": 8.0
-   },
-   {
-    "id": "17978227025935203",
-    "timestamp": "2026-11-02T03:31:18+0000",
-    "permalink": "https://www.instagram.com/reel/DfOWJDmlSsn/",
-    "type": "VIDEO",
-    "caption": "35 turbines operate without permits.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 50,
-    "views": 53,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 3.7
-   },
-   {
-    "id": "18157837654520665",
-    "timestamp": "2026-11-01T13:49:37+0000",
-    "permalink": "https://www.instagram.com/reel/DfM4GWbjwYb/",
-    "type": "VIDEO",
-    "caption": "AI completed a live mouse brain injection.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 39,
-    "views": 47,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 1.5
    }
   ]
  }
