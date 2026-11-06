@@ -13,7 +13,7 @@ DSPy: fma/duo_desk.py reads that file only when the writer is the local model, a
 Before saving, the tuned prompts are scored against the current ones on stories the tuner did not practise on; they
 are kept only if they score higher.
 
-    python -m fma.tune [--auto light|medium] [--model qwen2.5:7b]     # needs Ollama and `pip install dspy`"""
+    python -m fma.tune [--auto light|medium] [--model qwen2.5:7b]     # needs Ollama and `pip install "dspy[optuna]"`"""
 from __future__ import annotations
 
 import argparse
