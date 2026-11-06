@@ -477,3 +477,11 @@ def test_contractions_at_sentence_start_are_not_names():
     from fma.verify import COMMON_STARTERS
     for w in ("they're", "they’re", "it's", "it’s", "we're"):
         assert w in COMMON_STARTERS
+
+
+def test_version_numbers_do_not_crash_the_limit_check():
+    # 6 Nov 2026: "version 2.1.312" crashed ceiling_dropped (used on headlines in layer 1)
+    from fma.verify import ceiling_dropped
+    src = "Version 2.1.313 replaced version 2.1.312 and reached up to 5,000 developers."
+    assert ceiling_dropped("Version 2.1.313 hit developers", src) == ""
+    assert ceiling_dropped("5,000 developers were hit", src)

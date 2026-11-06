@@ -175,12 +175,20 @@ def ceiling_dropped(claim: str, source_raw: str) -> str:
     Returns the problem, or '' when the claim keeps a hedge or doesn't use the capped number."""
     if HEDGE_RE.search(claim):
         return ""
-    claim_nums = {float(n) * {"": 1, "thousand": 1e3, "million": 1e6, "billion": 1e9}.get(m, 1)
-                  for n, _, m in numbers_in(claim)}
+    def num(s: str) -> float | None:          # "2.1.312" is a version, not a number (6 Nov 2026: it crashed here)
+        try:
+            return float(s.replace(",", ""))
+        except ValueError:
+            return None
+
+    claim_nums = {v * {"": 1, "thousand": 1e3, "million": 1e6, "billion": 1e9}.get(m, 1)
+                  for n, _, m in numbers_in(claim) if (v := num(n)) is not None}
     scales = [v for w, v in SCALE_WORDS.items() if re.search(rf"\b{w}\b", claim, re.I)]
     for m in CEILING_RE.finditer(source_raw):
-        value = float(m.group(1).replace(",", "")) * {"thousand": 1e3, "million": 1e6, "billion": 1e9}.get(
-            (m.group(2) or "").lower(), 1)
+        base = num(m.group(1))
+        if base is None:
+            continue
+        value = base * {"thousand": 1e3, "million": 1e6, "billion": 1e9}.get((m.group(2) or "").lower(), 1)
         if value in claim_nums or any(s <= value < s * 1000 for s in scales):
             return f"source gives '{m.group(0)}' as a limit; the claim states it as fact"
     return ""
