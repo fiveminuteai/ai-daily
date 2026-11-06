@@ -112,3 +112,116 @@ def test_reels_go_to_the_strongest_stories_from_2_nov():
     assert [n for n, _ in new] == [2, 3, 4]          # interest 5, two publishers, interest 4; post order kept
     old = card_stories({"date": "2026-11-01", "sections": secs, "sources": sources})
     assert [n for n, _ in old] == [0, 1, 2]          # approved days never change
+
+
+def test_voiced_scenes_fit_the_voice_on_the_beat(monkeypatch):
+    # 4 Nov 2026: Pavan heard the speed change line to line, because long lines were sped up to fit fixed scenes.
+    # Now one pace for every line and the scenes stretch to fit, ending on a beat, never shorter than 2 bars.
+    import numpy as np
+
+    from fma import story_reel, voice
+    lengths = {"short": 1.0, "long line here": 7.0, "q?": 2.0, voice.OUTRO: 3.0}
+    monkeypatch.setattr(voice, "say", lambda text, **kw: np.full(int(lengths.get(text, 4.0) * voice.SR), 0.2,
+                                                                   np.float32))
+    card = {"hook": "short", "points": ["long line here", "short"], "take": "short", "ask": "q?"}
+    plan = story_reel.voice_plan(card, 1)
+    assert len(plan["lens"]) == 4
+    for k, spoken_s in zip(["hook", "p0", "p1", "take"], plan["lens"]):
+        assert spoken_s >= 2 * story_reel.BAR - 1e-9
+        assert abs(spoken_s / story_reel.BEAT - round(spoken_s / story_reel.BEAT)) < 1e-6
+        assert spoken_s >= plan["said"][k] + 0.3
+    assert plan["lens"][1] > 2 * story_reel.BAR             # the long line got a longer scene, not a faster voice
+    assert plan["outro_at"] > plan["said"]["ask"]           # the closing line comes after the question
+    assert plan["seconds"] > sum(plan["lens"]) + plan["outro_at"] + 3.0
+    assert len(plan["mouth"]) and plan["mouth"].max() > 0.5
+
+
+def test_names_are_respelled_for_the_narrator():
+    from fma import voice
+    assert voice.spoken("NotebookLM hit $17 billion for K-12[S1].") == "NotebookLM hit 17 billion dollars for K to 12."
+
+
+def test_pulse_numbers_appear_only_when_spoken():
+    # 5 Nov 2026: a count-up showed "$15B" and "$1B" on the way to a $17 billion line; now the real figure appears,
+    # whole, when the voice reaches it
+    from fma import pulse_reel as pr
+    assert pr.figure("Quarterly revenue reached $17 billion, up from $11.5 billion[S6].") == "$17B"
+    assert pr.figure("Anthropic now spends 58% of its revenue on compute[S6].") == "58%"
+    assert pr.figure("Apple is letting Siri act inside apps[S5].") == ""
+    timed = pr.word_times("Quarterly revenue reached $17 billion, up from $11.5 billion.", 4.0, 0.3)
+    at = pr.figure_time(timed, "$17B")
+    assert [w for w, t in timed if t == at] == ["$17"]
+    assert all(t2 > t1 for (_, t1), (_, t2) in zip(timed, timed[1:]))
+
+
+def test_pulse_captions_come_in_short_chunks():
+    from fma import pulse_reel as pr
+    groups = pr.chunks(pr.word_times("Should schools be able to keep Search without AI?", 3.0, 0.3))
+    assert all(len(g) <= 3 and len(" ".join(w for w, _ in g)) <= 18 for g in groups)
+    assert " ".join(w for g in groups for w, _ in g) == "Should schools be able to keep Search without AI?"
+
+
+def test_decimals_are_read_digit_by_digit():
+    # 5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"
+    from fma import voice
+    assert voice.spoken("up from $11.5 billion") == "up from 11 point 5 billion dollars"
+    assert voice.spoken("paying SpaceX $1.25 billion") == "paying SpaceX 1 point 2 5 billion dollars"
+    assert voice.spoken("with $5.0 billion") == "with 5 billion dollars"
+
+
+def test_hard_names_are_spoken_from_fixed_phonemes(monkeypatch):
+    # 5 Nov 2026: "SpaceX" was read as two stressed words ("Space X"), AWS as "awes", Qwen as "queue-wen"
+    from fma import voice
+
+    class Tok:
+        def phonemize(self, text, lang):
+            return f"<{text.strip()}>"
+
+    class Engine:
+        tokenizer = Tok()
+
+    monkeypatch.setattr(voice, "_engine", lambda: Engine())
+    assert voice.phonemes("paying SpaceX now", "en-us") == "<paying> spˈeɪsɛks <now>"
+    assert voice.phonemes("AWS and Qwen.", "en-us") == "ˈeɪ dˈʌbəljˌuː ˈɛs <and> tʃwˈɛn <.>"
+    assert voice.phonemes("nothing hard here", "en-us") is None
+    assert voice.phonemes("SpaceXR is not SpaceX", "en-us").endswith("spˈeɪsɛks")     # whole words only
+
+
+def test_doubt_draws_talking_and_listening():
+    from fma import doubt
+    a = doubt.draw(200, 1.0, 0.8, True)
+    b = doubt.draw(200, 1.0, 0.0, False)
+    assert a.size == b.size == (200, 200) and a.getbbox() and b.getbbox()
+    assert list(a.getdata()) != list(b.getdata())          # talking and listening look different
+
+
+def test_spark_shapes_follow_the_words():
+    from fma import spark
+    assert spark.shape_for("Its compute bill hit $10 billion") == "chip"
+    assert spark.shape_for("Quarterly revenue reached $17 billion") == "coin"
+    assert spark.shape_for("Is the AI boom worth what it costs?") == "bubble"
+    assert spark.shape_for("As Anthropic heads for an IPO, margins worsen") == "blob"
+
+
+def test_counts_keep_their_limits_on_screen():
+    # 5 Nov 2026: "at least 35 turbines" must never show as a bare "35"
+    from fma.pulse_reel import figure
+    assert figure("It alleges xAI ran at least 35 combustion turbines.") == "35+ turbines"
+    assert figure("Up to 5,000 users were exposed.") == "up to 5,000 users"
+    assert figure("It has 12 data centres.") == "12 data centres"
+    assert figure("In 2026 the judge ruled.") == ""
+
+
+def test_syllables_count_vowel_groups():
+    from fma import voice
+    assert voice.syllables("spˈeɪsɛks") == 2
+    assert voice.syllables("ˈeɪ dˈʌbəljˌuː ˈɛs") == 5
+
+
+def test_locked_cast_voices():
+    # 5 Nov 2026, Pavan locked the cast: strong Spark, British Doubt
+    from fma import duo_reel, voice
+    assert duo_reel.SPARK_VOICE == "spark-strong"
+    assert duo_reel.GUESTS["doubt"]["voice"] == "doubt-british"
+    for name in ("spark-strong", "doubt-british", "rex"):
+        assert name in voice.CHARACTERS

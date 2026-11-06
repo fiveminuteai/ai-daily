@@ -10,6 +10,7 @@ The source names stay on screen throughout. Text sits inside Instagram's safe ba
 buttons on the right). Needs ffmpeg on the PATH, like reel.py."""
 from __future__ import annotations
 
+import math
 import re
 import subprocess
 from pathlib import Path
@@ -20,7 +21,7 @@ from PIL import Image, ImageDraw
 from .carousel import CAT_NAMES, THEMES, key_figure, mark, marker_underline, publishers, short_figure, wrap
 from .music import BAR, BEAT, write_wav
 from .reel import FPS, H, M, W, _count, background, ease
-from . import sketch
+from . import presenter, sketch, voice
 from .social import plain
 from .visuals import _font
 
@@ -269,7 +270,10 @@ def _fit(d, text: str, kind: str, start: int, floor: int, max_lines: int, max_w:
 
 
 def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float, style: str = DEFAULT_STYLE,
-                  palette: str | None = None):
+                  palette: str | None = None, voiced: dict | None = None):
+    """`voiced` (from story_reel with a narrator): scene lengths fitted to the voice, how long each line is spoken
+    (words appear in step with it), when the closing line starts, and the mouth opening per frame for the
+    presenter. Without it the Reel keeps the silent layout: 2 bars a scene, a doodle under each line."""
     card = section["card"]
     probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
     pal = None
@@ -317,7 +321,22 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
     def box_under(block):
         y = max(DOODLE_Y, block.bottom + 30)
         size = max(220, min(DOODLE, SOURCE_Y - 25 - y))
+        if voiced:                     # the presenter stands on the left of this row; the doodle moves right
+            size = int(size * 0.78)
+            return (M + TEXT_W - size, y + 20, size)
         return (M + (TEXT_W - size) / 2, y, size)
+
+    # the presenter keeps its own colours on every palette, so it reads as one character across Reels
+    talk_c = presenter.COLOURS
+
+    def presenter_at(layer, x, y, size, tt):
+        if not voiced:
+            return
+        fi = min(len(voiced["mouth"]) - 1, int(tt * FPS))
+        talking = voiced["mouth"][max(0, fi - 8):fi + 8].max() > 0.05 if len(voiced["mouth"]) else False
+        im = presenter.draw(size, tt, float(voiced["mouth"][fi]) if len(voiced["mouth"]) else 0.0, talk_c,
+                            seed=n, beat=BEAT, talking=bool(talking))
+        layer.alpha_composite(im, (int(x), int(y)))
     dbox = box_under(hook_b)
     ink = T["ink"] + (235,)
     wash = c + (120 if theme == "night" else 80,)         # strong enough on navy to read as colour, not mud
@@ -338,15 +357,22 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
         af, asz, _ = _fit(probe, plain(card["ask"]), face, 104, 70, 4)
         ask_b = Block(probe, plain(card["ask"]), af, asz, M, 630, TEXT_W)
 
-    scenes = [(0, 2 * BAR, "hook", None)]
-    t = 2 * BAR
+    lens = list(voiced["lens"]) if voiced else [2 * BAR] * (1 + len(points) + (1 if take_b else 0))
+    scenes = [(0, lens[0], "hook", None)]
+    t = lens[0]
     for k, b in enumerate(points):
-        scenes.append((t, t + 2 * BAR, "point", (k, b)))
-        t += 2 * BAR
+        scenes.append((t, t + lens[1 + k], "point", (k, b)))
+        t += lens[1 + k]
     if take_b:
-        scenes.append((t, t + 2 * BAR, "take", None))
-        t += 2 * BAR
+        scenes.append((t, t + lens[-1], "take", None))
+        t += lens[-1]
     scenes.append((t, seconds, "end", None))
+
+    def per_word(key: str, block, default: float) -> float:
+        """Seconds between words: in step with the voice when there is one (said: seconds spoken per line)."""
+        if voiced and key in voiced["said"]:
+            return 0.9 * voiced["said"][key] / max(1, len(block.items))
+        return default
 
     label = CAT_NAMES.get(section.get("category", ""), "").upper()
     for fi in range(int(seconds * FPS)):
@@ -379,9 +405,10 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
                 pf = (lt - 0.2) / (BEAT * 1.5)
                 if pf > 0:
                     ld.text((M - 6, hook_b.top - 250), _count(fig, pf), font=_font("serif", 200), fill=c + (255,))
-            per = min(0.08, BAR * 0.45 / max(1, len(hook_b.items)))
+            per = per_word("hook", hook_b, min(0.08, BAR * 0.45 / max(1, len(hook_b.items))))
             backdrop(lt + 0.2, n)
             sketch.draw(ld, doodles[0], dbox, lt + 0.3, ink, hi_c, seed=n, mode=mode, fills=(pal or {}).get("fills"))
+            presenter_at(layer, M - 30, dbox[1] - 40, int(dbox[2] / 0.78) + 20, tt)
             if rings["hook"]:
                 k, bb = rings["hook"]
                 sketch.ring(ld, bb, lt - per * k - 0.5, c + (255,), seed=n, mode=mode)
@@ -395,7 +422,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             p0 = ease(lt / 0.25)
             ld.text((M, b.top - 90 - (1 - p0) * 30), f"{k + 1} / {len(points)}", font=_font("sans_bold", 44),
                     fill=c + (int(255 * p0),))
-            per = min(0.11, (BAR * 1.2) / max(1, len(b.items)))
+            per = per_word(f"p{k}", b, min(0.11, (BAR * 1.2) / max(1, len(b.items))))
             dbox = box_under(b)
             chg = change_in(plain(card["points"][k])) if pal is not None else None   # not in the classic look
             if chg and mode == "cutout":
@@ -404,6 +431,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
                 backdrop(lt - 0.05, n * 10 + k)
             if not (chg and mode == "cutout"):
                 sketch.draw(ld, doodles[1 + k], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + k, mode=mode, fills=(pal or {}).get("fills"))
+            presenter_at(layer, M - 30, dbox[1] - 40, int(dbox[2] / 0.78) + 20, tt)
             if rings[f"p{k}"]:
                 kk, bb = rings[f"p{k}"]
                 sketch.ring(ld, bb, lt - per * kk - 0.45, c + (255,), seed=n * 10 + k, mode=mode)
@@ -417,10 +445,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             ty = take_b.top - 110
             ld.rounded_rectangle([M, ty, M + tw + 56, ty + 68], radius=34, outline=c + (int(255 * p0),), width=4)
             ld.text((M + 28, ty + 12), tag, font=tf, fill=c + (int(255 * p0),))
-            per = min(0.11, (BAR * 1.2) / max(1, len(take_b.items)))
+            per = per_word("take", take_b, min(0.11, (BAR * 1.2) / max(1, len(take_b.items))))
             dbox = box_under(take_b)
             backdrop(lt - 0.05, n * 10 + 9)
             sketch.draw(ld, doodles[-1], dbox, lt - 0.15, ink, hi_c, seed=n * 10 + 9, mode=mode, fills=(pal or {}).get("fills"))
+            presenter_at(layer, M - 30, dbox[1] - 40, int(dbox[2] / 0.78) + 20, tt)
             take_b.draw(ld, lt, 0.06, per, T["ink"], c)
 
         elif card.get("ask"):          # end on the story's comment question: a reason to reply, then the link
@@ -430,15 +459,20 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
             tw = ld.textlength(tag, font=tag_f)
             ld.rounded_rectangle([M, 520, M + tw + 56, 588], radius=34, fill=c + (int(255 * a),))
             ld.text((M + 28, 532), tag, font=tag_f, fill=T["bg"] + (int(255 * a),))
-            ask_b.draw(ld, lt, 0.1, min(0.09, BAR * 0.5 / max(1, len(ask_b.items))), T["ink"], c)
-            p2 = ease((lt - 1.1) / 0.3)
-            for text, font, colour, y in (("Tell us in the comments", _font("sans_bold", 50), c, ask_b.bottom + 50),
-                                          ("Full story, every claim sourced: link in bio", _font("sans", 40),
-                                           T["muted"], ask_b.bottom + 140)):
+            ask_b.draw(ld, lt, 0.1, per_word("ask", ask_b, min(0.09, BAR * 0.5 / max(1, len(ask_b.items)))), T["ink"], c)
+            p2 = ease((lt - (voiced["outro_at"] if voiced else 1.1)) / 0.3)
+            closing = (("Tell us in the comments", _font("sans_bold", 50), c, ask_b.bottom + 50),
+                       ("Follow for more AI news like this", _font("sans_bold", 44), T["ink"], ask_b.bottom + 130),
+                       ("Full story, every claim sourced: link in bio", _font("sans", 40), T["muted"], ask_b.bottom + 205))                 if voiced else (("Tell us in the comments", _font("sans_bold", 50), c, ask_b.bottom + 50),
+                                ("Full story, every claim sourced: link in bio", _font("sans", 40),
+                                 T["muted"], ask_b.bottom + 140))
+            for text, font, colour, y in closing:
                 ld.text((M, y + (1 - p2) * 20), text, font=font, fill=colour + (int(255 * p2),))
+            presenter_at(layer, M - 30, max(ask_b.bottom + 290, 1010), 400, tt)
 
         else:
             a = ease(lt / 0.35)
+            presenter_at(layer, (W - 360) // 2, 1380, 360, tt)
             mark(ld, W // 2, 640, int(110 * (0.6 + 0.4 * a)), T["accent"] + (int(255 * a),))
             for text, font, colour, y, delay in (
                     ("Full story, every claim sourced", _font("serif", 74), T["ink"], 860, 0.1),
@@ -457,23 +491,82 @@ def render_frames(post: dict, section: dict, n: int, site: dict, seconds: float,
 
 
 def story_reel(post: dict, section: dict, n: int, site: dict, out: Path, style: str = DEFAULT_STYLE,
-               palette: str | None = None) -> Path:
+               palette: str | None = None, narrate: bool = False) -> Path:
     card = section["card"]
-    bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + (2 if card.get("ask") else 1)
     out.parent.mkdir(parents=True, exist_ok=True)
-    wav, _ = write_wav(out.with_suffix(".wav"), bars=bars, seed=7 + n)
-    seconds = bars * BAR + 1.0
+    plan = voice_plan(card, n) if narrate and voice.available() else None
+    if plan:
+        seconds = plan["seconds"]
+        bars = math.ceil(seconds / BAR)
+    else:
+        bars = 2 + 2 * len(card["points"]) + (2 if card.get("take") else 0) + (2 if card.get("ask") else 1)
+        seconds = bars * BAR + 1.0
+    wav, _ = write_wav(out.with_suffix(".wav"), bars=bars + 1, seed=7 + n)
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
-           "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-i", str(wav), "-af", "loudnorm=I=-14:TP=-1.5:LRA=9,aresample=48000",
-           "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-maxrate", "20M", "-bufsize", "40M",
-           "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-           "-t", f"{seconds:.2f}", "-movflags", "+faststart", str(out)]
+           "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", str(wav)]
+    if plan:
+        vo = voice.write_wav(out.with_suffix(".vo.wav"), plan["track"])
+        # the music drops to about a quarter while the voice speaks (sidechain), then both are loudness-normalised
+        cmd += ["-i", str(vo), "-filter_complex",
+                "[2:a]aresample=48000,asplit=2[v][vk];[1:a]aresample=48000,volume=0.55[m];"
+                "[m][vk]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=400[md];"
+                "[md][v]amix=inputs=2:weights=1 1.6:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]",
+                "-map", "0:v", "-map", "[a]"]
+    else:
+        cmd += ["-af", "loudnorm=I=-14:TP=-1.5:LRA=9,aresample=48000"]
+    cmd += ["-c:v", "libx264", "-preset", "slow", "-crf", "16", "-maxrate", "20M", "-bufsize", "40M",
+            "-pix_fmt", "yuv420p", "-profile:v", "high", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+            "-t", f"{seconds:.2f}", "-movflags", "+faststart", str(out)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    for frame in render_frames(post, section, n, site, seconds, style, palette):
+    for frame in render_frames(post, section, n, site, seconds, style, palette, voiced=plan):
         proc.stdin.write(frame)
     proc.stdin.close()
     if proc.wait() != 0:
         raise RuntimeError("ffmpeg failed to encode a story reel")
     wav.unlink(missing_ok=True)
+    out.with_suffix(".vo.wav").unlink(missing_ok=True)
     return out
+
+
+def voice_plan(card: dict, n: int, who: str | None = None, sign_off: str | None = None) -> dict:
+    """Speak every line once, at one speed, and fit the scenes to the voice: each scene lasts at least 2 bars and
+    always ends on a beat, so the cuts stay on the music. The end scene speaks the question, then the closing line."""
+    gap, lead = 0.45, 0.3                          # silence after each line; the voice starts just after the cut
+    lines = [("hook", card["hook"])] + [(f"p{k}", p) for k, p in enumerate(card["points"])]
+    if card.get("take"):
+        lines.append(("take", card["take"]))
+    clips, said, lens = {}, {}, []
+    for key, text in lines:
+        clips[key] = voice.say(plain(text), voice=who)
+        said[key] = len(clips[key]) / voice.SR
+        lens.append(max(2 * BAR, math.ceil((lead + said[key] + gap) / BEAT) * BEAT))
+    t0 = sum(lens)
+    end_clips = []
+    if card.get("ask"):
+        clips["ask"] = voice.say(plain(card["ask"]), voice=who)
+        said["ask"] = len(clips["ask"]) / voice.SR
+        end_clips.append((lead, clips["ask"]))
+    outro_at = lead + said.get("ask", 0) + (gap if card.get("ask") else 0)
+    clips["outro"] = voice.say(voice.OUTRO, voice=who)
+    said["outro"] = len(clips["outro"]) / voice.SR
+    end_clips.append((outro_at, clips["outro"]))
+    seconds = t0 + outro_at + len(clips["outro"]) / voice.SR + 1.6
+    sign_at = None
+    if sign_off:                       # the logo card: "Five Minute AI. Hype not included." after the closing line
+        sign_at = outro_at + said["outro"] + 0.7
+        clips["sign"] = voice.say(sign_off, voice=who)
+        said["sign"] = len(clips["sign"]) / voice.SR
+        end_clips.append((sign_at, clips["sign"]))
+        seconds = t0 + sign_at + said["sign"] + 1.4
+    track = np.zeros(int((seconds + 1) * voice.SR), np.float32)
+    t = 0.0
+    for (key, _), length in zip(lines, lens):
+        i = int((t + lead) * voice.SR)
+        track[i:i + len(clips[key])] += clips[key]
+        t += length
+    for at, clip in end_clips:
+        i = int((t0 + at) * voice.SR)
+        track[i:i + len(clip)] += clip
+    track = track / max(1e-6, float(np.abs(track).max())) * 0.9
+    return {"lens": lens, "said": said, "outro_at": outro_at, "sign_at": sign_at, "seconds": seconds, "track": track,
+            "mouth": voice.envelope(track, FPS)}
