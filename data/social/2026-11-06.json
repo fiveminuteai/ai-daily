@@ -55,13 +55,15 @@
    "hook": "Claude can now read your bank accounts, but it can't move money[S4].",
    "text": "Claude can now read your bank accounts, but it can't move money.\n\n• Users connect bank and card accounts through Plaid and ask about their money.\n• It can flag duplicate charges, unexpected fees and steadily increasing bills.\n• Access is read-only and covers up to two years of transactions.\n\nDo this: Check exactly what an AI can see before you connect your accounts.\n\nYour take: Would you let an AI read your bank account? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-06T07:31:23+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfZEyGDmf2_/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-06/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-06T07:30:00+00:00"
+   "scheduled_at": "2026-11-06T07:30:00+00:00",
+   "media_id": "18108967532213167",
+   "error": null
   },
   {
    "id": "2026-11-06-reel-2",
