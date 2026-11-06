@@ -121,7 +121,7 @@ def cloud_allowed() -> bool:
 
 def providers_from_config(site_cfg: dict, only: str | None = None) -> list[Provider]:
     out = []
-    cloud = cloud_allowed()
+    cloud = cloud_allowed() and site_cfg.get("cloud_models", True) is not False   # config switch (6 Nov 2026)
     if not cloud:
         log.warning("not on GitHub Actions: cloud models are off to protect the daily post's quota "
                     "(set FMA_ALLOW_PROD_KEYS=1 to use them anyway)")

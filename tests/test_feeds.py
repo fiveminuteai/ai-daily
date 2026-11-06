@@ -164,6 +164,6 @@ def test_chain_gives_up_at_once_when_every_provider_is_out_for_the_day(monkeypat
 def test_fallback_models_are_configured_in_order():
     from fma import config
     from fma.llm import providers_from_config
-    names = [f"{p.name}:{p.model}" for p in providers_from_config(config.site_config())]
+    names = [f"{p.name}:{p.model}" for p in providers_from_config({**config.site_config(), "cloud_models": True})]
     assert names[:5] == ["groq:openai/gpt-oss-120b", "groq:qwen/qwen3.8-27b", "gemini:gemini-3.8-flash",
                          "gemini:gemini-3.6-flash", "gemini:gemini-3.5-flash"]
