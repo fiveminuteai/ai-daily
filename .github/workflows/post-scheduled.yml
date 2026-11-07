@@ -13,6 +13,8 @@ on:
     - cron: "5 4 * * *"       # 09:35, second try
     - cron: "35 7 * * *"      # 13:05
     - cron: "5 8 * * *"       # 13:35
+    - cron: "35 10 * * *"     # 16:05 (the 4th slot, from 7 Nov 2026)
+    - cron: "5 11 * * *"      # 16:35
     - cron: "35 13 * * *"     # 19:05
     - cron: "5 14 * * *"      # 19:35
   workflow_dispatch:

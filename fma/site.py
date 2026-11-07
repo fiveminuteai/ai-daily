@@ -200,7 +200,8 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
         logging.getLogger(__name__).warning("reel failed: %s", exc)
     from .story_reel import card_stories, palettes_for, story_reel
     out["story_reels"] = []
-    stories = card_stories(post)
+    from .social_queue import reel_slots
+    stories = card_stories(post, limit=len(reel_slots(site)))      # one Reel per slot (up to 5 from 7 Nov 2026)
     for k, ((n, sec), pal) in enumerate(zip(stories, palettes_for(stories, post["date"]))):   # up to three, each its own colours
         path = folder / "reels" / f"{k + 1:02d}.mp4"
         if duo_ok(post, sec):      # the duo Reel (5 Nov 2026); on any failure the story gets its ordinary Reel

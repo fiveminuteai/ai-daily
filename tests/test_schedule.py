@@ -46,7 +46,7 @@ def test_an_edited_schedule_moves_the_clock():
     ({"reels": ["06:30"]}, "reels"),                        # under 90 minutes after the 05:45 post
     ({"reels": ["09:00", "09:15"]}, "reels"),               # under 30 minutes apart
     ({"reels": ["13:00", "09:00"]}, "reels"),               # out of order
-    ({"reels": ["09:00", "12:00", "15:00", "18:00"]}, "reels"),
+    ({"reels": ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00"]}, "reels"),   # more than 5 (3 until 7 Nov 2026)
     ({"reels": []}, "reels"),
     ({"reels": ["23:30"]}, "reels"),
     ({"stats": "19:00"}, "stats"),

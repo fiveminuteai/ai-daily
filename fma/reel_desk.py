@@ -196,7 +196,9 @@ def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None 
     # the strongest story always gets one, as card_stories always gives the best story a Reel
     from .duo_desk import write as write_duo
     ranked = sorted(scripted, key=lambda nc: -nc[1]["reel"])
-    for k, (n, card) in enumerate(ranked[:3]):
+    from . import config
+    from .social_queue import reel_slots
+    for k, (n, card) in enumerate(ranked[:len(reel_slots(config.site_config()))]):   # one duo per Reel slot
         if k == 0 or card["reel"] >= REEL_BAR:
             duo = write_duo(chain, out[n - 1], card)
             if duo:

@@ -20,7 +20,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # India time. Limits: the daily post between 03:00 and 07:00 (the laptop backup trigger fires at 07:30 and the
-# fixed cron backups from 05:45, see daily_not_yet); 1-3 Reels, at least 90 minutes after the post and 30 apart,
+# fixed cron backups from 05:45, see daily_not_yet); 1-5 Reels (3 until 7 Nov 2026), at least 90 minutes after the post and 30 apart,
 # by 23:00; stats between 20:00 and 23:45, after the last Reel.
 DEFAULT = {"daily": "05:45", "reels": ("09:00", "13:00", "19:00"), "stats": "23:30"}
 IST = timedelta(hours=5, minutes=30)
@@ -42,7 +42,7 @@ def schedule(cfg: dict | None) -> dict:
     if isinstance(daily, str) and _HHMM.match(daily) and _mins("03:00") <= _mins(daily) <= _mins("07:00"):
         out["daily"] = daily
     reels = cfg.get("reels")
-    if (isinstance(reels, (list, tuple)) and 1 <= len(reels) <= 3 and all(isinstance(r, str) and _HHMM.match(r) for r in reels)
+    if (isinstance(reels, (list, tuple)) and 1 <= len(reels) <= 5 and all(isinstance(r, str) and _HHMM.match(r) for r in reels)
             and _mins(reels[0]) >= _mins(out["daily"]) + 90 and _mins(reels[-1]) <= _mins("23:00")
             and all(_mins(b) - _mins(a) >= 30 for a, b in zip(reels, reels[1:]))):
         out["reels"] = tuple(reels)

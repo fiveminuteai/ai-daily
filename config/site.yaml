@@ -28,12 +28,12 @@ cloud_models: true
 auto_post_reels: true
 
 # When things run, India time. The Clock workflow (fma/clock.py) starts each one; the control app edits these.
-# daily: 03:00-07:00. reels: 1-3 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a
+# daily: 03:00-07:00. reels: 1-5 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a
 # change only shapes new queues, never Reels already queued. stats: 20:00-23:45, after the last Reel. The crons in
 # daily.yml, post-scheduled.yml and collect-stats.yml are fixed backups: a daily backup before `daily` skips itself.
 schedule:
   daily: "05:45"
-  reels: ["09:00", "13:00", "19:00"]
+  reels: ["09:00", "13:00", "16:00", "19:00"]
   stats: "23:30"
 
 # Who reads this, and what they find interesting. The daily editor pass uses this to pick stories.
