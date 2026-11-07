@@ -277,7 +277,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                 short = run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http, skip_links=skip_links)
                 if not short:
                     log.warning("publishing a short edition: %s", "; ".join(fails))
-                    post = {**post, "edition": "short"}
+                    post = {**post, "edition": "short"} if post.get("word_count", 0) < pipe.get("words_min", 880) else post
                     fails = []
             times["gate"] = time.monotonic() - t
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day
@@ -306,6 +306,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             if dropped:
                 feedback += "\n- These sentences failed source checks and were removed; don't repeat the errors:\n" + \
                     "\n".join(f"  * {e['text'][:160]} ({'; '.join(e['problems'])})" for e in dropped)
+    save_collection(root, date, lineup)      # the backup writer (fma/manual.py) can write from these, no network
     return Result("skipped", f"gate failed after retries: {last_fail}")
 
 
@@ -400,6 +401,23 @@ def _dump_rejected(root: Path, date: str, attempt: int, chain, draft, post, repo
 def _yaml(path: Path) -> dict:
     import yaml
     return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+
+def save_collection(root: Path, date: str, lineup) -> None:
+    """The day's chosen stories with their extracted text, as the backup writer needs them (7 Nov 2026: the backup
+    routine runs in a sandbox that cannot reach news sites, so it writes from what the daily run collected)."""
+    from .write import number_sources
+    try:
+        folder = root / "data" / "collect" / date
+        folder.mkdir(parents=True, exist_ok=True)
+        sources, blocks = number_sources(lineup, per_block=True)
+        (folder / "sources.json").write_text(json.dumps(sources, ensure_ascii=False, indent=1), encoding="utf-8")
+        (folder / "blocks.txt").write_text("\n\n=========== STORY BLOCK ===========\n\n".join(blocks), encoding="utf-8")
+        (folder / "lineup.json").write_text(json.dumps(
+            [{"title": st.title, "items": [{"url": it.url, "title": it.title} for it in st.items]} for st in lineup],
+            ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception:  # noqa: BLE001 - saving for the backup must never break the run
+        log.exception("could not save the day's collection")
 
 
 def _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources=None) -> Result:

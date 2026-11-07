@@ -37,6 +37,26 @@ def work(date: str) -> Path:
 
 # ---------------------------------------------------------------- 1. collect
 
+def collect_saved(date: str) -> None:
+    """Start the manual day from what the daily run collected (data/collect/<date>/): for a sandbox without access to
+    the news sites. The lineup is the daily run's own; no picking."""
+    import shutil
+    from types import SimpleNamespace
+    src = ROOT / "data" / "collect" / date
+    if not (src / "sources.json").exists():
+        sys.exit(f"no saved collection for {date} in {src}: the daily run did not reach that step")
+    w = work(date)
+    for f in ("sources.json", "blocks.txt"):
+        shutil.copy(src / f, w / f)
+    lineup = [SimpleNamespace(title=s["title"], items=[SimpleNamespace(**i) for i in s["items"]])
+              for s in json.loads((src / "lineup.json").read_text(encoding="utf-8"))]
+    with open(w / "lineup.pkl", "wb") as f:
+        pickle.dump(lineup, f)
+    print(f"{len(lineup)} stories from the daily run's collection -> {w / 'blocks.txt'}")
+    for st in lineup:
+        print(f"  - {st.title}")
+
+
 def collect(date: str, picks: list[str]) -> None:
     from .extract import about_title, extract_item
     from .feeds import Http, fetch_all
@@ -213,12 +233,13 @@ def publish(date: str) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m fma.manual")
     ap.add_argument("step", choices=["collect", "check", "publish"])
+    ap.add_argument("--saved", action="store_true", help="collect: use the daily run's saved collection (no network)")
     ap.add_argument("--date", default=None)
     ap.add_argument("--pick", action="append", default=[], help="start of a story title from ranked.txt, in order")
     a = ap.parse_args()
     date = a.date or _today()
     if a.step == "collect":
-        collect(date, a.pick)
+        collect_saved(date) if a.saved else collect(date, a.pick)
     elif a.step == "check":
         sys.exit(0 if check(date) else 1)
     else:

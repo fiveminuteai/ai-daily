@@ -68,6 +68,18 @@ jobs:
         if: steps.run.outputs.published == 'true'
         run: python -m fma.social_queue build || echo "::warning::Social queue not built"
 
+      # A skipped day still commits its collected stories (data/collect/), so the backup writer can write the post
+      # without reaching the news sites itself (7 Nov 2026).
+      - name: Keep the collection for the backup writer
+        if: steps.run.outputs.published != 'true'
+        run: |
+          [ -d data/collect ] || exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/collect
+          git commit -m "Collected stories for $(TZ=Asia/Kolkata date +%F) (no post yet)" || exit 0
+          for i in 1 2 3; do git pull --rebase origin main && git push && exit 0; sleep 10; done
+
       - name: Commit the post
         if: steps.run.outputs.published == 'true'
         run: |

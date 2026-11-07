@@ -65,3 +65,24 @@ def test_tuning_scores_reward_checked_facts():
             "In testing it went out of bounds less than 1 percent of the time[S2]."]
     bad = ["OpenAI launched GPT-9 last year.", "It went out of bounds 7 percent of the time.", "x", "y"]
     assert tune.facts_score(good, src) > tune.facts_score(bad, src)
+
+
+def test_backup_writes_from_the_saved_collection(tmp_path, monkeypatch):
+    """7 Nov 2026: the backup sandbox can't reach news sites; it writes from what the daily run saved."""
+    import pickle
+    from types import SimpleNamespace
+    from fma import manual, pipeline
+    from fma.rank import history_entry
+    monkeypatch.setattr(manual, "ROOT", tmp_path)
+    item = SimpleNamespace(url="https://techcrunch.com/x", title="Crusoe sells data center", text="Crusoe sold a data "
+                           "center project to Google. " * 20, summary="", publisher="TechCrunch", published=None,
+                           source="techcrunch")
+    st = SimpleNamespace(title="Crusoe sells data center", items=[item], lead=item, publishers={"TechCrunch"},
+                         category="products")
+    monkeypatch.setattr("fma.write.number_sources", lambda lineup, per_block=True: (
+        [{"id": "S1", "title": item.title, "publisher": "TechCrunch", "text": item.text}], ["[S1] block"]))
+    pipeline.save_collection(tmp_path, "2026-11-08", [st])
+    manual.collect_saved("2026-11-08")
+    lineup = pickle.load(open(tmp_path / ".manual" / "2026-11-08" / "lineup.pkl", "rb"))
+    assert lineup[0].title == "Crusoe sells data center"
+    assert history_entry("2026-11-08", "slug", lineup)["urls"]

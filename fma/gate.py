@@ -71,7 +71,9 @@ def rescue_headline(post: dict, report: dict) -> dict:
 # Rules a draft can fail and still be a true, fully fact-checked post: only its length and shape. On a day when every
 # attempt fails on these alone, the last attempt goes out as a short edition instead of the day being skipped.
 SOFT_FAILS = ("word count ", "no 'why it matters'")
-SHORT_EDITION = {"words_min": 450, "require_why": False}
+SHORT_EDITION = {"words_min": 450, "words_max": 1400, "require_why": False}
+# words_max: 7 Nov 2026, a fully checked draft failed the whole day for being 1,213 words against 1,150: a little long
+# is never a reason to publish nothing
 
 
 def soft_only(fails: list[str]) -> bool:

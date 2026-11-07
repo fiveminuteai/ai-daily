@@ -17,9 +17,16 @@ If `content/posts/<today>.json` exists, stop: the automatic writer published. Re
 ## 1. Collect the stories
 
 ```bash
-pip install -r requirements.txt
-python -m fma.manual collect
+python -m pip install -r requirements.txt        # use `python -m pip`: plain `pip` may install for another Python
+python -m fma.manual collect --saved              # the daily run's own collection, saved when it failed (no network)
 ```
+
+Use `--saved` first: the cloud sandbox this backup runs in cannot reach most news sites (7 Nov 2026: TechCrunch,
+Ars Technica and Hacker News were refused), so the daily run saves the day's collected stories in
+`data/collect/<today>/` when it fails, and you write from those. The lineup is the daily run's own: skip the
+choosing below and go to step 2. Only if there is no saved collection, run `python -m fma.manual collect` (it needs
+the news sites) and choose the stories as below; if that also fails or gives fewer than 3 real stories, stop and
+report it.
 
 Read `.manual/<today>/ranked.txt` (the day's ranked stories) and choose 4 or 5, as the editor would:
 - **The AI race first:** moves by the giants (OpenAI, Google, Anthropic, Meta, Microsoft, Apple, Amazon, Nvidia,

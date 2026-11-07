@@ -151,3 +151,9 @@ def test_headline_rescue_uses_the_checked_lead_title():
     post = rescue_headline({"headline": "Bad", "sections": [{"title": "Lead story title"}]}, report)
     assert post["headline"] == "Lead story title" and not report.get("headline_problems")
     assert report["headline_rescued"]["was"] == "Bad"
+
+
+def test_a_long_but_checked_draft_is_not_a_lost_day():
+    from fma.gate import SHORT_EDITION, soft_only
+    assert soft_only(["word count 1213 outside 880-1150"])
+    assert SHORT_EDITION["words_max"] >= 1213
