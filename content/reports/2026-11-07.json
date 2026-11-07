@@ -1,0 +1,800 @@
+{
+  "checked": 83,
+  "ok": 79,
+  "repaired": 4,
+  "dropped": 0,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI is valued at $1.25 trillion as AI spending growth stalls",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "The era of hypergrowth may be over",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI is valued at $1.25 trillion while Ramp data shows AI spending stalling, Google takes over a troubled data centre project, Meta's Muse builds custom spaces and Amazon lets you text Alexa to shop.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S6",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI is valued at $1.25 trillion after raising another $11 billion, Bloomberg reports, while Ramp data shows AI spending flattening.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Crusoe sold an unfinished Wyoming data centre project to Google, which plans to invest $17 billion in it.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Meta's Muse agents can now build custom spaces, like trackers and planners, from a description in chat.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Amazon is letting select US customers text Alexa to search for, compare and buy products.",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg, The Verge reports.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "That comes not long after OpenAI raised $122 billion from investors in March at a valuation of $852 billion.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Bloomberg says OpenAI is still pursuing more investment that could take the round to $20 billion, after it had initially hoped to raise as much as $30 billion at a $1.4 trillion valuation.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "At the same time, a new report from Ramp shows AI spending flatlined over late summer even as token volumes rose.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "According to Ramp's data, token spend grew only 1.5% across August and September, after growing 42% in July from the previous month.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "October did see a re-acceleration, with token spend up 8.9% from September 23 to October 23.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Ramp's lead economist Ara Kharazian told TechCrunch that almost all AI spending comes from venture-backed, high-growth tech companies.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "He said the slowdown is not a demand problem and pointed instead to competition: in September, OpenAI cut API prices in half for GPT-6 Sol and GPT-6 Luna.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI's rival Anthropic filed its S-1 to go public last week, The Verge reports.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI hits a $1.25 trillion valuation as AI spending growth stalls",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The new round raised another $11 billion and could reach $20 billion.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Ramp says AI token spend grew just 1.5% across August and September.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "In July, that spending had grown 42% from the month before.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Cheaper AI prices may be capping how fast AI companies grow.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Is the AI money boom slowing down?",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "But Ramp says AI spending grew just 1.5% in August and September.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "In July, that spending had grown 42% from the month before.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "Ramp's economist says price cuts, like OpenAI halving some API prices, made AI cheaper to use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Crusoe, a Denver-based data center developer recently valued at $30.9 billion, confirmed Friday it has sold an unfinished data center project in southeastern Wyoming to Google.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google, which Crusoe had tried and failed to land as a customer for the project, is taking over the development after reportedly raising concerns about its cost and construction timeline.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google did not disclose how much it paid, but it announced plans to invest $17 billion to develop the data center campus.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Crusoe first announced the project last year with infrastructure company Tallgrass, planning to eventually scale it to 10 gigawatts of power capacity.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "TechCrunch says the deal shows how hard it can be for independent developers to deliver massive projects on time and within budget, given the challenges of securing equipment and power.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Crusoe is still developing another data center for Google near Amarillo, Texas.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Separately, OpenAI announced that it won't use non-disclosure agreements with public officials on its data center projects, after midterm voters voiced their opposition to data center expansion, The Verge reports.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI says it will pay the full cost of the electricity it uses and of the infrastructure needed to serve it.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "In October, Amazon announced it would no longer use NDAs with government agencies on data center projects.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google takes over a troubled Wyoming data centre as OpenAI drops NDAs",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Crusoe had planned to scale the site to 10 gigawatts of power.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Google reportedly worried about its cost and timeline under Crusoe.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "OpenAI says it won't use NDAs with officials on data centres.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Data centre fights are now shaping where AI gets built.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should data centre deals be made in public?",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Crusoe sold an unfinished data centre project in Wyoming to Google.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "Google plans to invest $17 billion to build out the site.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Crusoe had planned to scale it to 10 gigawatts of power.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "Separately, OpenAI says it won't use non-disclosure agreements with public officials on its data centres.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta has launched Spaces, a new way to work with its Muse AI agents, TechCrunch reports.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta says users can describe an idea in chat and Muse builds a space, such as a tracker, a planner or a project board.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The Verge reports examples like a shopping hub, a school dashboard, a music tracker and a trivia game.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "If users connect outside apps such as Gmail, Google Calendar, OpenTable or Notion, Muse keeps pulling information from them to update prices, dates and other details in the background.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Mark Zuckerberg, Meta's founder and CEO, posted on X that he had made a BBQ game, an event tracker and a home control dashboard with spaces.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Spaces is the second new Muse feature in a week: on Thursday, Meta made Muse Voice, which lets users video chat with their agent, available to everyone in the US.",
+      "sources": [
+        "S5",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "During its earnings call in October, Zuckerberg said Meta's agents had 10 million users in the US and Canada, less than two months after they debuted.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Meta's Muse agents can now build custom spaces",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Meta's Muse can now build app-like spaces from a chat message.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Describe an idea, and Muse builds a tracker, planner or project board.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Connected apps like Gmail keep each space updated in the background.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Zuckerberg says the agents had 10 million users in the US and Canada.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Try describing one weekly chore and see what Muse builds.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Would you let an AI build your apps?",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon is launching a feature that lets customers chat with its Alexa AI agent over text messages to help them shop, TechCrunch reports.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Select US customers will get a text asking them to turn on the feature, and others can join a waitlist as it rolls out more broadly in the coming weeks.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Verge reports that users can describe a product or send a photo, and Alexa for Shopping will search Amazon listings, text back recommendations and order the item for them.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The text agent can manage lists, keep tabs on prices, search for items across the web, compare products and check the status of orders.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon says Alexa will learn users' preferences over time and suggest items accordingly.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The contact appears in a user's phone as Amazon Alexa.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The move comes after Amazon blocked Meta's Muse from querying its site in September, and just before the start of the holiday shopping season.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "TechCrunch notes that last month DoorDash said third-party agents had placed only hundreds of orders in total on its platform, and that it plans to focus on its own text-based agent.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Amazon now lets you text Alexa to shop",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "You can now text Alexa to find and buy things on Amazon.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Select US customers get an invite; others can join a waitlist.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Send a photo of an item and Alexa finds similar listings.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Amazon blocked Meta's Muse from querying its site in September.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Check what Alexa can buy for you before you turn texting on.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Would you shop by texting an AI?",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Amazon now lets some US customers text Alexa to shop.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "You describe what you want, or send a photo, and Alexa finds it and orders it.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Amazon says Alexa will learn your preferences over time.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 7",
+      "text": "This comes after Amazon blocked Meta's Muse agent from its site in September.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The AI race is getting richer and cheaper at the same time: OpenAI's value keeps climbing while Ramp sees spending growth slow as prices fall.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "If the price war continues, users win, and AI companies may grow more slowly than investors expect.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Data centres are now a public issue: after the midterms, OpenAI is promising more openness and to pay its own power costs.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Google's takeover in Wyoming shows how hard these huge builds can be.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 0,
+  "unused": 1,
+  "date": "2026-11-07",
+  "slug": "2026-11-07-openai-is-valued-at-1-25-trillion",
+  "model": "manual day: written and reviewed in a Claude session"
+}

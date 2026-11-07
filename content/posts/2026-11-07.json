@@ -1,0 +1,396 @@
+{
+  "date": "2026-11-07",
+  "slug": "2026-11-07-openai-is-valued-at-1-25-trillion",
+  "headline": "OpenAI is valued at $1.25 trillion as AI spending growth stalls",
+  "dek": "OpenAI is valued at $1.25 trillion while Ramp data shows AI spending stalling, Google takes over a troubled data centre project, Meta's Muse builds custom spaces and Amazon lets you text Alexa to shop[S1][S2][S3][S6][S8].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "policy",
+    "products",
+    "openai",
+    "anthropic",
+    "google",
+    "meta",
+    "amazon"
+  ],
+  "what_happened": [
+    "OpenAI is valued at $1.25 trillion after raising another $11 billion, Bloomberg reports, while Ramp data shows AI spending flattening[S1][S2].",
+    "Crusoe sold an unfinished Wyoming data centre project to Google, which plans to invest $17 billion in it[S3].",
+    "Meta's Muse agents can now build custom spaces, like trackers and planners, from a description in chat[S5][S6]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "OpenAI hits a $1.25 trillion valuation as AI spending growth stalls",
+      "category": "policy",
+      "paragraphs": [
+        "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg, The Verge reports[S2]. That comes not long after OpenAI raised $122 billion from investors in March at a valuation of $852 billion[S2]. Bloomberg says OpenAI is still pursuing more investment that could take the round to $20 billion, after it had initially hoped to raise as much as $30 billion at a $1.4 trillion valuation[S2].",
+        "At the same time, a new report from Ramp shows AI spending flatlined over late summer even as token volumes rose[S1]. According to Ramp's data, token spend grew only 1.5% across August and September, after growing 42% in July from the previous month[S1]. October did see a re-acceleration, with token spend up 8.9% from September 23 to October 23[S1].",
+        "Ramp's lead economist Ara Kharazian told TechCrunch that almost all AI spending comes from venture-backed, high-growth tech companies[S1]. He said the slowdown is not a demand problem and pointed instead to competition: in September, OpenAI cut API prices in half for GPT-6 Sol and GPT-6 Luna[S1]. OpenAI's rival Anthropic filed its S-1 to go public last week, The Verge reports[S2]."
+      ],
+      "card": {
+        "hook": "OpenAI is now valued at $1.25 trillion, Bloomberg reports[S2].",
+        "points": [
+          "The new round raised another $11 billion and could reach $20 billion[S2].",
+          "Ramp says AI token spend grew just 1.5% across August and September[S1].",
+          "In July, that spending had grown 42% from the month before[S1]."
+        ],
+        "take": "Cheaper AI prices may be capping how fast AI companies grow[S1].",
+        "take_kind": "read",
+        "ask": "Is the AI money boom slowing down[S2][S1]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "a trillion-dollar valuation while spending stalls",
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "written by hand on 7 Nov 2026 (free writer failed; backup routine blocked by sandbox network)"
+        },
+        "bonus": 0.0,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "OpenAI is now valued at $1.25 trillion, Bloomberg reports[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Wait. How many zeros is that?"
+            },
+            {
+              "who": "spark",
+              "text": "But Ramp says AI spending grew just 1.5% in August and September[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "So the party is still on. The bar tab isn't.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "In July, that spending had grown 42% from the month before[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Ah. The hangover."
+            },
+            {
+              "who": "spark",
+              "text": "Ramp's economist says price cuts, like OpenAI halving some API prices, made AI cheaper to use[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Cheaper AI? Finally, something in this story I can afford.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "story": 2,
+      "title": "Google takes over a troubled Wyoming data centre as OpenAI drops NDAs",
+      "category": "products",
+      "paragraphs": [
+        "Crusoe, a Denver-based data center developer recently valued at $30.9 billion, confirmed Friday it has sold an unfinished data center project in southeastern Wyoming to Google[S3]. Google, which Crusoe had tried and failed to land as a customer for the project, is taking over the development after reportedly raising concerns about its cost and construction timeline[S3]. Google did not disclose how much it paid, but it announced plans to invest $17 billion to develop the data center campus[S3].",
+        "Crusoe first announced the project last year with infrastructure company Tallgrass, planning to eventually scale it to 10 gigawatts of power capacity[S3]. TechCrunch says The deal shows how hard it can be for independent developers to deliver massive projects on time and within budget, given the challenges of securing equipment and power[S3]. Crusoe is still developing another data center for Google near Amarillo, Texas[S3].",
+        "Separately, OpenAI announced that it won't use non-disclosure agreements with public officials on its data center projects, after midterm voters voiced their opposition to data center expansion, The Verge reports[S4]. OpenAI says it will pay the full cost of the electricity it uses and of the infrastructure needed to serve it[S4]. In October, Amazon announced it would no longer use NDAs with government agencies on data center projects[S4]."
+      ],
+      "card": {
+        "hook": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion[S3].",
+        "points": [
+          "Crusoe had planned to scale the site to 10 gigawatts of power[S3].",
+          "Google reportedly worried about its cost and timeline under Crusoe[S3].",
+          "OpenAI says it won't use NDAs with officials on data centres[S4]."
+        ],
+        "take": "Data centre fights are now shaping where AI gets built[S3][S4].",
+        "take_kind": "read",
+        "ask": "Should data centre deals be made in public[S3][S4]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "a giant data centre changing hands",
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "written by hand on 7 Nov 2026 (free writer failed; backup routine blocked by sandbox network)"
+        },
+        "bonus": 0.0,
+        "duo": {
+          "guest": "rex",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Crusoe sold an unfinished data centre project in Wyoming to Google[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Unfinished? Join the club. I never finished evolving."
+            },
+            {
+              "who": "spark",
+              "text": "Google plans to invest $17 billion to build out the site[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "I could build a lovely swamp with that."
+            },
+            {
+              "who": "spark",
+              "text": "Crusoe had planned to scale it to 10 gigawatts of power[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "That much power? Even my roar wasn't that loud.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Separately, OpenAI says it won't use non-disclosure agreements with public officials on its data centres[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "No secrets? Bold. I kept my bones buried for ages.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "story": 3,
+      "title": "Meta's Muse agents can now build custom spaces",
+      "category": "products",
+      "paragraphs": [
+        "Meta has launched Spaces, a new way to work with its Muse AI agents, TechCrunch reports[S5]. Meta says Users can describe an idea in chat and Muse builds a space, such as a tracker, a planner or a project board[S5]. The Verge reports examples like a shopping hub, a school dashboard, a music tracker and a trivia game[S6].",
+        "If users connect outside apps such as Gmail, Google Calendar, OpenTable or Notion, Muse keeps pulling information from them to update prices, dates and other details in the background[S6]. Mark Zuckerberg, Meta's founder and CEO, posted on X that he had made a BBQ game, an event tracker and a home control dashboard with spaces[S5].",
+        "Spaces is the second new Muse feature in a week: on Thursday, Meta made Muse Voice, which lets users video chat with their agent, available to everyone in the US[S5][S7]. During its earnings call in October, Zuckerberg said Meta's agents had 10 million users in the US and Canada, less than two months after they debuted[S5]."
+      ],
+      "card": {
+        "hook": "Meta's Muse can now build app-like spaces from a chat message[S6].",
+        "points": [
+          "Describe an idea, and Muse builds a tracker, planner or project board[S5].",
+          "Connected apps like Gmail keep each space updated in the background[S6].",
+          "Zuckerberg says the agents had 10 million users in the US and Canada[S5]."
+        ],
+        "take": "Try describing one weekly chore and see what Muse builds[S5].",
+        "take_kind": "do",
+        "ask": "Would you let an AI build your apps[S5][S6][S7]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "an AI that builds your mini apps",
+        "desk": {
+          "rubric": 6,
+          "chief": 6.0,
+          "why": "written by hand on 7 Nov 2026 (free writer failed; backup routine blocked by sandbox network)"
+        },
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 4,
+      "title": "Amazon now lets you text Alexa to shop",
+      "category": "products",
+      "paragraphs": [
+        "Amazon is launching a feature that lets customers chat with its Alexa AI agent over text messages to help them shop, TechCrunch reports[S8]. Select US customers will Get a text asking them to turn on the feature, and others can join a waitlist as it rolls out more broadly in the coming weeks[S8]. The Verge reports that Users can describe a product or send a photo, and Alexa for Shopping will search Amazon listings, text back recommendations and order the item for them[S9].",
+        "The text agent can manage lists, keep tabs on prices, search for items across the web, compare products and check the status of orders[S8]. Amazon says Alexa will learn users' preferences over time and suggest items accordingly[S8]. The contact appears in a user's phone as Amazon Alexa[S9].",
+        "The move comes after Amazon blocked Meta's Muse from querying its site in September, and just before the start of the holiday shopping season[S8]. TechCrunch notes that Last month DoorDash said third-party agents had placed only hundreds of orders in total on its platform, and that it plans to focus on its own text-based agent[S8]."
+      ],
+      "card": {
+        "hook": "You can now text Alexa to find and buy things on Amazon[S8].",
+        "points": [
+          "Select US customers get an invite; others can join a waitlist[S8].",
+          "Send a photo of an item and Alexa finds similar listings[S8].",
+          "Amazon blocked Meta's Muse from querying its site in September[S8]."
+        ],
+        "take": "Check what Alexa can buy for you before you turn texting on[S8].",
+        "take_kind": "do",
+        "ask": "Would you shop by texting an AI[S8][S9]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "shopping by text message",
+        "desk": {
+          "rubric": 7,
+          "chief": 7.0,
+          "why": "written by hand on 7 Nov 2026 (free writer failed; backup routine blocked by sandbox network)"
+        },
+        "bonus": 0.0,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Amazon now lets some US customers text Alexa to shop[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "Great. My phone can now spend money without me."
+            },
+            {
+              "who": "spark",
+              "text": "You describe what you want, or send a photo, and Alexa finds it and orders it[S9]."
+            },
+            {
+              "who": "guest",
+              "text": "A photo? I'm a box. This company is basically my family.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Amazon says Alexa will learn your preferences over time[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "It will learn I buy snacks at midnight. Fine."
+            },
+            {
+              "who": "spark",
+              "text": "This comes after Amazon blocked Meta's Muse agent from its site in September[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "So the robots are fighting now. Grab the popcorn.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "The AI race is getting richer and cheaper at the same time: OpenAI's value keeps climbing while Ramp sees spending growth slow as prices fall[S1][S2]. If the price war continues, users win, and AI companies may grow more slowly than investors expect[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Data centres are now a public issue: after the midterms, OpenAI is promising more openness and to pay its own power costs[S4]. Google's takeover in Wyoming shows how hard these huge builds can be[S3].",
+      "speculative": true
+    }
+  ],
+  "quote": {
+    "text": "The era of hypergrowth may be over",
+    "speaker": "Ara Kharazian",
+    "source": "S1"
+  },
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-06T23:46:18+00:00",
+      "title": "OpenAI hits a $1.25 trillion valuation as AI spending growth stalls",
+      "publisher": "The Verge",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-07T01:40:28+00:00",
+      "title": "Google takes over a troubled Wyoming data centre as OpenAI drops NDAs",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-06T18:44:20+00:00",
+      "title": "Meta's Muse agents can now build custom spaces",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-06T14:10:00+00:00",
+      "title": "Amazon now lets you text Alexa to shop",
+      "publisher": "TechCrunch",
+      "category": "products"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-06T15:54:47+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+      "publisher": "The Verge",
+      "published": "2026-11-06T23:46:18+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-07T01:40:28+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "OpenAI is stepping back from NDAs for data center projects",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+      "publisher": "The Verge",
+      "published": "2026-11-06T00:37:56+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-06T18:44:20+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
+      "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
+      "publisher": "The Verge",
+      "published": "2026-11-06T18:10:10+00:00"
+    },
+    {
+      "id": "S7",
+      "title": "Meta says US users can now video chat with their Muse AI avatar",
+      "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-05T19:48:28+00:00"
+    },
+    {
+      "id": "S8",
+      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-06T14:10:00+00:00"
+    },
+    {
+      "id": "S9",
+      "title": "Amazon will let you text Alexa your shopping list",
+      "url": "https://www.theverge.com/tech/1028587/amazon-alexa-shopping-ai-text-orders",
+      "publisher": "The Verge",
+      "published": "2026-11-06T14:00:00+00:00"
+    }
+  ],
+  "model": "manual day: written and reviewed in a Claude session",
+  "generated_at": "2026-11-07T03:47:40+00:00",
+  "verification": {
+    "checked": 83,
+    "ok": 79,
+    "repaired": 4,
+    "dropped": 0,
+    "unused": 1,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 990,
+  "reading_minutes": 5
+}

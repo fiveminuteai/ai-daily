@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-07",
+ "slug": "2026-11-07-openai-is-valued-at-1-25-trillion",
+ "headline": "OpenAI is valued at $1.25 trillion as AI spending growth stalls",
+ "url": "https://fiveminuteai.net/posts/2026-11-07-openai-is-valued-at-1-25-trillion/",
+ "generated_at": "2026-11-07T03:48:12+00:00",
+ "items": [
+  {
+   "id": "2026-11-07-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "OpenAI is valued at $1.25 trillion as AI spending growth stalls\n\n• OpenAI is valued at $1.25 trillion after raising another $11 billion, Bloomberg reports, while Ramp data shows AI spending flattening.\n• Crusoe sold an unfinished Wyoming data centre project to Google, which plans to invest $17 billion in it.\n• Meta's Muse agents can now build custom spaces, like trackers and planners, from a description in chat.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-07/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-07-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI is valued at $1.25 trillion as AI spending growth stalls\n\n• OpenAI is valued at $1.25 trillion after raising another $11 billion, Bloomberg reports, while Ramp data shows AI spending flattening.\n\nhttps://fiveminuteai.net/posts/2026-11-07-openai-is-valued-at-1-25-trillion/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 226
+  },
+  {
+   "id": "2026-11-07-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI is valued at $1.25 trillion as AI spending growth stalls\n\n• OpenAI is valued at $1.25 trillion after raising another $11 billion, Bloomberg reports, while Ramp data shows AI spending flattening.\n• Crusoe sold an unfinished Wyoming data centre project to Google, which plans to invest $17 billion in it.\n• Meta's Muse agents can now build custom spaces, like trackers and planners, from a description in chat.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-07-openai-is-valued-at-1-25-trillion/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-07-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "OpenAI is now valued at $1.25 trillion, Bloomberg reports[S2].",
+   "text": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.\n\n• The new round raised another $11 billion and could reach $20 billion.\n• Ramp says AI token spend grew just 1.5% across August and September.\n• In July, that spending had grown 42% from the month before.\n\nOur read: Cheaper AI prices may be capping how fast AI companies grow.\n\nYour take: Is the AI money boom slowing down? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-07/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-07T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-07-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion[S3].",
+   "text": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.\n\n• Crusoe had planned to scale the site to 10 gigawatts of power.\n• Google reportedly worried about its cost and timeline under Crusoe.\n• OpenAI says it won't use NDAs with officials on data centres.\n\nOur read: Data centre fights are now shaping where AI gets built.\n\nYour take: Should data centre deals be made in public? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-07/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-07T13:30:00+00:00"
+  },
+  {
+   "id": "2026-11-07-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "You can now text Alexa to find and buy things on Amazon[S8].",
+   "text": "You can now text Alexa to find and buy things on Amazon.\n\n• Select US customers get an invite; others can join a waitlist.\n• Send a photo of an item and Alexa finds similar listings.\n• Amazon blocked Meta's Muse from querying its site in September.\n\nDo this: Check what Alexa can buy for you before you turn texting on.\n\nYour take: Would you shop by texting an AI? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-07/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-08T03:30:00+00:00"
+  }
+ ]
+}

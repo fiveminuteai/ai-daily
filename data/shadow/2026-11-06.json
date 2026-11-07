@@ -48,9 +48,77 @@
     ]
    },
    "guest": "doubt",
-   "passed": false,
-   "why": "the local model did not finish the script within the retries",
-   "minutes": 1.7
+   "script": {
+    "guest": "doubt",
+    "lines": [
+     {
+      "who": "spark",
+      "text": "OpenAI is launching GPT-6 Cyber, its newest cybersecurity AI model[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "Just what we needed. More letters in my alphabet soup."
+     },
+     {
+      "who": "spark",
+      "text": "It's better at finding vulnerabilities and less likely to hack other platforms[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "So, not exactly a newsworthy hack."
+     },
+     {
+      "who": "spark",
+      "text": "In tests, GPT-6 Cyber went out of bounds less than 1 percent of the time[S2]."
+     },
+     {
+      "who": "guest",
+      "text": "Less than my spare time.",
+      "fx": [
+       "beat"
+      ]
+     },
+     {
+      "who": "spark",
+      "text": "OpenAI will buy Pierre Computer Company, maker of Code Storage[S1]."
+     },
+     {
+      "who": "guest",
+      "text": "More mergers? Great, now I'm a hard drive in the cloud.",
+      "fx": [
+       "beat"
+      ]
+     }
+    ]
+   },
+   "rules": [],
+   "facts": [
+    {
+     "line": "OpenAI is launching GPT-6 Cyber, its newest cybersecurity AI model.",
+     "verdict": "supported",
+     "why": "89% of the claim's words are in the evidence"
+    },
+    {
+     "line": "It's better at finding vulnerabilities and less likely to hack other platforms.",
+     "verdict": "supported",
+     "why": "89% of the claim's words are in the evidence"
+    },
+    {
+     "line": "In tests, GPT-6 Cyber went out of bounds less than 1 percent of the time.",
+     "verdict": "supported",
+     "why": "100% of the claim's words are in the evidence"
+    },
+    {
+     "line": "OpenAI will buy Pierre Computer Company, maker of Code Storage.",
+     "verdict": "unsure",
+     "why": "50% word overlap: needs a reader"
+    }
+   ],
+   "seconds": 40.1,
+   "passed": true,
+   "confirmed": false,
+   "passed_strict": false,
+   "minutes": 2.1
   },
   {
    "story": "Claude gets a read-only view of your bank accounts",
@@ -103,38 +171,38 @@
     "lines": [
      {
       "who": "spark",
-      "text": "Claude is getting a new finance tool called Personal Finance[S4]."
+      "text": "Anthropic's Claude is getting a new finance tool called Personal Finance[S4]."
      },
      {
       "who": "guest",
-      "text": "Finally, someone who can't handle my finances."
+      "text": "Just what I needed—another app to track my nonexistent expenses."
      },
      {
       "who": "spark",
-      "text": "It lets users ask questions about their bank accounts[S4]."
+      "text": "Users can connect their bank and credit card accounts to ask Claude about their money[S4]."
      },
      {
       "who": "guest",
-      "text": "Why bother, I'm a box."
+      "text": "More like a money stalker."
      },
      {
       "who": "spark",
-      "text": "The tool can spot issues like extra fees and big bills[S4]."
+      "text": "Access is read-only, so Claude can't manage or move users' funds[S4]."
      },
      {
       "who": "guest",
-      "text": "So helpful. Like a weather forecast.",
+      "text": "Read-only? More like read-slow.",
       "fx": [
        "beat"
       ]
      },
      {
       "who": "spark",
-      "text": "Claude can only read balances and past transactions[S4]."
+      "text": "Pro, Max and Ultra subscribers in the US can start using it this week[S5]."
      },
      {
       "who": "guest",
-      "text": "And it can't add to my savings?",
+      "text": "Finally, something I can't afford.",
       "fx": [
        "beat"
       ]
@@ -144,29 +212,31 @@
    "rules": [],
    "facts": [
     {
-     "line": "Claude is getting a new finance tool called Personal Finance.",
+     "line": "Anthropic's Claude is getting a new finance tool called Personal Finance.",
+     "verdict": "supported",
+     "why": "89% of the claim's words are in the evidence"
+    },
+    {
+     "line": "Users can connect their bank and credit card accounts to ask Claude about their money.",
      "verdict": "supported",
      "why": "100% of the claim's words are in the evidence"
     },
     {
-     "line": "It lets users ask questions about their bank accounts.",
+     "line": "Access is read-only, so Claude can't manage or move users' funds.",
      "verdict": "supported",
-     "why": "100% of the claim's words are in the evidence"
+     "why": "82% of the claim's words are in the evidence"
     },
     {
-     "line": "The tool can spot issues like extra fees and big bills.",
+     "line": "Pro, Max and Ultra subscribers in the US can start using it this week.",
      "verdict": "supported",
-     "why": "67% of the claim's words are in the evidence"
-    },
-    {
-     "line": "Claude can only read balances and past transactions.",
-     "verdict": "supported",
-     "why": "86% of the claim's words are in the evidence"
+     "why": "89% of the claim's words are in the evidence"
     }
    ],
-   "seconds": 33.7,
+   "seconds": 38.7,
    "passed": true,
-   "minutes": 0.4
+   "confirmed": true,
+   "passed_strict": true,
+   "minutes": 1.0
   },
   {
    "story": "Meta says election backlash will make data centres harder to build",
@@ -211,75 +281,73 @@
     "lines": [
      {
       "who": "spark",
-      "text": "Meta says building new data centres will be tougher after the elections[S6]."
+      "text": "Meta's president says the midterm elections will make it harder to build data centres[S6]."
      },
      {
       "who": "guest",
-      "text": "Bills? Even I never managed that in my heyday."
+      "text": "Harder? More like impossible for me."
      },
      {
       "who": "spark",
-      "text": "Communities only want them if they get something in return[S6]."
+      "text": "TechCrunch reports Meta is worried about losing investments after politicians ran on anti-data-center platforms[S6]."
      },
      {
       "who": "guest",
-      "text": "Huge and hungry? I remember huge and hungry dinosaurs. Worse."
+      "text": "Investors scared? They should have run on anti-mosquito."
      },
      {
       "who": "spark",
-      "text": "Meta runs data centres in 23 states, some planned to be huge[S6]."
+      "text": "Communities only want data centres when they see benefits, Meta says[S6]."
      },
      {
       "who": "guest",
-      "text": "Communities? They just wanted to see me go.",
+      "text": "Communities? They should try reading me a bedtime story.",
       "fx": [
        "beat"
       ]
      },
      {
       "who": "spark",
-      "text": "TechCrunch says Meta fears losing investments due to anti-data-center politicians[S6]."
+      "text": "Meta plans to show the value of data centres and AI to turn around negative feelings[S6]."
      },
      {
       "who": "guest",
-      "text": "Investments? I invested in extinction. Big mistake.",
+      "text": "Turning around? More like digging a deeper hole.",
       "fx": [
        "beat"
       ]
      }
     ]
    },
-   "rules": [
-    "recycled punchline: \"Bills? Even I never managed that in my heyday.\" copies \"Paying your own bills. Even I never managed that.\"",
-    "recycled punchline: \"Huge and hungry? I remember huge and hungry dinosaurs. Worse.\" copies \"Huge and hungry. I remember huge and hungry. It ended badly.\""
-   ],
+   "rules": [],
    "facts": [
     {
-     "line": "Meta says building new data centres will be tougher after the elections.",
+     "line": "Meta's president says the midterm elections will make it harder to build data centres.",
      "verdict": "supported",
-     "why": "67% of the claim's words are in the evidence"
+     "why": "91% of the claim's words are in the evidence"
     },
     {
-     "line": "Communities only want them if they get something in return.",
+     "line": "TechCrunch reports Meta is worried about losing investments after politicians ran on anti-data-center platforms.",
+     "verdict": "supported",
+     "why": "85% of the claim's words are in the evidence"
+    },
+    {
+     "line": "Communities only want data centres when they see benefits, Meta says.",
      "verdict": "unsure",
-     "why": "the source says 'n't want this'; the claim has no negative"
+     "why": "the source says 'not only of'; the claim has no negative"
     },
     {
-     "line": "Meta runs data centres in 23 states, some planned to be huge.",
+     "line": "Meta plans to show the value of data centres and AI to turn around negative feelings.",
      "verdict": "supported",
-     "why": "78% of the claim's words are in the evidence"
-    },
-    {
-     "line": "TechCrunch says Meta fears losing investments due to anti-data-center politicians.",
-     "verdict": "supported",
-     "why": "60% of the claim's words are in the evidence"
+     "why": "82% of the claim's words are in the evidence"
     }
    ],
-   "seconds": 42.4,
+   "seconds": 46.1,
    "passed": false,
-   "minutes": 0.6
+   "confirmed": false,
+   "passed_strict": false,
+   "minutes": 1.7
   }
  ],
- "score": "1/3 Reel scripts pass every check",
- "reviewer_note": "Claude, 6 Nov: the passing Doubt script is safe but flat (jokes don't follow their lines); not yet publishable quality."
+ "score": "2/3 pass every check; 1/3 with every fact confirmed by code (publishable without a reader)"
 }
