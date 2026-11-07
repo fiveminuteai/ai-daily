@@ -25,8 +25,10 @@ def run(proj, http, chain, **kw):
 
 
 def files(proj):
-    """Published state only: diagnostics under logs/ are allowed on a skipped day."""
-    return sorted(p.relative_to(proj).as_posix() for d in ("content", "data") for p in (proj / d).rglob("*.json"))
+    """Published state only: diagnostics under logs/, and the day's collection under data/collect/ (kept for the backup
+    writer, 7 Nov 2026), are allowed on a skipped day."""
+    return sorted(p.relative_to(proj).as_posix() for d in ("content", "data") for p in (proj / d).rglob("*.json")
+                  if "data/collect/" not in p.relative_to(proj).as_posix())
 
 
 def test_publishes_a_verified_post(proj, fake_web):
