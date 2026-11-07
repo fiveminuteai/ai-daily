@@ -95,13 +95,15 @@
    "hook": "You can now text Alexa to find and buy things on Amazon[S8].",
    "text": "You can now text Alexa to find and buy things on Amazon.\n\n• Select US customers get an invite; others can join a waitlist.\n• Send a photo of an item and Alexa finds similar listings.\n• Amazon blocked Meta's Muse from querying its site in September.\n\nDo this: Check what Alexa can buy for you before you turn texting on.\n\nYour take: Would you shop by texting an AI? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-07T13:31:15+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfcSxDEGGxq/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-07/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-07T13:30:00+00:00"
+   "scheduled_at": "2026-11-07T13:30:00+00:00",
+   "media_id": "18022386755954819",
+   "error": null
   }
  ]
 }
