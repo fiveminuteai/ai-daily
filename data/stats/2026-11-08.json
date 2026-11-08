@@ -1,10 +1,10 @@
 {
  "date": "2026-11-08",
- "collected_at": "2026-11-07T21:40:35+00:00",
+ "collected_at": "2026-11-08T18:00:33+00:00",
  "website": {
   "status": "ok",
-  "visitors_28d": 140,
-  "visitors_day": 3,
+  "visitors_28d": 147,
+  "visitors_day": 10,
   "daily": [
    {
     "day": "2026-10-12",
@@ -116,7 +116,7 @@
    },
    {
     "day": "2026-11-08",
-    "visitors": 3
+    "visitors": 10
    },
    {
     "day": "2026-11-09",
@@ -127,12 +127,17 @@
    {
     "path": "/",
     "title": "Five Minute AI",
-    "visitors": 37
+    "visitors": 42
    },
    {
     "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
     "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
     "visitors": 7
+   },
+   {
+    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
+    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "visitors": 2
    },
    {
     "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
@@ -145,8 +150,8 @@
     "visitors": 2
    },
    {
-    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
-    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
+    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
     "visitors": 1
    },
    {
@@ -168,11 +173,11 @@
   "top_refs": [
    {
     "name": "(direct)",
-    "visitors": 28
+    "visitors": 33
    },
    {
     "name": "fiveminuteai.net",
-    "visitors": 9
+    "visitors": 11
    },
    {
     "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
@@ -203,15 +208,66 @@
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 2,
-  "media_count": 23,
+  "followers": 3,
+  "media_count": 26,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 199,
+   "views": 221,
+   "accounts_engaged": 3,
+   "total_interactions": 2
   },
   "posts": [
+   {
+    "id": "18640741858041838",
+    "timestamp": "2026-11-08T10:31:27+0000",
+    "permalink": "https://www.instagram.com/reel/DfejARtGTiO/",
+    "type": "VIDEO",
+    "caption": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 102,
+    "views": 111,
+    "saved": 2,
+    "shares": 0,
+    "total_interactions": 2,
+    "avg_watch_s": 5.5,
+    "skip_rate": 61.5,
+    "reposts": 0
+   },
+   {
+    "id": "17910466977332990",
+    "timestamp": "2026-11-08T07:31:16+0000",
+    "permalink": "https://www.instagram.com/reel/DfeOYC2G1-6/",
+    "type": "VIDEO",
+    "caption": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 102,
+    "views": 114,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.1,
+    "skip_rate": 58.2,
+    "reposts": 0
+   },
+   {
+    "id": "18018837695955990",
+    "timestamp": "2026-11-08T03:31:10+0000",
+    "permalink": "https://www.instagram.com/reel/Dfdy6ObAGAm/",
+    "type": "VIDEO",
+    "caption": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security w",
+    "likes": 0,
+    "comments": 0,
+    "reach": 12,
+    "views": 12,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 7.7,
+    "skip_rate": 72.7,
+    "reposts": 0
+   },
    {
     "id": "18022386755954819",
     "timestamp": "2026-11-07T13:31:10+0000",
@@ -220,12 +276,14 @@
     "caption": "You can now text Alexa to find and buy things on Amazon.",
     "likes": 0,
     "comments": 0,
-    "reach": 48,
-    "views": 59,
+    "reach": 112,
+    "views": 123,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 11.0
+    "avg_watch_s": 11.0,
+    "skip_rate": 39.5,
+    "reposts": 0
    },
    {
     "id": "18168531316469183",
@@ -235,12 +293,14 @@
     "caption": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
     "likes": 0,
     "comments": 0,
-    "reach": 81,
-    "views": 83,
+    "reach": 101,
+    "views": 104,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.5
+    "avg_watch_s": 5.7,
+    "skip_rate": 59.6,
+    "reposts": 0
    },
    {
     "id": "18094192055212234",
@@ -250,12 +310,14 @@
     "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
     "likes": 0,
     "comments": 0,
-    "reach": 128,
-    "views": 146,
+    "reach": 131,
+    "views": 149,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 8.4
+    "avg_watch_s": 8.2,
+    "skip_rate": 44.8,
+    "reposts": 0
    },
    {
     "id": "18085532438355560",
@@ -265,12 +327,14 @@
     "caption": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
     "likes": 3,
     "comments": 0,
-    "reach": 103,
-    "views": 120,
+    "reach": 105,
+    "views": 122,
     "saved": 0,
     "shares": 0,
     "total_interactions": 4,
-    "avg_watch_s": 6.9
+    "avg_watch_s": 6.9,
+    "skip_rate": 52.7,
+    "reposts": 1
    },
    {
     "id": "18018580688960509",
@@ -280,12 +344,14 @@
     "caption": "Meta says the midterm results will make data centres harder to build.",
     "likes": 1,
     "comments": 0,
-    "reach": 129,
-    "views": 156,
+    "reach": 130,
+    "views": 157,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 7.8
+    "avg_watch_s": 7.7,
+    "skip_rate": 57.6,
+    "reposts": 0
    },
    {
     "id": "18108967532213167",
@@ -295,12 +361,14 @@
     "caption": "Claude can now read your bank accounts, but it can't move money.",
     "likes": 3,
     "comments": 0,
-    "reach": 112,
+    "reach": 113,
     "views": 123,
     "saved": 0,
     "shares": 0,
     "total_interactions": 3,
-    "avg_watch_s": 8.7
+    "avg_watch_s": 8.7,
+    "skip_rate": 56.9,
+    "reposts": 0
    },
    {
     "id": "18236013835323296",
@@ -315,7 +383,9 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 1.5
+    "avg_watch_s": 1.5,
+    "skip_rate": 93.8,
+    "reposts": 0
    },
    {
     "id": "17884128393629513",
@@ -330,7 +400,9 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 1.8
+    "avg_watch_s": 1.8,
+    "skip_rate": 85.7,
+    "reposts": 0
    },
    {
     "id": "18050438846816093",
@@ -345,52 +417,9 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 7.8
-   },
-   {
-    "id": "18182400415430796",
-    "timestamp": "2026-11-04T07:31:47+0000",
-    "permalink": "https://www.instagram.com/reel/DfT7Pq9kYYu/",
-    "type": "VIDEO",
-    "caption": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 15,
-    "views": 19,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 4.5
-   },
-   {
-    "id": "18078636134734013",
-    "timestamp": "2026-11-04T05:02:23+0000",
-    "permalink": "https://www.instagram.com/reel/DfTqIGwEtT0/",
-    "type": "VIDEO",
-    "caption": "Google says schools that switch off its AI will lose Google Search too.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 18,
-    "views": 20,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 4.8
-   },
-   {
-    "id": "18052874651820583",
-    "timestamp": "2026-11-03T13:31:37+0000",
-    "permalink": "https://www.instagram.com/reel/DfR_opvGY_k/",
-    "type": "VIDEO",
-    "caption": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 83,
-    "views": 90,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 0.9
+    "avg_watch_s": 7.8,
+    "skip_rate": 75,
+    "reposts": 0
    }
   ]
  }

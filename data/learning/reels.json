@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T21:41:02+00:00",
+ "updated": "2026-11-08T18:01:18+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -18,7 +18,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": 0.314
+   "outcome": 0.125
   },
   {
    "id": "2026-10-31-reel-2",
@@ -37,7 +37,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": 0.063
+   "outcome": -0.113
   },
   {
    "id": "2026-10-31-reel-3",
@@ -56,7 +56,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": 0.247
+   "outcome": 0.059
   },
   {
    "id": "2026-11-01-reel-1",
@@ -75,7 +75,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 84.0,
-   "outcome": -0.205
+   "outcome": -0.361
   },
   {
    "id": "2026-11-01-reel-2",
@@ -94,7 +94,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.2,
-   "outcome": 0.195
+   "outcome": 0.01
   },
   {
    "id": "2026-11-01-reel-3",
@@ -113,7 +113,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.2,
-   "outcome": -0.324
+   "outcome": -0.476
   },
   {
    "id": "2026-11-02-reel-1",
@@ -132,7 +132,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": 0.265
+   "outcome": 0.078
   },
   {
    "id": "2026-11-02-reel-2",
@@ -151,7 +151,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 106.5,
-   "outcome": 1.0
+   "outcome": 0.782
   },
   {
    "id": "2026-11-02-reel-3",
@@ -170,7 +170,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": 0.871
+   "outcome": 0.693
   },
   {
    "id": "2026-11-03-reel-1",
@@ -189,7 +189,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.0,
-   "outcome": 0.092
+   "outcome": -0.061
   },
   {
    "id": "2026-11-03-reel-2",
@@ -208,7 +208,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.607
+   "outcome": -0.73
   },
   {
    "id": "2026-11-03-reel-3",
@@ -226,8 +226,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 104.1,
-   "outcome": -0.138
+   "age_h": 100.5,
+   "outcome": -0.312
   },
   {
    "id": "2026-11-04-reel-1",
@@ -245,8 +245,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 88.6,
-   "outcome": 0.084
+   "age_h": 85.0,
+   "outcome": -0.078
   },
   {
    "id": "2026-11-04-reel-2",
@@ -264,8 +264,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 86.1,
-   "outcome": -0.056
+   "age_h": 82.5,
+   "outcome": -0.207
   },
   {
    "id": "2026-11-04-reel-3",
@@ -283,8 +283,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 80.2,
-   "outcome": 0.078
+   "age_h": 100.5,
+   "outcome": -0.059
   },
   {
    "id": "2026-11-05-reel-1",
@@ -302,8 +302,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 66.2,
-   "outcome": -1.072
+   "age_h": 86.5,
+   "outcome": -1.155
   },
   {
    "id": "2026-11-05-reel-2",
@@ -321,8 +321,46 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 62.2,
-   "outcome": -0.806
+   "age_h": 82.5,
+   "outcome": -0.915
+  },
+  {
+   "id": "2026-11-06-reel-1",
+   "date": "2026-11-06",
+   "slot": 1,
+   "time": "13:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 12,
+   "desk": 8,
+   "hook": "Claude can now read your bank accounts, but it can't move money.",
+   "reach": 113,
+   "watch_s": 8.7,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.5,
+   "outcome": 1.437
+  },
+  {
+   "id": "2026-11-06-reel-2",
+   "date": "2026-11-06",
+   "slot": 2,
+   "time": "19:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 12,
+   "desk": 8,
+   "hook": "Meta says the midterm results will make data centres harder to build.",
+   "reach": 130,
+   "watch_s": 7.7,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 52.5,
+   "outcome": 1.283
   }
  ],
  "effects": [
@@ -330,180 +368,180 @@
    "feature": "category",
    "value": "impact",
    "n": 5,
-   "n_rest": 12,
-   "mean": 0.1,
-   "effect": 0.05,
-   "se": 0.27,
+   "n_rest": 14,
+   "mean": -0.07,
+   "effect": -0.04,
+   "se": 0.34,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 2,
-   "n_rest": 15,
-   "mean": -0.28,
-   "effect": -0.07,
-   "se": 0.38,
+   "n_rest": 17,
+   "mean": -0.43,
+   "effect": -0.1,
+   "se": 0.49,
    "confident": false
   },
   {
    "feature": "category",
    "value": "policy",
-   "n": 4,
-   "n_rest": 13,
-   "mean": -0.21,
-   "effect": -0.1,
-   "se": 0.29,
+   "n": 5,
+   "n_rest": 14,
+   "mean": -0.03,
+   "effect": -0.02,
+   "se": 0.34,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
-   "n": 5,
-   "n_rest": 12,
-   "mean": -0.02,
-   "effect": -0.01,
-   "se": 0.27,
+   "n": 6,
+   "n_rest": 13,
+   "mean": 0.1,
+   "effect": 0.06,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "category",
    "value": "tools",
    "n": 1,
-   "n_rest": 16,
-   "mean": 1.0,
-   "effect": 0.13,
-   "se": 0.52,
+   "n_rest": 18,
+   "mean": 0.78,
+   "effect": 0.1,
+   "se": 0.67,
    "confident": false
   },
   {
    "feature": "player",
    "value": "giant",
-   "n": 11,
+   "n": 13,
    "n_rest": 6,
-   "mean": -0.06,
-   "effect": -0.08,
-   "se": 0.26,
+   "mean": 0.03,
+   "effect": 0.04,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "player",
    "value": "other",
    "n": 5,
-   "n_rest": 12,
-   "mean": 0.08,
-   "effect": 0.04,
-   "se": 0.27,
+   "n_rest": 14,
+   "mean": -0.1,
+   "effect": -0.05,
+   "se": 0.34,
    "confident": false
   },
   {
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 16,
-   "mean": 0.31,
-   "effect": 0.04,
-   "se": 0.52,
+   "n_rest": 18,
+   "mean": 0.12,
+   "effect": 0.02,
+   "se": 0.67,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "09:00",
    "n": 6,
-   "n_rest": 11,
-   "mean": -0.09,
-   "effect": -0.06,
-   "se": 0.26,
+   "n_rest": 13,
+   "mean": -0.24,
+   "effect": -0.15,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "13:00",
-   "n": 6,
-   "n_rest": 11,
-   "mean": -0.04,
-   "effect": -0.02,
-   "se": 0.26,
+   "n": 7,
+   "n_rest": 12,
+   "mean": 0.04,
+   "effect": 0.03,
+   "se": 0.31,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
-   "n": 5,
-   "n_rest": 12,
-   "mean": 0.15,
-   "effect": 0.08,
-   "se": 0.27,
+   "n": 6,
+   "n_rest": 13,
+   "mean": 0.2,
+   "effect": 0.13,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 11,
+   "n": 13,
    "n_rest": 6,
-   "mean": -0.15,
-   "effect": -0.18,
-   "se": 0.26,
+   "mean": -0.05,
+   "effect": -0.06,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "yes",
    "n": 6,
-   "n_rest": 11,
-   "mean": 0.28,
-   "effect": 0.18,
-   "se": 0.26,
+   "n_rest": 13,
+   "mean": 0.1,
+   "effect": 0.06,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 10,
+   "n": 12,
    "n_rest": 7,
-   "mean": -0.24,
-   "effect": -0.26,
-   "se": 0.25,
+   "mean": -0.09,
+   "effect": -0.11,
+   "se": 0.31,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
    "n": 7,
-   "n_rest": 10,
-   "mean": 0.34,
-   "effect": 0.26,
-   "se": 0.25,
+   "n_rest": 12,
+   "mean": 0.16,
+   "effect": 0.11,
+   "se": 0.31,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 5,
+   "n": 7,
    "n_rest": 12,
-   "mean": -0.12,
-   "effect": -0.07,
-   "se": 0.27,
+   "mean": 0.19,
+   "effect": 0.14,
+   "se": 0.31,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 8,
-   "mean": 0.27,
-   "effect": 0.26,
-   "se": 0.25,
+   "n_rest": 10,
+   "mean": 0.09,
+   "effect": 0.08,
+   "se": 0.3,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "under 7",
    "n": 3,
-   "n_rest": 14,
-   "mean": -0.6,
-   "effect": -0.21,
-   "se": 0.32,
+   "n_rest": 16,
+   "mean": -0.71,
+   "effect": -0.25,
+   "se": 0.41,
    "confident": false
   }
  ]

@@ -1,5 +1,41 @@
 {
- "reels_counted": 17,
- "checked": "2026-11-07T21:41:02+00:00",
- "lessons": []
+ "reels_counted": 19,
+ "checked": "2026-11-08T18:01:18+00:00",
+ "lessons": [
+  {
+   "lesson": "Prioritize short hooks (≤10 words) as they show a positive effect on outcome.",
+   "evidence": [
+    "hook length = short (<=10 words): n 7, effect 0.11"
+   ],
+   "added": "2026-11-08T18:01:18+00:00"
+  },
+  {
+   "lesson": "Include a numeric element in the hook when possible, as reels with numbers tend to perform better.",
+   "evidence": [
+    "number in hook = yes: n 6, effect 0.06"
+   ],
+   "added": "2026-11-08T18:01:18+00:00"
+  },
+  {
+   "lesson": "Target the 13:00 slot, which has a modest positive effect compared to earlier slots.",
+   "evidence": [
+    "slot = 13:00: n 7, effect 0.03"
+   ],
+   "added": "2026-11-08T18:01:18+00:00"
+  },
+  {
+   "lesson": "Focus on product-related content, which has the highest positive effect among categories.",
+   "evidence": [
+    "category = products: n 6, effect 0.06"
+   ],
+   "added": "2026-11-08T18:01:18+00:00"
+  },
+  {
+   "lesson": "Aim for a desk score of 7 or higher, as higher scores correlate with better outcomes.",
+   "evidence": [
+    "desk score = 7+: n 7, effect 0.14"
+   ],
+   "added": "2026-11-08T18:01:18+00:00"
+  }
+ ]
 }
