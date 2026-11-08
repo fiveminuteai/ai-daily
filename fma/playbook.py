@@ -88,7 +88,15 @@ def build() -> str:
                             duo_desk.JOKE_TASK.format(name=name, name_up=name.upper(), persona=duo_desk.PERSONA[guest], k=3,
                                                       pairs="{the six closest approved pairs}",
                                                       said="{the reactions already given}", line="{Spark's line}")))
-    parts.append(_block("7. Comedy editor", f"Rewrites only the guest lines; below {duo_desk.EDITOR_BAR}/10 the story "
+    parts.append(_block("6b. Duo desk, step 2b: banter",
+                        "8 Nov 2026: turns the one-liners into a conversation. The model writes 3 options; code keeps "
+                        "one that passes every rule, isn't a worn-out phrase (fma.duo_desk.stale_phrases) and calls back "
+                        "the most of what came before. It is used only if the Reel still fits the length (about 42.5 s "
+                        "estimated); otherwise the one-liners stand.", duo_desk.BANTER_SYSTEM,
+                        duo_desk.BANTER_TASK.format(name="Doubt", name_up="DOUBT", persona=duo_desk.PERSONA["doubt"], k=3,
+                                                    stale="{phrases used three or more times lately}",
+                                                    rows="{the script so far, numbered}")))
+    parts.append(_block("7. Comedy editor", f"Rewrites the guest lines and Spark's comebacks; below {duo_desk.EDITOR_BAR}/10 the story "
                         "keeps its ordinary Reel.", duo_desk.EDITOR_SYSTEM, duo_desk.editor_prompt(duo_sample, sample_section)))
     parts.append("\n## Step 3 of the duo (code, no model)\n\nSpark, guest, Spark, guest; a comic pause before the last "
                  "two punchlines; then the card's question, the outro and a sign-off, rotating Reel by Reel:\n\n" + "\n".join(

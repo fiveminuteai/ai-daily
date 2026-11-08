@@ -430,7 +430,7 @@ class Verifier:
             return None
         lines = []
         for k, ln in enumerate(d["lines"]):
-            if ln["who"] == "spark":
+            if ln["who"] == "spark" and ln.get("kind") != "comeback":     # a comeback states no facts
                 text = self.sentence(ln["text"], f"card[{n}] duo line {k + 1}", ids)
                 if not text:
                     return None
@@ -723,7 +723,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     # Instagram card lines are public claims too: hook and takeaways as facts, the take as commentary
     for sec in post["sections"]:
         c = sec.get("card") or {}
-        duo_facts = [(ln["text"], "fact") for ln in (c.get("duo") or {}).get("lines", []) if ln.get("who") == "spark"]
+        duo_facts = [(ln["text"], "fact") for ln in (c.get("duo") or {}).get("lines", [])
+                     if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
         for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis"),
                            (c.get("ask"), "ask"), *duo_facts]:
             if text:

@@ -60,7 +60,7 @@ def run(date: str, model: str = "qwen2.5:7b") -> dict:
             rules = problems(duo) + ceiling_problems(duo["lines"], " ".join(sec.get("paragraphs", [])))
             facts = []
             for ln in duo["lines"]:
-                if ln["who"] == "spark":
+                if ln["who"] == "spark" and ln.get("kind") != "comeback":
                     text = " ".join(f"{src[i].get('title', '')}. {src[i].get('text', '')}" for i in cites(ln["text"]) if i in src)
                     verdict, _ev, why = judge(ln["text"], text) if text else ("unsupported", "", "cites no saved source")
                     facts.append({"line": plain(ln["text"]), "verdict": verdict, "why": why})

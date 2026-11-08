@@ -109,3 +109,65 @@ def test_closing_order_tries_the_pick_then_shorter_closings():
     assert order[0] == 7 % len(duo_desk.SIGN_OFFS) and sorted(order) == list(range(len(duo_desk.SIGN_OFFS)))
     lengths = [len(duo_desk.SIGN_OFFS[i][0] + duo_desk.SIGN_OFFS[i][1]) for i in order[1:]]
     assert lengths == sorted(lengths)
+
+
+# ---- banter (8 Nov 2026): Spark's comebacks, the guest's topper and callback, worn-out lines
+
+def banter_opt():
+    return {"comeback": "Rex, you're not even on fire.", "topper": "Not yet. Give it a minute.",
+            "callback": "Moving turbines. Still faster than my paperwork."}
+
+
+def test_banter_puts_the_comeback_after_the_first_reaction_and_ends_on_the_callback():
+    d = duo_desk.add_banter(good(), banter_opt())
+    assert [ln["who"] for ln in d["lines"]] == ["spark", "guest", "spark", "guest", "spark", "guest", "spark", "guest"]
+    assert d["lines"][2]["kind"] == "comeback" and d["lines"][3]["fx"] == ["beat"]
+    assert d["lines"][-1]["text"].startswith("Moving turbines") and d["lines"][-1]["fx"] == ["beat"]
+    assert duo_desk.problems(d) == []
+
+
+def test_a_comeback_states_no_facts():
+    d = duo_desk.add_banter(good(), {**banter_opt(), "comeback": "That was 35 turbines, Rex[S1]."})
+    bad = " ".join(duo_desk.problems(d))
+    assert "comeback may not say numbers" in bad and "citations" in bad
+    d = duo_desk.add_banter(good(), {**banter_opt(), "comeback": "Tell it to Memphis, Rex."})
+    assert any("may not name" in p for p in duo_desk.problems(d))
+
+
+def test_the_guest_calls_itself_a_box_once_at_most():
+    d = duo_desk.add_banter(good(), {**banter_opt(), "callback": "And I'm a fossil. Still faster."})
+    assert any("more than once" in p for p in duo_desk.problems(d))      # line 2 already says "I'm a fossil"
+
+
+def test_worn_out_phrases():
+    stale = {"i'm a box"}
+    assert duo_desk.is_stale("Even I plan ahead. I'm a box.", stale)
+    assert not duo_desk.is_stale("Even I plan ahead.", stale)
+
+
+def test_only_fact_lines_are_fact_checked():
+    d = duo_desk.add_banter(good(), banter_opt())
+    facts = [ln for ln in d["lines"] if duo_desk.is_fact(ln)]
+    assert len(facts) == 3 and all("[S1]" in ln["text"] for ln in facts)
+
+
+class Chain:
+    def __init__(self, reply):
+        self.reply = reply
+
+    def ask_json(self, *a, **kw):
+        return self.reply
+
+
+def test_banter_step_keeps_a_passing_option_and_drops_a_rule_breaker(monkeypatch):
+    monkeypatch.setattr(duo_desk, "stale_phrases", lambda guest, *a, **k: set())
+    bad = {**banter_opt(), "comeback": "It was 35 of them[S1]."}
+    out = duo_desk.banter_step(Chain({"options": [bad, banter_opt()]}), good())
+    assert out and out["lines"][2]["text"] == "Rex, you're not even on fire."
+    assert duo_desk.banter_step(Chain({"options": [bad]}), good()) is None
+
+
+def test_a_comeback_cannot_answer_a_line_not_said_yet(monkeypatch):
+    monkeypatch.setattr(duo_desk, "stale_phrases", lambda guest, *a, **k: set())
+    early = {**banter_opt(), "comeback": "Clean air rules? You love those.", "topper": "Love is a strong word."}
+    assert duo_desk.banter_step(Chain({"options": [early]}), good()) is None      # clean air comes in line 3

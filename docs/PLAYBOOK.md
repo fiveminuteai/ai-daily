@@ -252,7 +252,7 @@ with one JSON object and nothing else.
 ```text
 Doubt is reacting, live, to what Spark just said. Write 3 different reactions.
 
-WHO DOUBT IS: Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan, unimpressed, a box (no hands, no legs, lives on a shelf), and always sees the catch.
+WHO DOUBT IS: Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan and unimpressed and always sees the catch. Joke angles: fake enthusiasm ("Wow. Thrilling."), spotting the small print, comparing it to ordinary life (rent, group chats, Monday mornings, the office printer), predicting how it goes wrong, and only now and then being a box (no hands, lives on a shelf).
 
 RULES (check every reaction against each rule)
 1. React to THIS line only: what Spark just said, in its own words. Never mention anything Spark has not said yet.
@@ -306,9 +306,57 @@ SPARK JUST SAID: "{Spark's line}"
 Reply as {"reactions": ["...", "...", "..."]}
 ```
 
+## 6b. Duo desk, step 2b: banter
+
+8 Nov 2026: turns the one-liners into a conversation. The model writes 3 options; code keeps one that passes every rule, isn't a worn-out phrase (fma.duo_desk.stale_phrases) and calls back the most of what came before. It is used only if the Reel still fits the length (about 42.5 s estimated); otherwise the one-liners stand.
+
+**System prompt**
+
+```text
+You turn a list of one-liners into a real comedy conversation. You are quick, warm and funny,
+like a good sitcom double act. You reply with one JSON object and nothing else.
+```
+
+**User prompt** (the parts in braces are filled in by the code)
+
+```text
+Below is a short news double act. Spark tells the story; Doubt reacts. Right now every reaction is
+a separate one-liner. Make it a conversation. Write 3 different options, each with three lines:
+
+1. "comeback": Spark answers Doubt's FIRST reaction (line 2) with a quick, playful reply: teasing Doubt, playing
+   along, or turning the joke around. 2 to 8 words. It is NOT news: no facts, no numbers, no names.
+2. "topper": Doubt answers Spark's comeback, and it is the bigger laugh of the two. 3 to 10 words.
+3. "callback": a NEW last line for Doubt, replacing the final reaction. It reacts to Spark's last story line AND
+   brings back a joke from earlier in the script (the running gag), so the ending pays off. 4 to 12 words.
+
+WHO DOUBT IS: Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan and unimpressed and always sees the catch. Joke angles: fake enthusiasm ("Wow. Thrilling."), spotting the small print, comparing it to ordinary life (rent, group chats, Monday mornings, the office printer), predicting how it goes wrong, and only now and then being a box (no hands, lives on a shelf).
+
+RULES (check every line against each one)
+- Doubt's lines and the comeback: NO numbers or number words, NO names of people, companies, places or products,
+  NO new facts.
+- Plain everyday words. Each line must make sense said out loud, straight after the line before it.
+- Doubt calls itself a box, fossil or dinosaur at most once in the whole script, counting the lines already there.
+- Never joke about victims, illness, death, groups of people or accents.
+- Not these worn-out phrases: {phrases used three or more times lately}
+
+AN EXAMPLE OF THE SHAPE (a different story):
+SPARK: A streaming service says it will raise prices again next month.
+DOUBT: Wow. Thrilling. Truly a surprise.
+SPARK (comeback): You could just cancel, you know.
+DOUBT (topper): And miss the next price rise? Never.
+...
+SPARK: It says more people signed up anyway.
+DOUBT (callback): See? Nobody cancels. Thrilling.
+
+THE SCRIPT
+{the script so far, numbered}
+
+Reply as {"options": [{"comeback": "...", "topper": "...", "callback": "..."}, ...]}
+```
+
 ## 7. Comedy editor
 
-Rewrites only the guest lines; below 6/10 the story keeps its ordinary Reel.
+Rewrites the guest lines and Spark's comebacks; below 6/10 the story keeps its ordinary Reel.
 
 **System prompt**
 
@@ -320,23 +368,29 @@ about whether they are funny. You reply with one JSON object and nothing else.
 **User prompt** (the parts in braces are filled in by the code)
 
 ```text
-A 40-second news double act. Spark tells the story (those lines are fixed: they are fact-checked).
+A 40-second news double act. Spark tells the story (those SPARK lines are fixed: they are fact-checked).
+A "SPARK (comeback)" line is Spark answering the guest: no facts, and you may rewrite it.
 The guest is a grumpy old T. rex in reading glasses: jokes about being old, a fossil, extinct.
 
 1. SPARK: {Spark line 1}.
 2. REX: {guest reaction 1}
 
 YOUR JOB
-1. Rewrite the GUEST lines only, to make each one genuinely funny: a short reaction a real person would say out
-   loud, following from Spark's line just before it, often turned back on the guest. Keep the same number of guest
-   lines, in the same places. Plain everyday words. NO numbers, NO names of people, companies, places or products,
-   NO new facts. Never punch down at people. Comparisons must point the right way. A line that is already funny,
-   keep it.
-2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice?
-   (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example for scale, scored 8: "They can move? I've
-   seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
+1. Rewrite the GUEST lines and any comebacks to make them genuinely funny, in the same places. It should feel
+   like two characters talking to each other, not a list of one-liners: a reaction follows from the line just
+   before it, a comeback answers it, and the last guest line pays off an earlier joke. Plain everyday words. NO
+   numbers, NO names of people, companies, places or products, NO new facts. The guest calls itself a box or a
+   fossil at most once. Never punch down at people. Comparisons must point the right way. A line that is already
+   funny, keep it.
+2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
+   and would they quote a line to a friend? (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example
+   for scale, scored 8: "They can move? I've seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
+   Real lines for scale, scored 4 (they react, but nobody laughs or would repeat them): "So the model does the work,
+   huh?" / "Improving that fast? Even I can't keep up." / "Printer jams. Thrilling." / "Still no hands, same old
+   box." A line that only restates the fact with a question mark, or a joke that needs explaining, is a 4.
 
-Reply as {"guest_lines": ["...", "..."], "score": 7, "why": "one sentence"}
+Reply as {"guest_lines": ["...", "..."], "comebacks": ["..."], "score": 7, "why": "one sentence"}
+("comebacks" has one entry per comeback line, in order; leave it [] if there are none.)
 ```
 
 ## Step 3 of the duo (code, no model)

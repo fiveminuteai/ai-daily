@@ -76,7 +76,7 @@ def ceiling_problems(lines: list[dict], source_text: str) -> list[str]:
     out = []
     limited = {m.group(2).rstrip(".,"): m.group(1).lower() for m in LIMIT_RE.finditer(source_text)}
     for k, ln in enumerate(lines):
-        if ln.get("who") != "spark":
+        if not is_fact(ln):
             continue
         t = plain(ln.get("text", ""))
         for num, qual in limited.items():
@@ -88,6 +88,19 @@ def ceiling_problems(lines: list[dict], source_text: str) -> list[str]:
 
 
 GUEST_NAMES_OK = {"Spark", "Rex", "Doubt", "AI", "I", "I'm", "I've", "I'd", "I'll", "OK", "Okay"}
+
+# 8 Nov 2026, Pavan: the Reels lacked "banter or talk-worthy punchlines". Every guest line was a one-off quip and
+# Spark never answered back. A Spark line may now be a comeback ("kind": "comeback"): a quick reply to the guest,
+# with no facts, so it follows the guest's rules (no numbers, no names, no citation) and skips the fact-check.
+MAX_COMEBACKS = 2
+COMEBACK_WORDS = (2, 9)
+# the guest's self-label, at most once a script ("I'm a box" was in four Reels in three days)
+SELF_LABEL = re.compile(r"\b(i'?m|i am|i was|me,)\s+(a |an |just a |only a )?(box|fossil|dinosaur|extinct|cube)\b", re.I)
+
+
+def is_fact(ln: dict) -> bool:
+    """A line that states facts: Spark's, unless it is a comeback. Only these are fact-checked."""
+    return ln.get("who") == "spark" and ln.get("kind") != "comeback"
 
 DUO_SYSTEM = """You write a 40-second comedy news double act for Instagram Reels, for an AI news show. You are as
 funny as a good sitcom writer and as strict as a newspaper fact-checker: you never add a fact, number or name that
@@ -114,7 +127,10 @@ THE RULES (all of them matter)
    Mark a comic pause before a big punchline with "fx": ["beat"]. Optional gags: "confetti" on a celebration line,
    then "drop" on the letdown line right after (the confetti falls flat). Use gags only when the story fits.
 5. SHAPE: open with Spark's hook (the most surprising fact, first). Then alternate Spark, guest, Spark, guest.
-   6 to 10 lines. Spark's story lines plus the guest's lines together: 60 to 90 words. End on a guest punchline.
+   6 to 10 lines. Spark's story lines plus the guest's lines together: 60 to 90 words. Make it a conversation, not a
+   list of one-liners: once or twice, Spark answers the guest with a quick comeback (2 to 9 words, no facts, marked
+   "kind": "comeback", no citation) and the guest tops it. End on a guest punchline that calls back an earlier joke.
+   The guest calls itself a box or a fossil at most once.
    Do NOT write the closing question or a sign-off: they are added for you.
 6. READ IT ALOUD: each guest joke must make sense on its own and follow from the line before it. If a friend
    would not smile, or would say "what?", rewrite it. Comparisons must point the right way ("I've seen glaciers
@@ -210,27 +226,36 @@ def problems(duo: dict) -> list[str]:
                        if w.replace("‑", "-") in HARD_WORDS})
         if hard:
             out.append(f"line {k + 1}: hard words {hard}; use plain everyday words")
-        if who == "spark" and not re.search(r"\[S\d+\]", text):
+        comeback = who == "spark" and ln.get("kind") == "comeback"
+        if who == "spark" and not comeback and not re.search(r"\[S\d+\]", text):
             out.append(f"line {k + 1}: a Spark line needs its citation like [S1]")
-        if who == "guest":
+        if comeback and not COMEBACK_WORDS[0] <= len(plain(text).split()) <= COMEBACK_WORDS[1]:
+            out.append(f"line {k + 1}: a comeback is {COMEBACK_WORDS[0]} to {COMEBACK_WORDS[1]} words")
+        if who == "guest" or comeback:
             if re.search(r"\d", text) or NUMBER_WORDS.search(text):
-                out.append(f"line {k + 1}: the guest may not say numbers")
+                out.append(f"line {k + 1}: the guest may not say numbers" if not comeback
+                           else f"line {k + 1}: a comeback may not say numbers")
             if re.search(r"\[S\d+\]", text):
-                out.append(f"line {k + 1}: guest lines carry no citations (the guest states no facts)")
+                out.append(f"line {k + 1}: guest lines and comebacks carry no citations (they state no facts)")
             caps = [w for i, w in enumerate(re.findall(r"[A-Za-z']+", text)) if w[0].isupper()
                     and w not in GUEST_NAMES_OK and not re.search(r"(^|[.!?]\s+|\"|“)" + re.escape(w), text)]
             # a name Spark used is a name wherever the guest puts it, even first in a sentence (6 Nov 2026: Rex
             # said "Texas? I thought I was the size of Texas.")
-            spark_names = {w.lower() for ln in lines if ln.get("who") == "spark"
+            spark_names = {w.lower() for ln in lines if is_fact(ln)
                            for w in re.findall(r"(?<![.!?]\s)(?<!^)\b[A-Z][a-zA-Z]+", plain(str(ln.get("text") or "")))}
-            spark_names |= {w.lower() for ln in lines if ln.get("who") == "spark"
+            spark_names |= {w.lower() for ln in lines if is_fact(ln)
                             for w in re.findall(r"\b[A-Z][a-z]*[A-Z][A-Za-z]*\b", str(ln.get("text") or ""))}
             caps += [w for w in re.findall(r"[A-Za-z]+", text) if w.lower() in spark_names and w not in caps
                      and w not in GUEST_NAMES_OK]
             if caps:
                 out.append(f"line {k + 1}: the guest may not name anyone or anything ({', '.join(caps)})")
-    if lines and lines[0].get("who") != "spark":
+    if lines and not is_fact(lines[0]):
         out.append("line 1 must be Spark's hook")
+    if sum(1 for ln in lines if ln.get("kind") == "comeback") > MAX_COMEBACKS:
+        out.append(f"at most {MAX_COMEBACKS} comebacks")
+    labels = [k + 1 for k, ln in enumerate(lines) if ln.get("who") == "guest" and SELF_LABEL.search(str(ln.get("text") or ""))]
+    if len(labels) > 1:
+        out.append(f"lines {labels}: the guest calls itself a box/fossil more than once; keep one, find new jokes")
     if lines and lines[-1].get("who") != "guest":
         out.append("end on a guest punchline")
     if not WORD_BUDGET[0] <= words <= WORD_BUDGET[1]:
@@ -280,8 +305,10 @@ with one JSON object and nothing else."""
 PERSONA = {
     "rex": "Rex, a grumpy old T. rex in reading glasses. Rex is old, a fossil, extinct, slow, tired, and takes "
            "anything about burning fuel personally.",
-    "doubt": "Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan, unimpressed, a box (no "
-             "hands, no legs, lives on a shelf), and always sees the catch.",
+    "doubt": "Doubt, a dry, sceptical blue box with half-closed eyes. Doubt is deadpan and unimpressed and always "
+             "sees the catch. Joke angles: fake enthusiasm (\"Wow. Thrilling.\"), spotting the small print, comparing "
+             "it to ordinary life (rent, group chats, Monday mornings, the office printer), predicting how it goes "
+             "wrong, and only now and then being a box (no hands, lives on a shelf).",
 }
 # Approved fact -> joke pairs (5 Nov 2026 samples Pavan liked, plus more in the same voice). The model copies the
 # kind of joke, never the words.
@@ -502,6 +529,8 @@ def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest
     examples = [j for _, j in JOKE_PAIRS[guest] + joke_pairs(guest, 50)] + said
     if copied(cand, examples):
         return -1, "a copy"
+    if is_stale(cand, stale_phrases(guest)):
+        return -1, "a worn-out line"
     opening = " ".join(re.findall(r"[a-z']+", cand.lower())[:2])
     if opening and any(" ".join(re.findall(r"[a-z']+", x.lower())[:2]) == opening for x in said):
         return -1, f"starts like an earlier reaction ('{opening}...')"   # 6 Nov 2026: three "Great. Now even my..."
@@ -547,6 +576,112 @@ def jokes_step(chain, guest: str, lines: list[str], k: int = 3) -> list[str] | N
     return out
 
 
+BANTER_SYSTEM = """You turn a list of one-liners into a real comedy conversation. You are quick, warm and funny,
+like a good sitcom double act. You reply with one JSON object and nothing else."""
+
+BANTER_TASK = """Below is a short news double act. Spark tells the story; {name} reacts. Right now every reaction is
+a separate one-liner. Make it a conversation. Write {k} different options, each with three lines:
+
+1. "comeback": Spark answers {name}'s FIRST reaction (line 2) with a quick, playful reply: teasing {name}, playing
+   along, or turning the joke around. 2 to 8 words. It is NOT news: no facts, no numbers, no names.
+2. "topper": {name} answers Spark's comeback, and it is the bigger laugh of the two. 3 to 10 words.
+3. "callback": a NEW last line for {name}, replacing the final reaction. It reacts to Spark's last story line AND
+   brings back a joke from earlier in the script (the running gag), so the ending pays off. 4 to 12 words.
+
+WHO {name_up} IS: {persona}
+
+RULES (check every line against each one)
+- {name}'s lines and the comeback: NO numbers or number words, NO names of people, companies, places or products,
+  NO new facts.
+- Plain everyday words. Each line must make sense said out loud, straight after the line before it.
+- {name} calls itself a box, fossil or dinosaur at most once in the whole script, counting the lines already there.
+- Never joke about victims, illness, death, groups of people or accents.
+- Not these worn-out phrases: {stale}
+
+AN EXAMPLE OF THE SHAPE (a different story):
+SPARK: A streaming service says it will raise prices again next month.
+DOUBT: Wow. Thrilling. Truly a surprise.
+SPARK (comeback): You could just cancel, you know.
+DOUBT (topper): And miss the next price rise? Never.
+...
+SPARK: It says more people signed up anyway.
+DOUBT (callback): See? Nobody cancels. Thrilling.
+
+THE SCRIPT
+{rows}
+
+Reply as {{"options": [{{"comeback": "...", "topper": "...", "callback": "..."}}, ...]}}"""
+
+
+def stale_phrases(guest: str, n: int = 60, times: int = 3) -> set[str]:
+    """Three-word runs the guest has used in `times` or more of its last `n` published lines: worn out for now."""
+    from collections import Counter
+    from .bank import joke_pairs
+    seen = Counter()
+    for _, joke in joke_pairs(guest, n):
+        w = re.findall(r"[a-z']+", joke.lower())
+        seen.update({" ".join(w[i:i + 3]) for i in range(len(w) - 2)})
+    return {p for p, c in seen.items() if c >= times}
+
+
+def is_stale(text: str, stale: set[str]) -> bool:
+    w = re.findall(r"[a-z']+", (text or "").lower())
+    return any(" ".join(w[i:i + 3]) in stale for i in range(len(w) - 2))
+
+
+def add_banter(duo: dict, opt: dict) -> dict:
+    """Spark's comeback and the guest's topper after the first reaction; the last reaction becomes the callback."""
+    lines = [dict(ln) for ln in duo["lines"]]
+    lines[-1] = {"who": "guest", "text": simplify(str(opt["callback"]).strip()), "fx": ["beat"]}
+    lines[2:2] = [{"who": "spark", "kind": "comeback", "text": simplify(str(opt["comeback"]).strip())},
+                  {"who": "guest", "text": simplify(str(opt["topper"]).strip()), "fx": ["beat"]}]
+    for ln in lines[4:-1]:
+        ln.pop("fx", None)                 # the pauses go before the topper and the callback
+    return {**duo, "lines": lines}
+
+
+def banter_step(chain, duo: dict, k: int = 3) -> dict | None:
+    """Step 2b: turn the one-liners into a conversation (a comeback, a topper and a callback ending). The model writes
+    k options; code keeps the one that passes every rule, isn't worn out, and calls back the most of what came
+    before. None when no option passes: the caller keeps the script without banter."""
+    from .judge import words
+    guest = duo["guest"]
+    name = guest.capitalize()
+    stale = stale_phrases(guest)
+    rows = "\n".join(f"{i + 1}. {'SPARK' if ln['who'] == 'spark' else name.upper()}: {plain(ln['text'])}"
+                     for i, ln in enumerate(duo["lines"]))
+    prompt = BANTER_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], k=k, rows=rows,
+                                stale="; ".join(f'"{p}"' for p in sorted(stale)[:12]) or "none")
+    for _try in range(2):
+        x = _ask(chain, BANTER_SYSTEM, prompt, 0.9)
+        opts = [o for o in (x or {}).get("options") or [] if isinstance(o, dict)
+                and all(str(o.get(f) or "").strip() for f in ("comeback", "topper", "callback"))]
+        why, scored = [], []
+        for o in opts:
+            trial = add_banter(duo, o)
+            bad = problems(trial)
+            if any(is_stale(o[f], stale) for f in ("topper", "callback")):
+                bad.append("a worn-out line")
+            # the comeback answers what was just said, not a fact still to come (8 Nov 2026: the 7B's "Yeah,
+            # secrets are great." answered a line about secrets that Spark had not said yet)
+            said = words(" ".join(plain(ln["text"]) for ln in duo["lines"][:2]))
+            later = words(" ".join(plain(ln["text"]) for ln in duo["lines"][2:] if is_fact(ln)))
+            cw = {w for w in words(o["comeback"] + " " + o["topper"]) if len(w) >= 4}
+            if len(cw & later - said) > len(cw & said):
+                bad.append("the comeback answers a line not said yet")
+            if bad:
+                why.append(f"{o.get('callback')!r}: {bad[0]}")
+                continue
+            earlier = set().union(*[words(plain(ln["text"])) for ln in trial["lines"][1:-2] if not is_fact(ln)])
+            back = len({w for w in words(o["callback"]) if len(w) >= 4} & earlier)
+            scored.append((back, o, trial))
+        if scored:
+            scored.sort(key=lambda s: -s[0])
+            return scored[0][2]
+        log.info("duo banter: no option passed: %s", "; ".join(why)[:300])
+    return None
+
+
 def assemble(guest: str, lines: list[str], jokes: list[str]) -> dict:
     """Step 3, in code: Spark, guest, Spark, guest...; a comic pause before the last two punchlines."""
     out = []
@@ -563,6 +698,7 @@ def write(chain, section: dict, card: dict) -> dict | None:
     lines = facts_step(chain, section)
     if not lines:
         return None
+    lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s
     jokes = jokes_step(chain, guest, lines)
     if not jokes:
         return None
@@ -571,7 +707,23 @@ def write(chain, section: dict, card: dict) -> dict | None:
     if bad:
         log.warning("duo script for %r failed the final check: %s", section.get("title"), "; ".join(bad))
         return None
+    talk = banter_step(chain, duo)
+    if talk and fits(talk, card):
+        duo = talk
+    elif talk:
+        log.info("duo banter for %r would run too long; keeping the one-liners", section.get("title"))
     return punch_up(chain, duo, section)
+
+
+STORY_FACTS = 3
+SAFE_SECONDS = 42.5      # the estimate ran up to 1.8 s short on 8 Nov 2026; the hard cap at render is 45 s
+
+
+def fits(duo: dict, card: dict) -> bool:
+    """True when the Reel, with its question, outro and the longest closing, should come in under the cap."""
+    from .manual import duo_seconds
+    longest = max(range(len(SIGN_OFFS)), key=lambda i: len(SIGN_OFFS[i][0] + SIGN_OFFS[i][1]))
+    return duo_seconds({**card, "duo": duo}, pick=longest) <= SAFE_SECONDS
 
 
 def script(card: dict, outro: str, pick: int = 0) -> tuple[str, list[tuple]]:
@@ -595,26 +747,32 @@ about whether they are funny. You reply with one JSON object and nothing else.""
 
 
 def editor_prompt(duo: dict, section: dict) -> str:
-    rows = "\n".join(f"{k + 1}. {('SPARK' if ln['who'] == 'spark' else duo['guest'].upper())}: {plain(ln['text'])}"
-                     for k, ln in enumerate(duo["lines"]))
+    rows = "\n".join(f"{k + 1}. {('SPARK' if is_fact(ln) else 'SPARK (comeback)' if ln['who'] == 'spark' else duo['guest'].upper())}: "
+                     f"{plain(ln['text'])}" for k, ln in enumerate(duo["lines"]))
     persona = ("a grumpy old T. rex in reading glasses: jokes about being old, a fossil, extinct" if duo["guest"] == "rex"
                else "a dry, sceptical blue box: deadpan, unimpressed, jokes about being a box")
-    return f"""A 40-second news double act. Spark tells the story (those lines are fixed: they are fact-checked).
+    return f"""A 40-second news double act. Spark tells the story (those SPARK lines are fixed: they are fact-checked).
+A "SPARK (comeback)" line is Spark answering the guest: no facts, and you may rewrite it.
 The guest is {persona}.
 
 {rows}
 
 YOUR JOB
-1. Rewrite the GUEST lines only, to make each one genuinely funny: a short reaction a real person would say out
-   loud, following from Spark's line just before it, often turned back on the guest. Keep the same number of guest
-   lines, in the same places. Plain everyday words. NO numbers, NO names of people, companies, places or products,
-   NO new facts. Never punch down at people. Comparisons must point the right way. A line that is already funny,
-   keep it.
-2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice?
-   (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example for scale, scored 8: "They can move? I've
-   seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
+1. Rewrite the GUEST lines and any comebacks to make them genuinely funny, in the same places. It should feel
+   like two characters talking to each other, not a list of one-liners: a reaction follows from the line just
+   before it, a comeback answers it, and the last guest line pays off an earlier joke. Plain everyday words. NO
+   numbers, NO names of people, companies, places or products, NO new facts. The guest calls itself a box or a
+   fossil at most once. Never punch down at people. Comparisons must point the right way. A line that is already
+   funny, keep it.
+2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
+   and would they quote a line to a friend? (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example
+   for scale, scored 8: "They can move? I've seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
+   Real lines for scale, scored 4 (they react, but nobody laughs or would repeat them): "So the model does the work,
+   huh?" / "Improving that fast? Even I can't keep up." / "Printer jams. Thrilling." / "Still no hands, same old
+   box." A line that only restates the fact with a question mark, or a joke that needs explaining, is a 4.
 
-Reply as {{"guest_lines": ["...", "..."], "score": 7, "why": "one sentence"}}"""
+Reply as {{"guest_lines": ["...", "..."], "comebacks": ["..."], "score": 7, "why": "one sentence"}}
+("comebacks" has one entry per comeback line, in order; leave it [] if there are none.)"""
 
 
 EDITOR_BAR = 6     # out of 10: below this the story keeps its ordinary Reel
@@ -631,13 +789,21 @@ def punch_up(chain, duo: dict, section: dict) -> dict | None:
     if not isinstance(x, dict):
         return None
     new = [str(t).strip() for t in x.get("guest_lines") or [] if str(t).strip()]
+    backs = [str(t).strip() for t in x.get("comebacks") or [] if str(t).strip()]
     slots = [k for k, ln in enumerate(duo["lines"]) if ln["who"] == "guest"]
+    cslots = [k for k, ln in enumerate(duo["lines"]) if ln.get("kind") == "comeback"]
     out = duo
     if len(new) == len(slots):
         trial = {**duo, "lines": [dict(ln) for ln in duo["lines"]]}
         for k, t in zip(slots, new):
             trial["lines"][k]["text"] = simplify(t)
-        if not problems(trial):           # the editor's lines must pass every rule the writer's did
+        if len(backs) == len(cslots):
+            for k, t in zip(cslots, backs):
+                trial["lines"][k]["text"] = simplify(t)
+        stale = stale_phrases(duo["guest"])
+        worn = any(is_stale(trial["lines"][k]["text"], stale) and not is_stale(duo["lines"][k]["text"], stale)
+                   for k in slots)
+        if not problems(trial) and not worn:   # the editor's lines must pass every rule the writer's did
             out = trial
     try:
         score = int(round(float(x.get("score", 0))))

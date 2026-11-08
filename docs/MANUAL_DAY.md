@@ -78,6 +78,11 @@ Duo scripts (`card.duo`), for each of the top three cards; the full rules are in
   box) for the rest.
 - 6-10 lines, Spark first, alternating, ending on a guest punchline. Spark carries every fact, with its citation.
 - **The guest states no facts:** no numbers or number words, no names, no citations. Jokes, reactions and questions.
+- **A conversation, not a list of one-liners** (8 Nov 2026): 3 facts. After the guest's first reaction, Spark
+  answers back with a quick comeback (`{"who": "spark", "kind": "comeback", "text": "..."}`: 2-9 words, no facts, no
+  numbers, no names, no citation) and the guest tops it. The last guest line calls back an earlier joke. The guest
+  calls itself a box or a fossil once at most, and never reuses a phrase from recent Reels (`python -c "from
+  fma.duo_desk import stale_phrases; print(stale_phrases('doubt'))"`).
 - Plain words a 12-year-old gets on the first hearing. A `"beat"` fx before the biggest punchlines. Optional gags:
   `"confetti"` on a celebration, then `"drop"` on the letdown right after.
 - Never joke about victims, illness, death or groups of people. A story about harm gets no duo.

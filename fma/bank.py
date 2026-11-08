@@ -53,7 +53,7 @@ def add(date: str, posts_dir: Path | None = None) -> dict:
                                        "ask": c.get("ask"), "reel": c.get("reel")})
         lines = (c.get("duo") or {}).get("lines", [])
         for a, b in zip(lines, lines[1:]):
-            if a.get("who") == "spark" and b.get("who") == "guest":
+            if a.get("who") == "spark" and a.get("kind") != "comeback" and b.get("who") == "guest":
                 new["duo_pairs.jsonl"].append({"date": date, "guest": c["duo"]["guest"], "spark": _plain(a["text"]),
                                                "joke": b["text"]})
     gained = {}

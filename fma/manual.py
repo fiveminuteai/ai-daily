@@ -113,14 +113,14 @@ def _syllables(text: str) -> int:
     return n
 
 
-def duo_seconds(card: dict) -> float:
+def duo_seconds(card: dict, pick: int = 0) -> float:
     """The duo Reel's length, estimated without the voice engine: syllables over each character's speaking rate, the
     pauses duo_reel adds, and a 1.5 s correction. Calibrated on the four 6 Nov 2026 renders: within 0.6 s of all of
     them (estimated 41.4 / 35.9 / 46.1 / 39.0 s, actual 41.9 / 35.3 / 46.5 / 38.6 s)."""
     from .duo_desk import script
     from .social import plain
     from .voice import OUTRO, spoken
-    _guest, lines = script(card, OUTRO)
+    _guest, lines = script(card, OUTRO, pick=pick)
     t = 0.12 * len(lines) + 1.4 + 1.5
     for who, text, *tags in lines:
         t += _syllables(spoken(plain(text))) / RATE.get(who, 4.8) + (0.16 if who == "spark" else 0.1)
