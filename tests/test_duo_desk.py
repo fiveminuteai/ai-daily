@@ -71,3 +71,17 @@ def test_remotion_timeline_and_fallback(monkeypatch, tmp_path):
     assert tl["lines"][0]["fig"] == "$17B" and tl["lines"][0]["groups"] and tl["lines"][1]["tags"] == ["confetti"]
     assert "[S1]" not in tl["lines"][0]["text"] and tl["label"] == "PRODUCTS"
     assert tl['mouth']['spark'] == [0.1, 0.5] and tl['seconds'] == 5.0
+
+
+def test_number_binding_flags_moves_not_rewordings():
+    # 8 Nov 2026: "$1.25 trillion", a year and "50 working" were false alarms that cost two Reels their duo scripts
+    from fma.duo_desk import binding_problems as b
+    assert b(["Meta has 23 data centres[S6]."], "Meta has data centers in 23 states, she said.")
+    assert not b(["OpenAI is valued at $1.25 trillion[S2]."], "OpenAI is valued at $1.25 trillion and raised more.")
+    assert not b(["In 2026 the claim emerged[S1]."], "A 2026 report made the claim.")
+    assert not b(["About 50 people were working on it[S1]."], "About 50 focused on frontier research.")
+
+
+def test_metr_is_said_meter():
+    from fma.voice import spoken
+    assert spoken("METR's authors say") == "Meter's authors say"

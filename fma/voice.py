@@ -23,6 +23,8 @@ PRONOUNCE = {
     r"\bGPT-(\d)": r"G P T \1",
     r"\bK-12\b": "K to 12",
     r"\bS-1\b": "S 1",
+    # METR, the AI safety group, says its name "meter"; Kokoro read it as "Meta", a different company (8 Nov 2026)
+    r"\bMETR\b": "Meter",
     r"\$(\d+(?:\.\d+)?)\s?(billion|million|trillion)\b": r"\1 \2 dollars",
     # decimals digit by digit (5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"); x.0 drops the 0
     r"(\d+)\.0\b": r"\1",

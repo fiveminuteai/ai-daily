@@ -353,23 +353,39 @@ def _ask(chain, system: str, prompt: str, temperature: float, schema: dict | Non
 NUM_NOUN = re.compile(r"(?<![\w.])(\$?\d[\d,.]*%?)\s+(?:\w+\s+)?([a-z]{3,})", re.I)
 
 
+SCALE = {"percent", "per", "cent", "billion", "million", "trillion", "thousand", "hundred", "time", "times", "x",
+         "year", "years", "month", "months", "week", "weeks", "day", "days", "hour", "hours", "minute", "minutes",
+         "second", "seconds", "and", "or", "to", "from", "of", "in", "on", "at", "a", "an", "the"}
+
+
 def binding_problems(lines: list[str], source: str) -> list[str]:
     """A number must stay with what it counts: "data centres in 23 states" must not become "23 data centres"
-    (6 Nov 2026 shadow run). For each number in a line that the source gives with a noun, the line must use one of the
-    source's nouns for it."""
+    (6 Nov 2026 shadow run). A line is flagged only when the word it puts after a number is a word the source uses
+    elsewhere but never just after that number: the number has moved to a different thing. Scale and time words
+    ("$1.25 trillion"), years, and rewordings the source doesn't contain ("50 working" for "50 focused") pass.
+    8 Nov 2026: the first version flagged all of those and cost two Reels their duo scripts."""
     from .judge import _stem
-    src_nouns: dict[str, set[str]] = {}
-    said: dict[str, str] = {}
-    for m in NUM_NOUN.finditer(plain(source)):
-        src_nouns.setdefault(m.group(1).rstrip(".,"), set()).add(_stem(m.group(2).lower()))
-        said.setdefault(m.group(1).rstrip(".,"), m.group(2))
+    src = plain(source).replace("\u202f", " ").replace("\u00a0", " ")
+    src_words = {_stem(w) for w in re.findall(r"[a-z]{3,}", src.lower())}
+    after: dict[str, set[str]] = {}
+    first: dict[str, str] = {}
+    for m in re.finditer(r"(?<![\w.])(\$?\d[\d,.]*%?)", src):
+        num = m.group(1).rstrip(".,")
+        nxt = re.findall(r"[a-z]{3,}", src[m.end():m.end() + 40].lower())[:3]
+        after.setdefault(num, set()).update(_stem(w) for w in nxt)
+        if nxt:
+            first.setdefault(num, nxt[0])
     out = []
     for k, t in enumerate(lines):
-        for m in NUM_NOUN.finditer(plain(t)):
-            num, noun = m.group(1).rstrip(".,"), _stem(m.group(2).lower())
-            known = src_nouns.get(num)
-            if known and noun not in known and noun not in ("percent", "billion", "million", "per", "time", "times"):
-                out.append(f"line {k + 1}: the source says '{num} {said[num]}', not '{num} {m.group(2)}'")
+        text = plain(t).replace("\u202f", " ").replace("\u00a0", " ")
+        for m in re.finditer(r"(?<![\w.])(\$?\d[\d,.]*%?)\s+([a-z]{3,})", text, re.I):
+            num, word = m.group(1).rstrip(".,"), m.group(2).lower()
+            if re.fullmatch(r"(19|20)\d\d", num) or word in SCALE or num not in after:
+                continue
+            w = _stem(word)
+            if w in after[num] or w not in src_words:
+                continue                 # with that number in the source, or a rewording the source doesn't use
+            out.append(f"line {k + 1}: the source puts {num} with '{first.get(num, '?')}', not '{word}'")
     return out
 
 
