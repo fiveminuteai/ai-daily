@@ -158,7 +158,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   const pop = spring({frame: Math.max(0, lt * fps), fps, config: {damping: 9, stiffness: 140}});
 
   // the camera eases toward whoever is talking, and pushes in slowly
-  const focus = facing ? 0 : line.who === 'spark' ? -1 : 1;
+  const solo = guest === 'solo';   // 8 Nov 2026: Spark reports alone
+  const focus = facing || solo ? 0 : line.who === 'spark' ? -1 : 1;
   const pan = spring({frame: Math.max(0, lt * fps), fps, config: {damping: 20, stiffness: 60}});
   const camX = -focus * 40 * pan;
   const zoom = 1.04 + 0.025 * Math.min(1, lt / 3);
@@ -170,10 +171,10 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   const char = (who: string) => {
     const talking = who === line.who;
     const isSpark = who === 'spark';
-    const base = {x: isSpark ? 330 : 790, y: isSpark ? 1110 : 1100, size: isSpark ? 400 : 330};
+    const base = {x: solo ? 540 : isSpark ? 330 : 790, y: isSpark ? 1110 : 1100, size: solo ? 440 : isSpark ? 400 : 330};
     const y = base.y + 230 * cp, size = base.size * (1 - 0.3 * cp);
     const s = talking ? 1 + 0.07 * pop : 0.95;
-    const look = facing ? 0 : isSpark ? 1 : -1;
+    const look = facing || solo ? 0 : isSpark ? 1 : -1;
     const bob = Math.sin(t * 2.2 + (isSpark ? 0 : 1.7)) * 6;
     const vis = shapeAt((timeline.visemes || {})[who], t);
     const props = {t, mouth: mouthAt(who), talking, look, pop: talking ? 1 - pop : 0, vis};
@@ -186,7 +187,7 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
     );
   };
 
-  const order = line.who === 'spark' ? [guest, 'spark'] : ['spark', guest];
+  const order = solo ? ['spark'] : line.who === 'spark' ? [guest, 'spark'] : ['spark', guest];
 
   // the number panel: the figure Spark is saying rises in as it is said, and switches off when Spark moves on to a
   // line without one (an old number under a new fact misleads); while the guest reacts it stays up

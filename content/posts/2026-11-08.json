@@ -39,7 +39,7 @@
         "The memo, circulated earlier in 2026, says Alice Huang was approached by Chinese intelligence to monitor Jensen Huang’s activities[S2]. The New York Times noted the memo was based on U.S. intelligence sources, while the Financial Times added the romance allegation[S2]. Nvidia’s spokesperson told the NYT that the company does not share classified information with customers and that Jensen Huang’s interactions with Alice Huang were routine[S2]. The memo also referenced a separate report about New Matrix, a Chinese firm authorized to purchase advanced Nvidia chips, whose listed office appeared to be a “hollow gray shell,” raising suspicion of a front operation[S2]."
       ],
       "card": {
-        "hook": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security worries[S2].",
+        "hook": "A US memo claims China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO[S2].",
         "points": [
           "Alice Huang of Megaspeed was approached by China’s Ministry of State Security[S2].",
           "The memo links the recruitment to an alleged romance with Nvidia’s Jensen Huang[S2].",
@@ -47,7 +47,7 @@
         ],
         "take": "Watch for tighter security checks on tech executives and supply chains[S2].",
         "take_kind": "read",
-        "ask": "Should companies police personal ties more tightly[S2]?",
+        "ask": "Should chip makers check their buyers more closely[S2]?",
         "interest": 4,
         "reel": 8,
         "angle": "Espionage targeting a top AI hardware leader could ripple through the tech industry.",
@@ -56,7 +56,32 @@
           "chief": 9.0,
           "why": "Spy drama with Nvidia CEO, high stakes and drama"
         },
-        "bonus": 0.0
+        "bonus": 0.0,
+        "duo": {
+          "guest": "solo",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "A US intelligence memo, first reported by The New York Times, claims a tech executive was recruited by China's Ministry of State Security to spy on Nvidia boss Jensen Huang[S2]."
+            },
+            {
+              "who": "spark",
+              "text": "The executive is Alice Huang, of Megaspeed, a company based in Singapore[S2]."
+            },
+            {
+              "who": "spark",
+              "text": "Nvidia told the Times that her dealings with Jensen Huang were not unusual, and that it does not share classified information with customers[S2]."
+            },
+            {
+              "who": "spark",
+              "text": "In a separate report, the Times looked at New Matrix, a Chinese company the US cleared to buy advanced Nvidia chips[S2]."
+            },
+            {
+              "who": "spark",
+              "text": "At its listed office, reporters found only a hollow gray shell, raising concerns it could be a front for a blacklisted firm[S2]."
+            }
+          ]
+        }
       }
     },
     {
@@ -159,7 +184,42 @@
           "chief": 5.0,
           "why": "Important internal shift, less headline‑grabbing"
         },
-        "bonus": 0.0
+        "bonus": 0.0,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Microsoft's AI Frontiers, a research team of about 50 people, is over, one of its founders writes[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "That's not a team. That's a family dinner."
+            },
+            {
+              "who": "spark",
+              "text": "In early September it was merged into Microsoft AI, where, the founder says, the focus is bigger models, not research[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Just make it bigger. I'm a box. Even I know that's not a plan.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "The founder says the team wasn't wanted there, and left. No internships with them next year[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "No interns? Who makes the coffee?",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
       }
     },
     {

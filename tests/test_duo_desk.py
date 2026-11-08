@@ -85,3 +85,13 @@ def test_number_binding_flags_moves_not_rewordings():
 def test_metr_is_said_meter():
     from fma.voice import spoken
     assert spoken("METR's authors say") == "Meter's authors say"
+
+
+def test_solo_report_signs_off_with_the_name_only():
+    """8 Nov 2026: a straight report has Spark alone, no guest lines and no gag in the sign-off."""
+    card = {"ask": "Should chip makers check their buyers more closely[S2]?",
+            "duo": {"guest": "solo", "lines": [{"who": "spark", "text": "A memo claims X[S2]."}]}}
+    guest, lines = duo_desk.script(card, "Tell us below.")
+    assert guest == "solo"
+    assert [ln[0] for ln in lines] == ["spark"] * 3
+    assert lines[-1] == ("spark", "Five Minute AI.", "card")

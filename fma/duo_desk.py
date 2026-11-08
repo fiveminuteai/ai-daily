@@ -558,7 +558,10 @@ def script(card: dict, outro: str) -> tuple[str, list[tuple]]:
     lines = [(guest if ln["who"] == "guest" else "spark", ln["text"], *ln.get("fx", [])) for ln in duo["lines"]]
     close = ((card.get("ask") or "").strip() + " " + outro).strip()
     lines.append(("spark", close))
-    lines += [tuple(guest if x == "guest" else x for x in s[:1]) + s[1:] for s in SIGN_OFF]
+    if guest == "solo":                  # 8 Nov 2026, Pavan: a straight report, Spark alone, no jokes: just the name
+        lines.append(SIGN_OFF[0])
+    else:
+        lines += [tuple(guest if x == "guest" else x for x in s[:1]) + s[1:] for s in SIGN_OFF]
     return guest, lines
 
 

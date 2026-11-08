@@ -32,6 +32,7 @@ from .social import plain
 from .visuals import _font
 
 SPARK_AT = (330, 1110, 400)          # centre x, bottom y, size
+SOLO_AT = (540, 1110, 440)           # 8 Nov 2026: Spark alone, reporting (guest "solo"), stands in the middle
 PANEL_Y = 560                        # the hologram's centre: clear of Spark's head
 SPARK_VOICE = os.environ.get("FMA_SPARK_VOICE", "spark-strong")   # 5 Nov 2026, Pavan: strong, opposite the guests
 GUESTS = {
@@ -51,7 +52,7 @@ def plan(script: list[tuple], guest: str, visemes: bool = False) -> dict:
     """Speak the script into one track per speaker (each mouth follows its own voice). A line is (who, text, *tags):
     "card" puts it on the closing logo card, "beat" holds a comic pause before it, "confetti" / "drop" / "sweat" are
     the visual gags (a burst, the burst falling flat, a nervous sweat drop on the speaker)."""
-    voices = {"spark": SPARK_VOICE, guest: GUESTS[guest]["voice"]}
+    voices = {"spark": SPARK_VOICE, **({guest: GUESTS[guest]["voice"]} if guest in GUESTS else {})}
     lead, t, lines, clips = 0.12, 0.0, [], []
     for entry in script:
         who, text, tags = entry[0], entry[1], set(entry[2:])
@@ -140,7 +141,8 @@ def sticker(layer: Image.Image, text: str, cx: float, cy: float, since: float) -
 
 def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
     lines, lead, guest = pl["lines"], pl["lead"], pl["guest"]
-    g = GUESTS[guest]
+    g = GUESTS.get(guest)
+    solo = g is None                     # "solo": Spark reports alone, no guest on stage
     for ln in lines:
         timed = word_times(ln["text"], ln["said"], lead)
         ln["groups"] = chunks(timed)
@@ -230,11 +232,11 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
             spark_shape[:] = [spark_shape[1], ln["shape"], tt]
         morph = ease((tt - spark_shape[2] - 0.1) / 0.4)
 
-        for who in ((guest, "spark") if speaking == "spark" else ("spark", guest)):   # the speaker on top
+        for who in (("spark",) if solo else (guest, "spark") if speaking == "spark" else ("spark", guest)):
             talking = who == speaking
             m = pl["mouth"][who]
             mth = float(m[min(len(m) - 1, fi)]) if len(m) else 0.0
-            cx, base, size = SPARK_AT if who == "spark" else g["at"]
+            cx, base, size = (SOLO_AT if solo else SPARK_AT) if who == "spark" else g["at"]
             if cp:                                           # on the card both glide down a little, facing you
                 base = base + 230 * cp
                 size = size * (1 - 0.3 * cp)
@@ -244,7 +246,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
             if who == "spark":
                 asked = not talking and ln["text"].rstrip().endswith("?")
                 im = spark.draw(s, tt, mth, "ask" if asked else "talk", beat=BEAT, seed=n,
-                                look=(0.0, 0.5) if facing else (0.9, 0.0),
+                                look=(0.0, 0.5) if facing or solo else (0.9, 0.0),
                                 shape=spark_shape[1], shape_from=spark_shape[0], morph=morph)
             else:
                 im = g["draw"](s, tt, mth, talking, seed=n, look=(0.0, 0.4) if facing else (-0.9, 0.1))
@@ -258,7 +260,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
             flop = next((x for x in lines if "drop" in x["tags"] and x["start"] > party["start"]), None)
             confetti(layer, tt - party["start"], (tt - flop["start"]) if flop and tt >= flop["start"] else None, n)
         if "sweat" in ln["tags"]:
-            cx, base, size = SPARK_AT if speaking == "spark" else g["at"]
+            cx, base, size = (SOLO_AT if solo else SPARK_AT) if speaking == "spark" else g["at"]
             if cp:
                 base, size = base + 230 * cp, size * (1 - 0.3 * cp)
             sweat_drop(layer, cx + size * 0.36, base - size * 0.78, lt)
@@ -284,7 +286,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
         frame.alpha_composite(layer)
         # the camera eases toward whoever is talking: a slow push-in, pulled a little to their side
         z = 1.03 + 0.02 * min(1.0, lt / 3)
-        focus = W / 2 if (on_card or i >= end_q) else (SPARK_AT[0] if speaking == "spark" else g["at"][0])
+        focus = W / 2 if (solo or on_card or i >= end_q) else (SPARK_AT[0] if speaking == "spark" else g["at"][0])
         cxv = W / 2 + (focus - W / 2) * 0.18 * ease(min(1.0, lt / 0.6))
         cw, ch = W / z, H / z
         x0 = min(max(0, cxv - cw / 2), W - cw)
