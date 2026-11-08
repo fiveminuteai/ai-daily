@@ -81,7 +81,9 @@
               "text": "At its listed office, reporters found only a hollow gray shell, raising concerns it could be a front for a blacklisted firm[S2]."
             }
           ]
-        }
+        },
+        "cover": "Memo claims a spy targeted Nvidia’s boss[S2].",
+        "cover_hi": "a spy"
       }
     },
     {
@@ -155,7 +157,9 @@
           ],
           "laughs": 7,
           "laughs_why": "The hamster/bicycle visual in the closer is strong enough to stop the scroll, though the middle beats are safe and rely heavily on the host's energy."
-        }
+        },
+        "cover": "AI is now speeding up its own research[S3].",
+        "cover_hi": "its own research"
       }
     },
     {
@@ -219,7 +223,9 @@
               ]
             }
           ]
-        }
+        },
+        "cover": "Microsoft's AI Frontiers team is over[S4].",
+        "cover_hi": "is over"
       }
     },
     {

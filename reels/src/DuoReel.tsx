@@ -29,14 +29,14 @@ const shapeAt = (cues: any[] | undefined, t: number): Vis | null => {
 
 export type Timeline = any;
 
-const INK = '#F6F2FF', YELLOW = '#FFD65A', MUTED = '#A8A2C8', NIGHT = '#120E2A';
+export const INK = '#F6F2FF', YELLOW = '#FFD65A', MUTED = '#A8A2C8', NIGHT = '#120E2A';
 const HI: Record<string, string> = {spark: YELLOW, doubt: '#A0B2FF', rex: '#98D88C'};
 const TAG: Record<string, string> = {spark: 'SPARK', doubt: 'DOUBT', rex: 'REX'};
 const WASH = ['#FF7860', '#40D6C4', '#946EFF', '#FFB347'];
 
 type Line = any;
 
-const useFonts = () => {
+export const useFonts = () => {
   const [handle] = useState(() => delayRender('fonts'));
   useEffect(() => {
     const faces = [new FontFace('Bricolage', `url(${staticFile('Bricolage.ttf')})`, {weight: '200 800'}),
@@ -47,7 +47,7 @@ const useFonts = () => {
 
 const rnd = (i: number) => { const x = Math.sin(i * 12.9898) * 43758.5453; return x - Math.floor(x); };
 
-const Background: React.FC<{t: number; i: number; since: number}> = ({t, i, since}) => {
+export const Background: React.FC<{t: number; i: number; since: number}> = ({t, i, since}) => {
   const k = Math.min(1, since / 0.8);
   const a = WASH[(i + 3) % 4], b = WASH[i % 4];
   return (

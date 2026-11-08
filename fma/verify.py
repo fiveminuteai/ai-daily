@@ -406,11 +406,14 @@ class Verifier:
         points = [x for x in (one(p, f"card[{n}] point", 20) for p in (c.get("points") or [])[:4]) if x][:3]
         take = one(c.get("take"), f"card[{n}] take", 24)
         ask = one(c.get("ask"), f"card[{n}] ask", 12) if "?" in (c.get("ask") or "") else None   # must be a question
+        cover = one(c.get("cover"), f"card[{n}] cover", 8)        # the thumbnail headline (8 Nov 2026)
+        hi = str(c.get("cover_hi") or "").strip()
         if not hook or len(points) < 2:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
                 "interest": c.get("interest", 3),
                 **{k: c[k] for k in ("reel", "angle", "desk", "bonus") if k in c},   # the Reel desk: score, angle, reasons
+                **({"cover": cover, "cover_hi": hi if hi and hi.lower() in plain(cover).lower() else ""} if cover else {}),
                 **({"duo": d} if (d := self.duo(c.get("duo"), ids, n)) else {})}
 
     def duo(self, d: dict | None, ids: list[str], n: int) -> dict | None:

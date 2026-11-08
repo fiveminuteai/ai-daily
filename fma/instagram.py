@@ -107,8 +107,10 @@ def _publish(http, ig_id: str, token: str, container: str) -> dict:
     return {"id": media_id, "permalink": link}
 
 
-def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=time.sleep) -> dict:
-    """Post one video as a Reel, also shown on the profile grid. Returns {"id", "permalink"}."""
+def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=time.sleep,
+                 cover: str | None = None) -> dict:
+    """Post one video as a Reel, also shown on the profile grid. Returns {"id", "permalink"}. cover: the Reel's
+    designed thumbnail (8 Nov 2026), used when it is on the site; otherwise Instagram takes the frame at 3.5 s."""
     if not ig_id or not token:
         raise PublishError("instagram_id or INSTAGRAM_TOKEN is not set")
     if not video.startswith("https://") or not video.lower().endswith(".mp4"):
@@ -120,9 +122,16 @@ def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=t
         raise PublishError(f"video check: {type(exc).__name__}") from None
     if head.status_code != 200:
         raise PublishError(f"the Reel video is not on the site yet (HTTP {head.status_code})")
+    look = {"thumb_offset": str(REEL_COVER_MS)}
+    if cover and cover.startswith("https://"):
+        try:
+            if http.head(cover).status_code == 200:
+                look = {"cover_url": cover}
+        except Exception:  # noqa: BLE001
+            pass                        # no cover: the frame will do
     container = _call(http, "post", f"{API}/{ig_id}/media", "reel",
                       data={"media_type": "REELS", "video_url": video, "caption": caption, "share_to_feed": "true",
-                            "thumb_offset": str(REEL_COVER_MS), "access_token": token})["id"]
+                            **look, "access_token": token})["id"]
     _wait(http, container, token, REEL_WAIT_TRIES, REEL_WAIT_SECONDS, sleep)
     return _publish(http, ig_id, token, container)
 

@@ -159,7 +159,9 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
         if found:
             result, what = found, "found on Instagram after a reported failure"
         elif plan["platform"] == "instagram_reel":
-            result = publish_reel(http, ig_id, token or "", plan["media"][0], plan["text"])
+            video = plan["media"][0]
+            result = publish_reel(http, ig_id, token or "", video, plan["text"],
+                                  cover=video[:-4] + ".jpg" if video.endswith(".mp4") else None)
             what = "Reel"
         else:
             images = slide_urls(http, site["base_url"], iid[:10])

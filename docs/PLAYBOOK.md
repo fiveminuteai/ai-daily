@@ -152,6 +152,10 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
+- cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
+  TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
+  cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
+  Good: "Microsoft's AI Frontiers team is over[S1]." with cover_hi "is over".
 FACTS: use O
 Y facts in the story's text below. Every sentence of hook, points and take ends with the citation
 markers ([S1]) of the sentence its facts come from. Never add a number, name, date or claim that is not in the text.
@@ -162,7 +166,7 @@ of articles" for "30 billion web pages"): a plan, report or leak is not a launch
 articles. A lawsuit's claims are accusations: write "sues X, saying it ..." or "accuses X of ...". No comparisons
 ("far more than ...") that the text does not make.
 
-Reply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, "relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], "take": "...[S1].", "take_kind": "read", "ask": "...?"}
+Reply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, "relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], "take": "...[S1].", "take_kind": "read", "ask": "...?", "cover": "...[S1].", "cover_hi": "..."}
 
 STORY: {story title}
 Reported by: 

@@ -244,7 +244,9 @@ def normalise_card(c) -> dict | None:
     points = c.get("points") if isinstance(c.get("points"), list) else []
     return {"hook": text(c.get("hook")), "points": [t for t in (text(p) for p in points) if t],
             "take": text(c.get("take")), "take_kind": "do" if str(c.get("take_kind")).lower() == "do" else "read",
-            "ask": text(c.get("ask")), "interest": _interest(c.get("interest"))}
+            "ask": text(c.get("ask")), "interest": _interest(c.get("interest")),
+            **({"cover": text(c["cover"]), "cover_hi": str(c.get("cover_hi") or "").strip()[:60]}
+               if isinstance(c.get("cover"), str) and c["cover"].strip() else {})}
 
 
 def _interest(x) -> int:

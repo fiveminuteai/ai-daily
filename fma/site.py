@@ -211,6 +211,7 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
                 from .voice import OUTRO
                 guest, lines = duo_script(sec["card"], OUTRO)
                 duo_reel(post, sec, n, site, path, lines, guest=guest)
+                reel_cover(post, sec, path.with_suffix(".jpg"), guest=guest, lines=lines)
                 out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
                                            "duo": guest})
                 continue
@@ -218,10 +219,21 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
                 logging.getLogger(__name__).warning("duo reel %d failed, using the ordinary Reel: %s", k + 1, exc)
         try:
             story_reel(post, sec, n, site, path, palette=pal)
+            reel_cover(post, sec, path.with_suffix(".jpg"), guest="solo")
             out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})
         except Exception as exc:  # noqa: BLE001
             logging.getLogger(__name__).warning("story reel %d failed: %s", k + 1, exc)
     return out
+
+
+def reel_cover(post: dict, sec: dict, out, guest: str, lines: list | None = None) -> None:
+    """The Reel's thumbnail (8 Nov 2026); a failure only costs the cover, never the Reel."""
+    import logging
+    try:
+        from .cover import render_cover
+        render_cover(post, sec, out, guest=guest, lines=lines)
+    except Exception as exc:  # noqa: BLE001
+        logging.getLogger(__name__).warning("cover for %s failed: %s", out.name, exc)
 
 
 DUO_FROM = "2026-11-06"     # the first day of duo Reels: earlier days keep their Reels exactly as they were
