@@ -102,3 +102,10 @@ def test_solo_report_signs_off_with_the_name_only():
     assert guest == "solo"
     assert [ln[0] for ln in lines] == ["spark"] * 3
     assert lines[-1] == ("spark", "Five Minute AI.", "card")
+
+
+def test_closing_order_tries_the_pick_then_shorter_closings():
+    order = duo_desk.closing_order(7)
+    assert order[0] == 7 % len(duo_desk.SIGN_OFFS) and sorted(order) == list(range(len(duo_desk.SIGN_OFFS)))
+    lengths = [len(duo_desk.SIGN_OFFS[i][0] + duo_desk.SIGN_OFFS[i][1]) for i in order[1:]]
+    assert lengths == sorted(lengths)

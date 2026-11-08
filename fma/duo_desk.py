@@ -37,6 +37,14 @@ def sign_off(pick: int = 0) -> list[tuple]:
     return [("spark", "Five Minute AI.", "card"), ("guest", said, "card"), ("spark", last, "card", *tags)]
 
 
+def closing_order(pick: int) -> list[int]:
+    """The closing to try first, then the others shortest first: 8 Nov 2026, a longer closing put a duo 0.1 s over
+    the length cap and the story lost its duo; a shorter closing would have kept it."""
+    n = len(SIGN_OFFS)
+    rest = sorted((i for i in range(n) if i != pick % n), key=lambda i: len(SIGN_OFFS[i][0] + SIGN_OFFS[i][1]))
+    return [pick % n, *rest]
+
+
 SIGN_OFF = sign_off(0)
 HARD_WORDS = {"allegedly", "alleged", "exempt", "exemption", "subtle", "combustion", "litigation", "plaintiff",
               "plaintiffs", "defendant", "statutory", "moratorium", "moratoria", "jurisdiction", "pursuant",

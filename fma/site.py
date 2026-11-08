@@ -211,8 +211,17 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
                 from .voice import OUTRO
                 from datetime import date as _date
                 day = _date.fromisoformat(str(post["date"])).toordinal()
-                guest, lines = duo_script(sec["card"], OUTRO, pick=day * 5 + k)   # a different closing each Reel
-                duo_reel(post, sec, n, site, path, lines, guest=guest)
+                from .duo_desk import closing_order
+                for pick in closing_order(day * 5 + k):    # a different closing each Reel; if it runs the Reel
+                    guest, lines = duo_script(sec["card"], OUTRO, pick=pick)   # over the cap, a shorter one
+                    try:
+                        duo_reel(post, sec, n, site, path, lines, guest=guest)
+                        break
+                    except ValueError as exc:
+                        if "cap" not in str(exc):
+                            raise
+                else:
+                    raise ValueError("over the length cap with every closing")
                 reel_cover(post, sec, path.with_suffix(".jpg"), guest=guest, lines=lines)
                 out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
                                            "duo": guest})
