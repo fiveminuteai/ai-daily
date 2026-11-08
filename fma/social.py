@@ -12,7 +12,7 @@ from .visuals import TOPIC_RGB, _font
 X_LIMIT = 280
 X_URL_LEN = 23           # X counts every link as 23 characters, whatever its length
 HASHTAGS_LINKEDIN = "#AI #ArtificialIntelligence #MachineLearning #DataEngineering"
-HASHTAGS_INSTAGRAM = "#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai"
+HASHTAGS_INSTAGRAM = "#ai #ainews #artificialintelligence #tech #technews"     # five at most (Instagram, Dec 2025)
 
 
 def plain(text: str) -> str:
@@ -27,6 +27,38 @@ def x_length(text: str) -> int:
     return len(re.sub(r"https?://\S+", "x" * X_URL_LEN, text))
 
 
+# 8 Nov 2026 (growth plan): Instagram counts sends per reach as its strongest signal for showing a Reel to people
+# who don't follow us, and caps hashtags at five (Dec 2025). So each caption asks for a send, and its hashtags
+# name the story's players instead of a fixed list.
+SEND_LINES = ["Know someone who follows AI? Send this to them.",
+              "Send this to the friend who keeps up with AI.",
+              "Send this to your group chat's AI person."]
+TOPIC_TAGS = [(r"\bopenai|chatgpt|gpt-?\d", ["#openai", "#chatgpt"]), (r"\banthropic|claude\b", ["#anthropic", "#claude"]),
+              (r"\bgoogle|gemini|deepmind", ["#google", "#gemini"]), (r"\bnvidia\b", ["#nvidia"]),
+              (r"\bmicrosoft|copilot\b", ["#microsoft"]), (r"\bmeta\b|\bllama\b", ["#meta"]),
+              (r"\bapple|siri\b", ["#apple"]), (r"\bamazon|alexa|aws\b", ["#amazon"]), (r"\bxai\b|\bgrok\b", ["#xai"])]
+BASE_TAGS = ["#ai", "#ainews"]
+FILL_TAGS = ["#tech", "#technews", "#artificialintelligence"]
+MAX_TAGS = 5
+
+
+def reel_hashtags(section: dict) -> str:
+    """Five at most: #ai #ainews, the story's companies, then general tech tags to fill."""
+    text = (section.get("title", "") + " " + plain(section.get("card", {}).get("hook", ""))).lower()
+    tags = list(BASE_TAGS)
+    for pat, add in TOPIC_TAGS:
+        if re.search(pat, text):
+            tags += [t for t in add if t not in tags]
+    tags = tags[:MAX_TAGS]
+    tags += [t for t in FILL_TAGS if t not in tags][:MAX_TAGS - len(tags)]
+    return " ".join(tags)
+
+
+def send_line(section: dict) -> str:
+    import zlib
+    return SEND_LINES[zlib.crc32(plain(section.get("card", {}).get("hook", "")).encode()) % len(SEND_LINES)]
+
+
 def reel_caption(section: dict, site: dict) -> str:
     """Caption for one story's Reel, from its fact-checked card only."""
     card = section["card"]
@@ -37,8 +69,8 @@ def reel_caption(section: dict, site: dict) -> str:
         take = f"\n\n{'Do this' if card.get('take_kind') == 'do' else 'Our read'}: {plain(card['take'])}"
     if card.get("ask"):
         take += f"\n\nYour take: {plain(card['ask'])} Tell us in the comments."
-    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n"
-            f"Full story, every claim sourced: link in bio ({domain})\n\n{HASHTAGS_INSTAGRAM}")
+    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n{send_line(section)}\n\n"
+            f"Full story, every claim sourced: link in bio ({domain})\n\n{reel_hashtags(section)}")
 
 
 def share_texts(post: dict, site: dict) -> dict[str, str]:

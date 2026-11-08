@@ -10,6 +10,7 @@ never a URL, a token or Meta's own message text.
 """
 from __future__ import annotations
 
+import json
 import re
 import time
 
@@ -108,7 +109,7 @@ def _publish(http, ig_id: str, token: str, container: str) -> dict:
 
 
 def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=time.sleep,
-                 cover: str | None = None) -> dict:
+                 cover: str | None = None, ai_label: bool = True, trial: str | None = None) -> dict:
     """Post one video as a Reel, also shown on the profile grid. Returns {"id", "permalink"}. cover: the Reel's
     designed thumbnail (8 Nov 2026), used when it is on the site; otherwise Instagram takes the frame at 3.5 s."""
     if not ig_id or not token:
@@ -129,9 +130,19 @@ def publish_reel(http, ig_id: str, token: str, video: str, caption: str, sleep=t
                 look = {"cover_url": cover}
         except Exception:  # noqa: BLE001
             pass                        # no cover: the frame will do
-    container = _call(http, "post", f"{API}/{ig_id}/media", "reel",
-                      data={"media_type": "REELS", "video_url": video, "caption": caption, "share_to_feed": "true",
-                            **look, "access_token": token})["id"]
+    # 8 Nov 2026 (growth plan): Meta asks for an AI label on realistic AI voices, which ours are, so every Reel
+    # self-discloses (is_ai_generated, API since 22 Jun 2026). A trial Reel (trial_params, since 3 Dec 2025) goes to
+    # non-followers first. If Meta refuses either, the Reel is made once more without them: never lost to an extra.
+    extra = {**({"is_ai_generated": "true"} if ai_label else {}),
+             **({"trial_params": json.dumps({"graduation_strategy": trial})} if trial else {})}
+    base = {"media_type": "REELS", "video_url": video, "caption": caption, "share_to_feed": "true", **look,
+            "access_token": token}
+    try:
+        container = _call(http, "post", f"{API}/{ig_id}/media", "reel", data={**base, **extra})["id"]
+    except PublishError:
+        if not extra:
+            raise
+        container = _call(http, "post", f"{API}/{ig_id}/media", "reel", data=base)["id"]
     _wait(http, container, token, REEL_WAIT_TRIES, REEL_WAIT_SECONDS, sleep)
     return _publish(http, ig_id, token, container)
 

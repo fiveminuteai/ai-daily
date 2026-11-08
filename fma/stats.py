@@ -35,6 +35,8 @@ FB_API = "https://graph.facebook.com/v26.0"   # system-user tokens (Unified logi
 IG_MEDIA_METRICS = "reach,views,saved,shares,total_interactions"   # "impressions" is deprecated for new media
 IG_ACCOUNT_METRICS = "reach,views,accounts_engaged,total_interactions"
 REEL_METRICS = "ig_reels_avg_watch_time,ig_reels_video_view_total_time"   # ms; Reels only, asked for separately
+REEL_NEW_METRICS = "reels_skip_rate,reposts"   # since 3 Dec 2025, "in development": asked for on their own, so a
+#                                                refusal never costs the watch time
 IG_POSTS = 12
 DAYS = 28
 
@@ -130,12 +132,17 @@ def instagram(http, token: str, day: str, ig_id: str | None = None) -> dict:
                 ins.update(_insight_values(_ig(http, f"{m['id']}/insights", token, api, metric=REEL_METRICS)))
             except StatsError:
                 pass
+            try:
+                ins.update(_insight_values(_ig(http, f"{m['id']}/insights", token, api, metric=REEL_NEW_METRICS)))
+            except StatsError:
+                pass
         posts.append({"id": m["id"], "timestamp": m.get("timestamp"), "permalink": m.get("permalink"),
                       "type": m.get("media_type"), "caption": (m.get("caption") or "").split("\n")[0][:90],
                       "likes": m.get("like_count"), "comments": m.get("comments_count"),
                       **{k: ins.get(k) for k in ("reach", "views", "saved", "shares", "total_interactions")},
                       "avg_watch_s": round(ins["ig_reels_avg_watch_time"] / 1000, 1)
-                      if isinstance(ins.get("ig_reels_avg_watch_time"), (int, float)) else None})
+                      if isinstance(ins.get("ig_reels_avg_watch_time"), (int, float)) else None,
+                      "skip_rate": ins.get("reels_skip_rate"), "reposts": ins.get("reposts")})
     return {"status": "ok", "username": me.get("username"), "followers": me.get("followers_count"),
             "media_count": me.get("media_count"),
             **({"day": {k: acct.get(k) for k in IG_ACCOUNT_METRICS.split(",")}} if "error" not in acct

@@ -26,6 +26,14 @@ cloud_models: true
 # Story Reels post at their times (schedule.reels below) without waiting for approval (Pavan, 1 Nov 2026).
 # Skip a Reel in the control app before its time to stop it. Set to false to approve each one by hand again.
 auto_post_reels: true
+# The growth plan (8 Nov 2026, docs/growth-strategy.md). ai_label: Meta's AI-info label on every Reel (our voices
+# are AI). trial_reels: off, MANUAL or SS_PERFORMANCE, for the Reel numbers in trial_slots (shown to non-followers
+# first). youtube: copy each posted Reel to YouTube Shorts once the YOUTUBE_* secrets exist.
+growth:
+  ai_label: true
+  trial_reels: "off"
+  trial_slots: []
+  youtube: true
 
 # When things run, India time. The Clock workflow (fma/clock.py) starts each one; the control app edits these.
 # daily: 03:00-07:00. reels: 1-5 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a

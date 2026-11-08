@@ -43,11 +43,14 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           if [ "$(TZ=Asia/Kolkata date +%u)" = "7" ]; then python -m fma.learn update --lessons; else python -m fma.learn update; fi             || echo "::warning::learning loop failed; the stats are saved"
+      # The growth scoreboard (fma/growth.py, docs/growth-strategy.md): the week's funnel against the plan's targets.
+      - name: Growth scoreboard
+        run: python -m fma.growth || echo "::warning::growth scoreboard failed; the stats are saved"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stats data/learning data/learned.json 2>/dev/null || git add data/stats
+          git add data/stats data/learning data/learned.json data/growth 2>/dev/null || git add data/stats
           git diff --cached --quiet && exit 0
           git commit -m "Stats for $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do

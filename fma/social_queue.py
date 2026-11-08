@@ -85,7 +85,8 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
         prev = old.get(iid)
         if prev:
             item.update({k2: prev[k2] for k2 in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at",
-                                                  "media_id", "error") if k2 in prev})
+                                                  "media_id", "error", "attempts", "youtube_url", "youtube_error",
+                                                  "youtube_tries") if k2 in prev})
         items.append(item)
     # a Reel already in this day's queue stays, unchanged, even if the schedule now has fewer slots: a change of
     # times only shapes new queues, never what is already queued, approved or posted
@@ -160,8 +161,10 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
             result, what = found, "found on Instagram after a reported failure"
         elif plan["platform"] == "instagram_reel":
             video = plan["media"][0]
+            growth = site.get("growth") or {}
             result = publish_reel(http, ig_id, token or "", video, plan["text"],
-                                  cover=video[:-4] + ".jpg" if video.endswith(".mp4") else None)
+                                  cover=video[:-4] + ".jpg" if video.endswith(".mp4") else None,
+                                  ai_label=growth.get("ai_label", True), trial=trial_for(iid, growth))
             what = "Reel"
         else:
             images = slide_urls(http, site["base_url"], iid[:10])
@@ -174,7 +177,40 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
         raise
     _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
                edited_text=edited)
-    return f"{iid} posted to Instagram: {result['permalink'] or result['id']} ({what})"
+    done = f"{iid} posted to Instagram: {result['permalink'] or result['id']} ({what})"
+    if plan["platform"] == "instagram_reel":
+        done += mirror(root, iid, site, http)
+    return done
+
+
+def trial_for(iid: str, growth: dict) -> str | None:
+    """The trial-Reel setting for this Reel: growth.trial_reels is "off", or a graduation strategy (MANUAL or
+    SS_PERFORMANCE) for the Reel numbers listed in growth.trial_slots (default: none)."""
+    strategy = str(growth.get("trial_reels") or "off").upper()
+    if strategy not in ("MANUAL", "SS_PERFORMANCE"):
+        return None
+    n = int(iid.rsplit("-", 1)[-1]) if iid.rsplit("-", 1)[-1].isdigit() else 0
+    return strategy if n in (growth.get("trial_slots") or []) else None
+
+
+def mirror(root: Path, iid: str, site: dict, http) -> str:
+    """Copy a posted Reel to YouTube Shorts (8 Nov 2026, growth plan). Off until the YouTube secrets exist; a failure
+    is recorded on the item and never touches the Instagram post. Returns a note for the log."""
+    from .youtube import YouTubeError, configured, upload_short
+    if not (site.get("growth") or {}).get("youtube", True) or not configured():
+        return ""
+    path = queue_path(root, iid[:10])
+    item = next(i for i in json.loads(path.read_text(encoding="utf-8"))["items"] if i["id"] == iid)
+    if item.get("youtube_url") or item.get("youtube_tries", 0) >= MAX_ATTEMPTS:
+        return ""
+    try:
+        url = upload_short(http, item["media"][0], item.get("edited_text") or item["text"], item.get("hook") or "",
+                           site, iid[:10])
+    except YouTubeError as exc:
+        _save_item(root, iid, youtube_error=str(exc), youtube_tries=item.get("youtube_tries", 0) + 1)
+        return f"; YouTube FAILED (recorded): {exc}"
+    _save_item(root, iid, youtube_url=url, youtube_error=None)
+    return f"; YouTube Short: {url}"
 
 
 def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, token: str | None,
@@ -210,6 +246,11 @@ def due(root: Path, site: dict, http, token: str | None, now: datetime | None = 
     for path in sorted(queue_path(root, "x").parent.glob("*.json"))[-2:]:
         for item in json.loads(path.read_text(encoding="utf-8"))["items"]:
             if item["platform"] not in ("instagram", "instagram_reel"):
+                continue
+            if item["platform"] == "instagram_reel" and item["status"] == "posted":
+                note = mirror(root, item["id"], site, http)       # a YouTube copy that failed earlier, again
+                if note:
+                    out.append(f"{item['id']}{note}")
                 continue
             tried = item.get("attempts", 1 if item["status"] == "failed" else 0)
             retry = item["status"] == "failed" and tried < MAX_ATTEMPTS

@@ -1,0 +1,110 @@
+{
+ "date": "2026-11-08",
+ "window": [
+  "2026-11-02",
+  "2026-11-08"
+ ],
+ "this_week": {
+  "reels": 12,
+  "reach": 64.5,
+  "skip_rate": null,
+  "avg_watch_s": 6.2,
+  "likes_per_1k": 3.9,
+  "sends_per_1k": 0.0,
+  "saves_per_1k": 0.0,
+  "comments": 0,
+  "follows_per_week": 1
+ },
+ "last_week": {
+  "reels": 0,
+  "reach": null,
+  "skip_rate": null,
+  "avg_watch_s": null,
+  "likes_per_1k": null,
+  "sends_per_1k": null,
+  "saves_per_1k": null,
+  "comments": 0
+ },
+ "followers": 2,
+ "gates": [
+  {
+   "metric": "skip_rate",
+   "value": null,
+   "target": "at most 45",
+   "what": "% leave in the first 3 s",
+   "met": null
+  },
+  {
+   "metric": "avg_watch_s",
+   "value": 6.2,
+   "target": "at least 15",
+   "what": "s watched on average",
+   "met": false
+  },
+  {
+   "metric": "sends_per_1k",
+   "value": 0.0,
+   "target": "at least 5",
+   "what": "sends per 1,000 reached",
+   "met": false
+  },
+  {
+   "metric": "likes_per_1k",
+   "value": 3.9,
+   "target": "at least 30",
+   "what": "likes per 1,000 reached",
+   "met": false
+  },
+  {
+   "metric": "follows_per_week",
+   "value": 1,
+   "target": "at least 15",
+   "what": "new followers a week",
+   "met": false
+  }
+ ],
+ "best": [
+  {
+   "id": "18022386755954819",
+   "day": "2026-11-07",
+   "caption": "You can now text Alexa to find and buy things on Amazon.",
+   "reach": 48,
+   "skip_rate": null,
+   "avg_watch_s": 11.0,
+   "likes_per_1k": 0.0,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-07-reel-3",
+   "youtube": null
+  },
+  {
+   "id": "18108967532213167",
+   "day": "2026-11-06",
+   "caption": "Claude can now read your bank accounts, but it can't move money.",
+   "reach": 112,
+   "skip_rate": null,
+   "avg_watch_s": 8.7,
+   "likes_per_1k": 26.8,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-06-reel-1",
+   "youtube": null
+  },
+  {
+   "id": "18094192055212234",
+   "day": "2026-11-07",
+   "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
+   "reach": 128,
+   "skip_rate": null,
+   "avg_watch_s": 8.4,
+   "likes_per_1k": 0.0,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-07-reel-1",
+   "youtube": null
+  }
+ ]
+}
