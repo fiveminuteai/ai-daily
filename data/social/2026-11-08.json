@@ -1,0 +1,103 @@
+{
+ "date": "2026-11-08",
+ "slug": "2026-11-08-openai-secures-11-billion-funding-round-valuing",
+ "headline": "OpenAI adds $11 billion in funding at $1.25 trillion valuation",
+ "url": "https://fiveminuteai.net/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing/",
+ "generated_at": "2026-11-08T01:09:16+00:00",
+ "items": [
+  {
+   "id": "2026-11-08-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "OpenAI adds $11 billion in funding at $1.25 trillion valuation\n\n• OpenAI raised $11 billion, valuing it at $1.25 trillion, with the round possibly reaching $20 billion.\n• Alice Huang of Megaspeed was allegedly recruited by Chinese intelligence to spy on Nvidia CEO Jensen Huang, according to a U.S. memo.\n• Anthropic’s models show roughly double-year progress in one year, driven mainly by internal AI tools.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-08/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-08-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI adds $11 billion in funding at $1.25 trillion valuation\n\n• OpenAI raised $11 billion, valuing it at $1.25 trillion, with the round possibly reaching $20 billion.\n\nhttps://fiveminuteai.net/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 193
+  },
+  {
+   "id": "2026-11-08-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI adds $11 billion in funding at $1.25 trillion valuation\n\n• OpenAI raised $11 billion, valuing it at $1.25 trillion, with the round possibly reaching $20 billion.\n• Alice Huang of Megaspeed was allegedly recruited by Chinese intelligence to spy on Nvidia CEO Jensen Huang, according to a U.S. memo.\n• Anthropic’s models show roughly double-year progress in one year, driven mainly by internal AI tools.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-08-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security worries[S2].",
+   "text": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security worries.\n\n• Alice Huang of Megaspeed was approached by China’s Ministry of State Security.\n• The memo links the recruitment to an alleged romance with Nvidia’s Jensen Huang.\n• If true, the spying could expose Nvidia’s tech secrets to Chinese rivals.\n\nOur read: Watch for tighter security checks on tech executives and supply chains.\n\nYour take: Should companies police personal ties more tightly? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-08/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-08T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-08-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive[S3].",
+   "text": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.\n\n• Internal models improved twice as fast as a year earlier.\n• Employees using the top model said they were about 12 times more productive.\n\nDo this: Watch how AI tools boost your workflow, but stay alert for hidden speed traps.\n\nYour take: Will you trust AI to speed up your work? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-08/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-08T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-08-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub[S4].",
+   "text": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.\n\n• The AI Frontiers sub-organization was merged into Microsoft AI, ending the group.\n• The team had about 50 researchers focused on agents and new model capabilities.\n\nYour take: Will centralizing AI research help or hurt innovation? Tell us in the comments.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #artificialintelligence #ainews #machinelearning #tech #technews #datascience #fiveminuteai",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-08/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-08T10:30:00+00:00"
+  }
+ ]
+}

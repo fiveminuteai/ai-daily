@@ -1,0 +1,492 @@
+{
+ "date": "2026-11-08",
+ "started_at": "2026-11-08T00:15:35+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 3.8,
+   "items": 463,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 5
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 2
+    },
+    "github": {
+     "status": "ok",
+     "items": 7
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 35,
+   "editor": true,
+   "top": [
+    {
+     "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+     "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+     "score": 7.09,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+     "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+     "score": 6.83,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The US let Nvidia sell chips to an empty office in China",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+     "score": 6.72,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+     "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+     "score": 6.66,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "apiiro.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+     "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+     "score": 6.49,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The end of Microsoft Research's AI Frontiers group",
+     "url": "https://hunch.net/?p=13764006",
+     "score": 6.18,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "giant",
+     "outlets": [
+      "hunch.net (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "“Does Meta think we can’t read?” Meta abandons sketchy commercial terms update.",
+     "url": "https://arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update/",
+     "score": 5.84,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "AI broke the cybersecurity world. What’s next?",
+     "url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+     "score": 5.1,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+     "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+     "score": 4.85,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Claude Personal Finance vs. ChatGPT Finances: What sets them apart?",
+     "url": "https://www.engadget.com/2310182/claude-vs-chatgpt-personal-finance-comparison/",
+     "score": 4.78,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "There is no end in sight for the GPU supply problem",
+     "url": "https://www.engadget.com/2309554/gpu-supply-problem-no-end-in-sight/",
+     "score": 4.34,
+     "interest": 6.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+     "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+     "score": 7.09,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+     "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+     "score": 6.83,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The end of Microsoft Research's AI Frontiers group",
+     "url": "https://hunch.net/?p=13764006",
+     "score": 6.18,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "giant",
+     "outlets": [
+      "hunch.net (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "“Does Meta think we can’t read?” Meta abandons sketchy commercial terms update.",
+     "url": "https://arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update/",
+     "score": 5.84,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.7,
+   "articles": 9,
+   "with_text": 9
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.8,
+   "word_count": 1123,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.4,
+    "reel_desk": 900.6,
+    "layer1": 0.1,
+    "layer2": 599.2,
+    "gate": 0.4
+   },
+   "layer1": {
+    "checked": 105,
+    "ok": 84,
+    "repaired": 20,
+    "dropped": 1
+   },
+   "layer2": {
+    "checked": 88,
+    "ok": 54,
+    "repaired": 17,
+    "dropped": 17
+   },
+   "unused": 19,
+   "fails": [
+    "no 'why it matters'"
+   ],
+   "reel_desk": [
+    {
+     "story": "OpenAI adds $11 billion to funding round",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Megaspeed executive allegedly recruited to spy on Nvidia CEO",
+     "reel": 8,
+     "rubric": 6,
+     "chief": 9.0,
+     "why": "Spy drama involving Nvidia’s CEO is juicy corporate espionage, huge talk value",
+     "hook": "Spy agency recruited Megaspeed exec Alice Huang to snoop on Nvidia CEO Jensen Huang.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic’s AI accelerates its own development",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "Anthropic’s productivity boost is industry‑interesting but less sensational",
+     "hook": "Anthropic’s AI tools are boosting research speed, sparking IPO hopes.",
+     "chosen": true
+    },
+    {
+     "story": "Microsoft AI Frontiers group disbanded",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Meta pauses controversial AI training terms",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 7.0,
+     "why": "Meta’s legal fight over content scraping affects many creators, strong relevance",
+     "hook": "Meta pauses AI training terms after legal backlash threatens publishers’ content.",
+     "chosen": true
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 178.5,
+    "reel_desk": 659.4,
+    "layer1": 0.0,
+    "layer2": 690.9,
+    "gate": 0.3
+   },
+   "layer1": {
+    "checked": 93,
+    "ok": 73,
+    "repaired": 16,
+    "dropped": 4
+   },
+   "layer2": {
+    "checked": 84,
+    "ok": 56,
+    "repaired": 11,
+    "dropped": 17
+   },
+   "unused": 9,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "OpenAI adds $11 billion in funding at $1.25 trillion valuation",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Megaspeed executive allegedly recruited to spy on Nvidia CEO",
+     "reel": 8,
+     "rubric": 6,
+     "chief": 9.0,
+     "why": "Spy drama with Nvidia CEO, high stakes and drama",
+     "hook": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security worries.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic’s AI accelerates its own research",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Impressive productivity boost but less sensational",
+     "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+     "chosen": true
+    },
+    {
+     "story": "Microsoft AI Frontiers group disbanded after reorg",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "Important internal shift, less headline‑grabbing",
+     "hook": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
+     "chosen": true
+    },
+    {
+     "story": "Meta pauses AI training terms after backlash",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-08-openai-secures-11-billion-funding-round-valuing",
+ "finished_at": "2026-11-08T01:09:15+00:00",
+ "seconds": 3219.5
+}

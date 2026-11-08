@@ -1199,5 +1199,104 @@
     "users"
    ]
   ]
+ },
+ {
+  "date": "2026-11-08",
+  "slug": "2026-11-08-openai-secures-11-billion-funding-round-valuing",
+  "urls": [
+   "arstechnica.com/tech-policy/2026/11/does-meta-think-we-cant-read-meta-abandons-sketchy-commercial-terms-update",
+   "hunch.net",
+   "techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation",
+   "techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+   "theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development"
+  ],
+  "tokens": [
+   "1.25",
+   "abandons",
+   "according",
+   "additional",
+   "alarming",
+   "anthropic",
+   "automating",
+   "billion",
+   "ceo",
+   "commercial",
+   "development",
+   "does",
+   "end",
+   "exec",
+   "frontiers",
+   "group",
+   "intelligence",
+   "megaspeed",
+   "memo",
+   "meta",
+   "microsoft",
+   "nvidia",
+   "openai",
+   "raises",
+   "read",
+   "recruited",
+   "report",
+   "reportedly",
+   "research",
+   "researchers",
+   "sketchy",
+   "spy",
+   "terms",
+   "think",
+   "trillion",
+   "update",
+   "valuation"
+  ],
+  "story_tokens": [
+   [
+    "1.25",
+    "additional",
+    "billion",
+    "openai",
+    "raises",
+    "reportedly",
+    "trillion",
+    "valuation"
+   ],
+   [
+    "according",
+    "ceo",
+    "exec",
+    "intelligence",
+    "megaspeed",
+    "memo",
+    "nvidia",
+    "recruited",
+    "spy"
+   ],
+   [
+    "alarming",
+    "anthropic",
+    "automating",
+    "development",
+    "report",
+    "researchers"
+   ],
+   [
+    "end",
+    "frontiers",
+    "group",
+    "microsoft",
+    "research"
+   ],
+   [
+    "abandons",
+    "commercial",
+    "does",
+    "meta",
+    "read",
+    "sketchy",
+    "terms",
+    "think",
+    "update"
+   ]
+  ]
  }
 ]

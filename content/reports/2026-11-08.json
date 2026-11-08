@@ -1,0 +1,900 @@
+{
+  "checked": 84,
+  "ok": 56,
+  "repaired": 11,
+  "dropped": 17,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI secures $11 billion funding round valuing it at $1.25 trillion",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states the funding is 'reportedly' raised and part of a round that 'hasn't closed yet', whereas the headline states OpenAI 'secures' the funding, presenting a pending event as a completed fact.",
+        "model check: The source states the funding is 'reportedly' raised and part of a round that 'hasn't closed yet', whereas the headline states OpenAI 'secures' the funding, presenting a pending event as a completed fact."
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI raised $11 billion in a new round that values the company at $1.25 trillion, while Meta paused a controversial AI‑training terms update after legal pushback, and Anthropic’s internal AI tools are speeding up its research pace.",
+      "sources": [
+        "S1",
+        "S5",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim combines three distinct events (OpenAI funding, Meta terms pause, Anthropic research speed). While each part is supported by different sources, the single sentence structure implies a unified event or source context that does not exist in the provided text; furthermore, C1 is a compound claim where the 'while' and 'and' structure suggests a single narrative not present in the sources as a unified statement. However, strictly looking at the components: OpenAI part is supported. Meta part is supported by S5. Anthropic part is supported by S3. The prompt asks to fact-check the claim. Usually, if a claim is a conjunction of true facts, it is supported. Let's re-evaluate. The claim says 'OpenAI raised... while Meta paused... and Anthropic...'. All three facts are present in the sources. S1 covers OpenAI. S5 covers Meta. S3 covers Anthropic. Is there a contradiction? No. Is it a single source? No, but the prompt doesn't require a single source. It requires the claim to be supported by the sources. The claim is a summary of the news cycle. Let's look closer. 'Anthropic’s internal AI tools are speeding up its research pace.' S3 says 'AI is dramatically speeding up Anthropic’s research'. This is supported. 'Meta paused a controversial AI-training terms update after legal pushback'. S5 says 'Meta has indefinitely delayed plans... After weeks of backlash... legal experts warned...'. This is supported. 'OpenAI raised $11 billion...'. S1 supports this. So C1 is a composite of three supported facts. I will mark it as supported because all constituent parts are factually accurate according to the sources."
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI raised $11 billion, valuing it at $1.25 trillion, with the round possibly reaching $20 billion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Alice Huang of Megaspeed was allegedly recruited by Chinese intelligence to spy on Nvidia CEO Jensen Huang, according to a U.S. memo.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Anthropic’s models show roughly double‑year progress in one year, driven mainly by internal AI tools.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "AI Frontiers, a 50‑person Microsoft Research sub‑group, was folded into Microsoft AI in September 2026, ending its dedicated focus.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states the reorganization happened in 'early September', not 'September 2026' (which implies the whole month or a specific date not specified as 'early'), and while it says 'reorged into', it does not explicitly state 'folded into' in a way that confirms the specific phrasing 'ending its dedicated focus' as a direct quote, but the main discrepancy is the date precision vs 'early September' and the source says 'reorged into Microsoft AI' which supports the merge, but the claim says 'September 2026' which is technically true if it was early Sept 2026, but let's look closer. The source says 'In early September we were reorged into Microsoft AI'. The claim says 'folded into Microsoft AI in September 2026'. This is supported. Wait, looking at C34, it says 'early September 2026'. C5 says 'September 2026'. Is 'September 2026' supported by 'early September'? Yes. Is 'folded into' supported by 'reorged into'? Yes. Is 'ending its dedicated focus' supported? The text says 'So AI Frontiers is over.' Yes. So C5 seems supported. Let me re-read the prompt constraints. 'A claim is NOT supported if... a number, name or date differs'. 'September 2026' vs 'early September'. 'Early September' is a subset of 'September'. Usually, this is acceptable unless the claim implies the whole month. However, let's look at C34 which is more precise. Let's check C5 again. 'AI Frontiers... was folded into Microsoft AI in September 2026'. Source: 'In early September we were reorged into Microsoft AI'. This is supported. 'ending its dedicated focus'. Source: 'So AI Frontiers is over.' Supported. '50-person'. Source: 'small size of AIF (~50 people)'. Supported. So C5 is supported."
+      ]
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Meta delays its AI‑training terms after lawsuits and regulator probes block the rollout.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI has secured $11 billion in a new funding round that values the company at $1.25 trillion, according to Bloomberg sources cited by TechCrunch on 6 November 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The round is still open and may close in the coming weeks, with a potential total of about $20 billion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The financing comes after the firm postponed its planned IPO to next year.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The $11 billion contribution is part of a larger, as‑yet‑unfinished round that Bloomberg expects to close soon, possibly reaching $20 billion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Earlier reports in late September said OpenAI was aiming for $30 billion, so the current amount falls short of that target.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The announcement follows market uncertainty linked to a Democratic landslide in the U.S. midterms and voter concerns about data‑center regulation, which have rattled AI investors.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI’s valuation of $1.25 trillion places it among the world’s most valuable AI firms, but the market is volatile after recent U.S. elections and regulatory worries.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Competitor Anthropic is also seeing valuation pressure, with potential buyers citing a lower $1.1 trillion estimate versus earlier $2 trillion expectations.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "These dynamics illustrate how political and regulatory signals can affect funding and IPO timing for AI companies.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI adds $11 billion in funding at $1.25 trillion valuation",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "OpenAI secures $11 billion, pushing its valuation to $1.25 trillion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The company closed an $11 billion round, valuing it at $1.25 trillion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim states the company 'closed' the round, but the source explicitly states the round 'hasn’t closed yet'."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "The round may grow to $20 billion, still short of the $30 billion target.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "This could delay its IPO and affect AI market investors.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states OpenAI delayed its IPO plans previously, but does not state that this specific funding round 'could delay' the IPO. The claim presents a potential future consequence not supported by the text."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch AI funding shifts—they could impact tech jobs and product roadmaps.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will big AI funding change your career plans?",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "A U.S. intelligence memo reported that Alice Huang, an executive at Singapore‑based Megaspeed, was recruited by China’s Ministry of State Security to gather information on Nvidia CEO Jensen Huang.",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The memo was first reported by The New York Times and later referenced by TechCrunch on 7 November 2026.",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The claim includes an alleged romantic relationship between the two executives, which Nvidia described as “not unusual”.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The memo, circulated earlier in 2026, says Alice Huang was approached by Chinese intelligence to monitor Jensen Huang’s activities.",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The New York Times noted the memo was based on U.S. intelligence sources, while the Financial Times added the romance allegation.",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia’s spokesperson told the NYT that the company does not share classified information with customers and that Jensen Huang’s interactions with Alice Huang were routine.",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The memo also referenced a separate report about New Matrix, a Chinese firm authorized to purchase advanced Nvidia chips, whose listed office appeared to be a “hollow gray shell,” raising suspicion of a front operation.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "China’s Ministry of State Security has a history of targeting foreign technology leaders for intelligence gathering, often using personal relationships as leverage.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes a specific allegation in a memo about one executive, but does not state that the Ministry has a general 'history' of targeting leaders or 'often' using personal relationships as leverage."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia, a leading GPU maker, is a strategic asset for both U.S. and Chinese tech sectors, making its executives high‑value targets for espionage efforts.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source mentions Nvidia's CEO was a target of Chinese intelligence, but does not characterize Nvidia as a 'strategic asset for both U.S. and Chinese tech sectors' or make the broader geopolitical claim about the company's status."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The allegations come amid heightened scrutiny of Chinese influence in the U.S. tech industry following several high‑profile espionage cases.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not mention 'heightened scrutiny of Chinese influence' or 'several high-profile espionage cases' as context for the allegations."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Megaspeed executive allegedly recruited to spy on Nvidia CEO",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "China’s intelligence recruited a Megaspeed exec to spy on Nvidia’s CEO, raising security worries.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Alice Huang of Megaspeed was approached by China’s Ministry of State Security.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The memo links the recruitment to an alleged romance with Nvidia’s Jensen Huang.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "If true, the spying could expose Nvidia’s tech secrets to Chinese rivals.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch for tighter security checks on tech executives and supply chains.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should companies police personal ties more tightly?",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Anthropic’s internal AI models are improving about twice as fast as they were a year earlier, according to a report by the safety group METR that examined the company over an 11‑week period.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The investigation, published on 7 November 2026, found that benchmark scores indicate roughly two years of progress were achieved in the last year.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "METR’s authors say the speedup is not merely from larger compute but from the AI tools themselves, which employees use to boost productivity.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "METR’s analysis shows that the acceleration is largely driven by Anthropic’s own AI, with its contribution growing throughout 2023‑2024, as reported in October 2026.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '2023' not in cited source",
+        "number '2024' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Employees who used the most capable internal model reported being about 12 times more productive on average, based on informal Slack polls and interviews.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The report also notes that Anthropic was allowed to redact large portions of the findings, suggesting limited public visibility into the exact pace and risks of this self‑accelerating development.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Self‑improving AI refers to systems that help design or train newer, more capable versions of themselves, reducing the need for human engineering effort.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This concept has raised concerns among researchers because it could lead to rapid capability gains without adequate oversight.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Anthropic’s CEO Dario Amodei has publicly urged the industry to slow down AI development, even as the company’s own tools appear to be speeding up its research pipeline.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic’s AI accelerates its own research",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Internal models improved twice as fast as a year earlier.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Employees using the top model said they were about 12 times more productive.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The rapid self‑acceleration could reshape AI research pipelines for tech workers.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source discusses AI speeding up Anthropic's research and the implications for AI development pace, but does not explicitly state it will 'reshape AI research pipelines for tech workers' in the specific manner claimed; this is an extrapolation not directly supported by the text provided."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch how AI tools boost your workflow, but stay alert for hidden speed traps.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will you trust AI to speed up your work?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "METR says employees using Anthropic’s top internal model felt about twelve times more productive.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "METR reports Anthropic’s AI models are improving roughly twice as fast as a year ago.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "METR’s authors say the speedup comes from the AI tools themselves, not just bigger computers.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Anthropic CEO Dario Amodei urges the industry to slow AI development despite internal tools speeding research.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "In early September 2026 the AI Frontiers sub‑organization within Microsoft Research was merged into the larger Microsoft AI unit, effectively ending the dedicated group.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team had been created in 2023 to give more structure to AI research after the release of ChatGPT.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It consisted of roughly 50 researchers focused on building agents and new model capabilities.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "AI Frontiers aimed to coordinate research rather than rely on isolated efforts, allowing ideas like the Autogen orchestration framework and the Fara computer‑use agent to be developed more quickly.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The group also pursued novel capabilities such as the Next Latent objective for extrapolation, Dion3 for optimized Muon creation, and the Full Bandwidth Transformer that uses recursion to boost model power.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "A shared monorepo was created to give all Microsoft Research teams access to a proven edge‑scale pre‑training pipeline, a resource that previously required substantial engineering effort.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Microsoft Research historically operated as many independent labs, which sometimes slowed progress because single researchers could not assemble strong baselines alone.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The AI Frontiers reorganization was intended to concentrate effort and share resources, but differences in philosophy between the former Inflection‑led Microsoft AI and the smaller AI Frontiers team created practical challenges after the merger.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Microsoft AI Frontiers group disbanded after reorg",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The AI Frontiers sub‑organization was merged into Microsoft AI, ending the group.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The team had about 50 researchers focused on agents and new model capabilities.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Microsoft Research now shares resources across labs, changing how future AI tools are built.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes AIF's past attempt to share resources within MSR, not a current state of Microsoft Research sharing resources across labs that changes how future tools are built. The claim presents a past specific action as a current general organizational change."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "If you rely on cutting‑edge AI research, expect slower breakthroughs as Microsoft centralizes its efforts.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "hype word 'cutting-edge'"
+      ]
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will centralizing AI research help or hurt innovation?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meta announced an indefinite pause on its planned commercial‑terms update that would have required Meta Business account users to allow extensive AI training on external sites linked from Facebook.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The pause follows weeks of public, legal and regulatory pushback, including lawsuits in Brazil and Norway and a formal UK competition investigation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meta said it will keep the existing terms while it continues stakeholder engagement.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The original update, slated for October 30, would have forced businesses to let Meta crawl any linked external pages and even create test credentials to bypass paywalls, effectively removing any opt‑out for publishers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Legal analysts warned the vague language could let Meta ignore robots.txt preferences and scrape millions of articles, potentially avoiding licensing fees.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "After the deadline was moved to November 20, courts in Brazil and Norway issued injunctions, and the UK’s CMA opened an investigation into possible abuse of market dominance.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'CMA' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meta’s proposal came as the company seeks large volumes of web content to train its AI models, a practice common among tech firms but increasingly scrutinised for copyright and competition concerns.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not state that the company seeks large volumes of web content to train AI models as a general motivation, nor does it describe the practice as 'common among tech firms' or 'increasingly scrutinised for copyright and competition concerns' in those specific terms; it focuses on the specific backlash to this update."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Publishers rely on Facebook pages for traffic, so the terms would have affected virtually all news outlets.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Stakeholder backlash highlighted broader worries about AI‑driven data harvesting and the need for clearer consent mechanisms.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source mentions warnings about ignoring robots.txt and crawling content, but does not explicitly mention 'the need for clearer consent mechanisms' as a highlighted worry by stakeholders; it focuses on the legal/technical ability to scrape and the lack of opt-out."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Meta pauses AI training terms after backlash",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Meta pauses controversial AI‑training terms after lawsuits and UK probe threaten publishers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Meta stopped the update that would force businesses to let Meta crawl linked pages.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Legal blocks in Brazil and Norway and a CMA investigation raised the stakes.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'CMA' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Publishers risk losing traffic unless new consent rules are set.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source discusses Meta avoiding licensing fees, not publishers losing traffic. There is no evidence in the source regarding publishers risking traffic loss."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch for changes to how your content might be used for AI training.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should platforms need explicit consent for AI scraping?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The fresh capital gives OpenAI resources to expand its services, but the valuation and ongoing market volatility mean investors and partner firms must weigh funding risks against potential product rollouts, especially as political and regulatory signals continue to influence AI financing decisions.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Meta’s decision to keep existing terms protects publishers from having their content scraped for AI training without clear consent, preserving traffic and revenue streams for news outlets that rely on Facebook referrals.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 13,
+  "unused": 9,
+  "headline_rescued": {
+    "was": "OpenAI secures $11 billion funding round valuing it at $1.25 trillion",
+    "problems": [
+      "model check: The source states the funding is 'reportedly' raised and part of a round that 'hasn't closed yet', whereas the headline states OpenAI 'secures' the funding, presenting a pending event as a completed fact."
+    ]
+  },
+  "date": "2026-11-08",
+  "slug": "2026-11-08-openai-secures-11-billion-funding-round-valuing",
+  "model": "groq:qwen/qwen3.8-27b"
+}
