@@ -341,11 +341,14 @@ Reply as {"guest_lines": ["...", "..."], "score": 7, "why": "one sentence"}
 
 ## Step 3 of the duo (code, no model)
 
-Spark, guest, Spark, guest; a comic pause before the last two punchlines; then the card's question, the outro and the fixed sign-off:
+Spark, guest, Spark, guest; a comic pause before the last two punchlines; then the card's question, the outro and a sign-off, rotating Reel by Reel:
 
-- spark: Five Minute AI.
-- guest: Still not taking your job.
-- spark: Yet.
+- Spark: Five Minute AI. / guest: Smarter than your group chat. / Spark: Low bar.
+- Spark: Five Minute AI. / guest: We read the news so you don't have to. / Spark: You're welcome.
+- Spark: Five Minute AI. / guest: Five minutes. No robots harmed. / Spark: So far.
+- Spark: Five Minute AI. / guest: The future, in five minutes. / Spark: Give or take.
+- Spark: Five Minute AI. / guest: Shorter than your coffee break. / Spark: Usually.
+- Spark: Five Minute AI. / guest: Your brain's daily update. / Spark: No restart.
 
 ## 9. Fact-check layer 2
 

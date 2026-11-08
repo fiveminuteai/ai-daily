@@ -91,8 +91,8 @@ def build() -> str:
     parts.append(_block("7. Comedy editor", f"Rewrites only the guest lines; below {duo_desk.EDITOR_BAR}/10 the story "
                         "keeps its ordinary Reel.", duo_desk.EDITOR_SYSTEM, duo_desk.editor_prompt(duo_sample, sample_section)))
     parts.append("\n## Step 3 of the duo (code, no model)\n\nSpark, guest, Spark, guest; a comic pause before the last "
-                 "two punchlines; then the card's question, the outro and the fixed sign-off:\n\n" + "\n".join(
-                     f"- {who}: {text}" for who, text, *_ in duo_desk.SIGN_OFF) + "\n")
+                 "two punchlines; then the card's question, the outro and a sign-off, rotating Reel by Reel:\n\n" + "\n".join(
+                     f"- Spark: Five Minute AI. / guest: {said} / Spark: {last}" for said, last, _ in duo_desk.SIGN_OFFS) + "\n")
     parts.append(_block("9. Fact-check layer 2", "Every claim, with the text of the source it cites.",
                         verify.LLM_CHECK_SYSTEM, "{numbered sentences with their sources, as built by fma.verify.llm_check}"))
     parts.append(_block("10. Analyst: lessons from our numbers", "Weekly, from our own Instagram results.",

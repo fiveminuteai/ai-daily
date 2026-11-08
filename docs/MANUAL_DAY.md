@@ -82,7 +82,7 @@ Duo scripts (`card.duo`), for each of the top three cards; the full rules are in
   `"confetti"` on a celebration, then `"drop"` on the letdown right after.
 - Never joke about victims, illness, death or groups of people. A story about harm gets no duo.
 - Good examples: `python -c "from fma.bank import joke_pairs; print(joke_pairs('rex', 20))"` and the 6 Nov post.
-- The closing question, the outro and the sign-off ("Five Minute AI." / "Still not taking your job." / "Yet.") are
+- The closing question, the outro and the sign-off (it rotates through `SIGN_OFFS` in `fma/duo_desk.py`) are
   added by the code: don't write them.
 
 ## 3. Check

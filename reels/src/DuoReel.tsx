@@ -235,7 +235,7 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
           </div>
         )}
         {st > 0 && (
-          <div style={{position: 'absolute', left: 560, top: 1110, fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, color: '#fff',
+          <div style={{position: 'absolute', right: 50, top: 1110, fontFamily: 'Bricolage', fontWeight: 800, fontSize: 84, color: '#fff', whiteSpace: 'nowrap',
             background: '#FF845F', borderRadius: 22, padding: '6px 34px', boxShadow: '0 12px 30px rgba(0,0,0,0.35)',
             transform: `rotate(-9deg) scale(${0.4 + 0.6 * st})`}}>{sticker!.text}</div>
         )}

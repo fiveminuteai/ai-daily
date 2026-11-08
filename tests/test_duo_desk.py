@@ -49,8 +49,15 @@ def test_script_adds_question_outro_and_sign_off():
     assert guest == "rex"
     assert lines[0][0] == "spark" and lines[1][0] == "rex"
     assert lines[-4] == ("spark", "Should AI data centres face tougher rules? Tell us in the comments.")
-    assert lines[-2] == ("rex", "Still not taking your job.", "card")
-    assert lines[-1] == ("spark", "Yet.", "card", "beat", "sweat")
+    assert lines[-3] == ("spark", "Five Minute AI.", "card")
+    assert lines[-2] == ("rex", "Smarter than your group chat.", "card")
+    assert lines[-1] == ("spark", "Low bar.", "card", "beat")
+
+
+def test_sign_off_rotates_and_never_repeats_back_to_back():
+    picks = [duo_desk.sign_off(day * 5 + k)[1][1] for day in (739000, 739001) for k in range(5)]
+    assert all(a != b for a, b in zip(picks, picks[1:]))
+    assert len(set(picks)) == len(duo_desk.SIGN_OFFS)
 
 
 def test_old_days_keep_their_reels():

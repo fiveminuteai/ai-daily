@@ -3,7 +3,8 @@ story; a guest reacts. Pavan's notes from the samples, all built in:
 - plain everyday words a 12-year-old gets on the first hear (no "allegedly", "exempt", legal or finance jargon);
 - a comic angle in every Reel: setup then punchline, a pause ("beat") before the big laughs, visual gags;
 - 40-45 s at most: extra lines only when the story has more worth saying;
-- the fixed sign-off: "Five Minute AI." / guest: "Still not taking your job." / Spark, sweating: "Yet."
+- the sign-off: "Five Minute AI.", a guest line and Spark's last word, rotating through SIGN_OFFS (8 Nov 2026,
+  Pavan: new closing lines, rotated so regular viewers don't hear the same one every time).
 
 Honesty rules, the same as every line we publish: every fact is Spark's, with its citation, and goes through both
 fact-check layers like a card line (verify.py); the guest only jokes, reacts or asks, and its lines may hold no
@@ -20,8 +21,23 @@ log = logging.getLogger(__name__)
 GUESTS = ("doubt", "rex")
 FX = {"beat", "confetti", "drop", "sweat"}
 WORD_BUDGET = (50, 105)    # words in the story lines (the question, outro and sign-off come on top): ~40-45 s
-SIGN_OFF = [("spark", "Five Minute AI.", "card"), ("guest", "Still not taking your job.", "card"),
-            ("spark", "Yet.", "card", "beat", "sweat")]
+SIGN_OFFS = [   # (the guest's line, Spark's last word, Spark's tags); the last word lands as a sticker, so keep it short
+    ("Smarter than your group chat.", "Low bar.", ("beat",)),
+    ("We read the news so you don't have to.", "You're welcome.", ("beat",)),
+    ("Five minutes. No robots harmed.", "So far.", ("beat", "sweat")),
+    ("The future, in five minutes.", "Give or take.", ("beat",)),
+    ("Shorter than your coffee break.", "Usually.", ("beat",)),
+    ("Your brain's daily update.", "No restart.", ("beat",)),
+]
+
+
+def sign_off(pick: int = 0) -> list[tuple]:
+    """The closing, with "guest" standing for the guest. Consecutive picks give different closings."""
+    said, last, tags = SIGN_OFFS[pick % len(SIGN_OFFS)]
+    return [("spark", "Five Minute AI.", "card"), ("guest", said, "card"), ("spark", last, "card", *tags)]
+
+
+SIGN_OFF = sign_off(0)
 HARD_WORDS = {"allegedly", "alleged", "exempt", "exemption", "subtle", "combustion", "litigation", "plaintiff",
               "plaintiffs", "defendant", "statutory", "moratorium", "moratoria", "jurisdiction", "pursuant",
               "aforementioned", "notwithstanding", "fiduciary", "amortise", "amortize", "ebitda", "commitments",
@@ -550,9 +566,10 @@ def write(chain, section: dict, card: dict) -> dict | None:
     return punch_up(chain, duo, section)
 
 
-def script(card: dict, outro: str) -> tuple[str, list[tuple]]:
+def script(card: dict, outro: str, pick: int = 0) -> tuple[str, list[tuple]]:
     """The duo as duo_reel takes it: (guest, [(who, text, *tags)]), with the card's question, the outro and the
-    sign-off added. Citations stay in the text; the Reel strips them for speech and captions."""
+    sign-off added (pick chooses which one: see sign_off). Citations stay in the text; the Reel strips them for
+    speech and captions."""
     duo = card["duo"]
     guest = duo["guest"]
     lines = [(guest if ln["who"] == "guest" else "spark", ln["text"], *ln.get("fx", [])) for ln in duo["lines"]]
@@ -561,7 +578,7 @@ def script(card: dict, outro: str) -> tuple[str, list[tuple]]:
     if guest == "solo":                  # 8 Nov 2026, Pavan: a straight report, Spark alone, no jokes: just the name
         lines.append(SIGN_OFF[0])
     else:
-        lines += [tuple(guest if x == "guest" else x for x in s[:1]) + s[1:] for s in SIGN_OFF]
+        lines += [tuple(guest if x == "guest" else x for x in s[:1]) + s[1:] for s in sign_off(pick)]
     return guest, lines
 
 
