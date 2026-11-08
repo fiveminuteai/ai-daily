@@ -6,8 +6,8 @@
  ],
  "this_week": {
   "reels": 12,
-  "reach": 102.0,
-  "skip_rate": 58.9,
+  "reach": 103.5,
+  "skip_rate": 58.7,
   "avg_watch_s": 7.3,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
@@ -29,7 +29,7 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 58.9,
+   "value": 58.7,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
@@ -68,9 +68,9 @@
    "id": "18022386755954819",
    "day": "2026-11-07",
    "caption": "You can now text Alexa to find and buy things on Amazon.",
-   "reach": 112,
-   "skip_rate": 39.5,
-   "avg_watch_s": 11.0,
+   "reach": 113,
+   "skip_rate": 40,
+   "avg_watch_s": 10.9,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,

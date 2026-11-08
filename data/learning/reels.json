@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T18:01:18+00:00",
+ "updated": "2026-11-08T21:55:04+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -283,7 +283,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 100.5,
+   "age_h": 104.4,
    "outcome": -0.059
   },
   {
@@ -302,7 +302,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 86.5,
+   "age_h": 90.4,
    "outcome": -1.155
   },
   {
@@ -321,7 +321,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 82.5,
+   "age_h": 86.4,
    "outcome": -0.915
   },
   {
@@ -340,7 +340,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 58.5,
+   "age_h": 62.4,
    "outcome": 1.437
   },
   {
@@ -359,7 +359,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 52.5,
+   "age_h": 56.4,
    "outcome": 1.283
   }
  ],
