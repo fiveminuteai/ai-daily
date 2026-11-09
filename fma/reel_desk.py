@@ -144,6 +144,10 @@ def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None
         if not card or not card.get("hook") or len(card.get("points") or []) < 2:
             return None
         card.update(hook=tidy(card["hook"]), points=[tidy(p) for p in card["points"]][:3], take=tidy(card.get("take")))
+        weak = hook_problems(card["hook"])
+        if weak and _try == 0:
+            prompt = base + "\n\nYOUR HOOK WASTES THE FIRST SECOND. Rewrite it: " + "; ".join(weak)
+            continue
         long = [f"{plain_text(w)!r} ({len(plain_text(w).split())} words, limit {lim})"
                 for w, lim in [(card["hook"], 14), *[(p, 18) for p in card["points"]], (card.get("take"), 22)]
                 if w and len(plain_text(w).split()) > lim]
@@ -155,6 +159,28 @@ def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None
                   "them shorter, keeping the facts and citations:\n" + "\n".join(long))
     log.warning("Reel desk script for %r still too long", section.get("title"))
     return None
+
+
+HOOK_OPENERS = re.compile(r"^(hey|hi|hello|welcome|so,? |okay|ok,? |guys|stop scrolling|wait|did you know|in this "
+                          r"(video|reel)|today we|let'?s talk|here'?s (what|why|how)|breaking:?)\b", re.I)
+
+
+STARTERS = {"The", "A", "An", "This", "That", "These", "Those", "It", "Its", "Your", "You", "We", "Our", "There",
+            "Here", "Now", "New", "Why", "How", "What", "When", "If", "One", "Some", "Most"}
+
+
+def hook_problems(hook: str) -> list[str]:
+    """A cheap check before the fact-check (9 Nov 2026, after an MIT-licensed hook scorer by Jake Schincariol): a
+    hook that opens with a greeting or filler, or keeps its news back past the first six words, loses the scroll.
+    It names who or what in the first six words (a capitalised name or a number)."""
+    t = plain_text(hook or "").strip()
+    out = []
+    if HOOK_OPENERS.search(t):
+        out.append("don't open with a greeting or filler; open with the news itself")
+    first = [w.strip(".,:;!?\"'()") for w in t.split()[:6]]
+    if first and not any((w[:1].isupper() and w not in STARTERS) or any(ch.isdigit() for ch in w) for w in first):
+        out.append("name who or what in the first six words (a company, a person, a product or a number)")
+    return out
 
 
 def tidy(t: str | None) -> str | None:

@@ -230,7 +230,8 @@ or name that is not in the story text. You reply with one JSON object and nothin
 TASK: write the story as 4 short lines for Spark, the presenter, in the order a friend would tell it.
 
 RULES (check every line against each rule before you reply)
-1. Line 1 is the most surprising fact. Lines 2-4 add the next most interesting facts, one fact per line.
+1. Line 1 is the most surprising fact, at most 12 words: it is the hook and must land in the first 4 seconds.
+   Lines 2-4 add the next most interesting facts, one fact per line.
 2. Each line: 8 to 18 words. Plain everyday words a 12-year-old understands. Short sentences.
 3. Only facts from the story text. Never add a number, name or date that is not there.
 4. Keep every limit and doubt the text has: "at least 35" stays "at least 35"; "says", "claims", "is accused of"

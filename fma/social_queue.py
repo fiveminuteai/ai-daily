@@ -76,6 +76,7 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
     for k, (n, sec) in enumerate(card_stories(post, limit=len(slots))):
         iid = f"{post['date']}-reel-{k + 1}"
         item = {"id": iid, "platform": "instagram_reel", **REEL, "story": n, "hook": sec["card"]["hook"],
+                "cover": sec["card"].get("cover"),
                 "text": reel_caption(sec, site), "edited_text": None,
                 # auto_post_reels (Pavan, 1 Nov 2026: "don't ask, just post them"): queued already approved, so
                 # post-scheduled.yml posts each at its time; Skip in the control app before then still stops it
@@ -204,7 +205,8 @@ def mirror(root: Path, iid: str, site: dict, http) -> str:
     if item.get("youtube_url") or item.get("youtube_tries", 0) >= MAX_ATTEMPTS:
         return ""
     try:
-        url = upload_short(http, item["media"][0], item.get("edited_text") or item["text"], item.get("hook") or "",
+        url = upload_short(http, item["media"][0], item.get("edited_text") or item["text"],
+                           item.get("cover") or item.get("hook") or "",
                            site, iid[:10])
     except YouTubeError as exc:
         _save_item(root, iid, youtube_error=str(exc), youtube_tries=item.get("youtube_tries", 0) + 1)

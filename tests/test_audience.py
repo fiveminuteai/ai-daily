@@ -62,3 +62,36 @@ def test_market_scout_keeps_shorts_ranked_by_views():
     searches = [p for u, p in yt.calls if u.endswith("/search")]
     assert len(searches) == len(market.QUERIES) * len(market.REGIONS)
     assert all(p["videoDuration"] == "short" and p["order"] == "viewCount" for p in searches)
+
+
+def test_hook_checker_catches_filler_openers_and_buried_news():
+    from fma.reel_desk import hook_problems
+    assert hook_problems("Hey guys, OpenAI did a thing.")
+    assert hook_problems("The new tool will change everything for you soon")
+    assert not hook_problems("OpenAI cut its funding goal to $20 billion[S5].")
+    assert not hook_problems("Your Gmail now writes back for you[S1].")
+
+
+def test_duo_hook_line_must_land_in_four_seconds():
+    from fma import duo_desk
+
+    class Chain:
+        providers = []
+
+        def __init__(self):
+            self.prompts = []
+
+        def ask_json(self, system, prompt, **kw):
+            self.prompts.append(prompt)
+            long = "Nvidia's board says it is starting a big independent investigation into its CEO today[S1]."
+            return {"lines": [long, "A memo claims a spy was recruited[S1].", "The board will report back[S1].",
+                              "Huang apologised to the company[S1]."]}
+    c = Chain()
+    assert duo_desk.facts_step(c, {"title": "T", "paragraphs": ["x[S1]."]}, check_facts=False) is None
+    assert "the hook must be 12 at most" in c.prompts[-1]
+
+
+def test_youtube_title_uses_the_short_cover_headline():
+    from fma import youtube
+    assert youtube.title_for("Nvidia's board opens an investigation into its CEO[S1].") == \
+        "Nvidia's board opens an investigation into its CEO. #Shorts"
