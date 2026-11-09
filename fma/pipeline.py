@@ -17,7 +17,7 @@ from . import config
 from .editor import apply_editor
 from .extract import about_title, extract_item
 from .feeds import fetch_all
-from .gate import SHORT_EDITION, calm_post, check_images, rescue_headline, run_gate, soft_only, word_count
+from .gate import SHORT_EDITION, calm_post, check_images, dedupe_sentences, rescue_headline, run_gate, soft_only, word_count
 from .rank import history_entry, lineup_caps, pick_lineup, rank
 from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
@@ -270,6 +270,7 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away
             post = rescue_headline(post, report)   # so is a headline that failed its check
+            post, _repeats = dedupe_sentences(post)  # 9 Nov 2026: a repeated sentence is removed, never published
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
             if fails and attempt == int(pipe.get("attempts", 2)) and soft_only(fails):
                 # the backup plan (6 Nov 2026): a true but short post beats no post. Every fact is still checked

@@ -24,7 +24,7 @@
       "title": "NVIDIA Board probes ceo's link to suspected spy",
       "category": "policy",
       "paragraphs": [
-        "This follows reports that CEO Jensen Huang was targeted by a Chinese spy operation[S1]. The announcement came after a memo from Huang circulated among employees[S1]. He admitted to an affair with Alice Huang, a former executive at Megaspeed[S1]. The board said Huang fully supports the review and has committed to cooperating with it[S1].",
+        "Nvidia's board announced on Sunday an independent investigation following reports that CEO Jensen Huang was targeted by a Chinese spy operation[S1]. The announcement came after a memo from Huang circulated among employees[S1]. He admitted to an affair with Alice Huang, a former executive at Megaspeed[S1]. The board said Huang fully supports the review and has committed to cooperating with it[S1].",
         "A memo circulating among U.S. policymakers earlier this year claimed Alice Huang was recruited by China’s Ministry of State Security[S1]. The goal was to spy on Nvidia’s CEO[S1]. In his memo, Huang apologized to his family and colleagues for his actions[S1]. The board emphasized that it prioritizes U.S. national and economic security above all else[S1].",
         "Chips, especially Nvidia’s, have been a major focus as the AI race between the United States and China heats up[S1]. This context highlights the strategic importance of Nvidia in the current geopolitical landscape[S1]."
       ],
@@ -168,9 +168,9 @@
       "title": "Google Health lets users hide its AI Coach",
       "category": "products",
       "paragraphs": [
-        "Google released an update in August 2026 that allows users to disable the AI Coach feature[S5]. This change applies to the Google Health app for subscribers[S5].",
-        "Users tap their profile photo, then select Your data in Google Health[S5]. Next, they scroll to Feature privacy controls and select Manage[S5]. Users can also access this via Google Health settings and Coaching[S5]. Another option is changing Coach messages on Today to No Coach insights[S5]. Users lose access to the Ask Coach button for questions[S5].",
-        "To turn the Coach back on, users tap the Ask Coach button[S5]. They then select Unlock Coach to restore the feature[S5]. Premium's other features include advanced sleep tracking and Health Guardian[S5]."
+        "Google Health Premium subscribers can now switch off the Gemini-powered AI Coach without cancelling their subscription, Engadget reports[S5]. The option arrived in an update released in August 2026[S5]. The AI Coach does not come with the free Google Health tier, so cancelling Premium removes it too[S5].",
+        "To turn it off, users tap their profile photo, select Your data in Google Health, scroll to Feature privacy controls and select Manage feature privacy controls, then choose Google Health Coach and Turn off[S5]. Another route is Google Health settings, then Coaching[S5]. Users who only want fewer messages can change Coach messages on Today from Standard to No Coach insights[S5].",
+        "Without the Coach, users lose personalized guidance, recommendations and summaries, and the Ask Coach button for questions[S5]. None of their previous data is deleted[S5]. To turn the Coach back on, users tap the still visible Ask Coach button and select Unlock Coach[S5]. Premium's other features, such as advanced sleep tracking and Health Guardian, stay available[S5]."
       ],
       "card": {
         "hook": "Google Health lets you switch off its AI Coach and keep Premium[S5].",

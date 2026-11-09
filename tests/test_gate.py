@@ -2,14 +2,16 @@ from conftest import FakeHttp, FakeResponse
 
 from fma.gate import check_images, check_links, is_duplicate, run_gate, word_count
 
-PIPE = {"words_min": 20, "words_max": 400, "min_stories": 3, "llm_check": True}
+PIPE = {"words_min": 20, "words_max": 600, "min_stories": 3, "llm_check": True}
 REPORT = {"layer1_done": True, "layer2_done": True, "headline_problems": []}
 
 
 def post(**over):
     p = {"date": "2026-10-27", "headline": "Acme ships Nova-2", "dek": "A short dek [S1].",
          "what_happened": ["One [S1].", "Two [S1].", "Three [S1]."],
-         "sections": [{"title": f"Section {n}", "paragraphs": ["Words here and there [S1]. " * 4]} for n in range(3)],
+         "sections": [{"title": f"Section {n}", "paragraphs": [" ".join(
+             f"Acme said point {w} of story {n} matters for readers who follow the news closely [S1]." for w in
+             ("one", "two", "three", "four", "five"))]} for n in range(3)],
          "why_it_matters": [{"text": "It matters [S1].", "speculative": False}],
          "sources": [{"id": "S1", "url": "https://ok.example/a"}], "visuals": ["timeline"], "quote": None}
     p.update(over)
@@ -157,3 +159,25 @@ def test_a_long_but_checked_draft_is_not_a_lost_day():
     from fma.gate import SHORT_EDITION, soft_only
     assert soft_only(["word count 1213 outside 880-1150"])
     assert SHORT_EDITION["words_max"] >= 1213
+
+
+# ---- 9 Nov 2026: repeated sentences, dangling openers, thin sections
+
+def _post(paras):
+    return {"sections": [{"title": "T", "paragraphs": paras}]}
+
+
+def test_repeated_sentences_are_removed_and_never_published():
+    from fma.gate import dedupe_sentences, quality_problems
+    p = _post(["The model is a 27B parameter system[S6]. It uses a 64k context window[S6]. "
+               "The model remains a 27B parameter system[S6].", "The model is a 27B parameter system[S6]."])
+    assert any("repeated" in x for x in quality_problems(p))
+    p, n = dedupe_sentences(p)
+    assert n == 2 and p["sections"][0]["paragraphs"] == ["The model is a 27B parameter system[S6]. It uses a 64k context window[S6]."]
+
+
+def test_dangling_openers_and_thin_sections_fail():
+    from fma.gate import quality_problems
+    body = " ".join(["Google says users can switch off the AI Coach in the app settings[S5]."] * 1)
+    assert any("dangling" in x for x in quality_problems(_post(["They then select Your data[S5]. " + body])))
+    assert any("too thin" in x for x in quality_problems(_post(["Google released an update[S5]."])))

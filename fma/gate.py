@@ -70,6 +70,66 @@ def rescue_headline(post: dict, report: dict) -> dict:
 
 # Rules a draft can fail and still be a true, fully fact-checked post: only its length and shape. On a day when every
 # attempt fails on these alone, the last attempt goes out as a short edition instead of the day being skipped.
+# 9 Nov 2026: a published section repeated "The model is a 27B parameter system" 13 times, and another kept step
+# fragments ("They then select Your data") after the checker dropped the sentences around them. Pavan: "vague and
+# waste ... ensure it doesn't happen in future." So: repeats are removed before the gate (dedupe_sentences), and the
+# gate refuses a section that opens on a dangling word or is too thin to tell its story.
+def _norm(s: str) -> str:
+    return re.sub(r"[^a-z0-9 ]+", "", re.sub(r"\[S\d+\]", "", s.lower())).strip()
+
+
+def _key(s: str) -> str:
+    """Near-duplicates count as repeats: the same words without the small ones ("is"/"remains", "a", "the")."""
+    small = {"a", "an", "the", "is", "was", "are", "remains", "it", "its", "of", "to", "with", "and"}
+    return " ".join(w for w in _norm(s).split() if w not in small)
+
+
+def dedupe_sentences(post: dict) -> tuple[dict, int]:
+    """Drop every sentence that repeats an earlier one in the same section (exactly or nearly). Removal only: no
+    words are added, so nothing needs checking again. Returns the post and how many sentences went."""
+    from .verify import split_sentences
+    removed = 0
+    for sec in post.get("sections", []):
+        seen, paras = set(), []
+        for para in sec.get("paragraphs", []):
+            keep = []
+            for s in split_sentences(para):
+                k = _key(s)
+                if k and k in seen:
+                    removed += 1
+                    continue
+                seen.add(k)
+                keep.append(s)
+            if keep:
+                paras.append(" ".join(keep))
+        sec["paragraphs"] = paras
+    return post, removed
+
+
+DANGLING = re.compile(r"^(they|them|these|those|this|that|it|its|he|she|his|her|to do so|then|next|also|however|but|"
+                      r"and|so|another|such)\b", re.I)
+SECTION_MIN_WORDS = 40
+
+
+def quality_problems(post: dict) -> list[str]:
+    """Sections a reader would call broken: repeated sentences, a section opening on a word that points at nothing,
+    or one too thin to say anything."""
+    from .verify import split_sentences
+    out = []
+    for sec in post.get("sections", []):
+        title = sec.get("title", "")[:50]
+        sents = [s for p in sec.get("paragraphs", []) for s in split_sentences(p)]
+        keys = [_key(s) for s in sents]
+        if len(keys) != len(set(keys)):
+            out.append(f"repeated sentences in '{title}'")
+        if sents and DANGLING.match(re.sub(r"\[S\d+\]", "", sents[0]).strip()):
+            out.append(f"'{title}' opens on a dangling word: {sents[0][:50]!r}")
+        words = sum(len(re.sub(r"\[S\d+\]", "", p).split()) for p in sec.get("paragraphs", []))
+        if words < SECTION_MIN_WORDS:
+            out.append(f"'{title}' is too thin ({words} words, at least {SECTION_MIN_WORDS})")
+    return out
+
+
 SOFT_FAILS = ("word count ", "no 'why it matters'")
 SHORT_EDITION = {"words_min": 450, "words_max": 1400, "require_why": False}
 # words_max: 7 Nov 2026, a fully checked draft failed the whole day for being 1,213 words against 1,150: a little long
@@ -143,7 +203,7 @@ def is_duplicate(post: dict, recent_posts: list[dict], threshold: float = 0.5) -
 
 def run_gate(post: dict, report: dict, pipe: dict, recent_posts: list[dict], http=None, skip_links: bool = False) -> list[str]:
     """Return a list of failures. Empty list = publish."""
-    fails = []
+    fails = list(quality_problems(post))
     n = word_count(post)
     if not pipe.get("words_min", 880) <= n <= pipe.get("words_max", 1150):
         fails.append(f"word count {n} outside {pipe.get('words_min', 880)}-{pipe.get('words_max', 1150)}")

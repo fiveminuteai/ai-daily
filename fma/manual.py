@@ -131,7 +131,7 @@ def duo_seconds(card: dict, pick: int = 0) -> float:
 def check(date: str) -> bool:
     from .duo_desk import ceiling_problems, problems
     from .feeds import Http
-    from .gate import SHORT_EDITION, calm_post, rescue_headline, run_gate, soft_only
+    from .gate import SHORT_EDITION, calm_post, dedupe_sentences, rescue_headline, run_gate, soft_only
     from .pipeline import _yaml, assemble, recent_posts
     from .review import ReviewChain
     from .verify import llm_check, verify_draft
@@ -167,7 +167,7 @@ def check(date: str) -> bool:
     for e in l2:
         print(f"  - {e.get('where')}: {e['text'][:100]} ({'; '.join(e['problems'])[:160]})")
     post = assemble(date, verified, sources, site, "manual day: written and reviewed in a Claude session", report)
-    post = rescue_headline(calm_post(post), report)
+    post, _repeats = dedupe_sentences(rescue_headline(calm_post(post), report))
     fails = run_gate(post, report, pipe, recent_posts(ROOT / "content/posts"), http=Http())
     if fails and soft_only(fails) and not run_gate(post, report, {**pipe, **SHORT_EDITION}, recent_posts(ROOT / "content/posts"),
                                                    http=Http()):
