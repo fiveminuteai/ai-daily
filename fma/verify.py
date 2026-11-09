@@ -412,7 +412,7 @@ class Verifier:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
                 "interest": c.get("interest", 3),
-                **{k: c[k] for k in ("reel", "angle", "desk", "bonus") if k in c},   # the Reel desk: score, angle, reasons
+                **{k: c[k] for k in ("reel", "angle", "desk", "bonus", "pain", "hook_type") if k in c},   # the Reel desk
                 **({"cover": cover, "cover_hi": hi if hi and hi.lower() in plain(cover).lower() else ""} if cover else {}),
                 **({"duo": d} if (d := self.duo(c.get("duo"), ids, n)) else {})}
 

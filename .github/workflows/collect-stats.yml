@@ -43,6 +43,12 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           if [ "$(TZ=Asia/Kolkata date +%u)" = "7" ]; then python -m fma.learn update --lessons; else python -m fma.learn update; fi             || echo "::warning::learning loop failed; the stats are saved"
+      # Sundays: which AI Shorts people watched this week on YouTube (US and India), as hook ideas (fma/market.py).
+      - name: Market scout
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          if [ "$(TZ=Asia/Kolkata date +%u)" = "7" ]; then python -m fma.market; fi || echo "::warning::market scout failed"
       # The growth scoreboard (fma/growth.py, docs/growth-strategy.md): the week's funnel against the plan's targets.
       - name: Growth scoreboard
         run: python -m fma.growth || echo "::warning::growth scoreboard failed; the stats are saved"

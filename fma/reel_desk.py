@@ -59,7 +59,7 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
-- TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
+{AUDIENCE}- TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
   crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
   no puns, nothing about the people's private feelings, and the ask is about the public question.
 - cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
@@ -78,6 +78,27 @@ articles. A lawsuit's claims are accusations: write "sues X, saying it ..." or "
 """
 
 
+def _rules() -> str:
+    from .audience import producer_brief
+    return PRODUCER_RULES.replace("{AUDIENCE}", producer_brief())
+
+
+def market_note() -> str:
+    """This week's most-watched AI Shorts on YouTube (fma/market.py), as hook ideas only: titles are other people's
+    words and claims, never facts for us, and never copied."""
+    try:
+        import json
+        from . import config
+        m = json.loads((config.ROOT / "data" / "growth" / "market.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    titles = [f'- "{t["title"][:90]}" ({t["views"]:,} views, {t["region"]})' for t in (m.get("top") or [])[:8]]
+    if not titles:
+        return ""
+    return ("\nWHAT AI SHORTS GOT WATCHED THIS WEEK (YouTube, " + m.get("week", "") + "). Use them only to see which "
+            "worries and hook shapes pull viewers; never take a fact, number or wording from them:\n" + "\n".join(titles) + "\n")
+
+
 def producer_prompt(section: dict, sources: list[dict], lessons: list[dict] | None = None) -> str:
     by_id = {s["id"]: s for s in sources}
     ids = sorted({i for p in section.get("paragraphs", []) for i in re.findall(r"S\d+", p)}, key=lambda x: int(x[1:]))
@@ -86,9 +107,9 @@ def producer_prompt(section: dict, sources: list[dict], lessons: list[dict] | No
     taught = "".join(f"- {x['lesson']} ({'; '.join(x.get('evidence', []))})\n" for x in lessons or [])
     if taught:        # from our own Instagram numbers (fma/learn.py), each checked against the data
         taught = "\nLESSONS FROM OUR OWN REEL RESULTS (follow them; they never override the FACTS rule):\n" + taught
-    return (PRODUCER_RULES + taught + '\nReply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, '
+    return (_rules() + taught + market_note() + '\nReply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, '
             '"relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], '
-            '"take": "...[S1].", "take_kind": "read", "ask": "...?", "cover": "...[S1].", "cover_hi": "..."}\n\n'
+            '"take": "...[S1].", "take_kind": "read", "ask": "...?", "cover": "...[S1].", "cover_hi": "...", "pain": "job", "hook_type": "stakes"}\n\n'
             f"STORY: {section.get('title', '')}\nReported by: {outlets[:400]}\nText:\n"
             + "\n".join(section.get("paragraphs", [])))
 

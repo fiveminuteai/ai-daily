@@ -152,6 +152,24 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
+- pain: which ONE of these viewer worries the story speaks to, or "none" (a story that touches none of
+  them is rarely worth a Reel; score relatable 0 then):
+  job: Will AI take or change my job?
+  skills: What should I learn so I don't fall behind?
+  tools: Which AI tool should I use, and is it worth paying for?
+  money: What does AI cost me, and who is getting rich from it?
+  privacy: Is my data and my privacy safe?
+  trust: Can I trust what AI tells me (mistakes, deepfakes, scams)?
+  keepup: AI moves too fast to keep up with.
+  power: Who controls AI: the giants, governments, the rules?
+  safety: Is AI safe for my kids, my health, society?
+- hook_type: which formula your hook uses, one of:
+  stakes: what changes for people, first ("Your Gmail now writes back for you.")
+  surprise: a first, a reversal or an irony ("An AI refused its own company's order.")
+  number: one striking number up front ("OpenAI is now worth $1.25 trillion.")
+  conflict: a fight between names everyone knows ("The New York Times is suing Brave.")
+  you: speaks to the viewer's own life ("If you use Chrome, read this.")
+  gap: says there is something to know without saying it yet ("Nvidia's board just opened an investigation into its own CEO.")
 - TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
   crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
   no puns, nothing about the people's private feelings, and the ask is about the public question.
@@ -169,7 +187,7 @@ of articles" for "30 billion web pages"): a plan, report or leak is not a launch
 articles. A lawsuit's claims are accusations: write "sues X, saying it ..." or "accuses X of ...". No comparisons
 ("far more than ...") that the text does not make.
 
-Reply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, "relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], "take": "...[S1].", "take_kind": "read", "ask": "...?", "cover": "...[S1].", "cover_hi": "..."}
+Reply as {"score": {"stakes": 2, "surprise": 1, "names": 2, "number": 1, "relatable": 1}, "angle": "...", "hook": "...[S1].", "points": ["...[S1].", "...[S2].", "...[S1]."], "take": "...[S1].", "take_kind": "read", "ask": "...?", "cover": "...[S1].", "cover_hi": "...", "pain": "job", "hook_type": "stakes"}
 
 STORY: {story title}
 Reported by: 

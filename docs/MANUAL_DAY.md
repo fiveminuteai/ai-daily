@@ -71,6 +71,8 @@ Writing rules (the gate and both fact-check layers enforce them):
 - **Plain, calm words.** No hype words (revolutionary, game-changing...), no exclamation marks.
 - **"why it matters":** 1-2 items of commentary, `"speculative": true`, still cited.
 - **Reel cards:** hook at most 14 words, 3 points at most 18 words, take at most 22, ask at most 10 and a question.
+  Also `"pain"` (the viewer worry the story speaks to: one of the keys in `fma/audience.py` PAINS) and `"hook_type"`
+  (one of HOOK_TYPES there), and `"cover"` (3-7 words, cited) with `"cover_hi"`: the learning loop measures them.
   `reel` is your honest 0-10 score for a phone viewer; 6 or more gets a Reel, and the top three are used.
 
 Duo scripts (`card.duo`), for each of the top three cards; the full rules are in `docs/PLAYBOOK.md`, steps 5-7:

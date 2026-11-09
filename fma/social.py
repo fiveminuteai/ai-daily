@@ -69,7 +69,9 @@ def reel_caption(section: dict, site: dict) -> str:
         take = f"\n\n{'Do this' if card.get('take_kind') == 'do' else 'Our read'}: {plain(card['take'])}"
     if card.get("ask"):
         take += f"\n\nYour take: {plain(card['ask'])} Tell us in the comments."
-    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n{send_line(section)}\n\n"
+    from .audience import cta_for
+    from .duo_desk import is_sensitive
+    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n{cta_for(card, is_sensitive(section))}\n\n"
             f"Full story, every claim sourced: link in bio ({domain})\n\n{reel_hashtags(section)}")
 
 
