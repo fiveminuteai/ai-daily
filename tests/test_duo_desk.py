@@ -171,3 +171,38 @@ def test_a_comeback_cannot_answer_a_line_not_said_yet(monkeypatch):
     monkeypatch.setattr(duo_desk, "stale_phrases", lambda guest, *a, **k: set())
     early = {**banter_opt(), "comeback": "Clean air rules? You love those.", "topper": "Love is a strong word."}
     assert duo_desk.banter_step(Chain({"options": [early]}), good()) is None      # clean air comes in line 3
+
+
+# ---- decency (9 Nov 2026): "healthy, not mean, not violent"
+
+def test_indecent_jokes_fail_on_any_story():
+    d = duo_desk.add_banter(good(), {**banter_opt(), "comeback": "At least the spy got laid."})
+    assert any("not decent" in p for p in duo_desk.problems(d))
+    d = good()
+    d["lines"][3]["text"] = "Somebody shoot the turbines."
+    assert any("not decent" in p for p in duo_desk.problems(d))
+
+
+def test_a_sensitive_story_keeps_jokes_off_private_life_and_has_no_comebacks():
+    d = good()
+    d["lines"][1]["text"] = "Romantic, but bad security."
+    assert not any("private life" in p for p in duo_desk.problems(d))           # an ordinary story
+    d["sensitive"] = True
+    assert any("private life" in p for p in duo_desk.problems(d))
+    talk = duo_desk.add_banter(good(), banter_opt())
+    talk["sensitive"] = True
+    assert any("no comebacks" in p for p in duo_desk.problems(talk))
+
+
+def test_sensitive_stories_are_recognised():
+    assert duo_desk.is_sensitive({"title": "CEO admits affair with suspected spy", "paragraphs": []})
+    assert not duo_desk.is_sensitive({"title": "OpenAI raises $11 billion", "paragraphs": ["It raised money."]})
+    assert duo_desk.is_sensitive({"title": "Nvidia board probes CEO's link to suspected spy",
+                                  "paragraphs": ["He admitted to an affair with a former executive[S1]."]})
+
+
+def test_every_published_joke_still_passes_the_filter():
+    import json
+    from pathlib import Path
+    rows = [json.loads(x) for x in Path("data/bank/duo_pairs.jsonl").read_text(encoding="utf-8").splitlines() if x]
+    assert all(not duo_desk.joke_problems(r["joke"]) for r in rows)

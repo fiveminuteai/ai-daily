@@ -98,6 +98,53 @@ COMEBACK_WORDS = (2, 9)
 SELF_LABEL = re.compile(r"\b(i'?m|i am|i was|me,)\s+(a |an |just a |only a )?(box|fossil|dinosaur|extinct|cube)\b", re.I)
 
 
+# 9 Nov 2026, Pavan: a Reel went out with Spark's comeback "At least the spy got laid", on a story about a CEO's
+# affair. "I want the banter and comedy to be healthy, not mean, not violent." Two code checks on every joke line
+# (the guest's and Spark's comebacks), whatever model wrote it:
+# 1. INDECENT: sex and innuendo, violence, death, insults, drink and drugs, swearing. Never, on any story.
+# 2. On a SENSITIVE story (someone's private life, a crime, harm to people), the jokes also stay off private life
+#    entirely (PRIVATE words) and Spark makes no comebacks: the jokes tease the situation (the company, the
+#    memo, the security), never the people.
+INDECENT = re.compile(
+    r"\b(laid|sex\w*|sexy|hook(ed)? ?up|horny|naked|nude|bed(room|ded)?|kiss\w*|make out|one night|booty|hot(tie)?s?"
+    r"|seduc\w*|lover|mistress|flirt\w*|thirst\w*|steamy|spicy"
+    r"|kill\w*|murder\w*|dead|die[ds]?|dying|death|shoot\w*|shot|gun\w*|bomb\w*|stab\w*|punch\w*|slap\w*|beat (him|her|them|up)"
+    r"|blood\w*|weapon\w*|war|attack\w*|choke\w*|hang(ed)?|strangl\w*|burn (it|him|her|them)"
+    r"|stupid|idiot\w*|dumb|moron\w*|loser\w*|ugly|fat|creep\w*|pervert\w*|slut\w*|whore\w*"
+    r"|drunk|wasted|high|stoned|drugs?|cocaine|weed"
+    r"|damn|hell|crap|sh[i!1]t\w*|f[u*]ck\w*|bastard\w*|bitch\w*|ass(hole)?s?|wtf|omg)\b", re.I)
+PRIVATE = re.compile(
+    r"\b(affair\w*|cheat\w*|unfaithful|romanc\w*|romantic|love\w*|dat(e|ing|ed)|relationship\w*|partner\w*|wife|wives"
+    r"|husband\w*|marri\w*|divorc\w*|girlfriend\w*|boyfriend\w*|family|families|kids|children|son|daughter|heart\w*"
+    r"|crush\w*|ex|honey|baby|darling)\b", re.I)
+SENSITIVE_STORY = re.compile(
+    r"\b(affair|unfaithful|infidelity|sexual\w*|harass\w*|assault\w*|abus\w*|rape\w*|suicid\w*|self-harm|died|dies|"
+    r"death|killed|murder\w*|shooting|terror\w*|arrest\w*|charged with|indict\w*|convicted|lawsuit over (a )?death|"
+    r"child (safety|abuse)|minors?|overdose|addiction|divorce|family tragedy)\b", re.I)
+
+
+def joke_problems(text: str, sensitive: bool = False) -> list[str]:
+    """What makes a joke line not decent enough to air. Empty means it is fine."""
+    out = []
+    bad = sorted({m.group(0).lower() for m in INDECENT.finditer(text or "")})
+    if bad:
+        out.append(f"not decent ({', '.join(bad)}): keep the comedy kind, never sexual, violent or mean")
+    if sensitive:
+        priv = sorted({m.group(0).lower() for m in PRIVATE.finditer(text or "")})
+        if priv:
+            out.append(f"jokes about private life ({', '.join(priv)}): tease the situation, never the people")
+    return out
+
+
+def is_sensitive(section: dict) -> bool:
+    """A story about someone's private life, a crime or harm to people: one mention anywhere in the title, the
+    story or its card is enough (9 Nov 2026: the affair story said "affair" once, and a two-mention rule missed it)."""
+    card = section.get("card") or {}
+    text = " ".join([section.get("title", ""), *section.get("paragraphs", []), card.get("hook") or "",
+                     *(card.get("points") or [])])
+    return bool(SENSITIVE_STORY.search(text))
+
+
 def is_fact(ln: dict) -> bool:
     """A line that states facts: Spark's, unless it is a comeback. Only these are fact-checked."""
     return ln.get("who") == "spark" and ln.get("kind") != "comeback"
@@ -135,7 +182,7 @@ THE RULES (all of them matter)
 6. READ IT ALOUD: each guest joke must make sense on its own and follow from the line before it. If a friend
    would not smile, or would say "what?", rewrite it. Comparisons must point the right way ("I've seen glaciers
    move faster", never "slower").
-7. TONE: tease the situation, never punch down at people, groups, accents or victims. If the story is about harm
+7. TONE: HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself. Tease the situation, never punch down at people, groups, accents or victims. If the story is about harm
    to real people (deaths, abuse, illness), keep the guest gentle and the jokes off the victims.
 
 Reply as {"guest": "rex", "lines": [{"who": "spark", "text": "...[S1]."}, {"who": "guest", "text": "...",
@@ -204,7 +251,7 @@ NUMBER_WORDS = re.compile(r"\b(zero|one|two|three|four|five|six|seven|eight|nine
                           r"forty|fifty|hundred|thousand|million|billion|trillion|percent|half|dozen)\b", re.I)
 
 
-def problems(duo: dict) -> list[str]:
+def problems(duo: dict, sensitive: bool | None = None) -> list[str]:
     """Everything wrong with a duo script, in words the writer can act on. Empty means it passes the desk's checks
     (the fact-check layers still check Spark's lines afterwards)."""
     out = []
@@ -232,6 +279,8 @@ def problems(duo: dict) -> list[str]:
         if comeback and not COMEBACK_WORDS[0] <= len(plain(text).split()) <= COMEBACK_WORDS[1]:
             out.append(f"line {k + 1}: a comeback is {COMEBACK_WORDS[0]} to {COMEBACK_WORDS[1]} words")
         if who == "guest" or comeback:
+            out += [f"line {k + 1}: {p}" for p in joke_problems(text, sensitive if sensitive is not None
+                                                                     else bool(duo.get("sensitive")))]
             if re.search(r"\d", text) or NUMBER_WORDS.search(text):
                 out.append(f"line {k + 1}: the guest may not say numbers" if not comeback
                            else f"line {k + 1}: a comeback may not say numbers")
@@ -251,6 +300,8 @@ def problems(duo: dict) -> list[str]:
                 out.append(f"line {k + 1}: the guest may not name anyone or anything ({', '.join(caps)})")
     if lines and not is_fact(lines[0]):
         out.append("line 1 must be Spark's hook")
+    if (sensitive if sensitive is not None else duo.get("sensitive")) and any(ln.get("kind") == "comeback" for ln in lines):
+        out.append("a sensitive story gets no comebacks: Spark only tells it")
     if sum(1 for ln in lines if ln.get("kind") == "comeback") > MAX_COMEBACKS:
         out.append(f"at most {MAX_COMEBACKS} comebacks")
     labels = [k + 1 for k, ln in enumerate(lines) if ln.get("who") == "guest" and SELF_LABEL.search(str(ln.get("text") or ""))]
@@ -344,7 +395,7 @@ RULES (check every reaction against each rule before you reply)
    rewrite it. Comparisons must point the right way ("move faster", never "slower").
 4. NO numbers or number words, NO names of people, companies, places or products, NO new facts. The reaction only
    reacts.
-5. Never joke about victims, illness, death, groups of people or accents.
+5. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 
 EXAMPLES OF {name_up}'S REACTIONS (copy the kind of joke, never the words)
 {pairs}
@@ -492,7 +543,7 @@ RULES (check every reaction against each rule)
 2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on {name}.
 3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
 4. Do not repeat a reaction {name} already gave (listed below), and do not copy the examples word for word.
-5. Never joke about victims, illness, death, groups of people or accents.
+5. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 
 EXAMPLES OF {name_up}'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
 {pairs}
@@ -531,6 +582,8 @@ def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest
         return -1, "a copy"
     if is_stale(cand, stale_phrases(guest)):
         return -1, "a worn-out line"
+    if joke_problems(cand):
+        return -1, "not decent"
     opening = " ".join(re.findall(r"[a-z']+", cand.lower())[:2])
     if opening and any(" ".join(re.findall(r"[a-z']+", x.lower())[:2]) == opening for x in said):
         return -1, f"starts like an earlier reaction ('{opening}...')"   # 6 Nov 2026: three "Great. Now even my..."
@@ -595,7 +648,7 @@ RULES (check every line against each one)
   NO new facts.
 - Plain everyday words. Each line must make sense said out loud, straight after the line before it.
 - {name} calls itself a box, fossil or dinosaur at most once in the whole script, counting the lines already there.
-- Never joke about victims, illness, death, groups of people or accents.
+- HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 - Not these worn-out phrases: {stale}
 
 AN EXAMPLE OF THE SHAPE (a different story):
@@ -703,11 +756,13 @@ def write(chain, section: dict, card: dict) -> dict | None:
     if not jokes:
         return None
     duo = assemble(guest, lines, jokes)
+    if is_sensitive(section):            # 9 Nov 2026: jokes stay off private life; Spark makes no comebacks
+        duo["sensitive"] = True
     bad = problems(duo) + ceiling_problems(duo["lines"], " ".join(section.get("paragraphs", [])))
     if bad:
         log.warning("duo script for %r failed the final check: %s", section.get("title"), "; ".join(bad))
         return None
-    talk = banter_step(chain, duo)
+    talk = None if duo.get("sensitive") else banter_step(chain, duo)
     if talk and fits(talk, card):
         duo = talk
     elif talk:
@@ -762,9 +817,12 @@ YOUR JOB
    like two characters talking to each other, not a list of one-liners: a reaction follows from the line just
    before it, a comeback answers it, and the last guest line pays off an earlier joke. Plain everyday words. NO
    numbers, NO names of people, companies, places or products, NO new facts. The guest calls itself a box or a
-   fossil at most once. Never punch down at people. Comparisons must point the right way. A line that is already
+   fossil at most once. Never punch down at people. Comparisons must point the right way. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
+   A line that is already
    funny, keep it.
-2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
+2. DECENCY VETO: if any line is sexual or suggestive, violent, mean, or jokes about someone's private life,
+   score 0 whatever else is good.
+3. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
    and would they quote a line to a friend? (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example
    for scale, scored 8: "They can move? I've seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
    Real lines for scale, scored 4 (they react, but nobody laughs or would repeat them): "So the model does the work,

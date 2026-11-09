@@ -29,15 +29,15 @@
         "Chips, especially Nvidia’s, have been a major focus as the AI race between the United States and China heats up[S1]. This context highlights the strategic importance of Nvidia in the current geopolitical landscape[S1]."
       ],
       "card": {
-        "hook": "Nvidia CEO admits affair with suspected Chinese spy[S1].",
+        "hook": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy[S1].",
         "points": [
-          "Board launches independent investigation into the relationship[S1].",
-          "Memo claims she was recruited by China's Ministry of State Security[S2].",
-          "Huang apologized to family, saying he hurt his children[S2]."
+          "Nvidia's board says it is starting an independent investigation into its CEO[S1].",
+          "A memo seen by US officials claims a tech executive was recruited by China's spy agency to spy on him[S1].",
+          "Huang told staff he had an affair with that executive and apologised to the company[S1][S2]."
         ],
-        "take": "AI leaders must guard against romance-based espionage targeting top executives[S3].",
+        "take": null,
         "take_kind": "read",
-        "ask": "Is romance-based spying a real threat[S1]?",
+        "ask": "Should tech bosses get security checks like officials?",
         "interest": 4,
         "reel": 8,
         "angle": "Nvidia's CEO admits to an affair with a suspected Chinese spy, triggering a board investigation into national security risks.",
@@ -47,53 +47,43 @@
           "why": "CEO scandal + national security threat is massive office gossip and high-stakes drama."
         },
         "bonus": 0.0,
-        "cover": "Nvidia CEO's spy affair[S1].",
-        "cover_hi": "spy affair",
+        "cover": "Nvidia's board opens an investigation into its CEO[S1].",
+        "cover_hi": "investigation",
         "duo": {
           "guest": "doubt",
+          "sensitive": true,
           "lines": [
             {
               "who": "spark",
-              "text": "A memo claims a Chinese spy agency tried to recruit Nvidia's CEO's partner to spy on him[S2]."
+              "text": "Nvidia's board says it is starting an independent investigation into its CEO, Jensen Huang[S1]."
             },
             {
               "who": "guest",
-              "text": "Romantic, but extremely bad security policy."
+              "text": "An investigation, announced at the weekend. Someone's brunch got cancelled."
             },
             {
               "who": "spark",
-              "kind": "comeback",
-              "text": "At least the spy got laid."
+              "text": "A memo seen by US officials claims a tech executive was recruited by China's spy agency to spy on him[S1]."
             },
             {
               "who": "guest",
-              "text": "Please. My shelf is colder.",
+              "text": "Spies, in tech. I'd start by checking the office printer.",
               "fx": [
                 "beat"
               ]
             },
             {
               "who": "spark",
-              "text": "Nvidia's board announced on Sunday that it is starting an independent investigation into the situation[S1]."
+              "text": "Huang has told staff he had an affair with that executive, and apologised to his family and the company[S1][S2]."
             },
             {
               "who": "guest",
-              "text": "Independent? That just means nobody's there yet."
-            },
-            {
-              "who": "spark",
-              "text": "Jensen Huang admitted in a memo that he had an affair and hurt his family[S1]."
-            },
-            {
-              "who": "guest",
-              "text": "So, the big memo. Wow. Romantic.",
+              "text": "That part isn't for jokes. Back to the printer.",
               "fx": [
                 "beat"
               ]
             }
-          ],
-          "laughs": 6,
-          "laughs_why": "The 'spam folder' and 'lid' jokes land well, but the rhythm is slightly inconsistent and the final punchline is a bit weak for a viral quote."
+          ]
         }
       }
     },

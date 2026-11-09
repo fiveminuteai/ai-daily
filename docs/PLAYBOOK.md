@@ -152,6 +152,9 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
+- TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
+  crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
+  no puns, nothing about the people's private feelings, and the ask is about the public question.
 - cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
   TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
   cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
@@ -259,7 +262,7 @@ RULES (check every reaction against each rule)
 2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on Doubt.
 3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
 4. Do not repeat a reaction Doubt already gave (listed below), and do not copy the examples word for word.
-5. Never joke about victims, illness, death, groups of people or accents.
+5. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 
 EXAMPLES OF DOUBT'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
 {the six closest approved pairs}
@@ -294,7 +297,7 @@ RULES (check every reaction against each rule)
 2. 3 to 12 words, something a real person would say out loud. Funny: surprise, sarcasm, or turned back on Rex.
 3. NO numbers or number words, NO names of people, companies, places or products, NO new facts.
 4. Do not repeat a reaction Rex already gave (listed below), and do not copy the examples word for word.
-5. Never joke about victims, illness, death, groups of people or accents.
+5. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 
 EXAMPLES OF REX'S REACTIONS, to lines like this one (copy the kind of joke, never the words)
 {the six closest approved pairs}
@@ -336,7 +339,7 @@ RULES (check every line against each one)
   NO new facts.
 - Plain everyday words. Each line must make sense said out loud, straight after the line before it.
 - Doubt calls itself a box, fossil or dinosaur at most once in the whole script, counting the lines already there.
-- Never joke about victims, illness, death, groups of people or accents.
+- HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
 - Not these worn-out phrases: {phrases used three or more times lately}
 
 AN EXAMPLE OF THE SHAPE (a different story):
@@ -380,9 +383,12 @@ YOUR JOB
    like two characters talking to each other, not a list of one-liners: a reaction follows from the line just
    before it, a comeback answers it, and the last guest line pays off an earlier joke. Plain everyday words. NO
    numbers, NO names of people, companies, places or products, NO new facts. The guest calls itself a box or a
-   fossil at most once. Never punch down at people. Comparisons must point the right way. A line that is already
+   fossil at most once. Never punch down at people. Comparisons must point the right way. HEALTHY COMEDY (Pavan, 9 Nov 2026): kind and clean, the kind a family watches together. Never sexual or suggestive, never violent, never mean or insulting, no swearing, no drink or drugs. Never joke about anyone's private life (affairs, dating, marriage, family), illness, death, crime victims, religion, nationality or any group of people. Tease the situation: the company, the product, the memo, the meeting, the tech, or the guest itself.
+   A line that is already
    funny, keep it.
-2. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
+2. DECENCY VETO: if any line is sexual or suggestive, violent, mean, or jokes about someone's private life,
+   score 0 whatever else is good.
+3. Then score the WHOLE script, honestly, 1 to 10: would a 25-year-old scrolling Instagram laugh at least twice,
    and would they quote a line to a friend? (5 = mildly amusing, 7 = good, 9 = would share it.) Approved example
    for scale, scored 8: "They can move? I've seen glaciers move faster." / "Even I did my paperwork. And I'm extinct."
    Real lines for scale, scored 4 (they react, but nobody laughs or would repeat them): "So the model does the work,

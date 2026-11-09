@@ -436,7 +436,7 @@ class Verifier:
                     return None
                 ln = {**ln, "text": text}
             lines.append(ln)
-        return {"guest": d["guest"], "lines": lines, **{k: d[k] for k in ("laughs", "laughs_why") if k in d}}
+        return {"guest": d["guest"], "lines": lines, **{k: d[k] for k in ("laughs", "laughs_why", "sensitive") if k in d}}
 
     def paragraph(self, text: str, where: str) -> str:
         sents = split_sentences(text)

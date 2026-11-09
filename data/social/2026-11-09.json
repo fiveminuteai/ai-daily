@@ -3,7 +3,7 @@
  "slug": "2026-11-09-nvidia-board-probes-ceo-s-link-to",
  "headline": "NVIDIA Board probes CEO's link to suspected spy",
  "url": "https://fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to/",
- "generated_at": "2026-11-09T02:42:13+00:00",
+ "generated_at": "2026-11-09T06:45:45+00:00",
  "items": [
   {
    "id": "2026-11-09-instagram",
@@ -52,18 +52,19 @@
    "posting": "api",
    "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
    "story": 0,
-   "hook": "Nvidia CEO admits affair with suspected Chinese spy[S1].",
-   "text": "Nvidia CEO admits affair with suspected Chinese spy.\n\n• Board launches independent investigation into the relationship.\n• Memo claims she was recruited by China's Ministry of State Security.\n• Huang apologized to family, saying he hurt his children.\n\nOur read: AI leaders must guard against romance-based espionage targeting top executives.\n\nYour take: Is romance-based spying a real threat? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "hook": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy[S1].",
+   "text": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.\n\n• Nvidia's board says it is starting an independent investigation into its CEO.\n• A memo seen by US officials claims a tech executive was recruited by China's spy agency to spy on him.\n• Huang told staff he had an affair with that executive and apologised to the company.\n\nYour take: Should tech bosses get security checks like officials? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
    "edited_text": null,
-   "status": "posted",
+   "status": "skipped",
    "decided_at": "2026-11-09T03:31:19+00:00",
-   "posted_url": "https://www.instagram.com/reel/DfgXspolTjZ/",
+   "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-09/reels/01.mp4"
    ],
    "scheduled_at": "2026-11-09T03:30:00+00:00",
-   "media_id": "18153012418547930",
-   "error": null
+   "media_id": null,
+   "error": null,
+   "attempts": 0
   }
  ]
 }

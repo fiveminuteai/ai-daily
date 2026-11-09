@@ -59,6 +59,9 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - take: at most 22 words: what it means for the viewer. take_kind "do" if it is a practical step they can take,
   otherwise "read".
 - ask: an opinion question for the comments, at most 10 words, stating no facts.
+- TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
+  crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
+  no puns, nothing about the people's private feelings, and the ask is about the public question.
 - cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
   TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
   cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
