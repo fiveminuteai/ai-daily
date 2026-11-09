@@ -1,22 +1,268 @@
 {
  "date": "2026-11-09",
- "collected_at": "2026-11-08T21:54:41+00:00",
+ "collected_at": "2026-11-09T18:00:45+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 154,
+  "visitors_day": 7,
+  "daily": [
+   {
+    "day": "2026-10-13",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 36
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 5
+   },
+   {
+    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
+    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
+    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 28
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 11
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 5
+   },
+   {
+    "name": "ig",
+    "visitors": 2
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 2
+   },
+   {
+    "name": "com.linkedin.android",
+    "visitors": 1
+   },
+   {
+    "name": "www.bing.com",
+    "visitors": 1
+   },
+   {
+    "name": "www.duckduckgo.com",
+    "visitors": 1
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 3,
-  "media_count": 26,
+  "followers": 6,
+  "media_count": 29,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 132,
+   "views": 171,
+   "accounts_engaged": 3,
+   "total_interactions": 2
   },
   "posts": [
+   {
+    "id": "17919879177467512",
+    "timestamp": "2026-11-09T17:31:51+0000",
+    "permalink": "https://www.instagram.com/reel/Dfh35gqjM_y/",
+    "type": "VIDEO",
+    "caption": "Google Health lets you switch off its AI Coach and keep Premium.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 1,
+    "views": 10,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 1.0,
+    "skip_rate": 10,
+    "reposts": 0
+   },
+   {
+    "id": "18110965706630782",
+    "timestamp": "2026-11-09T13:31:21+0000",
+    "permalink": "https://www.instagram.com/reel/DfhcX4-gDrW/",
+    "type": "VIDEO",
+    "caption": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 110,
+    "views": 133,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.7,
+    "skip_rate": 60.2,
+    "reposts": 0
+   },
+   {
+    "id": "18057447428804643",
+    "timestamp": "2026-11-09T06:56:17+0000",
+    "permalink": "https://www.instagram.com/reel/DfgvKZ2lkKd/",
+    "type": "VIDEO",
+    "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 131,
+    "views": 147,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 9.5,
+    "skip_rate": 43.1,
+    "reposts": 0
+   },
    {
     "id": "18640741858041838",
     "timestamp": "2026-11-08T10:31:27+0000",
@@ -25,13 +271,13 @@
     "caption": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
     "likes": 0,
     "comments": 0,
-    "reach": 104,
-    "views": 112,
+    "reach": 107,
+    "views": 114,
     "saved": 2,
     "shares": 0,
     "total_interactions": 2,
-    "avg_watch_s": 5.4,
-    "skip_rate": 61.8,
+    "avg_watch_s": 5.5,
+    "skip_rate": 62.2,
     "reposts": 0
    },
    {
@@ -93,13 +339,13 @@
     "caption": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
     "likes": 0,
     "comments": 0,
-    "reach": 101,
-    "views": 104,
+    "reach": 102,
+    "views": 105,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.7,
-    "skip_rate": 59.6,
+    "avg_watch_s": 5.6,
+    "skip_rate": 60,
     "reposts": 0
    },
    {
@@ -127,13 +373,13 @@
     "caption": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
     "likes": 3,
     "comments": 0,
-    "reach": 105,
-    "views": 122,
+    "reach": 106,
+    "views": 128,
     "saved": 0,
     "shares": 0,
     "total_interactions": 4,
     "avg_watch_s": 6.9,
-    "skip_rate": 52.7,
+    "skip_rate": 53.2,
     "reposts": 1
    },
    {
@@ -159,66 +405,15 @@
     "permalink": "https://www.instagram.com/reel/DfZEyGDmf2_/",
     "type": "VIDEO",
     "caption": "Claude can now read your bank accounts, but it can't move money.",
-    "likes": 3,
+    "likes": 4,
     "comments": 0,
-    "reach": 113,
+    "reach": 114,
     "views": 123,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 3,
+    "total_interactions": 4,
     "avg_watch_s": 8.7,
     "skip_rate": 56.9,
-    "reposts": 0
-   },
-   {
-    "id": "18236013835323296",
-    "timestamp": "2026-11-05T07:31:20+0000",
-    "permalink": "https://www.instagram.com/reel/DfWgAmjDtf2/",
-    "type": "VIDEO",
-    "caption": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 12,
-    "views": 21,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 1.5,
-    "skip_rate": 93.8,
-    "reposts": 0
-   },
-   {
-    "id": "17884128393629513",
-    "timestamp": "2026-11-05T03:31:25+0000",
-    "permalink": "https://www.instagram.com/reel/DfWEikLj-yj/",
-    "type": "VIDEO",
-    "caption": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 5,
-    "views": 7,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 1.8,
-    "skip_rate": 85.7,
-    "reposts": 0
-   },
-   {
-    "id": "18050438846816093",
-    "timestamp": "2026-11-04T13:31:17+0000",
-    "permalink": "https://www.instagram.com/reel/DfUkZCVD4Rs/",
-    "type": "VIDEO",
-    "caption": "Apple is letting Siri AI carry out tasks inside third-party apps.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 3,
-    "views": 4,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 7.8,
-    "skip_rate": 75,
     "reposts": 0
    }
   ]

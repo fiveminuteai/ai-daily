@@ -1,19 +1,19 @@
 {
- "date": "2026-11-08",
+ "date": "2026-11-09",
  "window": [
-  "2026-11-02",
-  "2026-11-08"
+  "2026-11-03",
+  "2026-11-09"
  ],
  "this_week": {
   "reels": 12,
-  "reach": 103.5,
-  "skip_rate": 58.7,
+  "reach": 108.5,
+  "skip_rate": 57.2,
   "avg_watch_s": 7.3,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 2
+  "follows_per_week": 5
  },
  "last_week": {
   "reels": 0,
@@ -25,11 +25,11 @@
   "saves_per_1k": null,
   "comments": 0
  },
- "followers": 3,
+ "followers": 6,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 58.7,
+   "value": 57.2,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 2,
+   "value": 5,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
@@ -79,31 +79,31 @@
    "youtube": null
   },
   {
+   "id": "18057447428804643",
+   "day": "2026-11-09",
+   "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
+   "reach": 131,
+   "skip_rate": 43.1,
+   "avg_watch_s": 9.5,
+   "likes_per_1k": 7.6,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-09-reel-1",
+   "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
+  },
+  {
    "id": "18108967532213167",
    "day": "2026-11-06",
    "caption": "Claude can now read your bank accounts, but it can't move money.",
-   "reach": 113,
+   "reach": 114,
    "skip_rate": 56.9,
    "avg_watch_s": 8.7,
-   "likes_per_1k": 26.5,
+   "likes_per_1k": 35.1,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
    "ours": "2026-11-06-reel-1",
-   "youtube": null
-  },
-  {
-   "id": "18094192055212234",
-   "day": "2026-11-07",
-   "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
-   "reach": 131,
-   "skip_rate": 44.8,
-   "avg_watch_s": 8.2,
-   "likes_per_1k": 0.0,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-07-reel-1",
    "youtube": null
   }
  ]
