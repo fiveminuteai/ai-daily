@@ -130,3 +130,20 @@ def test_scoreboard_finds_the_bottleneck(tmp_path):
     gates = {g["metric"]: g["met"] for g in s["gates"]}
     assert gates["skip_rate"] is True and gates["avg_watch_s"] is False
     assert "Bottleneck: s watched on average" in (tmp_path / "data" / "growth" / "scoreboard.md").read_text()
+
+
+# ---- the YouTube sign-in helper (9 Nov 2026)
+
+def test_client_file_and_secrets_never_on_a_command_line(tmp_path):
+    from fma import youtube_auth
+    f = tmp_path / "client.json"
+    f.write_text(json.dumps({"installed": {"client_id": "abc.apps.googleusercontent.com", "client_secret": "S3"}}))
+    assert youtube_auth.client_from_file(f) == ("abc.apps.googleusercontent.com", "S3")
+    calls = []
+
+    class R:
+        returncode, stderr = 0, ""
+
+    youtube_auth.save_secret("YOUTUBE_REFRESH_TOKEN", "tok-value", run=lambda cmd, **kw: calls.append((cmd, kw)) or R())
+    cmd, kw = calls[0]
+    assert "tok-value" not in " ".join(cmd) and kw["input"] == "tok-value"
