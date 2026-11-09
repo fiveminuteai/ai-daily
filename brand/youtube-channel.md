@@ -3,7 +3,7 @@
 ## Channel
 
 - **Name:** Five Minute AI
-- **Handle:** `@fiveminuteai` (if taken: `@fiveminute_ai`, same as Instagram and X)
+- **Handle:** `@five_minute_ai` (9 Nov 2026: `@fiveminuteai` and `@fiveminute_ai` were taken on YouTube; Instagram and X stay `@fiveminute_ai`)
 - **Profile picture:** `brand/youtube-avatar-800.png` (the Instagram picture, 800 x 800)
 - **Banner:** `brand/youtube-banner.jpg` (2560 x 1440; everything that matters is in the middle 1546 x 423, which
   every device shows)
