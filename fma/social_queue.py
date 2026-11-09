@@ -142,12 +142,43 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
             "text": final, "media": item.get("media", []), "scheduled_at": item.get("scheduled_at")}
 
 
+JOURNAL = ".post-journal.jsonl"   # not committed: what this run did, replayed if git can't merge the queue
+
+
 def _save_item(root: Path, iid: str, **fields) -> None:
     path = queue_path(root, iid[:10])
     queue = json.loads(path.read_text(encoding="utf-8"))
     item = next(i for i in queue["items"] if i["id"] == iid)
     item.update(decided_at=datetime.now(timezone.utc).isoformat(timespec="seconds"), **fields)
     path.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 9 Nov 2026: a run uploaded a Short, then lost the record when its commit clashed with a push to the same
+    # queue file, and the next run uploaded it again. Every change is also journalled, so the record step can
+    # replay it onto the fresh queue instead of losing it (post-scheduled.yml "Record the result").
+    with (root / JOURNAL).open("a", encoding="utf-8") as j:
+        j.write(json.dumps({"id": iid, "fields": {"decided_at": item["decided_at"], **fields}}, ensure_ascii=False) + "\n")
+
+
+def replay(root: Path, journal: Path) -> int:
+    """Apply a run's journalled changes to the current queue files (after taking the latest main). Returns how
+    many changes were applied. A change for an item that no longer exists is skipped."""
+    n = 0
+    if not journal.exists():
+        return 0
+    for line in journal.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line)
+        path = queue_path(root, rec["id"][:10])
+        if not path.exists():
+            continue
+        queue = json.loads(path.read_text(encoding="utf-8"))
+        item = next((i for i in queue["items"] if i["id"] == rec["id"]), None)
+        if item is None:
+            continue
+        item.update(rec["fields"])
+        path.write_text(json.dumps(queue, ensure_ascii=False, indent=1), encoding="utf-8")
+        n += 1
+    return n
 
 
 def _now() -> datetime:
@@ -214,8 +245,10 @@ def mirror(root: Path, iid: str, site: dict, http) -> str:
                            item.get("cover") or item.get("hook") or "",
                            site, iid[:10])
     except YouTubeError as exc:
-        _save_item(root, iid, youtube_error=str(exc), youtube_tries=item.get("youtube_tries", 0) + 1)
-        return f"; YouTube FAILED (recorded): {exc}"
+        gone = "HTTP 404" in str(exc)          # the site keeps only the newest day's Reels: it won't come back
+        _save_item(root, iid, youtube_error=str(exc),
+                   youtube_tries=MAX_ATTEMPTS if gone else item.get("youtube_tries", 0) + 1)
+        return f"; YouTube not uploaded (recorded{', given up' if gone else ''}): {exc}"
     _save_item(root, iid, youtube_url=url, youtube_error=None)
     return f"; YouTube Short: {url}"
 
@@ -285,6 +318,8 @@ def main(argv=None) -> int:
     a.add_argument("--text")
     a.add_argument("--dry-run", action="store_true")
     sub.add_parser("due", help="post approved Instagram items whose time has come")
+    rp = sub.add_parser("replay", help="apply a run's journal to the queue files (after a merge clash)")
+    rp.add_argument("journal")
     args = ap.parse_args(argv)
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -292,6 +327,9 @@ def main(argv=None) -> int:
     if args.cmd == "build":
         from .pipeline import today_in
         print(f"wrote {write_queue(config.ROOT, args.date or today_in(site['timezone']), site)}")
+        return 0
+    if args.cmd == "replay":
+        print(f"replayed {replay(config.ROOT, Path(args.journal))} changes")
         return 0
     if args.cmd == "due":
         import os

@@ -60,7 +60,19 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Social: scheduled posts"
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            if git pull --rebase origin main; then
+              git push && exit 0
+            else
+              # someone pushed to the same queue file meanwhile: take theirs, then replay what this run did
+              # (9 Nov 2026: a lost record made the next run upload the same Short again)
+              git rebase --abort || true
+              git fetch -q origin main && git reset -q --hard origin/main
+              python -m fma.social_queue replay .post-journal.jsonl
+              git add data/social
+              git diff --cached --quiet && exit 0
+              git commit -m "Social: scheduled posts (replayed after a merge clash)"
+              git push && exit 0
+            fi
             sleep 10
           done
           exit 1

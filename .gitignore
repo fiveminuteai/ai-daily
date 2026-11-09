@@ -13,3 +13,4 @@ reels/out/
 .shadow/
 .tools/
 data/tuned/
+.post-journal.jsonl

@@ -168,3 +168,36 @@ def test_charts_compare_one_measure_and_private_stories_get_no_quote_slide():
     post = {"chart": None, "quote": {"text": "I owe my family an apology", "speaker": "CEO", "source": "S1"},
             "sections": [{"title": "CEO admits affair", "paragraphs": ["He admitted an affair[S1]."]}]}
     assert plan(post)[0]["kind"] != "quote"
+
+
+# ---- 9 Nov 2026: a Short uploaded twice after a lost record
+
+def test_journal_replays_onto_a_fresh_queue(tmp_path):
+    from fma.social_queue import JOURNAL, _save_item, replay
+    q = tmp_path / "data" / "social"
+    q.mkdir(parents=True)
+    fresh = {"items": [{"id": "2026-11-09-reel-1", "status": "posted"}, {"id": "2026-11-09-reel-2", "status": "approved"}]}
+    (q / "2026-11-09.json").write_text(json.dumps(fresh))
+    _save_item(tmp_path, "2026-11-09-reel-1", youtube_url="https://www.youtube.com/shorts/abc")
+    # someone else's push wins the merge: the queue file goes back to what main has
+    (q / "2026-11-09.json").write_text(json.dumps(fresh))
+    assert replay(tmp_path, tmp_path / JOURNAL) == 1
+    items = json.loads((q / "2026-11-09.json").read_text())["items"]
+    assert items[0]["youtube_url"] == "https://www.youtube.com/shorts/abc" and items[1]["status"] == "approved"
+
+
+def test_a_reel_gone_from_the_site_is_not_retried_and_never_fails_the_run(tmp_path, monkeypatch):
+    from fma import social_queue, youtube
+    q = tmp_path / "data" / "social"
+    q.mkdir(parents=True)
+    (q / "2026-11-08.json").write_text(json.dumps({"items": [{"id": "2026-11-08-reel-1", "status": "posted",
+        "media": ["https://x.net/r/01.mp4"], "text": "t", "hook": "h"}]}))
+    monkeypatch.setattr(youtube, "configured", lambda env=None: True)
+
+    def gone(*a, **k):
+        raise youtube.YouTubeError("video download: HTTP 404")
+    monkeypatch.setattr(youtube, "upload_short", gone)
+    note = social_queue.mirror(tmp_path, "2026-11-08-reel-1", {"growth": {"youtube": True}}, None)
+    assert "FAILED" not in note and "given up" in note
+    item = json.loads((q / "2026-11-08.json").read_text())["items"][0]
+    assert item["youtube_tries"] == social_queue.MAX_ATTEMPTS
