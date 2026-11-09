@@ -349,6 +349,11 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
         page_title="How this blog is made", description="Five Minute AI is AI-assisted and generated automatically from linked sources.",
         og_image=f"{base}og/default.png", canonical="about/", og_type="website", nav="about",
         sources=first_by_name(config.sources_config()["sources"]), providers=site.get("providers", [])))
+    for slug, title, desc in (("privacy", "Privacy policy", f"What {site['name']} collects: almost nothing."),
+                              ("terms", "Terms of use", f"How to use {site['name']}'s posts and videos.")):
+        write(f"{slug}/index.html", env.get_template(f"{slug}.html").render(
+            page_title=title, description=desc, og_image=f"{base}og/default.png", canonical=f"{slug}/",
+            og_type="website", nav=""))
     write("search/index.html", env.get_template("search.html").render(
         page_title="Search", description=f"Search every {site['name']} post.", nav="search",
         og_image=f"{base}og/default.png", canonical="search/", og_type="website"))
@@ -362,7 +367,7 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
     write("feed.xml", env.get_template("feed.xml").render(
         posts=posts[:20], now=format_datetime(datetime.now(timezone.utc)),
         rfc=lambda iso: format_datetime(_utc(iso).astimezone(ZoneInfo(site.get("timezone", "Asia/Kolkata"))))))
-    urls = (["", "archive/", "tags/", "about/", "search/"] + [p["url_path"] for p in posts]
+    urls = (["", "archive/", "tags/", "about/", "search/", "privacy/", "terms/"] + [p["url_path"] for p in posts]
             + [f"{p['url_path']}verification/" for p in posts if (content_dir / "reports" / f"{p['date']}.json").exists()]
             + [f"tags/{tag_slug(t)}/" for t in tags])
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

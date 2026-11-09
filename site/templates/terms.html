@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="wrap-narrow page prose">
+  <p class="kicker">Terms</p>
+  <h1 class="page-title">Terms of use</h1>
+  <p class="lede">The short version: read, share and learn freely; check the sources before you rely on anything. Last updated 9 November 2026.</p>
+
+  <h2>What this is</h2>
+  <p>{{ site.name }} is AI-assisted news about artificial intelligence. Every post and video is generated from public sources and checked against them (see <a href="{{ site.base_url }}about/">how this blog is made</a>), but checks can miss things. It is information, not financial, legal, medical or professional advice.</p>
+
+  <h2>Sources and quotes</h2>
+  <p>Facts come from the linked sources, which belong to their publishers. We quote at most a few words, link to the original, and draw our own charts and characters. If you own something you believe we've used wrongly, write to us and we'll fix it quickly.</p>
+
+  <h2>Using our content</h2>
+  <p>You're welcome to share links to our posts and videos. Please don't republish them in full or present them as your own.</p>
+
+  <h2>Corrections</h2>
+  <p>Spotted an error? Tell us at <strong>hello@fiveminuteai.net</strong> or on <a href="{{ site.repo_url }}/issues">GitHub</a>; corrections are noted on the post.</p>
+
+  <h2>Our tools</h2>
+  <p>The "Five Minute AI uploader" is used only by us, to upload our own videos to our own YouTube channel, under <a href="https://www.youtube.com/t/terms">YouTube's Terms of Service</a>. See the <a href="{{ site.base_url }}privacy/">privacy policy</a>.</p>
+</article>
+{% endblock %}
