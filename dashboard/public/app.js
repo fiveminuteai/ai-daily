@@ -53,6 +53,7 @@ const ICON = {
   mail: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/>',
   lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
   github: '<path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+  youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/>',
   chart: '<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',
   copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/>',
 };
@@ -356,16 +357,291 @@ function stageCards(d) {
   return out.join("");
 }
 
+// ---------- home: the channel at a glance ----------
+// Drawn above the day's pipeline: today's Reels with their covers and numbers, the growth scoreboard against its
+// targets with the week's bottleneck, and the trends over days. Sources: data/social/<date>.json (Reels, YouTube
+// links), data/stats/<date>.json (followers, every Reel's reach / watch / skip), data/growth/scoreboard.json.
+
+// the same words as ADVICE in fma/growth.py (the scoreboard JSON carries the targets but not the advice)
+const GROWTH_ADVICE = {
+  skip_rate: "People scroll past in the first 3 s: test stronger first lines and covers (the hook, not the facts).",
+  avg_watch_s: "People leave mid-Reel: shorter scripts, the punchline earlier, fewer numbers per line.",
+  sends_per_1k: "Nobody sends it on: pick stories people argue about, end on a line worth forwarding.",
+  likes_per_1k: "Watched but not liked: sharper jokes, a clear point of view in the take.",
+  follows_per_week: "Seen but not followed: profile and pinned Reels must say what you get by following.",
+};
+const GATE_NAME = { skip_rate: "Skip rate", avg_watch_s: "Watch time", sends_per_1k: "Sends", likes_per_1k: "Likes",
+                    follows_per_week: "New followers" };
+const GATE_UNIT = { skip_rate: "%", avg_watch_s: " s", sends_per_1k: " /1k", likes_per_1k: " /1k", follows_per_week: " /wk" };
+const MILESTONES = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000];
+const istDay = (iso) => new Date(iso).toLocaleDateString("en-CA", IST);
+const fmt1 = (v) => (v == null ? "–" : Number.isInteger(v) ? num(v) : Number(v).toFixed(1));
+const median = (xs) => {
+  const s = xs.filter((x) => x != null).sort((a, b) => a - b);
+  if (!s.length) return null;
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+};
+
+/** Every Instagram post's newest numbers across the daily snapshots (a Reel drops off the API's recent list later). */
+function igPostIndex(st) {
+  const by = new Map();
+  for (const d of st?.days || []) for (const p of d.instagram?.posts || []) by.set(String(p.id), p);
+  return by;
+}
+
+/** Day-by-day series for the trend charts: followers, median reach per Reel, median seconds watched. */
+function channelTrends(st) {
+  const followers = (st?.days || []).map((d) => ({ date: d.date, value: d.instagram?.followers }))
+    .filter((p) => p.value != null);
+  const byDay = new Map();
+  for (const p of igPostIndex(st).values()) {
+    if (p.type !== "VIDEO" || !p.timestamp) continue;
+    const day = istDay(p.timestamp);
+    if (!byDay.has(day)) byDay.set(day, []);
+    byDay.get(day).push(p);
+  }
+  const today = state.status?.today || todayIstClient();
+  // today's Reels are hours old: their numbers are still climbing, so the trend stops at yesterday
+  const days = [...byDay.keys()].filter((d) => d < today).sort().slice(-14);
+  const series = (k) => days.map((d) => ({ date: d, value: median(byDay.get(d).map((p) => p[k])), n: byDay.get(d).length }))
+    .filter((p) => p.value != null);
+  return { followers, reach: series("reach"), watch: series("avg_watch_s"), skip: series("skip_rate") };
+}
+
+function nextMilestone(n) {
+  const next = MILESTONES.find((m) => m > n) ?? (Math.floor(n / 100000) + 1) * 100000;
+  const prev = [...MILESTONES].reverse().find((m) => m <= n) ?? 0;
+  return { next, prev, togo: next - n, frac: Math.max(0, Math.min(1, (n - prev) / (next - prev))) };
+}
+
+function homeHero(st, g, d) {
+  const ig = st?.days?.at(-1)?.instagram;
+  const f = ig?.status === "ok" ? ig.followers : g?.followers;
+  if (f == null) return "";
+  const m = nextMilestone(f);
+  const fol = (st?.days || []).map((d) => d.instagram?.followers).filter((v) => v != null);
+  const week = g?.this_week;
+  const stuck = g?.gates?.find((x) => x.met === false);
+  const R = 52, C = 2 * Math.PI * R;
+  return `<section class="pulse" aria-label="Channel at a glance">
+    <div class="ring-wrap" role="img" aria-label="${num(f)} followers, ${num(m.togo)} to ${num(m.next)}">
+      <svg viewBox="0 0 128 128" class="mring" aria-hidden="true"><circle cx="64" cy="64" r="${R}" class="track"/>
+        <circle cx="64" cy="64" r="${R}" class="arc" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${C.toFixed(1)}"
+          data-off="${(C * (1 - m.frac)).toFixed(1)}" transform="rotate(-90 64 64)"/></svg>
+      <div class="ring-in"><b>${num(f)}</b><span>follower${f === 1 ? "" : "s"}</span></div>
+    </div>
+    <div class="pulse-text">
+      <p class="eyebrow">@fiveminute_ai · Instagram${fol.length > 1 ? ` · ${fol[0] < f ? `+${num(f - fol[0])} since ${esc(fmtDay(st.days.find((d) => d.instagram?.followers != null).date))}` : "flat so far"}` : ""}</p>
+      <h1 class="pulse-h">${num(m.togo)} to go to <em>${num(m.next)}</em> followers.</h1>
+      ${week ? `<p class="pulse-sub">This week: <b>${num(week.reels)}</b> Reels · median reach <b>${fmt1(week.reach)}</b> · <b>${fmt1(week.avg_watch_s)} s</b> watched · <b>${fmt1(week.skip_rate)}%</b> skip in 3 s</p>` : ""}
+      <div class="pulse-chips">${d ? `<button type="button" class="pulse-pipe v-${esc(d.verdict)}" data-jump="pipeline"><span class="dot"></span>Blog: <b>${esc(VERDICT[d.verdict](d))}</b></button>` : ""}
+      ${stuck ? `<button type="button" class="pulse-stuck" data-jump="h-scoreboard"><span class="dot d-warn"></span>Bottleneck: <b>${esc(GATE_NAME[stuck.metric] || stuck.what)}</b> <span class="muted">(${esc(stuck.what)})</span></button>` : ""}</div>
+    </div>
+  </section>`;
+}
+
+/** One Reel as a cover tile: designed cover, status and time, and its own numbers once Instagram has them. */
+function reelTile(i, posts) {
+  const st = itemStatus(i), n = i.id.split("-reel-")[1], at = slotOf(i);
+  const url = i.media?.[0] || "";
+  const cover = /\/reels\/\d{2}\.mp4$/.test(url) ? url.replace(/\.mp4$/, ".jpg") : "";
+  const p = i.media_id ? posts.get(String(i.media_id)) : null;
+  const when = st === "posted" && i.decided_at ? `Posted ${time(i.decided_at)}` : at ? `${st === "pending" ? "Slot" : "At"} ${time(at)}` : "";
+  const nums = p && p.reach != null ? `<dl class="tnums">
+      <div><dt>Reach</dt><dd>${num(p.reach)}</dd></div>
+      <div><dt>Watch</dt><dd>${fmt1(p.avg_watch_s)}<small>s</small></dd></div>
+      <div class="${p.skip_rate != null && p.skip_rate <= 45 ? "good" : ""}"><dt>Skip</dt><dd>${fmt1(p.skip_rate)}<small>%</small></dd></div></dl>`
+    : st === "posted" ? `<p class="tnote">Numbers arrive with tonight's stats</p>` : "";
+  const links = [
+    i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer" class="tl ig" aria-label="Reel ${esc(n)} on Instagram">${svg("instagram")}Instagram</a>` : "",
+    i.youtube_url ? `<a href="${esc(safeUrl(i.youtube_url))}" target="_blank" rel="noopener noreferrer" class="tl yt" aria-label="Reel ${esc(n)} on YouTube">${svg("youtube")}Shorts</a>` : "",
+  ].join("");
+  const tagName = i.posted_url ? "a" : "div";
+  return `<article class="rtile is-${esc(st)}">
+    <${tagName} class="rcover"${i.posted_url ? ` href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer" aria-label="Watch Reel ${esc(n)} on Instagram"` : ""}>${cover ? `<img src="${esc(safeUrl(cover))}" alt="" loading="lazy" width="1080" height="1920">` : ""}
+      <span class="rhook-fb">${esc(plain(i.hook || ""))}</span>
+      <span class="rn">${esc(n)}</span>${tag(st)}
+      ${nums}
+    </${tagName}>
+    <div class="rmeta"><span class="rwhen">${esc(when)}${when ? " IST" : ""}</span>${links ? `<span class="tlinks">${links}</span>` : ""}</div>
+  </article>`;
+}
+
+function reelStrip(days, posts, date) {
+  const isToday = date === state.status?.today;
+  const groups = days.map((d) => ({ date: d.date, reels: (d.items || []).filter(isReel) })).filter((g) => g.reels.length);
+  const title = isToday ? "Latest Reels" : `Reels · ${esc(shortDate(date))}`;
+  if (!groups.length) {
+    return `<section class="home-block"><div class="section-title"><h2>${title}</h2></div>
+      <p class="empty card">No Reels in the queue for this day yet: the daily run adds them with the post.</p></section>`;
+  }
+  const mine = groups.find((g) => g.date === date)?.reels || [];
+  const pend = mine.filter((r) => itemStatus(r) === "pending").length;
+  const posted = mine.filter((r) => itemStatus(r) === "posted").length;
+  const reach = mine.map((r) => posts.get(String(r.media_id))?.reach).filter((v) => v != null);
+  const label = (d) => (d === state.status?.today ? "Today" : d === shiftDate(state.status?.today || "", -1) ? "Yesterday" : shortDate(d));
+  return `<section class="home-block">
+    <div class="section-title"><h2>${title}</h2>
+      <span class="muted">${isToday ? "Today: " : ""}${posted} of ${mine.length} posted${reach.length ? ` · ${num(reach.reduce((x, y) => x + y, 0))} reached so far` : ""}
+      ${pend ? ` · <a href="#posts" class="pend-link">${pend} waiting for you →</a>` : ""}</span></div>
+    <div class="rstrip">${groups.map((g) => `<div class="rgroup">${isToday ? `<p class="eyebrow">${esc(label(g.date))}</p>` : ""}
+      <div class="rrow">${g.reels.map((r) => reelTile(r, posts)).join("")}</div></div>`).join("")}</div>
+  </section>`;
+}
+
+function gateRow(gt, last) {
+  const atMost = gt.target.startsWith("at most");
+  const goal = Number(gt.target.replace(/[^\d.]/g, ""));
+  const v = gt.value;
+  const max = atMost ? 100 : Math.max(goal * 1.25, v || 0);
+  const pct = v == null ? 0 : Math.max(0, Math.min(100, (v / max) * 100));
+  const mark = (goal / max) * 100;
+  const prev = last?.[gt.metric];
+  const better = prev == null || v == null ? null : atMost ? v < prev : v > prev;
+  const cls = gt.met ? "met" : gt.met === false ? "miss" : "none";
+  return `<li class="gate ${cls}">
+    <div class="gate-top"><span class="gname">${esc(GATE_NAME[gt.metric] || gt.metric)}</span>
+      <span class="gval"><b>${fmt1(v)}</b>${esc(GATE_UNIT[gt.metric] || "")}${prev != null && v != null && prev !== v ? ` <span class="delta ${better ? "up" : "down"}">${better ? "▲" : "▼"} ${fmt1(Math.abs(v - prev))}</span>` : ""}</span></div>
+    <div class="gbar" role="img" aria-label="${esc(gt.what)}: ${fmt1(v)}, target ${esc(gt.target)}">
+      <i style="width:0" data-w="${pct.toFixed(1)}%"></i><span class="gmark" style="left:${mark.toFixed(1)}%"></span></div>
+    <div class="gsub"><span>${esc(gt.what)}</span><span>target ${esc(gt.target)}</span></div>
+  </li>`;
+}
+
+function scoreboard(g) {
+  if (!g?.gates?.length) {
+    return `<section class="card sb"><div class="card-head"><h3 id="h-scoreboard">Growth scoreboard</h3></div>
+      <p class="empty">No scoreboard yet: <code>python -m fma.growth</code> writes it once a week of Reels has numbers.</p></section>`;
+  }
+  const met = g.gates.filter((x) => x.met).length;
+  return `<section class="card sb"><div class="card-head"><div><h3 id="h-scoreboard">Growth scoreboard</h3>
+      <p class="muted small">Week of ${esc(fmtDay(g.window[0]))} to ${esc(fmtDay(g.window[1]))} · medians per Reel${g.last_week?.reels ? ", ▲▼ against last week" : ""}</p></div>
+      <span class="sb-score"><b>${met}</b>/${g.gates.length} targets met</span></div>
+    <ul class="gates">${g.gates.map((x) => gateRow(x, g.last_week)).join("")}</ul></section>`;
+}
+
+function bottleneck(g, posts) {
+  const stuck = g?.gates?.find((x) => x.met === false);
+  const best = g?.best?.[0];
+  const bp = best ? posts.get(String(best.id)) : null;
+  const cover = best?.ours ? `https://fiveminuteai.net/share/${best.ours.slice(0, 10)}/reels/${String(best.ours.split("-reel-")[1]).padStart(2, "0")}.jpg` : "";
+  return `<section class="card focus">
+    ${stuck ? `<p class="eyebrow">This week's bottleneck</p>
+      <h3 class="focus-h">${esc(GATE_NAME[stuck.metric] || stuck.what)}</h3>
+      <p class="focus-num"><b>${fmt1(stuck.value)}${esc(GATE_UNIT[stuck.metric] || "")}</b> <span>now · target ${esc(stuck.target)}</span></p>
+      <p class="focus-adv">${esc(GROWTH_ADVICE[stuck.metric] || "")}</p>`
+      : g?.gates?.length ? `<p class="eyebrow">This week</p><h3 class="focus-h">Every target met</h3><p class="focus-adv">Raise the bar in fma/growth.py.</p>` : `<p class="eyebrow">This week</p><h3 class="focus-h">No scoreboard yet</h3>`}
+    ${best ? `<div class="best">
+      <p class="eyebrow">Best Reel this week</p>
+      <a class="best-row" href="${esc(safeUrl(bp?.permalink || ""))}" target="_blank" rel="noopener noreferrer">
+        ${cover ? `<img src="${esc(cover)}" alt="" loading="lazy" width="54" height="96">` : ""}
+        <span><span class="best-cap">${esc(best.caption)}</span>
+        <span class="best-nums">${fmt1(best.avg_watch_s)} s watched · reach ${num(best.reach)} · skip ${fmt1(best.skip_rate)}%</span></span></a>
+      ${best.youtube ? `<a class="tl yt" href="${esc(safeUrl(best.youtube))}" target="_blank" rel="noopener noreferrer">${svg("youtube")}Shorts</a>` : ""}
+    </div>` : ""}
+  </section>`;
+}
+
+/** A small line (or bar) chart with a dashed target line; hover / tap shows each day (wireTips). */
+function trendChart(series, { color, unit = "", target = null, bars = false, label }) {
+  if (series.length < 2) return `<p class="empty">Two days of numbers make a trend; ${series.length ? "one so far" : "none yet"}.</p>`;
+  const W = 340, H = 132, L = 30, R = 8, T = 12, B = 22, n = series.length;
+  const vals = series.map((p) => p.value);
+  let hi = Math.max(...vals, target ?? 0), lo = bars ? 0 : Math.min(...vals, target ?? Infinity);
+  if (hi === lo) { hi += 1; lo = Math.max(0, lo - 1); }
+  const pad = (hi - lo) * 0.12;
+  hi += pad; lo = bars ? 0 : Math.max(0, lo - pad);
+  const step = (W - L - R) / (bars ? n : n - 1);
+  const x = (i) => (bars ? L + i * step + step / 2 : L + i * step);
+  const y = (v) => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+  // whole-number data (followers, reach) gets whole-number ticks; small decimal ranges keep one decimal
+  const ints = vals.every(Number.isInteger);
+  if (ints) { lo = Math.floor(lo); hi = Math.ceil(hi); }
+  if (bars || (ints && hi > 10)) {                       // a round top (5, 10, 25, 50, 150 …) so the ticks read cleanly
+    const mag = 10 ** Math.floor(Math.log10(hi)), m = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10].find((f) => f * mag >= hi) * mag;
+    hi = Number.isInteger(m / 2) ? m : m * 2;
+  }
+  const tv = ints && (hi - lo) % 2 ? [lo, hi] : [lo, (lo + hi) / 2, hi];
+  const ticks = tv.map((v) => `<line x1="${L}" x2="${W - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" class="grid"/>
+    <text x="${L - 5}" y="${(y(v) + 3.5).toFixed(1)}" class="axis" text-anchor="end">${ints || hi - lo >= 6 ? Math.round(v) : v.toFixed(1)}</text>`).join("");
+  const goal = target != null ? `<line x1="${L}" x2="${W - R}" y1="${y(target).toFixed(1)}" y2="${y(target).toFixed(1)}" class="goal"/>
+    <text x="${W - R}" y="${(y(target) - 4).toFixed(1)}" class="axis goal-t" text-anchor="end">target ${target}${unit}</text>` : "";
+  const pts = series.map((p, i) => [x(i), y(p.value)]);
+  const line = pts.map(([a, b], i) => `${i ? "L" : "M"}${a.toFixed(1)} ${b.toFixed(1)}`).join("");
+  const area = `${line}L${pts.at(-1)[0].toFixed(1)} ${H - B}L${pts[0][0].toFixed(1)} ${H - B}Z`;
+  const bw = Math.max(4, Math.min(22, step - 6));
+  const marks = bars
+    ? series.map((p, i) => { const t = y(p.value), h = H - B - t, r = Math.min(4, bw / 2, h);
+        return h <= 0 ? "" : `<path d="M${x(i) - bw / 2} ${H - B}V${t + r}Q${x(i) - bw / 2} ${t} ${x(i) - bw / 2 + r} ${t}H${x(i) + bw / 2 - r}Q${x(i) + bw / 2} ${t} ${x(i) + bw / 2} ${t + r}V${H - B}Z" fill="${color}" class="tbar"/>`; }).join("")
+    : `<path d="${area}" fill="${color}" opacity=".12"/><path d="${line}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+       <circle cx="${pts.at(-1)[0].toFixed(1)}" cy="${pts.at(-1)[1].toFixed(1)}" r="4" fill="${color}" stroke="var(--surface)" stroke-width="2"/>`;
+  const hits = series.map((p, i) => `<g class="hit" data-tip="${esc(fmtDay(p.date))}: ${fmt1(p.value)}${unit}${p.n ? ` (${p.n} Reel${p.n > 1 ? "s" : ""})` : ""}">
+    <rect x="${(x(i) - step / 2).toFixed(1)}" y="${T}" width="${step.toFixed(1)}" height="${H - T - B}" fill="transparent"/></g>`).join("");
+  const xt = [0, n - 1].map((i) => `<text x="${x(i).toFixed(1)}" y="${H - 6}" class="axis" text-anchor="${i ? "end" : "start"}">${esc(fmtDay(series[i].date))}</text>`).join("");
+  return `<svg class="chart trend" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}, ${esc(fmtDay(series[0].date))} to ${esc(fmtDay(series.at(-1).date))}">${ticks}${goal}${marks}${xt}${hits}</svg>`;
+}
+
+function trendCard(title, series, opts) {
+  const last = series.at(-1), first = series[0];
+  const up = last && first && last !== first ? last.value - first.value : null;
+  const good = up == null ? "" : (opts.lowerBetter ? up < 0 : up > 0) ? "up" : up === 0 ? "" : "down";
+  return `<section class="card tcard"><div class="tc-head"><h3>${esc(title)}</h3>
+      ${last ? `<span class="tc-now"><b>${fmt1(last.value)}</b>${esc(opts.unit || "")}${up ? ` <span class="delta ${good}">${up > 0 ? "+" : "−"}${fmt1(Math.abs(up))}</span>` : ""}</span>` : ""}</div>
+    <p class="muted small tc-sub">${esc(opts.sub)}</p>
+    ${trendChart(series, { ...opts, label: title })}</section>`;
+}
+
+function trends(st, g) {
+  const t = channelTrends(st);
+  const target = (k) => { const x = g?.gates?.find((y) => y.metric === k); return x ? Number(x.target.replace(/[^\d.]/g, "")) : null; };
+  return `<section class="home-block"><div class="section-title"><h2>Trends</h2><span class="muted">Per day, from the nightly stats</span></div>
+    <div class="tgrid">
+      ${trendCard("Followers", t.followers, { color: "var(--ok)", sub: "Instagram, each night" })}
+      ${trendCard("Reach per Reel", t.reach, { color: "var(--models)", bars: true, sub: "median accounts reached, by posting day" })}
+      ${trendCard("Watch time", t.watch, { color: "var(--accent)", unit: " s", target: target("avg_watch_s"), sub: "median seconds watched per Reel" })}
+      ${trendCard("Skip rate", t.skip, { color: "var(--policy)", unit: "%", target: target("skip_rate"), lowerBetter: true, sub: "median % gone in the first 3 s" })}
+    </div></section>`;
+}
+
+/** The channel story on top of Today; empty when neither stats nor the queue could be read. */
+function channelHome(date, st, social, d) {
+  const g = st?.growth || null;
+  const posts = igPostIndex(st);
+  // the day's Reels, and on today also yesterday's (they have their numbers by now)
+  const pick = date === state.status?.today ? [date, shiftDate(date, -1)] : [date];
+  const days = pick.map((x) => social?.days?.find((d) => d.date === x)).filter(Boolean);
+  if (!st && !social) return "";
+  return `${homeHero(st, g, date === state.status?.today ? d : null)}
+    ${reelStrip(days, posts, date)}
+    ${st ? `<div class="home-grid">${scoreboard(g)}${bottleneck(g, posts)}</div>${trends(st, g)}` : ""}
+    <div class="section-title pipe-title" id="pipeline"><h2>Blog pipeline</h2><span class="muted">collect, rank, write, verify, publish</span></div>`;
+}
+
+function animateHome() {
+  requestAnimationFrame(() => {
+    view.querySelectorAll(".gbar i[data-w]").forEach((el) => { el.style.width = el.dataset.w; });
+    const arc = view.querySelector(".mring .arc");
+    if (arc) arc.style.strokeDashoffset = arc.dataset.off;
+  });
+  view.querySelectorAll(".rcover img, .best-row img").forEach((img) => img.addEventListener("error", () => img.remove(), { once: true }));
+  wireTips();
+}
+
 async function renderToday(date) {
   const today = state.status?.today;
   date = date || today;
-  let d;
+  let d, st = null, social = null;
   try {
-    d = await load(`day?date=${date}`);
+    // the channel story (stats, scoreboard, Reels) loads alongside the day; if it fails, the pipeline still shows
+    [d, st, social] = await Promise.all([load(`day?date=${date}`),
+      state.status?.configured ? load("stats").catch(() => null) : null,
+      state.status?.configured ? load("social").catch(() => null) : null]);
   } catch (err) {
     view.innerHTML = problem(err, "today's pipeline");
     return;
   }
+  if (social) renderCounts();
   const v = d.verdict;
   const main = d.runs.find((r) => r.id === d.mainRunId);
   const next = d.nextRun ? `Next scheduled try at ${time(d.nextRun)} IST${d.triesLeft > 1 ? `; ${d.triesLeft} tries left today, the last at ${time(d.lastTry)}` : "; it is the last today"}.` : "";
@@ -375,7 +651,7 @@ async function renderToday(date) {
     : v === "paused" ? "Daily posts are paused in config/site.yaml. Resume from Controls."
     : v === "running" ? "A run is in progress; this page refreshes every 30 seconds."
     : d.hasSummary ? "" : "This day ran before run summaries existed: numbers come from the run log and the committed post.";
-  view.innerHTML = `
+  view.innerHTML = `${channelHome(date, st, social, d)}
     <div class="hero">
       <div>
         <div class="datenav">
@@ -404,6 +680,7 @@ async function renderToday(date) {
       <section class="card wide"><div class="card-head"><h3>What happens next</h3></div>
         <p class="note" style="margin:0">${v === "paused" ? "Nothing runs while posts are paused." : `At each scheduled try the run collects from every source, ranks the stories, writes the post, checks every sentence against its sources twice, and publishes only if the gate passes. This page fills in stage by stage${d.nextRun ? ` from ${time(d.nextRun)} IST` : ""}.`}</p></section>` : stageCards(d)}</div>`;
   requestAnimationFrame(() => { const f = $(".rail .fill"); if (f) f.style.width = f.dataset.w; });
+  animateHome();
   if (main?.outcome === "running" || v === "running") schedule(() => { state.days.delete(date); route(); }, 30000);
 }
 
@@ -622,6 +899,7 @@ function statusLine(i) {
   const st = itemStatus(i), at = slotOf(i);
   if (st === "posted") {
     return `<p class="stline ok">${i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer">View on Instagram ${svg("ext")}</a>` : "Posted"}
+      ${i.youtube_url ? `<a class="yt" href="${esc(safeUrl(i.youtube_url))}" target="_blank" rel="noopener noreferrer">YouTube Shorts ${svg("ext")}</a>` : ""}
       ${i.decided_at ? `<span>Posted ${esc(whenText(i.decided_at))} IST</span>` : ""}</p>`;
   }
   if (st === "failed") return `<p class="stline bad">${svg("warn")}<span>Not posted: ${esc(i.error || "the workflow recorded a failure")}. Approve again to retry.</span></p>`;

@@ -241,7 +241,8 @@ test("local checkout only fills in files main doesn't have; main wins", async ()
 
 test("stats: snapshots in date order plus manual numbers", async () => {
   const files = { "data/stats/2026-10-31.json": { date: "2026-10-31" }, "data/stats/2026-10-30.json": { date: "2026-10-30" },
-                  "data/stats/manual.json": { x: [{ date: "2026-10-31", followers: 12 }], linkedin: [] } };
+                  "data/stats/manual.json": { x: [{ date: "2026-10-31", followers: 12 }], linkedin: [] },
+                  "data/growth/scoreboard.json": { date: "2026-10-31", followers: 3, gates: [] } };
   const fetchImpl = async (url) => {
     if (url.includes("contents/data/stats?")) {
       return new Response(JSON.stringify(Object.keys(files).map((k) => ({ name: k.split("/").pop() }))));
@@ -252,6 +253,7 @@ test("stats: snapshots in date order plus manual numbers", async () => {
   const r = await (await handle(req("stats"), { ...LOCAL, GITHUB_TOKEN: "t" }, { fetchImpl })).json();
   assert.deepEqual(r.days.map((d) => d.date), ["2026-10-30", "2026-10-31"]);
   assert.equal(r.manual.x[0].followers, 12);
+  assert.equal(r.growth.followers, 3);
 });
 
 test("manual numbers: validated, dry run by default, live writes merge by date", async () => {

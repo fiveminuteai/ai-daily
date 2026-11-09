@@ -325,11 +325,13 @@ const MANUAL_FIELDS = ["followers", "impressions", "engagements"];
 async function stats({ gh }) {
   const dates = (await gh.listDir("data/stats")).map((f) => f.name).filter((n) => /^\d{4}-\d\d-\d\d\.json$/.test(n))
     .sort().slice(-30);
-  const [days, manual] = await Promise.all([
+  // growth: the weekly scoreboard fma/growth.py writes (targets, this week vs last, the best Reels), for the home screen
+  const [days, manual, growth] = await Promise.all([
     Promise.all(dates.map((f) => gh.json(`data/stats/${f}`))),
     gh.json(MANUAL),
+    gh.json("data/growth/scoreboard.json"),
   ]);
-  return { days: days.filter(Boolean), manual: manual || { x: [], linkedin: [] } };
+  return { days: days.filter(Boolean), manual: manual || { x: [], linkedin: [] }, growth: growth || null };
 }
 
 /** Add or replace one day's typed-in numbers for X or LinkedIn in data/stats/manual.json. */
