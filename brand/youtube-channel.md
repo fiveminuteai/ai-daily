@@ -9,7 +9,7 @@
   every device shows)
 - **Links:** fiveminuteai.net (Website), instagram.com/fiveminute_ai (Instagram), linkedin.com/company/fiveminuteai
 
-## Description (paste as is; 512 characters)
+## Description (paste as is; 468 characters, YouTube allows 1,000)
 
 AI news in 40 seconds, every day.
 
