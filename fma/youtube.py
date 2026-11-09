@@ -120,3 +120,23 @@ def upload_short(http, video_url: str, caption: str, hook: str, site: dict, date
             continue                    # an older API refusing the disclosure field: upload without it
         raise YouTubeError(f"upload: HTTP {r.status_code} {reason}".strip())
     raise YouTubeError("upload: refused")
+
+
+def main(argv=None) -> int:
+    """`python -m fma.youtube --check`: the sign-in works (a token refresh, nothing uploaded). Prints no secrets."""
+    import sys
+    from .feeds import Http
+    if not configured():
+        print("YouTube secrets are not set")
+        return 1
+    try:
+        _token(Http(), os.environ)
+    except YouTubeError as exc:
+        print(f"YouTube sign-in FAILED: {exc}")
+        return 1
+    print("YouTube sign-in works: the next Reel will also go to YouTube Shorts")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
