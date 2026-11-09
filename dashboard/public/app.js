@@ -655,7 +655,8 @@ function reelCard(i) {
   const notYet = st === "approved" && slot && Date.parse(slot) > Date.now();        // approved, still waiting for its time
   const video = gone
     ? `<div class="reel-gone"><span>Video no longer on the site</span>${i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer">Watch on Instagram ${svg("ext")}</a>` : ""}</div>`
-    : `<video data-src="${esc(safeUrl(url))}#t=0.1" data-posted="${esc(i.posted_url || "")}" controls preload="none" playsinline aria-label="Reel ${esc(n)}"></video>`;
+    // the Reel's designed cover (reels/NN.jpg next to the video, from 8 Nov 2026) as its poster, so tiles aren't blank
+    : `<video data-src="${esc(safeUrl(url))}#t=0.1" data-posted="${esc(i.posted_url || "")}" controls preload="none" playsinline aria-label="Reel ${esc(n)}"${/\/reels\/\d{2}\.mp4$/.test(url) ? ` poster="${esc(safeUrl(url.replace(/\.mp4$/, ".jpg")))}"` : ""}></video>`;
   return `<article class="card reelcard is-${esc(st)}" data-item="${esc(i.id)}">
     <div class="reel-video">${video}</div>
     <div class="reel-body">
