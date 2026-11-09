@@ -1,0 +1,67 @@
+{
+ "date": "2026-11-09",
+ "slug": "2026-11-09-nvidia-board-probes-ceo-s-link-to",
+ "headline": "NVIDIA Board probes CEO's link to suspected spy",
+ "url": "https://fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to/",
+ "generated_at": "2026-11-09T02:42:13+00:00",
+ "items": [
+  {
+   "id": "2026-11-09-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. Approve to post it anyway",
+   "text": "NVIDIA Board probes CEO's link to suspected spy\n\n• Nvidia’s board launched an independent investigation into CEO Jensen Huang’s relationship with a suspected Chinese spy,.\n• Apple is accelerating Siri’s development to match rival AI agents, with third-party app integration expected in the Spring.\n• Google Health users can now hide the AI Coach via privacy controls without losing other Premium features.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "skipped",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-09/instagram.png"
+   ]
+  },
+  {
+   "id": "2026-11-09-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "NVIDIA Board probes CEO's link to suspected spy\n\n• Nvidia’s board launched an independent investigation into CEO Jensen Huang’s relationship with a suspected Chinese spy,.\n\nhttps://fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 196
+  },
+  {
+   "id": "2026-11-09-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: NVIDIA Board probes CEO's link to suspected spy\n\n• Nvidia’s board launched an independent investigation into CEO Jensen Huang’s relationship with a suspected Chinese spy,.\n• Apple is accelerating Siri’s development to match rival AI agents, with third-party app integration expected in the Spring.\n• Google Health users can now hide the AI Coach via privacy controls without losing other Premium features.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-09-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Nvidia CEO admits affair with suspected Chinese spy[S1].",
+   "text": "Nvidia CEO admits affair with suspected Chinese spy.\n\n• Board launches independent investigation into the relationship.\n• Memo claims she was recruited by China's Ministry of State Security.\n• Huang apologized to family, saying he hurt his children.\n\nOur read: AI leaders must guard against romance-based espionage targeting top executives.\n\nYour take: Is romance-based spying a real threat? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-09/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-09T03:30:00+00:00"
+  }
+ ]
+}

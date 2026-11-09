@@ -1298,5 +1298,93 @@
     "update"
    ]
   ]
+ },
+ {
+  "date": "2026-11-09",
+  "slug": "2026-11-09-nvidia-board-probes-ceo-s-link-to",
+  "urls": [
+   "engadget.com/2309626/dont-like-google-health-ai-coach-how-turn-off",
+   "huggingface.co/nousresearch/arete-27b",
+   "techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy",
+   "theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
+   "theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy",
+   "theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia"
+  ],
+  "tokens": [
+   "agentic",
+   "apple",
+   "arete-27b",
+   "ceo",
+   "chinese",
+   "coach",
+   "don",
+   "face",
+   "full",
+   "generation",
+   "google",
+   "health",
+   "here",
+   "huang",
+   "hugging",
+   "investigate",
+   "investigating",
+   "jensen",
+   "like",
+   "make",
+   "memo",
+   "nousresearch",
+   "nvidia",
+   "off",
+   "possible",
+   "racing",
+   "relationship",
+   "siri",
+   "spy",
+   "text",
+   "turn"
+  ],
+  "story_tokens": [
+   [
+    "ceo",
+    "chinese",
+    "full",
+    "here",
+    "huang",
+    "investigate",
+    "investigating",
+    "jensen",
+    "memo",
+    "nvidia",
+    "possible",
+    "relationship",
+    "spy",
+    "text"
+   ],
+   [
+    "agentic",
+    "apple",
+    "make",
+    "racing",
+    "siri"
+   ],
+   [
+    "coach",
+    "don",
+    "google",
+    "health",
+    "here",
+    "like",
+    "off",
+    "turn"
+   ],
+   [
+    "arete-27b",
+    "face",
+    "generation",
+    "hugging",
+    "nousresearch",
+    "text"
+   ]
+  ]
  }
 ]

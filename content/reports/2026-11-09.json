@@ -1,0 +1,3649 @@
+{
+  "checked": 385,
+  "ok": 21,
+  "repaired": 59,
+  "dropped": 305,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "NVIDIA Board probes CEO's link to suspected spy",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "I owe my family and all of you an apology",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Nvidia's board launched an independent investigation into CEO Jensen Huang's relationship with a suspected Chinese spy, while Apple plans to make Siri more agentic and Google Health lets users hide its AI coach.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Apple' not in cited source",
+        "name 'Siri' not in cited source",
+        "name 'Google' not in cited source",
+        "name 'Health' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Nvidia’s board launched an independent investigation into CEO Jensen Huang’s relationship with a suspected Chinese spy,.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Apple is accelerating Siri’s development to match rival AI agents, with third-party app integration expected in the Spring.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Google Health users can now hide the AI Coach via privacy controls without losing other premium features.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Nous Research fine-tuned Qwen3.8-27B to reduce propaganda and align with western values.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Qwen3.8-27' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia’s board announced on Sunday that it is launching an independent investigation.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "This follows reports that CEO Jensen Huang was targeted by a Chinese spy operation.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The board stated that a committee of independent directors will oversee the review.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "They are working with outside legal counsel to examine the situation.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The announcement came after a memo from Huang circulated among employees.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "He admitted to an affair with Alice Huang, a former executive at Megaspeed.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The board said Huang fully supports the review and has committed to cooperating with it.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "They expressed confidence in his leadership team despite the ongoing inquiry.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "A memo circulating among U.S. policymakers earlier this year claimed Alice Huang was recruited by China’s Ministry of State Security.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The goal was to spy on Nvidia’s CEO.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "In his memo, Huang apologized to his family and colleagues for his actions.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "He stated that he was unfaithful to his wife and hurt their children.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "He acknowledged that he had fallen short of his responsibility to the company.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia previously said that interactions between the pair were not unusual.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The company also noted that it does not share classified information with customers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The board emphasized that it prioritizes U.S. national and economic security above all else.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Chips, especially Nvidia’s, have been a major focus as the AI race between the United States and China heats up.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Other companies involved in the AI boom have warned employees to be wary of possible spies.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "These warnings include threats from individuals offering sex or romance.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The board stated it has no reason to believe national security or company secrets were compromised.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "However, the inquiry will examine all available information to ensure safety.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "This context highlights the strategic importance of Nvidia in the current geopolitical landscape.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "NVIDIA Board probes ceo's link to suspected spy",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia CEO admits affair with suspected Chinese spy.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Board launches independent investigation into the relationship.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Memo claims she was recruited by China's Ministry of State Security.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Huang apologized to family, saying he hurt his children.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "AI leaders must guard against romance-based espionage targeting top executives.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Is romance-based spying a real threat?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia CEO's spy affair.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "A memo claims a Chinese spy agency tried to recruit Nvidia's CEO's partner to spy on him.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Nvidia's board announced on Sunday that it is starting an independent investigation into the situation.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "Jensen Huang admitted in a memo that he had an affair and hurt his family.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple is working to make Siri more agentic, according to Bloomberg’s Mark Gurman.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "CEO John Ternus is pressuring AI leader Craig Federighi to speed up the roadmap.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The goal is to deliver a powerful AI agent that can compete with OpenAI’s Dots or Meta’s Muse.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company acknowledges it is not keeping pace with rivals.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "This push aims to close the gap in consumer AI capabilities.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Two key upgrades are expected soon.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "First, Siri will gain fine-grained control over Apple’s first-party apps.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This allows actions like rotating images in Photos or organizing Safari tabs.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "These features are expected in iOS 27.3.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Second, Siri will integrate with third-party apps.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This could let users place orders via Grubhub or book tables on OpenTable.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Gurman says this larger change is likely to land in the Spring.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Agentic AI means the system can perform ongoing tasks without user prompts.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "It tracks goals and decides the next steps automatically.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Current assistants mostly handle one-off requests.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Apple wants Siri to pursue objectives independently.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This shift is driven by market demands and competitor features.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "It changes how users interact with their devices daily.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Apple plans to make Siri more agentic",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Apple CEO pressures Siri to beat OpenAI and Meta.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'OpenAI' not in cited source",
+        "name 'Meta' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Apple admits it is not keeping pace with AI rivals.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Siri will soon control Photos and Safari in iOS 27.3.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '27.3' not in cited source",
+        "name 'Photos' not in cited source",
+        "name 'Safari' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Spring updates let Siri book tables and order food.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Siri' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Expect Siri to handle ongoing tasks automatically, not just one-off requests.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Siri' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Do you trust AI with your orders?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Apple rushes Siri to catch up.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Siri' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Google released an update in August 2026 that allows users to disable the AI Coach feature.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This change applies to the Google Health app for subscribers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The update gives people a way to stop receiving constant advice.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users can choose to hide this specific tool without leaving the platform.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The option is available within the app's existing settings menu.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "It provides a simple toggle for those who find the feature intrusive.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This addition responds to user feedback about the frequency of prompts.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company aimed to give users more control over their experience.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The feature remains available if users change their minds later.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This update does not affect other premium benefits.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "To turn off the coach, users tap their profile photo in the app.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "They then select Your data in Google Health.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Next, they scroll to Feature privacy controls and select Manage.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "They choose Google Health Coach and press the Turn off button.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No evidence exists in the provided sources regarding Google Health Coach or a 'Turn off' button."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users can also access this via Google Health settings and Coaching.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Another option is changing Coach messages on Today to No Coach insights.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This setting shows basic updates but removes personalized guidance.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users lose access to the Ask Coach button for questions.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "They can no longer log meals through the chat function.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Manual logging remains available for meal tracking.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Notifications for coaching can be disabled separately in push settings.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The AI Coach is a Gemini-powered feature in Google Health Premium.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions Google Health Premium, Gemini, or an AI Coach feature."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "It provides personalized sleep summaries and health tracking.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "It also offers cycle predictions and nutrition tracking.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This feature is not available in the free tier.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Disabling it does not delete any previous user data.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users can re-enable the coach at any time.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "To do so, they tap the Ask Coach button.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "They then select Unlock Coach to restore the feature.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This process is distinct from the initial setup.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The update allows users to keep other premium benefits.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "These include advanced sleep tracking and Health Guardian.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The change offers flexibility for subscribers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Google Health lets users hide its AI Coach",
+      "sources": [
+        "S5",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Google lets you hide its AI health coach.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Google released an update to disable the AI Coach feature.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Coach' not in cited source"
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Users can hide the tool without leaving the platform.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions hiding a tool or leaving a platform in this context."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "The option is available in the app's settings menu.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No evidence in the sources mentions an app, settings menu, or any software option."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "You can now stop receiving constant AI advice in Google Health.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Google' not in cited source",
+        "name 'Health' not in cited source"
+      ]
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Do you want AI health advice?",
+      "sources": [
+        "S5",
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Hide Google's AI Coach.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nous Research released Arete-27B, a model built on Alibaba's Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team post-trained the base model to reinforce western values.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They aimed to reduce CCP-framed answers on sensitive topics.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This work uses supervised fine-tuning only.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "No reinforcement learning was applied.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model targets specific political and social viewpoints.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is designed for general assistance and research.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release highlights how open weights allow value modification.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users can now choose different alignment profiles.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This approach treats values as adjustable parameters.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team observed refusals in the original model.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They sought to alter those specific biases.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The result is a distinct variant of the base architecture.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It serves as a test case for value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model remains a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It was evaluated at step 1,202.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training data was text-only.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This context supports the specific goal of value shifting.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The project demonstrates post-training flexibility.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows labs to mold intelligence to preferences.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The base model provided the raw tools for this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The final product reflects a specific worldview.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is not a general capability upgrade.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a targeted behavioral adjustment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team acknowledges it does not fix all issues.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They addressed a potential root cause of bias.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This work contributes to ongoing value-alignment research.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows how post-training changes model behavior.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is available for community testing.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Researchers can experiment with their own requirements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release underscores the importance of diverse alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It challenges the idea of a single default value set.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The process involved careful measurement of framing.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Factual recall was separated from ideological framing.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This distinction guided the training process.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is intended for users wanting this change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It also serves as a research tool.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team encourages continued experimentation in this area.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They thank Alibaba for providing the raw materials.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This collaboration enables further value-alignment work.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model card details the specific training steps.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It clarifies the scope of the modifications.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step in open-source alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It provides a concrete example of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The community can now evaluate these changes directly.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This transparency supports better understanding of AI behavior.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model represents a specific ideological choice.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is not a universal solution.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for specific use cases.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team emphasizes the need for diverse models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This aligns with broader research goals.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is part of a larger trend.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the practical application of post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model card provides full technical details.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This allows for independent verification.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's approach is methodical and transparent.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They document their evaluation metrics clearly.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This sets a standard for similar projects.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It uses a 64k context window.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The teacher model was Inkling.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The post-training data was text-only.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "These details are crucial for replication.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable event in AI development.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the power of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for diverse value systems.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a practical demonstration.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows how values can be adjusted.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This is important for user choice.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of this idea.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers and users.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant contribution.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It advances the field of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for others.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is based on Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training was supervised fine-tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation showed significant improvements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a valuable resource.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports diverse user needs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a step forward.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the future of AI alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a testament to the power of open source.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for innovation and diversity.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific example of this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant event.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the importance of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps us understand how models can be shaped.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a product of careful post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable achievement.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the goal of diverse AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for the community.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is based on Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training was supervised fine-tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation showed significant improvements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a valuable resource.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports diverse user needs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a step forward.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the future of AI alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a testament to the power of open source.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for innovation and diversity.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific example of this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant event.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the importance of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps us understand how models can be shaped.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a product of careful post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable achievement.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the goal of diverse AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for the community.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is based on Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training was supervised fine-tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation showed significant improvements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a valuable resource.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports diverse user needs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a step forward.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the future of AI alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a testament to the power of open source.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for innovation and diversity.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific example of this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant event.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the importance of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps us understand how models can be shaped.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a product of careful post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable achievement.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the goal of diverse AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for the community.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The fact score rose from 2.32 to 2.98 out of 5.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Answers containing propaganda dropped from 22% to 0.9%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Improvements held across seven value categories.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "These include freedom of expression and democracy.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "No meaningful regression occurred on general benchmarks.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training used supervised fine-tuning only.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "No reinforcement learning was used.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "No preference optimization was applied.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "No architectural modification was made.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluated checkpoint was step 1,202.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The teacher model was Inkling.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The post-training data was text-only.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training context was 64k.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The parameter scale is 27B.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The starting model was Alibaba's Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The developer is Nous Research.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions Nous Research or identifies a developer for any product."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is Arete-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation separated factual recall from framing.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Factual recall means corroborating verified sources.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Framing means adopting the Chinese state's account.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source defines 'Framing' or discusses adopting the Chinese state's account."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team measured these before training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They focused on seven specific categories.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "State ideology was one category.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "State versus free market was another.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Education was included.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Data privacy and surveillance was included.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Environmental Policy was included.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions 'Environmental Policy'."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is intended for general assistance.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is also for agentic work.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is for research into value changes.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team encourages community testing.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They want users to test against their own requirements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They encourage continued experimentation.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team observed refusals in the base model.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They observed deflections in the base model.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They observed CCP-framed answers in the base model.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "They post-trained to alter these biases.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They believe labs should create aligned models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "They are thankful to Alibaba for raw materials.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model card links to a blog post.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It links to an evaluation dataset.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The dataset is Propaganda_Eval.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions a dataset named 'Propaganda_Eval'."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a text generation model.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is new on Hugging Face.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release date is 06 November 2026.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is based on Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training was supervised fine-tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation showed significant improvements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a valuable resource.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports diverse user needs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a step forward.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the future of AI alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a testament to the power of open source.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for innovation and diversity.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific example of this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant event.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the importance of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps us understand how models can be shaped.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a product of careful post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable achievement.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the goal of diverse AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for the community.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Open source models allow labs to mold intelligence.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Values shipped with a model are not the only option.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users can choose different value sets.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This is possible because weights are open.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Post-training can alter specific biases.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It does not change the core architecture.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It changes the behavior on specific topics.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This is different from architectural changes.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a behavioral adjustment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is based on Qwen3.8-27B.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The training was supervised fine-tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The evaluation showed significant improvements.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a valuable resource.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports diverse user needs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a step forward.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the future of AI alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a testament to the power of open source.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It allows for innovation and diversity.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific example of this.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for change.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant event.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It highlights the importance of value alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps us understand how models can be shaped.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a 27B parameter system.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a product of careful post-training.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a notable achievement.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the goal of diverse AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a model for the community.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It shows the potential of open-source models.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is a specific implementation of value tuning.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is a tool for researchers.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The release is a significant step.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It helps define the boundaries of alignment.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The team's work is a contribution to the field.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "It supports the idea of pluralistic AI.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Nous research fine-tunes qwen model to shift values",
+      "sources": [
+        "S6",
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Nous Research rewired Alibaba's AI to drop CCP framing.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Research' not in cited source",
+        "name 'Alibaba' not in cited source",
+        "name 'CCP' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "They fine-tuned Qwen3.8-27B to reinforce western values.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '27 billion' not in cited source",
+        "name 'Qwen3.8-27' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Propaganda answers dropped from 22% to 0.9%.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '22%' not in cited source",
+        "number '0.9%' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Users can now choose different alignment profiles.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Open weights let anyone adjust AI values, not just labs.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Should AI have one default value set?",
+      "sources": [
+        "S6",
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "AI values are now adjustable.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The Nvidia probe highlights how personal relationships at top tech firms can intersect with national security concerns, potentially affecting investor confidence and regulatory scrutiny of major AI hardware suppliers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Apple's push for agentic Siri aims to close the gap with rivals like OpenAI and Meta, which could change how users interact with their devices by allowing the assistant to perform ongoing tasks without constant prompts.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Siri' not in cited source",
+        "name 'OpenAI' not in cited source",
+        "name 'Meta' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "Google Health's new toggle allows subscribers to disable the AI Coach feature, giving users more control over personalized health advice while retaining other premium benefits like advanced sleep tracking.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Health' not in cited source",
+        "name 'Coach' not in cited source"
+      ]
+    },
+    {
+      "where": "chart",
+      "text": "Propaganda Before: 22",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Propaganda After: 0.9",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Fact Score Before: 2.32",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Fact Score After: 2.98",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "Google lets you hide its AI Health Coach.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions Google, AI Health Coach, or hiding such a tool."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 9,
+  "unused": 10,
+  "date": "2026-11-09",
+  "slug": "2026-11-09-nvidia-board-probes-ceo-s-link-to",
+  "model": "groq:qwen/qwen3.8-27b"
+}

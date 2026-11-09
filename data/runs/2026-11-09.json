@@ -1,0 +1,455 @@
+{
+ "date": "2026-11-09",
+ "started_at": "2026-11-09T02:00:38+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 9.1,
+   "items": 457,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 3
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 5
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 1
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 6
+    },
+    "github": {
+     "status": "ok",
+     "items": 2
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.7,
+   "stories": 21,
+   "editor": true,
+   "top": [
+    {
+     "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+     "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+     "score": 8.33,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+     "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+     "score": 7.25,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "apiiro.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+     "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+     "score": 6.85,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "thestateofai.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple is racing to make Siri more agentic",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
+     "score": 6.75,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The US let Nvidia sell chips to an empty office in China",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+     "score": 6.42,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Goodbye Claude, hello Pi",
+     "url": "https://caleb.software/posts/claude-to-pi.html",
+     "score": 5.52,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "caleb.software (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI broke the cybersecurity world. What’s next?",
+     "url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+     "score": 5.41,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+     "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+     "score": 5.27,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Elvis and Eminem rights holders are suing Suno",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029533/elvis-eminem-suno-ai-music-clone-lawsuit",
+     "score": 5.11,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Chatbots might be coming to Apple’s HomeView",
+     "url": "https://www.theverge.com/tech/1029526/chatbots-might-be-coming-to-apples-homeview",
+     "score": 4.71,
+     "interest": 5.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+     "url": "https://github.com/synchopate/llama-modchip",
+     "score": 4.48,
+     "interest": 4.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "World Models Will Soon Be Inescapable. Here’s What You Need to Know",
+     "url": "https://www.wired.com/story/world-models-will-soon-be-inescapable-what-you-need-to-know/",
+     "score": 4.32,
+     "interest": 6.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+     "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+     "score": 8.33,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple is racing to make Siri more agentic",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
+     "score": 6.75,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Don't like Google Health's AI Coach? Here's how to turn it off",
+     "url": "https://www.engadget.com/2309626/dont-like-google-health-ai-coach-how-turn-off/",
+     "score": 4.12,
+     "interest": 4.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "New on Hugging Face: NousResearch/Arete-27B (text generation)",
+     "url": "https://huggingface.co/NousResearch/Arete-27B",
+     "score": 3.34,
+     "interest": 3.0,
+     "category": "architecture",
+     "player": "",
+     "outlets": [
+      "Hugging Face model cards"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.0,
+   "articles": 7,
+   "with_text": 7
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.9,
+   "word_count": 695,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 218.4,
+    "reel_desk": 569.5,
+    "layer1": 0.1,
+    "layer2": 360.0,
+    "gate": 0.1
+   },
+   "layer1": {
+    "checked": 100,
+    "ok": 47,
+    "repaired": 22,
+    "dropped": 31
+   },
+   "layer2": {
+    "checked": 87,
+    "ok": 39,
+    "repaired": 14,
+    "dropped": 34
+   },
+   "unused": 13,
+   "fails": [
+    "word count 650 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Nvidia launches investigation into CEO’s alleged spy relationship",
+     "reel": 9,
+     "rubric": 9,
+     "chief": 9.0,
+     "why": "CEO scandal + national security threat to AI chips is high-stakes drama that will dominate office chatter.",
+     "hook": "Nvidia probes CEO Jensen Huang's alleged spy romance.",
+     "chosen": true
+    },
+    {
+     "story": "Apple adds agentic features to Siri",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Apple finally making Siri useful is a clear surprise with a household name, but feels like a feature update rather than a crisis.",
+     "hook": "Apple's Siri will soon order food for you.",
+     "chosen": true
+    },
+    {
+     "story": "Google Health users can now hide AI Coach",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 209.7,
+    "reel_desk": 609.2,
+    "layer1": 0.2,
+    "layer2": 510.0,
+    "gate": 0.2
+   },
+   "layer1": {
+    "checked": 394,
+    "ok": 30,
+    "repaired": 68,
+    "dropped": 296
+   },
+   "layer2": {
+    "checked": 385,
+    "ok": 21,
+    "repaired": 59,
+    "dropped": 305
+   },
+   "unused": 10,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "NVIDIA Board probes ceo's link to suspected spy",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 9.0,
+     "why": "CEO scandal + national security threat is massive office gossip and high-stakes drama.",
+     "hook": "Nvidia CEO admits affair with suspected Chinese spy.",
+     "chosen": true
+    },
+    {
+     "story": "Apple plans to make Siri more agentic",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Google Health lets users hide its AI Coach",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Nous research fine-tunes qwen model to shift values",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-09-nvidia-board-probes-ceo-s-link-to",
+ "finished_at": "2026-11-09T02:42:12+00:00",
+ "seconds": 2494.1
+}
