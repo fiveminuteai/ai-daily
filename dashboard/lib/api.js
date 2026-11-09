@@ -148,9 +148,11 @@ async function readPaused(gh) {
   return /^paused:\s*true\b/m.test(yaml || "");
 }
 
-async function status({ gh, dryRun, repo, who, isDesktop }) {
+async function status({ env, gh, dryRun, repo, who, isDesktop }) {
   const base = { repo, dryRun, user: who.email, today: todayIst(), configured: Boolean(gh), localFiles: Boolean(gh?.local),
-                 desktop: isDesktop };
+                 desktop: isDesktop,
+                 // desktop only: which commit this checkout runs and what the launch-time self-update did
+                 version: isDesktop ? env.APP_VERSION || null : null, update: isDesktop ? env.APP_UPDATE || null : null };
   if (!gh) return { ...base, paused: null, message: "No GITHUB_TOKEN set." };
   return { ...base, paused: await readPaused(gh) };
 }

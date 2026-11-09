@@ -14,6 +14,7 @@ import { startServer } from "../lib/server.mjs";
 import { createLocalApi } from "./local-api.mjs";
 import { readCredential } from "./secrets.mjs";
 import { dataDir } from "./store.mjs";
+import { gitRunner, selfUpdate, version } from "./update.mjs";
 
 const PORT = Number(process.env.FMA_PORT || 8788);
 const URL_ = `http://127.0.0.1:${PORT}/`;
@@ -73,6 +74,24 @@ if (await alreadyRunning()) {               // second launch: just another windo
   process.exit(0);
 }
 
+// Bring this checkout up to GitHub's main before serving (desktop/update.mjs), so the desktop shows the same screens
+// as the web version. After a real update, start once more on the new code; FMA_NO_UPDATE=1 turns this off.
+const git = gitRunner(REPO_ROOT);
+let update;
+if (process.env.FMA_NO_UPDATE === "1") {
+  update = { updated: false, reason: process.env.FMA_UPDATE_NOTE || "self-update off",
+             version: await version(git).catch(() => ({ commit: "", date: "" })) };
+} else {
+  update = await selfUpdate(git);
+  await logLine(`self-update: ${update.reason}${update.updated ? ` (${update.from} -> ${update.to})` : ""}`);
+  if (update.updated) {
+    spawn(process.execPath, [fileURLToPath(import.meta.url), ...process.argv.slice(2)], {
+      env: { ...process.env, FMA_NO_UPDATE: "1", FMA_UPDATE_NOTE: update.reason },
+      detached: true, stdio: "ignore", windowsHide: true }).unref();
+    process.exit(0);
+  }
+}
+
 const { token, source } = await githubToken();
 const root = normalize(REPO_ROOT);
 const local = {                             // files main doesn't have yet (an unmerged branch) come from this checkout
@@ -93,7 +112,8 @@ setInterval(saveCache, 5 * 60e3).unref();
 
 const server = await startServer({
   port: PORT, quiet: true, local, desktop: createLocalApi(),
-  env: { GITHUB_TOKEN: token, REPO: process.env.REPO || "fiveminuteai/ai-daily", DRY_RUN: LIVE ? "0" : "1" },
+  env: { GITHUB_TOKEN: token, REPO: process.env.REPO || "fiveminuteai/ai-daily", DRY_RUN: LIVE ? "0" : "1",
+         APP_VERSION: update.version.commit ? `${update.version.commit} · ${update.version.date}` : "", APP_UPDATE: update.reason },
 });
 await logLine(`started on ${URL_}; GitHub token from ${source}; writes ${LIVE ? "LIVE" : "dry run"}`);
 console.log(`Five Minute AI is running at ${URL_} (GitHub token: ${source}; writes: ${LIVE ? "LIVE" : "dry run"})`);

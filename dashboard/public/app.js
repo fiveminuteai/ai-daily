@@ -201,7 +201,9 @@ function renderMode() {
   ].join("");
   $("#mode").innerHTML = pills;
   $("#side-mode").innerHTML = `<div class="side-pills">${pills}</div>
-    <p class="side-note">${s.desktop ? "Desktop app" : "Web"} · ${s.configured ? "GitHub connected" : "GitHub not connected"}</p>`;
+    <p class="side-note">${s.desktop ? "Desktop app" : "Web"} · ${s.configured ? "GitHub connected" : "GitHub not connected"}</p>
+    ${s.version ? `<p class="side-note" title="Self-update on launch: ${esc(s.update || "")}">Version ${esc(s.version)}${
+      s.update && !/^(up to date|updated)/.test(s.update) ? ` · not updated: ${esc(s.update)}` : ""}</p>` : ""}`;
 }
 
 function setCount(name, n) {
