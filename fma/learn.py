@@ -96,11 +96,20 @@ def dataset(root: Path) -> list[dict]:
                 "player": player_of(" ".join([sec.get("title") or "", hook]), players) or "other",
                 "hook_number": bool(re.search(r"\d", hook)), "hook_words": len(hook.split()),
                 "desk": card.get("reel"), "hook": hook.strip(), "pain": card.get("pain") or "untagged",
+                "pace": _pace(card),
                 "hook_type": card.get("hook_type") or "untagged",
                 "reach": got["reach"], "watch_s": got.get("avg_watch_s"), "shares": got.get("shares") or 0,
                 "saved": got.get("saved") or 0, "comments": got.get("comments") or 0, "age_h": got["age_h"]})
     _score(rows)
     return rows
+
+
+def _pace(card: dict) -> str:
+    """9 Nov 2026: "brisk" when every line is 5 s or less and the Reel is 38 s or less (duo Reels only)."""
+    if not (card.get("duo") or {}).get("lines"):
+        return "no duo"
+    from .duo_desk import pacing_problems
+    return "brisk" if not pacing_problems(card) else "slow"
 
 
 def _z(values: list[float]) -> list[float]:
@@ -136,6 +145,7 @@ FEATURES = {
     "desk score": lambda r: "none" if r["desk"] is None else ("7+" if r["desk"] >= 7 else "under 7"),
     "pain": lambda r: r.get("pain", "untagged"),            # 9 Nov 2026: the viewer worry the Reel speaks to
     "hook type": lambda r: r.get("hook_type", "untagged"),
+    "pace": lambda r: r.get("pace", "no duo"),
 }
 
 

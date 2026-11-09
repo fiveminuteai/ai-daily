@@ -145,6 +145,29 @@ def is_sensitive(section: dict) -> bool:
     return bool(SENSITIVE_STORY.search(text))
 
 
+def pacing(card: dict) -> dict:
+    """The Reel's pace, estimated from syllables at each voice's rate (fma/manual.py, within about a second of the
+    real renders): the hook line, the longest line, and the whole Reel with its question, outro and closing.
+    Targets (docs/growth-strategy.md, Pacing): hook at most 4 s, no line over 5 s, the Reel 32-38 s."""
+    from .manual import RATE, _syllables, duo_seconds
+    from .voice import spoken
+    duo = card.get("duo") or {}
+    guest = duo.get("guest", "doubt")
+    secs = [_syllables(spoken(plain(ln.get("text", "")))) / RATE.get("spark" if ln.get("who") == "spark" else guest, 4.8)
+            for ln in duo.get("lines", [])]
+    return {"hook_s": round(secs[0], 1) if secs else None, "longest_s": round(max(secs), 1) if secs else None,
+            "total_s": round(duo_seconds(card), 1) if secs else None}
+
+
+PACE = {"hook_s": 4.0, "longest_s": 5.0, "total_s": 38.0}
+
+
+def pacing_problems(card: dict) -> list[str]:
+    p = pacing(card)
+    return [f"{k.replace('_s', '')} {p[k]} s, over the {lim:g} s target" for k, lim in PACE.items()
+            if p[k] is not None and p[k] > lim]
+
+
 def is_fact(ln: dict) -> bool:
     """A line that states facts: Spark's, unless it is a comeback. Only these are fact-checked."""
     return ln.get("who") == "spark" and ln.get("kind") != "comeback"
@@ -330,7 +353,8 @@ FACTS_TASK = """TASK: write the story as 4 short lines for Spark, the presenter,
 RULES (check every line against each rule before you reply)
 1. Line 1 is the most surprising fact, at most 12 words: it is the hook and must land in the first 4 seconds.
    Lines 2-4 add the next most interesting facts, one fact per line.
-2. Each line: 8 to 18 words. Plain everyday words a 12-year-old understands. Short sentences.
+2. Each line: 8 to 15 words (about 5 seconds spoken; a longer line holds one picture too long). Plain everyday
+   words a 12-year-old understands. Short sentences.
 3. Only facts from the story text. Never add a number, name or date that is not there.
 4. Keep every limit and doubt the text has: "at least 35" stays "at least 35"; "says", "claims", "is accused of"
    stay. A claim in a lawsuit is not a proven fact.
@@ -512,8 +536,8 @@ def facts_step(chain, section: dict, check_facts: bool = True) -> list[str] | No
                        "(about 4 seconds)")
         for k, t in enumerate(lines):
             words = len(plain(t).split())
-            if not 6 <= words <= 20:
-                bad.append(f"line {k + 1} has {words} words; write 8 to 18")
+            if not 6 <= words <= LINE_WORDS:
+                bad.append(f"line {k + 1} has {words} words; write 8 to 15 (about 5 seconds)")
             if not re.search(r"\[S\d+\]", t):
                 bad.append(f"line {k + 1} needs its citation like [S1]")
             hard = sorted({w for w in re.findall(r"[a-z0-9]+(?:[-‑][a-z0-9]+)*", plain(t).lower())
@@ -776,7 +800,8 @@ def write(chain, section: dict, card: dict) -> dict | None:
 
 STORY_FACTS = 3
 HOOK_WORDS = 12          # Spark's first line: about 4 s at the locked voice's pace
-SAFE_SECONDS = 42.5      # the estimate ran up to 1.8 s short on 8 Nov 2026; the hard cap at render is 45 s
+SAFE_SECONDS = 40.5      # pacing target 32-38 s; the estimate ran up to 1.8 s short on 8 Nov 2026; render cap 45 s
+LINE_WORDS = 16          # 9 Nov 2026 pacing: no spoken fact longer than about 5 s
 
 
 def fits(duo: dict, card: dict) -> bool:

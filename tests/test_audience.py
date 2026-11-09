@@ -95,3 +95,21 @@ def test_youtube_title_uses_the_short_cover_headline():
     from fma import youtube
     assert youtube.title_for("Nvidia's board opens an investigation into its CEO[S1].") == \
         "Nvidia's board opens an investigation into its CEO. #Shorts"
+
+
+def test_pacing_measures_hook_longest_line_and_length():
+    from fma import duo_desk
+    card = {"ask": "Is it worth it?", "duo": {"guest": "doubt", "lines": [
+        {"who": "spark", "text": "OpenAI raised $11 billion[S1]."},
+        {"who": "guest", "text": "Wow. Thrilling."},
+        {"who": "spark", "text": "The round values the company at one and a quarter trillion dollars, Bloomberg reports, "
+                                 "and it could reach twenty billion in the coming weeks according to a source[S1]."},
+        {"who": "guest", "text": "Cancel the party."}]}}
+    p = duo_desk.pacing(card)
+    assert p["hook_s"] < 4 and p["longest_s"] > 5
+    assert any(x.startswith("longest") for x in duo_desk.pacing_problems(card))
+
+
+def test_learning_measures_pace():
+    from fma import learn
+    assert "pace" in learn.FEATURES

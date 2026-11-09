@@ -84,6 +84,27 @@ week's bottleneck, and the week's one change goes there.
 | Learn | Which pains and hook formulas hold viewers, by watch time and reach | `fma/learn.py` features `pain`, `hook type` |
 | Market | The week's most-watched AI Shorts in the US and India, as hook ideas only | `fma/market.py` (needs `YOUTUBE_API_KEY`) |
 
+## 4b-2. Pacing (9 Nov 2026)
+
+The 9 duo Reels from 6 to 9 Nov, estimated from syllables at each voice's rate: Spark's first line took a median
+3.8 s (5.0-5.4 s in the last four), the longest line 5.6 s, the whole Reel 41 s, while viewers stayed a median 6.2 s.
+The pace was getting slower. The beat map every duo Reel now aims for:
+
+| Seconds | What happens | Rule |
+|---|---|---|
+| 0-1 | The cover headline's story starts; Spark is already talking | no intro, no logo first |
+| 0-4 | The hook line | at most 12 words (`HOOK_WORDS`), at most 4 s |
+| 4-6 | The guest's first reaction: the first laugh | 3-12 words |
+| 6-15 | Spark's comeback and the guest's topper: the second hook, before attention dips | banter step |
+| every line | a new speaker, a camera move or a number popping in | no spoken line over 5 s (`LINE_WORDS` 16) |
+| last third | the last fact, then the callback that pays off an earlier joke | callback |
+| last 6 s | the question, the outro, the closing | closing at most 3 s |
+| whole Reel | 32-38 s | banter only if the Reel stays under about 40 s (`SAFE_SECONDS`) |
+
+Gaps between lines stay at 0.1-0.16 s; a comic pause (0.45 s) only before the two biggest punchlines.
+`duo_desk.pacing()` measures a script; `fma/learn.py` compares "brisk" Reels (every line 5 s or less, 38 s or
+less) with "slow" ones, so the targets move with our own numbers.
+
 ## 4c. Instagram playbook
 
 - **Cadence:** 3 to 5 duo Reels a day at fixed times (09:00, 13:00, 16:00, 19:00 IST). Test a 21:30 IST slot (11:00
