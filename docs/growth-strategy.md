@@ -71,6 +71,42 @@ week's bottleneck, and the week's one change goes there.
 - Profile and pinned Reels that say in one line why to follow.
 - Collab posts with other AI creators (API supports up to three collaborators).
 
+## 4b. The content engine: every Reel, end to end (9 Nov 2026, `fma/audience.py`)
+
+| Step | What it means | Where it lives |
+|---|---|---|
+| Pain | The viewer worry the story speaks to: job, skills, tools, money, privacy, trust, keeping up, power, safety | `PAINS`; the Reel desk tags every card; no pain = relatable 0 |
+| Hook | One of six formulas (stakes, surprise, number, conflict, you, gap), on the cover and in the first 4 seconds | `HOOK_TYPES`; hook checker sends back filler openers; duo line 1 at most 12 words |
+| Value | Three fact-checked points: what happened, the twist, who it affects | Reel desk + both fact-check layers |
+| Solve | What it means for you, or one thing to do | the take (`take_kind` do/read) |
+| Visual | Cover headline with lit words, the cast, the number panel | `fma/cover.py`, Remotion |
+| CTA | One action by goal: save a how-to, send to a colleague (job, skills, tools), send to a friend | `cta_for`; the comment question stays |
+| Learn | Which pains and hook formulas hold viewers, by watch time and reach | `fma/learn.py` features `pain`, `hook type` |
+| Market | The week's most-watched AI Shorts in the US and India, as hook ideas only | `fma/market.py` (needs `YOUTUBE_API_KEY`) |
+
+## 4c. Instagram playbook
+
+- **Cadence:** 3 to 5 duo Reels a day at fixed times (09:00, 13:00, 16:00, 19:00 IST). Test a 21:30 IST slot (11:00
+  US Eastern) for two weeks: the US audience pays most for ads and sponsors.
+- **Formats:** the daily duo Reel; a Sunday "Week in AI: 5 numbers" carousel with music (needs Pavan's yes on a
+  sample); Trial Reels on one slot once the scoreboard has a baseline.
+- **Profile:** name field "Five Minute AI | Daily AI News"; bio "AI news in 40 seconds. Every claim checked."; the
+  three best Reels pinned; one Highlight "How we check" later.
+- **Community:** Pavan answers comments by hand in the first hour (automated replies read as bot engagement); Doubt
+  may answer in character later, drafted by code, sent by a person.
+- **Collabs:** invite 2-3 AI creators a month to a collab Reel (the API supports up to 3 collaborators); never
+  follow-for-follow or engagement pods.
+- **Captions:** hook, three points, the take, the question, one CTA, five topic hashtags (Instagram's cap).
+- **Never:** reposted clips, bought followers, mass comments, misleading hooks, jokes about people's private lives.
+
+## 4d. Earning in dollars
+
+Hosting doesn't decide earnings; viewers do. The site is already served worldwide by GitHub Pages' CDN. Dollars
+come from US and other high-paying viewers, through: YouTube's Partner Programme (Shorts path, as last published:
+1,000 subscribers plus 10 million Shorts views in 90 days; check the current bar), AdSense on the website (needs a
+privacy page first), sponsorships once the audience is real (a media kit from the scoreboard), and later a paid
+weekly brief. Google and YouTube pay Indian creators in USD, converted at the bank.
+
 ## 5. The weekly loop
 
 1. Every evening: stats collected, scoreboard rebuilt (code, no model).
