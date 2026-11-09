@@ -247,6 +247,70 @@ def reel_cover(post: dict, sec: dict, out, guest: str, lines: list | None = None
         logging.getLogger(__name__).warning("cover for %s failed: %s", out.name, exc)
 
 
+# ---------------------------------------------------------------- structured data (10 Nov 2026, AEO check)
+# Answer engines (Google AI Overviews, ChatGPT search, Perplexity) read schema.org JSON-LD to know who publishes a
+# page, when, and from which sources. Every page carries the Organization and WebSite; posts a NewsArticle with
+# its dates and citations; About an AboutPage with the FAQ it shows.
+
+def _org(site: dict, origin: str, base: str) -> dict:
+    return {"@type": "Organization", "@id": f"{origin}{base}#org", "name": site["name"], "url": f"{origin}{base}",
+            "logo": f"{origin}{base}assets/icon.svg", "email": "hello@fiveminuteai.net",
+            "sameAs": [s["url"] for s in site.get("social", [])]}
+
+
+def site_jsonld(site: dict, origin: str, base: str) -> dict:
+    return {"@context": "https://schema.org", "@graph": [
+        _org(site, origin, base),
+        {"@type": "WebSite", "@id": f"{origin}{base}#site", "name": site["name"], "url": f"{origin}{base}",
+         "description": site.get("tagline", ""), "inLanguage": site.get("language", "en"),
+         "publisher": {"@id": f"{origin}{base}#org"}}]}
+
+
+def article_jsonld(p: dict, site: dict, origin: str, base: str) -> dict:
+    url = f"{origin}{base}{p['url_path']}"
+    published = f"{p['date']}T05:45:00+05:30"
+    modified = p.get("generated_at") or published
+    return {"@context": "https://schema.org", "@type": "NewsArticle", "@id": f"{url}#article", "headline": p["headline"],
+            "description": p.get("dek_plain", ""), "url": url, "mainEntityOfPage": url, "datePublished": published,
+            "dateModified": modified, "inLanguage": site.get("language", "en"),
+            "image": f"{origin}{base}og/{p['slug']}.png", "author": {"@id": f"{origin}{base}#org"},
+            "publisher": {"@id": f"{origin}{base}#org"},
+            "articleSection": [s.get("title", "") for s in p.get("sections", [])],
+            "citation": [s["url"] for s in p.get("sources", []) if s.get("url")],
+            "isAccessibleForFree": True}
+
+
+ABOUT_FAQ = [
+    ("Is Five Minute AI written by AI?", "Yes. A language model drafts each post from the public sources linked in it, "
+     "and a program checks every number and name against those sources before anything is published."),
+    ("How are the facts checked?", "Twice: code compares every number and name with the cited source, and a second "
+     "pass re-reads each sentence next to its source. Anything that can't be confirmed is deleted, not reworded."),
+    ("How often is it published?", "Every morning, India time, with short video Reels through the day on Instagram "
+     "and YouTube Shorts."),
+    ("Where can I report a mistake?", "On GitHub issues or by email to hello@fiveminuteai.net; corrections are noted "
+     "on the post."),
+]
+
+
+def about_jsonld(site: dict, origin: str, base: str) -> dict:
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "AboutPage", "url": f"{origin}{base}about/", "name": "How this blog is made",
+         "about": {"@id": f"{origin}{base}#org"}},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q,
+                                             "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ABOUT_FAQ]}]}
+
+
+def llms_txt(posts: list[dict], site: dict, origin: str, base: str) -> str:
+    """/llms.txt (llmstxt.org): what the site is and where the good pages are, for AI crawlers that read it."""
+    root = f"{origin}{base}"
+    lines = [f"# {site['name']}", "", f"> {site.get('tagline', '')}", "",
+             "Daily AI news, generated from linked public sources and fact-checked sentence by sentence.", "",
+             "## Pages", f"- [How it's made]({root}about/): sources, models and the checking process",
+             f"- [Archive]({root}archive/): every post", f"- [Topics]({root}tags/)", "", "## Latest posts"]
+    lines += [f"- [{p['headline']}]({root}{p['url_path']}): {p['date']}" for p in posts[:20]]
+    return "\n".join(lines) + "\n"
+
+
 DUO_FROM = "2026-11-06"     # the first day of duo Reels: earlier days keep their Reels exactly as they were
 
 
@@ -279,7 +343,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
     # instead of mixing new pages with a cached old stylesheet (GitHub Pages lets browsers cache it 10 minutes)
     asset_v = hashlib.sha256((config.SITE_DIR / "static" / "style.css").read_bytes()).hexdigest()[:10]
     env.globals.update(asset_v=asset_v, site=site, base=base, origin=origin, year=datetime.now(timezone.utc).year, tag_slug=tag_slug,
-                       labels=CAT_LABEL, topics=TOPICS, topic_blurbs=TOPIC_BLURBS, nav="")
+                       labels=CAT_LABEL, topics=TOPICS, topic_blurbs=TOPIC_BLURBS, nav="",
+                       site_ld=site_jsonld(site, origin, base), page_ld=None)
 
     posts = [prepare(p, site) for p in load_posts(content_dir)]
     for i, p in enumerate(posts):
@@ -302,7 +367,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
         older = posts[i + 1] if i + 1 < len(posts) else None
         write(f"posts/{p['slug']}/index.html", env.get_template("post.html").render(
             post=p, newer=newer, older=older, page_title=p["headline"], description=p["dek_plain"],
-            og_image=f"{base}og/{p['slug']}.png", canonical=p["url_path"], og_type="article"))
+            og_image=f"{base}og/{p['slug']}.png", canonical=p["url_path"], og_type="article",
+            page_ld=article_jsonld(p, site, origin, base)))
         rep = content_dir / "reports" / f"{p['date']}.json"
         if rep.exists():
             report = json.loads(rep.read_text(encoding="utf-8"))
@@ -345,7 +411,8 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
             tag=t, label=CAT_LABEL.get(t, t), posts=ps, page_title=CAT_LABEL.get(t, f"Tag: {t}"), nav="topics",
             description=f"{site['name']} posts tagged {t}.", og_image=f"{base}og/default.png",
             canonical=f"tags/{tag_slug(t)}/", og_type="website"))
-    write("about/index.html", env.get_template("about.html").render(
+    write("llms.txt", llms_txt(posts, site, origin, base))
+    write("about/index.html", env.get_template("about.html").render(page_ld=about_jsonld(site, origin, base),
         page_title="How this blog is made", description="Five Minute AI is AI-assisted and generated automatically from linked sources.",
         og_image=f"{base}og/default.png", canonical="about/", og_type="website", nav="about",
         sources=first_by_name(config.sources_config()["sources"]), providers=site.get("providers", [])))

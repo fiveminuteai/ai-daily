@@ -351,3 +351,7 @@ html, body { overflow-x: clip; }
 .kit-reel { display: block; width: 100%; max-width: 320px; height: auto; aspect-ratio: 9 / 16; background: #000; border-radius: var(--r-sm); border: 1px solid var(--line); margin: var(--s3) 0 var(--s2); }
 .kit-slides { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; margin: var(--s3) 0 var(--s2); }
 .kit-slides img { flex: 0 0 auto; width: 70%; max-width: 280px; height: auto; scroll-snap-align: start; border-radius: var(--r-sm); border: 1px solid var(--line); }
+
+/* About FAQ (10 Nov 2026) */
+.faq dt { font-weight: 700; margin-top: 1.1em; }
+.faq dd { margin: .3em 0 0; }

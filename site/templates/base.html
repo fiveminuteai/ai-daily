@@ -22,12 +22,15 @@
 <meta name="twitter:description" content="{{ description }}">
 <meta name="twitter:image" content="{{ origin }}{{ og_image }}">
 <link rel="icon" href="{{ base }}assets/icon.svg" type="image/svg+xml">
+<script type="application/ld+json">{{ site_ld|tojson }}</script>
+{% if page_ld %}<script type="application/ld+json">{{ page_ld|tojson }}</script>
+{% endif %}
 <link rel="preload" href="{{ base }}assets/fonts/BricolageGrotesque-Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="{{ base }}assets/style.css?v={{ asset_v }}">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-{% macro social_icon(name) %}{% if name == "Instagram" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>{% elif name == "LinkedIn" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8.3 10.8v5.4M8.3 7.9v.1M11.8 16.2v-5.4M11.8 13.2c0-1.5 1-2.5 2.3-2.5s2.1.9 2.1 2.5v3"/></svg>{% elif name == "X" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5l13.6 15M19 4.5l-5.7 6.4M10.7 13.1L5 19.5"/></svg>{% endif %}{% endmacro %}
+{% macro social_icon(name) %}{% if name == "Instagram" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>{% elif name == "LinkedIn" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8.3 10.8v5.4M8.3 7.9v.1M11.8 16.2v-5.4M11.8 13.2c0-1.5 1-2.5 2.3-2.5s2.1.9 2.1 2.5v3"/></svg>{% elif name == "X" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5l13.6 15M19 4.5l-5.7 6.4M10.7 13.1L5 19.5"/></svg>{% elif name == "YouTube" %}<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg>{% endif %}{% endmacro %}
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap masthead-row">

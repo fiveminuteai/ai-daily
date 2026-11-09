@@ -26,6 +26,14 @@
   <h2>What the checks can't catch</h2>
   <p>The verifier confirms that each number and name appears in the cited source, and the model pass looks for claims the source doesn't support. Neither can tell you whether the source itself is right, and a sentence can use correct words and still put them together in a misleading way. If you spot an error, the source links are there so you can check it yourself, and corrections are welcome on <a href="{{ site.repo_url }}/issues">GitHub</a>.</p>
 
+  <h2>Questions people ask</h2>
+  <dl class="faq">
+    <dt>Is Five Minute AI written by AI?</dt><dd>Yes. A language model drafts each post from the public sources linked in it, and a program checks every number and name against those sources before anything is published.</dd>
+    <dt>How are the facts checked?</dt><dd>Twice: code compares every number and name with the cited source, and a second pass re-reads each sentence next to its source. Anything that can't be confirmed is deleted, not reworded.</dd>
+    <dt>How often is it published?</dt><dd>Every morning, India time, with short video Reels through the day on Instagram and YouTube Shorts.</dd>
+    <dt>Where can I report a mistake?</dt><dd>On <a href="{{ site.repo_url }}/issues">GitHub</a> or by email to hello@fiveminuteai.net; corrections are noted on the post.</dd>
+  </dl>
+
   {% if site.social %}
   <h2>Follow</h2>
   <p>The daily headline also goes out on {% for s in site.social %}<a href="{{ s.url }}" rel="me noopener">{{ s.name }}</a> ({{ s.handle }}){% if loop.revindex == 2 %} and {% elif not loop.last %}, {% endif %}{% endfor %}.</p>
