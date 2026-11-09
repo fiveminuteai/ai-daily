@@ -197,6 +197,19 @@ def publishers(post: dict, section: dict) -> str:
     return ", ".join(list(dict.fromkeys(by_id[i] for i in ids if by_id.get(i)))[:2])
 
 
+def one_measure(chart: dict) -> bool:
+    """Bars a chart can compare: one kind of measure. 9 Nov 2026 a chart put "propaganda before 22" next to "fact
+    score before 2.32" on one scale. Bars whose labels name different measures (the words left after dropping
+    before/after/then/now and years) are refused, and the story gets a number or statement slide instead."""
+    noise = {"before", "after", "then", "now", "old", "new", "previous", "current", "base", "tuned", "the", "of", "in"}
+    from collections import Counter
+    kinds = Counter(" ".join(w for w in re.findall(r"[a-z]+", plain(b.get("label", "")).lower()) if w not in noise)
+                    for b in chart.get("bars", []))
+    kinds.pop("", None)
+    # two or more measures, each shown more than once (before and after): different scales on one chart
+    return not (len(kinds) >= 2 and all(n >= 2 for n in kinds.values()))
+
+
 def plan(post: dict) -> list[dict]:
     """Choose a layout for each story: its chart, its quote, a big number, or a plain statement."""
     out, used = [], set()
@@ -204,9 +217,11 @@ def plan(post: dict) -> list[dict]:
         ids = {i for p in s["paragraphs"] for i in re.findall(r"S\d+", p)}
         line = one_line(s)
         chart, quote = post.get("chart"), post.get("quote")
-        if chart and chart.get("source") in ids and "chart" not in used and len(chart.get("bars", [])) >= 2:
+        from .duo_desk import is_sensitive
+        if chart and chart.get("source") in ids and "chart" not in used and len(chart.get("bars", [])) >= 2                 and one_measure(chart):
             kind = "chart"
-        elif quote and quote.get("source") in ids and "quote" not in used:
+        elif quote and quote.get("source") in ids and "quote" not in used and not is_sensitive(s):
+            # 9 Nov 2026: a private-life story gets no quote slide (it put a CEO's apology to his family up front)
             kind = "quote"
         elif key_figure(line):
             kind = "number"
@@ -323,7 +338,7 @@ def slide_story(post, item, n, total, theme):
             d.text((M, y), ln, font=tf, fill=T["ink"])
             y += int(ts * 1.06)
         y += 40
-        bars = ch["bars"][:4]
+        bars = ch["bars"][:3]        # 9 Nov 2026: four bars ran past the footer
         top = max(b["value"] for b in bars) or 1
         unit = ch.get("unit", "")
         prefix = "$" if unit.startswith("$") else ""
@@ -363,6 +378,11 @@ def slide_story(post, item, n, total, theme):
     if box:
         block = layer.crop((0, box[1], W, box[3]))
         top, room = 215, 1190 - 215
+        if block.height > room:      # 9 Nov 2026: a tall block ran over the footer; shrink it to fit, never cut it
+            k = room / block.height
+            small = block.resize((int(W * k), room), Image.LANCZOS)
+            block = Image.new("RGBA", (W, room), (0, 0, 0, 0))
+            block.paste(small, (int(M * (1 - k)), 0), small)
         img.paste(block, (0, top + max(0, int((room - block.height) * 0.42))), block)
     footer(ImageDraw.Draw(img), theme, n - 1, total, src)
     return grain(img, amount=9 if theme == "night" else 6, seed=n)

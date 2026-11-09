@@ -147,3 +147,24 @@ def test_client_file_and_secrets_never_on_a_command_line(tmp_path):
     youtube_auth.save_secret("YOUTUBE_REFRESH_TOKEN", "tok-value", run=lambda cmd, **kw: calls.append((cmd, kw)) or R())
     cmd, kw = calls[0]
     assert "tok-value" not in " ".join(cmd) and kw["input"] == "tok-value"
+
+
+# ---- the daily carousel (9 Nov 2026)
+
+def test_carousel_time_joins_the_clock_only_when_valid():
+    from fma import clock
+    s = clock.schedule({"daily": "05:45", "reels": ["09:00", "13:00"], "carousel": "11:00"})
+    assert s["carousel"] == "11:00" and ("05:30", "post-scheduled.yml") in clock.events(s)
+    assert "carousel" not in clock.schedule({"carousel": "06:00"})          # too soon after the daily run
+    assert "carousel" not in clock.schedule({"reels": ["09:00", "13:00"], "carousel": "13:00"})
+
+
+def test_charts_compare_one_measure_and_private_stories_get_no_quote_slide():
+    from fma.carousel import one_measure, plan
+    mixed = {"bars": [{"label": "Propaganda Before"}, {"label": "Propaganda After"}, {"label": "Fact Score Before"},
+                      {"label": "Fact Score After"}]}
+    assert not one_measure(mixed)
+    assert one_measure({"bars": [{"label": "OpenAI"}, {"label": "Anthropic"}]})
+    post = {"chart": None, "quote": {"text": "I owe my family an apology", "speaker": "CEO", "source": "S1"},
+            "sections": [{"title": "CEO admits affair", "paragraphs": ["He admitted an affair[S1]."]}]}
+    assert plan(post)[0]["kind"] != "quote"

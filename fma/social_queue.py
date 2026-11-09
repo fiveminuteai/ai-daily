@@ -21,8 +21,8 @@ from .social import share_texts, x_length
 # How each platform gets posted, as checked on 31 Oct 2026. The dashboard shows this next to each item.
 PLATFORMS = {
     "instagram": {"kind": "carousel", "posting": "api",
-                  "note": "Off by default since 1 Nov 2026: the story Reels replaced the daily carousel. "
-                          "Approve to post it anyway"},
+                  "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when "
+                          "growth.daily_carousel is on (9 Nov 2026)"},
     "x": {"kind": "post", "posting": "paid",
           "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision"},
     "linkedin": {"kind": "text", "posting": "manual",
@@ -64,7 +64,12 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
             item["chars"] = x_length(texts["x"])
         if platform == "instagram":
             item["media"] = [f"{site['base_url']}share/{post['date']}/instagram.png"]
-            item["status"] = "skipped"            # the story Reels replaced it; still postable on request
+            from .clock import schedule
+            car = schedule(site.get("schedule")).get("carousel")
+            if (site.get("growth") or {}).get("daily_carousel") and car:
+                item["status"], item["scheduled_at"] = "approved", slot_utc(post["date"], car)   # 9 Nov 2026
+            else:
+                item["status"] = "skipped"        # off: still postable on request
         prev = old.get(iid)
         if prev:
             item.update({k: prev[k] for k in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at", "media_id", "error")

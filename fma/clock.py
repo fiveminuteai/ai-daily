@@ -46,6 +46,10 @@ def schedule(cfg: dict | None) -> dict:
             and _mins(reels[0]) >= _mins(out["daily"]) + 90 and _mins(reels[-1]) <= _mins("23:00")
             and all(_mins(b) - _mins(a) >= 30 for a, b in zip(reels, reels[1:]))):
         out["reels"] = tuple(reels)
+    car = cfg.get("carousel")        # 9 Nov 2026: the daily carousel's own time, off when missing
+    if (isinstance(car, str) and _HHMM.match(car) and _mins(car) >= _mins(out["daily"]) + 90
+            and _mins(car) <= _mins("23:00") and car not in out["reels"]):
+        out["carousel"] = car
     stats = cfg.get("stats")
     if (isinstance(stats, str) and _HHMM.match(stats) and _mins("20:00") <= _mins(stats) <= _mins("23:45")
             and _mins(stats) > _mins(out["reels"][-1])):
@@ -60,7 +64,7 @@ def read_schedule(text: str) -> dict:
     one = lambda key: (re.search(rf"^[ \t]+{key}:[ \t]*\"?(\d\d:\d\d)\"?", block, re.M) or [None, None])[1]  # noqa: E731
     lst = re.search(r"^[ \t]+reels:[ \t]*\[([^\]]*)\]", block, re.M)
     reels = re.findall(r"\d\d:\d\d", lst.group(1)) if lst else None
-    return schedule({"daily": one("daily"), "reels": reels, "stats": one("stats")})
+    return schedule({"daily": one("daily"), "reels": reels, "stats": one("stats"), "carousel": one("carousel")})
 
 
 def to_utc(hhmm: str) -> str:
@@ -70,6 +74,7 @@ def to_utc(hhmm: str) -> str:
 def events(sched: dict) -> tuple[tuple[str, str], ...]:
     """(UTC time, workflow), in UTC order."""
     ev = [(to_utc(sched["daily"]), "daily.yml"), *[(to_utc(r), "post-scheduled.yml") for r in sched["reels"]],
+          *([(to_utc(sched["carousel"]), "post-scheduled.yml")] if sched.get("carousel") else []),
           (to_utc(sched["stats"]), "collect-stats.yml")]       # the day's numbers, then the learning loop (fma/learn.py)
     return tuple(sorted(ev))
 

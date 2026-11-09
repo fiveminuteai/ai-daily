@@ -34,6 +34,7 @@ growth:
   trial_reels: "off"
   trial_slots: []
   youtube: true
+  daily_carousel: true        # 9 Nov 2026, Pavan: carousels, posts and Reels every day (posts at schedule.carousel)
 
 # When things run, India time. The Clock workflow (fma/clock.py) starts each one; the control app edits these.
 # daily: 03:00-07:00. reels: 1-5 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a
@@ -42,6 +43,7 @@ growth:
 schedule:
   daily: "05:45"
   reels: ["09:00", "13:00", "16:00", "19:00"]
+  carousel: "11:00"
   stats: "23:30"
 
 # Who reads this, and what they find interesting. The daily editor pass uses this to pick stories.

@@ -25,7 +25,8 @@ def test_the_live_config_schedule_is_valid_and_read_the_same_by_the_clock_and_ya
     text = (ROOT / "config/site.yaml").read_text(encoding="utf-8")
     raw = __import__("yaml").safe_load(text)["schedule"]
     sched = clock.read_schedule(text)
-    assert sched == {"daily": raw["daily"], "reels": tuple(raw["reels"]), "stats": raw["stats"]}
+    assert sched == {"daily": raw["daily"], "reels": tuple(raw["reels"]), "stats": raw["stats"],
+                     **({"carousel": raw["carousel"]} if raw.get("carousel") else {})}
 
 
 def test_an_edited_schedule_moves_the_clock():
