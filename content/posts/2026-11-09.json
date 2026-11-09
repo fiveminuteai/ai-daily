@@ -96,7 +96,72 @@
         "First, Siri will gain fine-grained control over Apple’s first-party apps[S4]. This allows actions like rotating images in Photos or organizing Safari tabs[S4]. These features are expected in iOS 27.3[S4]. Second, Siri will integrate with third-party apps[S4]. This could let users place orders via Grubhub or book tables on OpenTable[S4]. Gurman says this larger change is likely to land in the Spring[S4].",
         "Apple wants Siri to pursue objectives independently[S4]."
       ],
-      "card": null
+      "card": {
+        "hook": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports[S4].",
+        "cover": "Apple is racing to make Siri an agent[S4].",
+        "cover_hi": "Siri an agent",
+        "points": [
+          "Bloomberg's Mark Gurman says Apple's CEO is pushing to speed up the Siri roadmap[S4].",
+          "Siri is expected to edit photos and organise Safari tabs with iOS 27.3[S4].",
+          "Ordering on Grubhub or booking on OpenTable could come in the Spring[S4]."
+        ],
+        "take": "Siri could soon carry out ongoing tasks in your apps, not just one-offs[S4].",
+        "take_kind": "read",
+        "ask": "Would you let Siri order food for you?",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "reel": 7,
+        "interest": 4,
+        "desk": {
+          "rubric": 7,
+          "chief": 7.0,
+          "why": "rescue: card lost to bad citations"
+        },
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "The assistant that sets a timer when I ask about rain?"
+            },
+            {
+              "who": "spark",
+              "text": "Give it a chance, it's trying.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "So am I. Nobody gives me a promotion.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Siri is expected to edit photos and organise Safari tabs with iOS 27.3[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Organise my tabs? Good luck with that."
+            },
+            {
+              "who": "spark",
+              "text": "By spring, it could order food on Grubhub or book a table on OpenTable[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Finally, an assistant that orders dinner. Still no promotion for me.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
+      }
     },
     {
       "story": 3,
@@ -104,19 +169,83 @@
       "category": "products",
       "paragraphs": [
         "Google released an update in August 2026 that allows users to disable the AI Coach feature[S5]. This change applies to the Google Health app for subscribers[S5].",
-        "They then select Your data in Google Health[S5]. Next, they scroll to Feature privacy controls and select Manage[S5]. Users can also access this via Google Health settings and Coaching[S5]. Another option is changing Coach messages on Today to No Coach insights[S5]. Users lose access to the Ask Coach button for questions[S5].",
-        "To do so, they tap the Ask Coach button[S5]. They then select Unlock Coach to restore the feature[S5]. These include advanced sleep tracking and Health Guardian[S5]."
+        "Users tap their profile photo, then select Your data in Google Health[S5]. Next, they scroll to Feature privacy controls and select Manage[S5]. Users can also access this via Google Health settings and Coaching[S5]. Another option is changing Coach messages on Today to No Coach insights[S5]. Users lose access to the Ask Coach button for questions[S5].",
+        "To turn the Coach back on, users tap the Ask Coach button[S5]. They then select Unlock Coach to restore the feature[S5]. Premium's other features include advanced sleep tracking and Health Guardian[S5]."
       ],
-      "card": null
+      "card": {
+        "hook": "Google Health lets you switch off its AI Coach and keep Premium[S5].",
+        "cover": "How to switch off Google's AI Coach[S5].",
+        "cover_hi": "switch off",
+        "points": [
+          "The AI Coach comes only with Google Health Premium, not the free tier[S5].",
+          "Tap your profile photo, then Your data, then Feature privacy controls[S5].",
+          "Your past data stays, and you can turn the Coach back on any time[S5]."
+        ],
+        "take": "Save this for the day the Coach's constant advice gets too much[S5].",
+        "take_kind": "do",
+        "ask": "Do you want an AI coaching your health?",
+        "pain": "privacy",
+        "hook_type": "you",
+        "reel": 7,
+        "interest": 4,
+        "desk": {
+          "rubric": 7,
+          "chief": 7.0,
+          "why": "rescue: card lost to bad citations"
+        },
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google Health lets you switch off its AI Coach and keep Premium[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "An off switch for advice. My inbox needs that."
+            },
+            {
+              "who": "spark",
+              "text": "You'd switch off everything, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "Not everything. Just the reminders. And the alarm clock.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Tap your profile photo, then Your data, then Feature privacy controls[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "A few taps. Even I can manage that."
+            },
+            {
+              "who": "spark",
+              "text": "Your past data stays, and you can turn the Coach back on any time[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Great. Now do the alarm clock.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
+      }
     },
     {
       "story": 4,
       "title": "Nous research fine-tunes qwen model to shift values",
       "category": "architecture",
       "paragraphs": [
-        "They aimed to reduce CCP-framed answers on sensitive topics[S6]. The model remains a 27B parameter system[S6]. It was evaluated at step 1,202[S6]. They thank Alibaba for providing the raw materials[S6]. The model is a 27B parameter system[S6]. It uses a 64k context window[S6]. The teacher model was Inkling[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6].",
-        "The fact score rose from 2.32 to 2.98 out of 5[S6]. Answers containing propaganda dropped from 22% to 0.9%[S6]. The evaluated checkpoint was step 1,202[S6]. The teacher model was Inkling[S6]. The training context was 64k[S6]. The parameter scale is 27B[S6]. They observed CCP-framed answers in the base model[S6]. They are thankful to Alibaba for raw materials[S6]. It is new on Hugging Face[S6]. The release date is 06 November 2026[S6]. The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6].",
-        "The model is a 27B parameter system[S6]. The model is a 27B parameter system[S6]."
+        "Nous Research aimed to reduce CCP-framed answers on sensitive topics[S6]. The model remains a 27B parameter system[S6]. It uses a 64k context window[S6]. The teacher model was Inkling[S6]. They thank Alibaba for providing the raw materials[S6].",
+        "The fact score rose from 2.32 to 2.98 out of 5[S6]. Answers containing propaganda dropped from 22% to 0.9%[S6]. The evaluated checkpoint was step 1,202[S6]. It is new on Hugging Face[S6], with a release date of 06 November 2026[S6]."
       ],
       "card": null
     }
