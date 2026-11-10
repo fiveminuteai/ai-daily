@@ -250,3 +250,11 @@ def project(tmp_path):
 def _cloud_providers_listed(monkeypatch):
     """Tests never call a real model; they only need the provider list as configured (fma.llm.cloud_allowed)."""
     monkeypatch.setenv("FMA_ALLOW_PROD_KEYS", "1")
+
+
+@pytest.fixture(autouse=True)
+def _bank_in_tmp(tmp_path_factory, monkeypatch):
+    """Tests never write the real knowledge bank (10 Nov 2026: every pipeline test run appended its fake posts to
+    data/bank/*.jsonl, which then had to be reverted by hand before each commit)."""
+    from fma import bank
+    monkeypatch.setattr(bank, "BANK", tmp_path_factory.mktemp("bank"))

@@ -15,8 +15,9 @@ utc = lambda h, m=0, d=4: datetime(2026, 11, d, h, m, tzinfo=timezone.utc)  # no
 
 def test_the_defaults_reproduce_the_original_times():
     # exactly the five events the clock ran before the times moved into config
+    # plus the late sweep at 22:30 India time (17:00 UTC, 10 Nov 2026) for anything still due
     assert clock.EVENTS == (("00:15", "daily.yml"), ("03:30", "post-scheduled.yml"), ("07:30", "post-scheduled.yml"),
-                            ("13:30", "post-scheduled.yml"), ("18:00", "collect-stats.yml"))
+                            ("13:30", "post-scheduled.yml"), ("17:00", "post-scheduled.yml"), ("18:00", "collect-stats.yml"))
     assert clock.events(clock.DEFAULT) == clock.EVENTS
 
 
@@ -35,7 +36,7 @@ def test_an_edited_schedule_moves_the_clock():
     assert sched == {"daily": "04:30", "reels": ("08:00", "20:30"), "stats": "22:00"}
     ev = clock.events(sched)
     assert ev == (("02:30", "post-scheduled.yml"), ("15:00", "post-scheduled.yml"), ("16:30", "collect-stats.yml"),
-                  ("23:00", "daily.yml"))                             # 04:30 India time is 23:00 UTC the day before
+                  ("17:00", "post-scheduled.yml"), ("23:00", "daily.yml"))                             # 04:30 India time is 23:00 UTC the day before
     assert clock.plan(utc(22, 0), ev=ev) == (60 * 60 + 16, "daily.yml")
     assert clock.plan(utc(2, 0), ev=ev) == (30 * 60 + 16, "post-scheduled.yml")
 

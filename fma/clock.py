@@ -22,6 +22,7 @@ from pathlib import Path
 # India time. Limits: the daily post between 03:00 and 07:00 (the laptop backup trigger fires at 07:30 and the
 # fixed cron backups from 05:45, see daily_not_yet); 1-5 Reels (3 until 7 Nov 2026), at least 90 minutes after the post and 30 apart,
 # by 23:00; stats between 20:00 and 23:45, after the last Reel.
+SWEEP = "22:30"                 # India time: the day's last posting run, for anything still due
 DEFAULT = {"daily": "05:45", "reels": ("09:00", "13:00", "19:00"), "stats": "23:30"}
 IST = timedelta(hours=5, minutes=30)
 _HHMM = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
@@ -75,6 +76,9 @@ def events(sched: dict) -> tuple[tuple[str, str], ...]:
     """(UTC time, workflow), in UTC order."""
     ev = [(to_utc(sched["daily"]), "daily.yml"), *[(to_utc(r), "post-scheduled.yml") for r in sched["reels"]],
           *([(to_utc(sched["carousel"]), "post-scheduled.yml")] if sched.get("carousel") else []),
+          # 10 Nov 2026: a Reel queued for a time no event covered (19:30) never posted. A late sweep posts anything
+          # still due; it's skipped when a Reel slot already falls at that time.
+          *([(to_utc(SWEEP), "post-scheduled.yml")] if SWEEP not in sched["reels"] else []),
           (to_utc(sched["stats"]), "collect-stats.yml")]       # the day's numbers, then the learning loop (fma/learn.py)
     return tuple(sorted(ev))
 

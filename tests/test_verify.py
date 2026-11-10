@@ -485,3 +485,13 @@ def test_version_numbers_do_not_crash_the_limit_check():
     src = "Version 2.1.313 replaced version 2.1.312 and reached up to 5,000 developers."
     assert ceiling_dropped("Version 2.1.313 hit developers", src) == ""
     assert ceiling_dropped("5,000 developers were hit", src)
+
+
+def test_a_card_line_citing_another_storys_source_is_recited_to_its_own():
+    from fma.verify import Verifier
+    sources = [{"id": "S1", "story": 1, "title": "Nvidia", "text": "Nvidia's board opened an investigation into its CEO."},
+               {"id": "S4", "story": 2, "title": "Apple", "text": "Apple is racing to make Siri more agentic with iOS 27.3."}]
+    v = Verifier(sources)
+    out = v.sentence("Siri gets agent features with iOS 27.3[S1].", "card[1] point", ["S4"])
+    assert out and "[S4]" in out and "[S1]" not in out
+    assert v.sentence("Siri gets agent features with iOS 99.9[S1].", "card[1] point", ["S4"]) is None   # still checked

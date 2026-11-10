@@ -285,13 +285,14 @@ def test_the_clock_starts_each_event_on_time_and_hops_long_gaps():
     from fma import clock
     ist = timezone(timedelta(hours=5, minutes=30))
     assert [datetime(2026, 11, 2, *map(int, t.split(":")), tzinfo=timezone.utc).astimezone(ist).strftime("%H:%M")
-            for t, wf in clock.EVENTS if wf == "post-scheduled.yml"] == list(sq.REEL_SLOTS)
+            for t, wf in clock.EVENTS if wf == "post-scheduled.yml"] == [*sq.REEL_SLOTS, clock.SWEEP]
     utc = lambda h, m=0: datetime(2026, 11, 2, h, m, tzinfo=timezone.utc)
     assert clock.plan(utc(0, 20)) == (3 * 3600 + 10 * 60 + 16, "post-scheduled.yml")     # 09:00 India time
     assert clock.plan(utc(3, 30, ) + timedelta(seconds=16))[1] == "post-scheduled.yml"   # the next slot, 13:00
     assert clock.plan(utc(7, 31)) == (int(clock.MAX_SLEEP.total_seconds()), "")        # 6 hours away: a hop first
     assert clock.plan(utc(13, 1)) == (29 * 60 + 16, "post-scheduled.yml")
-    assert clock.plan(utc(13, 31)) == (4 * 3600 + 29 * 60 + 16, "collect-stats.yml")    # 23:30: stats, learning
+    assert clock.plan(utc(13, 31)) == (3 * 3600 + 29 * 60 + 16, "post-scheduled.yml")   # 22:30: the late sweep
+    assert clock.plan(utc(17, 1)) == (59 * 60 + 16, "collect-stats.yml")                 # 23:30: stats, learning
     assert clock.plan(utc(18, 1)) == (int(clock.MAX_SLEEP.total_seconds()), "")         # overnight: hops
     assert clock.plan(utc(23, 0))[1] == "daily.yml"
     for h in range(24):                                     # every plan fits in one job

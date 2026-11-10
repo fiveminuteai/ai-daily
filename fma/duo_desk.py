@@ -783,7 +783,7 @@ def write(chain, section: dict, card: dict) -> dict | None:
     """The duo script for one story, or None: facts, then jokes, then assembly; the whole script must pass
     problems() and the comedy editor's bar (punch_up)."""
     guest = pick_guest(section)
-    lines = facts_step(chain, section)
+    lines = facts_step(chain, section) or card_facts(card)
     if not lines:
         return None
     lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s
@@ -803,6 +803,21 @@ def write(chain, section: dict, card: dict) -> dict | None:
     elif talk:
         log.info("duo banter for %r would run too long; keeping the one-liners", section.get("title"))
     return punch_up(chain, duo, section)
+
+
+def card_facts(card: dict) -> list[str] | None:
+    """The fallback when the facts step gives up (10 Nov 2026: false alarms cost three of four stories their duo):
+    Spark's lines from the Reel card's own hook and points, which carry their citations and go through both
+    fact-check layers like any duo line. Only lines that keep the duo's own limits are used; fewer than three, None."""
+    out = []
+    for t in [card.get("hook") or "", *(card.get("points") or [])]:
+        n = len(plain(t).split())
+        if re.search(r"\[S\d+\]", t) and 6 <= n <= LINE_WORDS and not any(
+                w.replace("‑", "-") in HARD_WORDS for w in re.findall(r"[a-z0-9]+(?:[-‑][a-z0-9]+)*", plain(t).lower())):
+            out.append(simplify(t))
+    if out and len(plain(out[0]).split()) > HOOK_WORDS:
+        out = out[1:] if len(out) > 3 else out
+    return out[:STORY_FACTS] if len(out) >= 3 else None
 
 
 STORY_FACTS = 3

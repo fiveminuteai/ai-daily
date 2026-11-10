@@ -263,7 +263,18 @@ def check_sentence(sentence: str, ids: list[str], corpora: dict[str, str], vocab
     for hw in HYPE_WORDS:
         if re.search(r"(?<![a-z])" + re.escape(hw) + r"(?![a-z])", low):
             problems.append(f"hype word '{hw}'")
+    # 10 Nov 2026: cards said shares "tumble" (the source: "slid more than 4%") and costs fell "dramatically" ($10
+    # to $8). A word that makes a change sound bigger is allowed only when the cited source uses it too.
+    src_low = norm(text)
+    for w in STRONGER_WORDS:
+        if re.search(r"(?<![a-z])" + w + r"(?![a-z])", low) and not re.search(r"(?<![a-z])" + w + r"(?![a-z])", src_low):
+            problems.append(f"overstates: '{re.search(w, low).group(0)}' is not in the source")
     return problems
+
+
+STRONGER_WORDS = [r"tumbl\w*", r"plung\w*", r"plummet\w*", r"soar\w*", r"crash\w*", r"slash\w*", r"dramatic\w*",
+                  r"massive\w*", r"huge", r"skyrocket\w*", r"collaps\w*", r"surg\w*", r"spik\w*", r"tank\w*",
+                  r"slump\w*", r"crushes", r"destroy\w*", r"shock\w*", r"bombshell", r"meltdown"]
 
 
 CASE_WORD_RE = re.compile(r"[A-Za-z][A-Za-z0-9]*(?:[-'’][A-Za-z0-9]+)*")
@@ -368,6 +379,12 @@ class Verifier:
                     if not check_sentence(s, cur, self.corpora, self.vocab):
                         break
                 ids, problems, repaired = cur, [], True
+        own = [i for i in dict.fromkeys(fallback_ids) if i in self.corpora]
+        if problems and own and set(own) != set(ids) and not any(p.startswith("hype") for p in problems)                 and not check_sentence(s, own, self.corpora, self.vocab):
+            # 10 Nov 2026: a writer numbered a story's card sources from S1 (the Apple card cited S1-S3, its story's
+            # source was S4) and three cards were lost. A line that fails against what it cites but passes every
+            # check against its own story's sources is re-cited to them, never kept as it was.
+            ids, problems, repaired = own, [], True
         quote_problem = self._inline_quotes(plain(s), ids)
         if quote_problem:
             problems.append(quote_problem)

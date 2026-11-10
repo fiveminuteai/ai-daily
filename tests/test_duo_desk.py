@@ -215,3 +215,13 @@ def test_dates_and_model_names_are_not_moved_numbers():
     # a real moved number is still caught
     src2 = "Meta has data centres in 23 states."
     assert duo_desk.binding_problems(["Meta has 23 data centres[S1]."], src2)
+
+
+def test_a_duo_falls_back_to_the_checked_card_when_the_facts_step_gives_up():
+    card = {"hook": "Google says connected Gmail files can reach human reviewers[S4].",
+            "points": ["Testers found Gemini pulls files in the background, without any tags[S4].",
+                       "Google's own advice is not to connect apps holding confidential files[S4].",
+                       "Results vary each run, the testers found[S4]."]}
+    lines = duo_desk.card_facts(card)
+    assert lines and len(lines) == 3 and all("[S4]" in t for t in lines)
+    assert duo_desk.card_facts({"hook": "Too short[S1].", "points": []}) is None
