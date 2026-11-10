@@ -80,6 +80,7 @@ work." Rules for this file:
 | 8 Nov | Our duo Reels reached ~10x the plain ones (48-129 vs 3-18); median watch 6.2 s; zero sends | Our data |
 | 9 Nov | Repos vetted: instagram-agent-skill and youtube-agent-skill (MIT, clean; ideas adopted), VoiceStudio (clean, voices only), Pixelle/Open-Higgsfield (paid backends, skip), InfiniteTalk (14B, too big), 3b1b/videos (non-commercial licence) | Read without running |
 | 9 Nov | Hosting location doesn't change earnings; viewer location does (US pays most) | Reasoning, standard ad economics |
+| 10 Nov | VoiceStudio tested live (Docker): its default OmniVoice (voice cloning) is CC-BY-NC, so no commercial use; the one commercial-safe engine installed, KittenTTS (Apache-2.0), read 1.5-2x slower than Kokoro, misread "OpenAI", and has 8 stock voices with no blending. Kokoro stays; nothing adopted | Our test, licence data from the repo |
 | 10 Nov | Schema.org JSON-LD raised the AEO score: home 70 to 85, about 60 to 75, post 75 to 95 | ATLAS check, our site |
 
 ## Pre-mortem checklist (before shipping anything)
