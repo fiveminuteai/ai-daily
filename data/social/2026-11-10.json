@@ -105,13 +105,17 @@
    "cover": "Anthropic's new Claude is cheaper and faster[S3].",
    "text": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.\n\n• Claude Fable 5.2 and Mythos 5.2 are now on Amazon Bedrock.\n• Fable 5.2 costs $8 per million input tokens, down from $10, and answers 30% faster.\n• In testing it solved two open physics problems about black holes, Anthropic says.\n\nOur read: If you build with Claude, the same work now costs less.\n\nYour take: Would a cheaper AI change how you work? Tell us in the comments.\n\nSend this to a friend in tech.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #anthropic #claude #amazon",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-10T10:31:22+00:00",
+   "posted_url": "https://www.instagram.com/reel/Dfjsj6RDj-3/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-10/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-10T10:30:00+00:00"
+   "scheduled_at": "2026-11-10T10:30:00+00:00",
+   "media_id": "18131624308862947",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/aZyH4NT30w8",
+   "youtube_error": null
   }
  ]
 }
