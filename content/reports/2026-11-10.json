@@ -1,0 +1,997 @@
+{
+  "checked": 83,
+  "ok": 44,
+  "repaired": 15,
+  "dropped": 24,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia shares dip after board launches probe into CEO's China‑linked relationship",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: None of the provided sources mention Nvidia shares, a board probe, or the CEO's China‑linked relationship.",
+        "model check: None of the provided sources mention Nvidia shares, a board probe, or the CEO's China‑linked relationship."
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "We’ll continue to do our part to proactively ensure teens are in age-appropriate experiences on our apps.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "Nvidia stock fell over 4% on Tuesday as its board opened an investigation into CEO Jensen Huang's ties to former Megaspeed executive Alice Huang, amid allegations of espionage and potential misleading disclosures to investors.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says the drop occurred on Monday, not Tuesday as the claim states."
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Anthropic released Claude Fable 5.2 and Mythos 5.2 on AWS, offering faster, cheaper, and higher‑capability AI for technical and high‑risk work.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Gemini can automatically pull and send personal Drive or email content to human reviewers, even without explicit tags, in a probabilistic manner.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Nvidia's stock dropped over 4% as shareholders prepare a potential fraud‑on‑the‑market lawsuit following a CEO relationship probe.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a fraud‑on‑the‑market theory but does not state that shareholders are preparing such a lawsuit."
+      ]
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Meta is deploying AI age‑guessing worldwide on Instagram, Facebook and soon Threads to move more teens into protected accounts.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "NVIDIA’s OpenShell runtime is being integrated into Korean AI agents to add sandboxed security and policy controls.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic announced Claude Fable 5.2 and Claude Mythos 5.2 on 9 November 2026 and made them available through Amazon Bedrock and the Claude Platform on AWS.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The two models are positioned as the most capable generally available versions for technical work, with Fable aimed at coding, math and science and Mythos targeting high‑risk domains such as cyber security and life sciences.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Both are offered under Anthropic’s verification programs for authorized users.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Only Mythos is described as offered via verification programs; no source says Fable is."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Fable 5.2 is described as able to handle ambiguous, multi‑step tasks, verify its own output and run unattended for hours to days, while also catching errors and optimizing as it proceeds.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "In internal testing the model solved two open theoretical‑physics problems, helped engineers complete large software migrations, and formalized a proof of Fermat’s Last Theorem in 30 hours.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Pricing was lowered from $10 to $8 per million input tokens, making it cheaper than GPT‑6 Astra, and the model returns responses about 30 % faster across effort levels, with an optional faster inference tier at double price.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic’s models compete in a market where speed, cost and data‑retention policies are key differentiators for enterprise customers.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention speed, cost, and zero‑data‑retention features but do not state these are key differentiators in the enterprise market."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The new models build on earlier versions (Fable 5.1, Mythos 5.1) and incorporate the Enterprise Frontier Safeguards system that supports zero‑data‑retention compliance.",
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "They also continue Anthropic’s alignment testing, which claims reduced hallucinations and more reliable task completion compared with prior models such as Opus 5.5 and Sonnet 5.5.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Anthropic rolls out Claude Fable 5.2 on AWS, cutting AI costs dramatically.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Claude Fable 5.2 and Mythos 5.2 are now available on Amazon Bedrock.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Fable solves two physics problems and formalizes Fermat’s Last Theorem in 30 hours.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Enterprises can run high‑risk tasks cheaper at $8 per million tokens.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives the $8 price but does not link it to enterprises running high‑risk tasks; the claim adds unsupported context."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Expect faster, cheaper AI for coding and security projects.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will lower AI costs change your workflow?",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Anthropic launches Claude Fable 5.2 on AWS.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google Gemini now routes personal Gmail, Docs, and Drive content to human reviewers when Connected Apps are enabled.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The change was announced in an October 16 edit to the 2023 Gemini Workspace blog post and confirmed in Google Help Answer 16836988.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The routing happens automatically during chat, even without explicit @Drive or @Gmail tags, and the retrieval is probabilistic.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "When a user mentions personal topics such as trips, bills, or reservations, Gemini may trigger a background Workspace lookup.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The system can produce four outcomes: no retrieval, a generic summary, a partial unredacted excerpt of 2–4 sentences, or full ingestion of the entire document or email.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Tests show that the same query can yield different outcomes on repeated runs because the tool‑calling step is nondeterministic.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google originally promised in 2023 that personal content would not be seen by human reviewers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The recent policy reversal means that any data accessed through Connected Apps can be sent to human review pipelines, raising privacy concerns for users who assume their files remain private.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Understanding that the retrieval is probabilistic helps explain why some users may not see data extraction in a single test, but the pipeline still exists.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Gemini pulls personal Drive and email data for review",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Google sends your Gmail and Drive files to human reviewers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "When Connected Apps are on, Gemini automatically pulls Gmail, Docs, and Drive content during chat.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The system may return a full unredacted excerpt or the entire document, and results vary each run.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anyone relying on Gemini’s privacy now faces potential exposure of personal emails and files.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Anyone' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Check your Connected Apps settings and disable them to keep your data private.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should Google be allowed to read your files?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Google sends private Gmail files to reviewers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia's shares fell more than 4% on Monday, the first trading day after its board announced an investigation into CEO Jensen Huang's relationship with Alice Huang, a former Megaspeed executive suspected of spying for China.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "A Los Angeles shareholder‑rights firm, Schall, Brown & Schwartz, said it is probing whether Nvidia gave false or misleading statements to investors.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Stanford law professor Robert Bartlett expects a securities filing to appear by the end of the day.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The investigation follows a New York Times report that linked Jensen Huang to Alice Huang, who U.S. intelligence monitored for over a year.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia previously described the relationship as \"not unusual or unexpected\" and said meetings with customers are part of a CEO's job.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Bartlett characterises the earlier company statement as clearly misleading and notes that, because Huang is CEO, his knowledge is imputed to Nvidia, supporting a classic fraud‑on‑the‑market claim.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Under federal securities law, the first complaint triggers a public notice and gives investors 60 days to request lead plaintiff status, giving early filers a strategic advantage.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Lawsuits of this type aim to recover losses when investors claim they paid inflated prices based on false disclosures.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia is headquartered in Santa Clara, so any case will likely be filed in the Northern District of California.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia faces early securities lawsuit after CEO probe",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports investigations and expectations of a filing, not an actual early securities lawsuit"
+      ]
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Nvidia shares tumble 4% after spy‑linked CEO probe.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Board opens probe into CEO Jensen Huang’s ties to alleged China spy Alice Huang.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Shares fell over 4% on the news, sparking investor alarm.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the share decline but does not mention investor alarm"
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Investors may sue to recover losses if disclosures were misleading.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch Nvidia’s filings; a settlement could affect your portfolio’s value.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will this shake your tech investments?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Nvidia shares drop 4% after CEO spy probe.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta announced on 9 November 2026 that it is expanding its AI‑powered age‑estimation technology on Instagram worldwide to identify more teens and place them under Teen Account protections.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company also said it will extend the same system to Facebook now and to Threads later this year.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The AI scans entire profiles for contextual clues such as birthday celebrations, school grades, and visual cues like height or bone structure.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It examines posts, comments, bios, captions, photos and videos to estimate age.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users judged to be 13‑17 are moved into teen accounts even if they entered an adult birthdate.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Teen accounts restrict direct messages to followers, hide harmful comments, set profiles private by default and enforce daily app‑time limits.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence does not mention daily app‑time limits required by the claim."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The rollout follows Meta’s settlement of up to $18 billion with nearly every U.S. state and territory in August 2026 over lawsuits alleging its platforms harm teens.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The settlement required stronger teen identification, prompting the global expansion.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Similar age‑estimation tools have already been used in the US, EU and Brazil, and parents in the U.S. will soon see an in‑feed video explaining the new protections.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence covers the first part only; no source phrase confirms the upcoming in‑feed video for parents."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Meta expands Instagram AI age‑guessing globally",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Meta forces teen accounts worldwide, limiting messages and screen time.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence mentions restrictions but does not state that Meta is forcing teen accounts worldwide."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Meta is rolling out AI age‑estimation on Instagram globally to flag users aged 13‑17.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The system scans posts, bios and photos, moving flagged teens into restricted accounts.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Affected users lose direct messaging and get daily app‑time caps, while parents see new safety videos.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence shows messaging is limited to followers, not a total loss of direct messaging, though daily caps and parent videos are confirmed."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Expect tighter chat limits and privacy controls on your Instagram now.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will this improve teen safety on social media?",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Meta expands teen AI guard.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Meta announced on November 9 it’s expanding AI age‑guessing worldwide on Instagram.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "Meta says the AI scans profiles for clues like birthdays, grades, height or bone structure.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Meta explained teen accounts limit messages, hide harmful comments, make profiles private, set daily limits.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions message limits, private profiles and daily limits but does not mention hiding harmful comments."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "NVIDIA announced that its Open Agent Safety Platform, including the OpenShell runtime, is being used by Korean firms to protect AI agents handling enterprise tasks.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Hyundai Motor Group is testing NVIDIA NemoClaw blueprints while AIM Intelligence is linking its Starfort control platform to OpenShell for secure agent execution.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says Hyundai is \"exploring\" the blueprints, not explicitly \"testing\" them, so the claim overstates the activity."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The effort follows a broader push in South Korea to combine open‑source models with strong runtime safeguards.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'South' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "OpenShell offers sandboxed execution and policy‑based controls that limit data exposure and manage tool access for autonomous agents.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "AIM Intelligence plans a proof‑of‑concept for the public energy sector, aiming to detect malicious instructions and prevent data leakage using Starfort’s detection capabilities together with OpenShell’s access controls.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "NVIDIA also released API access to LG AI Research’s K‑EXAONE‑2.5 model, trained on the 7‑million‑entry Nemotron‑Personas‑Korea synthetic dataset, to help developers build Korean‑context agents.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The API access is opened by LG AI Research, not NVIDIA, and while the model uses the 7‑million‑entry dataset, the claim misattributes the release to NVIDIA."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meanwhile, NVIDIA CEO Jensen Huang disclosed a personal affair that triggered an independent board investigation due to concerns about foreign intelligence targeting the company.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "AI agents are increasingly deployed for tasks such as employee productivity and industrial automation, which raises concerns about data security and unauthorized actions.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "NVIDIA’s OpenShell aims to address these risks by providing a controlled runtime environment, a model that can be adopted by any organization using NVIDIA’s open models.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes the controlled runtime but does not state that it can be adopted by any organization using NVIDIA’s open models."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The recent leadership controversy at NVIDIA highlights the importance of governance and trust in companies that supply foundational AI infrastructure.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports the affair and board probe but does not discuss governance or trust implications for AI‑infrastructure providers."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Korea secures AI agents with NVIDIA OpenShell",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "NVIDIA CEO’s affair triggers board probe as Korean firms lock AI agents.",
+      "sources": [
+        "S9",
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Nvidia’s board opened an independent investigation after reports Jensen Huang was targeted by foreign intelligence. Korean firms like AIM Intelligence are integrating NVIDIA OpenShell to secure AI age\""
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Korean firms adopt NVIDIA OpenShell to sandbox AI agents handling enterprise tasks.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "OpenShell limits data exposure while AIM’s Starfort detects malicious instructions, protecting critical workloads.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The board investigation underscores trust risks in AI infrastructure providers like NVIDIA.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes a board probe of the CEO, not a general trust risk for AI infrastructure providers."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "Ensure your company’s AI tools run in sandboxed environments to guard data and compliance.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will board probes change how you trust AI platforms?",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "NVIDIA CEO’s affair sparks board probe, Korean AI agents get OpenShell security.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "12 words, card limit is 8"
+      ]
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Investors may see further price volatility and could file lawsuits to recover losses if the probe confirms that Nvidia provided false information, affecting retirement accounts and corporate portfolios that hold the stock.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "The investigation underscores heightened regulatory scrutiny of tech CEOs' foreign contacts, prompting other companies to review disclosure practices and potentially tightening compliance requirements across the industry.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source discusses possible SEC action but does not mention broader regulatory scrutiny prompting other companies to review disclosures or tighter industry compliance"
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 20,
+  "unused": 16,
+  "headline_rescued": {
+    "was": "Nvidia shares dip after board launches probe into CEO's China‑linked relationship",
+    "problems": [
+      "model check: None of the provided sources mention Nvidia shares, a board probe, or the CEO's China‑linked relationship."
+    ]
+  },
+  "date": "2026-11-10",
+  "slug": "2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+  "model": "groq:openai/gpt-oss-120b"
+}

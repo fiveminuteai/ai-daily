@@ -1,0 +1,107 @@
+{
+ "date": "2026-11-10",
+ "slug": "2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+ "headline": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
+ "url": "https://fiveminuteai.net/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe/",
+ "generated_at": "2026-11-10T00:39:51+00:00",
+ "items": [
+  {
+   "id": "2026-11-10-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS\n\n• Anthropic released Claude Fable 5.2 and Mythos 5.2 on AWS, offering faster, cheaper, and higher-capability AI for technical and high-risk work.\n• Gemini can automatically pull and send personal Drive or email content to human reviewers, even without explicit tags, in a probabilistic manner.\n• Nvidia's shares fell more than 4% on Monday, the first trading day after its board announced an investigation into CEO Jensen Huang's relationship with Alice Huang, a former Megaspeed executive suspected of spying for China.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-10/instagram.png"
+   ],
+   "scheduled_at": "2026-11-10T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-10-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS\n\n• Anthropic released Claude Fable 5.2 and Mythos 5.2 on AWS, offering faster, cheaper, and higher-capability AI for technical and high-risk work.\n\nhttps://fiveminuteai.net/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 217
+  },
+  {
+   "id": "2026-11-10-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Claude Fable 5.2 and Mythos 5.2 arrive on AWS\n\n• Anthropic released Claude Fable 5.2 and Mythos 5.2 on AWS, offering faster, cheaper, and higher-capability AI for technical and high-risk work.\n• Gemini can automatically pull and send personal Drive or email content to human reviewers, even without explicit tags, in a probabilistic manner.\n• Nvidia's shares fell more than 4% on Monday, the first trading day after its board announced an investigation into CEO Jensen Huang's relationship with Alice Huang, a former Megaspeed executive suspected of spying for China.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-10-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Google sends your Gmail and Drive files to human reviewers[S4].",
+   "cover": "Google sends private Gmail files to reviewers[S4].",
+   "text": "Google sends your Gmail and Drive files to human reviewers.\n\n• When Connected Apps are on, Gemini automatically pulls Gmail, Docs, and Drive content during chat.\n• The system may return a full unredacted excerpt or the entire document, and results vary each run.\n\nDo this: Check your Connected Apps settings and disable them to keep your data private.\n\nYour take: Should Google be allowed to read your files? Tell us in the comments.\n\nSave this for when you need it.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-10/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-10T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-10-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Nvidia shares tumble 4% after spy‑linked CEO probe[S5].",
+   "cover": "Nvidia shares drop 4% after CEO spy probe[S5].",
+   "text": "Nvidia shares tumble 4% after spy-linked CEO probe.\n\n• Board opens probe into CEO Jensen Huang’s ties to alleged China spy Alice Huang.\n• Investors may sue to recover losses if disclosures were misleading.\n\nOur read: Watch Nvidia’s filings; a settlement could affect your portfolio’s value.\n\nYour take: Will this shake your tech investments? Tell us in the comments.\n\nKnow someone who follows AI? Send this to them.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-10/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-10T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-10-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Anthropic rolls out Claude Fable 5.2 on AWS, cutting AI costs dramatically[S1].",
+   "cover": "Anthropic launches Claude Fable 5.2 on AWS[S1].",
+   "text": "Anthropic rolls out Claude Fable 5.2 on AWS, cutting AI costs dramatically.\n\n• Claude Fable 5.2 and Mythos 5.2 are now available on Amazon Bedrock.\n• Fable solves two physics problems and formalizes Fermat’s Last Theorem in 30 hours.\n\nOur read: Expect faster, cheaper AI for coding and security projects.\n\nYour take: Will lower AI costs change your workflow? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #anthropic #claude #amazon",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-10/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-10T10:30:00+00:00"
+  }
+ ]
+}

@@ -1,0 +1,437 @@
+{
+ "date": "2026-11-10",
+ "started_at": "2026-11-10T00:15:38+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 7.0,
+   "items": 651,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 2
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 8
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 4
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 7
+    },
+    "github": {
+     "status": "ok",
+     "items": 8
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.0,
+   "stories": 218,
+   "editor": true,
+   "top": [
+    {
+     "title": "Introducing Claude Fable 5.2 on AWS",
+     "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/",
+     "score": 10.5,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning",
+      "TechCrunch",
+      "The Verge",
+      "anthropic.com (via Hacker News)",
+      "artificialanalysis.ai (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google Gemini routes personal Drive files and emails to human annotators",
+     "url": "https://github.com/thisisme6598/gemini_files/",
+     "score": 7.98,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The race is on to sue Nvidia",
+     "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+     "score": 7.45,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta expands Instagram’s AI age-guessing tech globally",
+     "url": "https://techcrunch.com/2026/11/09/meta-expands-instagrams-ai-age-guessing-tech-globally/",
+     "score": 7.45,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Claude Code is accidentally exposing secrets all over GitHub",
+     "url": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/",
+     "score": 7.35,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "ChatGPT Enterprise now available in AWS Marketplace",
+     "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+     "score": 7.22,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple’s $50 Intelligence Usage Packs extend access to some AI features",
+     "url": "https://www.theverge.com/tech/1030084/apple-intelligence-usage-packs-ai-features-creator-studio-logic-pro",
+     "score": 6.48,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "NVIDIA Nemotron 3.5 Super VL is now available in Amazon SageMaker JumpStart",
+     "url": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-5-super-vl-is-now-available-in-amazon-sagemaker-jumpstart/",
+     "score": 6.35,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal",
+     "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+     "score": 6.26,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+     "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+     "score": 6.16,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA",
+     "url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+     "score": 5.81,
+     "interest": 5.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "NVIDIA blog"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Disney and Adobe are building generative AI tools together",
+     "url": "https://www.theverge.com/tech/1029773/disney-adobe-generative-ai-partnership",
+     "score": 5.71,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Introducing Claude Fable 5.2 on AWS",
+     "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/",
+     "score": 10.5,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning",
+      "TechCrunch",
+      "The Verge",
+      "anthropic.com (via Hacker News)",
+      "artificialanalysis.ai (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google Gemini routes personal Drive files and emails to human annotators",
+     "url": "https://github.com/thisisme6598/gemini_files/",
+     "score": 7.98,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The race is on to sue Nvidia",
+     "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+     "score": 7.45,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta expands Instagram’s AI age-guessing tech globally",
+     "url": "https://techcrunch.com/2026/11/09/meta-expands-instagrams-ai-age-guessing-tech-globally/",
+     "score": 7.45,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With NVIDIA",
+     "url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+     "score": 5.81,
+     "interest": 5.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "NVIDIA blog"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.4,
+   "articles": 11,
+   "with_text": 10
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.2,
+   "word_count": 1081,
+   "sources": 9
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.7,
+    "reel_desk": 720.7,
+    "layer1": 0.1,
+    "layer2": 539.3,
+    "gate": 0.4
+   },
+   "layer1": {
+    "checked": 99,
+    "ok": 75,
+    "repaired": 20,
+    "dropped": 4
+   },
+   "layer2": {
+    "checked": 83,
+    "ok": 44,
+    "repaired": 15,
+    "dropped": 24
+   },
+   "unused": 16,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Massive cost cut with new Anthropic model could reshape enterprise AI use",
+     "hook": "Anthropic rolls out Claude Fable 5.2 on AWS, cutting AI costs dramatically.",
+     "chosen": true
+    },
+    {
+     "story": "Gemini pulls personal Drive and email data for review",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 9.0,
+     "why": "Privacy breach at Google hits everyone’s inboxes, huge office buzz",
+     "hook": "Google sends your Gmail and Drive files to human reviewers.",
+     "chosen": true
+    },
+    {
+     "story": "The race is on to sue Nvidia",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Nvidia stock tumble and spy‑linked CEO probe threatens big investors",
+     "hook": "Nvidia shares tumble 4% after spy‑linked CEO probe.",
+     "chosen": true
+    },
+    {
+     "story": "Meta expands Instagram AI age‑guessing globally",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Korea secures AI agents with NVIDIA OpenShell",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+ "finished_at": "2026-11-10T00:39:50+00:00",
+ "seconds": 1452.5
+}
