@@ -15,6 +15,6 @@ Median reach per Reel: 107 (last week n/a). Comments: 0.
 **Bottleneck: % leave in the first 3 s.** People scroll past in the first 3 s: test stronger first lines and covers (the hook, not the facts).
 
 Best Reels this week (by watch time):
-- Anthropic's new Claude Fable 5.2 is out, and cheaper than before. (12.4 s, reach 113, skip 33.9%)
+- Anthropic's new Claude Fable 5.2 is out, and cheaper than before. (12.3 s, reach 113, skip 33.9%)
 - You can now text Alexa to find and buy things on Amazon. (10.9 s, reach 114, skip 40.5%)
-- Nvidia's board is investigating CEO Jensen Huang's link to a suspected (9 s, reach 137, skip 44.2%)
+- Nvidia's board is investigating CEO Jensen Huang's link to a suspected (9.1 s, reach 138, skip 44.6%)
