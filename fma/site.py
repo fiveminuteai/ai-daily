@@ -335,6 +335,10 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
     shutil.copytree(config.SITE_DIR / "static", out_dir / "assets")
+    # hand-made pages served as they are (10 Nov 2026: the Five Minute AI Desk sales page at /desk/, approved by
+    # Pavan); not posts, so they stay out of the feed and the sitemap
+    if (config.SITE_DIR / "pages").is_dir():
+        shutil.copytree(config.SITE_DIR / "pages", out_dir, dirs_exist_ok=True)
     (out_dir / ".nojekyll").write_text("", encoding="utf-8")
 
     env = Environment(loader=FileSystemLoader(config.SITE_DIR / "templates"), autoescape=select_autoescape(["html", "xml"]),

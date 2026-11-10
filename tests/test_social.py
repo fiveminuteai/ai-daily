@@ -55,3 +55,11 @@ def test_build_writes_an_unlisted_share_kit_and_social_links(tmp_path):
     assert head.count('rel="me noopener"') == 4 and 'aria-label="Five Minute AI on Instagram"' in head   # top right
     assert home.split("<footer")[1].count('rel="me noopener"') == 4                                      # and bottom
     assert "@fiveminute_ai" in (out / "about/index.html").read_text(encoding="utf-8")
+
+
+def test_hand_made_pages_are_served_as_they_are_and_kept_out_of_the_sitemap(tmp_path):
+    from fma import site as site_mod
+    out = site_mod.build(out_dir=tmp_path / "public")
+    page = (out / "desk" / "index.html").read_text(encoding="utf-8")
+    assert "<title>Five Minute AI Desk</title>" in page and (out / "desk" / "img" / "today.jpg").exists()
+    assert "desk/" not in (out / "sitemap.xml").read_text(encoding="utf-8")
