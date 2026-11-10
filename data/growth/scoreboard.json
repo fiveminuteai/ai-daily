@@ -5,15 +5,15 @@
   "2026-11-10"
  ],
  "this_week": {
-  "reels": 12,
-  "reach": 108.5,
-  "skip_rate": 58.1,
-  "avg_watch_s": 6.3,
+  "reels": 11,
+  "reach": 107,
+  "skip_rate": 59,
+  "avg_watch_s": 5.6,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 5
+  "follows_per_week": 6
  },
  "last_week": {
   "reels": 0,
@@ -25,18 +25,18 @@
   "saves_per_1k": null,
   "comments": 0
  },
- "followers": 6,
+ "followers": 7,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 58.1,
+   "value": 59,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 6.3,
+   "value": 5.6,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -57,13 +57,27 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 5,
+   "value": 6,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
   }
  ],
  "best": [
+  {
+   "id": "18131624308862947",
+   "day": "2026-11-10",
+   "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
+   "reach": 113,
+   "skip_rate": 33.9,
+   "avg_watch_s": 12.4,
+   "likes_per_1k": 8.8,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-10-reel-3",
+   "youtube": "https://www.youtube.com/shorts/aZyH4NT30w8"
+  },
   {
    "id": "18022386755954819",
    "day": "2026-11-07",
@@ -82,29 +96,15 @@
    "id": "18057447428804643",
    "day": "2026-11-09",
    "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
-   "reach": 136,
-   "skip_rate": 44.1,
-   "avg_watch_s": 9.2,
-   "likes_per_1k": 7.4,
+   "reach": 137,
+   "skip_rate": 44.2,
+   "avg_watch_s": 9.0,
+   "likes_per_1k": 7.3,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
    "ours": "2026-11-09-reel-1",
    "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
-  },
-  {
-   "id": "18108967532213167",
-   "day": "2026-11-06",
-   "caption": "Claude can now read your bank accounts, but it can't move money.",
-   "reach": 114,
-   "skip_rate": 56.9,
-   "avg_watch_s": 8.7,
-   "likes_per_1k": 35.1,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-06-reel-1",
-   "youtube": null
   }
  ]
 }

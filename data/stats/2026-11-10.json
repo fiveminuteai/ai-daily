@@ -1,22 +1,290 @@
 {
  "date": "2026-11-10",
- "collected_at": "2026-11-10T01:24:19+00:00",
+ "collected_at": "2026-11-10T18:00:51+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 162,
+  "visitors_day": 8,
+  "daily": [
+   {
+    "day": "2026-10-14",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 32
+   },
+   {
+    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
+    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
+    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 25
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 14
+   },
+   {
+    "name": "ig",
+    "visitors": 2
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 2
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 2
+   },
+   {
+    "name": "www.duckduckgo.com",
+    "visitors": 1
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "visitors": 1
+   }
+  ]
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 6,
-  "media_count": 28,
+  "followers": 7,
+  "media_count": 32,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 213,
+   "views": 272,
+   "accounts_engaged": 2,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "18131624308862947",
+    "timestamp": "2026-11-10T10:31:13+0000",
+    "permalink": "https://www.instagram.com/reel/Dfjsj6RDj-3/",
+    "type": "VIDEO",
+    "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 113,
+    "views": 131,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 12.4,
+    "skip_rate": 33.9,
+    "reposts": 0
+   },
+   {
+    "id": "18129823147880927",
+    "timestamp": "2026-11-10T07:32:00+0000",
+    "permalink": "https://www.instagram.com/reel/DfjYDb5gqbb/",
+    "type": "VIDEO",
+    "caption": "Nvidia's stock slid more than 4% after its board's CEO probe.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 102,
+    "views": 119,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.7,
+    "skip_rate": 59,
+    "reposts": 0
+   },
+   {
+    "id": "18112803818208129",
+    "timestamp": "2026-11-10T05:31:14+0000",
+    "permalink": "https://www.instagram.com/p/DfjKR9xD4c7/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 9,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18132142009698936",
+    "timestamp": "2026-11-10T03:31:17+0000",
+    "permalink": "https://www.instagram.com/reel/Dfi8gKCAWDr/",
+    "type": "VIDEO",
+    "caption": "Google says your Gmail and Drive files can reach Gemini's human reviewers.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 26,
+    "views": 35,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.4,
+    "skip_rate": 59.4,
+    "reposts": 0
+   },
    {
     "id": "17919879177467512",
     "timestamp": "2026-11-09T17:31:51+0000",
@@ -25,13 +293,13 @@
     "caption": "Google Health lets you switch off its AI Coach and keep Premium.",
     "likes": 0,
     "comments": 0,
-    "reach": 43,
-    "views": 47,
+    "reach": 47,
+    "views": 51,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 2.1,
-    "skip_rate": 84.4,
+    "skip_rate": 83.7,
     "reposts": 0
    },
    {
@@ -42,13 +310,13 @@
     "caption": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports.",
     "likes": 0,
     "comments": 0,
-    "reach": 110,
-    "views": 134,
+    "reach": 111,
+    "views": 137,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 5.7,
-    "skip_rate": 60.5,
+    "skip_rate": 60.9,
     "reposts": 0
    },
    {
@@ -59,13 +327,13 @@
     "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
     "likes": 1,
     "comments": 0,
-    "reach": 136,
-    "views": 154,
+    "reach": 137,
+    "views": 156,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 9.2,
-    "skip_rate": 44.1,
+    "avg_watch_s": 9.0,
+    "skip_rate": 44.2,
     "reposts": 0
    },
    {
@@ -93,13 +361,13 @@
     "caption": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
     "likes": 0,
     "comments": 0,
-    "reach": 103,
-    "views": 116,
+    "reach": 104,
+    "views": 117,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 5.0,
-    "skip_rate": 58,
+    "skip_rate": 58.4,
     "reposts": 0
    },
    {
@@ -145,80 +413,12 @@
     "likes": 0,
     "comments": 0,
     "reach": 132,
-    "views": 152,
+    "views": 153,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 8.3,
-    "skip_rate": 44.9,
-    "reposts": 0
-   },
-   {
-    "id": "18085532438355560",
-    "timestamp": "2026-11-07T03:31:27+0000",
-    "permalink": "https://www.instagram.com/reel/DfbOGzojaRR/",
-    "type": "VIDEO",
-    "caption": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
-    "likes": 3,
-    "comments": 0,
-    "reach": 106,
-    "views": 128,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 4,
-    "avg_watch_s": 6.9,
-    "skip_rate": 53.2,
-    "reposts": 1
-   },
-   {
-    "id": "18018580688960509",
-    "timestamp": "2026-11-06T13:31:15+0000",
-    "permalink": "https://www.instagram.com/reel/DfZt_AggoNH/",
-    "type": "VIDEO",
-    "caption": "Meta says the midterm results will make data centres harder to build.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 131,
-    "views": 159,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 8.3,
-    "skip_rate": 58.2,
-    "reposts": 0
-   },
-   {
-    "id": "18108967532213167",
-    "timestamp": "2026-11-06T07:31:15+0000",
-    "permalink": "https://www.instagram.com/reel/DfZEyGDmf2_/",
-    "type": "VIDEO",
-    "caption": "Claude can now read your bank accounts, but it can't move money.",
-    "likes": 4,
-    "comments": 0,
-    "reach": 114,
-    "views": 123,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 4,
-    "avg_watch_s": 8.7,
-    "skip_rate": 56.9,
-    "reposts": 0
-   },
-   {
-    "id": "18236013835323296",
-    "timestamp": "2026-11-05T07:31:20+0000",
-    "permalink": "https://www.instagram.com/reel/DfWgAmjDtf2/",
-    "type": "VIDEO",
-    "caption": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 13,
-    "views": 24,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 1.6,
-    "skip_rate": 94.1,
+    "skip_rate": 44.5,
     "reposts": 0
    }
   ]

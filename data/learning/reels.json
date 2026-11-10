@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T01:24:43+00:00",
+ "updated": "2026-11-10T18:01:12+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -21,7 +21,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.098
+   "outcome": -0.136
   },
   {
    "id": "2026-10-31-reel-2",
@@ -43,7 +43,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.322
+   "outcome": -0.371
   },
   {
    "id": "2026-10-31-reel-3",
@@ -65,7 +65,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": -0.16
+   "outcome": -0.204
   },
   {
    "id": "2026-11-01-reel-1",
@@ -87,7 +87,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 84.0,
-   "outcome": -0.557
+   "outcome": -0.612
   },
   {
    "id": "2026-11-01-reel-2",
@@ -109,7 +109,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.2,
-   "outcome": -0.206
+   "outcome": -0.253
   },
   {
    "id": "2026-11-01-reel-3",
@@ -131,7 +131,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.2,
-   "outcome": -0.666
+   "outcome": -0.728
   },
   {
    "id": "2026-11-02-reel-1",
@@ -153,7 +153,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -0.142
+   "outcome": -0.183
   },
   {
    "id": "2026-11-02-reel-2",
@@ -175,7 +175,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 106.5,
-   "outcome": 0.521
+   "outcome": 0.522
   },
   {
    "id": "2026-11-02-reel-3",
@@ -197,7 +197,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": 0.432
+   "outcome": 0.467
   },
   {
    "id": "2026-11-03-reel-1",
@@ -219,7 +219,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.0,
-   "outcome": -0.277
+   "outcome": -0.296
   },
   {
    "id": "2026-11-03-reel-2",
@@ -241,7 +241,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.907
+   "outcome": -0.964
   },
   {
    "id": "2026-11-03-reel-3",
@@ -263,7 +263,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": -0.509
+   "outcome": -0.578
   },
   {
    "id": "2026-11-04-reel-1",
@@ -285,7 +285,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 85.0,
-   "outcome": -0.291
+   "outcome": -0.321
   },
   {
    "id": "2026-11-04-reel-2",
@@ -307,7 +307,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.414
+   "outcome": -0.447
   },
   {
    "id": "2026-11-04-reel-3",
@@ -351,7 +351,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -1.31
+   "outcome": -1.368
   },
   {
    "id": "2026-11-05-reel-2",
@@ -367,13 +367,13 @@
    "pain": "untagged",
    "pace": "no duo",
    "hook_type": "untagged",
-   "reach": 13,
-   "watch_s": 1.6,
+   "reach": 12,
+   "watch_s": 1.5,
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 113.9,
-   "outcome": -1.035
+   "age_h": 82.5,
+   "outcome": -1.144
   },
   {
    "id": "2026-11-06-reel-1",
@@ -394,8 +394,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 89.9,
-   "outcome": 1.145
+   "age_h": 82.5,
+   "outcome": 1.152
   },
   {
    "id": "2026-11-06-reel-2",
@@ -411,13 +411,13 @@
    "pain": "untagged",
    "pace": "slow",
    "hook_type": "untagged",
-   "reach": 131,
-   "watch_s": 8.3,
+   "reach": 130,
+   "watch_s": 7.7,
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 83.9,
-   "outcome": 1.118
+   "age_h": 76.5,
+   "outcome": 0.993
   },
   {
    "id": "2026-11-06-reel-3",
@@ -438,8 +438,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 69.9,
-   "outcome": 0.764
+   "age_h": 62.5,
+   "outcome": 0.753
   },
   {
    "id": "2026-11-07-reel-1",
@@ -460,8 +460,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 65.9,
-   "outcome": 1.12
+   "age_h": 82.5,
+   "outcome": 1.123
   },
   {
    "id": "2026-11-07-reel-2",
@@ -482,8 +482,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 62.9,
-   "outcome": 0.493
+   "age_h": 79.5,
+   "outcome": 0.47
   },
   {
    "id": "2026-11-07-reel-3",
@@ -504,8 +504,52 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 59.9,
-   "outcome": 1.579
+   "age_h": 76.5,
+   "outcome": 1.607
+  },
+  {
+   "id": "2026-11-08-reel-2",
+   "date": "2026-11-08",
+   "slot": 2,
+   "time": "13:00",
+   "category": "research",
+   "player": "giant",
+   "hook_number": true,
+   "hook_words": 11,
+   "desk": 6,
+   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_type": "untagged",
+   "reach": 104,
+   "watch_s": 5.0,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.5,
+   "outcome": 0.353
+  },
+  {
+   "id": "2026-11-08-reel-3",
+   "date": "2026-11-08",
+   "slot": 3,
+   "time": "16:00",
+   "category": "tools",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 11,
+   "desk": 6,
+   "hook": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_type": "untagged",
+   "reach": 107,
+   "watch_s": 5.4,
+   "shares": 0,
+   "saved": 2,
+   "comments": 0,
+   "age_h": 55.5,
+   "outcome": 0.446
   }
  ],
  "effects": [
@@ -513,19 +557,19 @@
    "feature": "category",
    "value": "impact",
    "n": 5,
-   "n_rest": 18,
-   "mean": -0.28,
-   "effect": -0.14,
-   "se": 0.38,
+   "n_rest": 20,
+   "mean": -0.31,
+   "effect": -0.16,
+   "se": 0.37,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 3,
-   "n_rest": 20,
-   "mean": -0.14,
-   "effect": -0.05,
+   "n_rest": 22,
+   "mean": -0.2,
+   "effect": -0.06,
    "se": 0.46,
    "confident": false
   },
@@ -533,9 +577,9 @@
    "feature": "category",
    "value": "policy",
    "n": 6,
-   "n_rest": 17,
-   "mean": 0.0,
-   "effect": 0.0,
+   "n_rest": 19,
+   "mean": -0.05,
+   "effect": -0.03,
    "se": 0.35,
    "confident": false
   },
@@ -543,29 +587,39 @@
    "feature": "category",
    "value": "products",
    "n": 8,
-   "n_rest": 15,
-   "mean": 0.16,
-   "effect": 0.13,
-   "se": 0.33,
+   "n_rest": 17,
+   "mean": 0.14,
+   "effect": 0.11,
+   "se": 0.32,
+   "confident": false
+  },
+  {
+   "feature": "category",
+   "value": "research",
+   "n": 1,
+   "n_rest": 24,
+   "mean": 0.35,
+   "effect": 0.04,
+   "se": 0.76,
    "confident": false
   },
   {
    "feature": "category",
    "value": "tools",
-   "n": 1,
-   "n_rest": 22,
-   "mean": 0.52,
-   "effect": 0.06,
-   "se": 0.76,
+   "n": 2,
+   "n_rest": 23,
+   "mean": 0.48,
+   "effect": 0.11,
+   "se": 0.55,
    "confident": false
   },
   {
    "feature": "player",
    "value": "giant",
-   "n": 17,
+   "n": 19,
    "n_rest": 6,
    "mean": 0.1,
-   "effect": 0.16,
+   "effect": 0.18,
    "se": 0.35,
    "confident": false
   },
@@ -573,19 +627,19 @@
    "feature": "player",
    "value": "other",
    "n": 5,
-   "n_rest": 18,
-   "mean": -0.31,
-   "effect": -0.16,
-   "se": 0.38,
+   "n_rest": 20,
+   "mean": -0.35,
+   "effect": -0.18,
+   "se": 0.37,
    "confident": false
   },
   {
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 22,
-   "mean": -0.1,
-   "effect": -0.01,
+   "n_rest": 24,
+   "mean": -0.14,
+   "effect": -0.02,
    "se": 0.76,
    "confident": false
   },
@@ -593,118 +647,118 @@
    "feature": "slot",
    "value": "09:00",
    "n": 7,
-   "n_rest": 16,
-   "mean": -0.27,
-   "effect": -0.19,
-   "se": 0.34,
-   "confident": false
-  },
-  {
-   "feature": "slot",
-   "value": "13:00",
-   "n": 8,
-   "n_rest": 15,
-   "mean": -0.01,
-   "effect": -0.01,
+   "n_rest": 18,
+   "mean": -0.31,
+   "effect": -0.2,
    "se": 0.33,
    "confident": false
   },
   {
    "feature": "slot",
+   "value": "13:00",
+   "n": 9,
+   "n_rest": 16,
+   "mean": -0.0,
+   "effect": -0.0,
+   "se": 0.31,
+   "confident": false
+  },
+  {
+   "feature": "slot",
    "value": "16:00",
-   "n": 1,
-   "n_rest": 22,
-   "mean": 0.49,
-   "effect": 0.06,
-   "se": 0.76,
+   "n": 2,
+   "n_rest": 23,
+   "mean": 0.46,
+   "effect": 0.1,
+   "se": 0.55,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
    "n": 7,
-   "n_rest": 16,
-   "mean": 0.22,
-   "effect": 0.15,
-   "se": 0.34,
+   "n_rest": 18,
+   "mean": 0.18,
+   "effect": 0.12,
+   "se": 0.33,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 14,
-   "n_rest": 9,
+   "n": 15,
+   "n_rest": 10,
    "mean": -0.12,
-   "effect": -0.15,
-   "se": 0.32,
+   "effect": -0.16,
+   "se": 0.3,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "yes",
-   "n": 9,
-   "n_rest": 14,
+   "n": 10,
+   "n_rest": 15,
    "mean": 0.18,
-   "effect": 0.15,
-   "se": 0.32,
+   "effect": 0.16,
+   "se": 0.3,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 15,
+   "n": 17,
    "n_rest": 8,
-   "mean": -0.04,
-   "effect": -0.06,
-   "se": 0.33,
+   "mean": -0.03,
+   "effect": -0.04,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
    "n": 8,
-   "n_rest": 15,
-   "mean": 0.08,
-   "effect": 0.06,
-   "se": 0.33,
+   "n_rest": 17,
+   "mean": 0.06,
+   "effect": 0.04,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
    "n": 11,
-   "n_rest": 12,
-   "mean": 0.35,
-   "effect": 0.36,
-   "se": 0.31,
+   "n_rest": 14,
+   "mean": 0.32,
+   "effect": 0.31,
+   "se": 0.3,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 14,
-   "mean": -0.13,
-   "effect": -0.11,
-   "se": 0.32,
+   "n_rest": 16,
+   "mean": -0.17,
+   "effect": -0.14,
+   "se": 0.31,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "under 7",
-   "n": 3,
+   "n": 5,
    "n_rest": 20,
-   "mean": -0.87,
-   "effect": -0.29,
-   "se": 0.46,
+   "mean": -0.4,
+   "effect": -0.2,
+   "se": 0.37,
    "confident": false
   },
   {
    "feature": "pace",
    "value": "brisk",
    "n": 2,
-   "n_rest": 21,
-   "mean": 1.13,
+   "n_rest": 23,
+   "mean": 1.14,
    "effect": 0.26,
    "se": 0.55,
    "confident": false
@@ -713,20 +767,20 @@
    "feature": "pace",
    "value": "no duo",
    "n": 17,
-   "n_rest": 6,
-   "mean": -0.37,
-   "effect": -0.62,
-   "se": 0.35,
+   "n_rest": 8,
+   "mean": -0.41,
+   "effect": -0.64,
+   "se": 0.32,
    "confident": false
   },
   {
    "feature": "pace",
    "value": "slow",
-   "n": 4,
+   "n": 6,
    "n_rest": 19,
-   "mean": 0.99,
-   "effect": 0.42,
-   "se": 0.41,
+   "mean": 0.77,
+   "effect": 0.45,
+   "se": 0.35,
    "confident": false
   }
  ]
