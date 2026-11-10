@@ -1,14 +1,14 @@
 {
- "date": "2026-11-09",
+ "date": "2026-11-10",
  "window": [
-  "2026-11-03",
-  "2026-11-09"
+  "2026-11-04",
+  "2026-11-10"
  ],
  "this_week": {
   "reels": 12,
   "reach": 108.5,
-  "skip_rate": 57.2,
-  "avg_watch_s": 7.3,
+  "skip_rate": 58.1,
+  "avg_watch_s": 6.3,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 57.2,
+   "value": 58.1,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 7.3,
+   "value": 6.3,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -68,8 +68,8 @@
    "id": "18022386755954819",
    "day": "2026-11-07",
    "caption": "You can now text Alexa to find and buy things on Amazon.",
-   "reach": 113,
-   "skip_rate": 40,
+   "reach": 114,
+   "skip_rate": 40.5,
    "avg_watch_s": 10.9,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
@@ -82,10 +82,10 @@
    "id": "18057447428804643",
    "day": "2026-11-09",
    "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
-   "reach": 131,
-   "skip_rate": 43.1,
-   "avg_watch_s": 9.5,
-   "likes_per_1k": 7.6,
+   "reach": 136,
+   "skip_rate": 44.1,
+   "avg_watch_s": 9.2,
+   "likes_per_1k": 7.4,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
