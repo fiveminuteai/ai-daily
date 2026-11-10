@@ -29,27 +29,70 @@
         "The new models build on earlier versions (Fable 5.1, Mythos 5.1) and incorporate the Enterprise Frontier Safeguards system that supports zero‑data‑retention compliance[S1][S3]. They also continue Anthropic’s alignment testing, which claims reduced hallucinations and more reliable task completion compared with prior models such as Opus 5.5 and Sonnet 5.5[S1]."
       ],
       "card": {
-        "hook": "Anthropic rolls out Claude Fable 5.2 on AWS, cutting AI costs dramatically[S1].",
+        "hook": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before[S3].",
+        "cover": "Anthropic's new Claude is cheaper and faster[S3].",
+        "cover_hi": "cheaper and faster",
         "points": [
-          "Claude Fable 5.2 and Mythos 5.2 are now available on Amazon Bedrock[S1].",
-          "Fable solves two physics problems and formalizes Fermat’s Last Theorem in 30 hours[S2]."
+          "Claude Fable 5.2 and Mythos 5.2 are now on Amazon Bedrock[S1].",
+          "Fable 5.2 costs $8 per million input tokens, down from $10, and answers 30% faster[S3].",
+          "In testing it solved two open physics problems about black holes, Anthropic says[S2]."
         ],
-        "take": "Expect faster, cheaper AI for coding and security projects[S1].",
+        "take": "If you build with Claude, the same work now costs less[S3].",
         "take_kind": "read",
-        "ask": "Will lower AI costs change your workflow[S1][S2][S3]?",
-        "interest": 4,
-        "reel": 7,
-        "angle": "New Anthropic models on AWS promise faster, cheaper AI for technical work",
-        "desk": {
-          "rubric": 7,
-          "chief": 7.0,
-          "why": "Massive cost cut with new Anthropic model could reshape enterprise AI use"
-        },
-        "bonus": 0.0,
-        "pain": "money",
+        "ask": "Would a cheaper AI change how you work?",
+        "pain": "tools",
         "hook_type": "stakes",
-        "cover": "Anthropic launches Claude Fable 5.2 on AWS[S1].",
-        "cover_hi": "launches"
+        "reel": 7,
+        "interest": 4,
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "rescue: duo facts step false alarms"
+        },
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Cheaper AI. Finally something in tech that goes down."
+            },
+            {
+              "who": "spark",
+              "text": "Prices go down sometimes, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "So do my expectations. Daily.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "It answers 30% faster and costs $8 per million input tokens, not $10[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Faster and cheaper. What's the catch?"
+            },
+            {
+              "who": "spark",
+              "text": "In testing, it solved two open physics problems about black holes, Anthropic says[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Black holes, solved. My expectations? Still going down.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
       }
     },
     {
@@ -62,27 +105,70 @@
         "Google originally promised in 2023 that personal content would not be seen by human reviewers[S4]. The recent policy reversal means that any data accessed through Connected Apps can be sent to human review pipelines, raising privacy concerns for users who assume their files remain private[S4]. Understanding that the retrieval is probabilistic helps explain why some users may not see data extraction in a single test, but the pipeline still exists[S4]."
       ],
       "card": {
-        "hook": "Google sends your Gmail and Drive files to human reviewers[S4].",
+        "hook": "Google says your Gmail and Drive files can reach Gemini's human reviewers[S4].",
+        "cover": "Google's AI reviewers may read your files[S4].",
+        "cover_hi": "read your files",
         "points": [
-          "When Connected Apps are on, Gemini automatically pulls Gmail, Docs, and Drive content during chat[S4].",
-          "The system may return a full unredacted excerpt or the entire document, and results vary each run[S4]."
+          "Google's help page says connected Gmail and Drive content can go to human reviewers[S4].",
+          "Testers found Gemini pulls files in the background, without @Drive or @Gmail tags[S4].",
+          "Google's own advice: don't connect apps with information you wouldn't want a reviewer to see[S4]."
         ],
-        "take": "Check your Connected Apps settings and disable them to keep your data private[S4].",
+        "take": "Check Gemini's Connected Apps and switch off anything holding confidential information[S4].",
         "take_kind": "do",
-        "ask": "Should Google be allowed to read your files[S4]?",
-        "interest": 4,
-        "reel": 8,
-        "angle": "Privacy breach in Google’s AI assistant could expose your personal files",
-        "desk": {
-          "rubric": 7,
-          "chief": 9.0,
-          "why": "Privacy breach at Google hits everyone’s inboxes, huge office buzz"
-        },
-        "bonus": 0.0,
+        "ask": "Would you connect your email to an AI?",
         "pain": "privacy",
         "hook_type": "stakes",
-        "cover": "Google sends private Gmail files to reviewers[S4].",
-        "cover_hi": "sends private"
+        "reel": 8,
+        "interest": 4,
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "rescue: duo facts step false alarms"
+        },
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google says your Gmail and Drive files can reach Gemini's human reviewers[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Human reviewers. So my tax files have a fan club now."
+            },
+            {
+              "who": "spark",
+              "text": "Only if you connect your apps, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "I connect nothing. Trust issues come standard.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Testers found it can pull files in the background, without you asking for them[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Without asking? Even my cupboard knocks first."
+            },
+            {
+              "who": "spark",
+              "text": "Google's advice: don't connect apps holding confidential files you wouldn't want reviewed[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Noted. My tax files are staying home.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
       }
     },
     {
@@ -95,27 +181,62 @@
         "Under federal securities law, the first complaint triggers a public notice and gives investors 60 days to request lead plaintiff status, giving early filers a strategic advantage[S5]. Lawsuits of this type aim to recover losses when investors claim they paid inflated prices based on false disclosures[S5]. Nvidia is headquartered in Santa Clara, so any case will likely be filed in the Northern District of California[S5]."
       ],
       "card": {
-        "hook": "Nvidia shares tumble 4% after spy‑linked CEO probe[S5].",
+        "hook": "Nvidia's stock slid more than 4% after its board's CEO probe[S5].",
+        "cover": "The race to sue Nvidia has begun[S5].",
+        "cover_hi": "sue Nvidia",
         "points": [
-          "Board opens probe into CEO Jensen Huang’s ties to alleged China spy Alice Huang[S5].",
-          "Investors may sue to recover losses if disclosures were misleading[S5]."
+          "Nvidia's stock slid more than 4% on the first trading day after the board's probe[S5].",
+          "A Los Angeles law firm is investigating whether Nvidia misled investors[S5].",
+          "A Stanford law professor expects a lawsuit to be filed[S5]."
         ],
-        "take": "Watch Nvidia’s filings; a settlement could affect your portfolio’s value[S5].",
+        "take": "The first lawsuit filed gives investors 60 days to ask to lead the case[S5].",
         "take_kind": "read",
-        "ask": "Will this shake your tech investments[S5]?",
-        "interest": 4,
-        "reel": 8,
-        "angle": "Nvidia’s stock dip could cost investors millions as a spy‑linked CEO faces a securities probe.",
-        "desk": {
-          "rubric": 7,
-          "chief": 8.0,
-          "why": "Nvidia stock tumble and spy‑linked CEO probe threatens big investors"
-        },
-        "bonus": 0.0,
+        "ask": "Would a lawsuit change how you see Nvidia?",
         "pain": "money",
-        "hook_type": "stakes",
-        "cover": "Nvidia shares drop 4% after CEO spy probe[S5].",
-        "cover_hi": "drop 4%"
+        "hook_type": "number",
+        "reel": 8,
+        "interest": 4,
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "rescue: duo facts step false alarms"
+        },
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Nvidia's stock slid more than 4% after its board's CEO probe[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "A bad day. Even for the giants."
+            },
+            {
+              "who": "spark",
+              "text": "A law firm is already investigating whether Nvidia misled investors[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Lawyers before lunch. Faster than my coffee.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "A Stanford law professor expects a lawsuit to be filed soon[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Coffee's still not ready. The lawyers are.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "sensitive": true
+        }
       }
     },
     {
