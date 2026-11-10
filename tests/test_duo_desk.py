@@ -206,3 +206,12 @@ def test_every_published_joke_still_passes_the_filter():
     from pathlib import Path
     rows = [json.loads(x) for x in Path("data/bank/duo_pairs.jsonl").read_text(encoding="utf-8").splitlines() if x]
     assert all(not duo_desk.joke_problems(r["joke"]) for r in rows)
+
+
+def test_dates_and_model_names_are_not_moved_numbers():
+    src = "In an October 16 edit to its blog, Google changed the page. Claude Fable 5.2 and Mythos 5.2 solved two problems."
+    assert duo_desk.binding_problems(["Google changed its blog on October 16 blog post[S1]."], src) == []
+    assert duo_desk.binding_problems(["Claude Fable 5.2 solved two open problems[S1]."], src) == []
+    # a real moved number is still caught
+    src2 = "Meta has data centres in 23 states."
+    assert duo_desk.binding_problems(["Meta has 23 data centres[S1]."], src2)

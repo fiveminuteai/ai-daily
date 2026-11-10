@@ -52,7 +52,7 @@ HARD_WORDS = {"allegedly", "alleged", "exempt", "exemption", "subtle", "combusti
               "infrastructure", "leverage", "paradigm", "synergy", "operating", "revenue", "motion", "dismiss",
               "dismissal", "standing", "affirmed", "admins", "enforce", "enforcement", "regulatory", "compliance",
               "provisions", "facility", "facilities", "disable", "utilise", "utilize", "k-12",
-              "proceed", "metric", "metrics", "margins", "quarterly", "filing"}
+              "proceed", "metric", "metrics", "margins", "quarterly"}   # "filing" out 10 Nov: everyday for a lawsuit
 # Words people know but that read as jargon in a 40-second Reel; "sued", "court", "judge", "said no" do the same job.
 # 5 Nov 2026: the first real-model run wrote "denied xAI's motion to dismiss" and "the NAACP has standing".
 SWAPS = [(r"\boperating loss\b", "loss"), (r"\brevenues?\b", "sales"),
@@ -480,6 +480,8 @@ def _ask(chain, system: str, prompt: str, temperature: float, schema: dict | Non
 NUM_NOUN = re.compile(r"(?<![\w.])(\$?\d[\d,.]*%?)\s+(?:\w+\s+)?([a-z]{3,})", re.I)
 
 
+MONTHS = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
+          "november", "december", "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec"}
 SCALE = {"percent", "per", "cent", "billion", "million", "trillion", "thousand", "hundred", "time", "times", "x",
          "year", "years", "month", "months", "week", "weeks", "day", "days", "hour", "hours", "minute", "minutes",
          "second", "seconds", "and", "or", "to", "from", "of", "in", "on", "at", "a", "an", "the"}
@@ -508,6 +510,11 @@ def binding_problems(lines: list[str], source: str) -> list[str]:
         for m in re.finditer(r"(?<![\w.])(\$?\d[\d,.]*%?)\s+([a-z]{3,})", text, re.I):
             num, word = m.group(1).rstrip(".,"), m.group(2).lower()
             if re.fullmatch(r"(19|20)\d\d", num) or word in SCALE or num not in after:
+                continue
+            before = text[:m.start()].rstrip().split()[-1:] or [""]
+            # 10 Nov 2026: "October 16" is a date and "Fable 5.2" a name, not counts of the word after them (three
+            # Reels lost their duo to these): a number right after a month or a capitalised name is skipped
+            if before[0].strip(",.").lower() in MONTHS or (before[0][:1].isupper() and not before[0].endswith(".")):
                 continue
             w = _stem(word)
             if w in after[num] or w not in src_words:
