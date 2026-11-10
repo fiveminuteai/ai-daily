@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS\n\n• Anthropic released Claude Fable 5.2 and Mythos 5.2 on AWS, offering faster, cheaper, and higher-capability AI for technical and high-risk work.\n• Gemini can automatically pull and send personal Drive or email content to human reviewers, even without explicit tags, in a probabilistic manner.\n• Nvidia's shares fell more than 4% on Monday, the first trading day after its board announced an investigation into CEO Jensen Huang's relationship with Alice Huang, a former Megaspeed executive suspected of spying for China.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-10T05:31:19+00:00",
+   "posted_url": "https://www.instagram.com/p/DfjKR9xD4c7/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-10/instagram.png"
    ],
-   "scheduled_at": "2026-11-10T05:30:00+00:00"
+   "scheduled_at": "2026-11-10T05:30:00+00:00",
+   "media_id": "18112803818208129",
+   "error": null
   },
   {
    "id": "2026-11-10-x",
