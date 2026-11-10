@@ -57,13 +57,17 @@
    "cover": "Google's AI reviewers may read your files[S4].",
    "text": "Google says your Gmail and Drive files can reach Gemini's human reviewers.\n\n• Google's help page says connected Gmail and Drive content can go to human reviewers.\n• Testers found Gemini pulls files in the background, without @Drive or @Gmail tags.\n• Google's own advice: don't connect apps with information you wouldn't want a reviewer to see.\n\nDo this: Check Gemini's Connected Apps and switch off anything holding confidential information.\n\nYour take: Would you connect your email to an AI? Tell us in the comments.\n\nSave this for when you need it.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-10T03:31:28+00:00",
+   "posted_url": "https://www.instagram.com/reel/Dfi8gKCAWDr/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-10/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-10T03:30:00+00:00"
+   "scheduled_at": "2026-11-10T03:30:00+00:00",
+   "media_id": "18132142009698936",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/b1DijUW1G28",
+   "youtube_error": null
   },
   {
    "id": "2026-11-10-reel-2",
