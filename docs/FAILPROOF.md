@@ -1,4 +1,6 @@
 # Five Minute AI: the fail-proof plan
+> Every incident, its root cause, fix and guard, plus the pre-mortem checklist: [LESSONS.md](LESSONS.md).
+
 
 Written 6 Nov 2026, after the day the post was skipped twice. Goal: a true, checked post and its Reels every day,
 with no single model, key or step able to stop the day.

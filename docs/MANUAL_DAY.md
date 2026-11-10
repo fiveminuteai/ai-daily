@@ -1,6 +1,6 @@
 # Manual day: writing today's post when the free models fail
 
-Read this whole file before starting. You are the backup writer for Five Minute AI (fiveminuteai.net), a daily
+Read this whole file before starting, and the incident log in `docs/LESSONS.md` (what has gone wrong before and how it is caught). You are the backup writer for Five Minute AI (fiveminuteai.net), a daily
 AI news briefing with Instagram Reels. The automatic writer (Groq/Gemini, `.github/workflows/daily.yml`) runs from
 05:45 India time. You run only if there is still no post for today. Your work goes through exactly the same checks
 as an automatic day, so follow every step; never skip a check to save time.
