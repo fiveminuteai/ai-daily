@@ -107,7 +107,10 @@ def upload_short(http, video_url: str, caption: str, hook: str, site: dict, date
                          headers={"Authorization": f"Bearer {access}",
                                   "Content-Type": f"multipart/related; boundary={boundary}"})
         except Exception as exc:  # noqa: BLE001
-            raise YouTubeError(f"upload: {type(exc).__name__}") from None
+            # 11 Nov 2026 audit: a connection lost after the file was sent may still have made a Short; the token
+            # can't list videos (upload scope only), so this is never retried on its own: a missing Short can be
+            # uploaded by hand, a duplicate has to be deleted (9 Nov)
+            raise YouTubeError(f"upload outcome unknown ({type(exc).__name__}): check the channel before retrying") from None
         if r.status_code in (200, 201):
             return f"https://www.youtube.com/shorts/{r.json()['id']}"
         reason = ""

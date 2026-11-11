@@ -201,3 +201,15 @@ def test_a_reel_gone_from_the_site_is_not_retried_and_never_fails_the_run(tmp_pa
     assert "FAILED" not in note and "given up" in note
     item = json.loads((q / "2026-11-08.json").read_text())["items"][0]
     assert item["youtube_tries"] == social_queue.MAX_ATTEMPTS
+
+
+def test_an_upload_lost_mid_send_is_never_retried_on_its_own():
+    """11 Nov 2026 audit: a dropped connection after the file was sent may already have made a Short, and the
+    upload-only token can't look; retrying is how 9 Nov got a duplicate."""
+    import pytest as _p
+
+    def uploader(url, data=None, headers=None, timeout=None):
+        raise ConnectionResetError("reset")
+    with _p.raises(youtube.YouTubeError, match="outcome unknown"):
+        youtube.upload_short(YT(), "https://x.net/r/01.mp4", "Cap.", "Hook[S1].", SITE, "2026-11-09", env=ENV,
+                             uploader=uploader)

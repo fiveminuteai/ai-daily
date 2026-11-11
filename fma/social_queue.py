@@ -12,7 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from . import config
@@ -81,6 +81,7 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
     for k, (n, sec) in enumerate(card_stories(post, limit=len(slots))):
         iid = f"{post['date']}-reel-{k + 1}"
         item = {"id": iid, "platform": "instagram_reel", **REEL, "story": n, "hook": sec["card"]["hook"],
+                "duo": bool(sec["card"].get("duo")),       # the Reel must render as the duo (media_problem)
                 "cover": sec["card"].get("cover"),
                 "text": reel_caption(sec, site), "edited_text": None,
                 # auto_post_reels (Pavan, 1 Nov 2026: "don't ask, just post them"): queued already approved, so
@@ -139,7 +140,8 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
     if item.get("scheduled_at") and item["posting"] == "api":
         how += f", at {item['scheduled_at']} (UTC) or as soon as possible after"
     return {"item": iid, "action": "approve", "platform": item["platform"], "would": how,
-            "text": final, "media": item.get("media", []), "scheduled_at": item.get("scheduled_at")}
+            "text": final, "media": item.get("media", []), "scheduled_at": item.get("scheduled_at"),
+            "story": item.get("story"), "duo": item.get("duo")}
 
 
 JOURNAL = ".post-journal.jsonl"   # not committed: what this run did, replayed if git can't merge the queue
@@ -186,18 +188,28 @@ def _now() -> datetime:
 
 
 def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None, edited: str | None,
-          attempts: int = 0) -> str:
+          attempts: int = 0, now: datetime | None = None) -> str:
     """Publish one Instagram item now and record the result. Raises PublishError (recorded) on failure.
     `attempts` is how many tries already failed; a retry first checks Instagram so nothing is posted twice."""
     from .instagram import PublishError, find_posted, publish_carousel, publish_reel, slide_urls
 
     ig_id = str(site.get("instagram_id") or "")
     try:
-        found = find_posted(http, ig_id, token or "", plan["text"]) if attempts else None
+        # 11 Nov 2026 audit: checked before every post, not only retries: a run whose record was lost (a merge
+        # clash, a timeout after media_publish) leaves the item "approved" with no attempts, and it would go twice
+        try:
+            found = find_posted(http, ig_id, token or "", plan["text"])
+        except PublishError:
+            if attempts:
+                raise
+            found = None             # Instagram unreachable for the check: the publish call below will say so
         if found:
             result, what = found, "found on Instagram after a reported failure"
         elif plan["platform"] == "instagram_reel":
             video = plan["media"][0]
+            problem = media_problem(http, {**plan, "id": iid}, site["base_url"]) if early(root, iid, now) else ""
+            if problem:            # after the wait it posts what there is, and the health check reports it
+                raise PublishError(problem)
             growth = site.get("growth") or {}
             result = publish_reel(http, ig_id, token or "", video, plan["text"],
                                   cover=video[:-4] + ".jpg" if video.endswith(".mp4") else None,
@@ -210,7 +222,12 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
             result = publish_carousel(http, ig_id, token or "", images, plan["text"])
             what = f"{len(images)} slides"
     except PublishError as exc:
-        _save_item(root, iid, status="failed", error=str(exc), edited_text=edited, attempts=attempts + 1)
+        if waiting(str(exc)) and early(root, iid, now):
+            # the Reel isn't on the site yet (the deploy is still rendering): not a failed attempt for two hours,
+            # or five quick 404s while a late post deploys would give the Reel up for good
+            _save_item(root, iid, status="approved", error=str(exc), edited_text=edited)
+        else:
+            _save_item(root, iid, status="failed", error=str(exc), edited_text=edited, attempts=attempts + 1)
         raise
     _save_item(root, iid, status="posted", posted_url=result["permalink"], media_id=result["id"], error=None,
                edited_text=edited)
@@ -218,6 +235,45 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
     if plan["platform"] == "instagram_reel":
         done += mirror(root, iid, site, http)
     return done
+
+
+WAIT_FOR_MEDIA = timedelta(hours=2)
+
+
+def waiting(error: str) -> bool:
+    return "not on the site yet" in error or "media not ready" in error
+
+
+def early(root: Path, iid: str, now: datetime | None = None) -> bool:
+    """True within WAIT_FOR_MEDIA of the item's slot."""
+    try:
+        item = next(i for i in json.loads(queue_path(root, iid[:10]).read_text(encoding="utf-8"))["items"]
+                    if i["id"] == iid)
+        return (now or _now()) < datetime.fromisoformat(item["scheduled_at"]) + WAIT_FOR_MEDIA
+    except (OSError, ValueError, KeyError, StopIteration, TypeError):
+        return False
+
+
+def media_problem(http, item: dict, base_url: str) -> str:
+    """Why this Reel's rendered file isn't the one to post yet, from share/<date>/media.json (fma/site.py), or "".
+    11 Nov 2026 audit: the file is re-rendered on every deploy; it must be for the item's own story and, when the
+    card has a duo, be the duo. No manifest (older deploys) means no objection."""
+    try:
+        resp = http.get(f"{base_url.rstrip('/')}/share/{item['id'][:10]}/media.json")
+        man = resp.json() if resp.status_code == 200 else None
+    except Exception:  # noqa: BLE001
+        return ""
+    if not isinstance(man, dict):
+        return ""
+    name = str((item.get("media") or [""])[0]).rsplit("/share/", 1)[-1].split("/", 1)[-1]
+    reel = next((r for r in man.get("reels", []) if r.get("file") == name), None)
+    if reel is None:
+        return f"media not ready: {name} is not in this deploy's render"
+    if isinstance(item.get("story"), int) and reel.get("story") != item["story"]:
+        return f"media not ready: {name} shows story {reel.get('story')}, the caption is story {item['story']}"
+    if item.get("duo") and not reel.get("duo"):
+        return f"media not ready: {name} rendered plain ({reel.get('plain_because', '?')}) but the card has a duo"
+    return ""
 
 
 def trial_for(iid: str, growth: dict) -> str | None:
@@ -245,7 +301,7 @@ def mirror(root: Path, iid: str, site: dict, http) -> str:
                            item.get("cover") or item.get("hook") or "",
                            site, iid[:10])
     except YouTubeError as exc:
-        gone = "HTTP 404" in str(exc)          # the site keeps only the newest day's Reels: it won't come back
+        gone = "HTTP 404" in str(exc) or "outcome unknown" in str(exc)   # won't come back / may already be there
         _save_item(root, iid, youtube_error=str(exc),
                    youtube_tries=MAX_ATTEMPTS if gone else item.get("youtube_tries", 0) + 1)
         return f"; YouTube not uploaded (recorded{', given up' if gone else ''}): {exc}"
@@ -273,7 +329,7 @@ def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, t
     if when and datetime.fromisoformat(when) > (now or _now()):
         _save_item(root, iid, status="approved", edited_text=edited, error=None)
         return f"{iid} approved, will post at {when} (UTC)"
-    return _post(root, iid, plan, site, http, token, edited)
+    return _post(root, iid, plan, site, http, token, edited, now=now)
 
 
 def due(root: Path, site: dict, http, token: str | None, now: datetime | None = None) -> list[str]:
@@ -299,9 +355,9 @@ def due(root: Path, site: dict, http, token: str | None, now: datetime | None = 
             if item.get("scheduled_at") and datetime.fromisoformat(item["scheduled_at"]) > now:
                 continue
             plan = {"platform": item["platform"], "media": item.get("media", []),
-                    "text": item.get("edited_text") or item["text"]}
+                    "text": item.get("edited_text") or item["text"], "story": item.get("story"), "duo": item.get("duo")}
             try:
-                out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text"), tried))
+                out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text"), tried, now=now))
             except PublishError as exc:
                 out.append(f"{item['id']} FAILED (recorded): {exc}")
     return out

@@ -2,10 +2,12 @@ name: Health check
 
 # The daily live check (fma/health.py, 11 Nov 2026): today's post, site pages, rendered media (duo, voice, length),
 # the posting queue and Instagram, read-only. A FAIL turns the run red, and GitHub emails the owner; the findings
-# are in the run's summary. Twice a day: after the first Reels, and after the 22:30 sweep.
+# are in the run's summary. Three times a day: before the first Reel, after the
+# midday Reels, and after the 22:30 sweep.
 
 on:
   schedule:
+    - cron: "0 3 * * *"      # 08:30 IST: is the post out before the first Reel?
     - cron: "15 7 * * *"     # 12:45 IST
     - cron: "50 17 * * *"    # 23:20 IST
   workflow_dispatch:

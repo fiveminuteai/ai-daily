@@ -216,7 +216,13 @@ def test_reel_whose_video_is_missing_fails_without_posting(reel_root):
         sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "SECRET-T0K",
                now=datetime(2026, 10, 31, 4, 0, tzinfo=timezone.utc))
     assert not any(m == "POST" for m, _, _ in g.calls)
-    assert item(reel_root, "instagram_reel")["status"] == "failed"
+    # 11 Nov 2026: within two hours of its slot a missing video is the deploy still rendering: it waits, unspent
+    it = item(reel_root, "instagram_reel")
+    assert it["status"] == "approved" and not it.get("attempts") and "not on the site yet" in it["error"]
+    with pytest.raises(PublishError):
+        sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "SECRET-T0K",
+               now=datetime(2026, 10, 31, 6, 0, tzinfo=timezone.utc))
+    assert item(reel_root, "instagram_reel")["status"] == "failed"      # after the wait it is a real failure
 
 
 def test_reels_are_queued_approved_when_auto_posting_is_on(tmp_path):
@@ -231,7 +237,7 @@ def test_reels_are_queued_approved_when_auto_posting_is_on(tmp_path):
 def test_a_failed_reel_is_tried_again_and_never_posted_twice(reel_root):
     from datetime import datetime, timezone
 
-    late = datetime(2026, 10, 31, 4, 0, tzinfo=timezone.utc)
+    late = datetime(2026, 10, 31, 6, 0, tzinfo=timezone.utc)        # past the two-hour wait for the render
 
     class Flaky(FakeGraph):
         """The video is missing on the first try; `posted` is what Instagram's recent-posts list shows."""
@@ -297,3 +303,46 @@ def test_the_clock_starts_each_event_on_time_and_hops_long_gaps():
     assert clock.plan(utc(23, 0))[1] == "daily.yml"
     for h in range(24):                                     # every plan fits in one job
         assert 0 <= clock.plan(utc(h, 7))[0] <= clock.MAX_SLEEP.total_seconds()
+
+
+def test_a_reel_whose_record_was_lost_is_found_not_posted_again(reel_root):
+    """11 Nov 2026 audit: a run that posted but lost its record (merge clash, timeout) leaves the item approved with
+    no attempts; the next run must find the post on Instagram first."""
+    from datetime import datetime, timezone
+
+    class Posted(FakeGraph):
+        def get(self, url, params=None, **kw):
+            from conftest import FakeResponse
+            if url == f"{GRAPH}/1784/media":
+                cap = item(reel_root, "instagram_reel")["text"]
+                return FakeResponse(200, json_data={"data": [{"id": "LIVE", "caption": cap, "permalink": "p"}]})
+            return super().get(url, params, **kw)
+    g = Posted()
+    sq.act(reel_root, "2026-10-31-reel-1", "approve", None, LIVE_SITE, g, "T",
+           now=datetime(2026, 10, 31, 2, 0, tzinfo=timezone.utc))
+    out = sq.due(reel_root, LIVE_SITE, g, "T", now=datetime(2026, 10, 31, 3, 31, tzinfo=timezone.utc))
+    assert "found on Instagram" in out[0] and not any(m == "POST" for m, _, _ in g.calls)
+
+
+def test_a_reel_waits_while_the_render_is_for_another_story_or_not_the_duo(reel_root):
+    from datetime import datetime, timezone
+    from conftest import FakeResponse
+
+    class Rendered(FakeGraph):
+        def __init__(self, manifest):
+            super().__init__()
+            self.manifest = manifest
+
+        def get(self, url, params=None, **kw):
+            if url.endswith("/share/2026-10-31/media.json"):
+                return FakeResponse(200, json_data=self.manifest)
+            return super().get(url, params, **kw)
+    it = {"id": "2026-10-31-reel-1", "media": ["https://fiveminuteai.net/share/2026-10-31/reels/01.mp4"],
+          "story": 0, "duo": True}
+    ok = {"reels": [{"file": "reels/01.mp4", "story": 0, "duo": "doubt"}]}
+    assert sq.media_problem(Rendered(ok), it, "https://fiveminuteai.net/") == ""
+    other = {"reels": [{"file": "reels/01.mp4", "story": 2, "duo": "doubt"}]}
+    assert "story 2" in sq.media_problem(Rendered(other), it, "https://fiveminuteai.net/")
+    plain = {"reels": [{"file": "reels/01.mp4", "story": 0, "duo": None, "plain_because": "duo render failed"}]}
+    assert "rendered plain" in sq.media_problem(Rendered(plain), it, "https://fiveminuteai.net/")
+    assert sq.media_problem(FakeGraph(), it, "https://fiveminuteai.net/") == ""     # no manifest: no objection

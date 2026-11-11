@@ -23,7 +23,7 @@ permissions:
   contents: write             # record the result in data/social
 
 concurrency:
-  group: publish-social       # same lock as approve/skip, so two runs never post the same item
+  group: post-scheduled       # 11 Nov 2026: its own lock; sharing approve/skip's let a queued run cancel a Skip
   cancel-in-progress: false
 
 jobs:

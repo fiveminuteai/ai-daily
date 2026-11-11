@@ -31,8 +31,11 @@ on:
 permissions:
   contents: write             # record the result in data/social
 
+# One queue per item (11 Nov 2026 audit): GitHub keeps one pending run per group and a newer one cancels it, so with
+# one shared group a scheduled posting run queued behind a Skip silently cancelled the Skip. Every post now looks
+# for itself on Instagram first, so two runs can't post the same item twice in the ordinary case.
 concurrency:
-  group: publish-social
+  group: publish-social-${{ inputs.item_id }}
   cancel-in-progress: false
 
 jobs:
@@ -73,7 +76,18 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Social: $ACTION $ITEM_ID"
           for i in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            if git pull --rebase origin main; then
+              git push && exit 0
+            else
+              # 11 Nov 2026 audit: as in post-scheduled.yml, a clash must not lose the record (it would post twice)
+              git rebase --abort || true
+              git fetch -q origin main && git reset -q --hard origin/main
+              python -m fma.social_queue replay .post-journal.jsonl
+              git add data/social
+              git diff --cached --quiet && exit 0
+              git commit -m "Social: $ACTION $ITEM_ID (replayed after a merge clash)"
+              git push && exit 0
+            fi
             sleep 10
           done
           exit 1
