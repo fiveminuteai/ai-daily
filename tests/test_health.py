@@ -66,3 +66,14 @@ def test_queue_and_render_must_agree_on_the_number_of_reels():
     q = {"items": [{"id": "r1", "kind": "reel", "status": "pending"}]}
     r = Report("d"); check_queue(r, q, NOW, {"reels": [{}, {}]})
     assert any("1 Reels queued but 2 rendered" in m for _, m in levels(r))
+
+
+def test_hand_posted_platforms_get_an_evening_reminder():
+    from datetime import datetime, timezone
+    q = {"items": [{"id": "2026-11-11-linkedin", "kind": "text", "posting": "manual", "status": "pending"},
+                   {"id": "2026-11-11-x", "kind": "post", "posting": "paid", "status": "posted", "posted_url": "u"}]}
+    r = Report("d"); check_queue(r, q, datetime(2026, 11, 11, 15, 0, tzinfo=timezone.utc))    # 20:30 IST
+    msgs = [m for lv, m in levels(r) if lv == "WARN"]
+    assert any(m.startswith("2026-11-11-linkedin") for m in msgs) and not any("-x:" in m for m in msgs)
+    r = Report("d"); check_queue(r, q, datetime(2026, 11, 11, 9, 0, tzinfo=timezone.utc))     # 14:30 IST: not yet
+    assert not any("by hand" in m for _, m in levels(r))

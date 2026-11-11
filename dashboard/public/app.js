@@ -808,7 +808,8 @@ function itemCard(i) {
         ? `<div class="sched">${svg("calendar")}<span>${at ? `Posts ${esc(whenText(at))}` : "Not scheduled: posts when approved"}</span>
           <button class="linkbtn" data-act="schedule">${at ? "Change" : "Schedule"}</button></div>` : "";
       const copy = ["x", "linkedin"].includes(i.platform) && st !== "expired"
-        ? `<button class="btn ghost" data-act="copy" aria-label="Copy ${esc(PLAT[i.platform])} text">${svg("copy")}Copy</button>` : "";
+        ? `<button class="btn ghost" data-act="copy" aria-label="Copy ${esc(PLAT[i.platform])} text">${svg("copy")}Copy</button>
+           ${st !== "posted" ? `<button class="btn ghost" data-act="posted">I posted it</button>` : ""}` : "";
       const buttons = approvable
         ? `<button class="btn ok" data-act="approve">${st === "failed" ? "Approve again" : st === "skipped" ? "Post it anyway" : "Approve"}</button>
            ${st === "pending" ? `<button class="btn" data-act="edit">Edit</button><button class="btn ghost" data-act="skip">Skip</button>` : ""}` : "";
@@ -880,6 +881,20 @@ async function onItemAction(btn) {
     el.outerHTML = cardFor(item);
     toast("Edit kept here: it goes out with this post when you approve it.");
     wireLazyVideos();
+    return;
+  }
+  if (act === "posted") {         // 11 Nov 2026: an X or LinkedIn post made by hand, recorded with its link
+    const url = (window.prompt(`Paste the link to your ${PLAT[item.platform]} post`) || "").trim();
+    if (!url) return;
+    try {
+      const r = await api("social/action", { method: "POST", body: { item_id: item.id, action: "posted", text: url } });
+      if (!r.dryRun) state.decisions.set(item.id, "posted");
+      el.outerHTML = cardFor(item);
+      renderCounts();
+      toast(r.dryRun ? `<b>Dry run.</b> Would record ${esc(item.id)} as posted.` : `Recorded ${esc(item.id)} as posted.`, r.dryRun ? "dry" : "");
+    } catch (err) {
+      toast(`<b>Failed.</b> ${esc(err.message)}`, "err");
+    }
     return;
   }
   const open = el.querySelector("textarea.edit");       // approving while editing keeps the edit

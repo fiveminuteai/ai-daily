@@ -110,6 +110,9 @@ test("writes need the dashboard header, JSON, same origin and valid input", asyn
   assert.equal(await status(post("control/rerun", {}, { origin: "https://evil.example" })), 400);
   assert.equal(await status(post("social/action", { item_id: "../../etc", action: "approve" })), 400);
   assert.equal(await status(post("social/action", { item_id: "2026-10-30-x", action: "delete" })), 400);
+  // posted by hand needs the post's own link on that platform (11 Nov 2026)
+  assert.equal(await status(post("social/action", { item_id: "2026-10-30-x", action: "posted", text: "https://evil.example/x" })), 400);
+  assert.equal(await status(post("social/action", { item_id: "2026-10-30-x", action: "posted" })), 400);
   assert.equal(await status(post("control/pause", { paused: "yes" })), 400);
   assert.equal(await status(req("day?date=yesterday", {})), 503);         // no token is checked before input
 });

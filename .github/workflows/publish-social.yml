@@ -13,12 +13,12 @@ on:
         required: true
         type: string
       action:
-        description: "approve or skip"
+        description: "approve, skip, or posted (an X/LinkedIn post made by hand; text = its link)"
         required: true
         type: choice
-        options: [approve, skip]
+        options: [approve, skip, posted]
       text:
-        description: "Edited text (optional; empty keeps the queued text)"
+        description: "Edited text (optional; empty keeps the queued text), or the post's link for posted"
         required: false
         type: string
         default: ""

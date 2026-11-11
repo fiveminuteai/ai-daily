@@ -294,10 +294,15 @@ async function saveBlogSettings({ gh, dryRun, repo }, { changes, shas } = {}) {
 
 async function socialAction(ctx, { item_id, action, text }) {
   if (!ITEM_RE.test(item_id || "")) throw new BadInput("unknown item id");
-  if (!["approve", "skip"].includes(action)) throw new BadInput("action must be approve or skip");
+  if (!["approve", "skip", "posted"].includes(action)) throw new BadInput("action must be approve, skip or posted");
   if (text != null && (typeof text !== "string" || text.length > 2200)) throw new BadInput("text must be under 2,200 characters");
+  // posted (11 Nov 2026): an X or LinkedIn post made by hand, recorded with its link
+  if (action === "posted" && !/^https:\/\/(www\.)?(x\.com|twitter\.com|linkedin\.com)\/\S+$/.test(text || "")) {
+    throw new BadInput("give the post's link on x.com or linkedin.com");
+  }
   const inputs = { item_id, action, ...(text ? { text } : {}) };
-  const what = `${action === "approve" ? "Approve" : "Skip"} ${item_id}${text ? " with edited text" : ""}`;
+  const what = action === "posted" ? `Record ${item_id} as posted by hand`
+    : `${action === "approve" ? "Approve" : "Skip"} ${item_id}${text ? " with edited text" : ""}`;
   return dispatch(ctx, WORKFLOWS.social, inputs, what);
 }
 

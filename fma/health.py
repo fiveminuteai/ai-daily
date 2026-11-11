@@ -147,6 +147,8 @@ def check_queue(r: Report, queue: dict | None, now: datetime, media: dict | None
                             f"({it.get('error') or 'no error recorded'})")
         elif auto and st == "pending" and when and now > when:
             r.warn("queue", f"{iid}: its time passed but it was never approved")
+        elif it.get("posting") in ("manual", "paid") and st in ("pending", "approved")                 and now.astimezone(IST).hour >= 20 and iid[:10] == now.astimezone(IST).date().isoformat():
+            r.warn("queue", f"{iid}: not posted by hand yet (post it, then 'I posted it' in the control app)")
         if it.get("error") and st != "failed":
             r.warn("queue", f"{iid}: last error: {str(it['error'])[:200]}")
 

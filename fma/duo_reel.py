@@ -338,7 +338,9 @@ def gag_sounds(track: np.ndarray, pl: dict, level: float = 0.5) -> np.ndarray:
 
 def remotion_ready() -> bool:
     import shutil
-    return bool(shutil.which("npx")) and (REELS / "node_modules" / "@remotion" / "cli").exists()
+    # 11 Nov 2026 audit: node_modules alone isn't enough; without its browser every render fails slowly
+    return (bool(shutil.which("npx")) and (REELS / "node_modules" / "@remotion" / "cli").exists()
+            and (REELS / "node_modules" / ".remotion").exists())
 
 
 def timeline(post: dict, section: dict, pl: dict) -> dict:
@@ -373,7 +375,8 @@ def remotion_render(post: dict, section: dict, pl: dict, audio: Path, out: Path)
         npx = shutil.which("npx")
         r = subprocess.run([npx, "remotion", "render", "src/index.ts", "DuoReel", str(out.resolve()),
                             f"--props={job / 'props.json'}", "--codec=h264", "--crf=18", "--log=error"],
-                           cwd=REELS, capture_output=True, text=True, timeout=1200)
+                           cwd=REELS, capture_output=True, text=True, timeout=360,   # renders take ~1 min;
+                           stdin=subprocess.DEVNULL)                                  # a hang must not eat the job
         if r.returncode != 0 or not out.exists():
             raise RuntimeError(f"remotion render failed: {(r.stderr or r.stdout)[-800:]}")
         return out

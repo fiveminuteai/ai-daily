@@ -856,8 +856,16 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 "Reply as {\"checks\": [{\"id\": \"C1\", \"evidence\": \"exact words from the source\", "
                 "\"supported\": true, \"reason\": \"short reason\"}]} with one entry per claim.\n\n"
                 f"CLAIMS\n{claims}\n\nSOURCES\n{src_block}")
-            result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0, careful=True)
-            checks = {str(c.get("id")): c for c in result.get("checks", []) if isinstance(c, dict)}
+            try:
+                result = chain.ask_json(LLM_CHECK_SYSTEM, prompt, temperature=0.0, careful=True)
+            except Exception as exc:  # noqa: BLE001
+                # 11 Nov 2026 audit: one failed batch (every provider out, the run's deadline) crashed the attempt
+                # and threw away a post layer 1 had passed. Unchecked claims are removed, never published; removing
+                # adds no claim, and the gate still judges what is left.
+                for k, _ in batch:
+                    bad[k] = f"model check unavailable, removed unchecked ({type(exc).__name__})"
+                continue
+            checks = {str(c.get("id")): c for c in (result or {}).get("checks", []) if isinstance(c, dict)}
             for k, _ in batch:
                 c = checks.get(k)
                 if c is None:

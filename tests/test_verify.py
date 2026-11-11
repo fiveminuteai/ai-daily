@@ -543,3 +543,21 @@ def test_layer_two_checks_the_headline_against_its_own_story():
     llm_check(c, post, src, {"entries": [], "checked": 0, "ok": 0, "repaired": 0, "dropped": 0})
     head = [p for p in c.prompts if "Anthropic sets IPO price range" in p]
     assert head and all("[S2]" in p for p in head) and not any("Anthropic sets IPO price range[S1]" in p for p in head)
+
+
+def test_a_failed_layer_two_batch_removes_its_claims_instead_of_crashing():
+    """11 Nov 2026 audit: one model failure in layer 2 threw away the whole attempt."""
+    from fma.llm import LLMError
+    from fma.verify import llm_check
+
+    class Flaky:
+        def ask_json(self, system, user, **kw):
+            raise LLMError("all providers failed")
+    src = [{"id": "S1", "story": 1, "title": "Acme ships", "url": "u", "publisher": "P", "text": "Acme shipped Nova."}]
+    post = {"headline": "Acme ships Nova", "dek": "", "what_happened": [], "why_it_matters": [], "quote": None,
+            "sections": [{"title": "Acme", "paragraphs": ["Acme shipped Nova[S1]."]}]}
+    rep = {"entries": [{"where": "sections[0]", "text": "Acme shipped Nova[S1].", "sources": ["S1"], "status": "ok",
+                        "problems": []}], "checked": 1, "ok": 1, "repaired": 0, "dropped": 0}
+    out, rep = llm_check(Flaky(), post, src, rep)
+    assert not any("Acme shipped Nova" in p for s in out["sections"] for p in s["paragraphs"])
+    assert any("unavailable" in "; ".join(e.get("problems", [])) for e in rep["entries"])

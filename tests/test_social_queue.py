@@ -346,3 +346,19 @@ def test_a_reel_waits_while_the_render_is_for_another_story_or_not_the_duo(reel_
     plain = {"reels": [{"file": "reels/01.mp4", "story": 0, "duo": None, "plain_because": "duo render failed"}]}
     assert "rendered plain" in sq.media_problem(Rendered(plain), it, "https://fiveminuteai.net/")
     assert sq.media_problem(FakeGraph(), it, "https://fiveminuteai.net/") == ""     # no manifest: no objection
+
+
+def test_x_and_linkedin_can_be_marked_posted_by_hand_with_their_link(root):
+    """11 Nov 2026 audit: X and LinkedIn items stayed pending forever; now Pavan records the post he made."""
+    sq.write_queue(root, "2026-10-31", LIVE_SITE)
+    with pytest.raises(ValueError, match="link"):
+        sq.act(root, "2026-10-31-linkedin", "posted", "https://example.com/x", SITE, None, None)
+    with pytest.raises(ValueError, match="API"):
+        sq.act(root, "2026-10-31-instagram", "posted", "https://www.instagram.com/p/x/", SITE, None, None)
+    out = sq.act(root, "2026-10-31-linkedin", "posted", "https://www.linkedin.com/feed/update/urn:li:activity:1/",
+                 SITE, None, None)
+    assert "posted by hand" in out
+    it = item(root, "linkedin")
+    assert it["status"] == "posted" and it["posted_url"].startswith("https://www.linkedin.com/")
+    sq.act(root, "2026-10-31-x", "posted", "https://x.com/fiveminute_ai/status/1", SITE, None, None)
+    assert item(root, "x")["status"] == "posted"

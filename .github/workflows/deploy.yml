@@ -61,8 +61,18 @@ jobs:
           cache: npm
           cache-dependency-path: reels/package-lock.json
       - name: Remotion
+        id: remotion
         run: |
-          cd reels && npm ci --no-audit --no-fund && npx remotion browser ensure             || echo "::warning::Remotion not ready: Reels will be drawn in Python"
+          cd reels && npm ci --no-audit --no-fund || echo "::warning::Remotion not installed: Reels will be drawn in Python"
+      # Remotion's own browser, cached (restored after npm ci, which empties node_modules), so a remotion.dev outage
+      # doesn't push every Reel to the slow Python drawing (11 Nov 2026 audit)
+      - uses: actions/cache@v4
+        with:
+          path: reels/node_modules/.remotion
+          key: remotion-browser-${{ hashFiles('reels/package-lock.json') }}
+      - name: Remotion browser
+        run: |
+          cd reels && npx remotion browser ensure || echo "::warning::Remotion browser not ready: Reels will be drawn in Python"
       # Mouth shapes from the voice (Rhubarb Lip Sync, MIT; fma/lipsync.py). Without it the mouths follow loudness.
       - uses: actions/cache@v4
         with:

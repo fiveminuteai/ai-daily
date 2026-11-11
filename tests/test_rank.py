@@ -150,3 +150,13 @@ def test_stories_about_the_giants_outrank_equal_ones_and_repos_get_no_boost():
     by = {s.title[:6]: s for s in out}
     assert by["OpenAI"].player == "giant" and by["Mistra"].player == "challenger" and by["acme/c"].player == ""
     assert by["OpenAI"].score > by["Mistra"].score > by["City c"].score
+
+
+def test_two_angles_on_one_ipo_are_one_story_in_the_lineup():
+    """11 Nov 2026: 'Anthropic sets IPO price range' and 'All 7 Anthropic founders will each cash out in IPO' both ran."""
+    a = Story([item("Anthropic sets IPO price range of $70 to $78 per share", "https://a/1", "tc")], score=5,
+              category="policy")
+    b = Story([item("All 7 Anthropic founders will each cash out about $250M in IPO", "https://b/1", "tc2")], score=4,
+              category="impact")
+    c = Story([item("Google Cloud launches Gemini for healthcare", "https://c/1", "verge")], score=3, category="models")
+    assert [s.title for s in pick_lineup([a, b, c], n=3)] == [a.title, c.title]

@@ -11,6 +11,8 @@ on:
   schedule:
     - cron: "35 3 * * *"      # 09:05 India time
     - cron: "5 4 * * *"       # 09:35, second try
+    - cron: "35 5 * * *"      # 11:05 the daily carousel (11 Nov 2026 audit: it had no backup)
+    - cron: "5 6 * * *"       # 11:35
     - cron: "35 7 * * *"      # 13:05
     - cron: "5 8 * * *"       # 13:35
     - cron: "35 10 * * *"     # 16:05 (the 4th slot, from 7 Nov 2026)

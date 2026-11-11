@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -29,6 +30,7 @@ PLATFORMS = {
                  "note": "Company-page API needs Community Management approval: copy the text and post by hand"},
 }
 STATUSES = ("pending", "approved", "skipped", "posted", "failed")
+HAND_HOSTS = {"x": ("x.com", "twitter.com"), "linkedin": ("linkedin.com",)}
 MAX_ATTEMPTS = 5            # a failed Instagram post is tried again by `due` until it has failed this many times
 # One Reel per story with a fact-checked card (fma/story_reel.py), posted at these India times after approval.
 REEL = {"kind": "reel", "posting": "api",
@@ -117,8 +119,10 @@ def write_queue(root: Path, date: str, site: dict) -> Path:
 
 
 def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> dict:
-    """What approving or skipping an item would do. Raises ValueError for an unknown item or action."""
-    if action not in ("approve", "skip"):
+    """What approving or skipping an item would do. Raises ValueError for an unknown item or action.
+    "posted" records an X or LinkedIn post made by hand; `text` is its link (11 Nov 2026 audit: those items stayed
+    "pending" forever, so nothing could tell whether they went out)."""
+    if action not in ("approve", "skip", "posted"):
         raise ValueError(f"unknown action {action!r}")
     date = iid[:10]
     path = queue_path(root, date)
@@ -128,6 +132,14 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
     item = next((i for i in queue["items"] if i["id"] == iid), None)
     if item is None:
         raise ValueError(f"no item {iid}")
+    if action == "posted":
+        hosts = HAND_HOSTS.get(item["platform"])
+        if not hosts:
+            raise ValueError(f"{item['platform']} posts through the API; it can't be marked posted by hand")
+        url = (text or "").strip()
+        if not re.fullmatch(r"https://(www\.)?(" + "|".join(map(re.escape, hosts)) + r")/\S+", url):
+            raise ValueError(f"give the post's link on {' or '.join(hosts)}")
+        return {"item": iid, "action": "posted", "would": f"record as posted by hand: {url}", "url": url}
     final = text if text else (item.get("edited_text") or item["text"])
     if action == "skip":
         return {"item": iid, "action": "skip", "would": "mark skipped, post nothing"}
@@ -315,6 +327,9 @@ def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, t
     An approved Instagram item with a later scheduled time waits for `due`; otherwise it posts now.
     Raises ValueError for a refused request (nothing changed) and PublishError when posting failed (recorded)."""
     plan = plan_action(root, iid, action, text)
+    if action == "posted":
+        _save_item(root, iid, status="posted", posted_url=plan["url"], error=None)
+        return f"{iid} recorded as posted by hand: {plan['url']}"
     edited = text or None
     if action == "skip":
         _save_item(root, iid, status="skipped")

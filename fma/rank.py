@@ -26,7 +26,9 @@ def jaccard(a: set[str], b: set[str]) -> float:
 
 
 # Words that name the same kind of event, so "files S-1" and "IPO prospectus" line up.
-EVENT_SYNONYMS = {"s-1": "ipo", "prospectus": "ipo", "filing": "ipo", "files": "ipo", "debut": "ipo", "listing": "ipo",
+# "ipo" itself is listed: at 3 letters it fell under stems()' length floor, so two IPO stories on 11 Nov 2026 shared
+# only "Anthropic" and both ran
+EVENT_SYNONYMS = {"ipo": "ipo", "ipos": "ipo", "s-1": "ipo", "prospectus": "ipo", "filing": "ipo", "files": "ipo", "debut": "ipo", "listing": "ipo",
                   "lawsuit": "sue", "sues": "sue", "sued": "sue", "acquires": "acqui", "acquisition": "acqui",
                   "buys": "acqui", "launches": "launc", "unveils": "launc", "introduces": "launc", "introducing": "launc"}
 GENERIC = STOP | set("""model models agent agents language large llm llms learning using based toward towards build
