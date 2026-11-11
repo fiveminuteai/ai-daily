@@ -1,222 +1,73 @@
 {
  "date": "2026-11-11",
- "collected_at": "2026-11-10T23:05:33+00:00",
+ "collected_at": "2026-11-11T08:13:43+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 163,
-  "visitors_day": 1,
-  "daily": [
-   {
-    "day": "2026-10-15",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-16",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-17",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-18",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-19",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-20",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-21",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-22",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-23",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-24",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-25",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-26",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-27",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-28",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 1
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 28
-   },
-   {
-    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
-    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
-    "visitors": 6
-   },
-   {
-    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
-    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
-    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
-    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
-    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
-    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
-    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
-    "visitors": 1
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "(direct)",
-    "visitors": 22
-   },
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 14
-   },
-   {
-    "name": "ig",
-    "visitors": 2
-   },
-   {
-    "name": "www.duckduckgo.com",
-    "visitors": 1
-   },
-   {
-    "name": "www.facebook.com",
-    "visitors": 1
-   },
-   {
-    "name": "www.linkedin.com",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
-    "visitors": 1
-   }
-  ]
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 7,
-  "media_count": 32,
+  "media_count": 35,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 0,
+   "views": 0,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "18114824456138178",
+    "timestamp": "2026-11-11T07:31:18+0000",
+    "permalink": "https://www.instagram.com/reel/Dfl8xC4AVvn/",
+    "type": "VIDEO",
+    "caption": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 0,
+    "views": 24,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 0.0,
+    "skip_rate": 0,
+    "reposts": 0
+   },
+   {
+    "id": "18127801600872806",
+    "timestamp": "2026-11-11T05:31:08+0000",
+    "permalink": "https://www.instagram.com/p/DflvDiYlLc0/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Google Cloud previews Gemini for healthcare",
+    "likes": 0,
+    "comments": 0,
+    "reach": 1,
+    "views": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18114798344166855",
+    "timestamp": "2026-11-11T03:31:12+0000",
+    "permalink": "https://www.instagram.com/reel/DflhSPLjf3u/",
+    "type": "VIDEO",
+    "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 106,
+    "views": 117,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 6.9,
+    "skip_rate": 61.1,
+    "reposts": 0
+   },
    {
     "id": "18131624308862947",
     "timestamp": "2026-11-10T10:31:13+0000",
@@ -368,57 +219,6 @@
     "total_interactions": 0,
     "avg_watch_s": 5.0,
     "skip_rate": 58.4,
-    "reposts": 0
-   },
-   {
-    "id": "18022386755954819",
-    "timestamp": "2026-11-07T13:31:10+0000",
-    "permalink": "https://www.instagram.com/reel/DfcSxDEGGxq/",
-    "type": "VIDEO",
-    "caption": "You can now text Alexa to find and buy things on Amazon.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 114,
-    "views": 125,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 10.9,
-    "skip_rate": 40.5,
-    "reposts": 0
-   },
-   {
-    "id": "18168531316469183",
-    "timestamp": "2026-11-07T10:32:08+0000",
-    "permalink": "https://www.instagram.com/reel/Dfb-RQEDxVF/",
-    "type": "VIDEO",
-    "caption": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 102,
-    "views": 105,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 5.6,
-    "skip_rate": 60,
-    "reposts": 0
-   },
-   {
-    "id": "18094192055212234",
-    "timestamp": "2026-11-07T07:31:17+0000",
-    "permalink": "https://www.instagram.com/reel/Dfbpk_ZjY-4/",
-    "type": "VIDEO",
-    "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 132,
-    "views": 153,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 8.3,
-    "skip_rate": 44.5,
     "reposts": 0
    }
   ]

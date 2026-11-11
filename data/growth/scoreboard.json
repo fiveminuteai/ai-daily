@@ -1,14 +1,14 @@
 {
- "date": "2026-11-10",
+ "date": "2026-11-11",
  "window": [
-  "2026-11-04",
-  "2026-11-10"
+  "2026-11-05",
+  "2026-11-11"
  ],
  "this_week": {
-  "reels": 11,
-  "reach": 107,
-  "skip_rate": 59,
-  "avg_watch_s": 5.6,
+  "reels": 10,
+  "reach": 105.0,
+  "skip_rate": 59.2,
+  "avg_watch_s": 5.4,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 59,
+   "value": 59.2,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.6,
+   "value": 5.4,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -79,20 +79,6 @@
    "youtube": "https://www.youtube.com/shorts/aZyH4NT30w8"
   },
   {
-   "id": "18022386755954819",
-   "day": "2026-11-07",
-   "caption": "You can now text Alexa to find and buy things on Amazon.",
-   "reach": 114,
-   "skip_rate": 40.5,
-   "avg_watch_s": 10.9,
-   "likes_per_1k": 0.0,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-07-reel-3",
-   "youtube": null
-  },
-  {
    "id": "18057447428804643",
    "day": "2026-11-09",
    "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
@@ -105,6 +91,20 @@
    "comments": 0,
    "ours": "2026-11-09-reel-1",
    "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
+  },
+  {
+   "id": "18114798344166855",
+   "day": "2026-11-11",
+   "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+   "reach": 106,
+   "skip_rate": 61.1,
+   "avg_watch_s": 6.9,
+   "likes_per_1k": 0.0,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-11-reel-1",
+   "youtube": "https://www.youtube.com/shorts/cSe3QdMSb-Q"
   }
  ]
 }

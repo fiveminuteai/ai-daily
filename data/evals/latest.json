@@ -1,0 +1,123 @@
+{
+ "at": "2026-11-11T08:14:04+00:00",
+ "ok": true,
+ "suites": [
+  {
+   "suite": "facts-true",
+   "n": 349,
+   "passed": 346,
+   "rate": 0.991,
+   "bar": 0.97,
+   "ok": true,
+   "misses": [
+    "2026-11-06: Meta has data centres in 23 states, and five are planned as huge power projects[S6]. -> overstates: 'huge' is not in the source",
+    "2026-11-10: Testers found Gemini pulls files in the background, without @Drive or @Gmail tags[S4]. -> name 'Testers' not in cited source",
+    "2026-11-10: Testers found it can pull files in the background, without you asking for them[S4]. -> name 'Testers' not in cited source"
+   ]
+  },
+  {
+   "suite": "facts-broken",
+   "n": 126,
+   "passed": 118,
+   "rate": 0.937,
+   "bar": 0.9,
+   "ok": true,
+   "misses": [
+    "2026-11-07: passed: Crusoe first announced the project last year with infrastructure company Tallgrass, planni",
+    "2026-11-07: passed: Crusoe had planned to scale the site to 13 gigawatts of power.",
+    "2026-11-07: passed: Crusoe had planned to scale it to 13 gigawatts of power.",
+    "2026-11-08: passed: The team had been created in 2026 to give more structure to AI research After the release ",
+    "2026-11-10: passed: They also continue Anthropic’s alignment testing, which claims reduced hallucinations and ",
+    "2026-11-10: passed: Google originally promised in 2026 that personal content would not be seen by human review",
+    "2026-11-10: passed: Meta announced on 12 November 2026 that It is expanding its AI‑powered age‑estimation tech",
+    "2026-11-11: passed: Anthropic updated its IPO filing on Tuesday to set a price range of $70 to $81 per share."
+   ]
+  },
+  {
+   "suite": "numbers",
+   "n": 12,
+   "passed": 12,
+   "rate": 1.0,
+   "bar": 1.0,
+   "ok": true,
+   "misses": []
+  },
+  {
+   "suite": "dedupe",
+   "n": 16,
+   "passed": 15,
+   "rate": 0.938,
+   "bar": 0.93,
+   "ok": true,
+   "misses": [
+    "wrongly merged: Google Health lets users hide its AI Coach | Google Cloud previews Gemini for healthcare"
+   ]
+  },
+  {
+   "suite": "speech",
+   "n": 9,
+   "passed": 9,
+   "rate": 1.0,
+   "bar": 1.0,
+   "ok": true,
+   "misses": []
+  },
+  {
+   "suite": "decency-bad",
+   "n": 10,
+   "passed": 10,
+   "rate": 1.0,
+   "bar": 1.0,
+   "ok": true,
+   "misses": []
+  },
+  {
+   "suite": "decency-clean",
+   "n": 64,
+   "passed": 64,
+   "rate": 1.0,
+   "bar": 1.0,
+   "ok": true,
+   "misses": []
+  },
+  {
+   "suite": "gate",
+   "n": 3,
+   "passed": 3,
+   "rate": 1.0,
+   "bar": 1.0,
+   "ok": true,
+   "misses": []
+  },
+  {
+   "suite": "learn-noise",
+   "n": 200,
+   "passed": 195,
+   "rate": 0.975,
+   "bar": 0.95,
+   "ok": true,
+   "misses": [
+    "trial 9: 'found' pace = brisk (effect -0.47)",
+    "trial 27: 'found' player = giant (effect -0.49)",
+    "trial 55: 'found' number in hook = no (effect 0.54)",
+    "trial 123: 'found' category = tools (effect -0.7)",
+    "trial 139: 'found' desk score = 7+ (effect 0.58)"
+   ]
+  },
+  {
+   "suite": "learn-signal",
+   "n": 200,
+   "passed": 194,
+   "rate": 0.97,
+   "bar": 0.9,
+   "ok": true,
+   "misses": [
+    "trial 10: missed the planted pattern ({'feature': 'category', 'value': 'tools', 'n': 17, 'n_rest': 73, 'mean': 0.44, 'effect': 0.36, 'se': 0.18, 'held_out': True, 'confident': False})",
+    "trial 39: missed the planted pattern ({'feature': 'category', 'value': 'tools', 'n': 23, 'n_rest': 67, 'mean': 0.31, 'effect': 0.3, 'se': 0.18, 'held_out': True, 'confident': False})",
+    "trial 94: missed the planted pattern ({'feature': 'category', 'value': 'tools', 'n': 23, 'n_rest': 67, 'mean': 0.29, 'effect': 0.28, 'se': 0.15, 'held_out': True, 'confident': False})",
+    "trial 128: missed the planted pattern ({'feature': 'category', 'value': 'tools', 'n': 15, 'n_rest': 75, 'mean': 0.45, 'effect': 0.35, 'se': 0.2, 'held_out': True, 'confident': False})",
+    "trial 134: missed the planted pattern ({'feature': 'category', 'value': 'tools', 'n': 19, 'n_rest': 71, 'mean': 0.31, 'effect': 0.28, 'se': 0.18, 'held_out': True, 'confident': False})"
+   ]
+  }
+ ]
+}

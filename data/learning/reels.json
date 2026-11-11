@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T23:05:53+00:00",
+ "updated": "2026-11-11T08:14:06+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -21,7 +21,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.136
+   "outcome": -0.183
   },
   {
    "id": "2026-10-31-reel-2",
@@ -43,7 +43,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.371
+   "outcome": -0.414
   },
   {
    "id": "2026-10-31-reel-3",
@@ -65,7 +65,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": -0.204
+   "outcome": -0.249
   },
   {
    "id": "2026-11-01-reel-1",
@@ -87,7 +87,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 84.0,
-   "outcome": -0.612
+   "outcome": -0.653
   },
   {
    "id": "2026-11-01-reel-2",
@@ -109,7 +109,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.2,
-   "outcome": -0.253
+   "outcome": -0.298
   },
   {
    "id": "2026-11-01-reel-3",
@@ -131,7 +131,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.2,
-   "outcome": -0.728
+   "outcome": -0.766
   },
   {
    "id": "2026-11-02-reel-1",
@@ -153,7 +153,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -0.183
+   "outcome": -0.229
   },
   {
    "id": "2026-11-02-reel-2",
@@ -175,7 +175,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 106.5,
-   "outcome": 0.522
+   "outcome": 0.464
   },
   {
    "id": "2026-11-02-reel-3",
@@ -197,7 +197,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": 0.467
+   "outcome": 0.404
   },
   {
    "id": "2026-11-03-reel-1",
@@ -219,7 +219,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.0,
-   "outcome": -0.296
+   "outcome": -0.345
   },
   {
    "id": "2026-11-03-reel-2",
@@ -241,7 +241,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.964
+   "outcome": -1.001
   },
   {
    "id": "2026-11-03-reel-3",
@@ -263,7 +263,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": -0.578
+   "outcome": -0.616
   },
   {
    "id": "2026-11-04-reel-1",
@@ -285,7 +285,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 85.0,
-   "outcome": -0.321
+   "outcome": -0.368
   },
   {
    "id": "2026-11-04-reel-2",
@@ -307,7 +307,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.447
+   "outcome": -0.492
   },
   {
    "id": "2026-11-04-reel-3",
@@ -329,7 +329,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": -0.278
+   "outcome": -0.329
   },
   {
    "id": "2026-11-05-reel-1",
@@ -351,7 +351,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -1.368
+   "outcome": -1.402
   },
   {
    "id": "2026-11-05-reel-2",
@@ -373,7 +373,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -1.144
+   "outcome": -1.179
   },
   {
    "id": "2026-11-06-reel-1",
@@ -395,7 +395,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": 1.152
+   "outcome": 1.088
   },
   {
    "id": "2026-11-06-reel-2",
@@ -417,7 +417,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 76.5,
-   "outcome": 0.993
+   "outcome": 0.932
   },
   {
    "id": "2026-11-06-reel-3",
@@ -439,7 +439,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 62.5,
-   "outcome": 0.753
+   "outcome": 0.695
   },
   {
    "id": "2026-11-07-reel-1",
@@ -460,8 +460,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 87.6,
-   "outcome": 1.123
+   "age_h": 82.5,
+   "outcome": 1.06
   },
   {
    "id": "2026-11-07-reel-2",
@@ -482,8 +482,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 84.6,
-   "outcome": 0.47
+   "age_h": 79.5,
+   "outcome": 0.416
   },
   {
    "id": "2026-11-07-reel-3",
@@ -504,8 +504,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 81.6,
-   "outcome": 1.607
+   "age_h": 76.5,
+   "outcome": 1.536
   },
   {
    "id": "2026-11-08-reel-2",
@@ -526,8 +526,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 63.6,
-   "outcome": 0.353
+   "age_h": 72.7,
+   "outcome": 0.301
   },
   {
    "id": "2026-11-08-reel-3",
@@ -548,8 +548,30 @@
    "shares": 0,
    "saved": 2,
    "comments": 0,
-   "age_h": 60.6,
-   "outcome": 0.446
+   "age_h": 69.7,
+   "outcome": 0.393
+  },
+  {
+   "id": "2026-11-09-reel-1",
+   "date": "2026-11-09",
+   "slot": 1,
+   "time": "12:25",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 13,
+   "desk": 8,
+   "hook": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_type": "untagged",
+   "reach": 138,
+   "watch_s": 9.1,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 49.3,
+   "outcome": 1.239
   }
  ],
  "effects": [
@@ -557,230 +579,264 @@
    "feature": "category",
    "value": "impact",
    "n": 5,
-   "n_rest": 20,
-   "mean": -0.31,
-   "effect": -0.16,
-   "se": 0.37,
+   "n_rest": 21,
+   "mean": -0.36,
+   "effect": -0.18,
+   "se": 0.38,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 3,
-   "n_rest": 22,
-   "mean": -0.2,
-   "effect": -0.06,
-   "se": 0.46,
+   "n_rest": 23,
+   "mean": -0.24,
+   "effect": -0.08,
+   "se": 0.47,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "category",
    "value": "policy",
-   "n": 6,
+   "n": 7,
    "n_rest": 19,
-   "mean": -0.05,
-   "effect": -0.03,
-   "se": 0.35,
+   "mean": 0.09,
+   "effect": 0.06,
+   "se": 0.34,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
    "n": 8,
-   "n_rest": 17,
-   "mean": 0.14,
-   "effect": 0.11,
+   "n_rest": 18,
+   "mean": 0.09,
+   "effect": 0.07,
    "se": 0.32,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "category",
    "value": "research",
    "n": 1,
-   "n_rest": 24,
-   "mean": 0.35,
+   "n_rest": 25,
+   "mean": 0.3,
    "effect": 0.04,
-   "se": 0.76,
+   "se": 0.78,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "category",
    "value": "tools",
    "n": 2,
-   "n_rest": 23,
-   "mean": 0.48,
-   "effect": 0.11,
-   "se": 0.55,
+   "n_rest": 24,
+   "mean": 0.43,
+   "effect": 0.1,
+   "se": 0.56,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "player",
    "value": "giant",
-   "n": 19,
+   "n": 20,
    "n_rest": 6,
-   "mean": 0.1,
-   "effect": 0.18,
+   "mean": 0.11,
+   "effect": 0.21,
    "se": 0.35,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "player",
    "value": "other",
    "n": 5,
-   "n_rest": 20,
-   "mean": -0.35,
-   "effect": -0.18,
-   "se": 0.37,
+   "n_rest": 21,
+   "mean": -0.4,
+   "effect": -0.2,
+   "se": 0.38,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 24,
-   "mean": -0.14,
+   "n_rest": 25,
+   "mean": -0.18,
    "effect": -0.02,
-   "se": 0.76,
+   "se": 0.78,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "09:00",
    "n": 7,
-   "n_rest": 18,
-   "mean": -0.31,
-   "effect": -0.2,
-   "se": 0.33,
+   "n_rest": 19,
+   "mean": -0.35,
+   "effect": -0.23,
+   "se": 0.34,
+   "held_out": null,
+   "confident": false
+  },
+  {
+   "feature": "slot",
+   "value": "12:25",
+   "n": 1,
+   "n_rest": 25,
+   "mean": 1.24,
+   "effect": 0.15,
+   "se": 0.78,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "13:00",
    "n": 9,
-   "n_rest": 16,
-   "mean": -0.0,
-   "effect": -0.0,
+   "n_rest": 17,
+   "mean": -0.05,
+   "effect": -0.04,
    "se": 0.31,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "16:00",
    "n": 2,
-   "n_rest": 23,
-   "mean": 0.46,
-   "effect": 0.1,
-   "se": 0.55,
+   "n_rest": 24,
+   "mean": 0.4,
+   "effect": 0.09,
+   "se": 0.56,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
    "n": 7,
-   "n_rest": 18,
-   "mean": 0.18,
-   "effect": 0.12,
-   "se": 0.33,
+   "n_rest": 19,
+   "mean": 0.13,
+   "effect": 0.08,
+   "se": 0.34,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 15,
+   "n": 16,
    "n_rest": 10,
-   "mean": -0.12,
-   "effect": -0.16,
-   "se": 0.3,
+   "mean": -0.08,
+   "effect": -0.11,
+   "se": 0.31,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "yes",
    "n": 10,
-   "n_rest": 15,
-   "mean": 0.18,
-   "effect": 0.16,
-   "se": 0.3,
+   "n_rest": 16,
+   "mean": 0.13,
+   "effect": 0.11,
+   "se": 0.31,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 17,
+   "n": 18,
    "n_rest": 8,
-   "mean": -0.03,
-   "effect": -0.04,
+   "mean": -0.0,
+   "effect": -0.0,
    "se": 0.32,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
    "n": 8,
-   "n_rest": 17,
-   "mean": 0.06,
-   "effect": 0.04,
+   "n_rest": 18,
+   "mean": 0.0,
+   "effect": 0.0,
    "se": 0.32,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 11,
+   "n": 12,
    "n_rest": 14,
-   "mean": 0.32,
-   "effect": 0.31,
+   "mean": 0.35,
+   "effect": 0.36,
    "se": 0.3,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 16,
-   "mean": -0.17,
-   "effect": -0.14,
+   "n_rest": 17,
+   "mean": -0.21,
+   "effect": -0.17,
    "se": 0.31,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "under 7",
    "n": 5,
-   "n_rest": 20,
-   "mean": -0.4,
-   "effect": -0.2,
-   "se": 0.37,
+   "n_rest": 21,
+   "mean": -0.44,
+   "effect": -0.22,
+   "se": 0.38,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "pace",
    "value": "brisk",
    "n": 2,
-   "n_rest": 23,
-   "mean": 1.14,
-   "effect": 0.26,
-   "se": 0.55,
+   "n_rest": 24,
+   "mean": 1.07,
+   "effect": 0.24,
+   "se": 0.56,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "pace",
    "value": "no duo",
    "n": 17,
-   "n_rest": 8,
-   "mean": -0.41,
-   "effect": -0.64,
-   "se": 0.32,
-   "confident": false
+   "n_rest": 9,
+   "mean": -0.45,
+   "effect": -0.69,
+   "se": 0.31,
+   "held_out": null,
+   "confident": true
   },
   {
    "feature": "pace",
    "value": "slow",
-   "n": 6,
+   "n": 7,
    "n_rest": 19,
-   "mean": 0.77,
-   "effect": 0.45,
-   "se": 0.35,
+   "mean": 0.79,
+   "effect": 0.51,
+   "se": 0.34,
+   "held_out": null,
    "confident": false
   }
  ]

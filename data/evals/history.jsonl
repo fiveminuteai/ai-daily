@@ -1,0 +1,1 @@
+{"at": "2026-11-11T08:14:04+00:00", "ok": true, "rates": {"facts-true": 0.991, "facts-broken": 0.937, "numbers": 1.0, "dedupe": 0.938, "speech": 1.0, "decency-bad": 1.0, "decency-clean": 1.0, "gate": 1.0, "learn-noise": 0.975, "learn-signal": 0.97}}
