@@ -60,7 +60,7 @@ the Bitwarden CLI (`winget install Bitwarden.CLI`), Settings also shows whether 
 | --- | --- |
 | Roadmap, account notes, mail settings | `%APPDATA%\FiveMinuteAI\*.json` (this computer only) |
 | App log (start/stop lines, no secrets) | `%APPDATA%\FiveMinuteAI\app.log` |
-| App window profile | `%LOCALAPPDATA%\FiveMinuteAI\window` |
+| App window profile | `%LOCALAPPDATA%\FiveMinuteAIpp-window` (the older `window` folder is unused and can be deleted) |
 | Instagram pages feed (read-only) | `faceless-ig\data\dashboard.json` next to this repository, written by `python -m ig feed` in that folder. Another path: Settings → Pages feed, or `$env:FMA_PAGES_FEED` |
 | Secrets | Windows Credential Manager (`FiveMinuteAI/*`) and Bitwarden |
 | Pipeline data, social queue, stats | the GitHub repository, as before |

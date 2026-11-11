@@ -57,8 +57,9 @@ function openWindow() {
     return null;
   }
   // msImplicitSignin off + --disable-sync: Edge would otherwise sign this fresh profile into the Windows Microsoft
-  // account and turn sync on (checked 11 Nov 2026: with both flags the profile holds no account)
-  return spawn(edge, [`--app=${URL_}`, `--user-data-dir=${join(process.env.LOCALAPPDATA || DATA, "FiveMinuteAI", "window")}`,
+  // account and turn sync on (checked 11 Nov 2026: with both flags the profile holds no account). "app-window", not
+  // "window": the old "window" profile is already signed in, and flags don't sign an existing profile out
+  return spawn(edge, [`--app=${URL_}`, `--user-data-dir=${join(process.env.LOCALAPPDATA || DATA, "FiveMinuteAI", "app-window")}`,
     "--no-first-run", "--no-default-browser-check", "--window-size=1440,900", "--disable-sync",
     "--disable-features=Translate,msImplicitSignin"],
   { windowsHide: false, stdio: "ignore" });
