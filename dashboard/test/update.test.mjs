@@ -95,3 +95,25 @@ test("not a git folder: skipped, never thrown", async () => {
     assert.match(r.reason, /update skipped/);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test("a main whose GitHub checks failed is not taken (11 Nov 2026 audit)", async () => {
+  const s = await setup();
+  try {
+    await s.newer();
+    const before = await s.head(s.app);
+    const r = await selfUpdate(s.g(s.app), { isGreen: async () => false });
+    assert.equal(r.updated, false);
+    assert.match(r.reason, /checks failed on main/);
+    assert.equal(await s.head(s.app), before);
+    assert.equal((await selfUpdate(s.g(s.app), { isGreen: async () => null })).updated, true);   // unknown: as before
+  } finally { await s.done(); }
+});
+
+test("checksFromGitHub reads check runs: a failure is false, all done is true, running is unknown", async () => {
+  const { checksFromGitHub } = await import("../desktop/update.mjs");
+  const fake = (runs) => async () => ({ ok: true, json: async () => ({ check_runs: runs }) });
+  assert.equal(await checksFromGitHub("t", "r", fake([{ status: "completed", conclusion: "failure" }]))("s"), false);
+  assert.equal(await checksFromGitHub("t", "r", fake([{ status: "completed", conclusion: "success" }]))("s"), true);
+  assert.equal(await checksFromGitHub("t", "r", fake([{ status: "in_progress", conclusion: null }]))("s"), null);
+  assert.equal(await checksFromGitHub("t", "r", async () => { throw new Error("offline"); })("s"), null);
+});

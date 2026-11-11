@@ -127,7 +127,8 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   const sum = summary || log?.summary || null;
   const st = sum?.stages || {};
   const attempts = sum?.attempts || (log?.rejected || []).map((r) => ({ n: r.n, fails: r.fails }));
-  const last = attempts[attempts.length - 1] || null;
+  // 11 Nov 2026: the published attempt can be an earlier one (the fullest short edition), not the last
+  const last = attempts.find((a) => a.n === sum?.published_attempt) || attempts[attempts.length - 1] || null;
   const published = Boolean(post) || main?.info.outcome === "published";
   const reason = main?.info.reason || sum?.reason || "";
   const gen = main?.jobs?.find((j) => j.name === "generate");
@@ -192,10 +193,14 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
 
   // gate
   const gateFails = attempts.flatMap((a) => (a.fails || []).map((f) => ({ attempt: a.n, text: f })));
-  stages.push(stage("gate", published ? "ok" : /gate failed/.test(reason) ? "failed" : writeOk ? (running ? "running" : "failed") : after(false), {
+  // 11 Nov 2026: a short edition passed only the relaxed rules; it is a warning, never a clean "ok"
+  const short = post?.edition === "short";
+  stages.push(stage("gate", published ? (short ? "warn" : "ok") : /gate failed/.test(reason) ? "failed" : writeOk ? (running ? "running" : "failed") : after(false), {
     seconds: attempts.reduce((a, x) => a + (x.seconds?.gate || 0), 0) || null,
-    numbers: { attempts: attempts.length || (published ? 1 : 0), rejected: attempts.filter((a) => (a.fails || []).length).length },
+    numbers: { attempts: attempts.length || (published ? 1 : 0), rejected: attempts.filter((a) => (a.fails || []).length).length,
+               ...(sum?.published_attempt ? { published_attempt: sum.published_attempt } : {}) },
     fails: gateFails,
+    note: short ? `Short edition: ${post.sections?.length || 0} stories, ${post.word_count} words (length rules relaxed).` : "",
   }));
 
   // publish: the post is committed to main
@@ -230,18 +235,27 @@ export function buildDay({ date, now = new Date(), runs = [], deploys = [], post
   // what can really post: the story Reels, or the carousel on days before Reels existed (X is off, LinkedIn by hand)
   const all = queue?.items || [];
   const items = all.filter((i) => i.platform === "instagram_reel" || (i.platform === "instagram" && !all.some((r) => r.platform === "instagram_reel")));
-  const statusOf = (i) => (past && i.status === "pending" ? "expired" : i.status);
+  // 11 Nov 2026 audit: an approved Reel 40 minutes past its slot never posted (9 Nov 19:30); it is overdue, a failure,
+  // and failures are counted before anything still pending
+  const overdue = (i) => i.status === "approved" && i.posting === "api" && i.scheduled_at &&
+    now.getTime() > Date.parse(i.scheduled_at) + 40 * 60 * 1000;
+  const statusOf = (i) => (past && i.status === "pending" ? "expired" : overdue(i) ? "overdue" : i.status);
   const count = (s) => items.filter((i) => statusOf(i) === s).length;
+  const noShort = date >= "2026-11-09"            // YouTube Shorts started on 9 Nov 2026
+    ? items.filter((i) => i.platform === "instagram_reel" && i.status === "posted" && !i.youtube_url).length : 0;
+  const nothingPosted = past && items.length && !count("posted") && !count("skipped");
   stages.push(stage("social", !items.length ? (post ? "pending" : after(false)) :
-    count("pending") ? "pending" : count("failed") ? "failed" : count("approved") + count("posted") ? "ok" : "skipped", {
-    numbers: items.length ? { pending: count("pending"), approved: count("approved") + count("posted"), skipped: count("skipped"),
-                              expired: count("expired") } : {},
+    count("failed") || count("overdue") || nothingPosted ? "failed" : count("pending") ? "pending" :
+    count("approved") + count("posted") ? (noShort ? "warn" : "ok") : "skipped", {
+    numbers: items.length ? { pending: count("pending"), approved: count("approved"), posted: count("posted"),
+                              overdue: count("overdue"), failed: count("failed"), skipped: count("skipped"),
+                              expired: count("expired"), no_youtube: noShort } : {},
   }));
 
   for (const s of stages) if (paused && nothing && s.status === "pending") s.status = "skipped";
 
   let verdict;
-  if (published) verdict = stages.some((s) => s.status === "failed") ? "warn" : "ok";
+  if (published) verdict = stages.some((s) => s.status === "failed" || s.status === "warn") ? "warn" : "ok";
   else if (running) verdict = "running";
   else if (failedRun) verdict = /already exists/.test(reason) ? "ok" : "bad";
   else verdict = paused ? "paused" : past ? "missed" : "waiting";

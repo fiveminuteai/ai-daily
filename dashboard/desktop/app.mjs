@@ -5,7 +5,7 @@
 // GitHub token, first found wins: Windows Credential Manager "FiveMinuteAI/github", $env:GITHUB_TOKEN, `gh auth token`.
 
 import { execFile, spawn } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, openSync } from "node:fs";
 import { appendFile, mkdir, readFile, readdir, rename, writeFile } from "node:fs/promises";
 import { join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,7 +14,7 @@ import { startServer } from "../lib/server.mjs";
 import { createLocalApi } from "./local-api.mjs";
 import { readCredential } from "./secrets.mjs";
 import { dataDir } from "./store.mjs";
-import { gitRunner, selfUpdate, version } from "./update.mjs";
+import { checksFromGitHub, gitRunner, selfUpdate, version } from "./update.mjs";
 
 const PORT = Number(process.env.FMA_PORT || 8788);
 const URL_ = `http://127.0.0.1:${PORT}/`;
@@ -82,12 +82,17 @@ if (process.env.FMA_NO_UPDATE === "1") {
   update = { updated: false, reason: process.env.FMA_UPDATE_NOTE || "self-update off",
              version: await version(git).catch(() => ({ commit: "", date: "" })) };
 } else {
-  update = await selfUpdate(git);
+  const { token: t } = await githubToken();
+  update = await selfUpdate(git, t ? { isGreen: checksFromGitHub(t, process.env.REPO || "fiveminuteai/ai-daily") } : {});
   await logLine(`self-update: ${update.reason}${update.updated ? ` (${update.from} -> ${update.to})` : ""}`);
   if (update.updated) {
+    // the restarted app's own errors go to app.log (11 Nov 2026: with stdio ignored, a crash on the new code
+    // opened no window and left no trace)
+    let out = "ignore";
+    try { out = openSync(join(DATA, "app.log"), "a"); } catch { /* no log folder: start anyway */ }
     spawn(process.execPath, [fileURLToPath(import.meta.url), ...process.argv.slice(2)], {
       env: { ...process.env, FMA_NO_UPDATE: "1", FMA_UPDATE_NOTE: update.reason },
-      detached: true, stdio: "ignore", windowsHide: true }).unref();
+      detached: true, stdio: ["ignore", out, out], windowsHide: true }).unref();
     process.exit(0);
   }
 }

@@ -60,7 +60,7 @@ const ICON = {
 const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
 const STATUS_WORD = { ok: "OK", failed: "Failed", skipped: "Skipped", pending: "Pending", running: "Running",
                       waiting: "Waiting", bad: "Failed", warn: "Warning", missed: "No run", unknown: "Done", expired: "Expired", off: "Off",
-                      approved: "Approved", posted: "Posted" };
+                      approved: "Approved", posted: "Posted", overdue: "Overdue" };
 const tag = (s) => `<span class="status-tag t-${esc(s)}">${esc(STATUS_WORD[s] || s)}</span>`;
 
 async function api(path, opts = {}) {
@@ -73,6 +73,16 @@ async function api(path, opts = {}) {
   try { data = await res.json(); } catch { /* not JSON */ }
   if (!res.ok) throw Object.assign(new Error(data?.message || `HTTP ${res.status}`), { status: res.status, data });
   return data;
+}
+
+function staleBanner() {
+  const g = state.status?.github || {};
+  let el = document.getElementById("stale");
+  const failing = g.error_at && (!g.ok_at || g.error_at > g.ok_at);
+  if (!failing) { if (el) el.remove(); return; }
+  if (!el) { el = document.createElement("div"); el.id = "stale"; el.className = "banner bad"; document.body.prepend(el); }
+  el.innerHTML = `${svg("warn")}<div><h2>Data may be out of date</h2><p>${esc(g.error || "GitHub refresh failed")} since
+    ${esc(whenText(new Date(g.error_at).toISOString()))} IST${g.ok_at ? `; last good answer ${esc(whenText(new Date(g.ok_at).toISOString()))} IST` : ""}.</p></div>`;
 }
 
 function toast(html, kind = "") {
@@ -233,10 +243,11 @@ function stageSub(s) {
     case "rank": return n.picked ? `${n.picked} picked` : "";
     case "write": return s.seconds ? dur(s.seconds) : n.attempts ? `${n.attempts} ${n.attempts > 1 ? "tries" : "try"}` : "";
     case "verify": return n.checked ? `${n.confirmed}/${n.checked} ok` : "";
-    case "gate": return s.status === "ok" ? "passed" : s.status === "failed" ? "failed" : "";
+    case "gate": return s.status === "ok" ? "passed" : s.status === "warn" ? "short edition" : s.status === "failed" ? "failed" : "";
     case "publish": return n.words ? `${num(n.words)} words` : "";
     case "deploy": return s.seconds ? dur(s.seconds) : "";
-    case "social": return n.pending != null ? (n.pending ? `${n.pending} to review` : "done") : "";
+    case "social": return n.pending == null ? "" : n.overdue || n.failed ? `${(n.overdue || 0) + (n.failed || 0)} not posted`
+      : n.pending ? `${n.pending} to review` : n.no_youtube ? `${n.no_youtube} not on YouTube` : "done";
     default: return "";
   }
 }
@@ -344,6 +355,7 @@ function stageCards(d) {
     out.push(card(s, "", s.status === "pending" ? `<p class="empty">Not reached yet.</p>` : `
       <div class="big"><div class="${s.status === "ok" ? "b-ok" : s.status === "failed" ? "b-bad" : ""}"><b>${s.status === "ok" ? "Passed" : s.status === "failed" ? "Failed" : STATUS_WORD[s.status]}</b>
         <span>after ${num(s.numbers.attempts)} ${s.numbers.attempts === 1 ? "attempt" : "attempts"}</span></div></div>
+      ${s.note ? `<p class="todo">${svg("warn")}<span>${esc(s.note)}</span></p>` : ""}
       ${s.fails.length ? `<ul class="fails">${s.fails.map((f) => `<li><b>Try ${esc(f.attempt)}</b>${esc(f.text)}</li>`).join("")}</ul>`
         : s.status === "ok" ? `<p class="note">Word count, sources, links, images and the verification bar all passed.</p>` : ""}`));
   }
@@ -736,7 +748,13 @@ const PLAT = { instagram: "Instagram", x: "X", linkedin: "LinkedIn", instagram_r
 const HOW = { api: ["Auto-post", "free Instagram API"], paid: ["Paid API", "about $0.20 a post"], manual: ["Manual", "copy and post by hand"] };
 
 function itemStatus(i) {
-  const s = state.decisions.get(i.id) || i.status;
+  // the screen's own click shows until the workflow has recorded an outcome; then the server wins (11 Nov 2026:
+  // a Reel that failed after Approve read "Approved: posting now" until a full reload)
+  const mine = state.decisions.get(i.id);
+  const s = mine && !["posted", "failed", "skipped"].includes(i.status) ? mine : i.status;
+  if (s === "approved" && i.posting === "api" && i.scheduled_at && Date.now() > Date.parse(i.scheduled_at) + 40 * 60 * 1000) {
+    return "overdue";            // 9 Nov 19:30: approved, its time long past, never posted
+  }
   // nobody posts yesterday's news: an item still pending after its day is over is shown as expired, with no buttons
   if (s === "pending" && i.id.slice(0, 10) < (state.status?.today || todayIstClient())) return "expired";
   return s === "pending" && i.platform === "x" ? "off" : s;       // X posting is off: not something waiting on Pavan
@@ -902,7 +920,11 @@ function statusLine(i) {
   if (st === "posted") {
     return `<p class="stline ok">${i.posted_url ? `<a href="${esc(safeUrl(i.posted_url))}" target="_blank" rel="noopener noreferrer">View on Instagram ${svg("ext")}</a>` : "Posted"}
       ${i.youtube_url ? `<a class="yt" href="${esc(safeUrl(i.youtube_url))}" target="_blank" rel="noopener noreferrer">YouTube Shorts ${svg("ext")}</a>` : ""}
-      ${i.decided_at ? `<span>Posted ${esc(whenText(i.decided_at))} IST</span>` : ""}</p>`;
+      ${i.decided_at ? `<span>Posted ${esc(whenText(i.decided_at))} IST</span>` : ""}</p>
+      ${isReel(i) && !i.youtube_url && i.id >= "2026-11-09" ? `<p class="stline warnline">${svg("warn")}<span>Not on YouTube: ${esc(i.youtube_error || "no upload recorded")}</span></p>` : ""}`;
+  }
+  if (st === "overdue") {
+    return `<p class="stline bad">${svg("warn")}<span>Not posted: approved for ${esc(whenText(i.scheduled_at))} IST and still waiting${i.error ? ` (${esc(i.error)})` : ""}. The next posting run retries it.</span></p>`;
   }
   if (st === "failed") return `<p class="stline bad">${svg("warn")}<span>Not posted: ${esc(i.error || "the workflow recorded a failure")}. Approve again to retry.</span></p>`;
   if (st === "approved") {
@@ -1945,6 +1967,19 @@ window.addEventListener("hashchange", () => { $("#tip").hidden = true; window.sc
   renderMode();
   route();
   prefetch();
+  staleBanner();
+  // every 5 minutes: is GitHub still answering, and has the India date rolled over? (11 Nov 2026 audit: a window
+  // left open past midnight kept showing yesterday as "today", and failed refreshes left old data looking current)
+  setInterval(async () => {
+    try {
+      const was = state.status.today;
+      state.status = await api("status");
+      if (state.status.today !== was) route();
+    } catch (err) {
+      state.status = { ...state.status, github: { ...(state.status.github || {}), error_at: Date.now(), error: err.message } };
+    }
+    staleBanner();
+  }, 5 * 60e3);
   if (state.status.desktop) {
     setInterval(() => fetch("/api/ping", { cache: "no-store" }).catch(() => {}), 60e3);   // keeps the desktop server running
   }

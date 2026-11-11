@@ -8,7 +8,8 @@ name: Deploy control app
 on:
   push:
     branches: [main]
-    paths: ["dashboard/**", ".github/workflows/deploy-dashboard.yml"]
+    # config/: the settings screen's tests read config/site.yaml, so a config change must run them (11 Nov 2026)
+    paths: ["dashboard/**", "config/**", ".github/workflows/deploy-dashboard.yml"]
   workflow_dispatch:
 
 permissions:

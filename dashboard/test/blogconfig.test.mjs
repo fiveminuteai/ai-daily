@@ -6,8 +6,9 @@ import { ConfigError, SETTINGS, applyChanges, listSources, readSettings } from "
 import { handle } from "../lib/api.js";
 
 const live = {
-  site: readFileSync(new URL("../../config/site.yaml", import.meta.url), "utf8"),
-  sources: readFileSync(new URL("../../config/sources.yaml", import.meta.url), "utf8"),
+  // GitHub serves these with LF; a Windows checkout has CRLF (11 Nov 2026: the suite was red on the owner's PC)
+  site: readFileSync(new URL("../../config/site.yaml", import.meta.url), "utf8").split(String.fromCharCode(13)).join(""),
+  sources: readFileSync(new URL("../../config/sources.yaml", import.meta.url), "utf8").split(String.fromCharCode(13)).join(""),
 };
 // The real files' layout with every value the tests assume pinned, so a setting saved from the dashboard (a pause, a
 // new word range) never fails these tests in a deploy.

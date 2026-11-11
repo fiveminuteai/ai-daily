@@ -17,8 +17,24 @@ export async function version(git) {
   return { commit, date };
 }
 
-/** Returns { updated, from, to, count, reason, version: {commit, date, branch} }. Never throws. */
-export async function selfUpdate(git) {
+/** Whether GitHub's checks passed on a commit: true, false (a check failed), or null (unknown or still running).
+ *  11 Nov 2026 audit: launch fast-forwarded to whatever main was, even a commit whose tests had failed. */
+export function checksFromGitHub(token, repo, fetchFn = fetch) {
+  return async (sha) => {
+    try {
+      const r = await fetchFn(`https://api.github.com/repos/${repo}/commits/${sha}/check-runs?per_page=50`, {
+        headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" }, signal: AbortSignal.timeout(8000) });
+      if (!r.ok) return null;
+      const runs = (await r.json()).check_runs || [];
+      if (runs.some((c) => ["failure", "timed_out", "startup_failure"].includes(c.conclusion))) return false;
+      return runs.length && runs.every((c) => c.status === "completed") ? true : null;
+    } catch { return null; }
+  };
+}
+
+/** Returns { updated, from, to, count, reason, version: {commit, date, branch} }. Never throws.
+ *  With isGreen (see checksFromGitHub), a main whose checks failed is not taken. */
+export async function selfUpdate(git, { isGreen } = {}) {
   let branch = "";
   try {
     branch = await git(["rev-parse", "--abbrev-ref", "HEAD"]);
@@ -31,6 +47,10 @@ export async function selfUpdate(git) {
     if (ahead > 0) return skip(`${ahead} local commit${ahead === 1 ? "" : "s"} not on GitHub yet`);
     const count = Number(await git(["rev-list", "--count", "HEAD..origin/main"]));
     if (count === 0) return { updated: false, reason: "up to date", version: here };
+    if (isGreen) {
+      const target = await git(["rev-parse", "origin/main"]);
+      if ((await isGreen(target)) === false) return skip(`GitHub's checks failed on main (${target.slice(0, 7)}): staying on ${here.commit}`);
+    }
     await git(["merge", "--ff-only", "--quiet", "origin/main"]);
     const now = await version(git);
     return { updated: true, from: here.commit, to: now.commit, count, reason: `updated ${count} change${count === 1 ? "" : "s"}`,

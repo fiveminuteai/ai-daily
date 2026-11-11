@@ -14,6 +14,10 @@ const GET_MAX = 600;
 const DEFAULT_OWNER = {};
 const getCaches = new WeakMap();
 
+/** When GitHub last answered and last failed (11 Nov 2026 audit: a failed refresh kept an old "ok" on screen with
+ *  no sign it was old). /api/status reports it and the screen shows a banner while refreshes fail. */
+export const freshness = { okAt: 0, errorAt: 0, error: "" };
+
 export class GitHubError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
@@ -64,7 +68,21 @@ export class GitHub {
 
   async send(path, { method = "GET", body, accept = "application/vnd.github+json", raw = false } = {}) {
     this.calls += 1;
-    const res = await this.fetch(`${API}${path}`, {
+    let res;
+    try {
+      res = await this.#fetchRaw(path, method, body, accept);
+    } catch (err) {
+      freshness.errorAt = Date.now(); freshness.error = `GitHub unreachable: ${err.message}`.slice(0, 200);
+      throw err;
+    }
+    if (res.status >= 500 || res.status === 401 || res.status === 403) {
+      freshness.errorAt = Date.now(); freshness.error = `GitHub answered ${res.status}`;
+    } else freshness.okAt = Date.now();
+    return this.#read(res, path, method, raw);
+  }
+
+  #fetchRaw(path, method, body, accept) {
+    return this.fetch(`${API}${path}`, {
       method,
       headers: {
         Authorization: `Bearer ${this.token}`, Accept: accept, "X-GitHub-Api-Version": "2022-11-28",
@@ -72,6 +90,9 @@ export class GitHub {
       },
       body: body ? JSON.stringify(body) : undefined,
     });
+  }
+
+  async #read(res, path, method, raw) {
     if (res.status === 404 && method === "GET") return null;
     if (!res.ok) {
       let msg = `${res.status}`;
@@ -106,7 +127,8 @@ export class GitHub {
 
   jobLog(job) {
     return this.cached(`log:${job.id}`, job.status === "completed",
-      () => this.req(this.r(`/actions/jobs/${job.id}/logs`), { raw: true }).catch(() => ""));
+      () => this.req(this.r(`/actions/jobs/${job.id}/logs`), { raw: true }).catch(() => null))
+      .then((v) => { if (v === null) cache.delete(`log:${job.id}`); return v ?? ""; });   // a failed log is never kept
   }
 
   /** A file on main as text, or null if it does not exist. With a local checkout, a file main doesn't have yet

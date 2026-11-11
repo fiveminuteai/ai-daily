@@ -9,7 +9,7 @@
 //   ALLOWED_EMAILS      comma-separated
 //   LOCAL_DEV           "1" only in dev-server.mjs (listens on 127.0.0.1): skips the Access check
 
-import { GitHub, GitHubError, b64decode } from "./github.js";
+import { GitHub, GitHubError, b64decode, freshness } from "./github.js";
 import { buildDay, buildHistory, dayRange, parseLog, todayIst } from "./parse.js";
 import { ConfigError, FILES, GROUPS, applyChanges, readSettings } from "./blogconfig.js";
 
@@ -154,7 +154,8 @@ async function status({ env, gh, dryRun, repo, who, isDesktop }) {
                  // desktop only: which commit this checkout runs and what the launch-time self-update did
                  version: isDesktop ? env.APP_VERSION || null : null, update: isDesktop ? env.APP_UPDATE || null : null };
   if (!gh) return { ...base, paused: null, message: "No GITHUB_TOKEN set." };
-  return { ...base, paused: await readPaused(gh) };
+  const paused = await readPaused(gh);
+  return { ...base, paused, github: { ok_at: freshness.okAt || null, error_at: freshness.errorAt || null, error: freshness.error || "" } };
 }
 
 async function day({ gh }, date) {

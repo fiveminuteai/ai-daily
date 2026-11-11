@@ -37,5 +37,6 @@ jobs:
       - name: Check the day
         env:
           IG_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          FMA_DASHBOARD_URL: https://fma-control.pages.dev/
           DATE: ${{ inputs.date }}
         run: python -m fma.health ${DATE:+--date "$DATE"}

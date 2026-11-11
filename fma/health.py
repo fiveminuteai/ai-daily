@@ -216,8 +216,9 @@ def check_dashboard(r: Report, http, url: str | None) -> None:
     if not url:
         return
     try:
-        resp = http.get(url, timeout=30)
-        (r.ok if resp.status_code == 200 else r.fail)("dashboard", f"{url}: HTTP {resp.status_code}")
+        resp = http.get(url, timeout=30, allow_redirects=False)
+        # behind Cloudflare Access a healthy app answers with its sign-in redirect; only a server error is down
+        (r.ok if resp.status_code < 500 else r.fail)("dashboard", f"{url}: HTTP {resp.status_code}")
     except Exception as exc:  # noqa: BLE001
         r.fail("dashboard", f"{url}: {type(exc).__name__}")
 
