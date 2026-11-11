@@ -56,8 +56,11 @@ function openWindow() {
     spawn("cmd.exe", ["/c", "start", "", URL_], { windowsHide: true, detached: true, stdio: "ignore" }).unref();
     return null;
   }
+  // msImplicitSignin off + --disable-sync: Edge would otherwise sign this fresh profile into the Windows Microsoft
+  // account and turn sync on (checked 11 Nov 2026: with both flags the profile holds no account)
   return spawn(edge, [`--app=${URL_}`, `--user-data-dir=${join(process.env.LOCALAPPDATA || DATA, "FiveMinuteAI", "window")}`,
-    "--no-first-run", "--no-default-browser-check", "--window-size=1440,900", "--disable-features=Translate"],
+    "--no-first-run", "--no-default-browser-check", "--window-size=1440,900", "--disable-sync",
+    "--disable-features=Translate,msImplicitSignin"],
   { windowsHide: false, stdio: "ignore" });
 }
 
