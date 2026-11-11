@@ -56,7 +56,7 @@ def test_build_with_media_links_the_reel_and_slides(tmp_path, monkeypatch):
         return out
     monkeypatch.setattr("fma.reel.reel", fake_reel)
 
-    def fake_story_reel(post, section, n, site, out, palette=None):
+    def fake_story_reel(post, section, n, site, out, palette=None, **kw):
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_bytes(b"mp4")
         return out
