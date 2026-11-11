@@ -6,9 +6,9 @@
  ],
  "this_week": {
   "reels": 10,
-  "reach": 105.0,
-  "skip_rate": 59.2,
-  "avg_watch_s": 5.4,
+  "reach": 109.0,
+  "skip_rate": 60.1,
+  "avg_watch_s": 5.6,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 59.2,
+   "value": 60.1,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.4,
+   "value": 5.6,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -68,8 +68,8 @@
    "id": "18131624308862947",
    "day": "2026-11-10",
    "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
-   "reach": 113,
-   "skip_rate": 33.9,
+   "reach": 114,
+   "skip_rate": 34.5,
    "avg_watch_s": 12.3,
    "likes_per_1k": 8.8,
    "sends_per_1k": 0.0,
@@ -93,18 +93,18 @@
    "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
   },
   {
-   "id": "18114798344166855",
+   "id": "17992554318118995",
    "day": "2026-11-11",
-   "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
-   "reach": 106,
-   "skip_rate": 61.1,
-   "avg_watch_s": 6.9,
+   "caption": "Anthropic founders will sell shares worth nearly $250 million.",
+   "reach": 118,
+   "skip_rate": 56.5,
+   "avg_watch_s": 8.6,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-11-reel-1",
-   "youtube": "https://www.youtube.com/shorts/cSe3QdMSb-Q"
+   "ours": "2026-11-11-reel-3",
+   "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
   }
  ]
 }

@@ -1,22 +1,251 @@
 {
  "date": "2026-11-11",
- "collected_at": "2026-11-11T08:13:43+00:00",
+ "collected_at": "2026-11-11T18:00:40+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 168,
+  "visitors_day": 6,
+  "daily": [
+   {
+    "day": "2026-10-15",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-16",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-17",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 31
+   },
+   {
+    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
+    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70",
+    "title": "Google Cloud previews Gemini for healthcare · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
+    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-04-google-will-switch-off-search-in-schools",
+    "title": "Google will switch off Search in schools that turn off its AI · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over",
+    "title": "Judge allows NAACP lawsuit against xAI over unpermitted data‑center turbines to proceed · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 24
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 16
+   },
+   {
+    "name": "ig",
+    "visitors": 2
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "visitors": 2
+   },
+   {
+    "name": "www.duckduckgo.com",
+    "visitors": 1
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 1
+   },
+   {
+    "name": "www.linkedin.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-02-judge-allows-naacp-lawsuit-against-xai-over/verification",
+    "visitors": 1
+   }
+  ],
+  "reads_7d": {
+   "post_views": 16,
+   "read_30s": 0,
+   "read_half": 0,
+   "read_end": 0,
+   "read_end_rate": 0.0
+  }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 7,
-  "media_count": 35,
+  "media_count": 36,
   "day": {
-   "reach": 0,
-   "views": 0,
+   "reach": 223,
+   "views": 270,
    "accounts_engaged": 0,
    "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "17992554318118995",
+    "timestamp": "2026-11-11T10:31:16+0000",
+    "permalink": "https://www.instagram.com/reel/DfmRXFYga-3/",
+    "type": "VIDEO",
+    "caption": "Anthropic founders will sell shares worth nearly $250 million.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 118,
+    "views": 138,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 8.6,
+    "skip_rate": 56.5,
+    "reposts": 0
+   },
    {
     "id": "18114824456138178",
     "timestamp": "2026-11-11T07:31:18+0000",
@@ -25,13 +254,13 @@
     "caption": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
     "likes": 0,
     "comments": 0,
-    "reach": 0,
-    "views": 24,
+    "reach": 103,
+    "views": 114,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 0.0,
-    "skip_rate": 0,
+    "avg_watch_s": 2.3,
+    "skip_rate": 76.2,
     "reposts": 0
    },
    {
@@ -42,8 +271,8 @@
     "caption": "Google Cloud previews Gemini for healthcare",
     "likes": 0,
     "comments": 0,
-    "reach": 1,
-    "views": 1,
+    "reach": 2,
+    "views": 9,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -59,13 +288,13 @@
     "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
     "likes": 0,
     "comments": 0,
-    "reach": 106,
-    "views": 117,
+    "reach": 111,
+    "views": 126,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.9,
-    "skip_rate": 61.1,
+    "avg_watch_s": 6.8,
+    "skip_rate": 62.1,
     "reposts": 0
    },
    {
@@ -76,13 +305,13 @@
     "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
     "likes": 1,
     "comments": 0,
-    "reach": 113,
-    "views": 131,
+    "reach": 114,
+    "views": 132,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
     "avg_watch_s": 12.3,
-    "skip_rate": 33.9,
+    "skip_rate": 34.5,
     "reposts": 0
    },
    {
@@ -202,23 +431,6 @@
     "total_interactions": 2,
     "avg_watch_s": 5.4,
     "skip_rate": 61.6,
-    "reposts": 0
-   },
-   {
-    "id": "17910466977332990",
-    "timestamp": "2026-11-08T07:31:16+0000",
-    "permalink": "https://www.instagram.com/reel/DfeOYC2G1-6/",
-    "type": "VIDEO",
-    "caption": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 104,
-    "views": 117,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 5.0,
-    "skip_rate": 58.4,
     "reposts": 0
    }
   ]
