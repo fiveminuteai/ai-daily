@@ -455,9 +455,12 @@ class Verifier:
             lines.append(ln)
         return {"guest": d["guest"], "lines": lines, **{k: d[k] for k in ("laughs", "laughs_why", "sensitive") if k in d}}
 
-    def paragraph(self, text: str, where: str) -> str:
+    def paragraph(self, text: str, where: str, story_ids: list[str] | None = None) -> str:
+        """A paragraph's sentences, each checked; an uncited sentence is checked against the paragraph's citations,
+        then its own story's sources (11 Nov 2026: two of five stories were cut for "no citation" on sentences
+        the writer left bare, though their story's sources were known)."""
         sents = split_sentences(text)
-        para_ids = list(dict.fromkeys(i for s in sents for i in cites(s)))
+        para_ids = list(dict.fromkeys([*(i for s in sents for i in cites(s)), *(story_ids or [])]))
         kept = [self.sentence(s, where, para_ids) for s in sents]
         return " ".join(k for k in kept if k)
 
@@ -581,7 +584,8 @@ def verify_draft(draft: dict, sources: list[dict], max_quotes: int = 1) -> tuple
     post["what_happened"] = [x for x in (v.paragraph(b, f"what_happened[{n}]") for n, b in enumerate(draft.get("what_happened", []))) if x]
     post["sections"] = []
     for n, s in enumerate(draft.get("sections", [])):
-        paras = [x for x in (v.paragraph(p, f"sections[{n}]") for p in s.get("paragraphs", [])) if x]
+        story_ids = [x["id"] for x in sources if s.get("story") is not None and x.get("story") == s.get("story")]
+        paras = [x for x in (v.paragraph(p, f"sections[{n}]", story_ids) for p in s.get("paragraphs", [])) if x]
         words = sum(len(plain(x).split()) for x in paras)
         if words >= 80:
             ids = list(dict.fromkeys(i for p in paras for i in cites(p)))

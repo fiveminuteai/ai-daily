@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import logging
 import re
 import shutil
@@ -255,7 +256,19 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
     # edition is kept, and the fullest one is published, not simply the last.
     shorts: list[tuple[dict, dict, int]] = []
     n_attempts = int(pipe.get("attempts", 2))
+    save_collection(root, date, lineup)      # 11 Nov 2026: saved now, so a run killed by a timeout still leaves it
+    set_deadline(chain, pipe)
+    took = 0.0
     for attempt in range(1, n_attempts + 1):
+        if attempt > 1 and shorts and hasattr(chain, "time_left") and chain.time_left() < 1.1 * took:
+            # 7, 9 and 11 Nov 2026: the job timeout killed attempt 2 and, with it, a short edition attempt 1 had
+            # already passed. Not enough time for another attempt: publish the fullest one now.
+            log.warning("%.0f s left, attempt %d took %.0f s: not starting attempt %d", chain.time_left(),
+                        attempt - 1, took, attempt)
+            post, report, chosen = fullest(shorts)
+            return _publish_short(post, report, chosen, pipe, summary, lineup, history, posts_dir, reports_dir,
+                                  data_dir, root, build_fn, sources, attempts)
+        started = time.monotonic()
         draft = None
         times: dict[str, float] = {}
         layer1: dict = {}
@@ -292,14 +305,11 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                          "unused": (report or {}).get("unused", 0), "fails": fails,
                          "reel_desk": reel_log(post)})
         _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
+        took = time.monotonic() - started
         if fails and attempt == n_attempts and shorts:
             post, report, chosen = fullest(shorts)
-            log.warning("publishing a short edition from attempt %d: %s", chosen,
-                        "; ".join(attempts[chosen - 1]["fails"]))
-            if post.get("word_count", 0) < pipe.get("words_min", 880):
-                post = {**post, "edition": "short"}
-            summary["published_attempt"] = chosen
-            fails = []
+            return _publish_short(post, report, chosen, pipe, summary, lineup, history, posts_dir, reports_dir,
+                                  data_dir, root, build_fn, sources, attempts)
         if not fails:
             t = time.monotonic()
             result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources)
@@ -317,8 +327,35 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             if dropped:
                 feedback += "\n- These sentences failed source checks and were removed; don't repeat the errors:\n" + \
                     "\n".join(f"  * {e['text'][:160]} ({'; '.join(e['problems'])})" for e in dropped)
-    save_collection(root, date, lineup)      # the backup writer (fma/manual.py) can write from these, no network
     return Result("skipped", f"gate failed after retries: {last_fail}")
+
+
+def set_deadline(chain, pipe: dict) -> None:
+    """No model call starts after the run's time budget, so the job is never killed mid-attempt (11 Nov 2026).
+    FMA_DEADLINE (epoch seconds, set by daily.yml when the step starts) covers the workflow's outer retry too."""
+    if chain is None or not hasattr(chain, "deadline"):
+        return
+    left = float(pipe.get("budget_minutes", 46)) * 60
+    if os.environ.get("FMA_DEADLINE"):
+        try:
+            left = min(left, float(os.environ["FMA_DEADLINE"]) - time.time())
+        except ValueError:
+            pass
+    chain.deadline = time.monotonic() + max(60.0, left)
+
+
+def _publish_short(post, report, chosen, pipe, summary, lineup, history, posts_dir, reports_dir, data_dir, root,
+                   build_fn, sources, attempts) -> Result:
+    log.warning("publishing a short edition from attempt %d: %s", chosen, "; ".join(attempts[chosen - 1]["fails"]))
+    if post.get("word_count", 0) < pipe.get("words_min", 880):
+        post = {**post, "edition": "short"}
+    summary["published_attempt"] = chosen
+    t = time.monotonic()
+    result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources)
+    ok = result.status == "published"
+    _stage(summary, "publish", t, "ok" if ok else "failed",
+           **({"word_count": post["word_count"], "sources": len(post["sources"])} if ok else {"error": result.reason}))
+    return result
 
 
 def fullest(shorts: list[tuple[dict, dict, int]]) -> tuple[dict, dict, int]:

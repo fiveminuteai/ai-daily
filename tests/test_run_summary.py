@@ -98,3 +98,28 @@ def test_fullest_prefers_more_stories_then_words_then_the_earlier_attempt():
     a, b, c = ({"sections": [1, 2, 3], "word_count": 500}, {}, 1), ({"sections": [1, 2], "word_count": 900}, {}, 2), \
         ({"sections": [1, 2, 3], "word_count": 500}, {}, 3)
     assert fullest([b, a])[2] == 1 and fullest([a, c])[2] == 1
+
+
+def test_no_time_for_another_attempt_publishes_the_short_edition_now(proj, fake_web, monkeypatch):
+    """7, 9 and 11 Nov 2026: the job timeout killed attempt 2 and the short edition attempt 1 had passed with it."""
+    import fma.pipeline as pl
+    cfg = yaml.safe_load((proj / "config/site.yaml").read_text(encoding="utf-8"))
+    cfg["pipeline"].update(words_min=2500, words_max=3000)
+    (proj / "config/site.yaml").write_text(yaml.safe_dump(cfg), encoding="utf-8")
+    monkeypatch.setattr(pl, "SHORT_EDITION", {"words_min": 100, "words_max": 3000, "require_why": False})
+    chain = FakeChain(replies(good_draft()) + replies(good_draft()))
+    chain.time_left = lambda: 0.0           # the budget is spent after attempt 1
+    r = run(proj, fake_web, chain)
+    assert r.status == "published" and r.post["edition"] == "short"
+    assert [a["n"] for a in r.summary["attempts"]] == [1] and r.summary["published_attempt"] == 1
+    assert (proj / "data/collect/2026-10-27/sources.json").exists()     # saved before any writing
+
+
+def test_chain_refuses_new_calls_past_its_deadline():
+    import time as _t
+    import pytest as _p
+    from fma.llm import Chain, LLMError
+    c = Chain([])
+    c.deadline = _t.monotonic() - 1
+    with _p.raises(LLMError, match="out of time"):
+        c.ask_json("s", "u")

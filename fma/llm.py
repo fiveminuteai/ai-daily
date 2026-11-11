@@ -81,6 +81,10 @@ class Provider:
                 except ValueError:
                     wait = 0
                 low = r.text.lower().replace(" ", "")
+                if r.status_code == 429 and "requesttoolarge" in low:
+                    # 11 Nov 2026: "Request too large ... Limit 1000, Requested 1083" was retried for 7 minutes; it
+                    # can never succeed on this model, so the chain moves straight to the next provider
+                    raise LLMError(f"{self.name} request too large for its per-minute limit (HTTP 429)")
                 # only an explicit per-day cap counts as daily; per-minute quota messages also say "quota"
                 daily = r.status_code == 429 and ("perday" in low or "tokensperday" in low or "requestsperday" in low
                                                   or wait > 600)
@@ -166,16 +170,22 @@ class Chain:
     # Waits before trying every provider again when they all failed for a passing reason (overload, a timeout).
     # 4 Nov 2026: one Gemini "high demand" 503 after Groq's daily cap crashed the whole attempt.
     ROUND_WAITS = (60, 180, 300)
+    deadline: float | None = None      # time.monotonic() after which no new call starts (pipeline.run_day sets it)
+
+    def time_left(self) -> float:
+        return float("inf") if self.deadline is None else self.deadline - time.monotonic()
 
     def ask_json(self, system: str, user: str, temperature: float = 0.3, careful: bool = False,
                  schema: dict | None = None) -> dict:
         """schema: a JSON schema the reply must match. Local models enforce it while generating (Ollama structured
         outputs; 6 Nov 2026: "exactly 3 reactions" was unreliable for a 7B without it). Cloud providers ignore it."""
         for wait in (*self.ROUND_WAITS, None):
+            if self.time_left() <= 0:
+                raise LLMError("out of time for this run")
             try:
                 return self._ask_round(system, user, temperature, careful, schema)
             except LLMError as exc:
-                if wait is None or all(p.exhausted for p in self.providers):
+                if wait is None or all(p.exhausted for p in self.providers) or wait >= self.time_left():
                     raise
                 log.warning("every provider failed (%s); trying them all again in %ss", str(exc)[:200], wait)
                 time.sleep(wait)

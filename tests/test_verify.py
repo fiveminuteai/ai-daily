@@ -495,3 +495,17 @@ def test_a_card_line_citing_another_storys_source_is_recited_to_its_own():
     out = v.sentence("Siri gets agent features with iOS 27.3[S1].", "card[1] point", ["S4"])
     assert out and "[S4]" in out and "[S1]" not in out
     assert v.sentence("Siri gets agent features with iOS 99.9[S1].", "card[1] point", ["S4"]) is None   # still checked
+
+
+def test_uncited_sentences_are_checked_against_their_own_story_sources():
+    """11 Nov 2026: Nvidia and Adobe sections were cut under 80 words because the writer left sentences bare."""
+    from fma.verify import verify_draft
+    src = [{"id": "S1", "story": 1, "title": "Adobe and Google expand partnership", "url": "u1",
+            "text": "At Adobe MAX, Adobe and Google announced an expanded partnership. Adobe tools come to Google apps."},
+           {"id": "S2", "story": 2, "title": "Other", "url": "u2", "text": "Something else entirely about Meta."}]
+    para = " ".join(["Adobe and Google announced an expanded partnership."] + ["The partnership brings Adobe tools to Google apps."] * 12)
+    draft = {"headline": "Adobe and Google expand partnership", "dek": "", "sections": [
+        {"story": 1, "title": "Adobe and Google", "category": "products", "paragraphs": [para]}]}
+    post, report = verify_draft(draft, src)
+    assert len(post["sections"]) == 1
+    assert "[S1]" in post["sections"][0]["paragraphs"][0] and "[S2]" not in post["sections"][0]["paragraphs"][0]
