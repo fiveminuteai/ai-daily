@@ -40,6 +40,7 @@ work." Rules for this file:
 | 10 Nov | All three Reels lost their duo | Facts-step false alarms: "October 16", "Fable 5.2", the word "filing" | Dates and names skipped; "filing" allowed; **duo falls back to the checked card's lines** |
 | 10 Nov | Cards said "tumble", "dramatically", "sends your files" | Model drifts toward bigger, more certain wording | Overstatement words allowed only when the cited source uses them |
 | 10 Nov | Every test run changed `data/bank` | Pipeline tests wrote the real knowledge bank | Autouse fixture points the bank at a temp folder |
+| 11 Nov | Post went out with 3 stories, 559 words | Attempt 1 (5 stories, 860 words) missed the 880-word floor by 20; the retry, squeezed by Groq's daily limit, came back thinner, and the short-edition fallback only ever looked at the last attempt | Every attempt that passes as a short edition is kept; the one with the most stories, then words, is published (`fullest`, test in test_run_summary) |
 
 ## General lessons (they carry over)
 
@@ -47,6 +48,7 @@ work." Rules for this file:
    a shorter closing, the card's own lines, a re-cite, a plain Reel. "All or nothing" silently costs whole days.
 2. **False alarms cost as much as misses.** Before shipping a check, run it over everything already published and
    count what it would have blocked (the decency and overstatement checks: 0 of 51 jokes, 0 published lines).
+   A fallback must pick the best candidate seen, not the latest one (11 Nov: a retry is not always better).
 3. **Taste and safety rules belong in code, not only in prompts.** Prompts are requests; a regex and a test are
    guarantees. Every time a model was only *asked* not to do something, it eventually did it.
 4. **Anything that posts must be idempotent.** Record what was done before anything else can overwrite the record,

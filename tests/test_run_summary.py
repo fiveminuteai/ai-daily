@@ -75,3 +75,26 @@ def test_cli_prints_one_summary_line(monkeypatch, capsys):
     assert cli.main(["daily", "--date", "2026-10-27"]) == 0
     lines = [ln for ln in capsys.readouterr().out.splitlines() if ln.startswith("FMA_RUN_SUMMARY ")]
     assert len(lines) == 1 and json.loads(lines[0].split(" ", 1)[1]) == summary
+
+
+def test_short_edition_publishes_the_fullest_attempt_not_the_last(proj, fake_web, monkeypatch):
+    """11 Nov 2026: attempt 1 (5 stories) missed the length rule by 20 words; the retry came back with 3 stories
+    and was the one published. Both now wait, and the fuller one goes out."""
+    import fma.pipeline as pl
+    cfg = yaml.safe_load((proj / "config/site.yaml").read_text(encoding="utf-8"))
+    cfg["pipeline"].update(words_min=2500, words_max=3000)       # every attempt fails on length alone
+    (proj / "config/site.yaml").write_text(yaml.safe_dump(cfg), encoding="utf-8")
+    monkeypatch.setattr(pl, "SHORT_EDITION", {"words_min": 100, "words_max": 3000, "require_why": False})
+    thin = good_draft()
+    thin["sections"] = thin["sections"][:2]
+    r = run(proj, fake_web, FakeChain(replies(good_draft()) + replies(thin)))
+    assert r.status == "published", r.reason
+    assert len(r.post["sections"]) == 3 and r.post["edition"] == "short"
+    assert r.summary["published_attempt"] == 1 and all(a["fails"] for a in r.summary["attempts"])
+
+
+def test_fullest_prefers_more_stories_then_words_then_the_earlier_attempt():
+    from fma.pipeline import fullest
+    a, b, c = ({"sections": [1, 2, 3], "word_count": 500}, {}, 1), ({"sections": [1, 2], "word_count": 900}, {}, 2), \
+        ({"sections": [1, 2, 3], "word_count": 500}, {}, 3)
+    assert fullest([b, a])[2] == 1 and fullest([a, c])[2] == 1

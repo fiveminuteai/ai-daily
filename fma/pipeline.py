@@ -250,7 +250,12 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
     rejected_lines: list[str] = []
     attempts: list[dict] = []
     summary["attempts"] = attempts
-    for attempt in range(1, int(pipe.get("attempts", 2)) + 1):
+    # 11 Nov 2026: attempt 1 (5 stories, 860 words) missed the length rule by 20 words; attempt 2 came back with 3
+    # stories and 559 words and was published as the short edition. Every attempt that would pass as a short
+    # edition is kept, and the fullest one is published, not simply the last.
+    shorts: list[tuple[dict, dict, int]] = []
+    n_attempts = int(pipe.get("attempts", 2))
+    for attempt in range(1, n_attempts + 1):
         draft = None
         times: dict[str, float] = {}
         layer1: dict = {}
@@ -272,14 +277,11 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             post = rescue_headline(post, report)   # so is a headline that failed its check
             post, _repeats = dedupe_sentences(post)  # 9 Nov 2026: a repeated sentence is removed, never published
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
-            if fails and attempt == int(pipe.get("attempts", 2)) and soft_only(fails):
+            if fails and soft_only(fails) and not run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http,
+                                                           skip_links=skip_links):
                 # the backup plan (6 Nov 2026): a true but short post beats no post. Every fact is still checked
                 # twice; only the length and "why it matters" rules are relaxed, and the post says so.
-                short = run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http, skip_links=skip_links)
-                if not short:
-                    log.warning("publishing a short edition: %s", "; ".join(fails))
-                    post = {**post, "edition": "short"} if post.get("word_count", 0) < pipe.get("words_min", 880) else post
-                    fails = []
+                shorts.append((post, report, attempt))
             times["gate"] = time.monotonic() - t
         except Exception as exc:  # noqa: BLE001 - a crash in one attempt is a failed attempt, not a crash of the day
             log.exception("attempt %d crashed", attempt)
@@ -290,6 +292,14 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                          "unused": (report or {}).get("unused", 0), "fails": fails,
                          "reel_desk": reel_log(post)})
         _dump_rejected(root, date, attempt, chain, locals().get("draft"), post, report, fails)
+        if fails and attempt == n_attempts and shorts:
+            post, report, chosen = fullest(shorts)
+            log.warning("publishing a short edition from attempt %d: %s", chosen,
+                        "; ".join(attempts[chosen - 1]["fails"]))
+            if post.get("word_count", 0) < pipe.get("words_min", 880):
+                post = {**post, "edition": "short"}
+            summary["published_attempt"] = chosen
+            fails = []
         if not fails:
             t = time.monotonic()
             result = _commit(post, report, lineup, history, posts_dir, reports_dir, data_dir, root, build_fn, sources)
@@ -309,6 +319,11 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                     "\n".join(f"  * {e['text'][:160]} ({'; '.join(e['problems'])})" for e in dropped)
     save_collection(root, date, lineup)      # the backup writer (fma/manual.py) can write from these, no network
     return Result("skipped", f"gate failed after retries: {last_fail}")
+
+
+def fullest(shorts: list[tuple[dict, dict, int]]) -> tuple[dict, dict, int]:
+    """The short-edition candidate with the most stories, then the most words; the earlier attempt on a tie."""
+    return max(shorts, key=lambda c: (len(c[0].get("sections", [])), c[0].get("word_count", 0), -c[2]))
 
 
 def remove_sentences(root: Path, date: str, prefixes: list[str], reason: str, suppress: bool = False) -> list[str]:
