@@ -180,6 +180,16 @@ def rank(items: list[Item], cfg: dict, pipe: dict, history: list[dict], now: dat
     return out
 
 
+EVENT_WORDS = {"ipo", "launc", "acqui", "sue"}
+
+
+def second_angle(titles_a: str, titles_b: str) -> bool:
+    """Two stories about the same event: they share two word roots, at least one of them not just an event word
+    (two IPOs by different companies are different stories). Measured by the dedupe eval (fma/evals.py)."""
+    shared = stems(titles_a) & stems(titles_b)
+    return len(shared) >= 2 and len(shared - EVENT_WORDS) >= 1
+
+
 def lineup_caps(pipe: dict) -> dict:
     """pick_lineup's caps from config/site.yaml `pipeline:` (set in the control app); a missing or out-of-range value
     keeps the default (2 stories per category, 1 per single-source origin)."""
@@ -209,9 +219,8 @@ def pick_lineup(stories: list[Story], n: int = 5, max_per_category: int = 2, max
         cap = max_per_source if st.items[0].primary or st.items[0].outlet else max_per_source + 1
         if src and solo.get(src, 0) >= cap:
             continue
-        mine = stems(" ".join(i.title for i in st.items))
-        if any(len(mine & stems(" ".join(i.title for i in p.items)) - {"ipo", "launc", "acqui", "sue"}) >= 1
-               and len(mine & stems(" ".join(i.title for i in p.items))) >= 2 for p in picked):
+        mine = " ".join(i.title for i in st.items)
+        if any(second_angle(mine, " ".join(i.title for i in p.items)) for p in picked):
             continue          # another angle on a story already in the lineup
         picked.append(st)
         counts[st.category] = counts.get(st.category, 0) + 1

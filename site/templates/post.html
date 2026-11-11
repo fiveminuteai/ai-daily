@@ -74,4 +74,13 @@
 <script>
 (function(){var bar=document.querySelector(".progress span"),art=document.querySelector(".post"),t=0;if(!bar||!art)return;function u(){t=0;var r=art.getBoundingClientRect(),h=r.height-innerHeight,p=h>0?Math.min(1,Math.max(0,-r.top/h)):1;bar.style.transform="scaleX("+p+")"}addEventListener("scroll",function(){if(!t)t=requestAnimationFrame(u)},{passive:true});u();})();
 </script>
+{% if site.goatcounter %}<script>
+/* Reading, not just opening (11 Nov 2026): three cookie-free GoatCounter events per visit to a post, each sent once:
+   30 s with the tab in view, scrolled half the article, reached its end. No cookies, no ids, nothing stored. */
+(function(){var art=document.querySelector(".post");if(!art)return;var sent={},secs=0;
+function send(n){if(sent[n])return;if(!(window.goatcounter&&goatcounter.count)){return}sent[n]=1;goatcounter.count({path:n,title:n,event:true})}
+function depth(){var r=art.getBoundingClientRect(),h=r.height-innerHeight,p=h>0?-r.top/h:1;if(p>=.5)send("read-half");if(p>=.95)send("read-end")}
+addEventListener("scroll",depth,{passive:true});
+setInterval(function(){if(document.visibilityState==="visible"){secs++;if(secs>=30)send("read-30s");depth()}},1000);})();
+</script>{% endif %}
 {% endblock %}

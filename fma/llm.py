@@ -100,6 +100,10 @@ class Provider:
             try:
                 data = r.json()
                 log.info("%s used %s tokens", self.name, (data.get("usage") or {}).get("total_tokens", "?"))
+                if data["choices"][0].get("finish_reason") == "length":
+                    # 11 Nov 2026 (research: a digest truncated at its token cap while every dashboard stayed
+                    # green): a reply cut off at the limit is a failure, never half an answer to parse
+                    raise LLMError(f"{self.name} reply cut off at the token limit")
                 return data["choices"][0]["message"]["content"] or ""
             except (KeyError, IndexError, ValueError) as exc:
                 raise LLMError(f"{self.name} bad response: {r.text[:300]}") from exc

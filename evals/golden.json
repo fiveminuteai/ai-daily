@@ -1,0 +1,65 @@
+{
+ "_note": "Known answers for python -m fma.evals (11 Nov 2026). Hand-labelled from real incidents and published days. Add a case whenever something slips; never loosen a bar to make a change pass.",
+ "dedupe": [
+  {"a": "Anthropic sets IPO price range of $70 to $78 per share to reach an implied valuation of $1.404 trillion", "b": "All 7 Anthropic founders will each cash out about $250M in IPO", "same": true, "why": "11 Nov: both ran"},
+  {"a": "Anthropic IPO filing details", "b": "Anthropic IPO filing strategy", "same": true},
+  {"a": "Nvidia board launches probe into CEO Jensen Huang", "b": "Nvidia directors investigate Jensen Huang over alleged spy link", "same": true},
+  {"a": "OpenAI raises $11 billion at $1.25 trillion valuation", "b": "OpenAI adds $11 billion in funding, reportedly valued at $1.25 trillion", "same": true},
+  {"a": "Google sends Gmail and Drive files to human reviewers through Gemini", "b": "Gemini pulls personal Drive and Gmail files for human reviewers", "same": true},
+  {"a": "Meta expands Instagram AI age detection globally", "b": "Instagram expands AI age-guessing to more accounts globally", "same": true},
+  {"a": "Anthropic launches Claude Fable 5.2 on AWS", "b": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS Bedrock", "same": true},
+  {"a": "Apple plans to make Siri more agentic", "b": "Apple racing to make Siri agentic, report says", "same": true},
+  {"a": "Anthropic sets IPO price range of $70 to $78 per share", "b": "Google Cloud launches Gemini for healthcare", "same": false},
+  {"a": "Anthropic files for IPO", "b": "Cerebras files for IPO", "same": false, "why": "same event word, different companies"},
+  {"a": "OpenAI launches GPT-6 Cyber for security teams", "b": "Google launches Gemini for healthcare", "same": false},
+  {"a": "Google Health lets users hide its AI Coach", "b": "Google Cloud previews Gemini for healthcare", "same": false, "why": "the multi-day rule dropped on 11 Nov merged these"},
+  {"a": "Nvidia shares dip after board launches probe", "b": "Korea secures AI agents with NVIDIA OpenShell", "same": false},
+  {"a": "Microsoft AI Frontiers group disbanded after reorganisation", "b": "Meta pauses AI training terms after backlash", "same": false},
+  {"a": "Nous Research fine-tunes Qwen model to shift values", "b": "Hugging Face adds new text generation leaderboard", "same": false},
+  {"a": "The New York Times sues Brave over AI search", "b": "Authors sue Nvidia over training data", "same": false, "why": "two lawsuits, different parties"}
+ ],
+ "speech": [
+  {"text": "sell 3,378,378 shares[S8].", "spoken": "sell 3378378 shares."},
+  {"text": "$70-$78 per share", "spoken": "70 to 78 dollars per share"},
+  {"text": "$1.4T valuation", "spoken": "1 point 4 trillion dollars valuation"},
+  {"text": "$8 per million, not $10", "spoken": "8 dollars per million, not 10 dollars"},
+  {"text": "$250 million", "spoken": "250 million dollars"},
+  {"text": "$11.5 billion", "spoken": "11 point 5 billion dollars"},
+  {"text": "version 2.1.312", "spoken": "version 2 point 1 point 3 1 2"},
+  {"text": "METR says so", "spoken": "Meter says so"},
+  {"text": "GPT-5 is out", "spoken": "G P T 5 is out"}
+ ],
+ "decency_bad": [
+  "At least the spy got laid.",
+  "Someone should punch that CEO.",
+  "What an idiot. Truly stupid people.",
+  "Damn, that is one hell of a mess.",
+  "I'd kill for that salary.",
+  "She's hot, the model is not.",
+  "Shut up, you dumb box."
+ ],
+ "decency_sensitive_bad": [
+  "Love is complicated. So are chips.",
+  "His partner must be thrilled.",
+  "That's one expensive romance."
+ ],
+ "numbers": [
+  {"claim": ["1.4", "", "trillion"], "source": "an implied valuation of $1.404 trillion", "ok": true},
+  {"claim": ["1.5", "", "trillion"], "source": "an implied valuation of $1.404 trillion", "ok": false},
+  {"claim": ["1", "", "trillion"], "source": "an implied valuation of $1.404 trillion", "ok": false},
+  {"claim": ["2.7", "", "billion"], "source": "it raised $2.65 billion", "ok": true},
+  {"claim": ["2.6", "", "billion"], "source": "it raised $2.65 billion", "ok": false},
+  {"claim": ["4", "%", ""], "source": "revenue rose 4.2% last year", "ok": false},
+  {"claim": ["70", "", ""], "source": "shares priced at $70 each", "ok": true},
+  {"claim": ["300", "", "million"], "source": "a fine of 300 million euros", "ok": true},
+  {"claim": ["300", "", "billion"], "source": "a fine of 300 million euros", "ok": false},
+  {"claim": ["16", "", ""], "source": "published on October 16, the report", "ok": true},
+  {"claim": ["28", "", ""], "source": "nearly 28 hours a week", "ok": true},
+  {"claim": ["82", "", ""], "source": "nearly 28 hours a week", "ok": false}
+ ],
+ "gate_bad_posts": [
+  {"why": "9 Nov: one sentence repeated", "paragraphs": ["The model is a 27B parameter system[S6]. It uses a 64k context window[S6]. The model is a 27B parameter system[S6].", "The model is a 27B parameter system[S6]. It was trained on public data[S6]."]},
+  {"why": "9 Nov: dangling opener", "paragraphs": ["They then select the best answer from the list of candidates the system produced earlier in the run[S2]. The company said the feature ships next month to every paying customer in forty countries[S2]. It costs nothing extra for teams already on the business plan today[S2]."]},
+  {"why": "thin section", "paragraphs": ["Acme shipped a model[S1]."]}
+ ]
+}

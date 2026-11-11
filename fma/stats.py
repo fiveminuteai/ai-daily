@@ -75,7 +75,7 @@ def website(http, site_code: str, token: str, day: str) -> dict:
         return urlencode({"start": f"{a.isoformat()}T00:00:00Z", "end": f"{end.isoformat()}T00:00:00Z"})
 
     total = _get_json(http, f"{base}/total?{rng(start)}", auth)
-    hits = _get_json(http, f"{base}/hits?{rng(week)}&limit=10", auth)
+    hits = _get_json(http, f"{base}/hits?{rng(week)}&limit=60", auth)
     refs = _get_json(http, f"{base}/toprefs?{rng(week)}&limit=8", auth)
     daily = [{"day": s.get("day"), "visitors": int(s.get("daily") or 0)} for s in total.get("stats") or [] if s.get("day")]
     return {
@@ -87,7 +87,22 @@ def website(http, site_code: str, token: str, day: str) -> dict:
                       for h in (hits.get("hits") or []) if not h.get("event")][:10],
         "top_refs": [{"name": s.get("name") or "(direct)", "visitors": int(s.get("count") or 0)}
                      for s in (refs.get("stats") or [])][:8],
+        "reads_7d": reads(hits.get("hits") or []),
     }
+
+
+READ_EVENTS = ("read-30s", "read-half", "read-end")
+
+
+def reads(hits: list[dict]) -> dict:
+    """The week's reading, from the post pages' own events (site/templates/post.html, 11 Nov 2026): how many post
+    views stayed 30 s, reached half, reached the end. Rates are None until there are post views to divide by."""
+    ev = {h.get("path"): int(h.get("count") or 0) for h in hits if h.get("event")}
+    views = sum(int(h.get("count") or 0) for h in hits
+                if not h.get("event") and "/posts/" in str(h.get("path") or ""))
+    out = {"post_views": views, **{n.replace("-", "_"): ev.get(n, 0) for n in READ_EVENTS}}
+    out["read_end_rate"] = round(out["read_end"] / views, 3) if views else None
+    return out
 
 
 # ---------------------------------------------------------------- Instagram

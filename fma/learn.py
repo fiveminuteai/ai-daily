@@ -165,10 +165,29 @@ def effects(rows: list[dict]) -> list[dict]:
             spread = pstdev([r["outcome"] for r in rows]) or 1.0
             se = spread * math.sqrt(1 / len(ys) + 1 / len(rest))
             effect = shrunk - rest_shrunk
+            held = held_out_agrees(rows, key, value, effect)
             out.append({"feature": feat, "value": value, "n": len(ys), "n_rest": len(rest),
                         "mean": round(mean(ys), 2), "effect": round(effect, 2), "se": round(se, 2),
-                        "confident": len(ys) >= MIN_N and len(rest) >= MIN_N and abs(effect) > 2 * se})
+                        "held_out": held,
+                        "confident": len(ys) >= MIN_N and len(rest) >= MIN_N and abs(effect) > 2 * se
+                                     and held is not False})
     return out
+
+
+HELD_OUT_MIN = 3      # Reels needed on each side of the newest third before it can confirm or contradict
+
+
+def held_out_agrees(rows: list[dict], key, value: str, effect: float) -> bool | None:
+    """Does the newest third of the Reels, on its own, point the same way as the whole? True, False, or None when
+    it has too few Reels on a side to say. A difference that the newest Reels contradict is an old pattern or a
+    fluke of a few early posts, so it can't be "confident" (11 Nov 2026: guard against fitting the past)."""
+    ordered = sorted(rows, key=lambda r: (str(r.get("date", "")), r.get("slot", 0)))
+    recent = ordered[-max(1, len(ordered) // 3):]
+    a = [r["outcome"] for r in recent if key(r) == value]
+    b = [r["outcome"] for r in recent if key(r) != value]
+    if len(a) < HELD_OUT_MIN or len(b) < HELD_OUT_MIN or not effect:
+        return None
+    return (mean(a) - mean(b)) * effect > 0
 
 
 def category_bonus(table: list[dict], previous: dict[str, float]) -> dict[str, float]:
@@ -200,18 +219,26 @@ def lesson_prompt(rows: list[dict], table: list[dict]) -> str:
             f"real differences; the rest may be noise.\n\nGROUPS\n{lines}\n\nBEST REELS\n"
             + "\n".join(show(r) for r in best[:5]) + "\n\nWORST REELS\n" + "\n".join(show(r) for r in best[-5:])
             + f"\n\nWrite at most {LESSONS_MAX} lessons for the producer, each one instruction about how to choose or "
-            "write a Reel, backed by this table. A lesson may rest on a CONFIDENT group, or on a pattern you can see "
-            "in at least 3 of the best and none of the worst Reels. Copy the numbers you rely on into evidence. "
-            'Reply as {"lessons": [{"lesson": "...", "evidence": ["n 12, effect 0.6", "..."]}]}; '
-            'an empty list is a good answer when nothing is clear.')
+            "write a Reel, backed by this table. A lesson may rest ONLY on a group marked CONFIDENT: copy that "
+            "group's line (feature = value: n, effect) into evidence. With no CONFIDENT group, reply with an empty "
+            'list: that is the right answer, not a failure. '
+            'Reply as {"lessons": [{"lesson": "...", "evidence": ["category = tools: n 12, effect 0.6"]}]}.')
 
 
 def numbers_in(text: str) -> set[str]:
     return set(re.findall(r"-?\d+(?:\.\d+)?", text))
 
 
+def rests_on_confident(lesson: dict, table: list[dict]) -> bool:
+    """True when the lesson's evidence names a group the table marks confident ("feature = value")."""
+    ev = " ".join(str(e) for e in lesson.get("evidence") or []).lower()
+    return any(f"{e['feature']} = {e['value']}".lower() in ev for e in table if e.get("confident"))
+
+
 def check_lessons(reply: dict, rows: list[dict], table: list[dict]) -> list[dict]:
-    """Keep lessons whose every number appears in the table or the Reel rows shown to the model."""
+    """Keep lessons whose every number appears in the table or the Reel rows shown to the model, and which rest on
+    a confident group. 11 Nov 2026: with 0 of 23 groups confident the model still wrote five lessons from noise
+    ("target the 13:00 slot", effect 0.03), and the producer was taught them daily. The rule is code now."""
     known = numbers_in(lesson_prompt(rows, table))
     out = []
     for x in (reply.get("lessons") or [])[:LESSONS_MAX] if isinstance(reply, dict) else []:
@@ -221,12 +248,18 @@ def check_lessons(reply: dict, rows: list[dict], table: list[dict]) -> list[dict
         if not x.get("evidence") or not numbers_in(text) <= known:
             log.warning("lesson dropped, it cites numbers not in our data: %s", x.get("lesson"))
             continue
+        if not rests_on_confident(x, table):
+            log.warning("lesson dropped, it rests on no confident group: %s", x.get("lesson"))
+            continue
         out.append({"lesson": str(x["lesson"]).strip()[:240], "evidence": [str(e)[:120] for e in x["evidence"]][:4]})
     return out
 
 
-def update(root: Path, chain=None, now: datetime | None = None, lessons: bool = False) -> dict:
-    """Rebuild the dataset and the learned settings. Bonuses move once a week at most; lessons only when asked."""
+def update(root: Path, chain=None, now: datetime | None = None, lessons: bool = False,
+           allow_changes: bool = True) -> dict:
+    """Rebuild the dataset and the learned settings. Bonuses move once a week at most; lessons only when asked.
+    With allow_changes False (the eval suite is failing, fma/evals.py) the numbers are still rebuilt but no
+    setting moves: a system whose checks are broken must not teach itself anything."""
     now = now or datetime.now(timezone.utc)
     rows = dataset(root)
     table = effects(rows) if len(rows) >= 2 else []
@@ -238,12 +271,20 @@ def update(root: Path, chain=None, now: datetime | None = None, lessons: bool = 
     old = _load(path) or {}
     learned = {**old, "reels_counted": len(rows), "checked": now.isoformat(timespec="seconds")}
     last = old.get("bonus_changed")
-    if not last or now - datetime.fromisoformat(last) >= timedelta(days=7):
+    if allow_changes and (not last or now - datetime.fromisoformat(last) >= timedelta(days=7)):
         bonus = category_bonus(table, old.get("category_bonus", {}))
         if bonus != old.get("category_bonus", {}):
             learned.update(category_bonus=bonus, bonus_changed=now.isoformat(timespec="seconds"))
-    kept = [x for x in old.get("lessons", []) if now - datetime.fromisoformat(x["added"]) < timedelta(days=LESSON_DAYS)]
-    if lessons and chain and len(rows) >= 2 * MIN_N:
+    # a lesson lives only while it is young AND today's table still marks its group confident: every run re-tests
+    # what was learned, so a lesson can't outlive its evidence
+    kept = [x for x in old.get("lessons", []) if now - datetime.fromisoformat(x["added"]) < timedelta(days=LESSON_DAYS)
+            and rests_on_confident(x, table)]
+    if not allow_changes:
+        kept = old.get("lessons", [])
+        learned["held"] = "eval suite failing: no self-change"
+    else:
+        learned.pop("held", None)
+    if allow_changes and lessons and chain and len(rows) >= 2 * MIN_N:
         try:
             fresh = check_lessons(chain.ask_json(LESSON_SYSTEM, lesson_prompt(rows, table), temperature=0.2),
                                   rows, table)
@@ -251,8 +292,63 @@ def update(root: Path, chain=None, now: datetime | None = None, lessons: bool = 
         except Exception as exc:  # noqa: BLE001 - lessons are an extra; old ones stay until they expire
             log.warning("lessons failed: %s", exc)
     learned["lessons"] = kept
+    record_change(root, old, learned, table, now)
     path.write_text(json.dumps(learned, ensure_ascii=False, indent=1), encoding="utf-8")
     return learned
+
+
+CHANGES = "data/learning/changes.jsonl"
+TRACKED = ("category_bonus", "lessons")       # the settings the loop may change on its own
+
+
+def _shape(d: dict) -> str:
+    return json.dumps({**d, "lessons": [x.get("lesson") for x in d.get("lessons") or []]}, sort_keys=True)
+
+
+def record_change(root: Path, old: dict, new: dict, table: list[dict], now: datetime) -> None:
+    """Every self-change is written down with its reason and the state before it, so it can be read and undone
+    (`python -m fma.learn revert`). No change, no line."""
+    before = {k: old.get(k) for k in TRACKED}
+    after = {k: new.get(k) for k in TRACKED}
+    if _shape(before) == _shape(after):
+        return
+    confident = [f"{e['feature']} = {e['value']}: n {e['n']}, effect {e['effect']} (se {e['se']})"
+                 for e in table if e.get("confident")]
+    why = ("confident groups: " + "; ".join(confident)) if confident else \
+        "no group is confident: leans decay and lessons without support are removed"
+    line = {"at": now.isoformat(timespec="seconds"), "reels": new.get("reels_counted"), "why": why,
+            "before": before, "after": after}
+    f = root / CHANGES
+    f.parent.mkdir(parents=True, exist_ok=True)
+    with f.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(line, ensure_ascii=False) + chr(10))
+
+
+def revert(root: Path, now: datetime | None = None) -> dict | None:
+    """Undo the newest self-change: put back the settings it replaced, and log the undo. None with nothing to undo."""
+    f = root / CHANGES
+    try:
+        lines = [json.loads(x) for x in f.read_text(encoding="utf-8").splitlines() if x.strip()]
+    except OSError:
+        return None
+    last = next((x for x in reversed(lines) if not x.get("reverted") and not x.get("undo_of")), None)
+    if last is None:
+        return None
+    now = now or datetime.now(timezone.utc)
+    path = root / "data/learned.json"
+    new = dict(_load(path) or {})
+    for k, v in last["before"].items():
+        if v is None:
+            new.pop(k, None)
+        else:
+            new[k] = v
+    new["bonus_changed"] = now.isoformat(timespec="seconds")       # held for a week before the loop moves it again
+    path.write_text(json.dumps(new, ensure_ascii=False, indent=1), encoding="utf-8")
+    last["reverted"] = now.isoformat(timespec="seconds")
+    lines.append({"at": now.isoformat(timespec="seconds"), "undo_of": last["at"], "why": "reverted by hand",
+                  "before": last["after"], "after": last["before"]})
+    f.write_text("".join(json.dumps(x, ensure_ascii=False) + chr(10) for x in lines), encoding="utf-8")
+    return last
 
 
 def learned_settings(root: Path | None = None) -> dict:
@@ -264,14 +360,23 @@ def main(argv=None) -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
     u = sub.add_parser("update")
     u.add_argument("--lessons", action="store_true", help="also ask the model for this week's lessons")
+    sub.add_parser("revert", help="undo the newest self-change (data/learning/changes.jsonl)")
     args = ap.parse_args(argv)
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
+    if args.cmd == "revert":
+        done = revert(config.ROOT)
+        print(f"reverted the change of {done['at']}: {done['why']}" if done else "nothing to revert")
+        return 0
     chain = None
     if args.lessons:
         from .llm import Chain, providers_from_config
         chain = Chain(providers_from_config(config.site_config()))
-    out = update(config.ROOT, chain, lessons=args.lessons)
+    from .evals import passing
+    ok = passing(config.ROOT)
+    if not ok:
+        print("::warning::eval suite failing (python -m fma.evals): the learning loop changes nothing today")
+    out = update(config.ROOT, chain, lessons=args.lessons, allow_changes=ok)
     print(f"{out['reels_counted']} mature Reels; category bonus {out.get('category_bonus', {})}; "
           f"{len(out.get('lessons', []))} lessons")
     return 0

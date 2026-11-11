@@ -77,3 +77,14 @@ def test_hand_posted_platforms_get_an_evening_reminder():
     assert any(m.startswith("2026-11-11-linkedin") for m in msgs) and not any("-x:" in m for m in msgs)
     r = Report("d"); check_queue(r, q, datetime(2026, 11, 11, 9, 0, tzinfo=timezone.utc))     # 14:30 IST: not yet
     assert not any("by hand" in m for _, m in levels(r))
+
+
+def test_dead_feeds_are_reported_before_they_thin_the_post():
+    src = lambda ok, n: {"status": "ok" if ok else "error", "items": n}     # noqa: E731
+    run = {"stages": {"collect": {"sources": {"a": src(True, 5), "b": src(True, 0), "c": src(False, 0),
+                                              "d": src(False, 0), "off": {"status": "disabled", "items": 0}}}}}
+    r = Report("d"); check_post(r, post(), run)
+    assert any(lv == "FAIL" and "only 1 of 4" in m for lv, m in levels(r, "feeds"))
+    run["stages"]["collect"]["sources"].update(b=src(True, 3), c=src(True, 2), d=src(True, 9))
+    r = Report("d"); check_post(r, post(), run)
+    assert levels(r, "feeds") == [("OK", "all 4 sources gave stories")]

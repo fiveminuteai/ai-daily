@@ -25,3 +25,19 @@ def test_request_too_large_moves_on_at_once(monkeypatch):
     with _p.raises(llm.LLMError, match="too large"):
         p._openai("s", "u", 0.3, True)
     assert len(calls) == 1 and not p.exhausted
+
+
+def test_a_reply_cut_off_at_the_token_limit_is_a_failure(monkeypatch):
+    import pytest as _p
+    from fma import llm
+
+    class R:
+        status_code, headers, ok, text = 200, {}, True, ""
+
+        def json(self):
+            return {"choices": [{"finish_reason": "length", "message": {"content": '{"a": 1'}}], "usage": {}}
+    monkeypatch.setattr(llm.requests, "post", lambda *a, **k: R())
+    monkeypatch.setenv("FAKE_KEY", "k")
+    p = llm.Provider(name="groq", base_url="https://x/", model="m", key_env="FAKE_KEY")
+    with _p.raises(llm.LLMError, match="cut off"):
+        p._openai("s", "u", 0.3, True)

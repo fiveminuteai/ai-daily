@@ -51,7 +51,8 @@ def test_lessons_citing_numbers_we_do_not_have_are_dropped():
     table = learn.effects(rows)
     pol = next(e for e in table if e["feature"] == "category" and e["value"] == "policy")
     reply = {"lessons": [
-        {"lesson": "Lead with the legal fight.", "evidence": [f"n {pol['n']}, effect {pol['effect']}"]},
+        {"lesson": "Lead with the legal fight.", "evidence": [f"category = policy: n {pol['n']}, effect {pol['effect']}"]},
+        {"lesson": "Post at one o'clock.", "evidence": [f"n {pol['n']}, effect {pol['effect']}"]},      # names no group
         {"lesson": "Reels with faces get 340% more reach.", "evidence": ["340%"]},
         {"lesson": "No evidence given."}]}
     kept = learn.check_lessons(reply, rows, table)
@@ -94,3 +95,47 @@ def test_learned_lessons_reach_the_producer_and_the_lean_is_frozen_into_the_card
     out = reel_desk.produce(Chain([]), draft, [{"id": "S1", "publisher": "A", "title": "T"}])
     assert "LESSONS FROM OUR OWN REEL RESULTS" in seen[0] and "Lead with the fight. (n 12)" in seen[0]
     assert out["sections"][0]["card"]["bonus"] == 0.5
+
+
+def test_no_confident_group_means_no_lessons_and_old_noise_lessons_are_removed(tmp_path):
+    """11 Nov 2026: 0 of 23 groups were confident, yet five lessons from noise were taught to the producer daily."""
+    rows = rows_with(gap=0.02, n_each=6)                       # too few Reels, almost no gap
+    table = learn.effects(rows)
+    assert not any(e["confident"] for e in table)
+    e = table[0]
+    reply = {"lessons": [{"lesson": "Target the 13:00 slot.",
+                          "evidence": [f"{e['feature']} = {e['value']}: n {e['n']}, effect {e['effect']}"]}]}
+    assert learn.check_lessons(reply, rows, table) == []
+    (tmp_path / "data").mkdir()
+    old = {"lessons": [{"lesson": "Target the 13:00 slot.", "evidence": ["slot = 13:00: n 7, effect 0.03"],
+                        "added": (NOW - timedelta(days=2)).isoformat()}]}
+    (tmp_path / "data/learned.json").write_text(json.dumps(old), encoding="utf-8")
+    out = learn.update(tmp_path, now=NOW)
+    assert out["lessons"] == []
+    log = [json.loads(x) for x in (tmp_path / learn.CHANGES).read_text(encoding="utf-8").splitlines()]
+    assert len(log) == 1 and "no group is confident" in log[0]["why"] and log[0]["before"]["lessons"]
+
+
+def test_a_gap_the_newest_reels_contradict_is_not_confident():
+    key = learn.FEATURES["category"]
+    old = [{"date": "2026-11-01", "slot": k, "category": c, "outcome": o}
+           for k, (c, o) in enumerate([("policy", 1.0), ("tools", -1.0)] * 8)]
+    new = [{"date": "2026-11-20", "slot": k, "category": c, "outcome": o}
+           for k, (c, o) in enumerate([("policy", -1.0), ("tools", 1.0)] * 4)]
+    assert learn.held_out_agrees(old + new, key, "policy", effect=0.5) is False     # newest third says the opposite
+    assert learn.held_out_agrees(old + old[:8], key, "policy", effect=0.5) is True
+    assert learn.held_out_agrees(old[:4], key, "policy", effect=0.5) is None        # too few to say
+
+
+def test_every_self_change_is_logged_and_can_be_reverted(tmp_path):
+    (tmp_path / "data").mkdir()
+    before = {"category_bonus": {"policy": 0.5}, "lessons": [], "bonus_changed": (NOW - timedelta(days=30)).isoformat()}
+    (tmp_path / "data/learned.json").write_text(json.dumps(before), encoding="utf-8")
+    out = learn.update(tmp_path, now=NOW)                      # no data: the lean decays one step
+    assert out["category_bonus"] == {"policy": 0.25}
+    done = learn.revert(tmp_path, now=NOW)
+    assert done and json.loads((tmp_path / "data/learned.json").read_text(encoding="utf-8"))["category_bonus"] == {"policy": 0.5}
+    log = [json.loads(x) for x in (tmp_path / learn.CHANGES).read_text(encoding="utf-8").splitlines()]
+    assert len(log) == 2 and log[0]["reverted"] and log[1]["undo_of"] == log[0]["at"]
+    assert learn.revert(tmp_path, now=NOW) is None             # nothing left to undo
+    assert learn.update(tmp_path, now=NOW + timedelta(days=1))["category_bonus"] == {"policy": 0.5}   # held a week

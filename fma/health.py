@@ -75,6 +75,18 @@ def check_post(r: Report, post: dict | None, run: dict | None) -> None:
         r.warn("post", f"short day: {n} stories, {words} words" + (f" (gate: {fails})" if fails else ""))
     else:
         r.ok("post", f"{n} stories, {words} words")
+    feeds = ((run or {}).get("stages", {}).get("collect", {}) or {}).get("sources") or {}
+    live = [k for k, v in feeds.items() if v.get("status") != "disabled"]
+    good = [k for k in live if feeds[k].get("status") == "ok" and feeds[k].get("items")]
+    if live:
+        share = len(good) / len(live)
+        bad = sorted(set(live) - set(good))
+        if share < 0.5:
+            r.fail("feeds", f"only {len(good)} of {len(live)} sources gave stories (dead: {', '.join(bad)[:200]})")
+        elif share < 0.8 or bad:
+            r.warn("feeds", f"{len(bad)} of {len(live)} sources gave nothing: {', '.join(bad)[:200]}")
+        else:
+            r.ok("feeds", f"all {len(live)} sources gave stories")
     carded = [k for k, s in enumerate(post.get("sections", [])) if (s.get("card") or {}).get("hook")]
     if not carded:
         r.fail("post", "no story has a Reel card: no Reels today")

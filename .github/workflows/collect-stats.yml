@@ -36,6 +36,11 @@ jobs:
         run: python -m fma.stats collect
       # The learning loop (fma/learn.py): rebuild what our numbers say; on Sundays also this week's producer lessons.
       # Never blocks the stats.
+      # The eval suite (fma/evals.py, 11 Nov 2026): known answers with pass bars. Its result is saved for the
+      # dashboard, and the learning step below changes nothing while it fails.
+      - name: Evals
+        run: |
+          python -m fma.evals --write || echo "::warning::eval suite FAILED: the learning loop is held"
       - name: Learn
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -56,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stats data/learning data/learned.json data/growth 2>/dev/null || git add data/stats
+          git add data/stats data/learning data/learned.json data/growth data/evals 2>/dev/null || git add data/stats
           git diff --cached --quiet && exit 0
           git commit -m "Stats for $(TZ=Asia/Kolkata date +%F)"
           for i in 1 2 3; do

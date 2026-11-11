@@ -53,6 +53,8 @@ work." Rules for this file:
 | 11 Nov (audit) | X and LinkedIn items stayed "pending" forever | No way to record a post made by hand | "I posted it" in the control app records the link (`posted` action, link checked per platform); health check reminds after 20:00 IST |
 | 11 Nov (audit) | The 11:00 carousel had no backup trigger | Crons covered only the Reel slots | 11:05 and 11:35 IST backups |
 | 11 Nov (audit) | Dashboard showed a short edition, an overdue Reel and stale data as "ok" | Status rules never read `edition`, time past the slot, or refresh failures | Short = warning, overdue = failure, freshness banner, desktop updates only to a green main (dashboard tests) |
+| 11 Nov | The learning loop taught the Reel writer 5 "lessons" from noise (0 of 23 groups were confident; one effect was 0.03) | The prompt allowed lessons from "a pattern in the best Reels"; only numbers were checked in code, not significance | A lesson must cite a confident group (code), is re-tested every night, the newest third of Reels must agree, every change is logged and reversible, and the eval suite (`fma/evals.py`, 10 suites with bars) must pass before anything changes |
+| 11 Nov | A one-line `run:` with ": " broke a workflow again | Same slip as deploy.yml hours earlier | Caught before commit by tests/test_workflows.py: the guard worked |
 
 ## General lessons (they carry over)
 
@@ -88,6 +90,8 @@ work." Rules for this file:
     covered. Every degraded path records why (media.json, ::warning::) and something reads that record daily.
 16. **Test the day, not only the code.** Unit tests prove the logic; the daily health check (fma/health.py) proves
     the post, pages, media, queue and accounts are what a reader meets. Each incident adds a check there too.
+18. **Measure judgement as a rate against a bar, not as a feeling.** An eval with known answers found in one run
+    what reading the code had not: the loop's own lessons were noise. Add a case for every slip; never lower a bar.
 17. **Budget time, not just retries.** A job with a hard timeout needs its own deadline inside, set below the
     timeout, so it ends with its best result instead of being killed with it.
 

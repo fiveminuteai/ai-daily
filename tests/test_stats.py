@@ -103,3 +103,12 @@ def test_reels_get_average_watch_time():
             return super().get(url, **kw)
     ig = stats.collect(Http(r), "2026-10-31", SITE, ENV)["instagram"]
     assert ig["posts"][0]["avg_watch_s"] == 7.4
+
+
+def test_reading_is_counted_from_the_post_pages_events():
+    from fma.stats import reads
+    hits = [{"path": "/posts/2026-11-11-x/", "count": 40}, {"path": "/", "count": 90},
+            {"path": "read-30s", "count": 22, "event": True}, {"path": "read-half", "count": 15, "event": True},
+            {"path": "read-end", "count": 10, "event": True}]
+    assert reads(hits) == {"post_views": 40, "read_30s": 22, "read_half": 15, "read_end": 10, "read_end_rate": 0.25}
+    assert reads([])["read_end_rate"] is None
