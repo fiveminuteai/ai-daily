@@ -224,17 +224,54 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
                     raise ValueError("over the length cap with every closing")
                 reel_cover(post, sec, path.with_suffix(".jpg"), guest=guest, lines=lines)
                 out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
-                                           "duo": guest})
+                                           "duo": guest, "story": n})
                 continue
             except Exception as exc:  # noqa: BLE001
                 logging.getLogger(__name__).warning("duo reel %d failed, using the ordinary Reel: %s", k + 1, exc)
+                why = f"duo render failed: {exc}"[:300]
+        else:
+            from . import voice as _voice
+            why = ("card has no duo" if not (sec.get("card") or {}).get("duo") else
+                   "no voice (Kokoro missing)" if not _voice.available() else "before duo Reels started")
         try:
             story_reel(post, sec, n, site, path, palette=pal)
             reel_cover(post, sec, path.with_suffix(".jpg"), guest="solo")
-            out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"])})
+            out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
+                                       "duo": None, "story": n, "plain_because": why})
         except Exception as exc:  # noqa: BLE001
             logging.getLogger(__name__).warning("story reel %d failed: %s", k + 1, exc)
+            out["story_reels"].append({"file": None, "story": n, "error": str(exc)[:300]})
+    write_manifest(folder, post, out)
     return out
+
+
+def write_manifest(folder: Path, post: dict, out: dict) -> None:
+    """share/<date>/media.json: what this deploy rendered, for the daily health check (fma/health.py, 11 Nov 2026:
+    a plain Reel used to look exactly like a duo one to every check). Each Reel's length and whether it has sound
+    are measured from the file itself."""
+    import json
+    import shutil
+    import subprocess
+    reels = []
+    for r in out.get("story_reels", []):
+        r = dict(r)
+        f = folder / r["file"] if r.get("file") else None
+        if f and f.exists() and shutil.which("ffprobe"):
+            try:
+                probe = json.loads(subprocess.run(
+                    ["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type", "-of", "json",
+                     str(f)], capture_output=True, text=True, timeout=60, stdin=subprocess.DEVNULL).stdout or "{}")
+                r["seconds"] = round(float(probe.get("format", {}).get("duration", 0)), 1)
+                r["audio"] = any(st.get("codec_type") == "audio" for st in probe.get("streams", []))
+            except Exception:  # noqa: BLE001 - the health check reports a Reel it cannot measure
+                pass
+        r["cover"] = bool(f and f.with_suffix(".jpg").exists())
+        reels.append(r)
+    from .voice import available as voice_on
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "media.json").write_text(json.dumps({
+        "date": post["date"], "slug": post.get("slug"), "voice": voice_on(), "slides": out.get("slides", []),
+        "reel": out.get("reel"), "reels": reels}, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def reel_cover(post: dict, sec: dict, out, guest: str, lines: list | None = None) -> None:

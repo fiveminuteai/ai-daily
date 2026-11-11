@@ -44,3 +44,21 @@ def test_feed_has_a_browser_stylesheet_that_renders(tmp_path):
     assert '<?xml-stylesheet type="text/xsl" href="/assets/feed.xsl"?>' in feed.splitlines()[1]
     page = str(etree.XSLT(etree.parse(str(out / "assets/feed.xsl")))(etree.parse(str(out / "feed.xml"))))
     assert "This is the RSS feed" in page and "feed.xml" in page
+
+
+def test_media_manifest_says_which_reels_are_duo_and_why_not(tmp_path):
+    """11 Nov 2026: a plain Reel looked like a duo one to every check; share/<date>/media.json now says."""
+    import json
+    from fma.site import write_manifest
+    (tmp_path / "reels").mkdir()
+    (tmp_path / "reels/01.mp4").write_bytes(b"x")
+    (tmp_path / "reels/01.jpg").write_bytes(b"x")
+    out = {"slides": ["01.png"], "story_reels": [
+        {"file": "reels/01.mp4", "duo": "doubt", "story": 1},
+        {"file": "reels/02.mp4", "duo": None, "story": 2, "plain_because": "card has no duo"},
+        {"file": None, "story": 0, "error": "boom"}]}
+    write_manifest(tmp_path, {"date": "2026-11-11", "slug": "s"}, out)
+    m = json.loads((tmp_path / "media.json").read_text(encoding="utf-8"))
+    assert m["date"] == "2026-11-11" and [r["story"] for r in m["reels"]] == [1, 2, 0]
+    assert m["reels"][0]["cover"] and not m["reels"][1]["cover"]
+    assert m["reels"][1]["plain_because"] == "card has no duo" and m["reels"][2]["error"] == "boom"
