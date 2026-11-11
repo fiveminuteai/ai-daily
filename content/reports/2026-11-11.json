@@ -1,0 +1,1101 @@
+{
+  "checked": 95,
+  "ok": 38,
+  "repaired": 22,
+  "dropped": 35,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic sets IPO price range at $70 to $78 per share",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The sources discuss Google Cloud's Gemini for healthcare and Hugging Face billing/decision models; none mention Anthropic, an IPO, or a price range of $70 to $78 per share.",
+        "model check: The sources discuss Google Cloud's Gemini for healthcare and Hugging Face billing/decision models; none mention Anthropic, an IPO, or a price range of $70 to $78 per share."
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "fully supports the review and has committed to cooperating with it",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check (speaker): The source attributes the statement to 'the company' (Nvidia), not Jensen Huang directly."
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "Anthropic filed for an IPO valuing it at $1.4 trillion, while Nvidia's board investigates its CEO and Google previews Gemini for healthcare.",
+      "sources": [
+        "S1",
+        "S4",
+        "S2",
+        "S3",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim states Anthropic 'filed for an IPO valuing it at $1.4 trillion', but the source says it 'targets' or 'could be' valued at that amount (a ceiling/possibility), not that the filing itself valued it there. Additionally, the claim asserts 'Nvidia's board investigates its CEO', but the source only mentions 'revelations about an alleged Chinese spy’s involvement with Nvidia CEO Jensen Huang', which is not the same as a board investigation."
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google Cloud launched a preview of Gemini for healthcare to unify clinical data and reduce administrative workload.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic set its IPO price range at $70 to $78 per share, targeting a $1.404 trillion valuation.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Nvidia’s board is investigating CEO Jensen Huang after he admitted to an affair with a suspected Chinese spy.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source mentions 'revelations about an alleged Chinese spy’s involvement' but does not state that the board is investigating him or that he admitted to an affair."
+      ]
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Anthropic's S-1 filing shows each of its seven founders will sell 3,378,378 shares in its upcoming IPO.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Adobe and Google are integrating their creative and AI tools to streamline workflows.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: None of the provided sources mention Adobe or an integration between Adobe and Google tools."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google Cloud announced Gemini for healthcare on 10 November 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This AI solution is engineered to unify fragmented clinical, operational, and administrative systems.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It moves beyond simple information retrieval to enable coordinated action.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The platform integrates data from electronic health records, billing platforms, and clinical guidelines.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It orchestrates complex workflows like medical records synthesis and prior authorization review.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Launch partners include HCA Healthcare, Highmark Health, and Northwell Health.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The tool operates within defined guardrails and with human oversight.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Clinicians currently lose nearly 28 hours each week to paperwork and administrative tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This burden fuels burnout and strains healthcare budgets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The system aims to reclaim staff time for patient care by resolving bottlenecks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google Cloud previews Gemini for healthcare",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Gemini for healthcare unifies fragmented clinical and administrative systems.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "It integrates EHRs, billing, and guidelines to handle prior authorizations.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'EHRs' not in cited source"
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "HCA Healthcare, Highmark, and Northwell are launch partners for the tool.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "This aims to reclaim staff time for patient care by resolving bottlenecks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Is AI ready to handle your medical records?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Google AI fixes 28-hour paperwork gap.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name '28-hour' not in cited source"
+      ]
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Clinicians lose nearly 28 hours each week to paperwork and admin tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Google Cloud announced Gemini for healthcare on 10 November 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "It unifies fragmented systems to enable coordinated action beyond simple retrieval.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic updated its IPO filing on Tuesday to set a price range of $70 to $78 per share.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This move aims to reach an implied valuation of $1.404 trillion on a fully diluted basis.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company plans to offer 825 million Class A shares in the offering.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The sale is expected to raise between $57.75 billion and $64.35 billion.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic also agreed to sell $26 billion of non-voting stock to AMD, Broadcom, Google, Micron, Microsoft, Nvidia, and TSMC.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google and Nvidia are each investing $10 billion in this private deal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This valuation is lower than the $2 trillion target reported a few months ago.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It follows a broader pullback from AI investing and shakier market conditions.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company expects to start trading on the Nasdaq near November 19.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic sets IPO price at $70 to $78 per share",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anthropic offers 825 million shares to raise up to $64.35 billion.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Google and Nvidia each invest $10 billion in non-voting stock.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Trading starts on Nasdaq near November 19 after market pullback.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Major tech giants are betting billions on Anthropic's future, signaling strong AI market confidence.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Is $1.4 trillion too high for an AI company?",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Anthropic IPO: $1.4T valuation.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Anthropic is selling shares to raise up to $64.35 billion.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Google and Nvidia are each investing $10 billion in the deal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "The company plans to start trading on Nasdaq near November 19.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia’s board of directors announced it will launch an investigation into CEO Jensen Huang.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This follows his admission of an affair with Alice Huang.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "US intelligence services concluded she was a Chinese intelligence asset.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company stated Huang fully supports the review.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He has committed to cooperating with the process.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This move signals internal scrutiny of the incident.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Huang earned $36 million last year according to a corporate filing.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He owned about 3.5 percent of Nvidia as of March.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The same filing noted he is an at-will employee.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "This means he can be let go anytime without severance.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The board’s decision to investigate puts his position in balance.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The outcome of this review remains to be seen.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia is the undisputed leader in advanced computer chips.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "These chips are a key bottleneck in global AI development.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "US companies rely on Nvidia for hardware.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "China has restricted access to these chips.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Experts say the incident could disrupt the US AI industry.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "It may also affect national security efforts.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia board investigates jensen huang",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "only 70 verified words left in section"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic has filed for an initial public offering that could value the company at $1.4 trillion.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Anthropic has filed for an initial public offering that could value the company at $1.4 trillion.\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The S-1 filing reveals that each of its seven co-founders plans to sell 3,378,378 shares.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This disclosure provides specific details on how the founders intend to monetize their equity during the listing process.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company has set an initial price range of $70 to $78 per share.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "At the midrange of $74, each founder would receive just shy of $250 million.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "At the low end of $70, they would take in just over $236 million, while the high end of $78 yields just under $264 million.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Board members Reed Hastings and Christopher Liddell have also indicated interest in buying shares.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The seven founders left OpenAI in 2021 to start Anthropic, citing disagreements over AI safety.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "After the sale, each will own about 3.2% of Class A shares.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Collectively, they will control 51.1% of the votes through supervoting rights, ensuring they remain in control of the company despite other holders like Amazon and Google.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic founders plan to sell shares in IPO",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Anthropic founders will sell shares worth nearly $250 million.",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Anthropic filed for an IPO valuing the company at $1.4 trillion.",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Each of the seven co-founders plans to sell 3,378,378 shares.",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Founders will retain 51.1% voting control despite the sale.",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "This shows AI safety leaders are prioritizing personal wealth alongside their mission.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Does money change AI safety goals?",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Founders cash in at $1.4T.",
+      "sources": [
+        "S4",
+        "S5",
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Anthropic's IPO could value the company at a massive $1.4 trillion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '1.4 trillion' not in cited source",
+        "overstates: 'massive' is not in the source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "At Adobe MAX, Adobe and Google announced an expanded partnership.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They will bring Adobe’s creative tools into Google apps.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They will also bring Google’s AI models into Adobe’s apps.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This aims to reduce the need to switch between applications.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The announcement focused on workflow efficiency for daily users.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Users will find a direct pathway from Google Drive and Gmail into Adobe Acrobat.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Adobe is expanding its connectors in Gemini and Gemini Enterprise.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Businesses can use Adobe’s CX Enterprise Coworker agent in Gemini Enterprise.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This agent helps teams design graphics and work with PDFs.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Adobe and Google DeepMind will also explore new editing capabilities for creative professionals.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Switching between apps to edit files can break focus.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "This integration places tools directly where users search and chat.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "It allows for a more seamless creative workflow.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The partnership connects two major tech ecosystems.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "It targets both individual creators and enterprise teams.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Adobe and Google integrate creative tools",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "only 77 verified words left in section"
+      ]
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Anthropic's IPO aims to raise up to $64.35 billion, with Google and Nvidia each investing $10 billion in a private deal for non-voting stock.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "This capital injection supports continued AI development but reflects a valuation lower than previous targets, signaling market caution.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Nvidia's board is investigating CEO Jensen Huang following his admission of an affair with a person identified by US intelligence as a Chinese asset.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Jensen' not in cited source",
+        "name 'Huang' not in cited source",
+        "name 'Chinese' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Since Nvidia chips are a key bottleneck in global AI development, this internal scrutiny could disrupt the US AI industry and national security efforts.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Nvidia' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "Google Cloud's Gemini for healthcare integrates electronic health records and billing data to automate workflows like prior authorization review.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "By addressing the 28 hours clinicians lose weekly to paperwork, the tool aims to reduce burnout and strain on healthcare budgets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "May Fundraise: 965",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "IPO Top Range: 1404",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "value or label not in chart source"
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "This shows AI safety leaders are prioritizing Personal wealth alongside their mission.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim is an analysis/opinion that leaders are 'prioritizing Personal wealth alongside their mission.' While the source provides facts about the founders selling shares for ~$250 million each, it does not state or support the subjective interpretation that they are prioritizing personal wealth over or alongside their mission. The source is neutral regarding their motivations."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 7,
+  "unused": 17,
+  "headline_rescued": {
+    "was": "Anthropic sets IPO price range at $70 to $78 per share",
+    "problems": [
+      "model check: The sources discuss Google Cloud's Gemini for healthcare and Hugging Face billing/decision models; none mention Anthropic, an IPO, or a price range of $70 to $78 per share."
+    ]
+  },
+  "date": "2026-11-11",
+  "slug": "2026-11-11-anthropic-sets-ipo-price-range-at-70",
+  "model": "groq:qwen/qwen3.8-27b"
+}

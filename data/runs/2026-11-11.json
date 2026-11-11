@@ -1,0 +1,496 @@
+{
+ "date": "2026-11-11",
+ "started_at": "2026-11-11T02:00:39+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 12.4,
+   "items": 657,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 13
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 5
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 6
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 4
+    },
+    "github": {
+     "status": "ok",
+     "items": 9
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.4,
+   "stories": 253,
+   "editor": true,
+   "top": [
+    {
+     "title": "Google Cloud launches Gemini for healthcare.",
+     "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+     "score": 9.9,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "Hugging Face blog",
+      "Hugging Face model cards",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini 4 Carbon is now available",
+     "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+     "score": 9.64,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "Google DeepMind",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing Businesses in ChatGPT",
+     "url": "https://openai.com/index/introducing-businesses-chatgpt",
+     "score": 8.38,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic sets IPO price range of $70 to $78 per share to reach an implied valuation of $1.404 trillion",
+     "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/",
+     "score": 8.16,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The US is winning the AI race. Jensen Huang could have blown it",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1031063/jensen-huang-ai-race-us-china-spy",
+     "score": 7.65,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "All 7 Anthropic founders will each cash out about $250M in IPO",
+     "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+     "score": 7.36,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic reportedly plans to move forward with IPO plans",
+     "url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+     "score": 7.1,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+     "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
+     "score": 7.03,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Grok Build coding agent leaks oodles of confidential info, some belonging to SpaceXSI",
+     "url": "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/",
+     "score": 6.79,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
+     "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+     "score": 6.78,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "NVIDIA Nemotron 3.5 Super VL is now available in Amazon SageMaker JumpStart",
+     "url": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-5-super-vl-is-now-available-in-amazon-sagemaker-jumpstart/",
+     "score": 6.75,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "ChatGPT Enterprise now available in AWS Marketplace",
+     "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+     "score": 6.73,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Google Cloud launches Gemini for healthcare.",
+     "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+     "score": 9.9,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "Hugging Face blog",
+      "Hugging Face model cards",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic sets IPO price range of $70 to $78 per share to reach an implied valuation of $1.404 trillion",
+     "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/",
+     "score": 8.16,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The US is winning the AI race. Jensen Huang could have blown it",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1031063/jensen-huang-ai-race-us-china-spy",
+     "score": 7.65,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "All 7 Anthropic founders will each cash out about $250M in IPO",
+     "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+     "score": 7.36,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+     "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
+     "score": 7.03,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "TechCrunch"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.9,
+   "articles": 15,
+   "with_text": 15
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 2.5,
+   "word_count": 564,
+   "sources": 4
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 176.9,
+    "reel_desk": 869.6,
+    "layer1": 0.2,
+    "layer2": 570.5,
+    "gate": 0.3
+   },
+   "layer1": {
+    "checked": 120,
+    "ok": 46,
+    "repaired": 58,
+    "dropped": 16
+   },
+   "layer2": {
+    "checked": 104,
+    "ok": 36,
+    "repaired": 36,
+    "dropped": 32
+   },
+   "unused": 16,
+   "fails": [
+    "word count 860 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Google Cloud adds Gemini for healthcare",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 4.0,
+     "why": "Routine corporate preview tool; low stakes for general tech viewers.",
+     "hook": "Google Cloud targets 28 hours of weekly admin work.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic files for $1.4 trillion IPO",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 9.0,
+     "why": "Giant company in trouble/market shakeup; $1.4T valuation is a massive, talk-worthy event.",
+     "hook": "Anthropic files for a $1.4 trillion IPO.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia faces security scrutiny after CEO admission",
+     "reel": 10,
+     "rubric": 10,
+     "chief": 10.0,
+     "why": "Scandal involving a giant CEO and national security; high drama and immediate office chatter.",
+     "hook": "Nvidia CEO admits affair with Chinese spy.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic founders plan to sell shares in IPO",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Adobe and Google integrate creative tools",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 179.1,
+    "reel_desk": 869.4,
+    "layer1": 0.1,
+    "layer2": 479.7,
+    "gate": 0.4
+   },
+   "layer1": {
+    "checked": 111,
+    "ok": 41,
+    "repaired": 42,
+    "dropped": 28
+   },
+   "layer2": {
+    "checked": 95,
+    "ok": 38,
+    "repaired": 22,
+    "dropped": 35
+   },
+   "unused": 17,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Google Cloud previews Gemini for healthcare",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Google is a known name, but healthcare admin automation is niche for tech viewers and lacks immediate personal stakes.",
+     "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic sets IPO price at $70 to $78 per share",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Massive $1.4T valuation and $10B investments from Google/Nvidia are clear, high-stakes news for tech workers.",
+     "hook": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic founders plan to sell shares in IPO",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 5.0,
+     "why": "Founder wealth is interesting but feels like routine financial news; the 'safety vs profit' angle is weak for general viewers.",
+     "hook": "Anthropic founders will sell shares worth nearly $250 million.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-11-anthropic-sets-ipo-price-range-at-70",
+ "finished_at": "2026-11-11T02:53:25+00:00",
+ "seconds": 3165.9
+}

@@ -1,0 +1,107 @@
+{
+ "date": "2026-11-11",
+ "slug": "2026-11-11-anthropic-sets-ipo-price-range-at-70",
+ "headline": "Google Cloud previews Gemini for healthcare",
+ "url": "https://fiveminuteai.net/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70/",
+ "generated_at": "2026-11-11T02:53:26+00:00",
+ "items": [
+  {
+   "id": "2026-11-11-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Google Cloud previews Gemini for healthcare\n\n• Google Cloud launched a preview of Gemini for healthcare to unify clinical data and reduce administrative workload.\n• Anthropic set its IPO price range at $70 to $78 per share, targeting a $1.404 trillion valuation.\n• Anthropic's S-1 filing shows each of its seven founders will sell 3,378,378 shares in its upcoming IPO.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-11/instagram.png"
+   ],
+   "scheduled_at": "2026-11-11T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-11-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Google Cloud previews Gemini for healthcare\n\n• Google Cloud launched a preview of Gemini for healthcare to unify clinical data and reduce administrative workload.\n\nhttps://fiveminuteai.net/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 187
+  },
+  {
+   "id": "2026-11-11-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Google Cloud previews Gemini for healthcare\n\n• Google Cloud launched a preview of Gemini for healthcare to unify clinical data and reduce administrative workload.\n• Anthropic set its IPO price range at $70 to $78 per share, targeting a $1.404 trillion valuation.\n• Anthropic's S-1 filing shows each of its seven founders will sell 3,378,378 shares in its upcoming IPO.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-11-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Anthropic sets $70-$78 IPO price for $1.4T valuation[S4][S5].",
+   "cover": "Anthropic IPO: $1.4T valuation[S4][S5].",
+   "text": "Anthropic sets $70-$78 IPO price for $1.4T valuation.\n\n• Anthropic offers 825 million shares to raise up to $64.35 billion.\n• Google and Nvidia each invest $10 billion in non-voting stock.\n• Trading starts on Nasdaq near November 19 after market pullback.\n\nOur read: Major tech giants are betting billions on Anthropic's future, signaling strong AI market confidence.\n\nYour take: Is $1.4 trillion too high for an AI company? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #anthropic #claude #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-11/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-11T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-11-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork[S1].",
+   "cover": null,
+   "text": "Google launches AI to fix 28 hours of weekly clinician paperwork.\n\n• Gemini for healthcare unifies fragmented clinical and administrative systems.\n• HCA Healthcare, Highmark, and Northwell are launch partners for the tool.\n\nOur read: This aims to reclaim staff time for patient care by resolving bottlenecks.\n\nYour take: Is AI ready to handle your medical records? Tell us in the comments.\n\nSend this to your group chat's AI person.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-11/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-11T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-11-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Anthropic founders will sell shares worth nearly $250 million[S4][S5][S8].",
+   "cover": "Founders cash in at $1.4T[S4][S5][S8].",
+   "text": "Anthropic founders will sell shares worth nearly $250 million.\n\n• Anthropic filed for an IPO valuing the company at $1.4 trillion.\n• Each of the seven co-founders plans to sell 3,378,378 shares.\n• Founders will retain 51.1% voting control despite the sale.\n\nYour take: Does money change AI safety goals? Tell us in the comments.\n\nSend this to the friend who keeps up with AI.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #anthropic #claude #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-11/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-11T10:30:00+00:00"
+  }
+ ]
+}
