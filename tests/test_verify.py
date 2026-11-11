@@ -519,3 +519,27 @@ def test_rounded_figures_pass_but_wrong_ones_and_rounded_percentages_do_not():
     assert not number_ok("1.5", "", "trillion", src) and not number_ok("2.6", "", "billion", src)
     assert not number_ok("1", "", "trillion", src)          # one significant digit is too rough
     assert not number_ok("4", "%", "", src)                 # percentages are never rounded
+
+
+def test_layer_two_checks_the_headline_against_its_own_story():
+    """11 Nov 2026: an Anthropic headline was checked against the Google lead section's sources and dropped."""
+    from fma.verify import llm_check
+
+    class Chain:
+        def __init__(self):
+            self.prompts = []
+
+        def ask_json(self, system, user, **kw):
+            self.prompts.append(user)
+            return {"verdicts": []}
+    src = [{"id": "S1", "story": 1, "title": "Google Cloud launches Gemini for healthcare", "url": "u1", "publisher": "Google",
+            "text": "Google Cloud launched Gemini for healthcare."},
+           {"id": "S2", "story": 2, "title": "Anthropic sets IPO price range", "url": "u2", "publisher": "TechCrunch",
+            "text": "Anthropic set an IPO price range of $70 to $78 per share."}]
+    post = {"headline": "Anthropic sets IPO price range", "dek": "", "what_happened": [], "why_it_matters": [],
+            "quote": None, "sections": [{"title": "Google", "paragraphs": ["Google Cloud launched Gemini for healthcare[S1]."]},
+                                        {"title": "Anthropic", "paragraphs": ["Anthropic set a price range[S2]."]}]}
+    c = Chain()
+    llm_check(c, post, src, {"entries": [], "checked": 0, "ok": 0, "repaired": 0, "dropped": 0})
+    head = [p for p in c.prompts if "Anthropic sets IPO price range" in p]
+    assert head and all("[S2]" in p for p in head) and not any("Anthropic sets IPO price range[S1]" in p for p in head)

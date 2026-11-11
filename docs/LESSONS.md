@@ -40,7 +40,14 @@ work." Rules for this file:
 | 10 Nov | All three Reels lost their duo | Facts-step false alarms: "October 16", "Fable 5.2", the word "filing" | Dates and names skipped; "filing" allowed; **duo falls back to the checked card's lines** |
 | 10 Nov | Cards said "tumble", "dramatically", "sends your files" | Model drifts toward bigger, more certain wording | Overstatement words allowed only when the cited source uses them |
 | 10 Nov | Every test run changed `data/bank` | Pipeline tests wrote the real knowledge bank | Autouse fixture points the bank at a temp folder |
-| 11 Nov | Post went out with 3 stories, 559 words | Attempt 1 (5 stories, 860 words) missed the 880-word floor by 20; the retry, squeezed by Groq's daily limit, came back thinner, and the short-edition fallback only ever looked at the last attempt | Every attempt that passes as a short edition is kept; the one with the most stories, then words, is published (`fullest`, test in test_run_summary) |
+| 11 Nov | Post went out with 3 stories, 559 words | Two causes. (a) The short-edition fallback only looked at the last attempt; attempt 1 (860 words) was fuller. (b) The real story cut (found by the audit, correcting my first guess of "Groq squeeze"): the writer left sentences uncited, they were dropped as "no citation", and two sections fell under 80 words | (a) the fullest short edition wins (`fullest`); (b) an uncited sentence is checked against its own story's sources (test_verify) |
+| 7, 9, 11 Nov | Daily runs killed by the 55-min job timeout mid-attempt, losing a publishable short edition | No time budget inside the run; a 429 "request too large" was retried for 7 min; the collection was saved only at the end | `FMA_DEADLINE`: no model call after it; too little time for another attempt publishes the fullest short edition; "too large" moves on at once; collection saved before writing |
+| 11 Nov | The founders Reel had no duo | Layer 1 dropped "a massive $1.4 trillion" after the script was written, where no fallback existed | Duo facts pre-checked with the post's own verifier while writing, falling back to the card's lines; "$1.4 trillion" passes for "$1.404 trillion" (half-up, 2 significant digits, never %) |
+| 11 Nov | A Reel said "three, three hundred seventy-eight, ..." and "dollar seventy dollar seventy-eight" | No pronunciation rule for thousands commas, "$A-$B", "$1.4T", "$8" | Rules checked against Kokoro's phonemes; a test reads every published card and duo line |
+| 11 Nov | A lost duo fell back to a silent 25 s Reel, and nobody was told | The fallback was called without `narrate`; degradations logged at INFO | Fallback narrated; `media.json` says what rendered and why; `::warning::` on the deploy; the health check fails a plain Reel for a duo card |
+| 11 Nov | I pushed a commit with a failing test | `pytest | tail -1 && git commit`: the pipe's exit code was tail's | Save output to a file, check pytest's own `$?`, then commit (lesson 13) |
+| 11 Nov (audit) | Possible double posts: a lost record left items "approved" with no attempts; a YouTube upload timeout was retried; a queued run could cancel a Skip | Find-before-post only on retries; one shared concurrency group | Every post looks for itself first; an unknown upload outcome is never auto-retried; per-item approve/skip groups; replay in publish-social |
+| 11 Nov (audit) | Dashboard showed a short edition, an overdue Reel and stale data as "ok" | Status rules never read `edition`, time past the slot, or refresh failures | Short = warning, overdue = failure, freshness banner, desktop updates only to a green main (dashboard tests) |
 
 ## General lessons (they carry over)
 
@@ -68,6 +75,16 @@ work." Rules for this file:
     the live file, then release it. Never edit a queue file a scheduled run may be writing at the same moment.
 12. **Platform facts expire.** API parameters, quotas and policies changed monthly in 2025-2026 (Trial Reels API,
     AI label, hashtag cap, YouTube's unverified-upload rule): verify on the official page, note the date.
+13. **A pipe hides the exit code.** `cmd | tail && next` runs `next` when `cmd` failed. Save the output, test the
+    command's own status, then act. Same for any "it printed fine" check.
+14. **Check where a fallback still exists.** A check that runs after the work is done can only delete it. Run the
+    same check while the work is being made (the duo pre-check), so a failure can still be retried or replaced.
+15. **A fallback must be loud and as good as it can be.** The silent 25 s Reel was worse than the failure it
+    covered. Every degraded path records why (media.json, ::warning::) and something reads that record daily.
+16. **Test the day, not only the code.** Unit tests prove the logic; the daily health check (fma/health.py) proves
+    the post, pages, media, queue and accounts are what a reader meets. Each incident adds a check there too.
+17. **Budget time, not just retries.** A job with a hard timeout needs its own deadline inside, set below the
+    timeout, so it ends with its best result instead of being killed with it.
 
 ## Study notes (what the research found)
 
@@ -95,3 +112,6 @@ work." Rules for this file:
 6. Is the rule a prompt or code? If it matters (facts, decency, length), it must be code with a test.
 7. How will I verify it at the final layer (the live file, the posted Reel, the page a reader sees)?
 8. Does it keep the house rules: every fact checked, healthy comedy, no clickbait the story doesn't back?
+9. When it degrades, is it loud (a recorded reason, a warning) and does the health check notice?
+10. Does it fit inside its job's time limit with its own deadline, and what survives if it is killed anyway?
+11. Before pushing: did both test suites (pytest and `node --test dashboard/test`) pass by their own exit codes?

@@ -212,6 +212,19 @@ def check_instagram(r: Report, http, queue: dict | None, token: str) -> None:
         r.warn("instagram", f"token expiry unknown ({type(exc).__name__})")
 
 
+def check_youtube(r: Report, http) -> None:
+    """The YouTube sign-in still refreshes (uploads nothing). A revoked or expired token fails here in the
+    morning instead of at the first Short."""
+    from .youtube import _token, configured
+    if not configured():
+        return
+    try:
+        _token(http, os.environ)
+        r.ok("youtube", "sign-in refreshes")
+    except Exception as exc:  # noqa: BLE001
+        r.fail("youtube", f"sign-in no longer works: {str(exc)[:200]}")
+
+
 def check_dashboard(r: Report, http, url: str | None) -> None:
     if not url:
         return
@@ -256,6 +269,7 @@ def run(date: str, now: datetime, root: Path | None = None, http=None, offline: 
         check_media_files(r, http, origin, date, media)
         if os.environ.get("IG_ACCESS_TOKEN"):
             check_instagram(r, http, queue, os.environ["IG_ACCESS_TOKEN"])
+        check_youtube(r, http)
         check_dashboard(r, http, os.environ.get("FMA_DASHBOARD_URL") or (site.get("dashboard") or {}).get("url"))
     return r
 

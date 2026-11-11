@@ -775,9 +775,18 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     # failing anyway and isn't sent.
     lead_ids: list[str] = []
     if post.get("headline") and not report.get("headline_problems"):
-        first = next((cites(p) for s in post["sections"] for p in s["paragraphs"] if cites(p)), [])
-        lead = by_id.get(first[0], {}).get("story") if first else None
-        lead_ids = [i for i, src in by_id.items() if first and src.get("story") == lead]
+        # the headline's own story: the first section, in post order, whose sources carry its names and numbers
+        # (11 Nov 2026: an Anthropic headline was checked against the Google lead section and dropped)
+        stories = list(dict.fromkeys(by_id.get(c, {}).get("story") for s in post["sections"] for p in s["paragraphs"]
+                                     for c in cites(p)[:1] if c in by_id))
+        ids_of = {st: [i for i, src in by_id.items() if src.get("story") == st] for st in stories}
+        want = {w for w in re.findall(r"[a-z0-9][a-z0-9'\-]{2,}", norm(post["headline"]))}
+
+        def overlap(st) -> int:          # how many of the headline's words the story's sources use
+            text = " ".join(corpus(by_id[i]) for i in ids_of[st])
+            return sum(1 for w in want if re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", text))
+        lead = max(stories, key=lambda st: (overlap(st), -stories.index(st))) if stories else None
+        lead_ids = ids_of.get(lead, [])
         lead_raw = " ".join(f"{by_id[i].get('title', '')}. {by_id[i].get('text', '')}" for i in lead_ids)
         if lead_ids and (capped := ceiling_dropped(post["headline"], lead_raw)):
             # plain code, not the model: the checker model let "at most 5,000" become "thousands hit" (31 Oct 2026)
