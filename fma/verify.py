@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from decimal import ROUND_HALF_UP, Decimal
 from datetime import datetime
 
 from .write import BASELINE_BLOCKS, HYPE_WORDS
@@ -56,7 +57,7 @@ ORDINARY_ENDINGS = ("ing", "ed", "al", "ly", "ent", "ant", "ive", "ion", "ions",
 
 def looks_ordinary(w: str) -> bool:
     return w.isalpha() and len(w) >= 5 and w[1:].islower() and w.lower().endswith(ORDINARY_ENDINGS)
-MULTIPLIERS = {"trillion": ["trillion", "tn", "t"], "billion": ["billion", "bn", "b"],
+MULTIPLIERS = {"trillion": ["trillion", "trn", "tn", "t"], "billion": ["billion", "bn", "b"],
                "million": ["million", "mn", "m"], "thousand": ["thousand", "k"]}
 NUM_RE = re.compile(r"(?<![\w.])[$€£₹]?(\d+(?:[.,]\d+)*)(\s?%)?"
                     r"(?:\s?(trillion|billion|million|thousand|tn|bn|mn|[TBMK])(?![\w-]))?", re.I)
@@ -158,6 +159,21 @@ def number_ok(num: str, pct: str, mult: str, text_norm: str) -> bool:
             return True
         tail = text_norm[m.end(): m.end() + 14]
         if any(re.match(r"\s?" + re.escape(w) + r"\b", tail) for w in MULTIPLIERS[mult]):
+            return True
+    return bool(mult) and not pct and rounded_ok(num, mult, text_norm)
+
+
+def rounded_ok(num: str, mult: str, text_norm: str) -> bool:
+    """'$1.4 trillion' for a source's '$1.404 trillion' (11 Nov 2026: a duo line was dropped for it). Only a figure
+    with its multiplier, rounded to the claim's own decimals and keeping at least two significant digits:
+    '1.5 trillion' for 1.404 still fails, and percentages are never rounded."""
+    if len(num.replace(".", "").lstrip("0")) < 2:
+        return False
+    places = len(num.split(".")[1]) if "." in num else 0
+    words = "|".join(re.escape(w) for w in MULTIPLIERS[mult])
+    for m in re.finditer(r"(?<![\d.])(\d+\.\d+)\s?(?:" + words + r")\b", text_norm):
+        q = Decimal(1).scaleb(-places)            # half-up, as people round: 2.65 is 2.7, not Python's 2.6
+        if m.group(1) != num and Decimal(m.group(1)).quantize(q, rounding=ROUND_HALF_UP) == Decimal(num):
             return True
     return False
 

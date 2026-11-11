@@ -247,3 +247,16 @@ def test_duo_facts_are_fact_checked_before_the_jokes_are_written():
     lines = prechecked(bad, check) or prechecked(card_facts(card), check)
     assert lines and len(lines) == 3 and all(cites(t) for t in lines)
     assert prechecked(bad, None) == bad                        # no checker: unchanged (tests, local runs)
+
+
+def test_gentle_mode_applies_while_jokes_are_ranked_and_source_limits_while_facts_are_checked():
+    """11 Nov 2026: the Nvidia duo died three times at the final check on a 'partner' joke the ranker had picked,
+    and the Google duo on 'keep nearly'. Both rules now run where a fallback still exists."""
+    from fma.duo_desk import prechecked, rank_reaction
+    score, why = rank_reaction("Love is complicated. So are chips.", "The board will investigate[S1].", [], [],
+                               "doubt", sensitive=True)
+    assert score < 0 or why, (score, why)
+    lines = ["Doctors lose 28 hours a week to paperwork[S1].", "Google built a tool for it[S1].",
+             "Three hospitals will try it first[S1].", "It starts next year in America[S1]."]
+    kept = prechecked(lines, lambda t: t, "Doctors lose nearly 28 hours a week to paperwork.")
+    assert kept and lines[0] not in kept and len(kept) == 3

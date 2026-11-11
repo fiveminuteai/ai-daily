@@ -25,7 +25,16 @@ PRONOUNCE = {
     r"\bS-1\b": "S 1",
     # METR, the AI safety group, says its name "meter"; Kokoro read it as "Meta", a different company (8 Nov 2026)
     r"\bMETR\b": "Meter",
+    # Money and big numbers (11 Nov 2026: "3,378,378" was read "three, three hundred seventy-eight, ..." and
+    # "$70-$78" "dollar seventy dollar seventy-eight"; checked against Kokoro's phonemes): thousands commas go,
+    # a version keeps its points, and "$" becomes "dollars" after the number, as people say it.
+    r"(?<=\d),(?=\d{3}\b)": "",
+    r"\b(\d+)\.(\d+)\.(\d+)\b": lambda m: " point ".join(" ".join(g) if len(g) > 1 else g for g in m.groups()),
+    r"\$(\d+(?:\.\d+)?)\s?[-–]\s?\$?(\d+(?:\.\d+)?)(\s?(?:trillion|billion|million))?\b":
+        lambda m: f"{m.group(1)} to {m.group(2)}{m.group(3) or ''} dollars",
+    r"\$(\d+(?:\.\d+)?)\s?([TBM])\b": lambda m: f"{m.group(1)} {dict(T='trillion', B='billion', M='million')[m.group(2)]} dollars",
     r"\$(\d+(?:\.\d+)?)\s?(billion|million|trillion)\b": r"\1 \2 dollars",
+    r"\$(\d+(?:\.\d+)?)": r"\1 dollars",
     # decimals digit by digit (5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"); x.0 drops the 0
     r"(\d+)\.0\b": r"\1",
     r"(\d+)\.(\d+)": lambda m: f"{m.group(1)} point {' '.join(m.group(2))}",

@@ -509,3 +509,13 @@ def test_uncited_sentences_are_checked_against_their_own_story_sources():
     post, report = verify_draft(draft, src)
     assert len(post["sections"]) == 1
     assert "[S1]" in post["sections"][0]["paragraphs"][0] and "[S2]" not in post["sections"][0]["paragraphs"][0]
+
+
+def test_rounded_figures_pass_but_wrong_ones_and_rounded_percentages_do_not():
+    """11 Nov 2026: '$1.4 trillion' was rejected against the source's '$1.404 trillion' and a duo was lost."""
+    from fma.verify import norm, number_ok
+    src = norm("An implied valuation of $1.404 trillion. Shares at $70. Revenue rose 4.2%. Also $2.65 billion.")
+    assert number_ok("1.4", "", "trillion", src) and number_ok("2.7", "", "billion", src) and number_ok("70", "", "", src)
+    assert not number_ok("1.5", "", "trillion", src) and not number_ok("2.6", "", "billion", src)
+    assert not number_ok("1", "", "trillion", src)          # one significant digit is too rough
+    assert not number_ok("4", "%", "", src)                 # percentages are never rounded

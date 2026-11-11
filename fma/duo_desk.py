@@ -599,7 +599,8 @@ def similar_pairs(guest: str, line: str, k: int = 6) -> list[tuple[str, str]]:
     return sorted(pool, key=lambda fj: -len(lw & words(fj[0])))[:k]
 
 
-def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest: str) -> tuple[float, str]:
+def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest: str,
+                  sensitive: bool = False) -> tuple[float, str]:
     """(score, problem) for one candidate reaction; a non-empty problem means it is out. Code, not a model: the
     reaction must keep the rules, must not be a copy, and must react to its own line rather than a later one."""
     from .bank import joke_pairs
@@ -617,7 +618,7 @@ def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest
         return -1, "a copy"
     if is_stale(cand, stale_phrases(guest)):
         return -1, "a worn-out line"
-    if joke_problems(cand):
+    if joke_problems(cand, sensitive):      # 11 Nov 2026: the story's gentle mode applies per candidate
         return -1, "not decent"
     opening = " ".join(re.findall(r"[a-z']+", cand.lower())[:2])
     if opening and any(" ".join(re.findall(r"[a-z']+", x.lower())[:2]) == opening for x in said):
@@ -632,7 +633,7 @@ def rank_reaction(cand: str, line: str, later: list[str], said: list[str], guest
     return score, ""
 
 
-def jokes_step(chain, guest: str, lines: list[str], k: int = 3) -> list[str] | None:
+def jokes_step(chain, guest: str, lines: list[str], k: int = 3, sensitive: bool = False) -> list[str] | None:
     """Step 2: the guest's reactions, one Spark line at a time, in order. For each line the model sees only that
     line, its own earlier reactions and the approved pairs closest to that line, and writes k candidates; code picks
     the best one (rank_reaction). Two tries per line; a line with no good candidate fails the script."""
@@ -649,7 +650,7 @@ def jokes_step(chain, guest: str, lines: list[str], k: int = 3) -> list[str] | N
                                        said=said, line=plain(line)))
             x = _ask(chain, JOKES_SYSTEM, prompt, 0.9, _list_schema("reactions", k))
             cands = [simplify(str(c).strip().strip('"')) for c in (x or {}).get("reactions") or [] if str(c).strip()]
-            ranked = sorted(((rank_reaction(c, line, lines[i + 1:], out, guest), c) for c in cands),
+            ranked = sorted(((rank_reaction(c, line, lines[i + 1:], out, guest, sensitive), c) for c in cands),
                             key=lambda r: -r[0][0])
             ok = [(sc, c) for (sc, why), c in ranked if not why]
             if ok:
@@ -779,7 +780,7 @@ def assemble(guest: str, lines: list[str], jokes: list[str]) -> dict:
     return {"guest": guest, "lines": out}
 
 
-def prechecked(lines: list[str] | None, check) -> list[str] | None:
+def prechecked(lines: list[str] | None, check, source: str = "") -> list[str] | None:
     """Spark's fact lines that pass the post's own fact-check (fma/verify.Verifier.sentence), repaired as it
     repairs them; None when fewer than three survive. 11 Nov 2026: a duo line said "a massive $1.4 trillion" and
     layer 1 dropped the whole duo after it was written, too late for any fallback; checked here, a failed line is
@@ -787,6 +788,8 @@ def prechecked(lines: list[str] | None, check) -> list[str] | None:
     if not lines or check is None:
         return lines
     kept = [t for t in (check(x) for x in lines) if t]
+    if source:          # the final check's own source rules ("the story says 'nearly 28'; keep 'nearly'")
+        kept = [t for t in kept if not ceiling_problems([{"who": "spark", "text": t}], source)]
     if len(kept) < len(lines):
         log.info("duo pre-check kept %d of %d fact lines", len(kept), len(lines))
     return kept if len(kept) >= 3 else None
@@ -796,15 +799,17 @@ def write(chain, section: dict, card: dict, check=None) -> dict | None:
     """The duo script for one story, or None: facts, then jokes, then assembly; the whole script must pass
     problems() and the comedy editor's bar (punch_up). With `check`, Spark's facts are fact-checked first."""
     guest = pick_guest(section)
-    lines = prechecked(facts_step(chain, section), check) or prechecked(card_facts(card), check)
+    story = " ".join(section.get("paragraphs", []))
+    lines = prechecked(facts_step(chain, section), check, story) or prechecked(card_facts(card), check, story)
     if not lines:
         return None
     lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s
-    jokes = jokes_step(chain, guest, lines)
+    gentle = is_sensitive(section)       # 9 Nov 2026: jokes stay off private life; Spark makes no comebacks
+    jokes = jokes_step(chain, guest, lines, sensitive=gentle)   # 11 Nov: known before the jokes, not after
     if not jokes:
         return None
     duo = assemble(guest, lines, jokes)
-    if is_sensitive(section):            # 9 Nov 2026: jokes stay off private life; Spark makes no comebacks
+    if gentle:
         duo["sensitive"] = True
     bad = problems(duo) + ceiling_problems(duo["lines"], " ".join(section.get("paragraphs", [])))
     if bad:

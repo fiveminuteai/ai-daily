@@ -234,7 +234,7 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
             why = ("card has no duo" if not (sec.get("card") or {}).get("duo") else
                    "no voice (Kokoro missing)" if not _voice.available() else "before duo Reels started")
         try:
-            story_reel(post, sec, n, site, path, palette=pal)
+            story_reel(post, sec, n, site, path, palette=pal, narrate=True)   # 11 Nov 2026: was silent
             reel_cover(post, sec, path.with_suffix(".jpg"), guest="solo")
             out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
                                        "duo": None, "story": n, "plain_because": why})
@@ -268,6 +268,11 @@ def write_manifest(folder: Path, post: dict, out: dict) -> None:
         r["cover"] = bool(f and f.with_suffix(".jpg").exists())
         reels.append(r)
     from .voice import available as voice_on
+    if not voice_on():
+        print("::warning::Reels rendered WITHOUT a voice: Kokoro is missing in this build")
+    for r in reels:          # a degraded Reel is a GitHub warning on the run, not an INFO line nobody reads
+        if r.get("error") or str(r.get("plain_because", "")).startswith(("duo render", "no voice")):
+            print(f"::warning::Reel {r.get('file') or r.get('story')}: {r.get('error') or r['plain_because']}"[:400])
     folder.mkdir(parents=True, exist_ok=True)
     (folder / "media.json").write_text(json.dumps({
         "date": post["date"], "slug": post.get("slug"), "voice": voice_on(), "slides": out.get("slides", []),

@@ -43,8 +43,16 @@ jobs:
         run: |
           mkdir -p .cache/kokoro
           base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
-          for f in kokoro-v1.0.onnx voices-v1.0.bin; do
-            [ -s ".cache/kokoro/$f" ] || curl -fsSL --retry 3 -o ".cache/kokoro/$f" "$base/$f" || echo "::warning::$f not downloaded: Reels will be unvoiced"
+          # 11 Nov 2026: a download cut short would be cached under this key for good and silence every Reel, so a
+          # file under its known size is fetched again, and a download only replaces the file once it is complete
+          for spec in kokoro-v1.0.onnx:300000000 voices-v1.0.bin:25000000; do
+            f=${spec%%:*}; min=${spec##*:}
+            size=$(stat -c %s ".cache/kokoro/$f" 2>/dev/null || echo 0)
+            if [ "$size" -lt "$min" ]; then
+              curl -fsSL --retry 3 -o ".cache/kokoro/$f.part" "$base/$f" && [ "$(stat -c %s ".cache/kokoro/$f.part")" -ge "$min" ] \
+                && mv ".cache/kokoro/$f.part" ".cache/kokoro/$f" \
+                || { rm -f ".cache/kokoro/$f.part"; echo "::warning::$f not downloaded: Reels will be unvoiced"; }
+            fi
           done
       # Remotion draws the duo Reels (reels/, 6 Nov 2026). Any failure here leaves the build drawing them in Python.
       - uses: actions/setup-node@v4
