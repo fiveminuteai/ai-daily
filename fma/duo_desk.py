@@ -779,11 +779,24 @@ def assemble(guest: str, lines: list[str], jokes: list[str]) -> dict:
     return {"guest": guest, "lines": out}
 
 
-def write(chain, section: dict, card: dict) -> dict | None:
+def prechecked(lines: list[str] | None, check) -> list[str] | None:
+    """Spark's fact lines that pass the post's own fact-check (fma/verify.Verifier.sentence), repaired as it
+    repairs them; None when fewer than three survive. 11 Nov 2026: a duo line said "a massive $1.4 trillion" and
+    layer 1 dropped the whole duo after it was written, too late for any fallback; checked here, a failed line is
+    left out or the card's own lines are used instead."""
+    if not lines or check is None:
+        return lines
+    kept = [t for t in (check(x) for x in lines) if t]
+    if len(kept) < len(lines):
+        log.info("duo pre-check kept %d of %d fact lines", len(kept), len(lines))
+    return kept if len(kept) >= 3 else None
+
+
+def write(chain, section: dict, card: dict, check=None) -> dict | None:
     """The duo script for one story, or None: facts, then jokes, then assembly; the whole script must pass
-    problems() and the comedy editor's bar (punch_up)."""
+    problems() and the comedy editor's bar (punch_up). With `check`, Spark's facts are fact-checked first."""
     guest = pick_guest(section)
-    lines = facts_step(chain, section) or card_facts(card)
+    lines = prechecked(facts_step(chain, section), check) or prechecked(card_facts(card), check)
     if not lines:
         return None
     lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s

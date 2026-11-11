@@ -252,9 +252,13 @@ def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None 
     ranked = sorted(scripted, key=lambda nc: -nc[1]["reel"])
     from . import config
     from .social_queue import reel_slots
+    from .verify import Verifier, cites
+    checker = Verifier(sources)          # a scratch copy: its log is thrown away; the real check runs after
     for k, (n, card) in enumerate(ranked[:len(reel_slots(config.site_config()))]):   # one duo per Reel slot
         if k == 0 or card["reel"] >= REEL_BAR:
-            duo = write_duo(chain, out[n - 1], card)
+            ids = list(dict.fromkeys(i for t in [card.get("hook") or "", *(card.get("points") or [])] for i in cites(t)))
+            duo = write_duo(chain, out[n - 1], card,
+                            check=lambda t, ids=ids: checker.sentence(t, "duo pre-check", ids))
             if duo:
                 card["duo"] = duo
     return {**draft, "sections": out}

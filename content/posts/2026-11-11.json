@@ -207,7 +207,51 @@
         "pain": "money",
         "hook_type": "number",
         "cover": "Founders cash in at $1.4T[S4][S5][S8].",
-        "cover_hi": "cash in"
+        "cover_hi": "cash in",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Anthropic's seven founders will each get nearly $250 million[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "So many founders. That's a very expensive group chat."
+            },
+            {
+              "who": "spark",
+              "text": "Each founder plans to sell 3,378,378 shares[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "Too many digits. I'm a box, not a calculator."
+            },
+            {
+              "who": "spark",
+              "text": "You don't need to count it, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "Good. Neither does my bank.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Together, they will still control 51.1% of the votes[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "So they cash out and keep the keys. Smart.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
       }
     }
   ],

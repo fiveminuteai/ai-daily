@@ -225,3 +225,25 @@ def test_a_duo_falls_back_to_the_checked_card_when_the_facts_step_gives_up():
     lines = duo_desk.card_facts(card)
     assert lines and len(lines) == 3 and all("[S4]" in t for t in lines)
     assert duo_desk.card_facts({"hook": "Too short[S1].", "points": []}) is None
+
+
+def test_duo_facts_are_fact_checked_before_the_jokes_are_written():
+    """11 Nov 2026: a duo line said "a massive $1.4 trillion" for a source that never says it; layer 1 then dropped
+    the whole duo after it was written. The writer now checks its facts first and falls back to the card's lines."""
+    from fma.duo_desk import card_facts, prechecked
+    from fma.verify import Verifier, cites
+    src = [{"id": "S1", "title": "All seven Anthropic founders will each cash out about $250M in IPO", "url": "u",
+            "text": "Each of the seven co-founders plans to sell 3,378,378 shares. At the midrange of $74, each founder "
+                    "would receive just shy of $250 million. Collectively, the founders will control 51.1% of the votes."}]
+    v = Verifier(src)
+    check = lambda t: v.sentence(t, "duo pre-check", ["S1"])
+    bad = ["Anthropic's IPO could value the company at a massive $1.4 trillion[S1].",
+           "Each of the seven co-founders plans to sell 3,378,378 shares[S1].",
+           "The founders will control 51.1% of the votes[S1]."]
+    assert prechecked(bad, check) is None                      # two good lines are not a duo
+    card = {"hook": "Anthropic founders will each get nearly $250 million[S1].",
+            "points": ["Each of the seven co-founders plans to sell 3,378,378 shares[S1].",
+                       "The founders will control 51.1% of the votes[S1]."]}
+    lines = prechecked(bad, check) or prechecked(card_facts(card), check)
+    assert lines and len(lines) == 3 and all(cites(t) for t in lines)
+    assert prechecked(bad, None) == bad                        # no checker: unchanged (tests, local runs)
