@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T18:01:10+00:00",
+ "updated": "2026-11-12T23:27:13+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -636,7 +636,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 62.5,
+   "age_h": 67.9,
    "outcome": -0.182
   },
   {
@@ -658,7 +658,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 58.5,
+   "age_h": 63.9,
    "outcome": 0.179
   },
   {
@@ -680,7 +680,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 55.5,
+   "age_h": 60.9,
    "outcome": 1.737
   }
  ],

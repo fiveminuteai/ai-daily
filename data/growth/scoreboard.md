@@ -16,5 +16,5 @@ Median reach per Reel: 104 (last week n/a). Comments: 0.
 
 Best Reels this week (by watch time):
 - Anthropic's new Claude Fable 5.2 is out, and cheaper than before. (12.3 s, reach 114, skip 34.5%)
-- Anthropic founders will sell shares worth nearly $250 million. (8.3 s, reach 129, skip 58.6%)
+- Anthropic founders will sell shares worth nearly $250 million. (8.2 s, reach 129, skip 58.6%)
 - Anthropic sets $70-$78 IPO price for $1.4T valuation. (6.8 s, reach 111, skip 62.1%)
