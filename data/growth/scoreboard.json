@@ -5,10 +5,10 @@
   "2026-11-12"
  ],
  "this_week": {
-  "reels": 10,
-  "reach": 109.5,
-  "skip_rate": 60.1,
-  "avg_watch_s": 5.6,
+  "reels": 9,
+  "reach": 104,
+  "skip_rate": 59.8,
+  "avg_watch_s": 5.4,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 60.1,
+   "value": 59.8,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.6,
+   "value": 5.4,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -79,25 +79,11 @@
    "youtube": "https://www.youtube.com/shorts/aZyH4NT30w8"
   },
   {
-   "id": "18057447428804643",
-   "day": "2026-11-09",
-   "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
-   "reach": 138,
-   "skip_rate": 44.6,
-   "avg_watch_s": 9.1,
-   "likes_per_1k": 7.2,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-09-reel-1",
-   "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
-  },
-  {
    "id": "17992554318118995",
    "day": "2026-11-11",
    "caption": "Anthropic founders will sell shares worth nearly $250 million.",
-   "reach": 124,
-   "skip_rate": 58.3,
+   "reach": 129,
+   "skip_rate": 58.6,
    "avg_watch_s": 8.3,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
@@ -105,6 +91,20 @@
    "comments": 0,
    "ours": "2026-11-11-reel-3",
    "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
+  },
+  {
+   "id": "18114798344166855",
+   "day": "2026-11-11",
+   "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+   "reach": 111,
+   "skip_rate": 62.1,
+   "avg_watch_s": 6.8,
+   "likes_per_1k": 0.0,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-11-reel-1",
+   "youtube": "https://www.youtube.com/shorts/cSe3QdMSb-Q"
   }
  ]
 }

@@ -1,12 +1,12 @@
 {
- "at": "2026-11-12T00:25:19+00:00",
+ "at": "2026-11-12T18:01:07+00:00",
  "ok": true,
  "suites": [
   {
    "suite": "facts-true",
-   "n": 349,
-   "passed": 346,
-   "rate": 0.991,
+   "n": 413,
+   "passed": 410,
+   "rate": 0.993,
    "bar": 0.97,
    "ok": true,
    "misses": [
@@ -17,9 +17,9 @@
   },
   {
    "suite": "facts-broken",
-   "n": 126,
-   "passed": 118,
-   "rate": 0.937,
+   "n": 149,
+   "passed": 140,
+   "rate": 0.94,
    "bar": 0.9,
    "ok": true,
    "misses": [
@@ -73,8 +73,8 @@
   },
   {
    "suite": "decency-clean",
-   "n": 64,
-   "passed": 64,
+   "n": 75,
+   "passed": 75,
    "rate": 1.0,
    "bar": 1.0,
    "ok": true,
