@@ -86,3 +86,24 @@ def test_backup_writes_from_the_saved_collection(tmp_path, monkeypatch):
     lineup = pickle.load(open(tmp_path / ".manual" / "2026-11-08" / "lineup.pkl", "rb"))
     assert lineup[0].title == "Crusoe sells data center"
     assert history_entry("2026-11-08", "slug", lineup)["urls"]
+
+
+def test_the_tuner_switches_prompts_only_for_a_gain_beyond_noise():
+    """13 Nov 2026: a gain of 0.0025 on 10 held-out stories was "kept", and the prompt kept on 6 Nov was never
+    re-tested against the default on newer stories."""
+    from fma import tune
+    base = [0.80, 0.90, 0.85, 0.95, 0.70] * 6                          # 30 held-out examples
+    tiny = [x + 0.0025 for x in base]
+    assert tune.decide(base, None, tiny)["use"] == "default"            # under the margin
+    clear = [x + 0.05 for x in base]
+    v = tune.decide(base, None, clear)
+    assert v["use"] == "new" and v["new_vs_holder"]["gain"] == 0.05
+    lucky = [x + (0.6 if k == 0 else 0.0) for k, x in enumerate(base)]  # one lucky example, the same mean gain
+    assert tune.decide(base, None, lucky)["use"] == "default"           # not over twice its standard error
+    assert tune.decide(base[:10], None, clear[:10])["use"] == "default"     # too few examples to trust
+    worse_kept = [x - 0.08 for x in base]
+    v = tune.decide(base, worse_kept, tiny)
+    assert v["kept_vs_default"]["kept_dropped"] and v["use"] == "default"   # the old prompt is re-tested and dropped
+    good_kept = [x + 0.06 for x in base]
+    assert tune.decide(base, good_kept, tiny)["use"] == "kept"
+    assert tune.decide(base, good_kept, None)["use"] == "kept"          # judge-only: nothing new to try

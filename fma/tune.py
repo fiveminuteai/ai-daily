@@ -10,8 +10,10 @@ instructions and worked examples that make the 7B do best at our two writing ste
 
 The winners are written to data/tuned/local.json as plain text (instructions + examples). The daily code never runs
 DSPy: fma/duo_desk.py reads that file only when the writer is the local model, and the cloud models keep their prompts.
-Before saving, the tuned prompts are scored against the current ones on stories the tuner did not practise on; they
-are kept only if they score higher.
+Before saving, three prompts are scored on the same stories the tuner did not practise on: the untuned default,
+the one kept from an earlier night, and tonight's candidate. A challenger replaces the holder only when its gain
+is at least MARGIN and more than twice the standard error of the paired differences (13 Nov 2026: a gain of 0.0025
+on 10 stories was "kept", and the prompt kept on 6 Nov was never re-tested against the default on newer stories).
 
     python -m fma.tune [--auto light|medium] [--model qwen2.5:7b]     # needs Ollama and `pip install "dspy[optuna]"`"""
 from __future__ import annotations
@@ -101,7 +103,57 @@ def _programs():
     return dspy.Predict(Facts), dspy.Predict(Joke), PERSONA
 
 
-def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7) -> dict:
+MARGIN = 0.02            # the smallest gain worth switching prompts for
+TRAIN_STORIES, TRAIN_JOKES = 24, 28
+
+
+def beats(challenger: list[float], holder: list[float]) -> tuple[bool, float, float]:
+    """(wins, mean gain, standard error of the paired differences). Both lists are scores on the same held-out
+    examples in the same order. A win needs a gain of MARGIN or more that is over twice its standard error, and
+    at least 20 examples: fewer can't tell a real gain from luck."""
+    n = min(len(challenger), len(holder))
+    if n < 2:
+        return False, 0.0, 0.0
+    d = [challenger[k] - holder[k] for k in range(n)]
+    gain = sum(d) / n
+    var = sum((x - gain) ** 2 for x in d) / (n - 1)
+    se = (var / n) ** 0.5
+    return n >= 20 and gain >= MARGIN and gain > 2 * se, round(gain, 4), round(se, 4)
+
+
+def decide(default: list[float], kept: list[float] | None, new: list[float] | None) -> dict:
+    """Which prompt to use from tonight on: "default", "kept" or "new", with the numbers behind it. The earlier
+    night's prompt is re-tested first: if the default now clearly beats it, it is dropped. Then tonight's candidate
+    must clearly beat whichever of the two holds."""
+    mean = lambda xs: round(sum(xs) / max(1, len(xs)), 4)          # noqa: E731
+    out = {"n": len(default), "default": mean(default), "kept": mean(kept) if kept else None,
+           "new": mean(new) if new else None}
+    holder, name = default, "default"
+    if kept:
+        dropped, gain, se = beats(default, kept)
+        out["kept_vs_default"] = {"gain_of_default": gain, "se": se, "kept_dropped": dropped}
+        if not dropped:
+            holder, name = kept, "kept"
+    wins, gain, se = beats(new, holder) if new else (False, 0.0, 0.0)      # no candidate: only the re-test
+    out["new_vs_holder"] = {"holder": name, "gain": gain, "se": se, "wins": wins}
+    out["use"] = "new" if wins else name
+    return out
+
+
+def with_prompt(program, saved: dict | None):
+    """A copy of the program carrying a saved prompt (instructions + worked examples), or None without one."""
+    import dspy
+    if not saved or not saved.get("instructions"):
+        return None
+    prog = program.deepcopy()
+    prog.signature = prog.signature.with_instructions(saved["instructions"])
+    prog.demos = [dspy.Example(**d) for d in saved.get("demos") or []]
+    return prog
+
+
+def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: bool = True) -> dict:
+    """search False (--judge-only): no new candidate is searched for; the kept prompt is only re-tested against
+    the default on the held-out examples, and dropped if the default clearly beats it."""
     import dspy
     lm = dspy.LM(f"ollama_chat/{model}", api_base="http://localhost:11434", api_key="", temperature=0.4, max_tokens=900)
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())   # 6 Nov 2026: the default text format confused the 7B
@@ -110,14 +162,14 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7) -> dict:
 
     st = stories()
     rnd.shuffle(st)
-    f_train = [dspy.Example(story=s["text"], _text=s["text"]).with_inputs("story") for s in st[:24]]
-    f_held = [dspy.Example(story=s["text"], _text=s["text"]).with_inputs("story") for s in st[24:34]]
+    f_train = [dspy.Example(story=s["text"], _text=s["text"]).with_inputs("story") for s in st[:TRAIN_STORIES]]
+    f_held = [dspy.Example(story=s["text"], _text=s["text"]).with_inputs("story") for s in st[TRAIN_STORIES:]]   # all the rest
     lines = spark_lines()
     rnd.shuffle(lines)
     guests = ["doubt", "rex"]
     j_all = [dspy.Example(guest=f"{g}: {persona[g]}", spark_line=ln, _g=g).with_inputs("guest", "spark_line")
-             for k, ln in enumerate(lines[:40]) for g in [guests[k % 2]]]
-    j_train, j_held = j_all[:28], j_all[28:40]
+             for k, ln in enumerate(lines[:TRAIN_JOKES + 60]) for g in [guests[k % 2]]]
+    j_train, j_held = j_all[:TRAIN_JOKES], j_all[TRAIN_JOKES:]
 
     def f_metric(ex, pred, trace=None):
         return facts_score(getattr(pred, "lines", None), ex._text)
@@ -125,36 +177,44 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7) -> dict:
     def j_metric(ex, pred, trace=None):
         return jokes_score(getattr(pred, "reactions", None), ex.spark_line, ex._g)
 
-    def held_score(program, data, metric):
+    def held_scores(program, data, metric) -> list[float]:
         scores = []
         for ex in data:
             try:
-                scores.append(metric(ex, program(**ex.inputs())))
+                scores.append(float(metric(ex, program(**ex.inputs()))))
             except Exception:  # noqa: BLE001 - a failed answer scores 0
                 scores.append(0.0)
-        return round(sum(scores) / max(1, len(scores)), 4)
+        return scores
 
     result = {"date": datetime.now(timezone.utc).isoformat(timespec="seconds"), "model": model, "auto": auto}
+    prev = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+    keep: dict = {}
     for name, prog, train, held, metric in (("facts", facts, f_train, f_held, f_metric),
                                             ("jokes", joke, j_train, j_held, j_metric)):
-        before = held_score(prog, held, metric)
-        opt = dspy.MIPROv2(metric=metric, auto=auto, num_threads=1, seed=seed, verbose=False)
-        tuned = opt.compile(prog, trainset=train, requires_permission_to_run=False)
-        after = held_score(tuned, held, metric)
+        prev_saved = prev.get(name)
+        old = with_prompt(prog, prev_saved)
+        default_scores = held_scores(prog, held, metric)
+        kept_scores = held_scores(old, held, metric) if old else None
+        tuned = None
+        if search:
+            opt = dspy.MIPROv2(metric=metric, auto=auto, num_threads=1, seed=seed, verbose=False)
+            tuned = opt.compile(prog, trainset=train, requires_permission_to_run=False)
+        verdict = decide(default_scores, kept_scores, held_scores(tuned, held, metric) if tuned else None)
         demos = [{k: v for k, v in d.toDict().items() if not k.startswith("_") and k != "augmented"}
-                 for d in tuned.demos]
-        result[name] = {"score_before": before, "score_after": after, "kept": after > before,
-                        "instructions": tuned.signature.instructions, "demos": demos}
-    prev = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
-    keep = {k: (result[k] if result[k]["kept"] else prev.get(k)) for k in ("facts", "jokes")}
+                 for d in tuned.demos] if tuned else []
+        result[name] = {"score_before": verdict[verdict["new_vs_holder"]["holder"]], "score_after": verdict["new"],
+                        "kept": verdict["use"] == "new", "verdict": verdict,
+                        "instructions": tuned.signature.instructions if tuned else "", "demos": demos}
+        # what the daily code will read: tonight's prompt, the earlier one, or nothing (the built-in default)
+        keep[name] = result[name] if verdict["use"] == "new" else prev_saved if verdict["use"] == "kept" else None
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({**result, **{k: v for k, v in keep.items() if v}}, ensure_ascii=False, indent=1),
+    meta = {k: v for k, v in result.items() if k not in ("facts", "jokes")}
+    OUT.write_text(json.dumps({**meta, **{k: v for k, v in keep.items() if v}}, ensure_ascii=False, indent=1),
                    encoding="utf-8")
     hist = config.ROOT / "data" / "tuned" / "history.jsonl"
     with hist.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"date": result["date"], "model": model, "auto": auto,
-                            **{k: {"before": result[k]["score_before"], "after": result[k]["score_after"],
-                                   "kept": result[k]["kept"]} for k in ("facts", "jokes")}}) + "\n")
+                            **{k: result[k]["verdict"] for k in ("facts", "jokes")}}) + "\n")
     return result
 
 
@@ -162,10 +222,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m fma.tune")
     ap.add_argument("--auto", default="light", choices=["light", "medium", "heavy"])
     ap.add_argument("--model", default="qwen2.5:7b")
+    ap.add_argument("--judge-only", action="store_true", help="re-test the kept prompts against the default; no search")
     a = ap.parse_args()
-    r = tune(a.auto, a.model)
+    r = tune(a.auto, a.model, search=not a.judge_only)
     for k in ("facts", "jokes"):
-        print(f"{k}: {r[k]['score_before']} -> {r[k]['score_after']} ({'kept' if r[k]['kept'] else 'not better, kept the old'})")
+        v = r[k]["verdict"]
+        print(f"{k}: on {v['n']} held-out examples: default {v['default']}, kept {v['kept']}, new {v['new']} "
+              f"-> using {v['use']} ({json.dumps({x: v[x] for x in ('kept_vs_default', 'new_vs_holder') if x in v})})")
 
 
 if __name__ == "__main__":

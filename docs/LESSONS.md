@@ -57,6 +57,7 @@ work." Rules for this file:
 | 11 Nov | A one-line `run:` with ": " broke a workflow again | Same slip as deploy.yml hours earlier | Caught before commit by tests/test_workflows.py: the guard worked |
 | 7-12 Nov | The nightly tuner ran on 6 Nov code for five nights, then stopped finishing | Its shadow test rewrote a tracked file, so `git checkout` refused every night and the script never checked; from 10 Nov the optional video step starved (115 MB free) | v2 script: update is checked and logged with the commit, generated changes saved as a patch then dropped, a failed update stops the run, videos only with 3 GB free; lesson 19 |
 | 12 Nov | The third Reel (Gemini 4 Carbon) was plain | Duos are written before the fact-check, for the top-scored stories only; two of those lost their cards in the checks and a fifth story was promoted into a Reel slot with no duo | `duo_desk.top_up` after the checks: every Reel story without a duo gets one from its checked card lines (test); the health check had flagged it as a warning |
+| 12 Nov | The tuner "kept" a gain of 0.0025 on 10 held-out stories, and never re-tested the prompt kept on 6 Nov | It compared only new against the untuned default, on a tiny held-out set, with any gain winning | Default, kept and new are scored on the same held-out set (43 stories, 60 joke lines); a switch needs a gain of 0.02 that is over twice its standard error and 20+ examples; `--judge-only` re-tests without a search. Re-test 13 Nov: joke prompt +0.08 (real), facts prompt +0.0025 (noise) |
 
 ## General lessons (they carry over)
 
