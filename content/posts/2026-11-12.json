@@ -211,7 +211,51 @@
         "pain": "money",
         "hook_type": "stakes",
         "cover": "Google launches cheaper Gemini 4 Carbon[S7].",
-        "cover_hi": "cheaper Gemini"
+        "cover_hi": "cheaper Gemini",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google DeepMind's Gemini 4 Carbon is now out for developers and businesses[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Out for everyone. Even boxes?"
+            },
+            {
+              "who": "spark",
+              "text": "Especially boxes, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "guest",
+              "text": "Finally. Representation.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "It is built for hard, multi-step coding and open-ended scientific research[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Hard coding. I struggle with lids."
+            },
+            {
+              "who": "spark",
+              "text": "Google says it costs over two times less per task than the next best outside model[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Cheaper thinking. Still more than I earn.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        }
       }
     },
     {
