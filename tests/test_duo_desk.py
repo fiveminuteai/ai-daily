@@ -260,3 +260,31 @@ def test_gentle_mode_applies_while_jokes_are_ranked_and_source_limits_while_fact
              "Three hospitals will try it first[S1].", "It starts next year in America[S1]."]
     kept = prechecked(lines, lambda t: t, "Doctors lose nearly 28 hours a week to paperwork.")
     assert kept and lines[0] not in kept and len(kept) == 3
+
+
+def test_a_story_promoted_into_a_reel_slot_after_the_checks_still_gets_a_duo(monkeypatch):
+    """12 Nov 2026: two scripted stories lost their cards in the fact-check; the story promoted into the third
+    Reel slot had never been given a duo."""
+    from fma import duo_desk
+    card = lambda reel, duo=None: {"hook": "h[S1].", "points": ["a[S1].", "b[S1]."], "reel": reel,     # noqa: E731
+                                   **({"duo": duo} if duo else {})}
+    post = {"date": "2026-11-12", "sections": [
+        {"title": "A", "card": card(6, {"guest": "doubt", "lines": []})}, {"title": "B", "card": card(8, {"guest": "doubt", "lines": []})},
+        {"title": "C", "card": None}, {"title": "D", "card": card(6)}, {"title": "E", "card": card(3)}]}
+    asked = []
+
+    def fake_write(chain, section, card, check=None, card_only=False):
+        asked.append((section["title"], card_only))
+        return {"guest": "doubt", "lines": [{"who": "spark", "text": "h[S1]."}]}
+    monkeypatch.setattr(duo_desk, "write", fake_write)
+    out = duo_desk.top_up(object(), post, slots=4)
+    assert asked == [("D", True)]                              # only the Reel story without one; E is under the bar
+    assert out["sections"][3]["card"]["duo"]["guest"] == "doubt"
+
+    class Late:
+        def time_left(self):
+            return 60.0
+    post["sections"][3]["card"].pop("duo")
+    asked.clear()
+    duo_desk.top_up(Late(), post, slots=4)
+    assert asked == [] and "duo" not in post["sections"][3]["card"]     # out of time: a plain Reel, not a lost post

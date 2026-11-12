@@ -55,6 +55,8 @@ work." Rules for this file:
 | 11 Nov (audit) | Dashboard showed a short edition, an overdue Reel and stale data as "ok" | Status rules never read `edition`, time past the slot, or refresh failures | Short = warning, overdue = failure, freshness banner, desktop updates only to a green main (dashboard tests) |
 | 11 Nov | The learning loop taught the Reel writer 5 "lessons" from noise (0 of 23 groups were confident; one effect was 0.03) | The prompt allowed lessons from "a pattern in the best Reels"; only numbers were checked in code, not significance | A lesson must cite a confident group (code), is re-tested every night, the newest third of Reels must agree, every change is logged and reversible, and the eval suite (`fma/evals.py`, 10 suites with bars) must pass before anything changes |
 | 11 Nov | A one-line `run:` with ": " broke a workflow again | Same slip as deploy.yml hours earlier | Caught before commit by tests/test_workflows.py: the guard worked |
+| 7-12 Nov | The nightly tuner ran on 6 Nov code for five nights, then stopped finishing | Its shadow test rewrote a tracked file, so `git checkout` refused every night and the script never checked; from 10 Nov the optional video step starved (115 MB free) | v2 script: update is checked and logged with the commit, generated changes saved as a patch then dropped, a failed update stops the run, videos only with 3 GB free; lesson 19 |
+| 12 Nov | The third Reel (Gemini 4 Carbon) was plain | Duos are written before the fact-check, for the top-scored stories only; two of those lost their cards in the checks and a fifth story was promoted into a Reel slot with no duo | `duo_desk.top_up` after the checks: every Reel story without a duo gets one from its checked card lines (test); the health check had flagged it as a warning |
 
 ## General lessons (they carry over)
 
@@ -92,6 +94,9 @@ work." Rules for this file:
     the post, pages, media, queue and accounts are what a reader meets. Each incident adds a check there too.
 18. **Measure judgement as a rate against a bar, not as a feeling.** An eval with known answers found in one run
     what reading the code had not: the loop's own lessons were noise. Add a case for every slip; never lower a bar.
+19. **A scheduled script must check every step and say which code it ran.** `a && b` then carrying on
+    regardless hid five nights of stale runs. Log the commit, stop on a failed update, and never let a job
+    write into files its own update step needs clean.
 17. **Budget time, not just retries.** A job with a hard timeout needs its own deadline inside, set below the
     timeout, so it ends with its best result instead of being killed with it.
 

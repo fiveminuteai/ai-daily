@@ -795,12 +795,37 @@ def prechecked(lines: list[str] | None, check, source: str = "") -> list[str] | 
     return kept if len(kept) >= 3 else None
 
 
-def write(chain, section: dict, card: dict, check=None) -> dict | None:
+def top_up(chain, post: dict, slots: int, min_seconds: float = 300.0) -> dict:
+    """After the fact-check: every story that will get a Reel has a duo. 12 Nov 2026: duos are written before the
+    checks, for the best-scored stories; two of those lost their cards in the checks, a fifth story was promoted
+    into a Reel slot, and it had no duo. Spark's lines here are the card's own, which both check layers have
+    already passed; the guest's jokes state no facts and are checked in code like any others. Skipped when the
+    run is nearly out of time: a plain Reel beats a lost post."""
+    from .story_reel import card_stories
+    for _n, sec in card_stories(post, limit=slots):
+        card = sec.get("card") or {}
+        if card.get("duo"):
+            continue
+        if hasattr(chain, "time_left") and chain.time_left() < min_seconds:
+            log.warning("no time left to write a duo for %r", sec.get("title"))
+            break
+        try:
+            duo = write(chain, sec, card, card_only=True)
+        except Exception as exc:  # noqa: BLE001 - a missing duo never costs the post
+            log.warning("duo top-up for %r failed: %s", sec.get("title"), exc)
+            continue
+        if duo:
+            card["duo"] = duo
+            log.info("duo written after the checks for %r", sec.get("title"))
+    return post
+
+
+def write(chain, section: dict, card: dict, check=None, card_only: bool = False) -> dict | None:
     """The duo script for one story, or None: facts, then jokes, then assembly; the whole script must pass
     problems() and the comedy editor's bar (punch_up). With `check`, Spark's facts are fact-checked first."""
     guest = pick_guest(section)
     story = " ".join(section.get("paragraphs", []))
-    lines = prechecked(facts_step(chain, section), check, story) or prechecked(card_facts(card), check, story)
+    lines = card_facts(card) if card_only else         (prechecked(facts_step(chain, section), check, story) or prechecked(card_facts(card), check, story))
     if not lines:
         return None
     lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s

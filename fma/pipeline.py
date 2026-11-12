@@ -288,6 +288,10 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away
             post = rescue_headline(post, report)   # so is a headline that failed its check
+            if pipe.get("reel_desk", True):          # every Reel story has its duo, also one promoted by the checks
+                from .duo_desk import top_up
+                from .social_queue import reel_slots
+                post = top_up(chain, post, len(reel_slots(site)))
             post, _repeats = dedupe_sentences(post)  # 9 Nov 2026: a repeated sentence is removed, never published
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
             if fails and soft_only(fails) and not run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http,
