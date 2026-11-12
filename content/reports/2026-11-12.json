@@ -1,0 +1,1040 @@
+{
+  "checked": 89,
+  "ok": 67,
+  "repaired": 10,
+  "dropped": 12,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI launches Business Hub for verified ChatGPT profiles",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "To be honest, I don’t want to create another middleman.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI introduced a beta Business Hub that lets companies create verified ChatGPT profiles and launch dedicated business agents, while Google unveiled a low‑cost Gemini Decisions API for rapid multimodal yes/no queries and United Airlines barred AI agents from completing flight bookings due to privacy and regulatory concerns",
+      "sources": [
+        "S1",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI’s Business Hub lets companies verify profiles and launch AI agents in ChatGPT, offering limited usage insights.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Google's Gemini Decisions API scores up to 1,000 multimodal yes/no questions in a single 150‑250 ms pass, costing $0.10 per million input tokens.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "United bars AI assistants from completing flight bookings to protect data and meet DOT/FAA rules.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Gemini 4 Carbon, the most capable Gemini model, is now publicly available with lower per‑task cost and advanced multi‑agent coordination.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Nvidia hires top law firm for internal probe after CEO's alleged affair with a suspected Chinese spy, amid a 9.5% two‑day stock drop.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI announced a Business Hub for ChatGPT on 10 November 2026, letting companies create verified business profiles in a beta rollout.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The hub also enables eligible firms to launch a specialized business agent that users can query about products and services.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The move is positioned as an early step toward deeper business integration within ChatGPT.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The Business Hub mirrors search‑engine style profiles, allowing enterprises to verify and update product and service information, similar to Google listings.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Companies receive limited business insights such as profile views, mentions, and website clicks, echoing features of Google Analytics.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Verification will follow a formal process with multiple methods varying by market, as explained by Benji Shomair, OpenAI’s VP of Monetization.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Earlier attempts to turn ChatGPT into a direct e‑commerce platform with a commission model and checkout cart were retired in March 2026 after failing to gain traction.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "ChatGPT has become a popular discovery tool, prompting OpenAI to add features that let businesses control how AI presents their offerings.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "By adding profile verification and analytics, OpenAI aims to make ChatGPT function more like a search engine for product information.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The initiative follows a previous, unsuccessful e‑commerce effort, suggesting a strategic shift toward supporting businesses rather than competing directly with retailers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI adds business profiles to ChatGPT",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover products.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "OpenAI launched a Business Hub letting firms create verified ChatGPT profiles.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The hub adds product listings and analytics, similar to Google search results.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Professionals will see business info directly in their AI chats, shaping purchase decisions.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Professionals' not in cited source"
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Expect AI chats to become a new front‑page for product research, so watch your competitors' profiles.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will AI listings replace traditional search engines?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "OpenAI adds verified business profiles to ChatGPT.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "OpenAI now lets companies create verified business profiles inside ChatGPT.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "OpenAI says the hub lets firms launch a Business agent for product queries.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Benji Shomair, OpenAI’s VP of Monetization, explained verification will use multiple methods.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google DeepMind announced the Gemini Decisions API on 11 November 2026, powered by the new Gemini Decision 1 model.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The service lets developers submit up to 1,000 yes/no, choice, or rubric‑scoring questions in a single request.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "It supports text, images, audio, video, and PDF inputs and returns probability and confidence scores without generating answer text.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Gemini Decision 1 evaluates up to 256K tokens per request and can handle contexts up to 16K tokens while keeping median compute latency at 50‑100 ms and total end‑to‑end latency at 150‑250 ms.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The API charges $0.10 per 1 M input tokens and does not bill for output tokens, making it roughly five times cheaper than Gemini 3.5 Flash‑Lite on the same benchmark suite.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Benchmarks show the model leads across agent routing, reasoning, ranking, and multimodal understanding tasks with the lowest calibration error and flat performance from 1 to 100 questions per request.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Traditional language models generate answers token by token, which adds latency and cost when many binary or multiple‑choice decisions are needed.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source contrasts token‑by‑token generation but does not claim it adds latency or cost for many binary/multiple‑choice decisions."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Gemini Decision 1 instead scores all candidate options in one forward pass, leveraging Google’s native multimodal architecture that processes diverse data types together.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This design enables faster, cheaper decision making for applications such as tool selection, policy checks, and content grading.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google launches Gemini Decisions API for fast multimodal choices",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Google rolls out Gemini Decisions API, cutting decision‑making latency to under a quarter second.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Developers can send up to 1,000 yes/no or scoring queries in one call.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The service costs just $0.10 per million input tokens, five times cheaper than previous models.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "This speeds up tools like policy checks and content grading for tech teams.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Use Gemini Decisions to slash AI decision costs and latency in your apps.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'slash' is not in the source"
+      ]
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will cheaper AI decisions change your workflow?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Google’s new API makes decisions 5× cheaper.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Developers can send up to 1,000 yes/no or scoring queries in one call.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "The service costs just $0.10 per million input tokens, five times cheaper than previous models.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "This speeds up tools like policy checks and content grading for tech teams.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "United Airlines announced on 11 November 2026 that its website, travel‑agency partners and flight aggregators will no longer allow personal AI assistants to complete ticket purchases.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The policy change was presented as a response to privacy and regulatory concerns, including the risk of exposing passenger data or violating Department of Transportation and Federal Aviation Administration rules.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "United said it has not yet seen many attempts to use agents for bookings, but it wants to prevent unintended purchases and security breaches.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The airline warned that giving payment details or login credentials to an AI could lead to unintended purchases, account changes, or misuse of MileagePlus miles.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "United also noted that only a human can attest that luggage contains no explosives, a requirement that AI agents cannot satisfy under current DOT and FAA regulations.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "CEO Scott Kirby said he does not want to create “another middleman” for transactions, emphasizing the need for protections before allowing agents to act on United accounts.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The move aligns United with other firms such as JPMorgan Chase, Amazon, and eBay that have restricted third‑party AI agents for similar security reasons.",
+      "sources": [
+        "S6",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "AI agents like Meta’s Muse and OpenAI’s Dots can browse airline sites and display flight options, but they cannot yet finalize bookings without human confirmation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Companies across sectors are evaluating whether to let such agents transact, balancing potential convenience against privacy, security, and compliance risks.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "United indicated it may revisit the restriction if agents develop safeguards that meet regulatory standards.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "United blocks AI agents from booking flights",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "United bans AI assistants from booking flights, citing privacy and safety risks.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions privacy and regulatory concerns, not safety risks as claimed."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "United announced its website and partners will block personal AI agents from completing ticket purchases.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The airline says AI could expose passenger data, violate DOT/FAA rules, or cause unintended purchases.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Travelers must confirm bookings themselves, and United may revisit the rule if agents meet security standards.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows travelers must confirm themselves, but does not state United will revisit the rule only if agents meet security standards."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Expect to manually confirm any AI‑suggested flight to avoid security issues.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Should airlines let AI handle bookings?",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "United blocks AI flight bookings.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "United stops AI assistants from buying tickets on its site.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "CEO Scott Kirby says he won’t add a middleman for transactions.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "United says AI could expose passenger data or break DOT and FAA rules.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google DeepMind announced that Gemini 4 Carbon is now available to developers, enterprises, scientists, and consumers on 10 November 2026.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is described as the strongest in the Gemini line, targeting complex multi‑step coding, debugging, and open‑ended scientific research.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It follows the earlier Gemini 4 Argon release and builds on the Fairwind Program rollout to cybersecurity defenders.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Gemini 4 Carbon is positioned for tasks that test the limits of model intelligence, using more tokens than Argon to enable deeper reasoning and extended verification loops.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Independent benchmarks show Carbon ranking #1 on CursorBench 4.0, Perplexity’s WANDR, and Zapier’s AutomationBench, while delivering more than 2× lower cost per task than the next best external model.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model is offered via the API in Google AI Studio and Gemini for Business at the same introductory price as Argon—$2 per million input tokens and $10 per million output tokens—and is also rolling out to Google AI Ultra subscribers in Google Antigravity, the Gemini app, and AI Mode in Search.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Gemini 4 Carbon continues Google DeepMind’s strategy of providing specialized AI tiers: Argon for most software engineering and knowledge work, and Carbon for high‑complexity, long‑horizon workflows such as cybersecurity, scientific reasoning, and large‑scale document analysis.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The model supports coordinated agent teams through the /swarm feature in Google Antigravity, allowing a single prompt to orchestrate multiple specialized agents in real time.",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This approach aims to balance deep reasoning capability with production‑grade economics for enterprise users.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google DeepMind releases Gemini 4 Carbon model",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Carbon handles complex coding, debugging, and scientific research better than previous models.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "It runs at over twice the cost efficiency of rivals, at $2 per million input tokens.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Enterprises can use it via API or Google AI Studio to boost productivity.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "If you build AI tools, try Gemini 4 Carbon for cheaper, deeper reasoning tasks.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will lower AI costs change your workflow?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Google launches cheaper Gemini 4 Carbon.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia's stock fell 5.47% on Tuesday after a 4% drop on Monday, totaling about a 9.5% loss in two days.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "CEO Jensen Huang admitted an extramarital affair with Alice Huang, whom U.S. intelligence suspects of spying for China.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The board responded by hiring law firm Wachtell, Lipton, Rosen & Katz to run an internal investigation.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The investigation is being led by Nvidia's independent directors with outside counsel, a process described as the most \"standard\" element of the affair so far.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Professors Ann Lipton and Todd Henderson note there is little precedent for a CEO involved in a suspected honeypot, and they highlight three lines of inquiry: possible legal violations, breaches of internal policy, and whether the board was misled.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Henderson adds that law firms conducting such probes may be influenced by who pays their bills, though he does not claim this is happening here.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Corporate governance experts study how boards manage crises, but cases combining personal scandal with potential national security risks are rare.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia's board is watching the investigation closely, as outcomes could affect both the company's reputation and any legal exposure related to alleged espionage of chip designs.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows board is watching, but does not state outcomes could affect reputation or legal exposure related to espionage."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The situation illustrates the challenges of separating personal misconduct from corporate responsibility in high‑tech firms.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not explicitly say the situation illustrates separating personal misconduct from corporate responsibility."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia board hires law firm for internal probe",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Nvidia’s board hires top law firm as stock tumbles after CEO’s spy‑linked affair.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'tumbles' is not in the source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "CEO Jensen Huang confessed an extramarital affair suspected of Chinese espionage.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Nvidia’s shares fell nearly 10% in two days, prompting board action.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '10%' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "The probe could impact the company’s reputation and legal exposure on chip designs.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "If you own Nvidia stock or work with its tech, watch for fallout that could affect valuations and supply chains.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should CEOs' personal lives impact their companies?",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Nvidia hires law firm after spy affair.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Companies can now manage how their products appear in ChatGPT, gaining analytics similar to search‑engine listings, which may drive more informed consumer choices and new marketing channels",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Developers can use Gemini Decisions API to batch thousands of binary or scoring questions with sub‑second latency at a fraction of the cost of traditional models, enabling cheaper, faster tools for content moderation, policy checks, and automated grading",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "United's ban on AI agents for ticket purchases aims to protect passenger data and ensure compliance with DOT and FAA rules, meaning travelers will still need human confirmation for bookings, limiting convenience but reducing fraud risk",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "Companies can now manage how their products appear in ChatGPT, gaining analytics similar to search‑engine listings, which may drive more informed consumer choices and new marketing channels.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence covers analytics but does not show companies can manage how products appear in ChatGPT; the claim combines two facts, only one is supported."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Developers can use Gemini Decisions API to batch thousands of binary or scoring questions with sub‑second latency at a fraction of the cost of traditional models, enabling cheaper, faster tools for content moderation, policy checks, and automated grading.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source limits batching to 1,000 questions (not \"thousands\") and does not mention content moderation; claim overstates capacity."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 7,
+  "unused": 20,
+  "date": "2026-11-12",
+  "slug": "2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+  "model": "groq:openai/gpt-oss-120b"
+}

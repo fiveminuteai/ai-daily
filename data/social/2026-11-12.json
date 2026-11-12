@@ -1,0 +1,110 @@
+{
+ "date": "2026-11-12",
+ "slug": "2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+ "headline": "OpenAI launches Business Hub for verified ChatGPT profiles",
+ "url": "https://fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt/",
+ "generated_at": "2026-11-12T00:43:24+00:00",
+ "items": [
+  {
+   "id": "2026-11-12-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "OpenAI launches Business Hub for verified ChatGPT profiles\n\n• OpenAI’s Business Hub lets companies verify profiles and launch AI agents in ChatGPT, offering limited usage insights.\n• Google's Gemini Decisions API scores up to 1,000 multimodal yes/no questions in a single 150-250 ms pass, costing $0.10 per million input tokens.\n• United bars AI assistants from completing flight bookings to protect data and meet DOT/FAA rules.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-12/instagram.png"
+   ],
+   "scheduled_at": "2026-11-12T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-12-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI launches Business Hub for verified ChatGPT profiles\n\n• OpenAI’s Business Hub lets companies verify profiles and launch AI agents in ChatGPT, offering limited usage insights.\n\nhttps://fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 205
+  },
+  {
+   "id": "2026-11-12-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI launches Business Hub for verified ChatGPT profiles\n\n• OpenAI’s Business Hub lets companies verify profiles and launch AI agents in ChatGPT, offering limited usage insights.\n• Google's Gemini Decisions API scores up to 1,000 multimodal yes/no questions in a single 150-250 ms pass, costing $0.10 per million input tokens.\n• United bars AI assistants from completing flight bookings to protect data and meet DOT/FAA rules.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-12-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Google rolls out Gemini Decisions API, cutting decision‑making latency to under a quarter second[S4].",
+   "duo": true,
+   "cover": "Google’s new API makes decisions 5× cheaper[S4].",
+   "text": "Google rolls out Gemini Decisions API, cutting decision-making latency to under a quarter second.\n\n• Developers can send up to 1,000 yes/no or scoring queries in one call.\n• The service costs just $0.10 per million input tokens, five times cheaper than previous models.\n• This speeds up tools like policy checks and content grading for tech teams.\n\nYour take: Will cheaper AI decisions change your workflow? Tell us in the comments.\n\nSend this to the friend who keeps up with AI.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-12/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-12T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-12-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover products[S1].",
+   "duo": true,
+   "cover": "OpenAI adds verified business profiles to ChatGPT[S1].",
+   "text": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover products.\n\n• OpenAI launched a Business Hub letting firms create verified ChatGPT profiles.\n• The hub adds product listings and analytics, similar to Google search results.\n\nOur read: Expect AI chats to become a new front-page for product research, so watch your competitors' profiles.\n\nYour take: Will AI listings replace traditional search engines? Tell us in the comments.\n\nSend this to a colleague who uses AI at work.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #openai #chatgpt #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-12/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-12T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-12-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers[S7].",
+   "duo": false,
+   "cover": "Google launches cheaper Gemini 4 Carbon[S7].",
+   "text": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.\n\n• Carbon handles complex coding, debugging, and scientific research better than previous models.\n• It runs at over twice the cost efficiency of rivals, at $2 per million input tokens.\n• Enterprises can use it via API or Google AI Studio to boost productivity.\n\nOur read: If you build AI tools, try Gemini 4 Carbon for cheaper, deeper reasoning tasks.\n\nYour take: Will lower AI costs change your workflow? Tell us in the comments.\n\nKnow someone who follows AI? Send this to them.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-12/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-12T10:30:00+00:00"
+  }
+ ]
+}

@@ -1,0 +1,438 @@
+{
+ "date": "2026-11-12",
+ "started_at": "2026-11-12T00:15:40+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.6,
+   "items": 658,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 12
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 5
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 8
+    },
+    "github": {
+     "status": "ok",
+     "items": 6
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 3.0,
+   "stories": 253,
+   "editor": true,
+   "top": [
+    {
+     "title": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
+     "url": "https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/",
+     "score": 8.09,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+     "score": 7.97,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "United won’t let your AI agent book your flight",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents",
+     "score": 7.53,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "Engadget",
+      "The Verge",
+      "cbsnews.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini 4 Carbon is now available",
+     "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+     "score": 7.26,
+     "interest": 8.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "Google DeepMind"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia’s crisis has corporate governance experts reaching for the popcorn",
+     "url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+     "score": 6.84,
+     "interest": 8.0,
+     "category": "architecture",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+     "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+     "score": 6.76,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI’s quarterly revenue reportedly crosses $10B for the first time",
+     "url": "https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/",
+     "score": 6.72,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Grok Build coding agent leaks oodles of confidential info, some belonging to SpaceXSI",
+     "url": "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/",
+     "score": 6.47,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
+     "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+     "score": 6.47,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "A Grok vibe-coding agent leaked sensitive SpaceXSI data",
+     "url": "https://www.engadget.com/2313187/grok-build-leaked-sensitive-spacexsi-data/",
+     "score": 6.43,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+     "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+     "score": 6.13,
+     "interest": 5.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google DeepMind",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Gemini Intelligence: New features, on more devices",
+     "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+     "score": 5.91,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "OpenAI rolls out new business profiles, making ChatGPT just a little bit more like Google",
+     "url": "https://techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google/",
+     "score": 8.09,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+     "score": 7.97,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "United won’t let your AI agent book your flight",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents",
+     "score": 7.53,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "Engadget",
+      "The Verge",
+      "cbsnews.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Gemini 4 Carbon is now available",
+     "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+     "score": 7.26,
+     "interest": 8.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "Google DeepMind"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia’s crisis has corporate governance experts reaching for the popcorn",
+     "url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+     "score": 6.84,
+     "interest": 8.0,
+     "category": "architecture",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.5,
+   "articles": 14,
+   "with_text": 13
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.3,
+   "word_count": 1256,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.2,
+    "reel_desk": 900.7,
+    "layer1": 0.1,
+    "layer2": 569.4,
+    "gate": 0.7
+   },
+   "layer1": {
+    "checked": 107,
+    "ok": 90,
+    "repaired": 12,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 89,
+    "ok": 67,
+    "repaired": 10,
+    "dropped": 12
+   },
+   "unused": 20,
+   "fails": [
+    "word count 1256 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "OpenAI adds business profiles to ChatGPT",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "Verified ChatGPT profiles affect product discovery but not a huge shock",
+     "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover products.",
+     "chosen": true
+    },
+    {
+     "story": "Google launches Gemini Decisions API for fast multimodal choices",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Sub‑quarter‑second AI decisions is a clear surprise for devs",
+     "hook": "Google rolls out Gemini Decisions API, cutting decision‑making latency to under a quarter second.",
+     "chosen": true
+    },
+    {
+     "story": "United blocks AI agents from booking flights",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Google DeepMind releases Gemini 4 Carbon model",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 5.0,
+     "why": "Cost‑cutting AI model is interesting to devs but less office buzz",
+     "hook": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia board hires law firm for internal probe",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+ "finished_at": "2026-11-12T00:43:23+00:00",
+ "seconds": 1662.3
+}

@@ -1651,5 +1651,114 @@
     "tools"
    ]
   ]
+ },
+ {
+  "date": "2026-11-12",
+  "slug": "2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+  "urls": [
+   "blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api",
+   "cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights",
+   "deepmind.google/blog/gemini-4-carbon-is-now-available",
+   "engadget.com/2314121/united-is-restricting-ai-agents-from-booking-flights",
+   "openai.com/index/introducing-businesses-chatgpt",
+   "techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn",
+   "techcrunch.com/2026/11/10/openai-rolls-out-new-business-profiles-making-chatgpt-just-a-little-bit-more-like-google",
+   "theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub",
+   "theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents"
+  ],
+  "tokens": [
+   "agent",
+   "agents",
+   "api",
+   "available",
+   "bit",
+   "book",
+   "booking",
+   "business",
+   "businesses",
+   "calibrated",
+   "carbon",
+   "chatgpt",
+   "corporate",
+   "crisis",
+   "decisions",
+   "experts",
+   "fast",
+   "flight",
+   "flights",
+   "gemini",
+   "getting",
+   "google",
+   "governance",
+   "introducing",
+   "let",
+   "like",
+   "little",
+   "making",
+   "multimodal",
+   "nvidia",
+   "openai",
+   "popcorn",
+   "profiles",
+   "reaching",
+   "restricting",
+   "rolls",
+   "united",
+   "verified",
+   "won"
+  ],
+  "story_tokens": [
+   [
+    "agents",
+    "bit",
+    "business",
+    "businesses",
+    "chatgpt",
+    "getting",
+    "google",
+    "introducing",
+    "like",
+    "little",
+    "making",
+    "openai",
+    "profiles",
+    "rolls",
+    "verified"
+   ],
+   [
+    "api",
+    "calibrated",
+    "decisions",
+    "fast",
+    "gemini",
+    "multimodal"
+   ],
+   [
+    "agent",
+    "agents",
+    "book",
+    "booking",
+    "flight",
+    "flights",
+    "let",
+    "restricting",
+    "united",
+    "won"
+   ],
+   [
+    "available",
+    "carbon",
+    "gemini"
+   ],
+   [
+    "corporate",
+    "crisis",
+    "experts",
+    "governance",
+    "nvidia",
+    "popcorn",
+    "reaching"
+   ]
+  ]
  }
 ]
