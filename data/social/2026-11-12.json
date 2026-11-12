@@ -108,13 +108,17 @@
    "cover": "Google launches cheaper Gemini 4 Carbon[S7].",
    "text": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.\n\n• Carbon handles complex coding, debugging, and scientific research better than previous models.\n• It runs at over twice the cost efficiency of rivals, at $2 per million input tokens.\n• Enterprises can use it via API or Google AI Studio to boost productivity.\n\nOur read: If you build AI tools, try Gemini 4 Carbon for cheaper, deeper reasoning tasks.\n\nYour take: Will lower AI costs change your workflow? Tell us in the comments.\n\nKnow someone who follows AI? Send this to them.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-12T10:32:05+00:00",
+   "posted_url": "https://www.instagram.com/reel/Dfo2On6iXJB/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-12/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-12T10:30:00+00:00"
+   "scheduled_at": "2026-11-12T10:30:00+00:00",
+   "media_id": "17964689850228257",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/biiMRT4NVmI",
+   "youtube_error": null
   }
  ]
 }
