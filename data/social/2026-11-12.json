@@ -58,13 +58,17 @@
    "cover": "Google’s new API makes decisions 5× cheaper[S4].",
    "text": "Google rolls out Gemini Decisions API, cutting decision-making latency to under a quarter second.\n\n• Developers can send up to 1,000 yes/no or scoring queries in one call.\n• The service costs just $0.10 per million input tokens, five times cheaper than previous models.\n• This speeds up tools like policy checks and content grading for tech teams.\n\nYour take: Will cheaper AI decisions change your workflow? Tell us in the comments.\n\nSend this to the friend who keeps up with AI.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #google #gemini #tech",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-12T03:31:41+00:00",
+   "posted_url": "https://www.instagram.com/reel/DfoGFWwDEht/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-12/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-12T03:30:00+00:00"
+   "scheduled_at": "2026-11-12T03:30:00+00:00",
+   "media_id": "18486561991117095",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/kGar7N_ofqk",
+   "youtube_error": null
   },
   {
    "id": "2026-11-12-reel-2",
