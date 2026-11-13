@@ -1,0 +1,131 @@
+=== STORY 1 (suggested section: models) ===
+
+[S1] Google DeepMind — "Introducing Gemini 4 Hydrogen" (12 November 2026)
+Introducing Gemini 4 Hydrogen
+Hydrogen brings cutting-edge intelligence to everyone.
+SVP, Google DeepMind and Chief AI Architect, Google
+Your browser does not support the audio element.
+Today, we’re introducing Gemini 4 Hydrogen, bringing cutting-edge intelligence to everyone — with speed and efficiency for everyday coding and agentic workflows.
+While our frontier models, Gemini 4 Carbon and Gemini 4 Argon , excel at deep, long-horizon reasoning on your hardest problems, Hydrogen is built for rapid execution across diverse agentic workflows. With Hydrogen, we’re also bringing Gemini 4 to everyone — for all tiers of Google AI Studio , the Gemini API, Gemini for business , the Gemini app , Google Search , and paid Google AI Pro and Ultra subscribers in Google Antigravity .
+Hydrogen surpasses Argon on the Artificial Analysis Intelligence Index at its default high thinking level (51 vs. 50, and reaching 54 at its highest xhigh thinking setting), while often completing tasks faster than models in its class. Gemini 4 Hydrogen is priced flat across its entire 1 million-token context window at $1.50 per million input tokens and $7.50 per million output tokens.
+Unlocking efficiencies in multi-model workloads
+In real-world software development, while teams rely on frontier models like Carbon and Argon for deep architectural judgment when designing systems or untangling subtle bugs, they still need a fast, disciplined execution model for writing code, running tests, and verifying changes. Hydrogen is built to stand on its own as a model for everyday work — or to pair with Carbon and Argon as the high-efficiency execution engine in multi-model workflows.
+To help make this multi-model collaboration automatic, we’re introducing Orchestrator in Google Antigravity . Rather than using a single model from start to finish, Orchestrator dynamically switches between models like Carbon and Hydrogen within the same session. On Terminal-Bench 4.0 , Orchestrator reached near-Carbon task success rates while, on average, consuming 24% less quota and completing 19% faster. For workflows that require parallel agents, Carbon can act as the coordinator while Hydrogen can power worker and verifier agents to build and test changes simultaneously across isolated workspaces — helping teams ship complex projects faster without driving up token costs.
+Scaling developer and enterprise workflows
+Beyond multi-model workflows, Hydrogen is a major standalone upgrade for teams migrating from Gemini 3.8 Flash. It delivers significant leaps in both speed and intelligence — finishing tasks 2.5 times
+
+[S2] Google AI blog — "Google Search gets a major upgrade with Gemini 4 Hydrogen" (12 November 2026)
+Google Search gets a major upgrade with Gemini 4 Hydrogen
+VP of Product, Google Search
+Your browser does not support the audio element.
+We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more intuitive, visual, and precise answers. This update helps you navigate complex questions by understanding your intent, conducting simultaneous queries, and displaying structured information like tables and images. You can try these improved capabilities by visiting Google Search today to ask your most nuanced questions.
+We are introducing Gemini 4 Hydrogen to provide more helpful and intuitive responses in Google Search.
+You can now ask complex, multi-part questions because our model understands your intent with greater precision.
+Our improved reasoning capabilities connect you to a wider range of relevant websites and helpful links.
+You will see more visual content, including structured responses, comparison tables, and custom tools for you.
+These updates provide nuanced and accurate answers in all languages supported by our AI models today.
+We are bringing Gemini 4
+
+[S3] The Verge — "Google’s new Gemini model is better at understanding complicated questions" (12 November 2026)
+Google’s new Gemini model is better at understanding complicated questions
+Google’s Robby Stein says Gemini 4 Hydrogen is ‘the biggest model upgrade to Search yet.’﻿
+Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including “questions with multiple parts, hard-to-understand typos, or highly specific requests.” The new model can break down your questions and address each part in its responses. It’s available starting today in search, the Gemini app, all tiers of Google AI Studio, the Gemini API, Gemini for business, and in Google Antigravity for Google AI Pro and Ultra subscribers. Robby Stein, VP of product at Google Search, says it’s “now the new default model in AI Mode & being used for your hardest questions in AI Overviews.”
+Google says Gemini 4 Hydrogen also gives users a wider range of links in its responses by “conducting simultaneous queries across all the relevant subtopics.” Its responses have more visuals, too, like images, comparison tables, graphs, and maps. One of Stein’s examples shows the AI generating an interactive ani
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: policy) ===
+
+[S4] ipo.anthropic.com (via Hacker News) — "Anthropic IPO" (12 November 2026)
+Anthropic’s Initial Public Offering
+AI will have a vast impact on the world. Anthropic is a public benefit corporation dedicated to securing its benefits and mitigating its risks.
+“ We believe that AI is one of the most consequential technologies in human history. If managed well, it could rapidly accelerate scientific innovation, greatly increase economic growth rates, bring cures for major diseases within reach, and solve problems that have resisted generations of human effort.”
+Roadshow video
+Q3’26 Financial highlights
+Revenue
+YoY revenue
+>11,900 Customers ≥ $100K TTM revenue 1
+Customers ≥ $100K TTM revenue 1
+>12x YoY customers ≥ $100K TTM revenue 1
+YoY customers ≥ $100K TTM revenue 1
+>4x Compute efficiency gain since Q1’25 2
+Compute efficiency gain since Q1’25 2
+15% Adjusted Operating Margin 3
+Adjusted Operating Margin 3
+$23.3B Net Loss (due to an increase in our valuation, net loss includes a $21.9 billion non-cash charge related to a change in the fair value of convertible notes, derivative liabilities, and SAFEs)
+Net Loss
+(due to an increase in our valuation, net loss includes a $21.9 billion non-cash charge related to a change in the fair value of convertible notes, derivative liabilities, and SAFEs)
+Operating Margin
+1 As of September 30, 2026.
+2 Measured as revenue divided by compute and infrastructure expenses in Q3’26 divided by the same ratio in Q1’25.
+3 See the section in our prospectus titled “Management’s Discussion and Analysis of Financial Condition and Results of Operations—Non-GAAP Financial Measures” for a reconciliation of Adjusted Operating Margin to Operating Margin.
+Customer stories
+
+Scaling an agentic operating system for lawyers
+1,500+ Law firms and in-house teams served
+4.3 Non-billable hours recaptured per lawyer weekly, in an independent study of 31 firms
+100% Claude Enterprise employee access
+14x Claude Code growth (about 50 seats to 700 company-wide)
+Bringing the most powerful tools in science to every team
+50,000+ Employees with access to Claude Enterprise
+5x Expansion since rollout
+>85% Employees in key functions actively engage with Claude
+Turning every employee into a builder
+70+ Business units using AI
+99.9% Code accuracy delivered on complex code modifications
+24→5 days Working days for new feature time to market
+Re-engineering how a global enterprise builds itself
++151% Effective output per developer year over year
+18x faster API migration (231 days of work in 13 days)
+2x Quarter over quarter productivity gains (estimated 8.1 million hours annualized)
+99% Salesforce employees using Slackbot
+Making shopping faster, ea
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S5] The Verge — "Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup" (12 November 2026)
+Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup
+Nvidia’s board and interim CEO Colette Kress told employees they’re ready to ‘move forward together.’
+Jensen Huang resigned as CEO of Nvidia this morning, a company he co-founded in 1993. The decision came following the company’s board opening an investigation into multiple extramarital affairs Huang had with a direct report and an alleged Chinese spy. The new, and first, Chair of the Board, Harvey Jones, shared news of Huang’s resignation with the company in an email, which also announced CFO Colette Kress as interim CEO.
+You can read the full text of the board’s internal memo and Kress’s first message to employees as interim CEO below.
+Subject: Statement from NVIDIA Board Chair Dear NVIDIA Employees, I am writing to share an important update. Jensen has resigned as CEO and Board Member, and the Board has asked our Chief Financial Officer Colette Kress to serve as interim CEO while it conducts a search for a permanent successor looking at both internal and external candidates. I will serve as the first-ever Chair of the Board. As CFO for over 13 years, Colette has been a key architect of NVIDIA’s growth and capital strategy. She possesses a deep understanding of this business and the markets in which we operate. The Board has full confidence in Colette to deliver on our commitments to shareholders, customers, partners, and to each of you. Jensen’s contributions to NVIDIA are profound. NVIDIA is one of the most consequential technology companies in the world. We pioneered accelerated computing, defined the modern GPU, and built the platform that powered artificial intelligence. The Board takes seriously our duty as stewards of this great company. The strength of this company resides in our employees, leadership team, technical strength and partner ecosystem. I am confident that under Colette’s leadership, with the full support of the Board, we will continue to grow our business, and lead the industry forward. Thank you for your focus, your professionalism, and your commitment to NVIDIA. Harvey Jones
+Subject: Statement from NVIDIA Board Chair
+I am writing to share an important update. Jensen has resigned as CEO and Board Member, and the Board has asked our Chief Financial Officer Colette Kress to serve as interim CEO while it conducts a search for a permanent successor looking at both internal and external candidates. I will serve as the first-ever Chair of the Board.
+As CFO for over 13 years, Colette has been a key architect of NVIDIA’s growth and capital strategy
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: products) ===
+
+[S6] TechCrunch — "Muse can now place calls to US businesses — if you pay" (12 November 2026)
+After initially testing the feature in September, Meta’s consumer AI agent Muse is now able to place calls to U.S. businesses on behalf of its users. However, only paid subscribers have access to the feature, the company says.
+Meta’s Muse, which now has over 10 million users , the company said last month, has been working to make consumer AI a mainstream product for everyday users. Placing calls is one of the ways it aims to get there, as it could handle another task on people’s to-do lists.
+Notes Alexandr Wang, Meta’s chief AI officer and head of its Superintelligence Labs division, the feature could be used to take care of calls people don’t want to make, like those to their cable company, the DMV, or to a restaurant that doesn’t offer online reservations.
+Previously, only a select number of Muse early adopters were able to try this feature after asking the AI for access. Now, anyone who pays for Muse can make this type of request. Currently, Muse subscription plans start at $20 per month for 500 million Muse tokens per week. Heavier AI users can opt to pay $100 per month for 3 billion tokens.
+Muse is not the only AI agent able to place calls to businesses; the startup Instinct has been offering a similar option , as has Google’s Gemini . However, while the AI tools are now certainly capable of handling the task, the reception on the other end of the line can be mixed. Many businesses and receptionists hang up on calls from AI agents as soon as they identify that it’s not a human on the phone. But with AI now better able to mimic a real human voice, being able to tell the difference between a customer and an AI working on the customer’s behalf will get tougher.
+Despite the challenges, this feature is one that could appeal to consumers who have grown frustrated with the state of customer service over the years. For too long, customers have been forced to navigate complex phone trees, and then sit on hold waiting for a human representative to pick up. If they’re lucky, that person can actually help them, and not transfer them to another department. Now, those consumers could potentially use their AI, with its infinite patience, for this tedious task instead.
+While calls remain a paid-only feature for the time being, the recently added option to make a Muse email address will soon roll out to free users, Wang said this week.
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next
+
+[S7] Engadget — "Meta's Muse can now make calls on your behalf (if you have a paid subscription)" (12 November 2026)
+Meta's Muse can now make calls on your behalf (if you have a paid subscription)
+The AI agent can schedule appointments, make reservations and wait on hold for you.
+Meta's Muse just got another ability that could make the AI agent feel a little bit more like an actual personal assistant. Muse is now able to place phone calls on your behalf, if you have a paid subscription.
+With the change, Muse is able to call businesses to help with tasks like making reservations, scheduling appointments and other "calls you don't want to make," Meta's Chief AI officer Alexandr Wang said in an update . The feature is available to those who have paid for a separate Muse subscription, which comes with additional tokens and some extra features.
+Some users who have had access to the feature already have reported that Muse has been able to handle phone-related tasks with relative ease. Moltbook creator and Meta Superintelligence employee Matt Schlicht shared a recreation of a phone conversation his agent had with a Volvo dealership last month, noting that it was able to wait on hold in order to get the in
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S8] Ars Technica — "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI" (11 November 2026)
+Top chip manufacturer TSMC is ready to invest $1 billion in Anthropic and OpenAI. That would give the Taiwanese chipmaker direct stakes in leading AI developers, even as its own contract chipmaking business has profited enormously from the AI data center buildout.
+The chipmaker’s board approved plans to invest up to $500 million in OpenAI preferred stock reserved for large investors and another $500 million to purchase Anthropic common shares at the latter’s expected IPO price, according to Reuters . Such an investment may give markets “a shot of confidence as the artificial-intelligence trade shows signs of strain,” The Wall Street Journal reported.
+But analysts also warned that such circular financing among investors, suppliers, and customers has made it difficult to evaluate real market demand for AI-related hardware and services, according to the Journal.
+TSMC’s chip fabrication plants physically produce the vast majority of Nvidia’s chips designed for AI data center workloads and make most of Apple’s custom chips used in iPhones , Mac laptops and desktops, plus Apple’s planned AI computing server . Most of these fabs are located in Taiwan, but TSMC also operates fabs in Japan and China, and it has an expanding US manufacturing cluster in Arizona. It is also building a new fab in Germany.
+Meanwhile, Anthropic and OpenAI are both purchasing huge quantities of AI hardware manufactured by TSMC for their data center projects. So TSMC’s announced investment certainly seems to fit into the broader trend of circular financing that has become common during the AI boom, even as tech stocks have gyrated recently as investors have grown increasingly jittery.
+Still, TSMC has plenty of money to spare on such a bet. Ongoing demand for AI-related chips has enabled the Taiwanese chipmaker to report six consecutive quarters of record profit, with the latest example being the company earning more than $23 billion in profit during the July through September 2026 quarter, according to Reuters .
+TSMC’s planned investment in Anthropic and OpenAI also pales in comparison with circular financing deals from major US tech companies. The most notable example is Nvidia , which has invested $30 billion in OpenAI and $10 billion in Anthropic so far, in addition to putting tens of billions of dollars into many other AI and robotics companies .

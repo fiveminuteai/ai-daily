@@ -1,0 +1,177 @@
+{
+  "date": "2026-11-13",
+  "slug": "2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+  "headline": "Google DeepMind launches Gemini 4 Hydrogen for faster coding",
+  "dek": "Google DeepMind announced Gemini 4 Hydrogen on 12 November 2026 as a new model aimed at everyday coding and agentic workflows[S1].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "models",
+    "policy",
+    "products",
+    "impact",
+    "google",
+    "deepmind",
+    "anthropic"
+  ],
+  "what_happened": [
+    "Google DeepMind released Gemini 4 Hydrogen, a fast, cost‑effective model for coding and multi‑model workflows[S1].",
+    "The filing also reports a 15% Adjusted Operating Margin and a net loss of $23.3 billion, largely due to a non‑cash charge[S4].",
+    "Nvidia’s founder Jensen Huang stepped down as CEO amid scandal, and CFO Colette Kress was named interim chief executive[S5]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Google DeepMind launches Gemini 4 Hydrogen model",
+      "category": "models",
+      "paragraphs": [
+        "Google DeepMind announced Gemini 4 Hydrogen on 12 November 2026 as a new model aimed at everyday coding and agentic workflows[S1]. The model is offered through Google AI Studio, the Gemini API, Gemini for Business, the Gemini app, Google Search, and paid Google AI Pro and Ultra subscriptions in Google Antigravity[S1].",
+        "Hydrogen scores 51 on the Artificial Analysis Intelligence Index at its default high‑thinking level and can reach 54 at the highest xhigh setting, surpassing Argon’s 50 score[S1]. It uses a flat pricing model of $1.50 per million input tokens and $7.50 per million output tokens across a 1 million‑token context window[S1]. In multi‑model workloads, the new Orchestrator feature can switch between Carbon and Hydrogen, achieving near‑Carbon success rates while using 24 % less quota and completing tasks 19 % faster on Terminal‑Bench 4.0[S1]. Hydrogen also finishes tasks 2.5 times faster than Gemini 3.8 Flash for standalone use[S1].",
+        "Gemini 4 Hydrogen is designed for rapid execution in software development, complementing slower, more reasoning‑heavy models like Carbon and Argon[S1]. It enables developers to write code, run tests, and verify changes quickly, either alone or as part of a coordinated multi‑model workflow where Carbon coordinates and Hydrogen powers worker agents[S1]. This approach aims to reduce token costs while maintaining high task success, addressing the need for efficient, scalable AI assistance in everyday coding tasks[S1]."
+      ],
+      "card": null
+    },
+    {
+      "story": 2,
+      "title": "Anthropic goes public with strong growth metrics",
+      "category": "policy",
+      "paragraphs": [
+        "The filing also reports a 15% Adjusted Operating Margin and a net loss of $23.3 billion, largely due to a non‑cash charge[S4].",
+        "Claude Enterprise reached 50,000+ employee users, with over 85% of key‑function staff actively engaging the tool[S4]. Legal teams using Claude Code grew from about 50 seats to 700, a 14‑times increase, while developers saw a 151% rise in effective output per year[S4].",
+        "Anthropic positions itself as a public benefit corporation, emphasizing responsible AI development and risk mitigation[S4]. Its financial disclosures highlight both rapid scaling of AI services and significant non‑cash accounting adjustments that inflate the reported loss[S4]."
+      ],
+      "card": null
+    },
+    {
+      "story": 3,
+      "title": "Nvidia appoints interim CEO after Jensen Huang resignation",
+      "category": "products",
+      "paragraphs": [
+        "Nvidia announced on 12 November 2026 that co‑founder Jensen Huang resigned as chief executive and Board Member following an internal investigation[S5]. The board appointed Chief Financial Officer Colette Kress as interim CEO while it begins a search for a permanent replacement[S5]. Harvey Jones became the company’s first Chair of the board and communicated the changes to employees via email[S5].",
+        "The resignation followed allegations of multiple extramarital affairs involving Huang and a direct report, as well as claims of contact with an alleged Chinese spy, prompting the board’s investigation[S5]. Kress has served as Nvidia’s CFO for over 13 years and is described as a key architect of the firm’s growth and capital strategy, giving the board confidence in her ability to maintain commitments to shareholders, customers and partners[S5]. In his Statement, Jones emphasized Nvidia’s technical strength, employee base and partner ecosystem as the foundation for continued growth under Kress’s interim leadership[S5]."
+      ],
+      "card": null
+    },
+    {
+      "story": 4,
+      "title": "Muse can place calls for paid users",
+      "category": "products",
+      "paragraphs": [
+        "Meta’s consumer AI agent Muse now lets paid subscribers place phone calls to U.S. businesses on their behalf, a feature first tested in September and rolled out in November 2026[S6][S7]. The capability is limited to users who pay for a Muse subscription, with plans starting at $20 per month for 500 million tokens per week or $100 per month for 3 billion tokens[S6]. Muse’s chief AI Officer Alexandr Wang said the tool is intended to handle tasks people prefer not to make themselves, such as calling a cable company or a restaurant without online reservations[S6][S7].",
+        "The subscription‑based model provides token allocations that power Muse’s interactions, including the new calling ability, and heavier users can purchase larger token bundles for more frequent use[S6]. Early adopters reported that Muse could schedule appointments, make reservations, and wait on hold, exemplified by a recreated call with a Volvo dealership shared by Meta employee Matt Schlicht[S7].",
+        "Muse, which surpassed 10 million users last month, is part of Meta’s effort to turn consumer AI into a mainstream personal‑assistant product[S6]. As phone‑based customer service remains cumbersome, offering an AI that can navigate call trees and wait on hold provides a convenience that mirrors traditional human assistants, albeit with the risk of businesses rejecting AI callers[S6]."
+      ],
+      "card": null
+    },
+    {
+      "story": 5,
+      "title": "TSMC invests $1 billion in Anthropic and OpenAI",
+      "category": "impact",
+      "paragraphs": [
+        "Taiwan chipmaker TSMC approved a $1 billion investment in AI developers Anthropic and OpenAI, allocating up to $500 million to OpenAI preferred stock and $500 million to Anthropic common shares at its expected IPO price[S8]. The board decision was reported on 11 November 2026[S8]. This move gives TSMC direct equity stakes in two leading AI firms[S8].",
+        "The investment splits evenly between the two companies, with each portion earmarked for preferred or common shares as described in the board plan[S8]. Analysts note that such circular financing makes it harder to gauge true market demand for AI hardware, even as TSMC reports six straight quarters of record profit, including more than $23 billion in the July‑September 2026 quarter[S8].",
+        "Circular financing, where chipmakers, AI developers and investors trade equity and hardware, has become common during the AI boom[S8]. Nvidia, for example, has already placed $30 billion in OpenAI and $10 billion in Anthropic, highlighting the scale of such arrangements[S8]. TSMC’s cash‑rich position, driven by sustained AI‑chip demand, enables it to join this trend despite recent volatility in tech stocks[S8]."
+      ],
+      "card": null
+    }
+  ],
+  "why_it_matters": [],
+  "quote": {
+    "text": "I am writing to share an important update.",
+    "speaker": "Harvey Jones",
+    "source": "S5"
+  },
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-12T18:00:50+00:00",
+      "title": "Google DeepMind launches Gemini 4 Hydrogen model",
+      "publisher": "Google DeepMind",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-12T11:46:41+00:00",
+      "title": "Anthropic goes public with strong growth metrics",
+      "publisher": "ipo.anthropic.com (via Hacker News)",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-12T15:48:12+00:00",
+      "title": "Nvidia appoints interim CEO after Jensen Huang resignation",
+      "publisher": "The Verge",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-12T22:22:28+00:00",
+      "title": "Muse can place calls for paid users",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-11T18:16:40+00:00",
+      "title": "TSMC invests $1 billion in Anthropic and OpenAI",
+      "publisher": "Ars Technica",
+      "category": "impact"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+      "publisher": "Google DeepMind",
+      "published": "2026-11-12T18:00:50+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Anthropic IPO",
+      "url": "https://ipo.anthropic.com/us/",
+      "publisher": "ipo.anthropic.com (via Hacker News)",
+      "published": "2026-11-12T11:46:41+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang",
+      "publisher": "The Verge",
+      "published": "2026-11-12T15:48:12+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Muse can now place calls to US businesses — if you pay",
+      "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-12T22:22:28+00:00"
+    },
+    {
+      "id": "S7",
+      "title": "Meta's Muse can now make calls on your behalf (if you have a paid subscription)",
+      "url": "https://www.engadget.com/2315525/metas-muse-can-now-make-calls-on-your-behalf-if-you-have-a-paid-subscription/",
+      "publisher": "Engadget",
+      "published": "2026-11-12T23:32:00+00:00"
+    },
+    {
+      "id": "S8",
+      "title": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+      "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+      "publisher": "Ars Technica",
+      "published": "2026-11-11T18:16:40+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-13T00:47:50+00:00",
+  "verification": {
+    "checked": 71,
+    "ok": 44,
+    "repaired": 0,
+    "dropped": 27,
+    "unused": 33,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1014,
+  "reading_minutes": 5
+}

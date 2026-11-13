@@ -1,0 +1,1032 @@
+{
+  "checked": 71,
+  "ok": 44,
+  "repaired": 0,
+  "dropped": 27,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Google DeepMind launches Gemini 4 Hydrogen for faster coding",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "I am writing to share an important update.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Google DeepMind introduced Gemini 4 Hydrogen, a cost‑efficient coding model that runs 2.5× faster than Gemini 3.8 Flash and supports multi‑model orchestration, while Anthropic filed for an IPO and Nvidia appointed an interim CEO after Jensen Huang’s resignation",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google DeepMind released Gemini 4 Hydrogen, a fast, cost‑effective model for coding and multi‑model workflows.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic's IPO shows rapid customer growth, high compute efficiency, and a $23.3 billion net loss driven by accounting charges.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Nvidia’s founder Jensen Huang stepped down as CEO amid scandal, and CFO Colette Kress was named interim chief executive.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Paid Muse users can now have the AI place calls to U.S. businesses for tasks like reservations and appointments.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Tsmc will spend $1 billion on equity stakes in Anthropic and OpenAI, reinforcing its role in the AI hardware ecosystem.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google DeepMind announced Gemini 4 Hydrogen on 12 November 2026 as a new model aimed at everyday coding and agentic workflows.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The model is offered through Google AI Studio, the Gemini API, Gemini for Business, the Gemini app, Google Search, and paid Google AI Pro and Ultra subscriptions in Google Antigravity.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It is positioned below frontier models Gemini 4 Carbon and Gemini 4 Argon, which focus on deep, long‑horizon reasoning.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes Carbon and Argon as frontier models focusing on deep reasoning, but does not state that Hydrogen is positioned below them."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Hydrogen scores 51 on the Artificial Analysis Intelligence Index at its default high‑thinking level and can reach 54 at the highest xhigh setting, surpassing Argon’s 50 score.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It uses a flat pricing model of $1.50 per million input tokens and $7.50 per million output tokens across a 1 million‑token context window.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "In multi‑model workloads, the new Orchestrator feature can switch between Carbon and Hydrogen, achieving near‑Carbon success rates while using 24 % less quota and completing tasks 19 % faster on Terminal‑Bench 4.0.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Hydrogen also finishes tasks 2.5 times faster than Gemini 3.8 Flash for standalone use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Gemini 4 Hydrogen is designed for rapid execution in software development, complementing slower, more reasoning‑heavy models like Carbon and Argon.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It enables developers to write code, run tests, and verify changes quickly, either alone or as part of a coordinated multi‑model workflow where Carbon coordinates and Hydrogen powers worker agents.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This approach aims to reduce token costs while maintaining high task success, addressing the need for efficient, scalable AI assistance in everyday coding tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google DeepMind launches Gemini 4 Hydrogen model",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Google launches Gemini 4 Hydrogen, cutting coding costs by 24%.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions quota reduction for Orchestrator, not a 24% coding‑cost reduction by Gemini 4 Hydrogen itself."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Google DeepMind released Gemini 4 Hydrogen for everyday coding tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "It lowers token usage 24% and runs 19% faster than previous models.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Percentages refer to Orchestrator performance, not directly to Hydrogen’s token usage or speed versus previous models."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Developers can ship code faster while spending less on AI services.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Use Gemini 4 Hydrogen to speed up your coding and trim AI expenses.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will faster AI change how you code?",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Google's Gemini Hydrogen cuts coding costs",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic filed for an initial public offering on 12 November 2026, becoming a public benefit corporation that aims to secure AI benefits and mitigate risks.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms public benefit status but does not explicitly state the filing date of 12 Nov 2026."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The prospectus shows revenue growth and a large customer base, with more than 11,900 customers generating at least $100,000 in trailing twelve‑month revenue.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '100000' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The filing also reports a 15% adjusted operating margin and a net loss of $23.3 billion, largely due to a non‑cash charge.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company reports a 12‑fold year‑over‑year increase in customers with $100K+ revenue, and a four‑times rise in compute efficiency since Q1 2025.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '2025' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Claude Enterprise reached 50,000+ employee users, with over 85% of key‑function staff actively engaging the tool.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Legal teams using Claude Code grew from about 50 seats to 700, a 14‑times increase, while developers saw a 151% rise in effective output per year.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic positions itself as a public benefit corporation, emphasizing responsible AI development and risk mitigation.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Its financial disclosures highlight both rapid scaling of AI services and significant non‑cash accounting adjustments that inflate the reported loss.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The IPO reflects broader market interest in AI firms that combine commercial growth with public‑policy commitments.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention broader market interest; it only describes the IPO and public‑benefit status."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic goes public with strong growth metrics",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Anthropic files for IPO, touting 12‑fold customer growth and a $23.3 B loss.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"$23.3B Net Loss (includes a $21.9 billion non‑cash charge ...) ; >12x YoY customers ≥ $100K TTM revenue\""
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "The company filed a public‑benefit IPO showing over 11,900 customers each spending $100K+ in the past year.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Revenue grew 12‑times year‑over‑year while a non‑cash charge created a $23.3 B net loss.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state revenue grew 12‑times YoY and the non‑cash charge is $21.9 B, not the full $23.3 B loss."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Enterprises and legal teams are now adopting Claude tools, reshaping AI spend and risk strategies.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows Claude adoption by law firms, but does not mention reshaping AI spend or risk strategies."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch your AI procurement budgets—Anthropic’s rapid growth may shift pricing and compliance expectations.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will this change how you buy AI tools?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Anthropic IPO shows 12‑fold customer surge.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'surge' is not in the source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia announced on 12 November 2026 that co‑founder Jensen Huang resigned as chief executive and board member following an internal investigation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The board appointed chief financial officer Colette Kress as interim CEO while it begins a search for a permanent replacement.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Harvey Jones became the company’s first chair of the board and communicated the changes to employees via email.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The resignation followed allegations of multiple extramarital affairs involving Huang and a direct report, as well as claims of contact with an alleged Chinese spy, prompting the board’s investigation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Kress has served as Nvidia’s CFO for over 13 years and is described as a key architect of the firm’s growth and capital strategy, giving the board confidence in her ability to maintain commitments to shareholders, customers and partners.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "In his statement, Jones emphasized Nvidia’s technical strength, employee base and partner ecosystem as the foundation for continued growth under Kress’s interim leadership.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia, founded in 1993, is widely recognized for pioneering accelerated computing, defining the modern GPU and building the platform that powers most artificial‑intelligence workloads.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says Nvidia built the platform that powered artificial intelligence, not that it powers *most* AI workloads; the claim adds a quantitative qualifier not in the source."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Leadership stability is critical for a company of its size, as its products and research drive large portions of the AI hardware market.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source material mentions leadership stability, company size, or market‑share impact of products and research."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The board’s swift appointment of an internal executive aims to reassure investors and maintain operational continuity during the transition.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the appointment but does not state the board’s aim to reassure investors or maintain continuity; the claim adds intent not evidenced."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia appoints interim CEO after Jensen Huang resignation",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Nvidia shakes up leadership as CEO quits amid scandal.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Jensen Huang resigned as CEO after a board investigation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "CFO Colette Kress, a 13‑year veteran, was named interim CEO to steady market confidence.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms her appointment but does not state the purpose was to steady market confidence."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Investors and AI developers watch for impact on Nvidia’s AI hardware supply.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source material mentions investors or AI developers watching impact on Nvidia’s AI hardware supply."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch Nvidia’s stock and AI tool choices—they may shift under new leadership.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will Nvidia stay dominant without Huang?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Nvidia CEO quits, CFO steps in.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Nvidia’s co‑founder Jensen Huang quit after affair and spy allegations.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Nvidia announced the change on 12 November 2026, saying it was internal.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source only shows an article published on that date and internal emails; it does not state Nvidia announced the change on 12 Nov 2026 nor that it was described as internal."
+      ]
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "CFO Colette Kress was named interim CEO while the board searches.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta’s consumer AI agent Muse now lets paid subscribers place phone calls to U.S. businesses on their behalf, a feature first tested in September and rolled out in November 2026.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The capability is limited to users who pay for a Muse subscription, with plans starting at $20 per month for 500 million tokens per week or $100 per month for 3 billion tokens.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Muse’s chief AI officer Alexandr Wang said the tool is intended to handle tasks people prefer not to make themselves, such as calling a cable company or a restaurant without online reservations.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The subscription‑based model provides token allocations that power Muse’s interactions, including the new calling ability, and heavier users can purchase larger token bundles for more frequent use.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Early adopters reported that Muse could schedule appointments, make reservations, and wait on hold, exemplified by a recreated call with a Volvo dealership shared by Meta employee Matt Schlicht.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Competing agents like Instinct and Google’s Gemini also offer call‑placement, but many businesses still hang up when they detect a non‑human voice, a challenge Muse aims to mitigate with more natural speech synthesis.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions competing agents and hang‑ups but does not state Muse aims to mitigate this with more natural speech synthesis."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Muse, which surpassed 10 million users last month, is part of Meta’s effort to turn consumer AI into a mainstream personal‑assistant product.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The paid‑only model reflects Meta’s strategy to monetize advanced features while gathering usage data to improve the service.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms paid‑only model but does not mention gathering usage data as part of the strategy."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "As phone‑based customer service remains cumbersome, offering an AI that can navigate call trees and wait on hold provides a convenience that mirrors traditional human assistants, albeit with the risk of businesses rejecting AI callers.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Muse can place calls for paid users",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Meta lets paid Muse callers schedule appointments for you, saving time on hold.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Muse now places calls to US businesses for paid subscribers.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Subscriptions start at $20/month for 500 million tokens, and users report it can wait on hold.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Muse subscription plans start at $20 per month for 500 million Muse tokens per week. Users reported it was able to wait on hold to get the info they needed.\""
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Busy professionals can offload tedious calls, freeing time for core work.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Busy' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Consider a Muse subscription if you dread phone queues.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Would you let AI handle your calls?",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Meta's Muse now makes calls for paying users.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Taiwan chipmaker TSMC approved a $1 billion investment in AI developers Anthropic and OpenAI, allocating up to $500 million to OpenAI preferred stock and $500 million to Anthropic common shares at its expected IPO price.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The board decision was reported on 11 November 2026.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This move gives TSMC direct equity stakes in two leading AI firms.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The investment splits evenly between the two companies, with each portion earmarked for preferred or common shares as described in the board plan.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "TSMC already supplies the majority of Nvidia chips used for AI data‑center workloads and Apple’s custom silicon for iPhones, Macs and upcoming AI servers, manufacturing most of these wafers in Taiwan and additional fabs in Japan, China, the United States and a new plant in Germany.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Macs' not in cited source",
+        "name 'United' not in cited source",
+        "name 'States' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Analysts note that such circular financing makes it harder to gauge true market demand for AI hardware, even as TSMC reports six straight quarters of record profit, including more than $23 billion in the July‑September 2026 quarter.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Circular financing, where chipmakers, AI developers and investors trade equity and hardware, has become common during the AI boom.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia, for example, has already placed $30 billion in OpenAI and $10 billion in Anthropic, highlighting the scale of such arrangements.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "TSMC’s cash‑rich position, driven by sustained AI‑chip demand, enables it to join this trend despite recent volatility in tech stocks.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "TSMC invests $1 billion in Anthropic and OpenAI",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "TSMC pours $1 billion into Anthropic and OpenAI, reshaping AI chip financing.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not claim the investment reshapes AI chip financing; claim adds unsupported impact"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "TSMC approved a $1 billion split equally between Anthropic and OpenAI shares.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Nvidia has already placed $40 billion in the two firms, highlighting the massive scale of such deals.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '40 billion' not in cited source",
+        "overstates: 'massive' is not in the source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "The move gives TSMC equity stakes and tighter ties to AI hardware demand.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Your AI tools may soon run on chips owned by the same investors.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will this change AI pricing?",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "TSMC invests $1 billion in OpenAI, Anthropic.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 1",
+      "text": "TSMC pours $1 billion into Anthropic and OpenAI, reshaping AI chip financing.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 5",
+      "text": "TSMC approved a $1 billion split equally between Anthropic and OpenAI shares.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 7",
+      "text": "The move gives TSMC equity stakes and tighter ties to AI hardware demand.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Hydrogen’s lower token pricing and speed can lower development costs and accelerate software delivery for businesses, Anthropic’s IPO highlights growing commercial demand for enterprise AI tools, and Nvidia’s leadership transition seeks to preserve stability in the AI‑hardware supply chain that underpins many AI applications",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "Google DeepMind introduced Gemini 4 Hydrogen, a cost‑efficient coding model that runs 2.5× faster than Gemini 3.8 Flash and supports multi‑model orchestration, while Anthropic filed for an IPO and Nvidia appointed an interim CEO after Jensen Huang’s resignation.",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source text is truncated and does not complete the statement that it runs 2.5× faster."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Anthropic's IPO shows rapid customer growth, high Compute efficiency, and a $23.3 billion net loss driven by accounting charges.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \" >4x Compute efficiency gain since Q1’25 | >12x YoY customers ≥ $100K TTM revenue 1 | $23.3B Net Loss (due to an increase in our valuation, net loss includes a $21.9 billion non-cash charge...)\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Hydrogen’s lower token pricing and speed can lower development costs and accelerate software delivery for businesses, Anthropic’s IPO highlights growing commercial demand for enterprise AI tools, and Nvidia’s leadership transition seeks to preserve stability in the AI‑hardware supply chain that underpins many AI applications.",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Claim mixes supported pricing info with unsupported statements about Anthropic IPO demand and Nvidia leadership stability; overall claim not fully supported."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 21,
+  "unused": 33,
+  "date": "2026-11-13",
+  "slug": "2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+  "model": "groq:openai/gpt-oss-120b"
+}

@@ -1,0 +1,438 @@
+{
+ "date": "2026-11-13",
+ "started_at": "2026-11-13T00:15:41+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.8,
+   "items": 476,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 13
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 5
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 4
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 9
+    },
+    "github": {
+     "status": "ok",
+     "items": 7
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.8,
+   "stories": 62,
+   "editor": true,
+   "top": [
+    {
+     "title": "Introducing Gemini 4 Hydrogen",
+     "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+     "score": 11.93,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "Engadget",
+      "Google AI blog",
+      "Google DeepMind",
+      "TechCrunch",
+      "The Verge",
+      "antigravity.google (via Hacker News)",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+     "score": 8.86,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic IPO",
+     "url": "https://ipo.anthropic.com/us/",
+     "score": 8.03,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "ipo.anthropic.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang",
+     "score": 7.32,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Muse can now place calls to US businesses — if you pay",
+     "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
+     "score": 7.15,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia privately confirmed it could track chips to fight smuggling, even as industry publicly questioned feasibility",
+     "url": "https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/",
+     "score": 7.12,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "MIT Technology Review",
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+     "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+     "score": 7.05,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
+     "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
+     "score": 6.86,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+     "url": "https://arstechnica.com/tech-policy/2026/11/families-fight-to-keep-googles-disturbing-ai-off-school-issued-chromebooks/",
+     "score": 6.78,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google pushes privacy angle as Gemini-powered smartglasses debut starting at $395",
+     "url": "https://arstechnica.com/google/2026/11/google-pushes-privacy-angle-as-gemini-powered-smartglasses-debut-starting-at-395/",
+     "score": 6.1,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google Wanted Spirit Airlines Data. Flight Attendants Found a Way to Opt Out",
+     "url": "https://www.wired.com/story/google-wanted-spirit-airlines-data-flight-attendants-found-a-way-to-opt-out/",
+     "score": 5.95,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "ByteDance is reportedly working on its own AI agent",
+     "url": "https://www.engadget.com/2314064/bytedance-is-reportedly-working-on-its-own-ai-agent/",
+     "score": 5.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "challenger",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Introducing Gemini 4 Hydrogen",
+     "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+     "score": 11.93,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "Engadget",
+      "Google AI blog",
+      "Google DeepMind",
+      "TechCrunch",
+      "The Verge",
+      "antigravity.google (via Hacker News)",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic IPO",
+     "url": "https://ipo.anthropic.com/us/",
+     "score": 8.03,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "ipo.anthropic.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang",
+     "score": 7.32,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Muse can now place calls to US businesses — if you pay",
+     "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
+     "score": 7.15,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+     "url": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+     "score": 7.05,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.9,
+   "articles": 12,
+   "with_text": 12
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.4,
+   "word_count": 1014,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.6,
+    "reel_desk": 811.3,
+    "layer1": 0.1,
+    "layer2": 931.8,
+    "gate": 2.2
+   },
+   "layer1": {
+    "checked": 101,
+    "ok": 89,
+    "repaired": 6,
+    "dropped": 6
+   },
+   "layer2": {
+    "checked": 71,
+    "ok": 44,
+    "repaired": 0,
+    "dropped": 27
+   },
+   "unused": 33,
+   "fails": [
+    "no 'why it matters'"
+   ],
+   "reel_desk": [
+    {
+     "story": "Google DeepMind launches Gemini 4 Hydrogen model",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Anthropic goes public with strong growth metrics",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Nvidia appoints interim CEO after Jensen Huang resignation",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Muse can place calls for paid users",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "TSMC invests $1 billion in Anthropic and OpenAI",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+ "finished_at": "2026-11-13T00:47:57+00:00",
+ "seconds": 1936.0
+}
