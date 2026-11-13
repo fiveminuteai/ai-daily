@@ -1,14 +1,14 @@
 {
- "date": "2026-11-12",
+ "date": "2026-11-13",
  "window": [
-  "2026-11-06",
-  "2026-11-12"
+  "2026-11-07",
+  "2026-11-13"
  ],
  "this_week": {
-  "reels": 9,
-  "reach": 104,
-  "skip_rate": 59.8,
-  "avg_watch_s": 5.4,
+  "reels": 8,
+  "reach": 108.0,
+  "skip_rate": 60.5,
+  "avg_watch_s": 5.2,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -25,18 +25,18 @@
   "saves_per_1k": null,
   "comments": 0
  },
- "followers": 7,
+ "followers": 8,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 59.8,
+   "value": 60.5,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.4,
+   "value": 5.2,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -82,8 +82,8 @@
    "id": "17992554318118995",
    "day": "2026-11-11",
    "caption": "Anthropic founders will sell shares worth nearly $250 million.",
-   "reach": 129,
-   "skip_rate": 58.6,
+   "reach": 130,
+   "skip_rate": 59,
    "avg_watch_s": 8.2,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,

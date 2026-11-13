@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T23:27:13+00:00",
+ "updated": "2026-11-13T18:00:58+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -21,7 +21,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.231
+   "outcome": -0.274
   },
   {
    "id": "2026-10-31-reel-2",
@@ -43,7 +43,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.9,
-   "outcome": -0.457
+   "outcome": -0.503
   },
   {
    "id": "2026-10-31-reel-3",
@@ -65,7 +65,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 71.8,
-   "outcome": -0.292
+   "outcome": -0.336
   },
   {
    "id": "2026-11-01-reel-1",
@@ -87,7 +87,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 84.0,
-   "outcome": -0.696
+   "outcome": -0.745
   },
   {
    "id": "2026-11-01-reel-2",
@@ -109,7 +109,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.2,
-   "outcome": -0.338
+   "outcome": -0.383
   },
   {
    "id": "2026-11-01-reel-3",
@@ -131,7 +131,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.2,
-   "outcome": -0.803
+   "outcome": -0.854
   },
   {
    "id": "2026-11-02-reel-1",
@@ -153,7 +153,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -0.275
+   "outcome": -0.319
   },
   {
    "id": "2026-11-02-reel-2",
@@ -175,7 +175,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 106.5,
-   "outcome": 0.385
+   "outcome": 0.35
   },
   {
    "id": "2026-11-02-reel-3",
@@ -197,7 +197,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": 0.274
+   "outcome": 0.242
   },
   {
    "id": "2026-11-03-reel-1",
@@ -219,7 +219,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.0,
-   "outcome": -0.427
+   "outcome": -0.47
   },
   {
    "id": "2026-11-03-reel-2",
@@ -241,7 +241,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -1.055
+   "outcome": -1.107
   },
   {
    "id": "2026-11-03-reel-3",
@@ -263,7 +263,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": -0.638
+   "outcome": -0.688
   },
   {
    "id": "2026-11-04-reel-1",
@@ -285,7 +285,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 85.0,
-   "outcome": -0.436
+   "outcome": -0.48
   },
   {
    "id": "2026-11-04-reel-2",
@@ -307,7 +307,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -0.561
+   "outcome": -0.606
   },
   {
    "id": "2026-11-04-reel-3",
@@ -329,7 +329,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 100.5,
-   "outcome": -0.438
+   "outcome": -0.48
   },
   {
    "id": "2026-11-05-reel-1",
@@ -351,7 +351,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 86.5,
-   "outcome": -1.47
+   "outcome": -1.526
   },
   {
    "id": "2026-11-05-reel-2",
@@ -373,7 +373,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": -1.233
+   "outcome": -1.288
   },
   {
    "id": "2026-11-06-reel-1",
@@ -395,7 +395,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": 1.025
+   "outcome": 0.997
   },
   {
    "id": "2026-11-06-reel-2",
@@ -417,7 +417,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 76.5,
-   "outcome": 0.877
+   "outcome": 0.847
   },
   {
    "id": "2026-11-06-reel-3",
@@ -439,7 +439,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 62.5,
-   "outcome": 0.641
+   "outcome": 0.608
   },
   {
    "id": "2026-11-07-reel-1",
@@ -461,7 +461,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 82.5,
-   "outcome": 1.001
+   "outcome": 0.973
   },
   {
    "id": "2026-11-07-reel-2",
@@ -483,7 +483,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 79.5,
-   "outcome": 0.369
+   "outcome": 0.333
   },
   {
    "id": "2026-11-07-reel-3",
@@ -505,7 +505,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 76.5,
-   "outcome": 1.46
+   "outcome": 1.438
   },
   {
    "id": "2026-11-08-reel-2",
@@ -527,7 +527,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 58.5,
-   "outcome": 0.258
+   "outcome": 0.22
   },
   {
    "id": "2026-11-08-reel-3",
@@ -549,7 +549,7 @@
    "saved": 2,
    "comments": 0,
    "age_h": 79.5,
-   "outcome": 0.348
+   "outcome": 0.311
   },
   {
    "id": "2026-11-09-reel-1",
@@ -571,7 +571,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 59.1,
-   "outcome": 1.176
+   "outcome": 1.15
   },
   {
    "id": "2026-11-09-reel-2",
@@ -593,7 +593,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 52.5,
-   "outcome": 0.421
+   "outcome": 0.385
   },
   {
    "id": "2026-11-09-reel-3",
@@ -615,7 +615,7 @@
    "saved": 0,
    "comments": 0,
    "age_h": 48.5,
-   "outcome": -0.615
+   "outcome": -0.663
   },
   {
    "id": "2026-11-10-reel-1",
@@ -636,8 +636,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 67.9,
-   "outcome": -0.182
+   "age_h": 62.5,
+   "outcome": -0.224
   },
   {
    "id": "2026-11-10-reel-2",
@@ -658,8 +658,8 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 63.9,
-   "outcome": 0.179
+   "age_h": 82.5,
+   "outcome": 0.14
   },
   {
    "id": "2026-11-10-reel-3",
@@ -680,8 +680,74 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 60.9,
-   "outcome": 1.737
+   "age_h": 79.5,
+   "outcome": 1.718
+  },
+  {
+   "id": "2026-11-11-reel-1",
+   "date": "2026-11-11",
+   "slot": 1,
+   "time": "09:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": true,
+   "hook_words": 8,
+   "desk": 8,
+   "hook": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+   "pain": "money",
+   "pace": "slow",
+   "hook_type": "number",
+   "reach": 111,
+   "watch_s": 6.8,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 62.5,
+   "outcome": 0.606
+  },
+  {
+   "id": "2026-11-11-reel-2",
+   "date": "2026-11-11",
+   "slot": 2,
+   "time": "13:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": true,
+   "hook_words": 11,
+   "desk": 6,
+   "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_type": "number",
+   "reach": 105,
+   "watch_s": 2.3,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.5,
+   "outcome": -0.317
+  },
+  {
+   "id": "2026-11-11-reel-3",
+   "date": "2026-11-11",
+   "slot": 3,
+   "time": "16:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": true,
+   "hook_words": 9,
+   "desk": 6,
+   "hook": "Anthropic founders will sell shares worth nearly $250 million.",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_type": "number",
+   "reach": 130,
+   "watch_s": 8.2,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 55.5,
+   "outcome": 0.947
   }
  ],
  "effects": [
@@ -689,9 +755,9 @@
    "feature": "category",
    "value": "impact",
    "n": 5,
-   "n_rest": 26,
-   "mean": -0.42,
-   "effect": -0.2,
+   "n_rest": 29,
+   "mean": -0.47,
+   "effect": -0.22,
    "se": 0.38,
    "held_out": null,
    "confident": false
@@ -700,9 +766,9 @@
    "feature": "category",
    "value": "models",
    "n": 5,
-   "n_rest": 26,
-   "mean": 0.13,
-   "effect": 0.06,
+   "n_rest": 29,
+   "mean": 0.1,
+   "effect": 0.04,
    "se": 0.38,
    "held_out": null,
    "confident": false
@@ -710,31 +776,31 @@
   {
    "feature": "category",
    "value": "policy",
-   "n": 7,
-   "n_rest": 24,
-   "mean": 0.03,
-   "effect": 0.02,
-   "se": 0.33,
-   "held_out": null,
+   "n": 9,
+   "n_rest": 25,
+   "mean": 0.17,
+   "effect": 0.12,
+   "se": 0.3,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
-   "n": 11,
-   "n_rest": 20,
-   "mean": 0.02,
-   "effect": 0.02,
-   "se": 0.29,
-   "held_out": false,
+   "n": 12,
+   "n_rest": 22,
+   "mean": -0.04,
+   "effect": -0.04,
+   "se": 0.28,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "category",
    "value": "research",
    "n": 1,
-   "n_rest": 30,
-   "mean": 0.26,
+   "n_rest": 33,
+   "mean": 0.22,
    "effect": 0.03,
    "se": 0.79,
    "held_out": null,
@@ -744,9 +810,9 @@
    "feature": "category",
    "value": "tools",
    "n": 2,
-   "n_rest": 29,
-   "mean": 0.37,
-   "effect": 0.08,
+   "n_rest": 32,
+   "mean": 0.33,
+   "effect": 0.07,
    "se": 0.57,
    "held_out": null,
    "confident": false
@@ -754,10 +820,10 @@
   {
    "feature": "player",
    "value": "giant",
-   "n": 25,
+   "n": 28,
    "n_rest": 6,
    "mean": 0.1,
-   "effect": 0.22,
+   "effect": 0.24,
    "se": 0.35,
    "held_out": null,
    "confident": false
@@ -766,9 +832,9 @@
    "feature": "player",
    "value": "other",
    "n": 5,
-   "n_rest": 26,
-   "mean": -0.44,
-   "effect": -0.21,
+   "n_rest": 29,
+   "mean": -0.49,
+   "effect": -0.23,
    "se": 0.38,
    "held_out": null,
    "confident": false
@@ -777,8 +843,8 @@
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 30,
-   "mean": -0.23,
+   "n_rest": 33,
+   "mean": -0.27,
    "effect": -0.03,
    "se": 0.79,
    "held_out": null,
@@ -787,11 +853,11 @@
   {
    "feature": "slot",
    "value": "09:00",
-   "n": 8,
-   "n_rest": 23,
-   "mean": -0.38,
-   "effect": -0.26,
-   "se": 0.32,
+   "n": 9,
+   "n_rest": 25,
+   "mean": -0.31,
+   "effect": -0.23,
+   "se": 0.3,
    "held_out": null,
    "confident": false
   },
@@ -799,9 +865,9 @@
    "feature": "slot",
    "value": "12:25",
    "n": 1,
-   "n_rest": 30,
-   "mean": 1.18,
-   "effect": 0.14,
+   "n_rest": 33,
+   "mean": 1.15,
+   "effect": 0.13,
    "se": 0.79,
    "held_out": null,
    "confident": false
@@ -809,22 +875,22 @@
   {
    "feature": "slot",
    "value": "13:00",
-   "n": 10,
-   "n_rest": 21,
-   "mean": -0.08,
-   "effect": -0.07,
-   "se": 0.3,
-   "held_out": null,
+   "n": 11,
+   "n_rest": 23,
+   "mean": -0.14,
+   "effect": -0.12,
+   "se": 0.28,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "16:00",
-   "n": 3,
-   "n_rest": 28,
-   "mean": 0.82,
-   "effect": 0.25,
-   "se": 0.47,
+   "n": 4,
+   "n_rest": 30,
+   "mean": 0.83,
+   "effect": 0.32,
+   "se": 0.41,
    "held_out": true,
    "confident": false
   },
@@ -832,10 +898,10 @@
    "feature": "slot",
    "value": "19:00",
    "n": 8,
-   "n_rest": 23,
-   "mean": 0.11,
-   "effect": 0.07,
-   "se": 0.32,
+   "n_rest": 26,
+   "mean": 0.07,
+   "effect": 0.05,
+   "se": 0.31,
    "held_out": null,
    "confident": false
   },
@@ -843,9 +909,9 @@
    "feature": "slot",
    "value": "19:30",
    "n": 1,
-   "n_rest": 30,
-   "mean": -0.61,
-   "effect": -0.07,
+   "n_rest": 33,
+   "mean": -0.66,
+   "effect": -0.08,
    "se": 0.79,
    "held_out": null,
    "confident": false
@@ -854,97 +920,97 @@
    "feature": "number in hook",
    "value": "no",
    "n": 19,
-   "n_rest": 12,
-   "mean": -0.14,
-   "effect": -0.21,
-   "se": 0.29,
+   "n_rest": 15,
+   "mean": -0.18,
+   "effect": -0.25,
+   "se": 0.27,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "number in hook",
    "value": "yes",
-   "n": 12,
+   "n": 15,
    "n_rest": 19,
-   "mean": 0.22,
-   "effect": 0.21,
-   "se": 0.29,
+   "mean": 0.23,
+   "effect": 0.25,
+   "se": 0.27,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 23,
-   "n_rest": 8,
-   "mean": 0.02,
-   "effect": 0.04,
-   "se": 0.32,
+   "n": 24,
+   "n_rest": 10,
+   "mean": -0.03,
+   "effect": -0.06,
+   "se": 0.29,
    "held_out": null,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
-   "n": 8,
-   "n_rest": 23,
-   "mean": -0.06,
-   "effect": -0.04,
-   "se": 0.32,
+   "n": 10,
+   "n_rest": 24,
+   "mean": 0.08,
+   "effect": 0.06,
+   "se": 0.29,
    "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 17,
-   "n_rest": 14,
-   "mean": 0.29,
-   "effect": 0.39,
-   "se": 0.28,
-   "held_out": null,
+   "n": 18,
+   "n_rest": 16,
+   "mean": 0.28,
+   "effect": 0.37,
+   "se": 0.27,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 22,
-   "mean": -0.27,
-   "effect": -0.2,
-   "se": 0.31,
+   "n_rest": 25,
+   "mean": -0.31,
+   "effect": -0.23,
+   "se": 0.3,
    "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "under 7",
-   "n": 5,
-   "n_rest": 26,
-   "mean": -0.51,
-   "effect": -0.24,
-   "se": 0.38,
-   "held_out": null,
+   "n": 7,
+   "n_rest": 27,
+   "mean": -0.3,
+   "effect": -0.18,
+   "se": 0.33,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "pain",
    "value": "money",
-   "n": 1,
+   "n": 4,
    "n_rest": 30,
-   "mean": 0.18,
-   "effect": 0.02,
-   "se": 0.79,
-   "held_out": null,
+   "mean": 0.34,
+   "effect": 0.13,
+   "se": 0.41,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "pain",
    "value": "privacy",
    "n": 2,
-   "n_rest": 29,
-   "mean": -0.4,
-   "effect": -0.09,
+   "n_rest": 32,
+   "mean": -0.44,
+   "effect": -0.1,
    "se": 0.57,
    "held_out": null,
    "confident": false
@@ -953,9 +1019,9 @@
    "feature": "pain",
    "value": "tools",
    "n": 2,
-   "n_rest": 29,
-   "mean": 1.08,
-   "effect": 0.24,
+   "n_rest": 32,
+   "mean": 1.05,
+   "effect": 0.23,
    "se": 0.57,
    "held_out": null,
    "confident": false
@@ -964,31 +1030,31 @@
    "feature": "pain",
    "value": "untagged",
    "n": 26,
-   "n_rest": 5,
-   "mean": -0.06,
-   "effect": -0.15,
-   "se": 0.38,
+   "n_rest": 8,
+   "mean": -0.1,
+   "effect": -0.22,
+   "se": 0.31,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "hook type",
    "value": "number",
-   "n": 1,
+   "n": 4,
    "n_rest": 30,
-   "mean": 0.18,
-   "effect": 0.02,
-   "se": 0.79,
-   "held_out": null,
+   "mean": 0.34,
+   "effect": 0.13,
+   "se": 0.41,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "hook type",
    "value": "stakes",
    "n": 3,
-   "n_rest": 28,
-   "mean": 0.66,
-   "effect": 0.2,
+   "n_rest": 31,
+   "mean": 0.63,
+   "effect": 0.19,
    "se": 0.47,
    "held_out": true,
    "confident": false
@@ -997,10 +1063,10 @@
    "feature": "hook type",
    "value": "untagged",
    "n": 26,
-   "n_rest": 5,
-   "mean": -0.06,
-   "effect": -0.15,
-   "se": 0.38,
+   "n_rest": 8,
+   "mean": -0.1,
+   "effect": -0.22,
+   "se": 0.31,
    "held_out": false,
    "confident": false
   },
@@ -1008,9 +1074,9 @@
    "feature": "hook type",
    "value": "you",
    "n": 1,
-   "n_rest": 30,
-   "mean": -0.61,
-   "effect": -0.07,
+   "n_rest": 33,
+   "mean": -0.66,
+   "effect": -0.08,
    "se": 0.79,
    "held_out": null,
    "confident": false
@@ -1018,11 +1084,11 @@
   {
    "feature": "pace",
    "value": "brisk",
-   "n": 5,
-   "n_rest": 26,
-   "mean": 0.67,
-   "effect": 0.31,
-   "se": 0.38,
+   "n": 7,
+   "n_rest": 27,
+   "mean": 0.54,
+   "effect": 0.33,
+   "se": 0.33,
    "held_out": false,
    "confident": false
   },
@@ -1030,21 +1096,21 @@
    "feature": "pace",
    "value": "no duo",
    "n": 17,
-   "n_rest": 14,
-   "mean": -0.51,
-   "effect": -0.68,
-   "se": 0.28,
+   "n_rest": 17,
+   "mean": -0.56,
+   "effect": -0.7,
+   "se": 0.27,
    "held_out": null,
    "confident": true
   },
   {
    "feature": "pace",
    "value": "slow",
-   "n": 9,
-   "n_rest": 22,
-   "mean": 0.6,
+   "n": 10,
+   "n_rest": 24,
+   "mean": 0.57,
    "effect": 0.45,
-   "se": 0.31,
+   "se": 0.29,
    "held_out": true,
    "confident": false
   }

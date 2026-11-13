@@ -1,10 +1,10 @@
 {
  "date": "2026-11-13",
- "collected_at": "2026-11-12T23:26:42+00:00",
+ "collected_at": "2026-11-13T18:00:35+00:00",
  "website": {
   "status": "ok",
-  "visitors_28d": 182,
-  "visitors_day": 0,
+  "visitors_28d": 190,
+  "visitors_day": 8,
   "daily": [
    {
     "day": "2026-10-17",
@@ -116,7 +116,7 @@
    },
    {
     "day": "2026-11-13",
-    "visitors": 0
+    "visitors": 8
    },
    {
     "day": "2026-11-14",
@@ -127,7 +127,7 @@
    {
     "path": "/",
     "title": "Five Minute AI",
-    "visitors": 26
+    "visitors": 29
    },
    {
     "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
@@ -142,7 +142,7 @@
    {
     "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
     "title": "OpenAI launches Business Hub for verified ChatGPT profiles · Five Minute AI",
-    "visitors": 2
+    "visitors": 3
    },
    {
     "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
@@ -153,6 +153,11 @@
     "path": "/about",
     "title": "How this blog is made · Five Minute AI",
     "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "visitors": 1
    },
    {
     "path": "/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70",
@@ -168,28 +173,23 @@
     "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
     "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
     "visitors": 1
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 1
    }
   ],
   "top_refs": [
    {
     "name": "fiveminuteai.net",
-    "visitors": 23
+    "visitors": 28
    },
    {
     "name": "(direct)",
-    "visitors": 19
-   },
-   {
-    "name": "ig",
-    "visitors": 2
+    "visitors": 21
    },
    {
     "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "visitors": 3
+   },
+   {
+    "name": "ig",
     "visitors": 2
    },
    {
@@ -210,25 +210,42 @@
    }
   ],
   "reads_7d": {
-   "post_views": 17,
-   "read_30s": 1,
-   "read_half": 2,
-   "read_end": 2,
-   "read_end_rate": 0.118
+   "post_views": 19,
+   "read_30s": 2,
+   "read_half": 3,
+   "read_end": 3,
+   "read_end_rate": 0.158
   }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 7,
-  "media_count": 40,
+  "followers": 8,
+  "media_count": 41,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 4,
+   "views": 53,
+   "accounts_engaged": 1,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "18107443247312249",
+    "timestamp": "2026-11-13T05:31:15+0000",
+    "permalink": "https://www.instagram.com/p/Dfq4qB4F5JH/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Google DeepMind launches Gemini 4 Hydrogen for faster coding",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 7,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
    {
     "id": "17964689850228257",
     "timestamp": "2026-11-12T10:31:57+0000",
@@ -237,13 +254,13 @@
     "caption": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.",
     "likes": 0,
     "comments": 0,
-    "reach": 55,
-    "views": 65,
+    "reach": 68,
+    "views": 79,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.3,
-    "skip_rate": 64.9,
+    "avg_watch_s": 4.6,
+    "skip_rate": 67.1,
     "reposts": 0
    },
    {
@@ -254,13 +271,13 @@
     "caption": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover",
     "likes": 0,
     "comments": 0,
-    "reach": 119,
-    "views": 137,
+    "reach": 120,
+    "views": 138,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 5.8,
-    "skip_rate": 60.8,
+    "skip_rate": 61.2,
     "reposts": 0
    },
    {
@@ -271,8 +288,8 @@
     "caption": "OpenAI launches Business Hub for verified ChatGPT profiles",
     "likes": 0,
     "comments": 0,
-    "reach": 2,
-    "views": 4,
+    "reach": 3,
+    "views": 6,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -286,15 +303,15 @@
     "permalink": "https://www.instagram.com/reel/DfoGFWwDEht/",
     "type": "VIDEO",
     "caption": "Google rolls out Gemini Decisions API, cutting decision-making latency to under a quarter ",
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
-    "reach": 49,
-    "views": 62,
+    "reach": 55,
+    "views": 69,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0,
+    "total_interactions": 1,
     "avg_watch_s": 3.9,
-    "skip_rate": 55.7,
+    "skip_rate": 56.7,
     "reposts": 0
    },
    {
@@ -305,13 +322,13 @@
     "caption": "Anthropic founders will sell shares worth nearly $250 million.",
     "likes": 0,
     "comments": 0,
-    "reach": 129,
-    "views": 147,
+    "reach": 130,
+    "views": 149,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 8.2,
-    "skip_rate": 58.6,
+    "skip_rate": 59,
     "reposts": 0
    },
    {
@@ -322,13 +339,13 @@
     "caption": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
     "likes": 0,
     "comments": 0,
-    "reach": 104,
-    "views": 115,
+    "reach": 105,
+    "views": 116,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 2.3,
-    "skip_rate": 76.4,
+    "skip_rate": 76.6,
     "reposts": 0
    },
    {
@@ -339,8 +356,8 @@
     "caption": "Google Cloud previews Gemini for healthcare",
     "likes": 0,
     "comments": 0,
-    "reach": 2,
-    "views": 9,
+    "reach": 3,
+    "views": 10,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -415,23 +432,6 @@
     "avg_watch_s": null,
     "skip_rate": null,
     "reposts": null
-   },
-   {
-    "id": "18132142009698936",
-    "timestamp": "2026-11-10T03:31:17+0000",
-    "permalink": "https://www.instagram.com/reel/Dfi8gKCAWDr/",
-    "type": "VIDEO",
-    "caption": "Google says your Gmail and Drive files can reach Gemini's human reviewers.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 26,
-    "views": 35,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 5.4,
-    "skip_rate": 59.4,
-    "reposts": 0
    }
   ]
  }

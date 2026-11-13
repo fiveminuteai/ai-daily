@@ -1,11 +1,11 @@
 {
- "at": "2026-11-12T23:27:11+00:00",
+ "at": "2026-11-13T18:00:55+00:00",
  "ok": true,
  "suites": [
   {
    "suite": "facts-true",
-   "n": 413,
-   "passed": 410,
+   "n": 448,
+   "passed": 445,
    "rate": 0.993,
    "bar": 0.97,
    "ok": true,
@@ -17,9 +17,9 @@
   },
   {
    "suite": "facts-broken",
-   "n": 149,
-   "passed": 140,
-   "rate": 0.94,
+   "n": 167,
+   "passed": 153,
+   "rate": 0.916,
    "bar": 0.9,
    "ok": true,
    "misses": [
