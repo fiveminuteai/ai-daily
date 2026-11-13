@@ -354,7 +354,11 @@ def timeline(post: dict, section: dict, pl: dict) -> dict:
                       "card": ln["card"], "tags": sorted(ln["tags"]),
                       "groups": [[{"w": w, "t": round(t, 3)} for w, t in g] for g in chunks(timed)],
                       "fig": fig, "figAt": round(figure_time(timed, fig), 3) if fig else None})
-    return {"fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
+    card = section.get("card") or {}
+    pilot = ({"hookCard": card["hook_card"], "hookUntil": round(lines[0]["end"], 2),
+              **({"badge": card["hook_badge"]} if card.get("hook_badge") else {})}
+             if card.get("hook_card") and lines else {})       # the hook-loop test (14 Nov 2026): hook as text from frame 1
+    return {**pilot, "fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
             "label": CAT_NAMES.get(section.get("category", ""), "").upper(), "site": "FIVE MINUTE AI", "lines": lines,
             "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()},
             "visemes": pl.get("visemes") or {}}

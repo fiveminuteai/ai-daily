@@ -222,22 +222,34 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
             <div style={{height: 8, borderRadius: 4, background: INK, width: `${100 * Math.min(1, t / cardFrom)}%`}} />
           </div>
         </div>
+        {/* PILOT (14 Nov 2026), only when the timeline carries hookCard: the hook as text from the first frame,
+            for viewers watching muted; six words or fewer, inside Instagram's safe zone, gone after the first line */}
+        {timeline.hookCard && t < (timeline.hookUntil ?? 3.2) + 0.4 && !onCard && (
+          <div style={{position: 'absolute', left: 80, right: 80, top: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18,
+            opacity: interpolate(t, [(timeline.hookUntil ?? 3.2), (timeline.hookUntil ?? 3.2) + 0.4], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
+            {timeline.badge && <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 34, letterSpacing: 2, color: NIGHT, background: '#FF845F',
+              borderRadius: 26, padding: '8px 26px'}}>{timeline.badge}</span>}
+            <div style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, lineHeight: 1.05, color: NIGHT, background: YELLOW, textAlign: 'center',
+              borderRadius: 30, padding: '18px 36px', boxShadow: '0 14px 34px rgba(0,0,0,0.35)'}}>{timeline.hookCard}</div>
+          </div>
+        )}
         {panel && fade > 0 && !onCard && <Panel text={panel.text} p={(t - panel.at) / 0.6} fade={fade} t={t} />}
         {order.map(char)}
         {party && t >= party.start && <Confetti since={t - party.start} flop={flopLine && t >= flopLine.start ? t - flopLine.start : null} />}
         {/* the logo card */}
         {onCard && (
-          <div style={{position: 'absolute', top: 470, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <div style={{position: 'absolute', top: 330, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <Logo p={cp} sweep={interpolate(t - cardFrom, [0.2, 1.0], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)})} />
-            <div style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 96, color: INK, marginTop: 30, opacity: cp, transform: `translateY(${(1 - cp) * 30}px)`}}>Five Minute AI</div>
-            {sp > 0 && <div style={{marginTop: 22, fontFamily: 'Bricolage', fontWeight: 800, fontSize: 62, color: NIGHT, background: YELLOW,
-              borderRadius: 32, padding: '10px 34px', transform: `scale(${0.6 + 0.4 * sp})`, opacity: Math.min(1, sp * 2)}}>{slogan!.text}</div>}
+            <div style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 84, color: INK, marginTop: 24, opacity: cp, transform: `translateY(${(1 - cp) * 30}px)`}}>Five Minute AI</div>
+            {/* 14 Nov 2026: the card stays inside Instagram's safe zone (nothing past x 80-1000, or below y 1440): the slogan wraps
+                in a bounded box, the sticker sits under it, nothing overlaps the characters */}
+            {sp > 0 && <div style={{marginTop: 22, maxWidth: 760, textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: 52,
+              lineHeight: 1.12, color: NIGHT, background: YELLOW, borderRadius: 30, padding: '12px 30px',
+              transform: `scale(${0.6 + 0.4 * sp})`, opacity: Math.min(1, sp * 2)}}>{slogan!.text}</div>}
+            {st > 0 && <div style={{marginTop: 18, fontFamily: 'Bricolage', fontWeight: 800, fontSize: 56, color: '#fff', whiteSpace: 'nowrap',
+              background: '#FF845F', borderRadius: 22, padding: '4px 30px', boxShadow: '0 10px 24px rgba(0,0,0,0.35)',
+              transform: `rotate(-4deg) scale(${0.4 + 0.6 * st})`}}>{sticker!.text}</div>}
           </div>
-        )}
-        {st > 0 && (
-          <div style={{position: 'absolute', right: 50, top: 1110, fontFamily: 'Bricolage', fontWeight: 800, fontSize: 84, color: '#fff', whiteSpace: 'nowrap',
-            background: '#FF845F', borderRadius: 22, padding: '6px 34px', boxShadow: '0 12px 30px rgba(0,0,0,0.35)',
-            transform: `rotate(-9deg) scale(${0.4 + 0.6 * st})`}}>{sticker!.text}</div>
         )}
         {/* name tag and captions */}
         {!onCard && (
@@ -249,7 +261,7 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
         )}
         <div style={{position: 'absolute', bottom: 330, width: '100%', textAlign: 'center', fontFamily: 'Inter', fontSize: 32,
           color: MUTED, opacity: onCard ? 0 : 1}}>Source: {timeline.source}</div>
-        {onCard && <div style={{position: 'absolute', top: 1470, width: '100%', textAlign: 'center', fontFamily: 'Inter', fontWeight: 800,
+        {onCard && <div style={{position: 'absolute', top: 1340, width: '100%', textAlign: 'center', fontFamily: 'Inter', fontWeight: 800,
           fontSize: 42, color: INK, opacity: cp}}>Follow @fiveminute_ai</div>}
       </AbsoluteFill>
     </AbsoluteFill>
