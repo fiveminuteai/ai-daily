@@ -561,3 +561,12 @@ def test_a_failed_layer_two_batch_removes_its_claims_instead_of_crashing():
     out, rep = llm_check(Flaky(), post, src, rep)
     assert not any("Acme shipped Nova" in p for s in out["sections"] for p in s["paragraphs"])
     assert any("unavailable" in "; ".join(e.get("problems", [])) for e in rep["entries"])
+
+
+def test_a_paraphrased_checker_quote_is_kept_only_if_the_code_checker_confirms_the_line():
+    """14 Nov 2026: lines the checker called supported were dropped because its quote wasn't word for word."""
+    from fma.verify import code_confirms
+    by_id = {"S1": {"title": "Acme ships Nova", "text": "Acme shipped Nova on Monday. It costs 5 dollars a month."}}
+    assert code_confirms("Acme shipped Nova on Monday[S1].", ["S1"], by_id)
+    assert not code_confirms("Acme shipped Nova on Friday for 9 dollars[S1].", ["S1"], by_id)
+    assert not code_confirms("Acme shipped Nova[S1].", ["S9"], by_id)          # no source text: no confirmation

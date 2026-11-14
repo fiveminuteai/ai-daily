@@ -284,6 +284,10 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             times["layer1"], t = time.monotonic() - t, time.monotonic()
             if pipe.get("llm_check", True):
                 verified, report = llm_check(chain, verified, sources, report)
+            if pipe.get("reel_desk", True) and pipe.get("repair_cards", True):
+                from .reel_desk import repair_cards
+                verified, report = repair_cards(chain, verified, draft, sources, report,
+                                                check_layer2=bool(pipe.get("llm_check", True)))
             times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away

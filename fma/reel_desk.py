@@ -211,6 +211,59 @@ def plain_text(s: str) -> str:
     return re.sub(r"\[S\d+\]", "", s or "").strip()
 
 
+NL = chr(10)
+REPAIR_NOTE = (NL + NL + "YOUR LAST CARD FOR THIS STORY WAS REJECTED BY THE FACT-CHECK, for these reasons:" + NL
+               + "{reasons}" + NL +
+               "Write it again. Say only what the story text says. No reading of what it means for the viewer, no "
+               "prediction, no stronger word than the source uses, unless the story text itself says it.")
+
+
+def repair_cards(chain, verified: dict, draft: dict, sources: list[dict], report: dict, check_layer2: bool = True,
+                 min_seconds: float = 240.0) -> tuple[dict, dict]:
+    """A Reel card the fact-check rejected gets one rewrite (14 Nov 2026: 13 Nov lost all five cards, 14 Nov four of
+    five, mostly to lines that read more into the story than it says). The producer is told why, and the new card
+    goes through layer 1 and layer 2 like any other; it is used only if it keeps its hook and two points. A story
+    with no card had none to repair; the run's deadline is respected."""
+    from .verify import Verifier, cites, llm_check
+    by_story = {s.get("story"): s for s in draft.get("sections", []) if s.get("card")}
+    fixed = 0
+    for n, sec in enumerate(verified.get("sections", [])):
+        old = (by_story.get(sec.get("story")) or {}).get("card")
+        if sec.get("card") or not old:
+            continue
+        if hasattr(chain, "time_left") and chain.time_left() < min_seconds:
+            log.warning("no time left to repair Reel cards")
+            break
+        lines = {plain_text(str(x)).rstrip(".?! ")[:50] for x in [old.get("hook"), *(old.get("points") or [])] if x}
+        why = [f"- \"{e['text'][:140]}\": {'; '.join(e.get('problems') or [])[:220]}" for e in report.get("entries", [])
+               if e.get("status") == "dropped" and any(t and t in plain_text(e.get("text", "")) for t in lines)]
+        if not why:
+            continue
+        new = script(chain, sec, sources, None, REPAIR_NOTE.format(reasons=NL.join(why[:6])))
+        if not new:
+            continue
+        ids = list(dict.fromkeys(i for p in sec.get("paragraphs", []) for i in cites(p)))
+        v = Verifier(sources)
+        card = v.card(new, ids, n)
+        sub_report = {"entries": v.log, "checked": len(v.log), "ok": 0, "repaired": 0, "dropped": 0}
+        for e in v.log:
+            sub_report[e["status"]] = sub_report.get(e["status"], 0) + 1
+        if card and check_layer2:
+            mini = {"headline": "", "dek": "", "what_happened": [], "why_it_matters": [], "quote": None,
+                    "sections": [{**sec, "paragraphs": [], "card": card}]}
+            mini, sub_report = llm_check(chain, mini, sources, sub_report)
+            card = mini["sections"][0].get("card")
+        for e in sub_report.get("entries", []):
+            report.setdefault("entries", []).append({**e, "where": f"repair {e.get('where', '')}"})
+        if card and card.get("hook") and len(card.get("points") or []) >= 2:
+            sec["card"] = {**card, "repaired": True}
+            fixed += 1
+            log.info("Reel card for %r repaired after the fact-check", sec.get("title"))
+    if fixed:
+        report["cards_repaired"] = fixed
+    return verified, report
+
+
 def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None = None) -> dict:
     """Replace each section's card with the producer's script, then let the editor-in-chief compare the scripts. The
     card's "reel" score (0-10) is the mean of the producer's rubric and the chief's comparison, and "desk" keeps both

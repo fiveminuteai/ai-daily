@@ -103,3 +103,36 @@ def test_a_retry_tells_the_producer_which_reel_lines_the_fact_check_rejected():
     chain = Producer([script(1, stakes=3), script(2, stakes=1), {"scores": []}])
     produce(chain, draft(), SOURCES)
     assert not any("REJECTED" in p for p in chain.prompts)
+
+
+def test_a_card_the_fact_check_rejected_gets_one_checked_rewrite(monkeypatch):
+    """14 Nov 2026: 13 Nov lost all five Reel cards and 14 Nov four of five, so there were no Reels or one."""
+    from fma import reel_desk
+    src = [{"id": "S1", "story": 1, "title": "Acme ships Nova", "url": "u", "publisher": "P",
+            "text": "Acme shipped Nova on Monday. Nova costs 5 dollars a month. Acme said 2 million people signed up."}]
+    old = {"hook": "Acme's Nova will change how you work forever[S1].", "points": ["a[S1].", "b[S1]."], "reel": 7}
+    draft = {"sections": [{"story": 1, "title": "Acme ships Nova", "card": old,
+                           "paragraphs": ["Acme shipped Nova on Monday[S1]."]}]}
+    verified = {"sections": [{"story": 1, "title": "Acme ships Nova", "card": None,
+                              "paragraphs": ["Acme shipped Nova on Monday[S1]."]}]}
+    report = {"entries": [{"where": "card[0] hook", "text": "Acme's Nova will change how you work forever.",
+                           "status": "dropped", "problems": ["model check: the source does not say it changes work"]}]}
+    asked = []
+
+    def fake_script(chain, section, sources, lessons=None, rejected=""):
+        asked.append(rejected)
+        return {"hook": "Acme shipped Nova on Monday[S1].", "points": ["Nova costs 5 dollars a month[S1].",
+                "Acme said 2 million people signed up[S1]."], "reel": 7}
+    monkeypatch.setattr(reel_desk, "script", fake_script)
+    out, rep = reel_desk.repair_cards(object(), verified, draft, src, report, check_layer2=False)
+    assert "does not say it changes work" in asked[0]
+    card = out["sections"][0]["card"]
+    assert card["repaired"] and card["hook"].startswith("Acme shipped Nova") and len(card["points"]) == 2
+    assert rep["cards_repaired"] == 1 and any(e["where"].startswith("repair") for e in rep["entries"])
+
+    # a rewrite that fails layer 1 too is not used
+    monkeypatch.setattr(reel_desk, "script", lambda *a, **k: {"hook": "Acme has 9 million users[S1].",
+                                                              "points": ["x 7 y[S1].", "z 8 q[S1]."]})
+    verified["sections"][0]["card"] = None
+    out, _ = reel_desk.repair_cards(object(), verified, draft, src, {"entries": report["entries"]}, check_layer2=False)
+    assert out["sections"][0]["card"] is None

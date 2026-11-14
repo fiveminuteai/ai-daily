@@ -728,6 +728,16 @@ def mark_dropped(report: dict, text: str, sources: list[str], problem: str) -> N
     report["dropped"] += 1
 
 
+def code_confirms(claim: str, ids: list[str], by_id: dict) -> bool:
+    """The code fact-checker's verdict on a claim against the given sources: True only for "supported"."""
+    from .judge import judge
+    text = " ".join(f"{by_id[i].get('title', '')}. {by_id[i].get('text', '')}" for i in ids if i in by_id)
+    try:
+        return bool(text) and judge(plain(claim), text)[0] == "supported"
+    except Exception:  # noqa: BLE001 - no confirmation means the drop stands
+        return False
+
+
 def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
     """Ask the model which sentences their cited sources don't support, and drop those."""
     by_id = {s["id"]: s for s in sources}
@@ -866,7 +876,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                     bad[k] = f"model check unavailable, removed unchecked ({type(exc).__name__})"
                 continue
             checks = {str(c.get("id")): c for c in (result or {}).get("checks", []) if isinstance(c, dict)}
-            for k, _ in batch:
+            for k, claim in batch:
                 c = checks.get(k)
                 if c is None:
                     bad[k] = "checker returned no verdict"
@@ -877,7 +887,9 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 elif kind_of[k] == "analysis" and not str(c.get("evidence") or "").strip():
                     pass        # a pure judgement states no fact to quote (2 Nov 2026: "Consider the Muse Charm a
                     #             niche experiment" was dropped for an empty quote the checker had marked supported)
-                elif not evidence_found(str(c.get("evidence", "")), corpus_here):
+                elif not evidence_found(str(c.get("evidence", "")), corpus_here) and not code_confirms(claim, cites(claim) or used, by_id):
+                    # 14 Nov 2026: the checker marked the line supported but paraphrased its quote. The line is kept
+                    # only when the code fact-checker (fma/judge.py) independently confirms it from the same sources
                     bad[k] = f"checker's evidence quote is not in the source: \"{str(c.get('evidence', ''))[:200]}\""
     head_bad = [bad[k] for k, _, kind in sentences if kind == "headline" and k in bad]
     drop = {s: bad[k] for k, s, kind in sentences if k in bad and kind not in ("headline", "title", "quote")}
