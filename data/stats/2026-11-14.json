@@ -1,22 +1,268 @@
 {
  "date": "2026-11-14",
- "collected_at": "2026-11-13T23:26:27+00:00",
+ "collected_at": "2026-11-14T18:00:33+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 192,
+  "visitors_day": 1,
+  "daily": [
+   {
+    "day": "2026-10-18",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-19",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-20",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-21",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-22",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 14
+   },
+   {
+    "day": "2026-11-13",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-14",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-15",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 23
+   },
+   {
+    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
+    "visitors": 6
+   },
+   {
+    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
+    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+    "title": "OpenAI launches Business Hub for verified ChatGPT profiles · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70",
+    "title": "Google Cloud previews Gemini for healthcare · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-08-openai-secures-11-billion-funding-round-valuing",
+    "title": "OpenAI adds $11 billion in funding at $1.25 trillion valuation · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-07-openai-is-valued-at-1-25-trillion",
+    "title": "OpenAI is valued at $1.25 trillion as AI spending growth stalls · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
+    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/tags",
+    "title": "Topics · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 26
+   },
+   {
+    "name": "(direct)",
+    "visitors": 18
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "visitors": 3
+   },
+   {
+    "name": "www.duckduckgo.com",
+    "visitors": 1
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/archive",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+    "visitors": 1
+   }
+  ],
+  "reads_7d": {
+   "post_views": 18,
+   "read_30s": 2,
+   "read_half": 3,
+   "read_end": 3,
+   "read_end_rate": 0.167
+  }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 8,
-  "media_count": 41,
+  "media_count": 43,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 12,
+   "views": 25,
+   "accounts_engaged": 1,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "18039376613897713",
+    "timestamp": "2026-11-14T05:31:38+0000",
+    "permalink": "https://www.instagram.com/p/DftdfkQEr3F/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Nvidia CEO Jensen Huang resigns amid scandal and China-related concerns",
+    "likes": 0,
+    "comments": 0,
+    "reach": 4,
+    "views": 8,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18392702794228640",
+    "timestamp": "2026-11-14T03:31:20+0000",
+    "permalink": "https://www.instagram.com/reel/DftPr_9D5Xj/",
+    "type": "VIDEO",
+    "caption": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
+    "likes": 2,
+    "comments": 0,
+    "reach": 118,
+    "views": 132,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2,
+    "avg_watch_s": 5.4,
+    "skip_rate": 68.6,
+    "reposts": 0
+   },
    {
     "id": "18107443247312249",
     "timestamp": "2026-11-13T05:31:15+0000",
@@ -77,7 +323,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 3,
-    "views": 6,
+    "views": 7,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -93,13 +339,13 @@
     "caption": "Google rolls out Gemini Decisions API, cutting decision-making latency to under a quarter ",
     "likes": 1,
     "comments": 0,
-    "reach": 55,
-    "views": 69,
+    "reach": 56,
+    "views": 70,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 3.9,
-    "skip_rate": 56.7,
+    "avg_watch_s": 3.8,
+    "skip_rate": 57.4,
     "reposts": 0
    },
    {
@@ -115,7 +361,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 8.2,
+    "avg_watch_s": 8.1,
     "skip_rate": 59,
     "reposts": 0
    },
@@ -145,7 +391,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 3,
-    "views": 10,
+    "views": 11,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -161,13 +407,13 @@
     "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
     "likes": 0,
     "comments": 0,
-    "reach": 111,
-    "views": 126,
+    "reach": 112,
+    "views": 127,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 6.8,
-    "skip_rate": 62.1,
+    "skip_rate": 62.4,
     "reposts": 0
    },
    {
@@ -178,48 +424,14 @@
     "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
     "likes": 1,
     "comments": 0,
-    "reach": 114,
-    "views": 132,
+    "reach": 115,
+    "views": 134,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 12.3,
-    "skip_rate": 34.5,
+    "avg_watch_s": 12.2,
+    "skip_rate": 35,
     "reposts": 0
-   },
-   {
-    "id": "18129823147880927",
-    "timestamp": "2026-11-10T07:32:00+0000",
-    "permalink": "https://www.instagram.com/reel/DfjYDb5gqbb/",
-    "type": "VIDEO",
-    "caption": "Nvidia's stock slid more than 4% after its board's CEO probe.",
-    "likes": 0,
-    "comments": 0,
-    "reach": 104,
-    "views": 121,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": 4.6,
-    "skip_rate": 59.8,
-    "reposts": 0
-   },
-   {
-    "id": "18112803818208129",
-    "timestamp": "2026-11-10T05:31:14+0000",
-    "permalink": "https://www.instagram.com/p/DfjKR9xD4c7/",
-    "type": "CAROUSEL_ALBUM",
-    "caption": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
-    "likes": 0,
-    "comments": 0,
-    "reach": 5,
-    "views": 10,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 0,
-    "avg_watch_s": null,
-    "skip_rate": null,
-    "reposts": null
    }
   ]
  }
