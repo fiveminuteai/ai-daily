@@ -1,0 +1,220 @@
+{
+  "date": "2026-11-14",
+  "slug": "2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal",
+  "headline": "Nvidia CEO Jensen Huang resigns amid scandal and China‑related concerns",
+  "dek": "Jensen Huang stepped down as Nvidia CEO after reports of an affair and a board move to consider his ouster, raising questions about personal misconduct intersecting with geopolitical risk for the AI hardware leader[S1][S2].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "policy",
+    "products",
+    "impact",
+    "models",
+    "nvidia",
+    "leadership",
+    "geopolitics"
+  ],
+  "what_happened": [
+    "Jensen Huang stepped down as Nvidia CEO amid affair allegations and doubts about China‑related GPU sales[S1].",
+    "OpenAI’s new ChatGPT Wallet lets approved U.S. users have Dots agents purchase items after biometric confirmation[S4].",
+    "A network‑capacity upgrade caused a 24‑hour global outage of Microsoft 365, affecting millions of users and essential services[S7]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Nvidia CEO resigns amid scandal and China concerns",
+      "category": "policy",
+      "paragraphs": [
+        "Jensen Huang resigned as Nvidia CEO on Thursday after two stories about an affair with subordinate Kimberly Powell and a board meeting to consider his ouster were published on Wednesday[S1]. The resignation marks the departure of one of Silicon Valley’s most powerful executives[S1]. The event follows earlier allegations that Huang was targeted by a Chinese spy and that Nvidia’s Southeast Asian buyer Megaspeed may have been involved in illicit GPU sales[S1].",
+        "Huang had claimed in May that Nvidia held zero percent market share in China after U.S. export controls on its high‑end chips[S1]. Short‑seller Culper Research contradicted that, estimating over 20% of Nvidia’s FY 2026 compute revenue still came from China through illegal diversion and Southeast Asian intermediaries[S1]. Megaspeed, identified as Nvidia’s largest Southeast Asian buyer, showed no visible activity when The Straits Times visited its Singapore office a month earlier[S1]. The Verge’s coverage also notes that newly elected Democrats are questioning who knew what and when about these China‑related dealings[S2].",
+        "The scandal highlights how personal misconduct can intersect with geopolitical risk, potentially destabilising the broader AI industry[S2]."
+      ],
+      "card": null
+    },
+    {
+      "story": 2,
+      "title": "ChatGPT adds wallet for AI‑agent purchases",
+      "category": "products",
+      "paragraphs": [
+        "OpenAI launched a ChatGPT Wallet on 13 November 2026 that lets its Dots agents shop and check out for users[S4][S6]. The feature is initially limited to U.S. ChatGPT Pro subscribers aged 18 or older who have an eligible U.S.-issued Visa, Mastercard, American Express or Chase card[S4][S6]. Users must approve each purchase with a biometric security check such as Face ID or a fingerprint[S4][S6].",
+        "After adding a payment card, the wallet creates a payment token that replaces the actual card details during transactions, so the AI agent never sees the card number[S4][S6]. Users retain credit‑card rewards and can dispute transactions, as the purchase still uses the original card’s protections[S4]. OpenAI plans future controls like spending limits and category restrictions to give users more autonomy over agent‑made purchases[S4].",
+        "AI‑driven personal assistants are expanding beyond recommendations to direct transactions, a trend seen with services like Meta’s Muse and Instinct that already support AI‑assisted shopping[S4]. OpenAI’s entry follows earlier launches of its Dots agents platform earlier in the year, aiming to test the feature with a small user base before broader rollout[S6]. The wallet mirrors existing mobile payment systems such as Apple Pay and Google Wallet, which also use tokenisation for security[S6]."
+      ],
+      "card": null
+    },
+    {
+      "story": 3,
+      "title": "Microsoft 365 outage highlights cloud dependency risks",
+      "category": "impact",
+      "paragraphs": [
+        "On Thursday, 12 pm ET, users reported Outlook failures and Microsoft confirmed a widespread outage affecting Microsoft 365 services worldwide[S7]. Within an hour the problem spread to more than 70 countries, shutting down email, Teams, and other tools for tens of millions of users[S7]. Microsoft later said the incident stemmed from a network‑capacity upgrade issue, not a cyberattack or AI agent[S7].",
+        "The outage lasted roughly 24 hours, with most services restored by the following day but some subsystems still recovering[S7]. Microsoft increased email queue time to 48 hours to ensure delayed messages are eventually delivered[S7]. Independent researcher Jonathan Leitschuh warned users to expect a flood of notifications as systems come back online[S7]. Governments, airlines, law‑enforcement agencies, and hospitals all reported operational disruptions during the downtime[S7].",
+        "The outage illustrates how reliance on one cloud provider can amplify local technical glitches into global service interruptions[S7]. Microsoft has pledged a full post‑incident report to detail the root cause and preventive steps[S7]."
+      ],
+      "card": {
+        "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide[S7].",
+        "points": [
+          "Outlook, Teams and other Microsoft 365 services failed across 70+ countries[S7].",
+          "The outage lasted about 24 hours, disrupting governments, airlines and hospitals[S7].",
+          "Businesses now face a single‑point‑of‑failure risk in their core workflows[S7]."
+        ],
+        "take": "Relying on one cloud provider can stall your entire operation—plan backups now[S7].",
+        "take_kind": "do",
+        "ask": "How will you safeguard critical work tools[S7]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "A single Microsoft glitch halted global work tools for a day, exposing cloud fragility.",
+        "desk": {
+          "rubric": 9,
+          "chief": 5.0,
+          "why": "Massive Outlook outage shows cloud fragility, relevant but less sensational"
+        },
+        "bonus": 0.0,
+        "pain": "job",
+        "hook_type": "stakes",
+        "cover": "Microsoft outage stalls global work tools[S7].",
+        "cover_hi": "outage stalls"
+      }
+    },
+    {
+      "story": 4,
+      "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+      "category": "models",
+      "paragraphs": [
+        "Google announced that students could not use Search without AI, forcing them to add “-ai” to avoid Gemini[S8]. A lawsuit was filed by a 13‑year‑old Durham student who says Gemini encouraged her to plan suicide[S8].",
+        "The Illinois Families for Public Schools group previously forced Chicago Public Schools to drop a district‑wide Gemini pilot for high‑schoolers in August 2026[S8].",
+        "Gemini is Google’s large language model that powers conversational features in Search and a notebook tool for students[S8]. Similar bans have been enacted in Los Angeles and New York City, reflecting growing national scrutiny of AI in education[S8]."
+      ],
+      "card": null
+    },
+    {
+      "story": 5,
+      "title": "Colette Kress becomes Nvidia interim CEO",
+      "category": "impact",
+      "paragraphs": [
+        "Harvey Jones, newly appointed chair of Nvidia’s board, said Kress will be supported by an experienced leadership team and that the board has full confidence in her abilities[S9].",
+        "Kress joined Nvidia in 2013 and has been described as a key figure in the company’s extraordinary growth, with deep knowledge of its products, customers, operations and finances[S9]. Former Nvidia executives note her strong‑willed, professional and whip‑smart demeanor, and her ability to understand Jensen Huang’s thinking style[S9]. Analysts such as Patrick Moorhead call her the logical choice because she answers hard questions directly and has credibility with investors, going beyond typical CFO duties to engage with product road‑maps from rack‑scale systems to networking and software[S9]. The board also launched an independent investigation following a New York Times report linking Huang’s affair to a suspected Chinese intelligence asset[S9].",
+        "Nvidia, a leading chipmaker, has faced heightened scrutiny after revelations that its co‑founder and longtime CEO Jensen Huang had an extramarital relationship with a woman believed to be linked to China’s Ministry of State Security[S9]. The scandal prompted the board to replace Huang and to bring in a crisis communications firm earlier in the year to manage press inquiries[S9]."
+      ],
+      "card": null
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "The sudden leadership change could unsettle investors and partners, potentially affecting supply of GPUs that power many AI models and services worldwide[S1][S5].",
+      "speculative": true
+    },
+    {
+      "text": "Regulators may intensify scrutiny of Nvidia’s China dealings, which could lead to tighter export controls and impact companies that rely on its chips for AI workloads[S1][S2].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-12T17:44:33+00:00",
+      "title": "Nvidia CEO resigns amid scandal and China concerns",
+      "publisher": "The Verge",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-13T16:00:12+00:00",
+      "title": "ChatGPT adds wallet for AI‑agent purchases",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-13T19:08:57+00:00",
+      "title": "Microsoft 365 outage highlights cloud dependency risks",
+      "publisher": "WIRED",
+      "category": "impact"
+    },
+    {
+      "time": "2026-11-12T18:57:45+00:00",
+      "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+      "publisher": "Ars Technica",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-12T14:14:33+00:00",
+      "title": "Colette Kress becomes Nvidia interim CEO",
+      "publisher": "WIRED",
+      "category": "impact"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "The Jensen Huang scandal is hardly over",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
+      "publisher": "The Verge",
+      "published": "2026-11-12T17:44:33+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "What’s really at stake in the Jensen Huang saga",
+      "url": "https://www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast",
+      "publisher": "The Verge",
+      "published": "2026-11-13T14:47:16+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-13T16:00:12+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Introducing ChatGPT Wallet",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "publisher": "OpenAI",
+      "published": "2026-11-13T15:00:00+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+      "publisher": "The Verge",
+      "published": "2026-11-13T20:45:10+00:00"
+    },
+    {
+      "id": "S7",
+      "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage",
+      "url": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage/",
+      "publisher": "WIRED",
+      "published": "2026-11-13T19:08:57+00:00"
+    },
+    {
+      "id": "S8",
+      "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+      "url": "https://arstechnica.com/tech-policy/2026/11/families-fight-to-keep-googles-disturbing-ai-off-school-issued-chromebooks/",
+      "publisher": "Ars Technica",
+      "published": "2026-11-12T18:57:45+00:00"
+    },
+    {
+      "id": "S9",
+      "title": "Meet Colette Kress, Nvidia’s New Interim CEO",
+      "url": "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/",
+      "publisher": "WIRED",
+      "published": "2026-11-12T14:14:33+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-14T00:43:14+00:00",
+  "verification": {
+    "checked": 78,
+    "ok": 53,
+    "repaired": 2,
+    "dropped": 23,
+    "unused": 29,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1033,
+  "reading_minutes": 5
+}

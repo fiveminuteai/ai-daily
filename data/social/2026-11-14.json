@@ -1,0 +1,70 @@
+{
+ "date": "2026-11-14",
+ "slug": "2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal",
+ "headline": "Nvidia CEO Jensen Huang resigns amid scandal and China‑related concerns",
+ "url": "https://fiveminuteai.net/posts/2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal/",
+ "generated_at": "2026-11-14T00:44:50+00:00",
+ "items": [
+  {
+   "id": "2026-11-14-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Nvidia CEO Jensen Huang resigns amid scandal and China-related concerns\n\n• Jensen Huang stepped down as Nvidia CEO amid affair allegations and doubts about China-related GPU sales.\n• OpenAI’s new ChatGPT Wallet lets approved U.S. users have Dots agents purchase items after biometric confirmation.\n• A network-capacity upgrade caused a 24-hour global outage of Microsoft 365, affecting millions of users and essential services.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-14/instagram.png"
+   ],
+   "scheduled_at": "2026-11-14T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-14-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Nvidia CEO Jensen Huang resigns amid scandal and China-related concerns\n\n• Jensen Huang stepped down as Nvidia CEO amid affair allegations and doubts about China-related GPU sales.\n\nhttps://fiveminuteai.net/posts/2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 205
+  },
+  {
+   "id": "2026-11-14-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Nvidia CEO Jensen Huang resigns amid scandal and China-related concerns\n\n• Jensen Huang stepped down as Nvidia CEO amid affair allegations and doubts about China-related GPU sales.\n• OpenAI’s new ChatGPT Wallet lets approved U.S. users have Dots agents purchase items after biometric confirmation.\n• A network-capacity upgrade caused a 24-hour global outage of Microsoft 365, affecting millions of users and essential services.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-14-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide[S7].",
+   "duo": false,
+   "cover": "Microsoft outage stalls global work tools[S7].",
+   "text": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.\n\n• Outlook, Teams and other Microsoft 365 services failed across 70+ countries.\n• The outage lasted about 24 hours, disrupting governments, airlines and hospitals.\n• Businesses now face a single-point-of-failure risk in their core workflows.\n\nDo this: Relying on one cloud provider can stall your entire operation—plan backups now.\n\nYour take: How will you safeguard critical work tools? Tell us in the comments.\n\nSave this so you can find it later.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #microsoft #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-14/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-14T03:30:00+00:00"
+  }
+ ]
+}

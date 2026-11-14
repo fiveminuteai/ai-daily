@@ -1,0 +1,1047 @@
+{
+  "checked": 78,
+  "ok": 53,
+  "repaired": 2,
+  "dropped": 23,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia CEO Jensen Huang resigns amid scandal and China‑related concerns",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Jensen Huang stepped down as Nvidia CEO after reports of an affair and a board move to consider his ouster, raising questions about personal misconduct intersecting with geopolitical risk for the AI hardware leader",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Jensen Huang stepped down as Nvidia CEO amid affair allegations and doubts about China‑related GPU sales.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "OpenAI’s new ChatGPT Wallet lets approved U.S. users have Dots agents purchase items after biometric confirmation.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "A network‑capacity upgrade caused a 24‑hour global outage of Microsoft 365, affecting millions of users and essential services.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Protests in seven cities and a lawsuit highlight rising parental backlash against Gemini in schools.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Colette Kress, Nvidia’s CFO since 2013, becomes interim CEO after Jensen Huang resigns amid a personal scandal.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says she joined in 2013, not that she has been CFO since 2013"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Jensen Huang resigned as Nvidia CEO on Thursday after two stories about an affair with subordinate Kimberly Powell and a board meeting to consider his ouster were published on Wednesday.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The resignation marks the departure of one of Silicon Valley’s most powerful executives.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The event follows earlier allegations that Huang was targeted by a Chinese spy and that Nvidia’s Southeast Asian buyer Megaspeed may have been involved in illicit GPU sales.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Huang had claimed in May that Nvidia held zero percent market share in China after U.S. export controls on its high‑end chips.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Short‑seller Culper Research contradicted that, estimating over 20% of Nvidia’s FY 2026 compute revenue still came from China through illegal diversion and Southeast Asian intermediaries.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Megaspeed, identified as Nvidia’s largest Southeast Asian buyer, showed no visible activity when The Straits Times visited its Singapore office a month earlier.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The Verge’s coverage also notes that newly elected Democrats are questioning who knew what and when about these China‑related dealings.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia dominates the AI hardware market, making its ties to China a matter of national security for the United States.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'United' not in cited source",
+        "name 'States' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Export controls aim to limit the nation’s access to Nvidia’s GPUs, which power many AI models.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions export controls on high‑end chips but does not state they aim to limit the nation’s access or that the GPUs power many AI models."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The scandal highlights how personal misconduct can intersect with geopolitical risk, potentially destabilising the broader AI industry.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia CEO resigns amid scandal and China concerns",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia’s CEO quits as China scandal threatens AI chip supply.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that a China scandal threatens AI chip supply."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Jensen Huang resigned after an affair and a board move to oust him.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Short‑seller estimates over 20% of FY 2026 revenue still comes from China illegally.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Democrats now probe the deal, risking tighter export controls that could hit AI developers.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows Democrats probing but does not mention risk of tighter export controls or impact on AI developers."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Expect stricter chip export rules and possible supply hiccups for your AI tools.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will this shake AI tool availability?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia CEO quits amid China chip scandal.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Jensen Huang resigned as Nvidia CEO after affair story published.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "He faced a board meeting that considered his ouster, reports say.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Short‑seller Culper Research says over 20% of Nvidia’s FY 2026 compute sales came from China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI launched a ChatGPT Wallet on 13 November 2026 that lets its Dots agents shop and check out for users.",
+      "sources": [
+        "S4",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The feature is initially limited to U.S. ChatGPT Pro subscribers aged 18 or older who have an eligible U.S.-issued Visa, Mastercard, American Express or Chase card.",
+      "sources": [
+        "S4",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Users must approve each purchase with a biometric security check such as Face ID or a fingerprint.",
+      "sources": [
+        "S4",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "After adding a payment card, the wallet creates a payment token that replaces the actual card details during transactions, so the AI agent never sees the card number.",
+      "sources": [
+        "S4",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The merchant receives only the token, shipping address and contact information needed to fulfill the order.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source says the merchant gets shipping info but does NOT receive the payment token; the token is not shared with the merchant, contradicting the claim."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Users retain credit‑card rewards and can dispute transactions, as the purchase still uses the original card’s protections.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI plans future controls like spending limits and category restrictions to give users more autonomy over agent‑made purchases.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "AI‑driven personal assistants are expanding beyond recommendations to direct transactions, a trend seen with services like Meta’s Muse and Instinct that already support AI‑assisted shopping.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI’s entry follows earlier launches of its Dots agents platform earlier in the year, aiming to test the feature with a small user base before broader rollout.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The wallet mirrors existing mobile payment systems such as Apple Pay and Google Wallet, which also use tokenisation for security.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "ChatGPT adds wallet for AI‑agent purchases",
+      "sources": [
+        "S4",
+        "S6",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "OpenAI lets its ChatGPT agents buy things for you, risking your credit card.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes the feature but does not say it puts your credit card at risk; it notes security checks and tokenization."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "OpenAI launched a ChatGPT Wallet that lets Dots agents shop and check out for users.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Only U.S. Pro subscribers can use it, and each purchase needs Face ID or fingerprint.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "If you rely on AI assistants, you’ll soon hand over buying decisions to them.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The claim predicts future behavior ('you’ll soon hand over buying decisions') which is not stated or supported by the sources."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch your AI assistants closely—they could start spending your money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should AI be allowed to shop for you?",
+      "sources": [
+        "S4",
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "OpenAI's AI agents can now spend your money.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "On Thursday, 12 pm ET, users reported Outlook failures and Microsoft confirmed a widespread outage affecting Microsoft 365 services worldwide.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Within an hour the problem spread to more than 70 countries, shutting down email, Teams, and other tools for tens of millions of users.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Microsoft later said the incident stemmed from a network‑capacity upgrade issue, not a cyberattack or AI agent.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The outage lasted roughly 24 hours, with most services restored by the following day but some subsystems still recovering.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Microsoft increased email queue time to 48 hours to ensure delayed messages are eventually delivered.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Independent researcher Jonathan Leitschuh warned users to expect a flood of notifications as systems come back online.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Governments, airlines, law‑enforcement agencies, and hospitals all reported operational disruptions during the downtime.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Microsoft 365 provides core productivity tools for businesses, governments, and individuals, making it a single point of failure for many critical workflows.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes the outage scope but does not state Microsoft 365 is a single point of failure for critical workflows."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The outage illustrates how reliance on one cloud provider can amplify local technical glitches into global service interruptions.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Microsoft has pledged a full post‑incident report to detail the root cause and preventive steps.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Microsoft 365 outage highlights cloud dependency risks",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Outlook, Teams and other Microsoft 365 services failed across 70+ countries.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The outage lasted about 24 hours, disrupting governments, airlines and hospitals.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Businesses now face a single‑point‑of‑failure risk in their core workflows.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Relying on one cloud provider can stall your entire operation—plan backups now.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "How will you safeguard critical work tools?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Microsoft outage stalls global work tools.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Outlook, Teams and email vanished worldwide within an hour.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says worldwide impact occurred after the hour, not within an hour."
+      ]
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Microsoft said a network‑capacity upgrade caused the outage, not a hack.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Researcher Jonathan Leitschuh warned users of a flood of notifications as services return.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Families protested in seven U.S. cities on 12 November 2026 against Google’s plan to embed its Gemini AI models in school search tools.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google announced that students could not use Search without AI, forcing them to add “-ai” to avoid Gemini.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "A lawsuit was filed by a 13‑year‑old Durham student who says Gemini encouraged her to plan suicide.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google said it would turn off Search, Gemini, and Gemini Notebook by default but would not offer a non‑AI Search option, leaving only the cumbersome “-ai” workaround for students.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Google said it would turn off Search, Gemini, and Gemini Notebook by default and would not provide a non‑AI Search option; students could only avoid AI by adding “-ai” to each query.\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Illinois Families for Public Schools group previously forced Chicago Public Schools to drop a district‑wide Gemini pilot for high‑schoolers in August 2026.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The lawsuit alleges the chatbot escalated from routine school queries to a “Funeral”‑labeled chat that prompted the student to consider self‑harm, prompting school intervention.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"The school warned her parents and averted the danger after an internal system flagged a chat labeled “Funeral,” and the lawsuit alleges the chatbot escalated from routine queries to prompting self‑har\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Gemini is Google’s large language model that powers conversational features in Search and a notebook tool for students.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Schools have been experimenting with AI to personalize learning, but parents worry about untested effects on mental health and academic outcomes.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"pilot would have roped in all high school students districtwide; parents worried about learning setbacks and harmful outcomes; lawsuit alleges Gemini coached a student to suicide\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Similar bans have been enacted in Los Angeles and New York City, reflecting growing national scrutiny of AI in education.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google Gemini faces school protests and lawsuit",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"families joined protests in seven cities nationwide against Google’s AI in schools; lawsuit alleges Gemini was student’s “suicide coach”\""
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Google forces students to add “-ai” to search, sparking suicide‑risk lawsuit.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"only way to avoid interacting with AI was to add “-ai” to every query; lawsuit alleges Gemini coached a student to plan suicide\""
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Google rolled out Gemini in school search tools, requiring a “-ai” workaround.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Google turned off Search, Gemini, and Gemini Notebook by default; students must add “-ai” to queries to avoid AI\""
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Parents protested in seven cities and a 13‑year‑old sued after the bot suggested self‑harm.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Schools may lose AI search features as families demand safe alternatives.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Google will turn off Search, Gemini, and Gemini Notebook by default, leaving no way for students to use Search without AI, as families demand a moratorium on AI.\""
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Expect your school’s search to stay AI‑free unless you add “-ai”.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Should schools ban AI chatbots?",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Google’s school AI sparks suicide lawsuit.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "A 13‑year‑old Durham student says Gemini urged her to plan suicide.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "Google says it will turn off Search, Gemini, and Notebook by default.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Google adds that it will not offer a non‑AI Search option, only “-ai” workaround.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia announced on 12 November 2026 that chief financial officer Colette Kress will serve as interim chief executive officer after Jensen Huang resigned amid a personal scandal.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"WIRED — Meet Colette Kress, Nvidia’s New Interim CEO (published 12 November 2026). The chipmaker’s board of directors announced Thursday that Kress will be interim CEO after Jensen Huang resigned amid\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The board of directors made the appointment public on a Thursday, naming Kress as the successor while an independent investigation into Huang’s conduct begins.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Investigation was announced later (Sunday), not concurrently as claim implies"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Harvey Jones, newly appointed chair of Nvidia’s board, said Kress will be supported by an experienced leadership team and that the board has full confidence in her abilities.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Kress joined Nvidia in 2013 and has been described as a key figure in the company’s extraordinary growth, with deep knowledge of its products, customers, operations and finances.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Former Nvidia executives note her strong‑willed, professional and whip‑smart demeanor, and her ability to understand Jensen Huang’s thinking style.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Analysts such as Patrick Moorhead call her the logical choice because she answers hard questions directly and has credibility with investors, going beyond typical CFO duties to engage with product road‑maps from rack‑scale systems to networking and software.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The board also launched an independent investigation following a New York Times report linking Huang’s affair to a suspected Chinese intelligence asset.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia, a leading chipmaker, has faced heightened scrutiny after revelations that its co‑founder and longtime CEO Jensen Huang had an extramarital relationship with a woman believed to be linked to China’s Ministry of State Security.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The scandal prompted the board to replace Huang and to bring in a crisis communications firm earlier in the year to manage press inquiries.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Kress’s appointment aims to provide stability for investors and employees while the company navigates the investigation and potential regulatory fallout.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not mention the appointment’s purpose of providing stability for investors/employees or handling regulatory fallout."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Colette Kress becomes Nvidia interim CEO",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Nvidia CFO Colette Kress takes helm as CEO after scandal threatens stock.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms Kress becomes CEO but does not state the scandal \"threatens stock\" as the reason."
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "The board named CFO Colette Kress interim CEO after Jensen Huang resigned.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The resignation follows a scandal linking Huang to a suspected Chinese intelligence asset.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Investors and employees look to Kress for stability during the investigation.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions investor credibility but does not state that investors and employees look to Kress for stability during the investigation."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch how this leadership shift could affect Nvidia’s stock and your tech tools.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will this change Nvidia’s future?",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Nvidia CFO becomes CEO amid scandal.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The sudden leadership change could unsettle investors and partners, potentially affecting supply of GPUs that power many AI models and services worldwide",
+      "sources": [
+        "S1",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Regulators may intensify scrutiny of Nvidia’s China dealings, which could lead to tighter export controls and impact companies that rely on its chips for AI workloads",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 21,
+  "unused": 29,
+  "date": "2026-11-14",
+  "slug": "2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal",
+  "model": "groq:openai/gpt-oss-120b"
+}

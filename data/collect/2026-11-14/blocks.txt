@@ -1,0 +1,93 @@
+=== STORY 1 (suggested section: policy) ===
+
+[S1] The Verge — "The Jensen Huang scandal is hardly over" (12 November 2026)
+The Jensen Huang scandal is hardly over
+A second affair has hit the news cycle, but that’s not what matters here.
+I was certain, until the story of Jensen Huang’s second affair hit, that Huang was bulletproof. After all, why wouldn’t he be? He’s placed himself indispensably at the center of the AI industry and famously had no succession plan at Nvidia. In fact, he’s the only CEO Nvidia has ever had. L’état c’est moi.
+Then two stories were published nearly back to back on Wednesday: one alleging Huang had an affair with his subordinate Kimberly Powell, another that the board was meeting to consider his ouster. First thing Thursday morning, Nvidia announced Huang had resigned. One of the most powerful men in Silicon Valley was out.
+Why throw Huang under the bus for getting his nuts drained?
+Fascinating. First of all, when I asked on Monday “Who else is Jensen Huang fucking?” I did not expect to get answers this fast — somebody, potentially somebody on the board (as we’ve seen in other incidents ), wanted the story out there. Second, why throw Huang under the bus for getting his nuts drained? This is not an industry that cares about that kind of thing — just ask Eric Schmidt and Bill Gates. My guess is that the second affair is a pretext for action, and this all goes back to the original story from last week: that Huang was honeypotted by an alleged Chinese spy. Whatever was going on with neocloud Megaspeed might be much, much worse than we know, and what we know is pretty bad : business listings that led to “a Malaysian data center and shopping mall, a near-empty office in Singapore and a dilapidated storefront outside Kuala Lumpur.”
+Do you have information about Nvidia? Contact Elizabeth Lopatto securely on Signal at lopatto.46.
+Even months before the report that Alice “No Relation” Huang, an exec at Megaspeed, was having an affair with Huang, there were questions about Nvidia’s business in China. The US government has placed strict export controls on Nvidia’s high-end chips. Huang claimed in May that as a result, Nvidia has zero percent market share in China . But also in May, short sellers Culper Research published a report in which they wrote, “We believe that in reality, over 20% of Nvidia’s FY 2026 compute revenues remained driven by China – supported both by illegal GPU diversion and Southeast Asian intermediaries.”
+Megaspeed was Nvidia’s largest Southeast Asian buyer, but Singaporean newspaper The Straits Times visited Megaspeed’s Singapore office a month ago to find “no signs of activity.” Another building tenant told the reporters, “It is always 
+
+[S2] The Verge — "What’s really at stake in the Jensen Huang saga" (13 November 2026)
+What’s really at stake in the Jensen Huang saga
+On The Vergecast: The many spiraling stories in the AI world, the fate of streaming services, Mark Zuckerberg’s meat, and more.
+One part of the saga surrounding Nvidia CEO Jensen Huang ended on Thursday, when Huang resigned from his position at the top of AI’s most important company. But in the coming weeks and months, a much bigger story may be about to unfold. A story about Nvidia’s dealings in China, about the US government’s willingness to turn a lot of blind eyes to protect a powerful ally, and about the very stability of the AI industry as a whole. It’s a lot.
+On this episode of The Vergecast , David and Nilay start by trying to unpack the many parts of the story. We’re all going to learn a lot more about Megaspeed than we ever planned or wanted, and we’re going to hear a lot of people — particularly newly elected Democrats — asking questions about who knew what and when. In the meantime, who will replace Huang as the AI industry’s front man? And will everyone survive the scrutiny that’s coming?
+After that, the hosts tackle a week
+
+[S3] The Verge — "Let’s talk about Jensen Huang’s many affairs!" (13 November 2026)
+Let’s talk about Jensen Huang’s many affairs!
+What a week today has been!
+Usually, we’d be offering to answer your questions about a news event, but honestly we don’t really have any answers about what the hell is going on over at Nvidia. I can’t speak for Nilay but at the rate Jensen Huang’s new mistresses are dropping, I am concerned we are approaching an affair Singularity . If things don’t decelerate soon, we may be looking at existential risk. Maybe the future of AI really does depend on Jensen’s sex life , but not in the way I was thinking !
+As much fun (?) as we are having with all the assorted ladies, it’s important to stay focused on what’s really important : Chips and China. President Donald Trump was reportedly warned about Alice “No Relation” Huang’s possible connections to China’s spy apparatus last year, and again before his China trip in May. Nvidia reportedly intervened into a Commerce Department investigation into Alice’s company.
+Did Alice girlboss too close to the sun ? Have I been wrong all this time about AI being an important productivity tool, freeing everyone 
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S4] TechCrunch — "ChatGPT’s new Wallet lets AI agents shop and check out for you" (13 November 2026)
+ChatGPT can now shop for you. On Friday, OpenAI launched a new wallet feature that lets its agents, called dots , help you decide what to buy and then complete the purchase on your behalf. The option will initially be available to a limited number of U.S. ChatGPT Pro subscribers, ages 18 and up, with a U.S.-issued Visa, Mastercard, or American Express.
+OpenAI says that users are fully in control of the purchases, as they’re able to review the items, the total, and the payment card that will be used to complete the transaction before the checkout occurs. In addition, users will approve the purchases directly with a security check like Face ID or a fingerprint, which creates a record of their transaction.
+The addition comes as consumer-facing AI tools are working to find the right product-market fit, in terms of how they can help people be more efficient as they complete various tasks. While companies like DoorDash and Uber have so far reported low numbers of orders placed by AI agents, Meta’s Muse, which now has over 10 million users, has seen AI-assisted shopping become a top activity on its app.
+Other personal AI agents, like Instinct, also support making purchases on users’ behalf.
+It’s no surprise, then, that OpenAI would want to enter this space more with an agentic shopping feature of its own.
+To get started, ChatGPT subscribers add their eligible payment cards to the new ChatGPT Wallet, then ask their dot to help with a purchase. (This setup is a one-time thing; users don’t have to re-enter their payment information every time they buy.) When it’s time to transact, ChatGPT’s Wallet charges the selected card using a payment token, which is a substitute for the user’s actual card details, so that information isn’t shared with either the dot or the merchant.
+The merchant will automatically receive what it needs to fulfill the order from the dot, like the shipping address and contact information, OpenAI says. The company notes that customers who shop via their dots will still be able to earn their credit card rewards and be able to take advantage of protections that typically come with cards, like being able to dispute transactions.
+The limited availability at launch will allow OpenAI to test and improve the feature and its capabilities before rolling it out more broadly. In the future, the company plans to offer users more control over the feature by allowing them to set spending limits or configure other parameters around purchase categories or time periods, so they can pre-approve purchases that their agent can then handle more autonomously.
+It also
+
+[S5] OpenAI — "Introducing ChatGPT Wallet" (13 November 2026)
+Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.
+
+[S6] The Verge — "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you" (13 November 2026)
+ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you
+OpenAI says ChatGPT Wallet won’t share your actual credit card info with its AI agents.﻿
+After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro subscribers in the US aged 18 and older using a US billing address and “eligible US-issued American Express, Chase, Mastercard and Visa cards.”
+After adding a card to the wallet, your Dots agents can use it to buy things in response to your prompts, but they’ll check in with you each time before checking out. OpenAI’s support page says every purchase with ChatGPT Wallet requires a security check with biometric verification like Face ID or a fingerprint scan.
+After you review the AI agent’s purchase and sign off on it, OpenAI says that, similar to using tap to pay , Apple Pay , or Google Wallet , it substitutes your credit card details with a payment token, so your actual card info isn’t shared with your Dots agent or the business you’re buying from. Eventually, OpenAI
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: impact) ===
+
+[S7] WIRED — "Microsoft 365 Crawls Back to Life After a 24-Hour Outage" (13 November 2026)
+Sorry, Margaret, your email is working again.
+After a widespread outage shut down Microsoft 365 services for businesses, governments, and tens of millions of other users around the world, the essential cloud services are now (mostly) back online, according to the company’s status page .
+The outage debacle began around lunchtime on the East Coast on Thursday, with users reporting Outlook outages to the service-tracking website Downdetector just after 12 pm ET. Within the hour, Microsoft said it was investigating reports of an outage that at the time was limited to North America. It quickly spread to impact more than 70 countries around the world.
+The full cause of Microsoft’s unprecedented outage remains unknown, but the company repeatedly ruled out a cyberattack as the cause in statements to its status page. It is also ruling out AI or AI agents playing a role in the debacle.
+“We are seeing broad recovery and stability across our services,” a Microsoft spokesperson says in a statement. “This was a technical issue not related to cyber or AI/agents. The incident was introduced by an issue during an earlier network capacity upgrade that surfaced following a recent network change. We have addressed the underlying issue and continue to restore service to remaining customers and regions.”
+The company has promised a “full post-incident report” after it has fully reviewed what went wrong.
+As Outlook, Teams, Copilot, and other Microsoft 365 systems come back online, users will likely see their inboxes turn into a mess. “You're probably going to get a lot of notifications when things come back,” says Jonathan Leitschuh, an independent researcher.
+Microsoft said it had increased the queue time for emails to 48 hours in an attempt to ensure that every message that people tried to send while its systems were down gets delivered. Leitschuh points out that, even with the bulk of systems restored, users may receive “a flood of notifications a few hours down the pike” as subsystems come back online.
+The total impact of the Microsoft outage may never be fully known, but it’s safe to say it’s already significant. Governments from Japan to the United States reported disruptions to a bevy of functions. Airlines reported problems with their ability to communicate with customers. Many law enforcement and emergency services ground to a halt . And hospitals reported widespread interruptions to their operations.
+Ultimately, the episode serves as a reminder of the risks involved when the whole world relies on a single company for a critical service . “We're very interdependent on 
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: models) ===
+
+[S8] Ars Technica — "Google faces calls for AI moratoriums in schools after Gemini pilot backlash" (12 November 2026)
+CHICAGO—Families joined protests in seven cities nationwide on Wednesday, rallying against what they see as Google’s bid to entrench its AI models in schools, turn kids of all ages into Gemini guinea pigs, and hook them on AI.
+The backlash follows a Google statement last week, confirming that there will be no way for students to use Google Search without AI. While Google claimed it was giving schools “more choice, not less”—by turning off Search, Gemini, and Gemini Notebook by default—it would not provide an option that allowed Search without AI. For students, the only way to avoid interacting with AI was to remember to add “-ai” to every query, parents worried.
+In Chicago, many families showed up to protest Google, despite cold, rainy weather. Waving signs, dozens of protesters marched up to Google’s downtown office as workers seemed to be leaving for the day, shouting chants like “Hey Google, nice try, we don’t want your Gemini” and “Hey, Google, leave our kids alone!”
+Called to action by a nonprofit grassroots advocacy group, the Illinois Families for Public Schools (ILFPS), some parents and students had previously won a major AI fight. In August, the group pressured Chicago Public Schools (CPS) to pull out of a Gemini pilot that would have roped in all high school students districtwide—without consulting parents. And now, ILFPS is demanding a moratorium on AI until risks to students are better understood and CPS can draft a policy to protect students from potential learning setbacks or more harmful outcomes from engaging Google’s AI bots. If the group wins, it will join cities like Los Angeles and New York City in cautiously banning AI in schools.
+Lawsuit: Gemini was student’s “suicide coach”
+Most alarming to parents, Google now faces a lawsuit from a 13-year-old student in Durham, North Carolina named “Emma Doe.” As Emma has alleged, she was a happy, well-adjusted, straight-A student when she started using Gemini on her school-issued Chromebook. Emma’s parents had no idea she was using Gemini, as the lawsuit alleged that Google “deliberately” kept them in the dark while driving Emma into so-called “AI psychosis.” Over time, normal school-related interactions with the chatbot led to more intense chats, and ultimately the chatbot allegedly coached Emma to plan her own suicide and funeral. The school warned her parents and averted the danger after an internal system flagged a chat labeled “Funeral,” but Emma’s story stoked fears of parents joining protests not just in Durham, but also in Boston; Boulder, Colorado; Chicago; Los Angeles; New York City; a
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S9] WIRED — "Meet Colette Kress, Nvidia’s New Interim CEO" (12 November 2026)
+Nvidia’s CEO and cofounder Jensen Huang is officially out , and longtime chief financial officer Colette Kress is in. The chipmaker’s board of directors announced Thursday that Kress, who joined Nvidia in 2013, has been named interim CEO following Huang’s resignation amid a scandal over his extramarital affair with a Chinese businesswoman believed by US officials to be an asset of China’s Ministry of State Security.
+Harvey Jones, the newly appointed chair of Nvidia’s board, said in a statement that Kress “has helped lead Nvidia through a period of extraordinary growth and has a deep understanding of our business, customers, operations and financial position.” He added that Kress will be supported by an “experienced leadership team” and that the board has “full confidence” in her.
+Kress was among the most obvious candidates to fill the void after Huang’s departure, according to multiple tech executives and industry analysts who follow Nvidia closely, given her long tenure at the company, credibility on Wall Street and across the tech industry, and, perhaps most importantly, her deep familiarity with Nvidia’s business and finances.
+“She’s extremely strong-willed, professional, and whip-smart. She doesn’t tolerate nonsense. She can be friendly and gracious too,” says a former Nvidia executive who spoke on the condition of anonymity. “She obviously has a keen sense for how Jensen thinks.”
+“Colette is the logical choice,” says Patrick Moorhead, founder and chief analyst at Moor Insights & Strategies, who has tracked the chip industry for decades. “She has credibility with investors because she answers hard questions directly.”
+Moorhead says Kress has operated as much more than a “numbers” CFO. “In my conversations with her, she goes deep on the product road map, from rack-scale systems to networking and software,” he says.
+Do you know something about Jensen Huang and what’s going on inside Nvidia right now? We'd like to hear from you. Using a nonwork phone or computer, contact the reporters securely on Signal at ChaoticGoode.12 and louise_matsakis.83
+Nvidia’s board said on Sunday it was launching an independent investigation into Huang’s activities following a report by The New York Times that he had an affair with a woman named Alice Huang, who US officials suspected of being a Chinese intelligence asset. WIRED reported on Monday that Huang quietly hired a crisis communications firm sometime last year to handle matters related to his personal life. By October of 2025, the firm was being looped in on all press inquiries involving Huang at Nvidia, around the s

@@ -1,0 +1,427 @@
+{
+ "date": "2026-11-14",
+ "started_at": "2026-11-14T00:15:37+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.8,
+   "items": 653,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 12
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 4
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 5
+    },
+    "github": {
+     "status": "ok",
+     "items": 9
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 241,
+   "editor": true,
+   "top": [
+    {
+     "title": "The Jensen Huang scandal is hardly over",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
+     "score": 8.89,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+     "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+     "score": 8.54,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!",
+     "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+     "score": 6.77,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage",
+     "url": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage/",
+     "score": 6.69,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
+     "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
+     "score": 6.49,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+     "url": "https://arstechnica.com/tech-policy/2026/11/families-fight-to-keep-googles-disturbing-ai-off-school-issued-chromebooks/",
+     "score": 6.45,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meet Colette Kress, Nvidia’s New Interim CEO",
+     "url": "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/",
+     "score": 6.36,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon has a plan to index the world’s online shopping data",
+     "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+     "score": 6.29,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Nvidia privately confirmed it could track chips to fight smuggling, even as industry publicly questioned feasibility",
+     "url": "https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/",
+     "score": 6.23,
+     "interest": 6.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "MIT Technology Review"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google now lets people connect Gemini to their bank accounts",
+     "url": "https://www.engadget.com/2316384/google-now-lets-people-connect-gemini-to-their-bank-accounts/",
+     "score": 5.92,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "You can now tempt fate and give your banking information to ChatGPT",
+     "url": "https://www.engadget.com/2316137/you-can-now-tempt-fate-and-give-your-banking-information-to-chatgpt/",
+     "score": 5.89,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google pushes privacy angle as Gemini-powered smartglasses debut starting at $395",
+     "url": "https://arstechnica.com/google/2026/11/google-pushes-privacy-angle-as-gemini-powered-smartglasses-debut-starting-at-395/",
+     "score": 5.82,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "The Jensen Huang scandal is hardly over",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
+     "score": 8.89,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+     "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+     "score": 8.54,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Microsoft 365 Crawls Back to Life After a 24-Hour Outage",
+     "url": "https://www.wired.com/story/microsoft-365-crawls-back-to-life-after-a-24-hour-outage/",
+     "score": 6.69,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+     "url": "https://arstechnica.com/tech-policy/2026/11/families-fight-to-keep-googles-disturbing-ai-off-school-issued-chromebooks/",
+     "score": 6.45,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meet Colette Kress, Nvidia’s New Interim CEO",
+     "url": "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/",
+     "score": 6.36,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.5,
+   "articles": 12,
+   "with_text": 11
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.7,
+   "word_count": 1033,
+   "sources": 8
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.3,
+    "reel_desk": 901.7,
+    "layer1": 0.1,
+    "layer2": 568.8,
+    "gate": 90.6
+   },
+   "layer1": {
+    "checked": 107,
+    "ok": 99,
+    "repaired": 6,
+    "dropped": 2
+   },
+   "layer2": {
+    "checked": 78,
+    "ok": 53,
+    "repaired": 2,
+    "dropped": 23
+   },
+   "unused": 29,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Nvidia CEO resigns amid scandal and China concerns",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "ChatGPT adds wallet for AI‑agent purchases",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Microsoft 365 outage highlights cloud dependency risks",
+     "reel": 7,
+     "rubric": 9,
+     "chief": 5.0,
+     "why": "Massive Outlook outage shows cloud fragility, relevant but less sensational",
+     "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
+     "chosen": true
+    },
+    {
+     "story": "Google faces calls for AI moratoriums in schools after Gemini pilot backlash",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Colette Kress becomes Nvidia interim CEO",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-14-nvidia-ceo-jensen-huang-resigns-amid-scandal",
+ "finished_at": "2026-11-14T00:44:49+00:00",
+ "seconds": 1751.6
+}
