@@ -1,5 +1,13 @@
 {
  "reels_counted": 37,
- "checked": "2026-11-14T18:01:01+00:00",
- "lessons": []
+ "checked": "2026-11-14T22:13:50+00:00",
+ "lessons": [
+  {
+   "lesson": "Avoid using a \"no duo\" pacing style, as it shows a strong negative effect on outcomes.",
+   "evidence": [
+    "pace = no duo: n 17, effect -0.69"
+   ],
+   "added": "2026-11-14T22:13:50+00:00"
+  }
+ ]
 }
