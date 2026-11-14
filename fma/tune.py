@@ -155,7 +155,8 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: 
     """search False (--judge-only): no new candidate is searched for; the kept prompt is only re-tested against
     the default on the held-out examples, and dropped if the default clearly beats it."""
     import dspy
-    lm = dspy.LM(f"ollama_chat/{model}", api_base="http://localhost:11434", api_key="", temperature=0.4, max_tokens=900)
+    from .llm import local_api_base
+    lm = dspy.LM(f"ollama_chat/{model}", api_base=local_api_base("http://localhost:11434"), api_key="", temperature=0.4, max_tokens=900)
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())   # 6 Nov 2026: the default text format confused the 7B
     facts, joke, persona = _programs()
     rnd = random.Random(seed)

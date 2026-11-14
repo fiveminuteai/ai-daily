@@ -20,6 +20,74 @@ class LLMError(RuntimeError):
     pass
 
 
+# Model Console (14 Nov 2026, Pavan approved): a local relay at D:\model-console that logs every local-model call
+# (project, model, prompt, answer, timings) and passes the reply through unchanged. Calls to the local engines go
+# through it first; if it can't be reached (closed, refused, connect timeout) the same request goes straight to the
+# engine, so the nightly run never depends on the console being open. FMA_MODEL_CONSOLE=off turns it off.
+CONSOLE_DEFAULT = "http://127.0.0.1:8070/c/ai-daily-blog"
+_ENGINE = re.compile(r"^https?://(?:localhost|127\.0\.0\.1):(?:11434|8080)(/.*)?$")
+CONSOLE_RETRY_S = 300.0           # after a miss, go direct for 5 minutes before trying the console again
+_console_down_until = 0.0
+
+
+def console_base() -> str | None:
+    v = os.environ.get("FMA_MODEL_CONSOLE", CONSOLE_DEFAULT).strip()
+    if not v or v.lower() in ("off", "0", "none") or os.environ.get("GITHUB_ACTIONS"):
+        return None
+    return v.rstrip("/")
+
+
+def console_url(url: str) -> str | None:
+    """The console address for a local engine URL (path kept), or None when it isn't a local engine."""
+    base, m = console_base(), _ENGINE.match(url)
+    return base + (m.group(1) or "") if base and m else None
+
+
+def _not_reached(exc: requests.RequestException) -> bool:
+    """True only when the connection itself failed, so the engine never saw the request and a retry can't double it.
+    A console that dropped mid-reply is not retried directly: the engine may still be working on it."""
+    if isinstance(exc, requests.exceptions.ConnectTimeout):
+        return True
+    if not isinstance(exc, requests.ConnectionError):
+        return False
+    reason = getattr(exc.args[0], "reason", None) if exc.args else None
+    from urllib3.exceptions import NewConnectionError
+    return isinstance(reason, NewConnectionError) or "Failed to establish a new connection" in str(exc)
+
+
+def local_request(method: str, url: str, timeout: float, **kw) -> requests.Response:
+    """A request to a local engine, through the Model Console when it is up, else directly."""
+    global _console_down_until
+    via = console_url(url)
+    if via and time.monotonic() >= _console_down_until:
+        try:
+            return requests.request(method, via, timeout=(5, timeout), **kw)
+        except requests.RequestException as exc:
+            if not _not_reached(exc):
+                raise
+            _console_down_until = time.monotonic() + CONSOLE_RETRY_S
+            log.warning("model console not reachable at %s (%s); calling the engine directly at %s",
+                        via, type(exc).__name__, url)
+    return requests.request(method, url, timeout=timeout, **kw)
+
+
+def local_api_base(url: str) -> str:
+    """For clients we can't wrap (dspy): the console address if it answers now, else the engine's own."""
+    via = console_url(url)
+    if via:
+        try:
+            requests.get(via.rstrip("/") + "/api/tags", timeout=5)
+            return via
+        except requests.RequestException as exc:
+            log.warning("model console not reachable at %s (%s); using the engine directly at %s",
+                        via, type(exc).__name__, url)
+    return url
+
+
+def _is_local_engine(url: str) -> bool:
+    return bool(_ENGINE.match(url))
+
+
 @dataclass
 class Provider:
     name: str
@@ -46,7 +114,7 @@ class Provider:
     def available(self) -> bool:
         if self.local:
             try:
-                return requests.get(self.base_url.rstrip("/") + "/api/tags", timeout=30).ok   # a busy Ollama can take a while to answer
+                return local_request("GET", self.base_url.rstrip("/") + "/api/tags", 30).ok   # a busy Ollama can take a while to answer
             except requests.RequestException:
                 return False
         return bool(self.key)
@@ -71,7 +139,10 @@ class Provider:
         headers = {"Authorization": f"Bearer {self.key}", "Content-Type": "application/json"}
         for attempt in range(4):
             self._pace()
-            r = requests.post(url, json=body, headers=headers, timeout=self.timeout)
+            if _is_local_engine(url):       # llama.cpp on 8080 (or Ollama's /v1): through the Model Console
+                r = local_request("POST", url, self.timeout, json=body, headers=headers)
+            else:
+                r = requests.post(url, json=body, headers=headers, timeout=self.timeout)
             if r.status_code == 400 and "response_format" in body:
                 body.pop("response_format")   # some models reject JSON mode; the prompt still asks for JSON
                 continue
@@ -115,7 +186,7 @@ class Provider:
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         if want_json:
             body["format"] = schema or "json"     # a schema becomes a grammar: the reply always has that shape
-        r = requests.post(self.base_url.rstrip("/") + "/api/chat", json=body, timeout=self.timeout)
+        r = local_request("POST", self.base_url.rstrip("/") + "/api/chat", self.timeout, json=body)
         if not r.ok:
             raise LLMError(f"ollama HTTP {r.status_code}: {r.text[:300]}")
         return r.json().get("message", {}).get("content", "")
