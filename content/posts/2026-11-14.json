@@ -72,7 +72,50 @@
         "pain": "job",
         "hook_type": "stakes",
         "cover": "Microsoft outage stalls global work tools[S7].",
-        "cover_hi": "outage stalls"
+        "cover_hi": "outage stalls",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Microsoft just took down email for tens of millions of people[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Down for how long?"
+            },
+            {
+              "who": "spark",
+              "text": "Longer than you'd guess. Stay for the cause.",
+              "kind": "comeback"
+            },
+            {
+              "who": "spark",
+              "text": "It lasted roughly 24 hours, across more than 70 countries[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "A day without email. Some call that a holiday."
+            },
+            {
+              "who": "spark",
+              "text": "The cause is the boring part, Doubt.",
+              "kind": "comeback"
+            },
+            {
+              "who": "spark",
+              "text": "Microsoft says a network capacity upgrade issue caused it, not a cyberattack[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Broken by an upgrade. Relatable. I'm a box with no updates.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ]
+        },
+        "hook_card": "Microsoft email went down"
       }
     },
     {
