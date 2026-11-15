@@ -225,6 +225,20 @@ def test_a_duo_falls_back_to_the_checked_card_when_the_facts_step_gives_up():
     lines = duo_desk.card_facts(card)
     assert lines and len(lines) == 3 and all("[S4]" in t for t in lines)
     assert duo_desk.card_facts({"hook": "Too short[S1].", "points": []}) is None
+    # 15 Nov 2026: a line whose only jargon has an exact plain swap is swapped, not refused
+    swap = {"hook": "Acme reported record revenue of 5 billion dollars this quarter[S1].",
+            "points": ["Acme sold 2 million phones in India last month[S1].",
+                       "Acme plans 40 new stores across the country next year[S1]."]}
+    got = duo_desk.card_facts(swap)
+    assert got and len(got) == 3 and "sales" in got[0] and "revenue" not in got[0]
+
+
+def test_a_card_too_hard_for_a_duo_says_so_in_the_log(caplog):
+    """15 Nov 2026: the top Reel went out plain and the run log said nothing about why."""
+    from fma import duo_desk
+    card = {"hook": "Agents allegedly moved chips to China last year[S1].", "points": ["Short[S1]."]}
+    assert duo_desk.write(None, {"title": "T", "paragraphs": []}, card, card_only=True) is None
+    assert any("no duo for 'T'" in r.message for r in caplog.records)
 
 
 def test_duo_facts_are_fact_checked_before_the_jokes_are_written():

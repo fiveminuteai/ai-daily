@@ -827,6 +827,10 @@ def write(chain, section: dict, card: dict, check=None, card_only: bool = False)
     story = " ".join(section.get("paragraphs", []))
     lines = card_facts(card) if card_only else         (prechecked(facts_step(chain, section), check, story) or prechecked(card_facts(card), check, story))
     if not lines:
+        # 15 Nov 2026: this exit was silent, so a plain Reel left no reason in the run log
+        log.warning("no duo for %r: %s", section.get("title"),
+                    "fewer than 3 card lines are 6-16 plain words with a citation" if card_only
+                    else "neither the facts step nor the card gave 3 checked lines")
         return None
     lines = lines[:STORY_FACTS]        # 8 Nov 2026: three facts leave room for the banter in 45 s
     gentle = is_sensitive(section)       # 9 Nov 2026: jokes stay off private life; Spark makes no comebacks
@@ -854,10 +858,11 @@ def card_facts(card: dict) -> list[str] | None:
     fact-check layers like any duo line. Only lines that keep the duo's own limits are used; fewer than three, None."""
     out = []
     for t in [card.get("hook") or "", *(card.get("points") or [])]:
+        t = simplify(t)        # 15 Nov 2026: swap first, then judge; "revenue" has an exact plain swap ("sales")
         n = len(plain(t).split())
         if re.search(r"\[S\d+\]", t) and 6 <= n <= LINE_WORDS and not any(
                 w.replace("‑", "-") in HARD_WORDS for w in re.findall(r"[a-z0-9]+(?:[-‑][a-z0-9]+)*", plain(t).lower())):
-            out.append(simplify(t))
+            out.append(t)
     if out and len(plain(out[0]).split()) > HOOK_WORDS:
         out = out[1:] if len(out) > 3 else out
     return out[:STORY_FACTS] if len(out) >= 3 else None
