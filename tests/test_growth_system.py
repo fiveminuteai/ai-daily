@@ -213,3 +213,9 @@ def test_an_upload_lost_mid_send_is_never_retried_on_its_own():
     with _p.raises(youtube.YouTubeError, match="outcome unknown"):
         youtube.upload_short(YT(), "https://x.net/r/01.mp4", "Cap.", "Hook[S1].", SITE, "2026-11-09", env=ENV,
                              uploader=uploader)
+
+
+def test_the_youtube_description_gets_a_clickable_link_from_the_new_caption():
+    from fma import youtube
+    d = youtube.description_for(social.reel_caption(section(), SITE), {"base_url": "https://fiveminuteai.net/"}, "2026-11-16")
+    assert "Every claim sourced: https://fiveminuteai.net/" in d

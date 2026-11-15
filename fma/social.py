@@ -43,15 +43,14 @@ MAX_TAGS = 5
 
 
 def reel_hashtags(section: dict) -> str:
-    """Five at most: #ai #ainews, the story's companies, then general tech tags to fill."""
+    """Five at most: #ai #ainews and the story's companies. 15 Nov 2026: no general tags to fill the five
+    (#tech, #technews): a tag is a label for search, and a label that fits everything says nothing."""
     text = (section.get("title", "") + " " + plain(section.get("card", {}).get("hook", ""))).lower()
     tags = list(BASE_TAGS)
     for pat, add in TOPIC_TAGS:
         if re.search(pat, text):
             tags += [t for t in add if t not in tags]
-    tags = tags[:MAX_TAGS]
-    tags += [t for t in FILL_TAGS if t not in tags][:MAX_TAGS - len(tags)]
-    return " ".join(tags)
+    return " ".join(tags[:MAX_TAGS])
 
 
 def send_line(section: dict) -> str:
@@ -67,12 +66,15 @@ def reel_caption(section: dict, site: dict) -> str:
     take = ""
     if card.get("take"):
         take = f"\n\n{'Do this' if card.get('take_kind') == 'do' else 'Our read'}: {plain(card['take'])}"
-    if card.get("ask"):
-        take += f"\n\nYour take: {plain(card['ask'])} Tell us in the comments."
+    # 15 Nov 2026: ONE ask. The caption had three (comment, send, link in bio) on top of the ones the voice makes,
+    # and every source we read says a second ask cancels the first. The Reel's voice already asks its question out
+    # loud, so the caption keeps only the send or save line (sends are the strongest signal we can ask for). Where
+    # the full story lives is stated as a fact, not as something to do.
     from .audience import cta_for
     from .duo_desk import is_sensitive
-    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n{cta_for(card, is_sensitive(section))}\n\n"
-            f"Full story, every claim sourced: link in bio ({domain})\n\n{reel_hashtags(section)}")
+    ask = cta_for(card, is_sensitive(section))
+    return (f"{plain(card['hook'])}\n\n{lines}{take}\n\n{ask}\n\n"
+            f"Every claim sourced at {domain}\n\n{reel_hashtags(section)}")
 
 
 def share_texts(post: dict, site: dict) -> dict[str, str]:

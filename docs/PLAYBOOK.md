@@ -140,8 +140,11 @@ renamings, opinion pieces with no event, papers with no plain-language result.
 
 STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - angle: one sentence, why a viewer should care (for the editor, not shown)
-- hook: ONE full sentence with a verb, at most 14 words. Lead with the most surprising true thing, name WHO (the
-  best-known name in the text, not a minor official) and the stakes. It must make sense to someone who has never heard
+- hook: ONE full sentence with a verb, 10 words or fewer if you can and never more than 14 (it is spoken in the
+  first 3 seconds, and most viewers have decided by then). Lead with the most surprising true thing, name WHO (the
+  best-known name in the text, not a minor official) and the stakes. Put the name or the number in the first four
+  words. It should sound like a friend telling you something, not an announcer reading a headline. No "nobody",
+  "everyone" or "most people" unless the text says so. It must make sense to someone who has never heard
   of the story. No question, no hype words, no "you won't believe".
   Bad: "35 turbines operate without permits" (no who, no stakes).
   Bad: "Zero financial payoff from AI for non-tech firms" (a label, no verb).
@@ -173,8 +176,11 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
   crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
   no puns, nothing about the people's private feelings, and the ask is about the public question.
-- cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
-  TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
+- cover: the Reel's thumbnail headline, 3 to 6 words, the one line that makes a scroller stop: the most surprising
+  TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ..."): if
+  the hook says who said it, so does the cover. It is also the big text on the Reel's first frame while the hook
+  is spoken, so do not repeat the hook word for word: give the biggest number or the best-known name and the one
+  thing that happened.
   cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
   Good: "Microsoft's AI Frontiers team is over[S1]." with cover_hi "is over".
 FACTS: use ONLY facts in the story's text below. Every sentence of hook, points and take ends with the citation
@@ -230,7 +236,9 @@ TASK: write the story as 4 short lines for Spark, the presenter, in the order a 
 
 RULES (check every line against each rule before you reply)
 1. Line 1 is the most surprising fact, at most 12 words: it is the hook and must land in the first 4 seconds.
-   Lines 2-4 add the next most interesting facts, one fact per line.
+   Lines 2-4 add the next most interesting facts, one fact per line. If the story text says what changes for
+   people or who is affected, that is line 2: a viewer who stayed past the hook is asking "why should I care?".
+   The last line brings back a name or number from line 1, so the story ends where it began.
 2. Each line: 8 to 15 words (about 5 seconds spoken; a longer line holds one picture too long). Plain everyday
    words a 12-year-old understands. Short sentences.
 3. Only facts from the story text. Never add a number, name or date that is not there.

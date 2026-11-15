@@ -367,12 +367,12 @@ def timeline(post: dict, section: dict, pl: dict) -> dict:
                       "fig": fig, "figAt": round(figure_time(timed, fig), 3) if fig else None})
     card = section.get("card") or {}
     # The hook as text from the first frame, for viewers watching muted (pilot 14 Nov, every duo from 15 Nov 2026).
-    # It is the card's cover line, which both fact-checks have passed; a hand-set hook_card wins. Seven words at most.
+    # It is the card's cover line, which both fact-checks have passed; a hand-set hook_card wins. Six words at most.
     hook_text = card.get("hook_card") or (plain(card["cover"]) if card.get("cover") else "")
     pilot = ({"hookCard": hook_text.rstrip("."), "hookUntil": round(lines[0]["end"], 2),
               **({"hookHi": card["cover_hi"]} if card.get("cover_hi") and not card.get("hook_card") else {}),
               **({"badge": card["hook_badge"]} if card.get("hook_badge") else {})}
-             if hook_text and len(hook_text.split()) <= 7 and lines else {})
+             if hook_text and len(hook_text.split()) <= 6 and lines else {})
     # Kicks (15 Nov 2026): a short shake of the picture on the word that lands, so the Reel never sits still for long.
     # One on the first frame (the hook), one on the last word of every guest line (the punchline), none on the logo card.
     solo = pl["guest"] not in GUESTS          # Spark alone has no punchlines: the kick lands as each fact ends

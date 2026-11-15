@@ -182,7 +182,8 @@ def test_queue_gets_one_reel_per_carded_story_with_a_post_time(reel_root):
     assert r["media"] == ["https://fiveminuteai.net/share/2026-10-31/reels/01.mp4"]
     assert r["scheduled_at"] == "2026-10-31T03:30:00+00:00"                  # 09:00 India time
     assert r["text"].startswith("Acme cut Nova-2 prices to $5 a month.") and "Do this: Check your plan." in r["text"]
-    assert "[S" not in r["text"] and "link in bio" in r["text"]
+    assert "[S" not in r["text"] and "Every claim sourced at fiveminuteai.net" in r["text"]
+    assert "Tell us in the comments" not in r["text"] and "link in bio" not in r["text"]   # one ask (15 Nov 2026)
 
 
 def test_approved_reel_waits_for_its_time_then_due_posts_it(reel_root):

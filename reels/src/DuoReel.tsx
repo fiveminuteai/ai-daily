@@ -76,7 +76,7 @@ const Caption: React.FC<{line: Line; lt: number; fps: number}> = ({line, lt, fps
   const words = groups[g];
   const cur = words.reduce((acc, w, k) => (w.t <= lt ? k : acc), -1);
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '6px 14px', padding: '0 70px'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '6px 14px', padding: '0 110px 0 90px'}}>
       {words.map((w, k) => {
         const shown = lt >= w.t - 0.06;
         const s = shown ? spring({frame: Math.max(0, (lt - w.t + 0.06) * fps), fps, config: {damping: 11, stiffness: 180}}) : 0;
@@ -86,7 +86,7 @@ const Caption: React.FC<{line: Line; lt: number; fps: number}> = ({line, lt, fps
         return (
           <span key={k} style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, lineHeight: 1.15, color: on ? NIGHT : lit ? YELLOW : INK,
             padding: '0 14px', borderRadius: 18, background: on ? HI[line.who] : 'transparent',
-            transform: `translateY(${(1 - s) * 26}px) scale(${0.7 + 0.3 * s})`, opacity: s,
+            transform: `translateY(${(1 - s) * 8}px) scale(${0.92 + 0.08 * s})`, opacity: 0.38 + 0.62 * s,
             textShadow: on ? 'none' : '0 4px 18px rgba(0,0,0,0.45)', display: 'inline-block'}}>{w.w}</span>
         );
       })}
@@ -166,7 +166,9 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   const camX = -focus * 40 * pan;
   // 15 Nov 2026: a punch-in on every new line (snaps in, eases back) on top of the slow push, so the picture changes
   // every few seconds at uneven intervals instead of drifting. Measured before: one big change about every 5 s.
-  const punch = onCard ? 0 : 0.05 * Math.exp(-lt / 0.45);
+  // Snap and tail (after motionmaxxing, Apache-2.0): the push is at its full size on the first frame of the line and
+  // lands over about half a second, so it reads as a cut, not a drift. The hook's own line gets none: its card slams.
+  const punch = onCard || i === 0 ? 0 : 0.05 * Math.exp(-lt / 0.45);
   const zoom = 1.04 + 0.025 * Math.min(1, lt / 3) + punch;
   // The kick: on the hook's first frame and on each punchline's last word the picture shakes for 7 frames, the
   // offset flipping sign every frame and dying away (after mromidev/claude-animated-shorts, MIT).
@@ -178,7 +180,9 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   const kickX = 14 * kick, kickR = 0.23 * kick;
   // a white flash as the hook line ends, three frames, to mark the turn into the story
   const flashAt = timeline.hookCard ? (timeline.hookUntil ?? 3.2) : -1;
-  const flash = flashAt > 0 && t >= flashAt && t < flashAt + 0.1 ? 0.5 * (1 - (t - flashAt) / 0.1) : 0;
+  // one frame up, five down, and never bright: a soft blink of light, not a strobe
+  const fl = (t - flashAt) * fps;
+  const flash = flashAt > 0 && fl >= 0 && fl < 6 ? 0.32 * (fl < 1 ? 1 : 1 - (fl - 1) / 5) : 0;
 
   const mouthAt = (who: string) => { const m = (timeline.mouth as any)[who] as number[]; return m[Math.min(m.length - 1, frame)] ?? 0; };
   const sweat = lines.find((ln) => ln.tags.includes('sweat'));
@@ -190,13 +194,22 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
     const base = {x: solo ? 540 : isSpark ? 330 : 790, y: isSpark ? 1110 : 1100, size: solo ? 440 : isSpark ? 400 : 330};
     const y = base.y + 230 * cp, size = base.size * (1 - 0.3 * cp);
     const s = talking ? 1 + 0.07 * pop : 0.95;
+    // A "take" on every change of speaker (15 Nov 2026, after huashu-motion's settle, MIT): the one who starts
+    // talking squashes and springs back from the feet, volume kept; the one listening recoils a little on each kick.
+    // Before this the characters only bobbed and talked.
+    const settle = (dt: number, amp: number, freq: number, decay: number) => dt <= 0 ? 0 : amp * Math.sin(2 * Math.PI * freq * dt) / Math.exp(decay * dt);
+    const sq = talking && !onCard ? 1 + settle(lt, -0.07, 3.5, 9) : 1;
+    const recoil = talking ? 0 : kick;
     const look = facing || solo ? 0 : isSpark ? 1 : -1;
-    const bob = Math.sin(t * 2.2 + (isSpark ? 0 : 1.7)) * 6;
+    // two sine waves of unrelated periods, a different phase each: the two never bob in step
+    const ph = isSpark ? 0 : 1.7, period = isSpark ? 2.9 : 3.7;
+    const bob = 6 * (0.75 * Math.sin(2 * Math.PI * t / period + ph) + 0.25 * Math.sin(2 * Math.PI * t / (period * 0.53) + ph * 1.7));
     const vis = shapeAt((timeline.visemes || {})[who], t);
     const props = {t, mouth: mouthAt(who), talking, look, pop: talking ? 1 - pop : 0, vis};
     return (
       <div key={who} style={{position: 'absolute', left: base.x - size / 2, top: y - size + bob, width: size, height: size * 1.05,
-        transform: `scale(${s})`, transformOrigin: '50% 100%', opacity: talking || onCard ? 1 : 0.92,
+        transform: `translateX(${(isSpark ? -1 : 1) * 10 * recoil}px) rotate(${(isSpark ? -1 : 1) * 2.2 * recoil}deg) scale(${s / sq}, ${s * sq})`,
+        transformOrigin: '50% 100%', opacity: talking || onCard ? 1 : 0.92,
         filter: talking || onCard ? 'none' : 'brightness(0.94)'}}>
         {isSpark ? <Spark {...props} sweat={sweatT} /> : guest === 'rex' ? <Rex {...props} /> : <Doubt {...props} />}
       </div>
@@ -229,7 +242,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
       <AbsoluteFill style={{transform: `translateX(${camX + kickX}px) scale(${zoom}) rotate(${kickR}deg)`}}>
         <Background t={t} i={i} since={lt} />
         {/* header */}
-        <div style={{position: 'absolute', left: 130, right: 130, top: 290, opacity: 1 - cp}}>{/* 130: the punch-in zoom must not carry it past x 80 */}
+        <div style={{position: 'absolute', left: 130, right: 150, top: 290,
+          opacity: (1 - cp) * interpolate(t, [3.0, 3.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>{/* 130: the punch-in zoom must not carry it past x 80 */}
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 32, letterSpacing: 1, color: YELLOW}}>{timeline.site}</span>
             <span style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 28, color: INK, border: `3px solid ${INK}cc`, borderRadius: 30, padding: '6px 24px'}}>{timeline.label}</span>
@@ -275,12 +289,12 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
           overshoot; the words the writer marked (hookHi) are lit. It sits OUTSIDE the camera layer: the zoom, pan
           and kick carried it past the safe zone on the first frames (seen in the 15 Nov test render). */}
       {timeline.hookCard && t < (timeline.hookUntil ?? 3.2) + 0.4 && !onCard && (() => {
-        const settle = spring({frame, fps, config: {damping: 9, stiffness: 260}});
+        const settle = spring({frame: frame + 6, fps, config: {mass: 0.8, damping: 18, stiffness: 160}});
         const text: string = timeline.hookCard, hi: string = timeline.hookHi || '';
         const at = hi ? text.toLowerCase().indexOf(hi.toLowerCase()) : -1;
         return (
           <div style={{position: 'absolute', left: 100, right: 100, top: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18,
-            transform: `scale(${1.05 - 0.05 * settle})`,
+            transform: `scale(${1.12 - 0.12 * settle})`,
             opacity: interpolate(t, [(timeline.hookUntil ?? 3.2), (timeline.hookUntil ?? 3.2) + 0.4], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
             {timeline.badge && <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 34, letterSpacing: 2, color: NIGHT, background: '#FF845F',
               borderRadius: 26, padding: '8px 26px'}}>{timeline.badge}</span>}

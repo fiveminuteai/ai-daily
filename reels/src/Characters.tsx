@@ -5,10 +5,19 @@ import React from 'react';
 export type Vis = {open: number; wide: number; teeth: number; tongue: number};
 type Props = {t: number; mouth: number; talking: boolean; look: number; pop: number; sweat?: number; vis?: Vis | null};
 
+// Blinks (15 Nov 2026). They came every 3.6 s exactly, which reads as a machine. Now each character blinks at its own
+// uneven moments, 0.9 to 4.2 s apart (the spacing comes from a fixed hash, so every render is the same), and the lid
+// takes four frames: half, shut, shut, half (after mromidev/claude-animated-shorts, MIT).
+const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+const LID = [0.5, 1, 1, 0.5];
 const blink = (t: number, seed: number) => {
-  const period = 3.6 + seed * 0.7;
-  const ph = (t + seed * 1.3) % period;
-  return ph < 0.12 ? 1 - Math.abs(ph - 0.06) / 0.06 : 0;   // 0 open .. 1 shut
+  const f = Math.floor(t * 30);
+  let at = Math.round(20 + 40 * hash(seed * 31 + 1));
+  for (let i = 0; at <= f && i < 400; i++) {
+    if (f - at < 4) return LID[f - at];
+    at += Math.round(27 + 99 * hash(seed * 31 + i * 7 + 2));
+  }
+  return 0;   // 0 open .. 1 shut
 };
 
 export const Spark: React.FC<Props> = ({t, mouth, talking, look, pop, sweat = 0, vis}) => {

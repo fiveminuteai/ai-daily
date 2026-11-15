@@ -37,6 +37,11 @@ growth:
   youtube: true
   daily_carousel: true        # 9 Nov 2026, Pavan: carousels, posts and Reels every day (posts at schedule.carousel)
 
+# One test at a time, on one Reel a day (fma/experiment.py). The 4th Reel ends on its question and the name, without
+# the tagline and comeback; the learning loop compares it with the others ("test arm") under its usual guards.
+# Delete this block, or let `until` pass, to stop the test.
+experiment: {arm: short-close, reel: 4, until: "2026-12-06", why: "every source says end on the payoff with one ask; ours adds three lines"}
+
 # When things run, India time. The Clock workflow (fma/clock.py) starts each one; the control app edits these.
 # daily: 03:00-07:00. reels: 1-5 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a
 # change only shapes new queues, never Reels already queued. stats: 20:00-23:45, after the last Reel. The crons in

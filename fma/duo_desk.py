@@ -352,7 +352,9 @@ FACTS_TASK = """TASK: write the story as 4 short lines for Spark, the presenter,
 
 RULES (check every line against each rule before you reply)
 1. Line 1 is the most surprising fact, at most 12 words: it is the hook and must land in the first 4 seconds.
-   Lines 2-4 add the next most interesting facts, one fact per line.
+   Lines 2-4 add the next most interesting facts, one fact per line. If the story text says what changes for
+   people or who is affected, that is line 2: a viewer who stayed past the hook is asking "why should I care?".
+   The last line brings back a name or number from line 1, so the story ends where it began.
 2. Each line: 8 to 15 words (about 5 seconds spoken; a longer line holds one picture too long). Plain everyday
    words a 12-year-old understands. Short sentences.
 3. Only facts from the story text. Never add a number, name or date that is not there.
@@ -890,6 +892,12 @@ def script(card: dict, outro: str, pick: int = 0) -> tuple[str, list[tuple]]:
     lines = [(guest if ln["who"] == "guest" else "spark", ln["text"], *ln.get("fx", [])) for ln in duo["lines"]]
     close = ((card.get("ask") or "").strip() + " " + outro).strip()
     lines.append(("spark", close))
+    if card.get("arm") == "short-close":
+        # A test arm (15 Nov 2026, config "experiment"): the Reel ends on the question and the name, without the
+        # tagline and comeback. Every source we read says end on the payoff with one ask; ours ends with three
+        # more lines. Measured against the normal close by the learning loop's "test arm" feature.
+        lines.append(SIGN_OFF[0])
+        return guest, lines
     if guest == "solo":                  # 8 Nov 2026, Pavan: a straight report, Spark alone, no jokes: just the name
         lines.append(SIGN_OFF[0])
     else:

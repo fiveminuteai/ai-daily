@@ -35,6 +35,10 @@ PRONOUNCE = {
     r"\$(\d+(?:\.\d+)?)\s?([TBM])\b": lambda m: f"{m.group(1)} {dict(T='trillion', B='billion', M='million')[m.group(2)]} dollars",
     r"\$(\d+(?:\.\d+)?)\s?(billion|million|trillion)\b": r"\1 \2 dollars",
     r"\$(\d+(?:\.\d+)?)": r"\1 dollars",
+    r"\b1 dollars\b": "1 dollar",
+    # 15 Nov 2026: a plain range is read "to" ("70-78 percent"; other Kokoro front-ends read the dash as "minus").
+    # Only short numbers on both sides, so a date (2026-11-15) or a model name (GPT-4-turbo) is left alone.
+    r"(?<![\d.-])(\d{1,3}(?:\.\d+)?)\s?[-–]\s?(\d{1,3}(?:\.\d+)?)(?![\d-])": r"\1 to \2",
     # decimals digit by digit (5 Nov 2026: "$11.5 billion" was heard as "11 billion, 5 billion"); x.0 drops the 0
     r"(\d+)\.0\b": r"\1",
     r"(\d+)\.(\d+)": lambda m: f"{m.group(1)} point {' '.join(m.group(2))}",

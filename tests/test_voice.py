@@ -24,3 +24,13 @@ def test_no_published_duo_line_is_spoken_with_a_dollar_sign_or_a_thousands_comma
                 if re.search(r"\$|\d,\d", spoken(t)):
                     bad.append((f.name, spoken(t)))
     assert not bad, bad[:5]
+
+
+def test_a_plain_range_is_read_to_and_one_dollar_is_singular():
+    from fma.voice import spoken
+    assert spoken("It cut costs by 70-78 percent[S1].") == "It cut costs by 70 to 78 percent."
+    assert spoken("The vote was 3-2.") == "The vote was 3 to 2."
+    assert spoken("It costs $1 a day.") == "It costs 1 dollar a day."
+    assert spoken("Released on 2026-11-15.") == "Released on 2026-11-15."          # a date is left alone
+    assert "G P T 4" in spoken("GPT-4 is older.") and " to " not in spoken("GPT-4 is older.")
+    assert spoken("Shares rose 2.5-3.5 percent.") == "Shares rose 2 point 5 to 3 point 5 percent."

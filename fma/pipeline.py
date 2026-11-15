@@ -296,6 +296,8 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                 from .duo_desk import top_up
                 from .social_queue import reel_slots
                 post = top_up(chain, post, len(reel_slots(site)))
+                from .experiment import assign
+                post = assign(post, site, len(reel_slots(site)))      # the day's one test Reel, if a test is on
             post, _repeats = dedupe_sentences(post)  # 9 Nov 2026: a repeated sentence is removed, never published
             fails = run_gate(post, report, pipe, recent, http=http, skip_links=skip_links)
             if fails and soft_only(fails) and not run_gate(post, report, {**pipe, **SHORT_EDITION}, recent, http=http,

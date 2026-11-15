@@ -47,8 +47,11 @@ renamings, opinion pieces with no event, papers with no plain-language result.
 
 STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 - angle: one sentence, why a viewer should care (for the editor, not shown)
-- hook: ONE full sentence with a verb, at most 14 words. Lead with the most surprising true thing, name WHO (the
-  best-known name in the text, not a minor official) and the stakes. It must make sense to someone who has never heard
+- hook: ONE full sentence with a verb, 10 words or fewer if you can and never more than 14 (it is spoken in the
+  first 3 seconds, and most viewers have decided by then). Lead with the most surprising true thing, name WHO (the
+  best-known name in the text, not a minor official) and the stakes. Put the name or the number in the first four
+  words. It should sound like a friend telling you something, not an announcer reading a headline. No "nobody",
+  "everyone" or "most people" unless the text says so. It must make sense to someone who has never heard
   of the story. No question, no hype words, no "you won't believe".
   Bad: "35 turbines operate without permits" (no who, no stakes).
   Bad: "Zero financial payoff from AI for non-tech firms" (a label, no verb).
@@ -62,8 +65,11 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
 {AUDIENCE}- TONE (9 Nov 2026): plain and decent. On a story about someone's private life (an affair, a family, a death, a
   crime), say only what happened and why it matters to the company or the public: no wordplay, no "romance",
   no puns, nothing about the people's private feelings, and the ask is about the public question.
-- cover: the Reel's thumbnail headline, 3 to 7 words, the one line that makes a scroller stop: the most surprising
-  TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
+- cover: the Reel's thumbnail headline, 3 to 6 words, the one line that makes a scroller stop: the most surprising
+  TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ..."): if
+  the hook says who said it, so does the cover. It is also the big text on the Reel's first frame while the hook
+  is spoken, so do not repeat the hook word for word: give the biggest number or the best-known name and the one
+  thing that happened.
   cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
   Good: "Microsoft's AI Frontiers team is over[S1]." with cover_hi "is over".
 FACTS: use ONLY facts in the story's text below. Every sentence of hook, points and take ends with the citation
@@ -144,9 +150,14 @@ def script(chain, section: dict, sources: list[dict], lessons: list[dict] | None
             return None
         card.update(hook=tidy(card["hook"]), points=[tidy(p) for p in card["points"]][:3], take=tidy(card.get("take")))
         weak = hook_problems(card["hook"])
-        if weak and _try == 0:
-            prompt = base + "\n\nYOUR HOOK WASTES THE FIRST SECOND. Rewrite it: " + "; ".join(weak)
+        stale = style_problems(card)
+        if (weak or stale) and _try == 0:
+            prompt = base + (("\n\nYOUR HOOK WASTES THE FIRST SECOND. Rewrite it: " + "; ".join(weak)) if weak else "") \
+                + (("\n\nSOME LINES SOUND MACHINE-WRITTEN OR LIKE BAIT. Rewrite them in plain words, same facts and "
+                    "citations: " + "; ".join(stale[:5])) if stale else "")
             continue
+        if stale:                # still there after one rewrite: the card is kept (a Reel beats none) and it is logged
+            log.warning("Reel card for %r keeps a stock phrase: %s", section.get("title"), "; ".join(stale[:3]))
         long = [f"{plain_text(w)!r} ({len(plain_text(w).split())} words, limit {lim})"
                 for w, lim in [(card["hook"], 14), *[(p, 18) for p in card["points"]], (card.get("take"), 22)]
                 if w and len(plain_text(w).split()) > lim]
@@ -180,6 +191,35 @@ def hook_problems(hook: str) -> list[str]:
     if first and not any((w[:1].isupper() and w not in STARTERS) or any(ch.isdigit() for ch in w) for w in first):
         out.append("name who or what in the first six words (a company, a person, a product or a number)")
     return out
+
+
+# Phrases that mark a line as machine-written or as bait (15 Nov 2026, after the "AI tells" list in
+# coreyhaines31/marketingskills, MIT, and what the six Reels Pavan shared avoid). A reader who spots one stops
+# trusting the line next to it. Checked on every card line; a card with one is sent back once, never lost for it.
+TELLS = [(re.compile(p, re.I), why) for p, why in [
+    (r"\b(it'?s|this is|that'?s) not (just |only )?[^.,;]{2,40}[,;.] ?(it'?s|this is|that'?s|but)\b", 'the "it\'s not X, it\'s Y" turn'),
+    (r"\bthe (result|catch|twist|best part|kicker|bottom line|takeaway)\s*[?:]", "a reveal after a question mark or colon"),
+    (r"\u2014", "an em dash"),
+    (r"\b(game[- ]?chang\w+|changes everything|nobody is talking about|you won'?t believe|mind[- ]?blowing|"
+     r"marks? a (pivotal|turning) (moment|point)|pave[sd]? the way|shed[s]? light on|groundbreaking|"
+     r"ever[- ]evolving|in today'?s (fast[- ]paced )?world|let that sink in)\b", "a stock hype phrase"),
+    (r"\b(unveil\w*|delve\w*|tapestry|testament to|supercharg\w+|turbocharg\w+|seamless\w*|revolutioni[sz]\w+)\b",
+     "a press-release word"),
+    (r"^(here'?s the thing|the truth is|let'?s be honest|make no mistake)\b", "a throat-clearing opener"),
+    (r"\b(thoughts|agree)\?\s*$", 'an empty ask ("Thoughts?", "Agree?")'),
+]]
+
+
+def style_problems(card: dict) -> list[str]:
+    """Machine-sounding or baity phrasing in any line of a card, as short instructions for a rewrite."""
+    out = []
+    for key in ("hook", "points", "take", "ask", "cover"):
+        for text in (card.get(key) if isinstance(card.get(key), list) else [card.get(key)]):
+            t = plain_text(text or "")
+            for pat, why in TELLS:
+                if t and pat.search(t):
+                    out.append(f"{key} uses {why}; say it plainly: {t[:70]!r}")
+    return list(dict.fromkeys(out))
 
 
 def tidy(t: str | None) -> str | None:

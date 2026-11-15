@@ -55,6 +55,8 @@ def description_for(caption: str, site: dict, date: str) -> str:
     url = f"{site['base_url']}"
     text = re.sub(r"Full story, every claim sourced: link in bio \([^)]*\)",
                   f"Full story, every claim sourced: {url}", caption)
+    # 15 Nov 2026: Reel captions now say "Every claim sourced at fiveminuteai.net"; YouTube gets the clickable link
+    text = re.sub(r"Every claim sourced at [^\s]+", f"Every claim sourced: {url}", text)
     return (text + "\n\n#Shorts")[:DESC_MAX]
 
 

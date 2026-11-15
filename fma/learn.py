@@ -120,14 +120,24 @@ def _z(values: list[float]) -> list[float]:
 
 
 def _score(rows: list[dict]) -> None:
-    """The fixed outcome: 0.6 z(watch time) + 0.4 z(log reach); a Reel without watch time counts reach only."""
+    """The fixed outcome. With the share that stayed past the first seconds (15 Nov 2026: that is where 60% of
+    viewers leave, and the loop was not looking at it): 0.5 z(stayed) + 0.3 z(watch time) + 0.2 z(log reach).
+    Without it: 0.6 z(watch time) + 0.4 z(log reach), as before; a Reel without watch time counts reach only.
+    Sends, saves and comments are reported (fma/multiplier.py) but not learned from: at about 100 viewers a Reel
+    they are almost always zero, and no number of Reels we can post would tell a real difference from luck."""
     if not rows:
         return
     zr = _z([math.log1p(r["reach"]) for r in rows])
     watched = [r for r in rows if r["watch_s"] is not None]
     zw = dict(zip([r["id"] for r in watched], _z([r["watch_s"] for r in watched]))) if watched else {}
+    held = [r for r in rows if r.get("skip") is not None and r["watch_s"] is not None]
+    zh = dict(zip([r["id"] for r in held], _z([1 - (r["skip"] / 100 if r["skip"] > 1 else r["skip"]) for r in held]))) \
+        if len(held) >= 2 else {}
     for r, z in zip(rows, zr):
-        r["outcome"] = round(0.6 * zw[r["id"]] + 0.4 * z if r["id"] in zw else z, 3)
+        if r["id"] in zh:
+            r["outcome"] = round(0.5 * zh[r["id"]] + 0.3 * zw[r["id"]] + 0.2 * z, 3)
+        else:
+            r["outcome"] = round(0.6 * zw[r["id"]] + 0.4 * z if r["id"] in zw else z, 3)
 
 
 def _ist_hhmm(iso: str | None) -> str | None:
