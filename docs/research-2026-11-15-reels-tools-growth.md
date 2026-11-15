@@ -231,6 +231,17 @@ lipsync-engine, hexgrad/kokoro, motion-video-kit, ffmpeg-skill, huashu-motion, t
 - Meme sound effects.
 - Unofficial auto-posting or auto-DM tools.
 
+## F2. Corrections from the social-media engine (Chakra, 15 Nov, after it measured 16 of its own Reels)
+- **Follows per reach can't be a per-Reel metric:** the Instagram API gives no follows for a single Reel. Use reach
+  (or account-level follows per day) instead.
+- **Stillness is a number to test, not a universal gate.** Teaching Reels that hold a query on screen measured
+  64-93% still; whether that costs them views is unproven. For FMA's news Reels the gate still makes sense, because
+  our own data shows plain (still) Reels doing worse.
+- **Day 11 is right for the multiplier report but too slow for rule learning** on a small page; Chakra starts rule
+  standings at 48 h.
+- **Comment-keyword CTAs sit close to Meta's engagement-bait rule,** and re-uploading the same file conflicts with
+  Instagram's originality rules: a re-run must be a new cut. Both stay pilots that need Pavan's OK.
+
 ## G. Safety notes for anyone using these repos later
 - Read through the API, or clone shallow into an empty folder with `-c core.hooksPath=/dev/null`, then run
   `python -I -X utf8 docs/pilots/skillscan.py <dir>` before reading anything in it.
