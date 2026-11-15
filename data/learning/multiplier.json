@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T18:02:00+00:00",
+ "updated": "2026-11-15T22:42:24+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
@@ -47,9 +47,9 @@
    "hook": "You can now text Alexa to find and buy things on Amazon.",
    "judged": "early",
    "x": {
-    "reach": 1.05,
-    "watch_s": 1.91,
-    "held": 1.44,
+    "reach": 1.06,
+    "watch_s": 1.89,
+    "held": 1.42,
     "sent_saved": null
    },
    "overall": 1.42,

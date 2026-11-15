@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T18:02:00+00:00",
+ "updated": "2026-11-15T22:42:24+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -20,7 +20,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 359.9,
+   "age_h": 364.6,
    "skip": 82.4,
    "outcome": -0.455
   },
@@ -43,9 +43,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 359.9,
+   "age_h": 364.5,
    "skip": 84.3,
-   "outcome": -0.685
+   "outcome": -0.686
   },
   {
    "id": "2026-10-31-reel-3",
@@ -66,9 +66,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 359.8,
+   "age_h": 364.5,
    "skip": 87.1,
-   "outcome": -0.662
+   "outcome": -0.663
   },
   {
    "id": "2026-11-01-reel-1",
@@ -89,9 +89,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 348.0,
+   "age_h": 352.7,
    "skip": 97.4,
-   "outcome": -1.213
+   "outcome": -1.214
   },
   {
    "id": "2026-11-01-reel-2",
@@ -112,7 +112,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 346.2,
+   "age_h": 350.9,
    "skip": 87.5,
    "outcome": -0.712
   },
@@ -135,9 +135,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 340.2,
+   "age_h": 344.9,
    "skip": 95.7,
-   "outcome": -1.215
+   "outcome": -1.216
   },
   {
    "id": "2026-11-02-reel-1",
@@ -158,9 +158,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 326.5,
+   "age_h": 331.2,
    "skip": 89.1,
-   "outcome": -0.679
+   "outcome": -0.68
   },
   {
    "id": "2026-11-02-reel-2",
@@ -181,9 +181,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 322.5,
+   "age_h": 327.2,
    "skip": 89.2,
-   "outcome": -0.399
+   "outcome": -0.398
   },
   {
    "id": "2026-11-02-reel-3",
@@ -204,9 +204,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 316.5,
+   "age_h": 321.2,
    "skip": 71.4,
-   "outcome": -0.065
+   "outcome": -0.063
   },
   {
    "id": "2026-11-03-reel-1",
@@ -227,9 +227,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 302.0,
+   "age_h": 306.7,
    "skip": 53.8,
-   "outcome": 0.178
+   "outcome": 0.179
   },
   {
    "id": "2026-11-03-reel-2",
@@ -250,7 +250,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 298.5,
+   "age_h": 303.2,
    "skip": 82.4,
    "outcome": -0.754
   },
@@ -273,9 +273,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 292.5,
+   "age_h": 297.2,
    "skip": 100,
-   "outcome": -1.247
+   "outcome": -1.249
   },
   {
    "id": "2026-11-04-reel-1",
@@ -296,7 +296,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 277.0,
+   "age_h": 281.6,
    "skip": 85.7,
    "outcome": -0.748
   },
@@ -319,7 +319,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 274.5,
+   "age_h": 279.2,
    "skip": 95,
    "outcome": -1.065
   },
@@ -342,9 +342,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 268.5,
+   "age_h": 273.2,
    "skip": 71.4,
-   "outcome": -0.325
+   "outcome": -0.324
   },
   {
    "id": "2026-11-05-reel-1",
@@ -365,7 +365,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 254.5,
+   "age_h": 259.2,
    "skip": 80,
    "outcome": -0.872
   },
@@ -388,9 +388,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 250.5,
+   "age_h": 255.2,
    "skip": 94.4,
-   "outcome": -1.394
+   "outcome": -1.395
   },
   {
    "id": "2026-11-06-reel-1",
@@ -411,9 +411,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 226.5,
+   "age_h": 231.2,
    "skip": 58.3,
-   "outcome": 0.956
+   "outcome": 0.958
   },
   {
    "id": "2026-11-06-reel-2",
@@ -434,9 +434,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 220.5,
+   "age_h": 225.2,
    "skip": 58.4,
-   "outcome": 0.891
+   "outcome": 0.893
   },
   {
    "id": "2026-11-06-reel-3",
@@ -457,9 +457,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 206.5,
+   "age_h": 211.2,
    "skip": 53.4,
-   "outcome": 0.848
+   "outcome": 0.849
   },
   {
    "id": "2026-11-07-reel-1",
@@ -480,9 +480,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 202.5,
+   "age_h": 207.2,
    "skip": 45.3,
-   "outcome": 1.273
+   "outcome": 1.275
   },
   {
    "id": "2026-11-07-reel-2",
@@ -503,9 +503,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 199.5,
+   "age_h": 204.2,
    "skip": 60.8,
-   "outcome": 0.459
+   "outcome": 0.46
   },
   {
    "id": "2026-11-07-reel-3",
@@ -521,14 +521,14 @@
    "pain": "untagged",
    "pace": "slow",
    "hook_type": "untagged",
-   "reach": 117,
-   "watch_s": 10.8,
+   "reach": 118,
+   "watch_s": 10.7,
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 196.5,
-   "skip": 42,
-   "outcome": 1.634
+   "age_h": 201.2,
+   "skip": 42.5,
+   "outcome": 1.613
   },
   {
    "id": "2026-11-08-reel-2",
@@ -549,9 +549,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 178.5,
+   "age_h": 183.2,
    "skip": 58.4,
-   "outcome": 0.476
+   "outcome": 0.477
   },
   {
    "id": "2026-11-08-reel-3",
@@ -572,9 +572,9 @@
    "shares": 0,
    "saved": 2,
    "comments": 0,
-   "age_h": 175.5,
+   "age_h": 180.2,
    "skip": 62.3,
-   "outcome": 0.414
+   "outcome": 0.415
   },
   {
    "id": "2026-11-09-reel-1",
@@ -595,9 +595,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 155.1,
+   "age_h": 159.8,
    "skip": 45.1,
-   "outcome": 1.368
+   "outcome": 1.37
   },
   {
    "id": "2026-11-09-reel-2",
@@ -618,9 +618,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 148.5,
+   "age_h": 153.2,
    "skip": 61.2,
-   "outcome": 0.475
+   "outcome": 0.476
   },
   {
    "id": "2026-11-09-reel-3",
@@ -641,9 +641,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 144.5,
+   "age_h": 149.2,
    "skip": 83.7,
-   "outcome": -0.763
+   "outcome": -0.764
   },
   {
    "id": "2026-11-10-reel-1",
@@ -664,9 +664,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 134.5,
+   "age_h": 139.2,
    "skip": 61.8,
-   "outcome": 0.118
+   "outcome": 0.119
   },
   {
    "id": "2026-11-10-reel-2",
@@ -687,7 +687,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 130.5,
+   "age_h": 135.2,
    "skip": 60.2,
    "outcome": 0.377
   },
@@ -710,9 +710,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 127.5,
+   "age_h": 132.2,
    "skip": 35.6,
-   "outcome": 1.966
+   "outcome": 1.97
   },
   {
    "id": "2026-11-11-reel-1",
@@ -733,9 +733,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 110.5,
+   "age_h": 115.2,
    "skip": 62.4,
-   "outcome": 0.576
+   "outcome": 0.577
   },
   {
    "id": "2026-11-11-reel-2",
@@ -756,9 +756,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 106.5,
+   "age_h": 111.2,
    "skip": 76.9,
-   "outcome": -0.38
+   "outcome": -0.381
   },
   {
    "id": "2026-11-11-reel-3",
@@ -779,9 +779,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 103.5,
+   "age_h": 108.2,
    "skip": 59,
-   "outcome": 0.855
+   "outcome": 0.857
   },
   {
    "id": "2026-11-12-reel-1",
@@ -802,7 +802,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 86.5,
+   "age_h": 91.2,
    "skip": 57.4,
    "outcome": 0.219
   },
@@ -825,9 +825,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 82.5,
+   "age_h": 87.2,
    "skip": 61.5,
-   "outcome": 0.495
+   "outcome": 0.496
   },
   {
    "id": "2026-11-12-reel-3",
@@ -848,7 +848,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 79.5,
+   "age_h": 84.2,
    "skip": 67.6,
    "outcome": 0.058
   }
@@ -882,7 +882,7 @@
    "n": 9,
    "n_rest": 28,
    "mean": 0.26,
-   "effect": 0.18,
+   "effect": 0.19,
    "se": 0.33,
    "held_out": true,
    "confident": false
@@ -892,8 +892,8 @@
    "value": "products",
    "n": 13,
    "n_rest": 24,
-   "mean": -0.0,
-   "effect": -0.0,
+   "mean": -0.01,
+   "effect": -0.01,
    "se": 0.3,
    "held_out": true,
    "confident": false
@@ -1002,7 +1002,7 @@
    "value": "19:00",
    "n": 8,
    "n_rest": 29,
-   "mean": -0.06,
+   "mean": -0.07,
    "effect": -0.04,
    "se": 0.34,
    "held_out": null,
@@ -1212,7 +1212,7 @@
    "n": 13,
    "n_rest": 24,
    "mean": 0.62,
-   "effect": 0.59,
+   "effect": 0.58,
    "se": 0.3,
    "held_out": true,
    "confident": false

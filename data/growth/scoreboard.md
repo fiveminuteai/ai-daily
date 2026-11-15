@@ -16,5 +16,5 @@ Median reach per Reel: 112 (last week 54). Comments: 0.
 
 Best Reels this week (by watch time):
 - Anthropic's new Claude Fable 5.2 is out, and cheaper than before. (12.1 s, reach 116, skip 35.6%)
-- Nvidia kept GPU prices high with circular financing deals. (9.8 s, reach 198, skip 35.1%)
+- Nvidia kept GPU prices high with circular financing deals. (9.7 s, reach 222, skip 34.4%)
 - Nvidia's board is investigating CEO Jensen Huang's link to a suspected (8.9 s, reach 140, skip 45.1%)
