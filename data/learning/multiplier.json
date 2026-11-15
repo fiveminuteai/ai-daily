@@ -1,0 +1,803 @@
+{
+ "updated": "2026-11-15T18:02:00+00:00",
+ "window_days": 90,
+ "judged_at_days": 11,
+ "medians": {
+  "duo": {
+   "n": 20,
+   "reach": 111.5,
+   "watch_s": 5.65,
+   "held": 0.404,
+   "sent_saved": 0.0
+  },
+  "plain": {
+   "n": 17,
+   "reach": 32,
+   "watch_s": 3.8,
+   "held": 0.129,
+   "sent_saved": 0.0
+  }
+ },
+ "reels": [
+  {
+   "id": "2026-11-10-reel-3",
+   "date": "2026-11-10",
+   "kind": "duo",
+   "hook": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
+   "judged": "early",
+   "x": {
+    "reach": 1.04,
+    "watch_s": 2.14,
+    "held": 1.59,
+    "sent_saved": null
+   },
+   "overall": 1.52,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-07-reel-3",
+   "date": "2026-11-07",
+   "kind": "duo",
+   "hook": "You can now text Alexa to find and buy things on Amazon.",
+   "judged": "early",
+   "x": {
+    "reach": 1.05,
+    "watch_s": 1.91,
+    "held": 1.44,
+    "sent_saved": null
+   },
+   "overall": 1.42,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-09-reel-1",
+   "date": "2026-11-09",
+   "kind": "duo",
+   "hook": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
+   "judged": "early",
+   "x": {
+    "reach": 1.26,
+    "watch_s": 1.58,
+    "held": 1.36,
+    "sent_saved": null
+   },
+   "overall": 1.39,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "12:25"
+  },
+  {
+   "id": "2026-10-31-reel-1",
+   "date": "2026-10-31",
+   "kind": "plain",
+   "hook": "A hacked Claude Code update reached up to 5,000 developers.",
+   "judged": "final",
+   "x": {
+    "reach": 1.56,
+    "watch_s": 1.16,
+    "held": 1.36,
+    "sent_saved": null
+   },
+   "overall": 1.35,
+   "category": "products",
+   "player": "rivalry",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-07-reel-1",
+   "date": "2026-11-07",
+   "kind": "duo",
+   "hook": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
+   "judged": "early",
+   "x": {
+    "reach": 1.2,
+    "watch_s": 1.45,
+    "held": 1.35,
+    "sent_saved": null
+   },
+   "overall": 1.33,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-03-reel-1",
+   "date": "2026-11-03",
+   "kind": "plain",
+   "hook": "Anthropic tells investors its AI may soon speed up its own progress.",
+   "judged": "final",
+   "x": {
+    "reach": 0.38,
+    "watch_s": 1.39,
+    "held": 3.58,
+    "sent_saved": null
+   },
+   "overall": 1.24,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-06-reel-2",
+   "date": "2026-11-06",
+   "kind": "duo",
+   "hook": "Meta says the midterm results will make data centres harder to build.",
+   "judged": "early",
+   "x": {
+    "reach": 1.2,
+    "watch_s": 1.45,
+    "held": 1.03,
+    "sent_saved": null
+   },
+   "overall": 1.21,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-06-reel-1",
+   "date": "2026-11-06",
+   "kind": "duo",
+   "hook": "Claude can now read your bank accounts, but it can't move money.",
+   "judged": "early",
+   "x": {
+    "reach": 1.06,
+    "watch_s": 1.59,
+    "held": 1.03,
+    "sent_saved": null
+   },
+   "overall": 1.2,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "brisk",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-10-31-reel-3",
+   "date": "2026-10-31",
+   "kind": "plain",
+   "hook": "An AI coding agent sent Pentagon system logins to a risky website.",
+   "judged": "final",
+   "x": {
+    "reach": 1.81,
+    "watch_s": 0.92,
+    "held": 1.0,
+    "sent_saved": null
+   },
+   "overall": 1.19,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-11-reel-3",
+   "date": "2026-11-11",
+   "kind": "duo",
+   "hook": "Anthropic founders will sell shares worth nearly $250 million.",
+   "judged": "early",
+   "x": {
+    "reach": 1.17,
+    "watch_s": 1.43,
+    "held": 1.01,
+    "sent_saved": null
+   },
+   "overall": 1.19,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-02-reel-2",
+   "date": "2026-11-02",
+   "kind": "plain",
+   "hook": "Zero financial payoff from AI for non‑tech firms.",
+   "judged": "final",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 1.97,
+    "held": 0.84,
+    "sent_saved": null
+   },
+   "overall": 1.18,
+   "category": "tools",
+   "player": "other",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-01-reel-2",
+   "date": "2026-11-01",
+   "kind": "plain",
+   "hook": "OpenAI cut its funding goal to $20 billion.",
+   "judged": "final",
+   "x": {
+    "reach": 1.88,
+    "watch_s": 0.82,
+    "held": 0.97,
+    "sent_saved": null
+   },
+   "overall": 1.14,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-02-reel-1",
+   "date": "2026-11-02",
+   "kind": "plain",
+   "hook": "35 turbines operate without permits.",
+   "judged": "final",
+   "x": {
+    "reach": 1.69,
+    "watch_s": 1.05,
+    "held": 0.84,
+    "sent_saved": null
+   },
+   "overall": 1.14,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-10-31-reel-2",
+   "date": "2026-10-31",
+   "kind": "plain",
+   "hook": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
+   "judged": "final",
+   "x": {
+    "reach": 1.53,
+    "watch_s": 0.76,
+    "held": 1.22,
+    "sent_saved": null
+   },
+   "overall": 1.12,
+   "category": "impact",
+   "player": "other",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-06-reel-3",
+   "date": "2026-11-06",
+   "kind": "duo",
+   "hook": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
+   "judged": "early",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 1.22,
+    "held": 1.15,
+    "sent_saved": null
+   },
+   "overall": 1.12,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-11-reel-1",
+   "date": "2026-11-11",
+   "kind": "duo",
+   "hook": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
+   "judged": "early",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 1.2,
+    "held": 0.93,
+    "sent_saved": null
+   },
+   "overall": 1.04,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "money",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-12-reel-2",
+   "date": "2026-11-12",
+   "kind": "duo",
+   "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover",
+   "judged": "early",
+   "x": {
+    "reach": 1.09,
+    "watch_s": 1.01,
+    "held": 0.95,
+    "sent_saved": null
+   },
+   "overall": 1.02,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-09-reel-2",
+   "date": "2026-11-09",
+   "kind": "duo",
+   "hook": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports.",
+   "judged": "early",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 0.99,
+    "held": 0.96,
+    "sent_saved": null
+   },
+   "overall": 0.98,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-07-reel-2",
+   "date": "2026-11-07",
+   "kind": "duo",
+   "hook": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
+   "judged": "early",
+   "x": {
+    "reach": 0.93,
+    "watch_s": 0.97,
+    "held": 0.97,
+    "sent_saved": null
+   },
+   "overall": 0.96,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-08-reel-3",
+   "date": "2026-11-08",
+   "kind": "duo",
+   "hook": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
+   "judged": "early",
+   "x": {
+    "reach": 0.98,
+    "watch_s": 0.96,
+    "held": 0.93,
+    "sent_saved": null
+   },
+   "overall": 0.96,
+   "category": "tools",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-02-reel-3",
+   "date": "2026-11-02",
+   "kind": "plain",
+   "hook": "Only $50 for a barely functional AI pocket watch.",
+   "judged": "final",
+   "x": {
+    "reach": 0.16,
+    "watch_s": 2.42,
+    "held": 2.22,
+    "sent_saved": null
+   },
+   "overall": 0.95,
+   "category": "impact",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-08-reel-2",
+   "date": "2026-11-08",
+   "kind": "duo",
+   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+   "judged": "early",
+   "x": {
+    "reach": 0.95,
+    "watch_s": 0.88,
+    "held": 1.03,
+    "sent_saved": null
+   },
+   "overall": 0.95,
+   "category": "research",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-04-reel-1",
+   "date": "2026-11-04",
+   "kind": "plain",
+   "hook": "Google says schools that switch off its AI will lose Google Search too.",
+   "judged": "final",
+   "x": {
+    "reach": 0.62,
+    "watch_s": 1.16,
+    "held": 1.11,
+    "sent_saved": null
+   },
+   "overall": 0.93,
+   "category": "impact",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-10-reel-2",
+   "date": "2026-11-10",
+   "kind": "duo",
+   "hook": "Nvidia's stock slid more than 4% after its board's CEO probe.",
+   "judged": "early",
+   "x": {
+    "reach": 0.94,
+    "watch_s": 0.81,
+    "held": 0.99,
+    "sent_saved": null
+   },
+   "overall": 0.91,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-03-reel-2",
+   "date": "2026-11-03",
+   "kind": "plain",
+   "hook": "Gemini can read your Gmail, and many of its features are on by default.",
+   "judged": "final",
+   "x": {
+    "reach": 0.53,
+    "watch_s": 1.0,
+    "held": 1.36,
+    "sent_saved": null
+   },
+   "overall": 0.9,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-04-reel-3",
+   "date": "2026-11-04",
+   "kind": "plain",
+   "hook": "Apple is letting Siri AI carry out tasks inside third-party apps.",
+   "judged": "final",
+   "x": {
+    "reach": 0.19,
+    "watch_s": 1.74,
+    "held": 2.22,
+    "sent_saved": null
+   },
+   "overall": 0.9,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-12-reel-3",
+   "date": "2026-11-12",
+   "kind": "duo",
+   "hook": "Google DeepMind launches Gemini 4 Carbon, cutting AI costs for developers.",
+   "judged": "early",
+   "x": {
+    "reach": 0.62,
+    "watch_s": 0.8,
+    "held": 0.8,
+    "sent_saved": null
+   },
+   "overall": 0.73,
+   "category": "research",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "money",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-05-reel-1",
+   "date": "2026-11-05",
+   "kind": "plain",
+   "hook": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
+   "judged": "early",
+   "x": {
+    "reach": 0.25,
+    "watch_s": 0.92,
+    "held": 1.55,
+    "sent_saved": null
+   },
+   "overall": 0.71,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-12-reel-1",
+   "date": "2026-11-12",
+   "kind": "duo",
+   "hook": "Google rolls out Gemini Decisions API, cutting decision‑making latency to under a quarter ",
+   "judged": "early",
+   "x": {
+    "reach": 0.5,
+    "watch_s": 0.65,
+    "held": 1.05,
+    "sent_saved": null
+   },
+   "overall": 0.7,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "money",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-04-reel-2",
+   "date": "2026-11-04",
+   "kind": "plain",
+   "hook": "Anthropic now spends 58% of its revenue on compute, up from 48%.",
+   "judged": "final",
+   "x": {
+    "reach": 0.53,
+    "watch_s": 1.13,
+    "held": 0.39,
+    "sent_saved": null
+   },
+   "overall": 0.62,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-10-reel-1",
+   "date": "2026-11-10",
+   "kind": "duo",
+   "hook": "Google says your Gmail and Drive files can reach Gemini's human reviewers.",
+   "judged": "early",
+   "x": {
+    "reach": 0.26,
+    "watch_s": 0.92,
+    "held": 0.95,
+    "sent_saved": null
+   },
+   "overall": 0.61,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "privacy",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-11-reel-2",
+   "date": "2026-11-11",
+   "kind": "duo",
+   "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+   "judged": "early",
+   "x": {
+    "reach": 0.95,
+    "watch_s": 0.39,
+    "held": 0.57,
+    "sent_saved": null
+   },
+   "overall": 0.6,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-01-reel-3",
+   "date": "2026-11-01",
+   "kind": "plain",
+   "hook": "AI completed a live mouse brain injection.",
+   "judged": "final",
+   "x": {
+    "reach": 1.28,
+    "watch_s": 0.39,
+    "held": 0.33,
+    "sent_saved": null
+   },
+   "overall": 0.55,
+   "category": "impact",
+   "player": "other",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
+   "id": "2026-11-01-reel-1",
+   "date": "2026-11-01",
+   "kind": "plain",
+   "hook": "New malware uses an AI model to size up its victims.",
+   "judged": "final",
+   "x": {
+    "reach": 1.12,
+    "watch_s": 0.58,
+    "held": 0.2,
+    "sent_saved": null
+   },
+   "overall": 0.51,
+   "category": "impact",
+   "player": "other",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "09:00"
+  },
+  {
+   "id": "2026-11-05-reel-2",
+   "date": "2026-11-05",
+   "kind": "plain",
+   "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
+   "judged": "early",
+   "x": {
+    "reach": 0.44,
+    "watch_s": 0.42,
+    "held": 0.43,
+    "sent_saved": null
+   },
+   "overall": 0.43,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-09-reel-3",
+   "date": "2026-11-09",
+   "kind": "duo",
+   "hook": "Google Health lets you switch off its AI Coach and keep Premium.",
+   "judged": "early",
+   "x": {
+    "reach": 0.43,
+    "watch_s": 0.37,
+    "held": 0.4,
+    "sent_saved": null
+   },
+   "overall": 0.4,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "you",
+   "pain": "privacy",
+   "pace": "brisk",
+   "hook_number": false,
+   "time": "19:30"
+  },
+  {
+   "id": "2026-11-03-reel-3",
+   "date": "2026-11-03",
+   "kind": "plain",
+   "hook": "The New York Times sues Brave, saying it sold scraped news to AI firms.",
+   "judged": "final",
+   "x": {
+    "reach": 2.69,
+    "watch_s": 0.24,
+    "held": 0.0,
+    "sent_saved": null
+   },
+   "overall": 0.32,
+   "category": "policy",
+   "player": "other",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "19:00"
+  }
+ ],
+ "judged": 15,
+ "top_tenth": null,
+ "top_tenth_needs": 20
+}

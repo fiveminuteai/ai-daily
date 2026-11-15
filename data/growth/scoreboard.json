@@ -1,13 +1,13 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-15",
  "window": [
-  "2026-11-08",
-  "2026-11-14"
+  "2026-11-09",
+  "2026-11-15"
  ],
  "this_week": {
-  "reels": 8,
-  "reach": 114.0,
-  "skip_rate": 62.0,
+  "reels": 17,
+  "reach": 112,
+  "skip_rate": 61.2,
   "avg_watch_s": 5.7,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
@@ -16,20 +16,20 @@
   "follows_per_week": 7
  },
  "last_week": {
-  "reels": 0,
-  "reach": null,
-  "skip_rate": null,
-  "avg_watch_s": null,
-  "likes_per_1k": null,
-  "sends_per_1k": null,
-  "saves_per_1k": null,
+  "reels": 19,
+  "reach": 54,
+  "skip_rate": 71.4,
+  "avg_watch_s": 5.4,
+  "likes_per_1k": 27.0,
+  "sends_per_1k": 0.0,
+  "saves_per_1k": 0.0,
   "comments": 0
  },
- "followers": 9,
+ "followers": 10,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 62.0,
+   "value": 61.2,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
@@ -79,32 +79,32 @@
    "youtube": "https://www.youtube.com/shorts/aZyH4NT30w8"
   },
   {
-   "id": "17992554318118995",
-   "day": "2026-11-11",
-   "caption": "Anthropic founders will sell shares worth nearly $250 million.",
-   "reach": 130,
-   "skip_rate": 59,
-   "avg_watch_s": 8.1,
-   "likes_per_1k": 0.0,
+   "id": "18416406334090272",
+   "day": "2026-11-15",
+   "caption": "Nvidia kept GPU prices high with circular financing deals.",
+   "reach": 198,
+   "skip_rate": 35.1,
+   "avg_watch_s": 9.8,
+   "likes_per_1k": 10.1,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-11-reel-3",
-   "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
+   "ours": "2026-11-15-reel-3",
+   "youtube": "https://www.youtube.com/shorts/jINI-lh7eRs"
   },
   {
-   "id": "18114798344166855",
-   "day": "2026-11-11",
-   "caption": "Anthropic sets $70-$78 IPO price for $1.4T valuation.",
-   "reach": 112,
-   "skip_rate": 62.4,
-   "avg_watch_s": 6.8,
-   "likes_per_1k": 0.0,
+   "id": "18057447428804643",
+   "day": "2026-11-09",
+   "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
+   "reach": 140,
+   "skip_rate": 45.1,
+   "avg_watch_s": 8.9,
+   "likes_per_1k": 7.1,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-11-reel-1",
-   "youtube": "https://www.youtube.com/shorts/cSe3QdMSb-Q"
+   "ours": "2026-11-09-reel-1",
+   "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
   }
  ]
 }
