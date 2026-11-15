@@ -138,3 +138,28 @@ Raw notes (700+ findings with file and line) are in `C:\Users\saipa\Personal\Pro
 - **Judge each post as a multiple of its own format's median, at a fixed age.** Learn only from what the sample
   size can support: at ~100 reach, that is the first-seconds hold and watch time.
 - **Never install a skill repo; port its maths by hand after a static scan.**
+
+## Addendum, 15 Nov evening: what the hub sent (checked against the above first)
+- **lemo-opuscar:** already read in full above. Its code is MIT but its style prompts and docs are CC BY-NC: ideas
+  only. Nothing new.
+- **deenukhan/animation-styles** (MIT, created 10 Nov, 15 stars): 39 Remotion styles, each redrawing ONE fixed
+  six-beat story (whiteboard, chalkboard, cut-out paper, woodcut, newsreel, hologram HUD…). Unlike lemo-opuscar's
+  noncommercial prompts, this structure can legally be copied: a style library where one story is restaged per
+  style. A candidate for "two or three grounds per Reel" (section "Next", item 3) and for a weekly "same story,
+  new look" test. Not fetched; read through the API.
+- **adithya-s-k/manim_skill** (MIT): maths animation; no use for news Reels. Dropped.
+- **Panniantong/Agent-Reach** (MIT, about 112k stars): reads X, Reddit, Instagram and more through the user's own
+  logins. Its own README lists Instagram as experimental and login-based, and warns that a PyPI package with the
+  same name is a fake. **Avoid** for any logged-in platform: it would put Pavan's accounts at risk. Public-only
+  alternatives the hub named (crawl4ai, jina-ai/reader, official APIs) fit our rule.
+- **ai.with.arthisha, 28 Oct** (Reel DfCh46HSLPA, 50.25 s, 1.7K likes, 998 comments):
+  - **Hook:** a two-line replacement on frame 0: "Content creation team ❌ / Ten GitHub repos ✅".
+  - **Body:** a talking head with a split-screen GitHub page, a full-screen title card per tool ("LOCAL DEEP
+    RESEARCH", "YouTube Shorts"), and blur-whip transitions.
+  - **Comments:** nearly all the keyword "Git", the same comment-for-a-link funnel as Reels 2-5.
+  - **Not recovered:** the other eight tool names (the video names them only on title cards, and the browser pane
+    was hidden, so its frames stopped updating).
+  - **The format lesson:** an ❌/✅ replacement hook, plus a numbered list of title cards.
+- **viralspymedia, 16 Oct ("Claude tried", 28K likes):** not reachable logged out (the profile shows posts from
+  17 Oct onward). Per the hub, it is a joke about Claude writing Reel captions. For us: "AI tries X" as a guest-joke
+  format; it costs nothing to test inside the duo, since the guest already reacts to AI news.
