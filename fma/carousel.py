@@ -286,6 +286,12 @@ def slide_story(post, item, n, total, theme):
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     title = plain(s["title"])
+    # 15 Nov 2026: Instagram shows a carousel again, starting on slide 2, to people who ignored slide 1 (Caleb
+    # Ralston's team, Feb 2025). So slide 2 must hook on its own: it leads with the story's cover line, the short
+    # fact-checked line written to stop a scroller, where the card has one.
+    cover = (s.get("card") or {}).get("cover")
+    if n == 2 and cover and len(plain(cover).split()) <= 8:
+        title = plain(cover).rstrip(".")
     src = publishers(post, s)
 
     if kind == "number":

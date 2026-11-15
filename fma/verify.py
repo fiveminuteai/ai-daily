@@ -441,6 +441,12 @@ class Verifier:
         ask = one(c.get("ask"), f"card[{n}] ask", 12) if "?" in (c.get("ask") or "") else None   # must be a question
         cover = one(c.get("cover"), f"card[{n}] cover", 8)        # the thumbnail headline (8 Nov 2026)
         hi = str(c.get("cover_hi") or "").strip()
+        if cover and hook and loses_attribution(hook, cover):
+            # 15 Nov 2026: "Helen Toner says we cannot trust AI CEOs" had the cover "AI CEOs can't be trusted":
+            # someone's claim shown as ours, large, on the thumbnail and the Reel's first frame
+            self.log.append({"where": f"card[{n}] cover", "text": plain(cover), "sources": cites(cover), "status": "dropped",
+                             "problems": ["the hook attributes this claim to someone; the cover states it as fact"]})
+            cover = None
         if not hook or len(points) < 2:
             return None
         return {"hook": hook, "points": points, "take": take, "take_kind": c.get("take_kind", "read"), "ask": ask,
@@ -665,6 +671,16 @@ You reply with one JSON object and nothing else."""
 
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
+
+
+ATTRIBUTION = re.compile(r"\b(says?|said|warns?|warned|claims?|claimed|accus\w+|alleg\w+|argues?|argued|according to|"
+                         r"sues?|sued|suing|reports?|reported|reportedly|believes?|thinks?|predicts?|memo|lawsuit|"
+                         r"testif\w+|told|tells)\b", re.I)
+
+
+def loses_attribution(hook: str, cover: str) -> bool:
+    """True when the hook reports a claim as someone's ("X says ...", "sues, saying ...") and the cover does not."""
+    return bool(ATTRIBUTION.search(plain(hook))) and not ATTRIBUTION.search(plain(cover))
 
 
 def evidence_found(quote: str, corpus_norm: str, need: float = 0.85, cover: float = 0.6) -> bool:

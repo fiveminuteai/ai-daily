@@ -581,11 +581,29 @@ def test_the_reel_cover_gets_the_second_check_and_only_the_cover_is_lost():
     draft["sections"][0]["card"] = {
         "hook": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1].",
         "points": ["Nova-2 scores 87.5% on the MMLU benchmark [S1].", "The model costs $2 per million tokens [S1]."],
-        "cover": "Nova-2 scores 87.5% on MMLU [S1].", "cover_hi": "87.5%"}
+        "cover": "Acme says Nova-2 scores 87.5% [S1].", "cover_hi": "87.5%"}
     post, report = verify_draft(draft, SOURCES)
     assert post["sections"][0]["card"]["cover"]
-    chain = FakeChain([], flag_text={"Nova-2 scores 87.5% on MMLU": "drops who said it"})
+    chain = FakeChain([], flag_text={"Acme says Nova-2 scores 87.5%": "the source gives a different score"})
     post, report = llm_check(chain, post, SOURCES, report)
-    assert "Nova-2 scores 87.5% on MMLU" in "\n".join(chain.prompts)
+    assert "Acme says Nova-2 scores 87.5%" in "\n".join(chain.prompts)
     card = post["sections"][0]["card"]
     assert card and card["hook"] and "cover" not in card and "cover_hi" not in card
+
+
+def test_a_cover_that_drops_who_said_it_is_not_used():
+    """15 Nov 2026: hook "Helen Toner says we cannot trust AI CEOs", cover "AI CEOs can't be trusted"."""
+    from fma.verify import loses_attribution
+    assert loses_attribution("Helen Toner says we cannot trust AI CEOs to keep us safe[S1].", "AI CEOs can't be trusted[S1].")
+    assert not loses_attribution("Helen Toner says we cannot trust AI CEOs[S1].", "Toner says AI CEOs can't be trusted[S1].")
+    assert not loses_attribution("Nvidia CEO Jensen Huang resigned on Monday[S3].", "Nvidia CEO resigns[S3].")
+    assert loses_attribution("The Times sues Brave, saying it sold scraped news[S1].", "Brave sold scraped news[S1].")
+    draft = good_draft()
+    draft["sections"][0]["card"] = {
+        "hook": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1].",
+        "points": ["Nova-2 scores 87.5% on the MMLU benchmark [S1].", "The model costs $2 per million tokens [S1]."],
+        "cover": "Nova-2 scores 87.5% on MMLU [S1].", "cover_hi": "87.5%"}
+    post, report = verify_draft(draft, SOURCES)
+    card = post["sections"][0]["card"]
+    assert card["hook"] and "cover" not in card
+    assert any(e["where"].endswith("cover") and e["status"] == "dropped" for e in report["entries"])
