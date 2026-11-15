@@ -3,7 +3,10 @@ name: Deploy site
 on:
   push:
     branches: [main]
-    paths: ["site/**", "fma/**", "config/**", "content/**", "tests/**", "requirements.txt", ".github/workflows/deploy.yml"]
+    # reels/ added 15 Nov 2026: a change to how Reels are drawn (reels/src) must re-render the day's Reels; it
+    # did not, and a fix had to be deployed by hand before the 19:00 Reel
+    paths: ["site/**", "fma/**", "reels/**", "config/**", "content/**", "tests/**", "requirements.txt",
+            ".github/workflows/deploy.yml"]
   workflow_dispatch:
   workflow_call:              # used by the daily workflow right after it commits a post
 

@@ -18,3 +18,12 @@ def test_workflow_parses_and_has_jobs(path):
 
 def test_there_are_workflows():
     assert len(FILES) >= 8
+
+
+def test_a_change_to_the_reel_drawing_redeploys():
+    """15 Nov 2026: reels/ was missing from the deploy trigger, so a fix to the drawing needed a manual deploy."""
+    import yaml
+    from pathlib import Path
+    wf = yaml.safe_load(Path(".github/workflows/deploy.yml").read_text(encoding="utf-8"))
+    on = wf.get("on", wf.get(True))
+    assert "reels/**" in on["push"]["paths"]
