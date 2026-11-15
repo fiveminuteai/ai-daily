@@ -25,7 +25,10 @@ URL = re.compile(r"https?://[^\s)\"'>\]]+")
 report = {"files": 0, "bytes": 0, "types": {}, "python": {}, "urls": {}, "inject_hits": [], "hidden_chars": [],
           "binary": [], "plugin": {}, "sha256": {}}
 
-for f in sorted(p for p in root.rglob("*") if p.is_file()):
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")   # 15 Nov 2026: IPA/CJK hits crashed the cp1252 console
+# git's own sample hooks are inert and filled every report with false hits ("bot" in "robot"); a fetched repo's
+# real hooks are disabled at clone time (-c core.hooksPath=/dev/null), so .git/ is skipped
+for f in sorted(p for p in root.rglob("*") if p.is_file() and ".git" not in p.relative_to(root).parts):
     rel = f.relative_to(root).as_posix()
     data = f.read_bytes()
     report["files"] += 1
