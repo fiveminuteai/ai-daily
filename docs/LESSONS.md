@@ -59,6 +59,7 @@ work." Rules for this file:
 | 12 Nov | The third Reel (Gemini 4 Carbon) was plain | Duos are written before the fact-check, for the top-scored stories only; two of those lost their cards in the checks and a fifth story was promoted into a Reel slot with no duo | `duo_desk.top_up` after the checks: every Reel story without a duo gets one from its checked card lines (test); the health check had flagged it as a warning |
 | 12 Nov | The tuner "kept" a gain of 0.0025 on 10 held-out stories, and never re-tested the prompt kept on 6 Nov | It compared only new against the untuned default, on a tiny held-out set, with any gain winning | Default, kept and new are scored on the same held-out set (43 stories, 60 joke lines); a switch needs a gain of 0.02 that is over twice its standard error and 20+ examples; `--judge-only` re-tests without a search. Re-test 13 Nov: joke prompt +0.08 (real), facts prompt +0.0025 (noise) |
 | 13-14 Nov | 13 Nov had no Reels, 14 Nov one | The second fact-check rejected the Reel cards' hooks (13 Nov: 5 of 5, 14 Nov: 4 of 5), mostly for reading more into a story than it says; a card without its hook was simply dropped. The health check only warned about plain Reels, not missing ones | `reel_desk.repair_cards`: a rejected card gets one rewrite with the checker's reasons and goes through both checks again; a checker 'supported' with a paraphrased quote is kept only if the code checker confirms it (4 of 12 such drops) |
+| 15 Nov | The 05:45 post was skipped; it came out on a later retry | My `repair_cards` (14 Nov) crashed attempt 1 with an IndexError: layer 2 dropped the repair's one-section mini-post and the code read `sections[0]`; attempt 2 then ran out of time. The test ran with layer 2 off, so the path that crashed was never run | Guarded the empty case, and the whole repair is now inside try/except (an extra can never crash the run); a test runs layer 2 dropping and crashing, and it fails on the old code with the same IndexError; lesson 20 |
 
 ## General lessons (they carry over)
 
@@ -101,6 +102,9 @@ work." Rules for this file:
     write into files its own update step needs clean.
 17. **Budget time, not just retries.** A job with a hard timeout needs its own deadline inside, set below the
     timeout, so it ends with its best result instead of being killed with it.
+20. **An extra step must not be able to fail the job, and its test must run the real path.** A new optional step
+    goes inside its own try/except with a logged fallback. If its test turns a dependency off ("layer 2 off"), add
+    one that turns it on with that dependency failing and dropping, and check the test fails on the old code.
 
 ## Study notes (what the research found)
 

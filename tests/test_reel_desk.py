@@ -136,3 +136,14 @@ def test_a_card_the_fact_check_rejected_gets_one_checked_rewrite(monkeypatch):
     verified["sections"][0]["card"] = None
     out, _ = reel_desk.repair_cards(object(), verified, draft, src, {"entries": report["entries"]}, check_layer2=False)
     assert out["sections"][0]["card"] is None
+
+    # 15 Nov 2026: layer 2 dropped the mini-post's only section, the IndexError crashed the 05:45 attempt and the post
+    # was skipped. With layer 2 on, a dropped section or a crash leaves the story without a card; the run goes on.
+    import fma.verify as verify
+    monkeypatch.setattr(reel_desk, "script", fake_script)
+    for check in (lambda chain, post, s, r: ({**post, "sections": []}, r),
+                  lambda chain, post, s, r: (_ for _ in ()).throw(RuntimeError("layer 2 down"))):
+        monkeypatch.setattr(verify, "llm_check", check)
+        verified["sections"][0]["card"] = None
+        out, _ = reel_desk.repair_cards(object(), verified, draft, src, {"entries": report["entries"]}, check_layer2=True)
+        assert out["sections"][0]["card"] is None

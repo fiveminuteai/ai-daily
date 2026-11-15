@@ -239,20 +239,27 @@ def repair_cards(chain, verified: dict, draft: dict, sources: list[dict], report
                if e.get("status") == "dropped" and any(t and t in plain_text(e.get("text", "")) for t in lines)]
         if not why:
             continue
-        new = script(chain, sec, sources, None, REPAIR_NOTE.format(reasons=NL.join(why[:6])))
-        if not new:
+        # 15 Nov 2026: an IndexError here crashed the 05:45 attempt and the post was skipped until a later run. A
+        # repair is an extra: whatever goes wrong in it, the story simply keeps no card and the run carries on.
+        try:
+            new = script(chain, sec, sources, None, REPAIR_NOTE.format(reasons=NL.join(why[:6])))
+            if not new:
+                continue
+            ids = list(dict.fromkeys(i for p in sec.get("paragraphs", []) for i in cites(p)))
+            v = Verifier(sources)
+            card = v.card(new, ids, n)
+            sub_report = {"entries": v.log, "checked": len(v.log), "ok": 0, "repaired": 0, "dropped": 0}
+            for e in v.log:
+                sub_report[e["status"]] = sub_report.get(e["status"], 0) + 1
+            if card and check_layer2:
+                mini = {"headline": "", "dek": "", "what_happened": [], "why_it_matters": [], "quote": None,
+                        "sections": [{**sec, "paragraphs": [], "card": card}]}
+                mini, sub_report = llm_check(chain, mini, sources, sub_report)
+                kept = mini.get("sections") or []       # the check can drop the mini-post's only section
+                card = kept[0].get("card") if kept else None
+        except Exception as exc:  # noqa: BLE001 - see above
+            log.warning("Reel card repair for %r failed, the story keeps no card: %s", sec.get("title"), exc)
             continue
-        ids = list(dict.fromkeys(i for p in sec.get("paragraphs", []) for i in cites(p)))
-        v = Verifier(sources)
-        card = v.card(new, ids, n)
-        sub_report = {"entries": v.log, "checked": len(v.log), "ok": 0, "repaired": 0, "dropped": 0}
-        for e in v.log:
-            sub_report[e["status"]] = sub_report.get(e["status"], 0) + 1
-        if card and check_layer2:
-            mini = {"headline": "", "dek": "", "what_happened": [], "why_it_matters": [], "quote": None,
-                    "sections": [{**sec, "paragraphs": [], "card": card}]}
-            mini, sub_report = llm_check(chain, mini, sources, sub_report)
-            card = mini["sections"][0].get("card")
         for e in sub_report.get("entries", []):
             report.setdefault("entries", []).append({**e, "where": f"repair {e.get('where', '')}"})
         if card and card.get("hook") and len(card.get("points") or []) >= 2:
