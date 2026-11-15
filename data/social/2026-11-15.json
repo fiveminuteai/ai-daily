@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Board members warn AI leadership cannot be trusted\n\n• Board members say current AI governance relies on untrustworthy CEOs, raising safety concerns.\n• Nvidia's CSO left for health reasons, then CEO quit amid relationship investigations and a federal probe of Megaspeed.\n• Nvidia financed AI customers in 2026 to absorb TSMC wafer oversupply and keep GPU prices above MSRP.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-15T05:31:19+00:00",
+   "posted_url": "https://www.instagram.com/p/DfwCP0cF5x-/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-15/instagram.png"
    ],
-   "scheduled_at": "2026-11-15T05:30:00+00:00"
+   "scheduled_at": "2026-11-15T05:30:00+00:00",
+   "media_id": "18118749344121684",
+   "error": null
   },
   {
    "id": "2026-11-15-x",
