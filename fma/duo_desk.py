@@ -897,6 +897,20 @@ def script(card: dict, outro: str, pick: int = 0) -> tuple[str, list[tuple]]:
     return guest, lines
 
 
+def solo_script(card: dict, outro: str):
+    """Spark reports the card alone, for a story with no duo (15 Nov 2026: the still card Reel used for these was
+    38-54% still frames, and still Reels are the ones viewers leave). Every line is one of the card's own checked
+    lines. Yields scripts from fullest to shortest, so the caller can take the first that fits the length cap."""
+    facts = [t for t in [card.get("hook"), *(card.get("points") or [])] if t]
+    seen = []
+    for body in ([*facts, card["take"]] if card.get("take") else None, facts, facts[:3], facts[:2]):
+        if not body or len(body) < 2 or body in seen:
+            continue
+        seen.append(body)
+        duo = {"guest": "solo", "lines": [{"who": "spark", "text": t} for t in body]}
+        yield script({**card, "duo": duo}, outro)[1]
+
+
 EDITOR_SYSTEM = """You are the head comedy writer on a short-video news show. You punch up jokes and you are honest
 about whether they are funny. You reply with one JSON object and nothing else."""
 

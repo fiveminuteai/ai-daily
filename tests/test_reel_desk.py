@@ -147,3 +147,11 @@ def test_a_card_the_fact_check_rejected_gets_one_checked_rewrite(monkeypatch):
         verified["sections"][0]["card"] = None
         out, _ = reel_desk.repair_cards(object(), verified, draft, src, {"entries": report["entries"]}, check_layer2=True)
         assert out["sections"][0]["card"] is None
+
+
+def test_the_producer_prompt_says_only_facts_from_the_text():
+    """15 Nov 2026: from 3 Nov the rule read "use O / Y facts" (a stray line break inside ONLY) and nothing noticed."""
+    import re
+    from fma.reel_desk import PRODUCER_RULES
+    assert "FACTS: use ONLY facts in the story's text below." in PRODUCER_RULES
+    assert not re.search(r"\b[A-Z]\n[A-Z] ", PRODUCER_RULES)          # no word broken across a line

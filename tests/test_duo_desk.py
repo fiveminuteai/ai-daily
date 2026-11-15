@@ -78,6 +78,21 @@ def test_remotion_timeline_and_fallback(monkeypatch, tmp_path):
     assert tl["lines"][0]["fig"] == "$17B" and tl["lines"][0]["groups"] and tl["lines"][1]["tags"] == ["confetti"]
     assert "[S1]" not in tl["lines"][0]["text"] and tl["label"] == "PRODUCTS"
     assert tl['mouth']['spark'] == [0.1, 0.5] and tl['seconds'] == 5.0
+    # 15 Nov 2026: numbers are lit in the captions; the picture kicks on frame 0 and on the guest's last word
+    assert any(w.get("n") for g in tl["lines"][0]["groups"] for w in g) and not any(w.get("n") for g in tl["lines"][1]["groups"] for w in g)
+    assert tl["kicks"][0] == 0.0 and len(tl["kicks"]) == 2 and 3.0 < tl["kicks"][1] < 4.0
+    assert "hookCard" not in tl                          # no cover on this card: no hook text
+    sec = {"category": "products", "paragraphs": [], "card": {"cover": "Acme revenue hits $17 billion[S1].", "cover_hi": "$17 billion"}}
+    tl = duo_reel.timeline({"sources": []}, sec, pl)
+    assert tl["hookCard"] == "Acme revenue hits $17 billion" and tl["hookHi"] == "$17 billion" and tl["hookUntil"] == 3.0
+    sec["card"]["hook_card"] = "Microsoft email went down"       # a hand-set hook text wins, without the lit words
+    tl = duo_reel.timeline({"sources": []}, sec, pl)
+    assert tl["hookCard"] == "Microsoft email went down" and "hookHi" not in tl
+    sec["card"] = {"cover": "A cover line that runs to more than seven words here[S1]."}
+    assert "hookCard" not in duo_reel.timeline({"sources": []}, sec, pl)
+    # real word times, when the speech clock ran, move the kick to where the word is said
+    pl["lines"][1]["words"] = [("Party!", 0.5)]
+    assert duo_reel.timeline({"sources": []}, sec, pl)["kicks"][1] == 3.5
 
 
 def test_number_binding_flags_moves_not_rewordings():
@@ -302,3 +317,17 @@ def test_a_story_promoted_into_a_reel_slot_after_the_checks_still_gets_a_duo(mon
     asked.clear()
     duo_desk.top_up(Late(), post, slots=4)
     assert asked == [] and "duo" not in post["sections"][3]["card"]     # out of time: a plain Reel, not a lost post
+
+
+def test_a_story_without_a_duo_gets_spark_alone_from_its_own_checked_lines():
+    """15 Nov 2026: the still card Reel used for these was 38-54% still frames."""
+    from fma.duo_desk import solo_script
+    card = {"hook": "Acme shipped Nova on Monday[S1].", "points": ["Nova costs 5 dollars a month[S1].",
+            "Acme said 2 million people signed up[S1].", "It runs on phones[S1]."], "take": "Cheaper AI is coming[S1].",
+            "ask": "Would you pay?"}
+    cuts = list(solo_script(card, "Follow for more."))
+    said = [[t for who, t, *_ in c if who == "spark"] for c in cuts]
+    assert len(cuts) == 4 and all(who == "spark" for c in cuts for who, *_ in c)       # nobody else speaks
+    assert said[0][:5] == [card["hook"], *card["points"], card["take"]] and "Would you pay?" in said[0][5]
+    assert said[1][:4] == [card["hook"], *card["points"]] and said[3][:2] == [card["hook"], card["points"][0]]
+    assert [len(c) for c in cuts] == sorted((len(c) for c in cuts), reverse=True)        # fullest first

@@ -233,6 +233,28 @@ def social_media(folder: Path, post: dict, site: dict) -> dict:
             from . import voice as _voice
             why = ("card has no duo" if not (sec.get("card") or {}).get("duo") else
                    "no voice (Kokoro missing)" if not _voice.available() else "before duo Reels started")
+        # 15 Nov 2026: a story without a duo gets Spark alone in the same animated Reel. The still card Reel below
+        # (38-54% still frames) is now only the last resort, when that render fails or there is no voice.
+        from . import voice as _v
+        if str(post.get("date", "")) >= DUO_FROM and _v.available() and (sec.get("card") or {}).get("hook"):
+            try:
+                from .duo_desk import solo_script
+                from .duo_reel import duo_reel
+                for lines in solo_script(sec["card"], _v.OUTRO):
+                    try:
+                        duo_reel(post, sec, n, site, path, lines, guest="solo")
+                        break
+                    except ValueError as exc:
+                        if "cap" not in str(exc):
+                            raise
+                else:
+                    raise ValueError("over the length cap with every cut")
+                reel_cover(post, sec, path.with_suffix(".jpg"), guest="solo")
+                out["story_reels"].append({"file": f"reels/{k + 1:02d}.mp4", "hook": plain(sec["card"]["hook"]),
+                                           "duo": None, "solo": True, "story": n, "plain_because": why})
+                continue
+            except Exception as exc:  # noqa: BLE001
+                logging.getLogger(__name__).warning("solo reel %d failed, using the card Reel: %s", k + 1, exc)
         try:
             story_reel(post, sec, n, site, path, palette=pal, narrate=True)   # 11 Nov 2026: was silent
             reel_cover(post, sec, path.with_suffix(".jpg"), guest="solo")
@@ -266,6 +288,14 @@ def write_manifest(folder: Path, post: dict, out: dict) -> None:
             except Exception:  # noqa: BLE001 - the health check reports a Reel it cannot measure
                 pass
         r["cover"] = bool(f and f.with_suffix(".jpg").exists())
+        if f and f.exists():          # 15 Nov 2026: how much the Reel moves, for the health check and the stats
+            try:
+                from .motion import measure
+                m = measure(f)
+                if m:
+                    r["motion"] = m
+            except Exception:  # noqa: BLE001 - a measurement never costs the manifest
+                pass
         reels.append(r)
     from .voice import available as voice_on
     if not voice_on():

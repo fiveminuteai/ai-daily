@@ -81,8 +81,10 @@ const Caption: React.FC<{line: Line; lt: number; fps: number}> = ({line, lt, fps
         const shown = lt >= w.t - 0.06;
         const s = shown ? spring({frame: Math.max(0, (lt - w.t + 0.06) * fps), fps, config: {damping: 11, stiffness: 180}}) : 0;
         const on = k === cur;
+        // 15 Nov 2026: a word that carries a number stays lit after it is said (one accent colour, numbers only)
+        const lit = !on && w.n && shown;
         return (
-          <span key={k} style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, lineHeight: 1.15, color: on ? NIGHT : INK,
+          <span key={k} style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, lineHeight: 1.15, color: on ? NIGHT : lit ? YELLOW : INK,
             padding: '0 14px', borderRadius: 18, background: on ? HI[line.who] : 'transparent',
             transform: `translateY(${(1 - s) * 26}px) scale(${0.7 + 0.3 * s})`, opacity: s,
             textShadow: on ? 'none' : '0 4px 18px rgba(0,0,0,0.45)', display: 'inline-block'}}>{w.w}</span>
@@ -162,7 +164,21 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   const focus = facing || solo ? 0 : line.who === 'spark' ? -1 : 1;
   const pan = spring({frame: Math.max(0, lt * fps), fps, config: {damping: 20, stiffness: 60}});
   const camX = -focus * 40 * pan;
-  const zoom = 1.04 + 0.025 * Math.min(1, lt / 3);
+  // 15 Nov 2026: a punch-in on every new line (snaps in, eases back) on top of the slow push, so the picture changes
+  // every few seconds at uneven intervals instead of drifting. Measured before: one big change about every 5 s.
+  const punch = onCard ? 0 : 0.05 * Math.exp(-lt / 0.45);
+  const zoom = 1.04 + 0.025 * Math.min(1, lt / 3) + punch;
+  // The kick: on the hook's first frame and on each punchline's last word the picture shakes for 7 frames, the
+  // offset flipping sign every frame and dying away (after mromidev/claude-animated-shorts, MIT).
+  let kick = 0;
+  for (const at of (timeline.kicks as number[] | undefined) ?? []) {
+    const n = frame - Math.round(at * fps);
+    if (n >= 0 && n < 7) kick += (n % 2 ? -1 : 1) * Math.pow(1 - n / 7, 1.5);
+  }
+  const kickX = 14 * kick, kickR = 0.23 * kick;
+  // a white flash as the hook line ends, three frames, to mark the turn into the story
+  const flashAt = timeline.hookCard ? (timeline.hookUntil ?? 3.2) : -1;
+  const flash = flashAt > 0 && t >= flashAt && t < flashAt + 0.1 ? 0.5 * (1 - (t - flashAt) / 0.1) : 0;
 
   const mouthAt = (who: string) => { const m = (timeline.mouth as any)[who] as number[]; return m[Math.min(m.length - 1, frame)] ?? 0; };
   const sweat = lines.find((ln) => ln.tags.includes('sweat'));
@@ -210,10 +226,10 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   return (
     <AbsoluteFill style={{backgroundColor: NIGHT}}>
       <Audio src={staticFile(audio)} />
-      <AbsoluteFill style={{transform: `translateX(${camX}px) scale(${zoom})`}}>
+      <AbsoluteFill style={{transform: `translateX(${camX + kickX}px) scale(${zoom}) rotate(${kickR}deg)`}}>
         <Background t={t} i={i} since={lt} />
         {/* header */}
-        <div style={{position: 'absolute', left: 90, right: 90, top: 290, opacity: 1 - cp}}>
+        <div style={{position: 'absolute', left: 130, right: 130, top: 290, opacity: 1 - cp}}>{/* 130: the punch-in zoom must not carry it past x 80 */}
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 32, letterSpacing: 1, color: YELLOW}}>{timeline.site}</span>
             <span style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 28, color: INK, border: `3px solid ${INK}cc`, borderRadius: 30, padding: '6px 24px'}}>{timeline.label}</span>
@@ -222,17 +238,6 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
             <div style={{height: 8, borderRadius: 4, background: INK, width: `${100 * Math.min(1, t / cardFrom)}%`}} />
           </div>
         </div>
-        {/* PILOT (14 Nov 2026), only when the timeline carries hookCard: the hook as text from the first frame,
-            for viewers watching muted; six words or fewer, inside Instagram's safe zone, gone after the first line */}
-        {timeline.hookCard && t < (timeline.hookUntil ?? 3.2) + 0.4 && !onCard && (
-          <div style={{position: 'absolute', left: 80, right: 80, top: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18,
-            opacity: interpolate(t, [(timeline.hookUntil ?? 3.2), (timeline.hookUntil ?? 3.2) + 0.4], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
-            {timeline.badge && <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 34, letterSpacing: 2, color: NIGHT, background: '#FF845F',
-              borderRadius: 26, padding: '8px 26px'}}>{timeline.badge}</span>}
-            <div style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: 92, lineHeight: 1.05, color: NIGHT, background: YELLOW, textAlign: 'center',
-              borderRadius: 30, padding: '18px 36px', boxShadow: '0 14px 34px rgba(0,0,0,0.35)'}}>{timeline.hookCard}</div>
-          </div>
-        )}
         {panel && fade > 0 && !onCard && <Panel text={panel.text} p={(t - panel.at) / 0.6} fade={fade} t={t} />}
         {order.map(char)}
         {party && t >= party.start && <Confetti since={t - party.start} flop={flopLine && t >= flopLine.start ? t - flopLine.start : null} />}
@@ -264,6 +269,29 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
         {onCard && <div style={{position: 'absolute', top: 1340, width: '100%', textAlign: 'center', fontFamily: 'Inter', fontWeight: 800,
           fontSize: 42, color: INK, opacity: cp}}>Follow @fiveminute_ai</div>}
       </AbsoluteFill>
+      {/* The hook as text from the first frame, for viewers watching muted (pilot 14 Nov, every duo from 15 Nov
+          2026): seven words or fewer, inside Instagram's safe zone, gone after the first line. It is fully there
+          on frame 0 (no fade-in: the first frame is the cover a scroller judges) and settles with a small
+          overshoot; the words the writer marked (hookHi) are lit. It sits OUTSIDE the camera layer: the zoom, pan
+          and kick carried it past the safe zone on the first frames (seen in the 15 Nov test render). */}
+      {timeline.hookCard && t < (timeline.hookUntil ?? 3.2) + 0.4 && !onCard && (() => {
+        const settle = spring({frame, fps, config: {damping: 9, stiffness: 260}});
+        const text: string = timeline.hookCard, hi: string = timeline.hookHi || '';
+        const at = hi ? text.toLowerCase().indexOf(hi.toLowerCase()) : -1;
+        return (
+          <div style={{position: 'absolute', left: 100, right: 100, top: 420, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18,
+            transform: `scale(${1.05 - 0.05 * settle})`,
+            opacity: interpolate(t, [(timeline.hookUntil ?? 3.2), (timeline.hookUntil ?? 3.2) + 0.4], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
+            {timeline.badge && <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 34, letterSpacing: 2, color: NIGHT, background: '#FF845F',
+              borderRadius: 26, padding: '8px 26px'}}>{timeline.badge}</span>}
+            <div style={{fontFamily: 'Bricolage', fontWeight: 800, fontSize: text.length > 30 ? 74 : text.length > 22 ? 84 : 92, lineHeight: 1.05, color: NIGHT, background: YELLOW, textAlign: 'center',
+              borderRadius: 30, padding: '18px 36px', boxShadow: '0 14px 34px rgba(0,0,0,0.35)'}}>
+              {at < 0 ? text : <>{text.slice(0, at)}<span style={{color: '#C2260A'}}>{text.slice(at, at + hi.length)}</span>{text.slice(at + hi.length)}</>}
+            </div>
+          </div>
+        );
+      })()}
+      {flash > 0 && <AbsoluteFill style={{background: '#fff', opacity: flash}} />}
     </AbsoluteFill>
   );
 };

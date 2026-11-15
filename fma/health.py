@@ -115,7 +115,8 @@ def check_media(r: Report, media: dict | None, post: dict | None) -> None:
         elif has_duo:
             r.fail("media", f"{name}: the card has a duo but the Reel is plain ({reel.get('plain_because', '?')})")
         else:
-            r.warn("media", f"{name}: plain Reel ({reel.get('plain_because', 'card has no duo')})")
+            r.warn("media", f"{name}: {'Spark alone, no duo' if reel.get('solo') else 'plain Reel'} "
+                            f"({reel.get('plain_because', 'card has no duo')})")
         secs = reel.get("seconds")
         if secs is None:
             r.warn("media", f"{name}: length not measured")
@@ -123,6 +124,11 @@ def check_media(r: Report, media: dict | None, post: dict | None) -> None:
             r.fail("media", f"{name}: {secs} s, outside {REEL_SECONDS[0]:.0f}-{REEL_SECONDS[1]:.0f} s")
         if reel.get("audio") is False:
             r.fail("media", f"{name}: no audio stream")
+        if reel.get("motion"):        # 15 Nov 2026: a Reel that stands still loses its viewers in the first seconds
+            from .motion import problems as still_problems
+            for p in still_problems(reel["motion"], duo=bool(reel.get("duo"))):
+                # a duo that stands still is broken; a plain Reel is already a warning, and this says how still it is
+                (r.fail if reel.get("duo") else r.warn)("media", f"{name}: {p}")
         if not reel.get("cover"):
             r.warn("media", f"{name}: no cover image")
 

@@ -772,8 +772,10 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
         c = sec.get("card") or {}
         duo_facts = [(ln["text"], "fact") for ln in (c.get("duo") or {}).get("lines", [])
                      if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
+        # 15 Nov 2026: the cover is also the hook text on the Reel's first frame, so it gets the second check too
+        # ("AI CEOs can't be trusted" had dropped its "Helen Toner says" and only the code check had seen it)
         for text, kind in [(c.get("hook"), "fact"), *[(p, "fact") for p in c.get("points", [])], (c.get("take"), "analysis"),
-                           (c.get("ask"), "ask"), *duo_facts]:
+                           (c.get("ask"), "ask"), (c.get("cover"), "fact"), *duo_facts]:
             if text:
                 sentences.append((f"C{len(sentences) + 1}", text, kind))
     q = post.get("quote")
@@ -920,6 +922,9 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                  "ask": None if c.get("ask") in drop else c.get("ask")}
             if any(ln["text"] in drop for ln in (c.get("duo") or {}).get("lines", [])):
                 c.pop("duo")            # all or nothing, as in layer 1
+            if c.get("cover") in drop:  # the Reel keeps its hook; only the thumbnail line and the frame-1 text go
+                c.pop("cover")
+                c.pop("cover_hi", None)
             sec["card"] = None if c["hook"] in drop or len(c["points"]) < 2 else c
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]

@@ -99,7 +99,9 @@ def dataset(root: Path) -> list[dict]:
                 "pace": _pace(card),
                 "hook_type": card.get("hook_type") or "untagged",
                 "reach": got["reach"], "watch_s": got.get("avg_watch_s"), "shares": got.get("shares") or 0,
-                "saved": got.get("saved") or 0, "comments": got.get("comments") or 0, "age_h": got["age_h"]})
+                "saved": got.get("saved") or 0, "comments": got.get("comments") or 0, "age_h": got["age_h"],
+                # 15 Nov 2026: the share that left in the first seconds (for fma/multiplier.py) and the test arm
+                "skip": got.get("skip_rate"), **({"arm": card["arm"]} if card.get("arm") else {})})
     _score(rows)
     return rows
 
@@ -146,6 +148,8 @@ FEATURES = {
     "pain": lambda r: r.get("pain", "untagged"),            # 9 Nov 2026: the viewer worry the Reel speaks to
     "hook type": lambda r: r.get("hook_type", "untagged"),
     "pace": lambda r: r.get("pace", "no duo"),
+    # 15 Nov 2026: the test arm a Reel ran in (config experiment), judged by the same guards as everything else
+    "test arm": lambda r: r.get("arm", "control"),
 }
 
 
@@ -267,6 +271,11 @@ def update(root: Path, chain=None, now: datetime | None = None, lessons: bool = 
     (root / "data/learning/reels.json").write_text(
         json.dumps({"updated": now.isoformat(timespec="seconds"), "reels": rows, "effects": table},
                    ensure_ascii=False, indent=1), encoding="utf-8")
+    try:                                  # 15 Nov 2026: the multiplier report, read-only; it never stops the loop
+        from .multiplier import update as multiplier_update
+        multiplier_update(root, rows, now)
+    except Exception as exc:  # noqa: BLE001
+        log.warning("multiplier report failed: %s", exc)
     path = root / "data/learned.json"
     old = _load(path) or {}
     learned = {**old, "reels_counted": len(rows), "checked": now.isoformat(timespec="seconds")}

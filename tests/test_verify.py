@@ -570,3 +570,22 @@ def test_a_paraphrased_checker_quote_is_kept_only_if_the_code_checker_confirms_t
     assert code_confirms("Acme shipped Nova on Monday[S1].", ["S1"], by_id)
     assert not code_confirms("Acme shipped Nova on Friday for 9 dollars[S1].", ["S1"], by_id)
     assert not code_confirms("Acme shipped Nova[S1].", ["S9"], by_id)          # no source text: no confirmation
+
+
+def test_the_reel_cover_gets_the_second_check_and_only_the_cover_is_lost():
+    """15 Nov 2026: the cover is also the hook text on the Reel's first frame; until now only the code check saw it
+    ("AI CEOs can't be trusted" had dropped its "Helen Toner says")."""
+    from conftest import FakeChain
+    from fma.verify import llm_check
+    draft = good_draft()
+    draft["sections"][0]["card"] = {
+        "hook": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1].",
+        "points": ["Nova-2 scores 87.5% on the MMLU benchmark [S1].", "The model costs $2 per million tokens [S1]."],
+        "cover": "Nova-2 scores 87.5% on MMLU [S1].", "cover_hi": "87.5%"}
+    post, report = verify_draft(draft, SOURCES)
+    assert post["sections"][0]["card"]["cover"]
+    chain = FakeChain([], flag_text={"Nova-2 scores 87.5% on MMLU": "drops who said it"})
+    post, report = llm_check(chain, post, SOURCES, report)
+    assert "Nova-2 scores 87.5% on MMLU" in "\n".join(chain.prompts)
+    card = post["sections"][0]["card"]
+    assert card and card["hook"] and "cover" not in card and "cover_hi" not in card

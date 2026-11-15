@@ -54,6 +54,16 @@ jobs:
                 || { rm -f ".cache/kokoro/$f.part"; echo "::warning::$f not downloaded: Reels will be unvoiced"; }
             fi
           done
+      # The clock for the captions (15 Nov 2026, fma/timing.py): a small speech model (faster-whisper, MIT, base.en,
+      # about 145 MB, on the CPU) listens to each finished line so every caption word lights when it is said.
+      # Without it the build still works and captions use the old letter-share guess.
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: faster-whisper-base-en-v1
+      - name: Caption clock
+        run: |
+          pip install faster-whisper==1.2.1 || echo "::warning::faster-whisper not installed, captions use the guessed timing"
       # Remotion draws the duo Reels (reels/, 6 Nov 2026). Any failure here leaves the build drawing them in Python.
       - uses: actions/setup-node@v4
         with:

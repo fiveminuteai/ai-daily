@@ -37,7 +37,8 @@ IG_ACCOUNT_METRICS = "reach,views,accounts_engaged,total_interactions"
 REEL_METRICS = "ig_reels_avg_watch_time,ig_reels_video_view_total_time"   # ms; Reels only, asked for separately
 REEL_NEW_METRICS = "reels_skip_rate,reposts"   # since 3 Dec 2025, "in development": asked for on their own, so a
 #                                                refusal never costs the watch time
-IG_POSTS = 12
+IG_POSTS = 70      # 15 Nov 2026: was 12 (about 3 days). A Reel is judged at day 11 (fma/multiplier.py), and
+                   # with 5 posts a day the snapshot must reach back 12 days or no Reel ever gets its day-11 numbers
 DAYS = 28
 
 

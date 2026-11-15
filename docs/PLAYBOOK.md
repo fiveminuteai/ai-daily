@@ -177,8 +177,7 @@ STEP 2. Write the Reel script as a story a friend would tell, not a headline:
   TRUE angle, in plain words, with its citation. A claim stays a claim ("Memo says ...", "Founder says ...").
   cover_hi: 1 to 3 words copied from the cover that carry the punch; they are lit up on the thumbnail.
   Good: "Microsoft's AI Frontiers team is over[S1]." with cover_hi "is over".
-FACTS: use O
-Y facts in the story's text below. Every sentence of hook, points and take ends with the citation
+FACTS: use ONLY facts in the story's text below. Every sentence of hook, points and take ends with the citation
 markers ([S1]) of the sentence its facts come from. Never add a number, name, date or claim that is not in the text.
 Do not make the story bigger or closer to the viewer than the text does: no country, company, person or group
 ("Indian firms", "hundreds of companies") that the text does not name, and no rounded or invented numbers.

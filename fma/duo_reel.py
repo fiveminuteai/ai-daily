@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 
-from . import doubt, rex, spark, voice
+from . import doubt, rex, spark, timing, voice
 from .carousel import CAT_NAMES, publishers
 from .music import BAR, BEAT, write_wav
 from .pulse_reel import (BG_TOP, INK, MUTED, SOURCE_Y, WASHES, YELLOW, _background, _bokeh, chunks, draw_caption,
@@ -48,6 +48,12 @@ MAX_SECONDS = 45.0
 FX = {"card", "beat", "confetti", "drop", "sweat"}
 
 
+def line_times(ln: dict, lead: float) -> list[tuple[str, float]]:
+    """(word, seconds into the line) for captions, the number panel and the punchline: the real times when the
+    speech clock ran (fma/timing.py), else the letter-share guess."""
+    return ln.get("words") or word_times(ln["text"], ln["said"], lead)
+
+
 def plan(script: list[tuple], guest: str, visemes: bool = False) -> dict:
     """Speak the script into one track per speaker (each mouth follows its own voice). A line is (who, text, *tags):
     "card" puts it on the closing logo card, "beat" holds a comic pause before it, "confetti" / "drop" / "sweat" are
@@ -65,6 +71,9 @@ def plan(script: list[tuple], guest: str, visemes: bool = False) -> dict:
         gap = GAP.get(who, GUEST_GAP)
         lines.append({"who": who, "text": text, "start": t, "said": dur, "end": t + lead + dur + gap, "card": card,
                       "tags": tags})
+        heard = timing.word_times(s, voice.SR, text)       # 15 Nov 2026: when each word is really said, or None
+        if heard:
+            lines[-1]["words"] = [(w, lead + at) for w, at in heard]
         clips.append((who, t + lead, s))
         t = lines[-1]["end"]
     seconds = t + 1.4
@@ -144,7 +153,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, pl: dict):
     g = GUESTS.get(guest)
     solo = g is None                     # "solo": Spark reports alone, no guest on stage
     for ln in lines:
-        timed = word_times(ln["text"], ln["said"], lead)
+        timed = line_times(ln, lead)
         ln["groups"] = chunks(timed)
         ln["fig"] = figure(ln["text"]) if ln["who"] == "spark" and not ln["card"] else ""
         ln["fig_at"] = figure_time(timed, ln["fig"]) if ln["fig"] else 0
@@ -348,16 +357,28 @@ def timeline(post: dict, section: dict, pl: dict) -> dict:
     and caption groups, the number to show, and each speaker's mouth openness per frame."""
     lines = []
     for ln in pl["lines"]:
-        timed = word_times(ln["text"], ln["said"], pl["lead"])
+        timed = line_times(ln, pl["lead"])
         fig = figure(ln["text"]) if ln["who"] == "spark" and not ln["card"] else ""
         lines.append({"who": ln["who"], "text": plain(ln["text"]), "start": ln["start"], "end": ln["end"],
                       "card": ln["card"], "tags": sorted(ln["tags"]),
-                      "groups": [[{"w": w, "t": round(t, 3)} for w, t in g] for g in chunks(timed)],
+                      # "n": the word carries a number, which the caption lights up (one accent per page at most)
+                      "groups": [[{"w": w, "t": round(t, 3), **({"n": 1} if any(ch.isdigit() for ch in w) else {})}
+                                  for w, t in g] for g in chunks(timed)],
                       "fig": fig, "figAt": round(figure_time(timed, fig), 3) if fig else None})
     card = section.get("card") or {}
-    pilot = ({"hookCard": card["hook_card"], "hookUntil": round(lines[0]["end"], 2),
+    # The hook as text from the first frame, for viewers watching muted (pilot 14 Nov, every duo from 15 Nov 2026).
+    # It is the card's cover line, which both fact-checks have passed; a hand-set hook_card wins. Seven words at most.
+    hook_text = card.get("hook_card") or (plain(card["cover"]) if card.get("cover") else "")
+    pilot = ({"hookCard": hook_text.rstrip("."), "hookUntil": round(lines[0]["end"], 2),
+              **({"hookHi": card["cover_hi"]} if card.get("cover_hi") and not card.get("hook_card") else {}),
               **({"badge": card["hook_badge"]} if card.get("hook_badge") else {})}
-             if card.get("hook_card") and lines else {})       # the hook-loop test (14 Nov 2026): hook as text from frame 1
+             if hook_text and len(hook_text.split()) <= 7 and lines else {})
+    # Kicks (15 Nov 2026): a short shake of the picture on the word that lands, so the Reel never sits still for long.
+    # One on the first frame (the hook), one on the last word of every guest line (the punchline), none on the logo card.
+    solo = pl["guest"] not in GUESTS          # Spark alone has no punchlines: the kick lands as each fact ends
+    kicks = [0.0] + [round(ln["start"] + line_times(ln, pl["lead"])[-1][1], 3)
+                     for ln in pl["lines"] if (solo or ln["who"] != "spark") and not ln["card"]]
+    pilot["kicks"] = kicks
     return {**pilot, "fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
             "label": CAT_NAMES.get(section.get("category", ""), "").upper(), "site": "FIVE MINUTE AI", "lines": lines,
             "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()},
@@ -400,7 +421,7 @@ def duo_reel(post: dict, section: dict, n: int, site: dict, out: Path, script: l
     for k, ln in enumerate(pl["lines"]):
         f = figure(ln["text"]) if ln["who"] == "spark" and k and not ln["card"] else ""
         if f:
-            pops.append(ln["start"] + figure_time(word_times(ln["text"], ln["said"], pl["lead"]), f) - 0.25)
+            pops.append(ln["start"] + figure_time(line_times(ln, pl["lead"]), f) - 0.25)
     card = next((ln for ln in pl["lines"] if ln["card"]), None)
     cuts = [card["start"]] if card else []                    # a whoosh as the logo card comes in
     if card:
