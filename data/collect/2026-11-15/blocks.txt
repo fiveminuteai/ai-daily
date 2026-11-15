@@ -1,0 +1,86 @@
+=== STORY 1 (suggested section: products) ===
+
+[S1] The Verge — "The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs" (14 November 2026)
+The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs
+CSET’s Helen Toner says ‘we’re screwed’ if our AI safety plan rests on any one person being trusted to get this right.
+Today, I’m talking with Helen Toner, the executive director of the Center for Security and Emerging Technology at Georgetown University. This episode is part two of our series on AI in real life.
+Helen is a well-known figure in the AI safety and policy community, though she is perhaps best known for having served on the board of OpenAI, when she was one of four board members who voted to fire Sam Altman . That incident, now sometimes referred to as “the blip,” ended with Sam coming back as CEO, Helen resigning, and a new board of directors. OpenAI has since restructured entirely .
+But it’s worth remembering what Helen and the board were supposed to do: OpenAI’s nonprofit board existed specifically to make sure the company didn’t betray its mission to build safe AI by prioritizing profit and growth over safety. When the board actually tried to pull the lever, that accountability mechanism broke, and here we are.
+Verge subscribers, don’t forget you get exclusive access to ad-free Decoder wherever you get your podcasts. Head here . Not a subscriber? You can sign up here .
+Now, the question of AI safety is everywhere . This summer, AI models from OpenAI and Anthropic broke out of their testing environments and hacked real companies. The CEOs of these frontier labs have since called for a slowdown and asked Washington for help, but the White House’s answer was a voluntary accord — one that relies in part on the kind of board accountability that failed at OpenAI. Anthropic is also about to go public, which will put a whole new set of market pressures on OpenAI’s biggest competitor.
+Helen has seen up close what happens when safety commitments run headlong into commercial incentives. And as she put it to me, if our hopes for the future depend on any one person being trustworthy, we’re in big trouble.
+So we talked about what we might do instead: what the labs are actually trying to build, whether AI alignment is a problem that can be solved, and what a smarter approach to AI regulation might look like. That includes how to think about China, which is the issue that looms large in every policy conversation about AI right now — especially now after the Jensen Huang affair . Just for clarity, Helen and I talked before Nvidia opened its investigation and Jensen ultimately resigned, so you won’t hear us talk about that directly.
+Before we get going, do me a favor and subscr
+
+[S2] Ars Technica — "OpenAI board member worries an AI "takeover" of society could be months away" (13 November 2026)
+How do you think you’re going to die?
+If you go by the current statistics for deaths in the US , it’s reasonable to expect that cancer or heart disease will eventually get you. But OpenAI Foundation board member and Alignment Research Center Executive Director Paul Cristiano thinks we should all be worried about another major mortality risk. Speaking at a lecture series this week , Cristiano bluntly told the audience in a Toronto Convention Center, “I think for most people in this room, the most likely reason they will die is because of an AI accident.”
+In the opening lecture of a three-part series , Cristiano outlined his worries about the risk of an impending “AI takeover.” He defined that as a situation where goal-pursuing AI systems “call the shots in the same sense that humans today call the shots and what happens on Earth” and where any human trying to stop them “would be as ineffective as if you or me was trying to stop the US military.” Such a situation would likely lead to mass death and perhaps uninhabitable environments for humans, Cristiano said.
+Despite his grim assessme
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: tools) ===
+
+[S3] techspot.com (via Hacker News) — "Nvidia deliberately kept GPU prices high through circular financing deals" (14 November 2026)
+Connecting the dots: The AI boom has been widely blamed for GPU prices spinning out of control over the past year. Following Jensen Huang's resignation from Nvidia,new information suggests that this was the goal of the former CEO's business strategy, which has long drawn accusations of circular financing.
+A recent Wall Street Journal profile of Nvidia interim CEO Colette Kress has shed more light on how Nvidia controversially financed its own customers to drive the AI boom. According to the report, the company pushed for more deals in mid-to-late 2026 to absorb an oversupply of TSMC wafers and keep GPU prices high.
+Since at least last year, Nvidia has been accused of prolonging the AI boom by supporting the companies that buy its chips. Co-founder and former CEO Jensen Huang, along with CFO Kress, even went so far as to defend the company against comparisons to Enron, which used similar tactics to illegally obscure its debt before its 2001 collapse.
+Also read: GPU Prices Are Spiraling Out of Control - Q4 2026 Update
+Behind the scenes, Kress expressed concern about the scale of the deals Nvidia had inked with cloud providers and major AI companies like OpenAI. Nvidia pushed ahead anyway, but by summer 2026, the company was wondering whether it had pushed too far amid an "avalanche" of semiconductors it had ordered from TSMC.
+It was around this time that Huang berated Kress, calling her "a deer in headlights," according to someone familiar with the matter. Nvidia began to slow down, downsize, and pause some of its financing deals, including one with OpenAI that originally included a $250 billion backstop for the world's largest data center.
+AMD wants gamers to remember Radeon loyalty, days after declaring itself a data center-first company
+Without Jensen Huang, is it game over for GeForce?
+AI data centers have siphoned off DRAM and NAND manufacturing capacity traditionally used for RAM and storage in consumer devices, inflating prices. Nvidia's GeForce GPUs have been hit especially hard, with prices often exceeding 160% of their original MSRP. The company's flagship RTX 5090 has become unobtainable because Nvidia has directed its VRAM and semiconductors toward data center GPUs.
+Related: Without Jensen Huang, is it game over for GeForce?
+Colette Kress, Interim CEO and Executive VP and Chief Financial Officer (CFO) of Nvidia.
+As its financial support deals wound down, Huang became worried about the company's stock market valuation, with its average monthly stock multiple falling far behind those of other large tech companies.
+At a Berlin conference, the form
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S4] The Verge — "Amazon has a plan to index the world’s online shopping data" (13 November 2026)
+Amazon has a plan to index the world’s online shopping data
+Listing the details of everything for sale everywhere is meant to make Amazon more useful than Reddit for people and AI agents.﻿
+Amazon has plans to build a vault of data on every product sold anywhere on the internet, even products Amazon doesn’t sell, and make the information available through its own site, according to Reuters . The project, called the “World Product Graph,” is meant to make it less likely that shoppers leave Amazon to do their product research on Reddit or Google, and make it more likely shoppers end up at Amazon even if they’re searching for a product sold elsewhere. The same goes for AI agents — if Amazon has the largest stockpile of shopping data, AI agents may rely on its index of products over others, so even people shopping with bots will end up on its pages.
+Links to outside retailers’ products have already started popping up on Amazon through the “shop direct” feature it launched last year. The company also has its own AI shopping assistant , Alexa for Shopping, previously called Rufus. The World Product Graph project would also be aimed at fixing issues with the AI by providing it more data. According to Reuters , an internal Amazon document on the project says “Many Rufus answers are factually wrong or incomplete” and running users’ Amazon searches with the AI is expensive. Adding more data is reportedly supposed to make the system more accurate and able to use cheaper models.
+Related
+Amazon blocks Meta’s Muse AI agent
+Amazon will let you text Alexa your shopping list
+Whether this actually ships is still up in the air. The internal document reportedly says the project “depends on discovering how brands organize their products on their own websites,” which could involve Amazon crawling other retailers’ sites. Reuters says it’s unclear “if or when this plan may be implemented,” but said the document on it included an October 1st, 2027 release date.
+Amazon said in a statement to Reuters that “Draft, outdated documents often paint an incomplete picture and the existence of a brainstorming document such as this one doesn’t necessarily reflect our current plans.”
+Most Popular
+Tesla is inviting some people to buy a Cybercab ‘for personal use’ — but read the fine print
+Microsoft’s massive Outlook outage might be over
+Claude’s Duet agent is a little neurotic and surprisingly helpful
+Jensen Huang and the decline of the visionary showman founder CEO
+Hands on with Home Assistant’s new ‘smart home multi-tool’
+This is the title for the native ad
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: policy) ===
+
+[S5] TechCrunch — "Where was Nvidia’s security team?" (15 November 2026)
+Outsiders had little reason to notice when Nvidia’s longtime chief security officer and head of product security stepped down in August. Just two and a half months later, CEO Jensen Huang himself left the company over growing questions about his extramarital relationships — starting with an executive at Megaspeed, a Singapore data center company that U.S. investigators suspect of funneling Nvidia chips to China, then widening to reports about two separate affairs with Nvidia employees.
+At the time, David Reber, who spent four years as CSO and seven at Nvidia overall, said he was leaving for health reasons. “This wasn’t a pivot I had planned. But I know what needs to come first: family and health,” he wrote on LinkedIn in late August, disclosing that he’d been diagnosed with young-onset Parkinson’s more than two years ago.
+Reber’s replacement, Saša Zdjelar, previously spent 17 years at ExxonMobil in Houston, leaving as a senior IT manager before spending one year at Salesforce and several years at the cybersecurity company ReversingLabs. Zdjelar didn’t respond to questions Thursday about the transition or what the security team knew.
+Nothing public connects Reber’s or Zdjelar’s role changes to the Megaspeed matter, but it seems fair to wonder what Nvidia’s security team knew about the government’s scrutiny of Megaspeed and about Huang’s relationships, and whether anyone raised concerns. Reber didn’t respond to questions Thursday. Nvidia also has not answered our related questions.
+Not all of those relationships are the business of the security team. Relationships with subordinates typically fall to HR, legal, and the board. But an affair with an executive at a company under federal investigation is a different animal. (Megaspeed has denied any wrongdoing.) Security specialists say affairs can create vulnerabilities that foreign intelligence services look to exploit.
+Catching that kind of exposure isn’t easy. The way intelligence services collect information, much of it through everyday conversation rather than hacking, makes it especially difficult for security teams to identify risks, according to retired senior intelligence officer Nicholas Eftimiades, who says he has trained more than 1,000 corporate security professionals.
+Some people inside Nvidia clearly knew parts of the picture. Nvidia’s top lawyer was engaged with the government’s Megaspeed inquiry more than a year ago, The New York Times reported earlier this week . (Nvidia has said it regularly contacts officials.) Reports about Huang’s relationships with employees suggest colleagues also knew 
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S6] WIRED — "Beware the New AI-Fueled Ransomware Boom" (14 November 2026)
+Welcome to Kernel Panic , a weekly newsletter by Lily Hay Newman and Matt Burgess from inside the new world of privacy and digital security. To receive this newsletter in your inbox each week, sign up here .
+With so much going on all the time, you may not have thought about ransomware and data extortion attacks in a minute, even though they’ve been among the the biggest cybersecurity threats to institutions—and, by extension, people—over the past decade. But in the new era of AI-powered and automated cyberattacks, the danger posed by ransomware is only increasing as cybercriminals profit by combining established methods with new techniques made possible or more accessible by AI.
+It is difficult to determine exact numbers of ransomware attacks, given that victims don’t always disclose incidents and attackers wildly inflate their claims. But researchers who specialize in tracking and attempting to de-duplicate the field agree that claimed incidents have spiked over the last few months. Some put the number of alleged ransomware attacks on leak sites—where groups post alleged victims—at nearly 3,000 attacks over the summer. This would mean a 20 to 40 percent increase since the spring by some estimates. And, crucially, researchers emphasize that while volume always fluctuates somewhat, ransomware attacks overall have been consistently and concerningly elevated in recent years.
+“What we see is most of the recent increase was fueled by international attacks; the United States was a little more steady, but still high, still a lot of attacks,” says Cynthia Kaiser, former FBI cyber deputy director who now leads research for the anti-ransomware platform Halcyon. “Internationally we’re seeing a lot more attacks. That to me is the really new part, and I do think it is in part fueled by AI.”
+Fully AI-powered ransomware attacks have yet to emerge, perhaps because the criminal business model already works so effectively . But cybercriminals do appear to be using LLMs for some of the more mundane aspects of their attacks.
+“We are seeing AI relied on more heavily in certain aspects of the ransomware attack chain, such as creating better phishing emails and in the negotiation process, but the ‘successful’ ransomware groups are still largely human operated,” says Allan Liska, a longtime ransomware researcher and threat intelligence analyst at Recorded Future. “But the fact that these groups are experimenting heavily with AI means that this could change going forward, and change quickly.”
+Kaiser notes that broader trends in scamming are always relevant to ransomware, because
