@@ -155,3 +155,15 @@ def test_the_producer_prompt_says_only_facts_from_the_text():
     from fma.reel_desk import PRODUCER_RULES
     assert "FACTS: use ONLY facts in the story's text below." in PRODUCER_RULES
     assert not re.search(r"\b[A-Z]\n[A-Z] ", PRODUCER_RULES)          # no word broken across a line
+
+
+def test_machine_phrases_and_model_disclaimers_are_caught_on_cards_and_in_the_blog():
+    """16 Nov 2026, from blader/humanizer: "plays a pivotal role", "based on available information" and the like."""
+    from fma.reel_desk import style_problems
+    from fma.write import HYPE_WORDS
+    card = {"hook": "Nvidia plays a pivotal role in the evolving landscape of chips[S1].", "points": [
+        "Based on available information, sales rose[S1].", "Acme cut prices to 5 dollars[S1]."]}
+    found = style_problems(card)
+    assert any("hook" in p for p in found) and any("points" in p for p in found)
+    assert not style_problems({"hook": "Nvidia cut its chip prices by 10 percent[S1].", "points": ["Sales rose[S1]."]})
+    assert {"plays a pivotal role", "based on available information", "let's dive in"} <= set(HYPE_WORDS)

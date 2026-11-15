@@ -10,7 +10,15 @@ HYPE_WORDS = ["revolutionary", "revolutionize", "revolutionizes", "game-changer"
               "unprecedented", "mind-blowing", "jaw-dropping", "stunning", "insane", "delve", "delves", "unleash",
               "unleashes", "supercharge", "supercharges", "skyrocket", "explosive", "seismic", "paradigm shift",
               "cutting-edge", "next-level", "breathtaking", "earth-shattering", "landmark", "tapestry", "embark",
-              "in today's fast-paced", "buckle up", "the future is here", "it's not just", "a testament to"]
+              "in today's fast-paced", "buckle up", "the future is here", "it's not just", "a testament to",
+              # 16 Nov 2026, from blader/humanizer (MIT) and the AI-tells lists read on 15 Nov: phrases that mark text
+              # as machine-written, and the disclaimers a model leaves when it is unsure. None appeared in any
+              # published post or Reel card (checked over all of them before adding), so they cost no good draft.
+              "plays a key role", "plays a crucial role", "plays a pivotal role", "a pivotal moment", "marks a pivotal",
+              "evolving landscape", "ever-evolving", "setting the stage for", "sets the stage for", "at its core",
+              "the real question is", "let's dive in", "here's what you need to know", "i hope this helps",
+              "as of my last", "based on available information", "while specific details are limited",
+              "experts argue"]
 
 SYSTEM = """You write "Five Minute AI", a daily briefing on AI for smart colleagues who are not AI specialists.
 Accuracy is the whole brand. You only state what the numbered sources say, in your own words.

@@ -206,6 +206,10 @@ TELLS = [(re.compile(p, re.I), why) for p, why in [
     (r"\b(unveil\w*|delve\w*|tapestry|testament to|supercharg\w+|turbocharg\w+|seamless\w*|revolutioni[sz]\w+)\b",
      "a press-release word"),
     (r"^(here'?s the thing|the truth is|let'?s be honest|make no mistake)\b", "a throat-clearing opener"),
+    # 16 Nov 2026: the blog's list of machine phrases and model disclaimers (fma/write.HYPE_WORDS) applies here too
+    (r"\b(plays? an? (key|crucial|pivotal) role|a pivotal moment|evolving landscape|sets? the stage for|"
+     r"setting the stage for|at its core|the real question is|let'?s dive in|here'?s what you need to know|"
+     r"based on available information|as of my last|experts argue)\b", "a stock machine phrase"),
     (r"\b(thoughts|agree)\?\s*$", 'an empty ask ("Thoughts?", "Agree?")'),
 ]]
 
