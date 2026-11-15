@@ -229,6 +229,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
     else if (ln.who === 'spark' && !ln.fig && k > 0 && panel && off === null && t >= ln.start) off = ln.start;
   }
   const fade = off === null ? 1 : Math.max(0, 1 - (t - off) / 0.3);
+  const hookOff = timeline.hookCard ? (timeline.hookUntil ?? 3.2) + 0.4 : -1;
+  const hookOn = t < hookOff;
   const party = lines.find((ln) => ln.tags.includes('confetti'));
   const flopLine = party ? lines.find((ln) => ln.tags.includes('drop') && ln.start > party.start) : undefined;
   const slogan = lines.find((ln) => ln.card && ln.who !== 'spark');
@@ -252,7 +254,9 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
             <div style={{height: 8, borderRadius: 4, background: INK, width: `${100 * Math.min(1, t / cardFrom)}%`}} />
           </div>
         </div>
-        {panel && fade > 0 && !onCard && <Panel text={panel.text} p={(t - panel.at) / 0.6} fade={fade} t={t} />}
+        {/* 15 Nov 2026: the number panel waits for the hook card to go (they shared the same spot and the panel's edges
+            showed round the card on the live Spark-alone Reel); it then rises in as if new */}
+        {panel && fade > 0 && !onCard && !hookOn && <Panel text={panel.text} p={(t - Math.max(panel.at, hookOff)) / 0.6} fade={fade} t={t} />}
         {order.map(char)}
         {party && t >= party.start && <Confetti since={t - party.start} flop={flopLine && t >= flopLine.start ? t - flopLine.start : null} />}
         {/* the logo card */}
