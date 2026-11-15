@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-15",
+ "slug": "2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen",
+ "headline": "Board members warn AI leadership cannot be trusted",
+ "url": "https://fiveminuteai.net/posts/2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen/",
+ "generated_at": "2026-11-15T04:28:27+00:00",
+ "items": [
+  {
+   "id": "2026-11-15-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Board members warn AI leadership cannot be trusted\n\n• Board members say current AI governance relies on untrustworthy CEOs, raising safety concerns.\n• Nvidia's CSO left for health reasons, then CEO quit amid relationship investigations and a federal probe of Megaspeed.\n• Nvidia financed AI customers in 2026 to absorb TSMC wafer oversupply and keep GPU prices above MSRP.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-15/instagram.png"
+   ],
+   "scheduled_at": "2026-11-15T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-15-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Board members warn AI leadership cannot be trusted\n\n• Board members say current AI governance relies on untrustworthy CEOs, raising safety concerns.\n\nhttps://fiveminuteai.net/posts/2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 173
+  },
+  {
+   "id": "2026-11-15-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Board members warn AI leadership cannot be trusted\n\n• Board members say current AI governance relies on untrustworthy CEOs, raising safety concerns.\n• Nvidia's CSO left for health reasons, then CEO quit amid relationship investigations and a federal probe of Megaspeed.\n• Nvidia financed AI customers in 2026 to absorb TSMC wafer oversupply and keep GPU prices above MSRP.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-15-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Nvidia CEO Jensen Huang resigned while federal investigators examined chips allegedly funneled to China[S3].",
+   "duo": false,
+   "cover": "Nvidia CEO resigns amid federal probe[S3].",
+   "text": "Nvidia CEO Jensen Huang resigned while federal investigators examined chips allegedly funneled to China.\n\n• Huang resigned amid probes into relationships with an executive at Megaspeed and other Nvidia employees.\n• Federal investigators examined Megaspeed for allegedly funneling Nvidia chips to China during the turnover.\n• An expert who trained 1,000 security professionals noted personal connections can create espionage vulnerabilities.\n\nOur read: Nvidia notes no public evidence links its security leadership changes to the Megaspeed investigation.\n\nYour take: Should corporate security oversight include executive personal ties? Tell us in the comments.\n\nSend this to the friend who keeps up with AI.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-15/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-15T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-15-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Helen Toner says we cannot trust AI CEOs to keep us safe[S1].",
+   "duo": true,
+   "cover": "AI CEOs can't be trusted[S1].",
+   "text": "Helen Toner says we cannot trust AI CEOs to keep us safe.\n\n• Toner says the OpenAI board failed to prioritize safety over profit.\n• Paul Cristiano warns an AI takeover could cause mass death within months.\n• Experts argue relying on individual executives for safety is insufficient.\n\nOur read: Voluntary agreements depend on the same flawed governance structures that failed before.\n\nYour take: Should AI safety be mandatory or voluntary? Tell us in the comments.\n\nSend this to someone who follows tech news.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #tech #technews #artificialintelligence",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-15/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-15T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-15-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Nvidia kept GPU prices high with circular financing deals[S4].",
+   "duo": true,
+   "cover": "Nvidia inflated GPU prices[S4].",
+   "text": "Nvidia kept GPU prices high with circular financing deals.\n\n• Nvidia absorbed excess TSMC wafers to sustain high GPU prices.\n• GeForce GPU prices rose to more than 160% of MSRP.\n• The strategy was described as a deliberate effort to prolong the AI boom.\n\nOur read: If you buy GPUs, know that corporate deals may be inflating your costs.\n\nYour take: Is this price manipulation or market strategy? Tell us in the comments.\n\nSend this to the friend who keeps up with AI.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-15/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-15T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-15-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang[S6].",
+   "duo": false,
+   "cover": "Over 115,000 demand Huang's return[S6].",
+   "text": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.\n\n• Huang resigned after confessing to an affair, and CFO Colette Kress became interim CEO.\n• Over 115,000 signers, including Elon Musk and 5,965 Nvidia employees, petitioned for his return.\n\nOur read: This rare public challenge shows how AI leadership disputes can quickly impact major chipmakers and tech markets.\n\nYour take: Should a board reinstate a CEO during an investigation? Tell us in the comments.\n\nSend this to someone who follows tech news.\n\nFull story, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #nvidia #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-15/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-15T13:30:00+00:00"
+  }
+ ]
+}

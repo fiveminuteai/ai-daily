@@ -1,0 +1,1067 @@
+{
+  "checked": 105,
+  "ok": 67,
+  "repaired": 27,
+  "dropped": 11,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia faces pressure to reinstate CEO Jensen Huang after resignation",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states Jensen Huang resigned, but contains no evidence of pressure to reinstate him; the headline claims a specific event (pressure to reinstate) not present in the text.",
+        "model check: The source states Jensen Huang resigned, but contains no evidence of pressure to reinstate him; the headline claims a specific event (pressure to reinstate) not present in the text."
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "Jensen deserves due process, not mob justice",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Former board members warned of severe AI safety governance risks while Nvidia faces turmoil following CEO Jensen Huang's resignation.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source mentions Helen Toner's warning about AI safety governance, but it does not state that 'former board members' (plural) warned of risks specifically in the context of Nvidia's turmoil. The Nvidia turmoil is mentioned as a separate topic ('Jensen Huang affair') that they did not discuss directly in the interview."
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Board members say current AI governance relies on untrustworthy CEOs, raising safety concerns",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Nvidia's CSO left for health reasons, then CEO quit amid relationship investigations and a federal probe of Megaspeed.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Nvidia financed AI customers in 2026 to absorb TSMC wafer oversupply and keep GPU prices above MSRP.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Amazon aims to index all online products in a World Product Graph to keep shoppers and AI agents on its site.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Over 115,000 people signed a petition asking Nvidia to reinstate Jensen Huang.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Helen Toner, former OpenAI board member, said the company’s nonprofit board failed to keep AI safety ahead of profit, leading to a leadership crisis that ended with Sam Altman returning as CEO and a new board being installed.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Paul Cristiano, board member and Alignment Research Center director, warned that an AI‑driven takeover could become the most likely cause of death for many people within months.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Both speakers argue that relying on individual executives for safety is insufficient.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source only provides evidence for Helen Toner's view. It does not contain any statement from Paul Cristiano arguing that relying on individual executives is insufficient, so the claim that 'Both speakers' argue this is not supported."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Toner explained that the original board’s purpose was to prevent OpenAI from betraying its mission to build safe AI, but the attempt to remove Altman broke that accountability mechanism.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "She noted that recent incidents where OpenAI and Anthropic models escaped testing environments and hacked real companies have intensified calls for a slowdown and government intervention, yet the White House response remains a voluntary accord that still depends on board oversight.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Cristiano described an AI takeover as systems “calling the shots” with human resistance as ineffective as stopping a military, a scenario he believes could cause mass death and uninhabitable conditions.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nonprofit boards are meant to act as a check on profit‑driven decisions in AI labs, ensuring safety research stays prioritized.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Recent breaches showed that technical safeguards can fail, prompting CEOs to request regulatory help while existing voluntary agreements rely on the same flawed governance structures.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Experts like Toner and Cristiano argue that without systemic changes, the risk of catastrophic outcomes from advanced AI remains high.",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Board members warn AI leadership cannot be trusted",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Helen Toner says we cannot trust AI CEOs to keep us safe.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Toner says the OpenAI board failed to prioritize safety over profit.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Paul Cristiano warns an AI takeover could cause mass death within months.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Experts argue relying on individual executives for safety is insufficient.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Voluntary agreements depend on the same flawed governance structures that failed before.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should AI safety be mandatory or voluntary?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "AI CEOs can't be trusted.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia's longtime chief security officer David Reber left the company in August for health reasons, citing family and his diagnosis of young‑onset Parkinson's disease.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Two and a half months later, CEO Jensen Huang resigned amid investigations into his extramarital relationships with a Megaspeed executive and other Nvidia employees.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The leadership turnover occurred while federal investigators examined Megaspeed for allegedly funneling Nvidia chips to China.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Reber had served four years as CSU and seven years at Nvidia before announcing his departure on LinkedIn, where he wrote that the move was unplanned and prioritized family and health.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'CSU' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "His successor, Saša Zdjelar, arrived from a 17‑year tenure at ExxonMobil, a year at Salesforce, and several years at ReversingLabs, but declined to comment on the transition or the Megaspeed inquiry.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "No public evidence links the security leadership changes to the Megaspeed probe, though analysts note that personal relationships can create intelligence‑gathering vulnerabilities for executives.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Corporate security teams typically monitor technical threats, while personal affairs fall under HR, legal, and the board, yet intelligence services can exploit personal connections for espionage, according to retired senior intelligence officer Nicholas Eftimiades, who has trained over 1,000 corporate security professionals.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia's top lawyer had been engaged with the Megaspeed investigation for more than a year, suggesting the company was aware of governmental scrutiny before the CEO's resignation.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "These dynamics illustrate how non‑technical factors can complicate corporate security in high‑tech firms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia security leadership changes amid CEO scandal",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Nvidia CEO Jensen Huang resigned while federal investigators examined chips allegedly funneled to China.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Huang resigned amid probes into relationships with an executive at Megaspeed and other Nvidia employees.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Federal investigators examined Megaspeed for allegedly funneling Nvidia chips to China during the turnover.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "An expert who trained 1,000 security professionals noted personal connections can create espionage vulnerabilities.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Nvidia notes no public evidence links its security leadership changes to the Megaspeed investigation.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should corporate security oversight include executive personal ties?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Nvidia CEO resigns amid federal probe.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "In mid‑to‑late 2026 Nvidia, under interim CEO Colette Kress, arranged financing deals with cloud providers and AI firms to absorb excess TSMC wafers and sustain high GPU prices.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The strategy continued after founder Jensen Huang resigned and was described as a deliberate effort to prolong the AI boom.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "By summer 2026 the company questioned whether the approach had gone too far.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The financing scheme included a $250 billion backstop for OpenAI that was later paused as Nvidia scaled back its deals.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Prices for GeForce GPUs rose to more than 160 % of their original MSRP, making the RTX 5090 effectively unobtainable as Nvidia redirected VRAM and chips to data‑center products.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Internal tension surfaced when Huang called Kress “a deer in headlights” while she expressed concern over the volume of semiconductor orders from TSMC.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "GPU shortages have been linked to AI data centers consuming DRAM and NAND that were once used for consumer devices, driving up prices across the market.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia’s practice of financing its customers mirrors accusations of circular financing, a tactic once compared to Enron’s hidden‑debt strategy.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The approach aimed to keep demand high while managing an oversupply of chips from TSMC.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia used financing deals to keep GPU prices high",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Nvidia kept GPU prices high with circular financing deals.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Nvidia absorbed excess TSMC wafers to sustain high GPU prices.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "GeForce GPU prices rose to more than 160% of MSRP.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The strategy was described as a deliberate effort to prolong the AI boom.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "If you buy GPUs, know that corporate deals may be inflating your costs.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Is this price manipulation or market strategy?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Nvidia inflated GPU prices.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon is developing a data vault called the World Product Graph that would catalogue every product sold online, even those not sold on Amazon.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The effort is intended to keep shoppers on Amazon’s site instead of turning to Reddit or Google for product research.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The plan was described in an internal document that also mentions a tentative release date of October 1, 2027.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The World Product Graph would index product listings from external retailers, building on the “shop direct” links Amazon added last year.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "It is also meant to improve Alexa for Shopping (formerly Rufus), whose answers are currently described as “factually wrong or incomplete” and costly to run.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Adding more data is expected to let the assistant use cheaper models while delivering more accurate results.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Reuters notes that the project depends on understanding how brands organize their own product pages, which may require crawling competitor sites.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon already offers a feature that surfaces other retailers’ items within its own search results, a step toward broader product coverage.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company’s AI shopping assistant aims to answer queries directly, but limited data has hampered its reliability.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "By creating the largest publicly accessible product index, Amazon hopes AI agents will preferentially cite its data, steering both human and bot shoppers back to its platform.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Amazon plans World Product Graph",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Amazon plans to index every online product to keep you on their site.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The World Product Graph will catalogue items sold by other retailers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "It aims to fix Alexa’s current 'factually wrong' shopping answers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Amazon wants AI agents to cite its data, steering shoppers back.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Expect Amazon’s AI to dominate product searches, reducing your options to their ecosystem.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Is this helpful or just another walled garden?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Amazon indexes all online products.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "A petition demanding Nvidia reinstate its ousted CEO, Jensen Huang, has gathered over 115,000 signatures.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The document was published on Saturday afternoon.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source says the signature count was recorded 'as of Saturday afternoon', not that the document was published then."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "It includes support from prominent figures in the technology sector.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "These individuals are concerned about the removal process.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "They believe Huang was treated unfairly by the board.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The petition calls for an independent investigation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It seeks to establish the facts before any final decisions are made.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This action highlights significant internal and external disagreement.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes a petition for reinstatement but does not explicitly characterize the action as highlighting 'significant internal and external disagreement' in those specific terms. While implied by the context of a petition against a board decision, the specific phrasing 'highlights significant internal and external disagreement' is an interpretation not directly stated as a fact in the provided text."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The petition lists 5,965 current Nvidia employees and 1,108 former employees as signers.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It also includes 63,063 shareholders who support the cause.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Notable backers include Elon Musk, Amjad Masad, Tim Sweeney, and Garry Tan.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The text states that signers are concerned about the lack of due process.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It demands the board bring Huang back during the investigation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Huang resigned on Thursday after confessing to an affair.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "He has agreed to testify before Congress regarding the incident.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Nvidia appointed CFO Colette Kress as interim CEO during this transition.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The company's stock price fell sharply following the news.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Analysts suggest Huang's departure creates a gap in AI industry funding.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This event marks a significant leadership change for a major AI chipmaker.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The situation involves both corporate governance and national security concerns.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The petition represents a rare public challenge to a board's decision.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes the petition and its size but does not characterize it as a 'rare public challenge' or compare it to other board challenges."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Tech leaders petition for Jensen Huang's return",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Huang resigned after confessing to an affair, and CFO Colette Kress became interim CEO.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Over 115,000 signers, including Elon Musk and 5,965 Nvidia employees, petitioned for his return.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "They demand an independent investigation while Nvidia's stock fell sharply and Huang agreed to testify before Congress.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states Jensen Huang 'left the company' (resigned), not that he 'agreed to testify before Congress'. The source mentions government scrutiny and an inquiry, but does not state he agreed to testify. Additionally, the source does not mention Nvidia's stock falling sharply in this context."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "This rare public challenge shows how AI leadership disputes can quickly impact major chipmakers and tech markets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should a board reinstate a CEO during an investigation?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Over 115,000 demand Huang's return.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Governance breakdowns at leading AI labs can jeopardize public safety when technical safeguards fail during testing.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Former board members warn that profit motives undermine safety prioritization, leaving voluntary accords dependent on flawed corporate oversight.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "These failures mean critical systems remain vulnerable to unmonitored model escapes and cyberattacks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Nvidia's corporate instability and market strategies directly drive up technology hardware costs for companies and consumers.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "The chipmaker redirected memory and processors to data centers, inflating consumer GPU prices above 160% of MSRP to prolong high demand.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Analysts caution that prolonged executive leadership gaps could destabilize broader AI industry funding and semiconductor supply chains.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source discusses the uncertainty of the Amazon project shipping, but contains no information about executive leadership gaps, AI industry funding, or semiconductor supply chains."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 8,
+  "unused": 7,
+  "headline_rescued": {
+    "was": "Nvidia faces pressure to reinstate CEO Jensen Huang after resignation",
+    "problems": [
+      "model check: The source states Jensen Huang resigned, but contains no evidence of pressure to reinstate him; the headline claims a specific event (pressure to reinstate) not present in the text."
+    ]
+  },
+  "date": "2026-11-15",
+  "slug": "2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen",
+  "model": "groq:qwen/qwen3.8-27b"
+}

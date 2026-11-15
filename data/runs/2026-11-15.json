@@ -1,0 +1,435 @@
+{
+ "date": "2026-11-15",
+ "started_at": "2026-11-15T03:45:27+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.2,
+   "items": 454,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 8
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 3
+    },
+    "github": {
+     "status": "ok",
+     "items": 0
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 32,
+   "editor": true,
+   "top": [
+    {
+     "title": "The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs",
+     "url": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
+     "score": 8.14,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Where was Nvidia’s security team?",
+     "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+     "score": 7.41,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia deliberately kept GPU prices high through circular financing deals",
+     "url": "https://www.techspot.com/news/114558-nvidia-deliberately-kept-gpu-prices-high-through-circular.html",
+     "score": 7.37,
+     "interest": 8.0,
+     "category": "tools",
+     "player": "giant",
+     "outlets": [
+      "techspot.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon has a plan to index the world’s online shopping data",
+     "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+     "score": 6.47,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+     "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+     "score": 5.56,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Beware the New AI-Fueled Ransomware Boom",
+     "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+     "score": 5.54,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI agent startup LangChain hits $3B valuation",
+     "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+     "score": 5.43,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+     "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+     "score": 5.4,
+     "interest": 7.0,
+     "category": "products",
+     "player": "challenger",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Uber confirms hackers stole thousands of drivers’ license information in data breach",
+     "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
+     "score": 5.29,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
+     "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+     "score": 5.19,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "FAA expands AI advice to manage air traffic congestion across entire US airspace",
+     "url": "https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/",
+     "score": 4.84,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "How to get better results from Google Gemini",
+     "url": "https://www.engadget.com/2312834/how-to-get-better-results-google-gemini/",
+     "score": 4.71,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs",
+     "url": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
+     "score": 8.14,
+     "interest": 9.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Where was Nvidia’s security team?",
+     "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+     "score": 7.41,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia deliberately kept GPU prices high through circular financing deals",
+     "url": "https://www.techspot.com/news/114558-nvidia-deliberately-kept-gpu-prices-high-through-circular.html",
+     "score": 7.37,
+     "interest": 8.0,
+     "category": "tools",
+     "player": "giant",
+     "outlets": [
+      "techspot.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon has a plan to index the world’s online shopping data",
+     "url": "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search",
+     "score": 6.47,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+     "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+     "score": 5.56,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.0,
+   "articles": 9,
+   "with_text": 9
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.7,
+   "word_count": 1216,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 449.4,
+    "reel_desk": 1158.5,
+    "layer1": 0.1,
+    "layer2": 689.9,
+    "gate": 270.7
+   },
+   "layer1": {
+    "checked": 112,
+    "ok": 77,
+    "repaired": 32,
+    "dropped": 3
+   },
+   "layer2": {
+    "checked": 105,
+    "ok": 67,
+    "repaired": 27,
+    "dropped": 11
+   },
+   "unused": 7,
+   "fails": [
+    "word count 1214 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Board members warn AI leadership cannot be trusted",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "High-stakes existential threat from a known figure (Toner) and specific warning of mass death; strong emotional hook for tech workers worried about AI safety.",
+     "hook": "Helen Toner says we cannot trust AI CEOs to keep us safe.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia security leadership changes amid CEO scandal",
+     "reel": 9,
+     "rubric": 9,
+     "chief": 9.0,
+     "why": "Giant company (Nvidia) in legal trouble with a major leader (Huang) involved; espionage angle creates immediate office chatter and concern about supply chain integrity.",
+     "hook": "Nvidia CEO Jensen Huang resigned while federal investigators examined chips allegedly funneled to China.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia used financing deals to keep GPU prices high",
+     "reel": 8,
+     "rubric": 10,
+     "chief": 7.0,
+     "why": "Direct financial impact on viewers (GPU prices) and accusation of corporate manipulation; clear stakes and a known brand, but less dramatic than legal/leadership crises.",
+     "hook": "Nvidia kept GPU prices high with circular financing deals.",
+     "chosen": true
+    },
+    {
+     "story": "Amazon plans World Product Graph",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Interesting strategic move by Amazon that affects daily life, but feels more like industry analysis than a breaking crisis; lower urgency for the average viewer.",
+     "hook": "Amazon plans to index every online product to keep you on their site.",
+     "chosen": false
+    },
+    {
+     "story": "Tech leaders petition for Jensen Huang's return",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "Dramatic human element (affair/confession) combined with a massive public backlash (Musk + 115k signers) against a giant; high drama and controversy ensure high engagement.",
+     "hook": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-15-nvidia-faces-pressure-to-reinstate-ceo-jensen",
+ "finished_at": "2026-11-15T04:28:27+00:00",
+ "seconds": 2579.6
+}

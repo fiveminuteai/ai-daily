@@ -67,20 +67,36 @@ Amazon said in a statement to Reuters that “Draft, outdated documents often pa
 Most Popular
 Tesla is inviting some people to buy a Cybercab ‘for personal use’ — but read the fine print
 Microsoft’s massive Outlook outage might be over
-Claude’s Duet agent is a little neurotic and surprisingly helpful
 Jensen Huang and the decline of the visionary showman founder CEO
-Hands on with Home Assistant’s new ‘smart home multi-tool’
+Claude’s Duet agent is a little neurotic and surprisingly helpful
+Work to replace old copper wire led to the FAA’s ground stop
 This is the title for the native ad
 
 =========== STORY BLOCK ===========
 
-=== STORY 5 (suggested section: impact) ===
+=== STORY 5 (suggested section: products) ===
 
-[S6] WIRED — "Beware the New AI-Fueled Ransomware Boom" (14 November 2026)
-Welcome to Kernel Panic , a weekly newsletter by Lily Hay Newman and Matt Burgess from inside the new world of privacy and digital security. To receive this newsletter in your inbox each week, sign up here .
-With so much going on all the time, you may not have thought about ransomware and data extortion attacks in a minute, even though they’ve been among the the biggest cybersecurity threats to institutions—and, by extension, people—over the past decade. But in the new era of AI-powered and automated cyberattacks, the danger posed by ransomware is only increasing as cybercriminals profit by combining established methods with new techniques made possible or more accessible by AI.
-It is difficult to determine exact numbers of ransomware attacks, given that victims don’t always disclose incidents and attackers wildly inflate their claims. But researchers who specialize in tracking and attempting to de-duplicate the field agree that claimed incidents have spiked over the last few months. Some put the number of alleged ransomware attacks on leak sites—where groups post alleged victims—at nearly 3,000 attacks over the summer. This would mean a 20 to 40 percent increase since the spring by some estimates. And, crucially, researchers emphasize that while volume always fluctuates somewhat, ransomware attacks overall have been consistently and concerningly elevated in recent years.
-“What we see is most of the recent increase was fueled by international attacks; the United States was a little more steady, but still high, still a lot of attacks,” says Cynthia Kaiser, former FBI cyber deputy director who now leads research for the anti-ransomware platform Halcyon. “Internationally we’re seeing a lot more attacks. That to me is the really new part, and I do think it is in part fueled by AI.”
-Fully AI-powered ransomware attacks have yet to emerge, perhaps because the criminal business model already works so effectively . But cybercriminals do appear to be using LLMs for some of the more mundane aspects of their attacks.
-“We are seeing AI relied on more heavily in certain aspects of the ransomware attack chain, such as creating better phishing emails and in the negotiation process, but the ‘successful’ ransomware groups are still largely human operated,” says Allan Liska, a longtime ransomware researcher and threat intelligence analyst at Recorded Future. “But the fact that these groups are experimenting heavily with AI means that this could change going forward, and change quickly.”
-Kaiser notes that broader trends in scamming are always relevant to ransomware, because
+[S6] TechCrunch — "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang" (14 November 2026)
+Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang
+A petition calling on Nvidia to reinstate the company’s recently ousted CEO Jensen Huang appears to have attracted more than 115,000 signatures as of Saturday afternoon.
+The petition website said the signers include 5,965 current Nvidia employees, 1,108 former employees, and 63,063 shareholders. Notable supporters include Tesla and SpaceX CEO Elon Musk, Replit CEO Amjad Masad, Epic Games CEO Tim Sweeney, and Y Combinator CEO Garry Tan.
+The petition states that its signers are “concerned that Jensen was removed without meaningful due process” and demands that the board “bring him back while an independent investigation establishes the facts.” It also calls on the board to ensure a fair investigation and provide more information to the public.
+“Jensen deserves due process, not mob justice,” the petition says.
+Huang resigned on Thursday , four days after confessing to having an affair with a chip executive suspected by U.S. intelligence to be a Chinese spy. The former CEO has agreed to testify before Congress, while news reports have also suggested that Huang engaged in multiple extramarital affairs .
+Nvidia appointed CFO Colette Kress as the company’s interim CEO while it searches for a permanent replacement. Nvidia’s stock price fell sharply through the week, while Huang’s departure is also expected to leave a big gap in AI industry funding .
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+Venture Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say Marina Temkin Dominic-Madori Davis 1 day ago
+Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say
+AI The unfolding Jensen Huang scandal: a timeline Amanda Silberling 1 day ago
+The unfolding Jensen Huang scandal: a timeline
+AI Israel’s VCs see opportunity for challengers in Nvidia’s turmoil Anna Heim 2 days ago
+Israel’s VCs see opportunity for challengers in Nvidia’s turmoil
+Latest in AI
+AI Where was Nvidia’s security team? Connie Loizos 3 hours ago
+Where was Nvidia’s security team?
+In Brief Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang Anthony Ha 6 hours ago
+AI The AI graveyard: a running list of projects and startups that didn’t make it Lauren Forristal 10 hours ago
+The AI graveyard: a running list of projects and startups that di
