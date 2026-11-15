@@ -1,4 +1,4 @@
-=== STORY 1 (suggested section: products) ===
+=== STORY 1 (suggested section: impact) ===
 
 [S1] The Verge — "The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs" (14 November 2026)
 The OpenAI board member who fired Sam Altman says we still can’t trust AI CEOs
@@ -20,9 +20,22 @@ Despite his grim assessme
 
 =========== STORY BLOCK ===========
 
-=== STORY 2 (suggested section: tools) ===
+=== STORY 2 (suggested section: policy) ===
 
-[S3] techspot.com (via Hacker News) — "Nvidia deliberately kept GPU prices high through circular financing deals" (14 November 2026)
+[S3] TechCrunch — "Where was Nvidia’s security team?" (15 November 2026)
+Outsiders had little reason to notice when Nvidia’s longtime chief security officer and head of product security stepped down in August. Just two and a half months later, CEO Jensen Huang himself left the company over growing questions about his extramarital relationships — starting with an executive at Megaspeed, a Singapore data center company that U.S. investigators suspect of funneling Nvidia chips to China, then widening to reports about two separate affairs with Nvidia employees.
+At the time, David Reber, who spent four years as CSO and seven at Nvidia overall, said he was leaving for health reasons. “This wasn’t a pivot I had planned. But I know what needs to come first: family and health,” he wrote on LinkedIn in late August, disclosing that he’d been diagnosed with young-onset Parkinson’s more than two years ago.
+Reber’s replacement, Saša Zdjelar, previously spent 17 years at ExxonMobil in Houston, leaving as a senior IT manager before spending one year at Salesforce and several years at the cybersecurity company ReversingLabs. Zdjelar didn’t respond to questions Thursday about the transition or what the security team knew.
+Nothing public connects Reber’s or Zdjelar’s role changes to the Megaspeed matter, but it seems fair to wonder what Nvidia’s security team knew about the government’s scrutiny of Megaspeed and about Huang’s relationships, and whether anyone raised concerns. Reber didn’t respond to questions Thursday. Nvidia also has not answered our related questions.
+Relationships between a CEO and his employees typically fall to HR, legal and the board, not security. But security specialists say any affair — even one inside the office — can give a foreign intelligence service leverage over an exec who wants it kept quiet. And Huang’s relationship with an executive at Megaspeed, a company under federal investigation, wasn’t an office matter at all. (Megaspeed has denied any wrongdoing.)
+Still, spotting the clues isn’t easy. The way intelligence services collect information, much of it through everyday conversation rather than hacking, makes it especially difficult for security teams to identify risks, according to retired senior intelligence officer Nicholas Eftimiades, who says he has trained more than 1,000 corporate security professionals.
+Some people inside Nvidia clearly knew parts of the picture. Nvidia’s top lawyer was engaged with the government’s Megaspeed inquiry more than a year ago, The New York Times reported earlier this week . (Nvidia has said it regularly contacts officials.) Reports about Huang’s relationships with employees
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: tools) ===
+
+[S4] techspot.com (via Hacker News) — "Nvidia deliberately kept GPU prices high through circular financing deals" (14 November 2026)
 Connecting the dots: The AI boom has been widely blamed for GPU prices spinning out of control over the past year. Following Jensen Huang's resignation from Nvidia,new information suggests that this was the goal of the former CEO's business strategy, which has long drawn accusations of circular financing.
 A recent Wall Street Journal profile of Nvidia interim CEO Colette Kress has shed more light on how Nvidia controversially financed its own customers to drive the AI boom. According to the report, the company pushed for more deals in mid-to-late 2026 to absorb an oversupply of TSMC wafers and keep GPU prices high.
 Since at least last year, Nvidia has been accused of prolonging the AI boom by supporting the companies that buy its chips. Co-founder and former CEO Jensen Huang, along with CFO Kress, even went so far as to defend the company against comparisons to Enron, which used similar tactics to illegally obscure its debt before its 2001 collapse.
@@ -39,9 +52,9 @@ At a Berlin conference, the form
 
 =========== STORY BLOCK ===========
 
-=== STORY 3 (suggested section: products) ===
+=== STORY 4 (suggested section: products) ===
 
-[S4] The Verge — "Amazon has a plan to index the world’s online shopping data" (13 November 2026)
+[S5] The Verge — "Amazon has a plan to index the world’s online shopping data" (13 November 2026)
 Amazon has a plan to index the world’s online shopping data
 Listing the details of everything for sale everywhere is meant to make Amazon more useful than Reddit for people and AI agents.﻿
 Amazon has plans to build a vault of data on every product sold anywhere on the internet, even products Amazon doesn’t sell, and make the information available through its own site, according to Reuters . The project, called the “World Product Graph,” is meant to make it less likely that shoppers leave Amazon to do their product research on Reddit or Google, and make it more likely shoppers end up at Amazon even if they’re searching for a product sold elsewhere. The same goes for AI agents — if Amazon has the largest stockpile of shopping data, AI agents may rely on its index of products over others, so even people shopping with bots will end up on its pages.
@@ -58,19 +71,6 @@ Claude’s Duet agent is a little neurotic and surprisingly helpful
 Jensen Huang and the decline of the visionary showman founder CEO
 Hands on with Home Assistant’s new ‘smart home multi-tool’
 This is the title for the native ad
-
-=========== STORY BLOCK ===========
-
-=== STORY 4 (suggested section: policy) ===
-
-[S5] TechCrunch — "Where was Nvidia’s security team?" (15 November 2026)
-Outsiders had little reason to notice when Nvidia’s longtime chief security officer and head of product security stepped down in August. Just two and a half months later, CEO Jensen Huang himself left the company over growing questions about his extramarital relationships — starting with an executive at Megaspeed, a Singapore data center company that U.S. investigators suspect of funneling Nvidia chips to China, then widening to reports about two separate affairs with Nvidia employees.
-At the time, David Reber, who spent four years as CSO and seven at Nvidia overall, said he was leaving for health reasons. “This wasn’t a pivot I had planned. But I know what needs to come first: family and health,” he wrote on LinkedIn in late August, disclosing that he’d been diagnosed with young-onset Parkinson’s more than two years ago.
-Reber’s replacement, Saša Zdjelar, previously spent 17 years at ExxonMobil in Houston, leaving as a senior IT manager before spending one year at Salesforce and several years at the cybersecurity company ReversingLabs. Zdjelar didn’t respond to questions Thursday about the transition or what the security team knew.
-Nothing public connects Reber’s or Zdjelar’s role changes to the Megaspeed matter, but it seems fair to wonder what Nvidia’s security team knew about the government’s scrutiny of Megaspeed and about Huang’s relationships, and whether anyone raised concerns. Reber didn’t respond to questions Thursday. Nvidia also has not answered our related questions.
-Not all of those relationships are the business of the security team. Relationships with subordinates typically fall to HR, legal, and the board. But an affair with an executive at a company under federal investigation is a different animal. (Megaspeed has denied any wrongdoing.) Security specialists say affairs can create vulnerabilities that foreign intelligence services look to exploit.
-Catching that kind of exposure isn’t easy. The way intelligence services collect information, much of it through everyday conversation rather than hacking, makes it especially difficult for security teams to identify risks, according to retired senior intelligence officer Nicholas Eftimiades, who says he has trained more than 1,000 corporate security professionals.
-Some people inside Nvidia clearly knew parts of the picture. Nvidia’s top lawyer was engaged with the government’s Megaspeed inquiry more than a year ago, The New York Times reported earlier this week . (Nvidia has said it regularly contacts officials.) Reports about Huang’s relationships with employees suggest colleagues also knew 
 
 =========== STORY BLOCK ===========
 
