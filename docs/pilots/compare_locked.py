@@ -46,11 +46,25 @@ def main() -> int:
             models = ["35b", "7b"] if up() else ["7b"]
             env = {"OPENBLAS_NUM_THREADS": "2", "PYTHONIOENCODING": "utf-8"}
             import os
+            # 16 Nov 2026: the lock's watchdog now ends a holder at max_minutes (240). The run is resumable, so it
+            # stops itself cleanly at 220 minutes and the next try picks up the samples still missing.
+            # llama-server is started by aicli's start-llama.ps1 (Start-Process, then the script exits), so the
+            # shared 35B server is not in this process's tree and is never ended with it.
+            stop_at = time.monotonic() + 220 * 60
             for which in models:
+                left = stop_at - time.monotonic()
+                if left <= 60:
+                    log("220 minutes used: stopping; the next run resumes")
+                    break
                 log(f"run {which}")
                 with (OUT / f"run-{which}.log").open("a", encoding="utf-8") as f:
-                    subprocess.run([sys.executable, str(ROOT / "docs/pilots/compare_models.py"), "run", which, str(OUT)],
-                                   cwd=ROOT, stdout=f, stderr=subprocess.STDOUT, env={**os.environ, **env})
+                    try:
+                        subprocess.run([sys.executable, str(ROOT / "docs/pilots/compare_models.py"), "run", which,
+                                        str(OUT)], cwd=ROOT, stdout=f, stderr=subprocess.STDOUT,
+                                       env={**os.environ, **env}, timeout=left)
+                    except subprocess.TimeoutExpired:
+                        log(f"{which}: stopped at 220 minutes; the next run resumes the missing samples")
+                        break
             have = {w: len(list(OUT.glob(f"{w}-*.json"))) for w in ("35b", "7b")}
             log(f"samples on disk: {have}")
             if min(have.values()) >= 18:
