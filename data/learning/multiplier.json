@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-15T22:42:24+00:00",
+ "updated": "2026-11-16T18:02:03+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
   "duo": {
-   "n": 20,
-   "reach": 111.5,
-   "watch_s": 5.65,
-   "held": 0.404,
+   "n": 21,
+   "reach": 112,
+   "watch_s": 5.7,
+   "held": 0.398,
    "sent_saved": 0.0
   },
   "plain": {
@@ -27,11 +27,11 @@
    "judged": "early",
    "x": {
     "reach": 1.04,
-    "watch_s": 2.14,
-    "held": 1.59,
+    "watch_s": 2.12,
+    "held": 1.62,
     "sent_saved": null
    },
-   "overall": 1.52,
+   "overall": 1.53,
    "category": "models",
    "player": "giant",
    "hook_type": "stakes",
@@ -47,9 +47,9 @@
    "hook": "You can now text Alexa to find and buy things on Amazon.",
    "judged": "early",
    "x": {
-    "reach": 1.06,
-    "watch_s": 1.89,
-    "held": 1.42,
+    "reach": 1.05,
+    "watch_s": 1.88,
+    "held": 1.44,
     "sent_saved": null
    },
    "overall": 1.42,
@@ -68,9 +68,9 @@
    "hook": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
    "judged": "early",
    "x": {
-    "reach": 1.26,
-    "watch_s": 1.58,
-    "held": 1.36,
+    "reach": 1.25,
+    "watch_s": 1.56,
+    "held": 1.38,
     "sent_saved": null
    },
    "overall": 1.39,
@@ -111,8 +111,8 @@
    "judged": "early",
    "x": {
     "reach": 1.2,
-    "watch_s": 1.45,
-    "held": 1.35,
+    "watch_s": 1.44,
+    "held": 1.37,
     "sent_saved": null
    },
    "overall": 1.33,
@@ -153,8 +153,8 @@
    "judged": "early",
    "x": {
     "reach": 1.2,
-    "watch_s": 1.45,
-    "held": 1.03,
+    "watch_s": 1.42,
+    "held": 1.05,
     "sent_saved": null
    },
    "overall": 1.21,
@@ -173,9 +173,9 @@
    "hook": "Claude can now read your bank accounts, but it can't move money.",
    "judged": "early",
    "x": {
-    "reach": 1.06,
-    "watch_s": 1.59,
-    "held": 1.03,
+    "reach": 1.05,
+    "watch_s": 1.58,
+    "held": 1.05,
     "sent_saved": null
    },
    "overall": 1.2,
@@ -215,9 +215,9 @@
    "hook": "Anthropic founders will sell shares worth nearly $250 million.",
    "judged": "early",
    "x": {
-    "reach": 1.17,
-    "watch_s": 1.43,
-    "held": 1.01,
+    "reach": 1.16,
+    "watch_s": 1.42,
+    "held": 1.03,
     "sent_saved": null
    },
    "overall": 1.19,
@@ -320,9 +320,9 @@
    "hook": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
    "judged": "early",
    "x": {
-    "reach": 1.0,
-    "watch_s": 1.22,
-    "held": 1.15,
+    "reach": 0.99,
+    "watch_s": 1.21,
+    "held": 1.17,
     "sent_saved": null
    },
    "overall": 1.12,
@@ -342,8 +342,8 @@
    "judged": "early",
    "x": {
     "reach": 1.0,
-    "watch_s": 1.2,
-    "held": 0.93,
+    "watch_s": 1.19,
+    "held": 0.94,
     "sent_saved": null
    },
    "overall": 1.04,
@@ -362,9 +362,9 @@
    "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover",
    "judged": "early",
    "x": {
-    "reach": 1.09,
-    "watch_s": 1.01,
-    "held": 0.95,
+    "reach": 1.08,
+    "watch_s": 1.0,
+    "held": 0.97,
     "sent_saved": null
    },
    "overall": 1.02,
@@ -384,8 +384,8 @@
    "judged": "early",
    "x": {
     "reach": 1.0,
-    "watch_s": 0.99,
-    "held": 0.96,
+    "watch_s": 0.98,
+    "held": 0.97,
     "sent_saved": null
    },
    "overall": 0.98,
@@ -405,8 +405,8 @@
    "judged": "early",
    "x": {
     "reach": 0.93,
-    "watch_s": 0.97,
-    "held": 0.97,
+    "watch_s": 0.96,
+    "held": 0.98,
     "sent_saved": null
    },
    "overall": 0.96,
@@ -419,15 +419,36 @@
    "time": "16:00"
   },
   {
+   "id": "2026-11-08-reel-2",
+   "date": "2026-11-08",
+   "kind": "duo",
+   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+   "judged": "early",
+   "x": {
+    "reach": 0.95,
+    "watch_s": 0.88,
+    "held": 1.05,
+    "sent_saved": null
+   },
+   "overall": 0.96,
+   "category": "research",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
    "id": "2026-11-08-reel-3",
    "date": "2026-11-08",
    "kind": "duo",
    "hook": "Microsoft dissolves its AI Frontiers team, ending a dedicated research hub.",
    "judged": "early",
    "x": {
-    "reach": 0.98,
-    "watch_s": 0.96,
-    "held": 0.93,
+    "reach": 0.97,
+    "watch_s": 0.95,
+    "held": 0.95,
     "sent_saved": null
    },
    "overall": 0.96,
@@ -461,25 +482,25 @@
    "time": "19:00"
   },
   {
-   "id": "2026-11-08-reel-2",
-   "date": "2026-11-08",
+   "id": "2026-11-14-reel-1",
+   "date": "2026-11-14",
    "kind": "duo",
-   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+   "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
    "judged": "early",
    "x": {
-    "reach": 0.95,
-    "watch_s": 0.88,
-    "held": 1.03,
+    "reach": 1.06,
+    "watch_s": 1.0,
+    "held": 0.78,
     "sent_saved": null
    },
-   "overall": 0.95,
-   "category": "research",
+   "overall": 0.94,
+   "category": "impact",
    "player": "giant",
-   "hook_type": "untagged",
-   "pain": "untagged",
-   "pace": "slow",
-   "hook_number": true,
-   "time": "13:00"
+   "hook_type": "stakes",
+   "pain": "job",
+   "pace": "brisk",
+   "hook_number": false,
+   "time": "09:00"
   },
   {
    "id": "2026-11-04-reel-1",
@@ -511,7 +532,7 @@
    "x": {
     "reach": 0.94,
     "watch_s": 0.81,
-    "held": 0.99,
+    "held": 1.0,
     "sent_saved": null
    },
    "overall": 0.91,
@@ -573,8 +594,8 @@
    "judged": "early",
    "x": {
     "reach": 0.62,
-    "watch_s": 0.8,
-    "held": 0.8,
+    "watch_s": 0.79,
+    "held": 0.81,
     "sent_saved": null
    },
    "overall": 0.73,
@@ -591,7 +612,7 @@
    "date": "2026-11-05",
    "kind": "plain",
    "hook": "AT&T adds Gemini AI to its security system, letting users ask video questions instantly.",
-   "judged": "early",
+   "judged": "final",
    "x": {
     "reach": 0.25,
     "watch_s": 0.92,
@@ -616,7 +637,7 @@
    "x": {
     "reach": 0.5,
     "watch_s": 0.65,
-    "held": 1.05,
+    "held": 1.07,
     "sent_saved": null
    },
    "overall": 0.7,
@@ -657,8 +678,8 @@
    "judged": "early",
    "x": {
     "reach": 0.26,
-    "watch_s": 0.92,
-    "held": 0.95,
+    "watch_s": 0.91,
+    "held": 0.96,
     "sent_saved": null
    },
    "overall": 0.61,
@@ -679,7 +700,7 @@
    "x": {
     "reach": 0.95,
     "watch_s": 0.39,
-    "held": 0.57,
+    "held": 0.58,
     "sent_saved": null
    },
    "overall": 0.6,
@@ -738,7 +759,7 @@
    "date": "2026-11-05",
    "kind": "plain",
    "hook": "Amazon adds decision models to Bedrock AgentCore, boosting AI safety compliance.",
-   "judged": "early",
+   "judged": "final",
    "x": {
     "reach": 0.44,
     "watch_s": 0.42,
@@ -763,7 +784,7 @@
    "x": {
     "reach": 0.43,
     "watch_s": 0.37,
-    "held": 0.4,
+    "held": 0.41,
     "sent_saved": null
    },
    "overall": 0.4,
@@ -797,7 +818,7 @@
    "time": "19:00"
   }
  ],
- "judged": 15,
+ "judged": 17,
  "top_tenth": null,
  "top_tenth_needs": 20
 }

@@ -1,25 +1,26 @@
 {
- "at": "2026-11-15T22:42:21+00:00",
+ "at": "2026-11-16T18:02:00+00:00",
  "ok": true,
  "suites": [
   {
    "suite": "facts-true",
-   "n": 569,
-   "passed": 566,
-   "rate": 0.995,
+   "n": 608,
+   "passed": 604,
+   "rate": 0.993,
    "bar": 0.97,
    "ok": true,
    "misses": [
     "2026-11-06: Meta has data centres in 23 states, and five are planned as huge power projects[S6]. -> overstates: 'huge' is not in the source",
     "2026-11-10: Testers found Gemini pulls files in the background, without @Drive or @Gmail tags[S4]. -> name 'Testers' not in cited source",
-    "2026-11-10: Testers found it can pull files in the background, without you asking for them[S4]. -> name 'Testers' not in cited source"
+    "2026-11-10: Testers found it can pull files in the background, without you asking for them[S4]. -> name 'Testers' not in cited source",
+    "2026-11-15: Experts argue relying on individual executives for safety is insufficient[S1]. -> hype word 'experts argue'"
    ]
   },
   {
    "suite": "facts-broken",
-   "n": 195,
-   "passed": 181,
-   "rate": 0.928,
+   "n": 205,
+   "passed": 191,
+   "rate": 0.932,
    "bar": 0.9,
    "ok": true,
    "misses": [
@@ -73,8 +74,8 @@
   },
   {
    "suite": "decency-clean",
-   "n": 85,
-   "passed": 85,
+   "n": 89,
+   "passed": 89,
    "rate": 1.0,
    "bar": 1.0,
    "ok": true,

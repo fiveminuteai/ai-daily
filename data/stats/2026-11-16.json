@@ -1,234 +1,56 @@
 {
  "date": "2026-11-16",
- "collected_at": "2026-11-15T22:41:17+00:00",
+ "collected_at": "2026-11-16T18:00:36+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 201,
-  "visitors_day": 0,
-  "daily": [
-   {
-    "day": "2026-10-20",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-21",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-22",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-23",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-24",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-25",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-26",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-27",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-28",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 14
-   },
-   {
-    "day": "2026-11-13",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-14",
-    "visitors": 2
-   },
-   {
-    "day": "2026-11-15",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-16",
-    "visitors": 0
-   },
-   {
-    "day": "2026-11-17",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 21
-   },
-   {
-    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
-    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
-    "visitors": 4
-   },
-   {
-    "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
-    "title": "OpenAI launches Business Hub for verified ChatGPT profiles · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
-    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
-    "title": "NVIDIA Board probes CEO's link to suspected spy · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70",
-    "title": "Google Cloud previews Gemini for healthcare · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
-    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/archive",
-    "title": "Archive · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
-    "visitors": 1
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 21
-   },
-   {
-    "name": "(direct)",
-    "visitors": 16
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
-    "visitors": 3
-   },
-   {
-    "name": "ig",
-    "visitors": 1
-   },
-   {
-    "name": "www.facebook.com",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/about",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/archive",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
-    "visitors": 1
-   }
-  ],
-  "reads_7d": {
-   "post_views": 13,
-   "read_30s": 2,
-   "read_half": 3,
-   "read_end": 3,
-   "read_end_rate": 0.231
-  }
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 10,
-  "media_count": 48,
+  "media_count": 50,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 37,
+   "views": 50,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "17920515102523464",
+    "timestamp": "2026-11-16T05:31:15+0000",
+    "permalink": "https://www.instagram.com/p/DfynDKwJe-R/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules",
+    "likes": 0,
+    "comments": 0,
+    "reach": 4,
+    "views": 13,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18109054778252960",
+    "timestamp": "2026-11-16T03:31:30+0000",
+    "permalink": "https://www.instagram.com/reel/DfyZRQqjqxd/",
+    "type": "VIDEO",
+    "caption": "FAA groundstop sparks AI safety fears.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 105,
+    "views": 115,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.6,
+    "skip_rate": 64.2,
+    "reposts": 0
+   },
    {
     "id": "17998784472099824",
     "timestamp": "2026-11-15T13:31:38+0000",
@@ -237,13 +59,13 @@
     "caption": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
     "likes": 3,
     "comments": 0,
-    "reach": 110,
-    "views": 127,
+    "reach": 126,
+    "views": 146,
     "saved": 0,
     "shares": 0,
     "total_interactions": 3,
-    "avg_watch_s": 7.5,
-    "skip_rate": 59.8,
+    "avg_watch_s": 7.2,
+    "skip_rate": 62.4,
     "reposts": 0
    },
    {
@@ -254,13 +76,13 @@
     "caption": "Nvidia kept GPU prices high with circular financing deals.",
     "likes": 2,
     "comments": 0,
-    "reach": 222,
-    "views": 250,
+    "reach": 366,
+    "views": 409,
     "saved": 0,
     "shares": 0,
     "total_interactions": 2,
-    "avg_watch_s": 9.7,
-    "skip_rate": 34.4,
+    "avg_watch_s": 9.0,
+    "skip_rate": 36.7,
     "reposts": 0
    },
    {
@@ -271,13 +93,13 @@
     "caption": "Helen Toner says we cannot trust AI CEOs to keep us safe.",
     "likes": 0,
     "comments": 0,
-    "reach": 112,
-    "views": 129,
+    "reach": 115,
+    "views": 134,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.5,
-    "skip_rate": 40.7,
+    "avg_watch_s": 6.4,
+    "skip_rate": 41.3,
     "reposts": 0
    },
    {
@@ -289,7 +111,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 3,
-    "views": 9,
+    "views": 11,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -306,12 +128,12 @@
     "likes": 3,
     "comments": 0,
     "reach": 129,
-    "views": 141,
+    "views": 142,
     "saved": 0,
     "shares": 0,
     "total_interactions": 3,
     "avg_watch_s": 5.5,
-    "skip_rate": 70.7,
+    "skip_rate": 70.1,
     "reposts": 0
    },
    {
@@ -735,7 +557,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 8.2,
+    "avg_watch_s": 8.1,
     "skip_rate": 58.4,
     "reposts": 0
    },

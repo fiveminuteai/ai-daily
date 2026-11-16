@@ -1,26 +1,26 @@
 {
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "window": [
-  "2026-11-09",
-  "2026-11-15"
+  "2026-11-10",
+  "2026-11-16"
  ],
  "this_week": {
-  "reels": 17,
-  "reach": 112,
-  "skip_rate": 61.2,
+  "reels": 15,
+  "reach": 115,
+  "skip_rate": 61.8,
   "avg_watch_s": 5.7,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 7
+  "follows_per_week": 4
  },
  "last_week": {
   "reels": 19,
-  "reach": 54,
-  "skip_rate": 71.4,
+  "reach": 104,
+  "skip_rate": 61.2,
   "avg_watch_s": 5.4,
-  "likes_per_1k": 27.0,
+  "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0
@@ -29,7 +29,7 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 61.2,
+   "value": 61.8,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 7,
+   "value": 4,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
@@ -82,10 +82,10 @@
    "id": "18416406334090272",
    "day": "2026-11-15",
    "caption": "Nvidia kept GPU prices high with circular financing deals.",
-   "reach": 222,
-   "skip_rate": 34.4,
-   "avg_watch_s": 9.7,
-   "likes_per_1k": 9.0,
+   "reach": 366,
+   "skip_rate": 36.7,
+   "avg_watch_s": 9.0,
+   "likes_per_1k": 5.5,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
@@ -93,18 +93,18 @@
    "youtube": "https://www.youtube.com/shorts/jINI-lh7eRs"
   },
   {
-   "id": "18057447428804643",
-   "day": "2026-11-09",
-   "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
-   "reach": 140,
-   "skip_rate": 45.1,
-   "avg_watch_s": 8.9,
-   "likes_per_1k": 7.1,
+   "id": "17992554318118995",
+   "day": "2026-11-11",
+   "caption": "Anthropic founders will sell shares worth nearly $250 million.",
+   "reach": 130,
+   "skip_rate": 59,
+   "avg_watch_s": 8.1,
+   "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-09-reel-1",
-   "youtube": "https://www.youtube.com/shorts/MCoBfhyh64M"
+   "ours": "2026-11-11-reel-3",
+   "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
   }
  ]
 }
