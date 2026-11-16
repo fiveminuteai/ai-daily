@@ -1,0 +1,70 @@
+{
+ "date": "2026-11-16",
+ "slug": "2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+ "headline": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules",
+ "url": "https://fiveminuteai.net/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy/",
+ "generated_at": "2026-11-16T00:57:06+00:00",
+ "items": [
+  {
+   "id": "2026-11-16-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules\n\n• Nvidia co-founder and CEO Jensen Huang stepped down after a series of controversies that surfaced in late 2025 and early 2026.\n• Congress seeks stricter AI chip export limits after Nvidia spy scandal, urging Nvidia executives to testify.\n• Pony.ai is using mid-tier compute and Chinese-made chips to offset Nvidia supply limits.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-16/instagram.png"
+   ],
+   "scheduled_at": "2026-11-16T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-16-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules\n\n• Nvidia co-founder and CEO Jensen Huang stepped down after a series of controversies that surfaced in late 2025 and early 2026.\n\nhttps://fiveminuteai.net/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 243
+  },
+  {
+   "id": "2026-11-16-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules\n\n• Nvidia co-founder and CEO Jensen Huang stepped down after a series of controversies that surfaced in late 2025 and early 2026.\n• Congress seeks stricter AI chip export limits after Nvidia spy scandal, urging Nvidia executives to testify.\n• Pony.ai is using mid-tier compute and Chinese-made chips to offset Nvidia supply limits.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-16-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "FAA groundstop sparks AI safety fears[S7].",
+   "duo": true,
+   "cover": null,
+   "text": "FAA groundstop sparks AI safety fears.\n\n• The FAA halted all flights nationwide after a communications glitch.\n• Officials can’t rule out the new AI system SMART as the cause.\n\nOur read: Watch for schedule changes and demand transparency on AI use in air traffic.\n\nSend this to the friend who keeps up with AI.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-16/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-16T03:30:00+00:00"
+  }
+ ]
+}

@@ -1,0 +1,421 @@
+{
+ "date": "2026-11-16",
+ "started_at": "2026-11-16T00:15:39+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.8,
+   "items": 469,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 7
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 16
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 3
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 8
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 0
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 2
+    },
+    "github": {
+     "status": "ok",
+     "items": 20
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.4,
+   "stories": 17,
+   "editor": true,
+   "top": [
+    {
+     "title": "An overview of Jensen Huang’s messy days",
+     "url": "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation",
+     "score": 8.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+     "score": 7.38,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
+     "url": "https://techcrunch.com/2026/11/15/techcrunch-mobility-the-nvidia-backup-plan-for-chinas-self-driving-industry/",
+     "score": 5.97,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
+     "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
+     "score": 5.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Beware the New AI-Fueled Ransomware Boom",
+     "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+     "score": 5.35,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "AI Day Seoul Brings Together Korea’s Industry Leaders, Startups and Developer Communities",
+     "url": "https://blogs.nvidia.com/blog/ai-day-seoul-wrapup/",
+     "score": 5.09,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "NVIDIA blog"
+     ],
+     "picked": false
+    },
+    {
+     "title": "No Pilots. Few Air Traffic Controllers. What Could Go Wrong?",
+     "url": "https://www.wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong/",
+     "score": 4.74,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+     "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+     "score": 4.24,
+     "interest": 6.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "WinnerSpecialist/Gemini-Config-Checker-: Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) ",
+     "url": "https://github.com/WinnerSpecialist/Gemini-Config-Checker-",
+     "score": 3.83,
+     "interest": 5.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "GitHub"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI DJs Completely Kill My Groove",
+     "url": "https://www.wired.com/story/ai-djs-completely-kill-my-groove/",
+     "score": 3.77,
+     "interest": 5.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Understanding Positional Embeddings in Modern LLMs",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "score": 3.68,
+     "interest": 2.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "Ahead of AI (Sebastian Raschka)",
+      "magazine.sebastianraschka.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "SNL gathers all the tech tycoons for a lesson in dating and spycraft",
+     "url": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
+     "score": 3.41,
+     "interest": 4.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "An overview of Jensen Huang’s messy days",
+     "url": "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation",
+     "score": 8.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+     "score": 7.38,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry",
+     "url": "https://techcrunch.com/2026/11/15/techcrunch-mobility-the-nvidia-backup-plan-for-chinas-self-driving-industry/",
+     "score": 5.97,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Beware the New AI-Fueled Ransomware Boom",
+     "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+     "score": 5.35,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "No Pilots. Few Air Traffic Controllers. What Could Go Wrong?",
+     "url": "https://www.wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong/",
+     "score": 4.74,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.4,
+   "articles": 13,
+   "with_text": 13
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.9,
+   "word_count": 963,
+   "sources": 7
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "gemini:gemini-3.8-flash",
+   "seconds": {
+    "write": 178.6,
+    "reel_desk": 1020.4,
+    "layer1": 0.2,
+    "layer2": 1272.3,
+    "gate": 1.1
+   },
+   "layer1": {
+    "checked": 107,
+    "ok": 89,
+    "repaired": 13,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 56,
+    "ok": 20,
+    "repaired": 3,
+    "dropped": 33
+   },
+   "unused": 52,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Jensen Huang leaves Nvidia amid scandals",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "Pony.ai shifts to domestic chips amid Nvidia export concerns",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "AI tools boost ransomware tactics",
+     "reel": null,
+     "hook": null,
+     "chosen": false
+    },
+    {
+     "story": "AI‑driven air traffic tool sparks safety debate",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "AI‑linked FAA groundstop raises safety fears for travelers, broad but less explosive",
+     "hook": "FAA groundstop sparks AI safety fears.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+ "finished_at": "2026-11-16T00:57:05+00:00",
+ "seconds": 2486.2
+}

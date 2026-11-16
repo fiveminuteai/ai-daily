@@ -2126,5 +2126,114 @@
     "tech"
    ]
   ]
+ },
+ {
+  "date": "2026-11-16",
+  "slug": "2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+  "urls": [
+   "techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry",
+   "techcrunch.com/2026/11/15/techcrunch-mobility-the-nvidia-backup-plan-for-chinas-self-driving-industry",
+   "theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+   "theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation",
+   "theverge.com/tech/1033781/nvidia-jensen-huang-last-visionary-showman-founder-ceo",
+   "wired.com/story/beware-the-new-ai-fueled-ransomware-boom",
+   "wired.com/story/no-pilots-few-air-traffic-controllers-what-could-go-wrong"
+  ],
+  "tokens": [
+   "ai-fueled",
+   "air",
+   "also",
+   "backup",
+   "bad",
+   "beware",
+   "boom",
+   "ceo",
+   "china",
+   "chips",
+   "congress",
+   "controllers",
+   "could",
+   "days",
+   "decline",
+   "export",
+   "few",
+   "founder",
+   "huang",
+   "industry",
+   "jensen",
+   "messy",
+   "mobility",
+   "news",
+   "nvidia",
+   "overview",
+   "pilots",
+   "plan",
+   "ransomware",
+   "rules",
+   "scandal",
+   "self-driving",
+   "showman",
+   "spy",
+   "techcrunch",
+   "tighten",
+   "traffic",
+   "visionary",
+   "wants",
+   "wrong"
+  ],
+  "story_tokens": [
+   [
+    "also",
+    "bad",
+    "ceo",
+    "days",
+    "decline",
+    "founder",
+    "huang",
+    "industry",
+    "jensen",
+    "messy",
+    "news",
+    "overview",
+    "showman",
+    "visionary"
+   ],
+   [
+    "chips",
+    "congress",
+    "export",
+    "nvidia",
+    "rules",
+    "scandal",
+    "spy",
+    "tighten",
+    "wants"
+   ],
+   [
+    "backup",
+    "china",
+    "industry",
+    "mobility",
+    "nvidia",
+    "plan",
+    "self-driving",
+    "techcrunch"
+   ],
+   [
+    "ai-fueled",
+    "beware",
+    "boom",
+    "ransomware"
+   ],
+   [
+    "air",
+    "controllers",
+    "could",
+    "few",
+    "pilots",
+    "traffic",
+    "wrong"
+   ]
+  ]
  }
 ]

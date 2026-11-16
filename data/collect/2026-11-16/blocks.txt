@@ -1,0 +1,90 @@
+=== STORY 1 (suggested section: products) ===
+
+[S1] The Verge — "An overview of Jensen Huang’s messy days" (15 November 2026)
+An overview of Jensen Huang’s messy days
+Things moved fast for the now-former CEO of Nvidia.
+If you buy something from a link, The Verge may earn a commission. See our ethics statement.
+This is The Stepback , a weekly newsletter breaking down one essential story from the tech world. For more on Jensen Huang’s resignation and the fallout from Nvidia’s leadership crisis, follow Terrence O’Brien . The Stepback arrives in our subscribers’ inboxes on Sunday at 8AM ET. Opt in for The Stepback here .
+How it started
+On October 29th, The New York Times reported that Nvidia co-founder and showman CEO Jensen Huang appeared to be the target of a Chinese spy plot. Any major tech CEO potentially being compromised by the Chinese government is concerning — especially Jensen Huang. “If you could draw the network diagram of the entire US AI ecosystem, Nvidia would be at the center of that,” Kyle Chan, a foreign policy fellow at the Brookings Institution’s John L. Thornton China Center, previously told The Verge . “If you could draw the diagram of the entire Nvidia ecosystem, a single man is standing at the heart of all of that.”
+The Times reported that Jensen Huang had developed a “ close relationship ” with Alice Huang (no relation), an executive at Singapore-based data center company Megaspeed. Alice Huang had been on the American government’s radar for some time, perhaps as early as 2024 . Her company was investigated by the US Commerce Department over suspicions it was illegally smuggling Nvidia’s AI chips into China in violation of US government trade restrictions. Singapore authorities confiscated her passport back in June of 2025, eventually barring her from the country, after she reportedly gave “inaccurate information” to police. And perhaps more concerningly, some US officials believed she was passing information, possibly about Nvidia’s designs or the White House’s deliberations over trade restrictions, directly back to Beijing.
+This made her relationship with Jensen Huang concerning for multiple reasons. Nvidia’s chips are considered crucial to America’s AI superiority and a matter of national security by the White House. The government has restricted the sale of Nvidia’s most advanced chips to China since the Biden administration. But Jensen Huang has routinely pushed to loosen those trade restrictions . Meanwhile, he had gotten quite cozy with President Trump, once even putting him on speakerphone on-stage at the All-In Summit.
+Then last week, things escalated quickly.
+On Friday, November 6th, the Times reported that Alice Huang was specifically recruited by
+
+[S2] The Verge — "Jensen Huang and the decline of the visionary showman founder CEO" (14 November 2026)
+Jensen Huang and the decline of the visionary showman founder CEO
+The Steve Jobs of GPUs has been shown the door.﻿
+On January 6th, 2025, Nvidia CEO Jensen Huang got his rockstar moment at last. He strode triumphantly onstage, hand raised in the air, to the claps and cheers of a 14,000-person arena absolutely packed with influencers and fans, their faces awash in blue glow, as he made his entrance in a black leather jacket that shimmered in the stadium’s lights.
+Few are cheering for Jensen Huang now. He has left Nvidia after seemingly enabling two chip smuggling scandals and allegedly having three extramarital affairs , including one with an alleged Chinese spy at the same time he was mingling with President Donald Trump.
+The world is watching to see if this scandal might disrupt the entire US AI industry and perhaps destabilize the stock market along with it. That’s because Huang wasn’t merely running the first $5 trillion company , he was the visionary leader in control of the must-have GPUs powering the worldwide AI boom, part of a company that represents around 6 percent of the S&
+
+[S3] TechCrunch — "Is bad news for Jensen Huang also bad news for the AI industry?" (15 November 2026)
+We didn’t see this coming. Or at least, I didn’t — a week ago, when I wrote about Nvidia’s board opening an investigation into then-CEO Jensen Huang, I assumed his job was safe.
+On the latest episode of TechCrunch’s Equity podcast , Rebecca Bellan, Tim De Chant, and I discussed how Huang’s ouster went down and what it means for the larger AI economy. While Tim said he saw it coming (albeit not this quickly), Rebecca said, “I didn’t think it was going to happen at all.”
+“Jensen is Nvidia, right?” she added. “And so much of this economy is riding on Nvidia.”
+Similarly, I marveled at how quickly Huang’s support seemed to crumble, with more scandals seeming to emerge every day. (At the same time, there are many who’d still like to see him return .) And we also took a moment to wonder what will happen to Nvidia’s investments in the larger AI ecosystem.
+Keep reading for a preview of our conversation, edited for length and clarity; you can listen to the whole episode here .
+Tim De Chant: I figured this was coming. I didn’t think it would happen this quickly. I thought there would be at leas
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: policy) ===
+
+[S4] The Verge — "Congress wants to tighten export rules on AI chips after Nvidia spy scandal" (15 November 2026)
+Congress wants to tighten export rules on AI chips after Nvidia spy scandal
+Following revelations about Jensen Huang’s relationship with a suspected Chinese spy Congress wants to crack down.
+Unsurprisingly, following the scandal involving now-former Nvidia CEO Jensen Huang and a suspected Chinese spy, Congress is looking to further restrict exports of AI chips. Both Democrats and Republicans have voiced support for various measures and bills that would tighten rules and have demanded that Huang and other Nvidia leaders testify before Congress.
+Senate Minority Leader Chuck Schumer has already said that Huang and the Trump administration need to answer to Congress . Senate Banking Committee Chairman Tim Scott has also sent letters to both Huang and Commerce Secretary Howard Lutnick calling on them to publicly testify to the committee.
+Bills such as the Remote Access Security Act , first introduced in the House in April 2025 but stalled in the Senate, are receiving renewed interest. While that specific bill might not become law, House Speaker Mike Johnson has said there is “growing consensus in Congress on limiting chip exports to China,” according to Reuters . Johnson has also said that he personally supports efforts to restrict China’s access to powerful AI chips from companies like Nvidia.
+Related
+An overview of Jensen Huang’s messy days
+Jensen Huang and the decline of the visionary showman founder CEO
+More in: Nvidia CEO Jensen Huang has resigned. What happens next?
+Most Popular
+Tesla is inviting some people to buy a Cybercab ‘for personal use’ — but read the fine print
+Vulcan rocket fails, destroying 40 Amazon Leo satellites
+Jensen Huang might be plotting a return and more of the latest Nvidia drama
+Watch SpaceX successfully execute the first ‘chopstick’ catch of Starship
+This is the title for the native ad
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S5] TechCrunch — "TechCrunch Mobility: The Nvidia backup plan for China’s self-driving industry" (15 November 2026)
+Welcome back to TechCrunch Mobility , your hub for the future of transportation and now, more than ever, the role AI is playing in it. To get this in your inbox, sign up here for free — just click TechCrunch Mobility !
+I am traveling through Portugal now that Web Summit has wrapped up, so please enjoy this shortened edition.
+Web Summit leaned heavily into Chinese founders and companies this year. The opening remarks from Web Summit co-founder Paddy Cosgrave drove the point home when he said the superstars of the future are coming from China, not California. He also gave a strong endorsement of China and open source technology when he noted that Chinese companies are building more of our shared future than anyone else.
+These remarks carried a different kind of weight just a few days later as the news spread throughout the conference that Nvidia founder and CEO Jensen Huang had resigned from his leadership post after admitting to an affair with an alleged spy.
+The former CEO, after all, has been one of the strongest proponents for open source in the United States. And anyone who has followed the emergence of autonomous vehicle tech knows how central Nvidia is to that ecosystem.
+Nvidia is a major supplier of AI computing technology to the industry — although the degree of reliance varies. Some companies are using Nvidia’s automotive processors to run automated driving software, while others are using Nvidia GPUs to train autonomous driving models. And then there are the full-stack partnerships, which includes Mercedes-Benz, Zoox, and Wayve.
+I spoke to Leo Wang , the CFO of Chinese autonomous vehicle company Pony.ai , this week. I asked him about the challenges China’s self-driving industry faces and what he thinks will happen if the fallout from Huang’s resignation results in even stricter export controls on Nvidia chips shipped to China.
+Demand is already far greater than supply, Wang said, noting that it’s one of the pain points Pony.ai struggles with. The company’s strategy is twofold. Engineers are directed to be as efficient as possible when deploying its training models. That might mean using midtier compute resources instead of high-end ones, he said.
+Pony.ai is also turning more to domestically produced chips to help close the gap.
+“If you look at the whole ecosystem, especially in recent years, definitely domestic chips in China also get lots of attention and development,” he said, noting that these chips provide another option for AI training. “I think that gives us some flexibility.”
+When asked what he thinks will happen if export restrictions on
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: impact) ===
+
+[S6] WIRED — "Beware the New AI-Fueled Ransomware Boom" (14 November 2026)
+Welcome to Kernel Panic , a weekly newsletter by Lily Hay Newman and Matt Burgess from inside the new world of privacy and digital security. To receive this newsletter in your inbox each week, sign up here .
+With so much going on all the time, you may not have thought about ransomware and data extortion attacks in a minute, even though they’ve been among the the biggest cybersecurity threats to institutions—and, by extension, people—over the past decade. But in the new era of AI-powered and automated cyberattacks, the danger posed by ransomware is only increasing as cybercriminals profit by combining established methods with new techniques made possible or more accessible by AI.
+It is difficult to determine exact numbers of ransomware attacks, given that victims don’t always disclose incidents and attackers wildly inflate their claims. But researchers who specialize in tracking and attempting to de-duplicate the field agree that claimed incidents have spiked over the last few months. Some put the number of alleged ransomware attacks on leak sites—where groups post alleged victims—at nearly 3,000 attacks over the summer. This would mean a 20 to 40 percent increase since the spring by some estimates. And, crucially, researchers emphasize that while volume always fluctuates somewhat, ransomware attacks overall have been consistently and concerningly elevated in recent years.
+“What we see is most of the recent increase was fueled by international attacks; the United States was a little more steady, but still high, still a lot of attacks,” says Cynthia Kaiser, former FBI cyber deputy director who now leads research for the anti-ransomware platform Halcyon. “Internationally we’re seeing a lot more attacks. That to me is the really new part, and I do think it is in part fueled by AI.”
+Fully AI-powered ransomware attacks have yet to emerge, perhaps because the criminal business model already works so effectively . But cybercriminals do appear to be using LLMs for some of the more mundane aspects of their attacks.
+“We are seeing AI relied on more heavily in certain aspects of the ransomware attack chain, such as creating better phishing emails and in the negotiation process, but the ‘successful’ ransomware groups are still largely human operated,” says Allan Liska, a longtime ransomware researcher and threat intelligence analyst at Recorded Future. “But the fact that these groups are experimenting heavily with AI means that this could change going forward, and change quickly.”
+Kaiser notes that broader trends in scamming are always relevant to ransomware, because
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S7] WIRED — "No Pilots. Few Air Traffic Controllers. What Could Go Wrong?" (14 November 2026)
+On September 27, US transportation secretary Sean Duffy posted a video on X with the words “GAME CHANGER.” “Introducing ‘SMART’—the new air traffic management tool that saves YOU time, cuts back DELAYS, and makes your flying experience BETTER,” he wrote. This was a new AI-infused air traffic control system. Almost three weeks later, that post would get a new life, as a nervous joke, as the FAA issued a national groundstop on Friday the 13th that instantly threw the world’s airline schedules into chaos. The administration quickly announced that there was no evidence of a cyberattack, and no sign that SMART had anything to do with the communications failure at the heart of the government’s decision to suspend flights. But when asked on Friday night whether he could definitively rule out AI failure, Homeland Security secretary Markwayne Mullin could only say, “There’s nothing certain right now.”
+New systems like SMART are only the tip of the iceberg when it comes to the AI aviation revolution currently underway. Take, for instance, the Cessna Caravan that took off from Buchanan Field Airport in Concord, California, and flew south to Phoenix on a calm September morning. The plane, a single-engine turboprop, then turned east to Fort Worth, stopped at Shaw Air Force Base in South Carolina, and finally arrived at Dare County Regional Airport off the coast of North Carolina. The zigzag, coast-to-coast trip covered 3,200 miles; along the way, the aircraft navigated busy airspace and maneuvered to avoid storms.
+None of this would be remarkable, save for one fact: The entire journey took place without a single human hand touching the plane’s controls.
+According to Joby Aviation, the company that carried out the project, a safety pilot was aboard the Cessna at all times—but never needed to intervene. The pilotless trip marked a major milestone in aviation. The air travel industry has long been technologically conservative, and with good reason: When human lives are at stake, it’s better to be time-tested and a little dated than cutting-edge and unpredictable. But AI is making inroads into aviation with unprecedented speed. The effects now are hard to see, but the changes in the offing are huge, promising to remake the economics of air travel and transform how people and things move around in the sky. A big question remains, though: Can we trust this technology to be reliable and safe?
+Depends who you ask. “We're introducing all this new technology to improve the system, and it's going to be a disaster,” says a recently retired FAA employee. “This is literally a Pand

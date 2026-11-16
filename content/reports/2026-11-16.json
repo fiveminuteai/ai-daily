@@ -1,0 +1,1344 @@
+{
+  "checked": 56,
+  "ok": 20,
+  "repaired": 3,
+  "dropped": 33,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Jensen Huang stepped down after allegations of Chinese espionage and chip smuggling, leading Congress to pursue stricter AI chip export controls",
+      "sources": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Jensen Huang resigned after scandals involving chip smuggling and personal misconduct, shaking confidence in Nvidia’s role in the AI ecosystem.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources confirm resignation and chip‑smuggling/affair scandals, but do not provide evidence that confidence in Nvidia’s AI role was shaken."
+      ]
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Congress seeks stricter AI chip export limits after Nvidia spy scandal, urging Nvidia executives to testify.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Pony.ai is using mid‑tier compute and Chinese‑made chips to offset Nvidia supply limits.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "AI‑assisted phishing and negotiation are expanding ransomware, pushing attack volume up 20‑40 % since spring.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "AI tool SMART announced, then a national groundstop occurred; officials say no cyberattack, AI role unclear.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia co‑founder and CEO Jensen Huang stepped down after a series of controversies that surfaced in late 2025 and early 2026.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The New York Times first reported a Chinese spy plot involving Huang on October 29, 2025, and subsequent reporting linked him to alleged chip‑smuggling and personal misconduct.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "His departure was confirmed in November 2026 as the board moved to replace him amid concerns over national‑security implications and market stability.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source confirms a November 2026 board decision to replace Huang or cites national‑security/market‑stability concerns."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Investigations revealed that Alice Huang, an executive at Singapore data‑center firm Megaspeed, had been under U.S. Commerce Department scrutiny since at least 2024 for allegedly smuggling Nvidia’s most advanced AI chips to China, violating trade restrictions.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Singapore authorities confiscated her passport in June 2025 and barred her from the country after she gave inaccurate information to police.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Reports also allege that Jensen Huang had a close personal relationship with Alice Huang and was involved in three extramarital affairs, one reportedly with a Chinese spy, while simultaneously lobbying to loosen U.S. export limits on Nvidia chips.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia’s GPUs power the majority of the world’s AI workloads, and the company accounts for about 6 % of the S&P 500 index, making it a critical component of U.S. technological leadership.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The Biden administration has restricted sales of Nvidia’s top‑tier chips to China to preserve AI superiority, and any perceived compromise of Nvidia’s leadership raises national‑security concerns.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Huang’s public persona, once compared to Steve Jobs, had become intertwined with the company’s market dominance, so his exit could affect investor confidence and the broader AI supply chain.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Jensen Huang leaves Nvidia amid scandals",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia CEO quits amid spy scandal, shaking AI market.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the resignation amid a spy‑related scandal, but does not provide evidence that the AI market was shaken; that part is not supported."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Jensen Huang stepped down after controversies linked to a Chinese spy plot and chip smuggling.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Nvidia GPUs power most AI workloads and account for 6 % of the S&P 500, raising security stakes.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Investors and AI developers may face volatility and tighter export rules.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch your AI tool costs and supply‑chain risks now.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should Nvidia’s leadership change affect your AI projects?",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia CEO quits over spy scandal",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "The Biden administration says any compromise of Nvidia leadership raises national‑security concerns.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source states the Biden administration explicitly says any compromise of Nvidia leadership raises national‑security concerns."
+      ]
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "Reports link Jensen Huang to Alice Huang, accused of smuggling Nvidia AI chips to China.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Nvidia co‑founder Jensen Huang’s exit now threatens AI chip supply chain.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source states that Huang's exit threatens the AI chip supply chain; sources mention potential industry disruption but not a supply‑chain threat."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "After revelations about Jensen Huang’s ties to a suspected Chinese spy, Congress is pursuing tighter export controls on AI chips.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Both Democrats and Republicans have voiced support for new measures and have asked Nvidia leaders to testify before lawmakers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The effort intensified in November 2026 following the scandal, according to reports.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that the effort intensified in November 2026; it only provides the article date."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Senate Minority Leader Chuck Schumer said Huang and the Trump administration must answer to Congress, while Senate Banking Committee Chairman Tim Scott sent letters to Huang and Commerce Secretary Howard Lutnick requesting public testimony.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Bills such as the Remote Access Security Act, first introduced in the House in April 2025, are gaining renewed interest despite earlier Senate stalls.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "House Speaker Mike Johnson expressed a “growing consensus in Congress on limiting chip exports to China” and personally supports restricting China’s access to powerful AI chips from companies like Nvidia.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Export controls aim to prevent advanced AI hardware from reaching foreign adversaries that could use it for military or surveillance purposes.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention export controls aiming to prevent adversaries or military/surveillance use"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The United States has historically regulated high‑performance computing exports, and the current push reflects heightened concern after the Nvidia spy scandal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'United' not in cited source",
+        "name 'States' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Lawmakers see tighter rules as a way to safeguard national security while balancing industry interests.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source lacks statement about lawmakers linking tighter rules to national security or balancing industry interests"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Congress moves to tighten AI chip export rules",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says 'wants' not 'moves', so claim overstates action"
+      ]
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Nvidia faces tighter export rules after spy scandal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes intent, not that Nvidia is already facing tighter rules"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Congress announced new export controls targeting AI chips like Nvidia's.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions desire, not an announced new export control"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "The push follows revelations of Jensen Huang’s alleged ties to a Chinese spy.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Lawmakers say the limits could reshape global AI hardware markets.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source sentence mentions lawmakers saying the limits could reshape global AI hardware markets."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "If you rely on AI hardware, watch for supply disruptions and policy shifts.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will tighter chip rules hurt your projects?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Nvidia hit with new AI chip export limits.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source discusses proposed export rules, not that Nvidia has been hit with new limits."
+      ]
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Jensen Huang’s ties to a spy pushed Congress to tighten chip exports.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "Senate Minority Leader Chuck Schumer said Huang and the Trump administration must answer.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Congress now moves to limit chip exports, targeting Jensen Huang’s company again.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Pony.ai, a Chinese autonomous‑vehicle firm, is adjusting its hardware strategy after Nvidia CEO Jensen Huang resigned and export controls tightened.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source discusses potential tighter export controls, not that they have already tightened."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company said demand for Nvidia chips exceeds supply and that it will use lower‑cost compute and more locally made processors for training its self‑driving models.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "These moves aim to keep development on schedule despite potential restrictions.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state the moves are to keep development on schedule."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Leo Wang, Pony.ai’s CFO, explained that engineers are now instructed to maximise efficiency, often opting for mid‑tier compute resources rather than top‑tier Nvidia GPUs.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "He added that the firm is increasing its reliance on domestically produced chips, which have received growing attention and development in recent years.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Wang believes this domestic option provides flexibility and helps close the performance gap caused by limited Nvidia supply.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia supplies AI processors for both running autonomous‑driving software and training the underlying models, making it a cornerstone of the global self‑driving ecosystem.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Recent political fallout and possible export restrictions could reduce Chinese access to these chips, prompting companies like Pony.ai to diversify their hardware sources.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The shift mirrors broader industry trends toward balancing foreign and home‑grown technology to mitigate supply risks.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not describe a broader industry trend of balancing foreign and home‑grown technology; it only mentions Pony.ai's actions."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Pony.ai shifts to domestic chips amid Nvidia export concerns",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Nvidia chips shortage forces Pony.ai to switch to domestic processors.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Pony.ai announced it will replace Nvidia GPUs with locally made chips for model training.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions using domestic chips but does not state a full replacement of Nvidia GPUs."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Engineers are now using mid‑tier compute to maximise efficiency, citing limited Nvidia supply.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes mid‑tier compute for efficiency but does not cite limited Nvidia supply as the reason."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "The move aims to keep self‑driving development on schedule despite export restrictions.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes preparation but does not state the move’s aim is to keep development on schedule."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Expect slower AI performance and higher costs in self‑driving apps.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will this hurt autonomous car rollout?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Pony.ai swaps Nvidia chips for local processors.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source indicates increased use of domestic chips, not a complete swap of Nvidia chips for local processors."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Researchers report a rise in ransomware incidents as attackers incorporate artificial intelligence into their methods.",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The number of alleged attacks on public leak sites reached nearly 3,000 over the summer, a 20‑40 % increase since spring.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Experts say the growth is driven by more international campaigns, with the United States remaining steady but still high.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The surge is linked to AI use in parts of the ransomware chain, such as crafting more convincing phishing emails and automating negotiation messages.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Allan Liska of Recorded Future notes that while most groups remain human‑run, they are experimenting heavily with large language models, which could accelerate changes in tactics.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Cynthia Kaiser, former FBI cyber deputy director, highlights that the international dimension of attacks is the most novel aspect and attributes part of the increase to AI‑enabled capabilities.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Ransomware has been a top cyber threat for a decade, targeting institutions and indirectly affecting individuals.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Traditional ransomware relies on manual steps, but AI tools lower the barrier for creating tailored lures and handling victim communication, making attacks faster and potentially more widespread.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions AI aiding phishing and negotiation but does not describe traditional ransomware as manual or claim AI lowers the overall barrier and speeds attacks."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "This shift mirrors broader trends where AI is used to automate social‑engineering attacks across the cybercrime ecosystem.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI tools boost ransomware tactics",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "3,000 ransomware attacks now use AI, raising risk.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The figure refers to total alleged attacks, not attacks that specifically use AI."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "AI tools are being added to ransomware methods, automating phishing and negotiations.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Attacks on public leak sites hit nearly 3,000 this summer, up 20‑40% since spring.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Companies and users face faster, broader extortion threats worldwide.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions more attacks globally but does not state they are faster; claim adds unsupported detail."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Watch for AI‑crafted phishing and demand tighter security protocols.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will AI make ransomware unstoppable?",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "3,000 ransomware attacks now AI‑driven.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says AI‑powered attacks have not yet emerged, contradicting claim that 3,000 attacks are AI‑driven."
+      ]
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "AI tools are now boosting ransomware attacks, researchers report.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Nearly 3,000 public leak site attacks occurred this summer, a sharp rise.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 7",
+      "text": "Allan Liska of Recorded Future says groups are testing large language models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: the statement about LLM use is not attributed to Allan Liska; Liska is quoted about AI generally, not specifically testing LLMs"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "On September 27 US Transportation Secretary Sean Duffy announced the AI‑infused air‑traffic management system called SMART on X, calling it a “GAME CHANGER” and saying it would save time and cut delays.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Three weeks later, on Friday the 13th, the FAA issued a national groundstop that disrupted airline schedules, and officials said there was no evidence of a cyberattack or that SMART caused the communications failure.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Homeland Security Secretary Markwayne Mullin said officials could not yet rule out an AI fault.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The SMART system is part of a broader AI aviation push, illustrated by a pilotless 3,200‑mile Cessna Caravan flight that departed Buchanan Field Airport in Concord, California and landed at Dare County Regional Airport in North Carolina, stopping at Shaw Air Force Base in South Carolina and Fort Worth en route.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Joby Aviation reported a safety pilot remained aboard but never intervened, marking a milestone for unmanned commercial flight.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The flight navigated busy airspace and avoided storms without human control, showing AI can handle complex routing tasks.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Air traffic control has traditionally relied on proven, human‑centric technology because safety is paramount.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Recent AI introductions aim to improve efficiency, but industry veterans warn that rapid, untested changes could introduce new risks.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The mixed reaction reflects a tension between potential economic benefits and concerns over reliability and safety in a sector that historically favors caution.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI‑driven air traffic tool sparks safety debate",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "FAA groundstop sparks AI safety fears.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The FAA halted all flights nationwide after a communications glitch.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Officials can’t rule out the new AI system SMART as the cause.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Pilots, airlines and travelers face delays while regulators investigate.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows delays but provides no evidence that regulators are investigating."
+      ]
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch for schedule changes and demand transparency on AI use in air traffic.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should AI run our skies?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "FAA groundstop over AI system SMART.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Groundstop was not specifically over SMART; source says no sign SMART was involved."
+      ]
+    },
+    {
+      "where": "card[4] duo line 1",
+      "text": "FAA halted flights on Friday the 13th, saying SMART wasn't at fault.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 5",
+      "text": "FAA officials said no cyberattack evidence, but flights still delayed for travelers.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 7",
+      "text": "Joby Aviation reported a pilotless Cessna flew 3,200 miles from California to North Carolina.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Nvidia's GPUs power most global AI workloads and represent about 6 % of the S&P 500, so leadership turmoil could shake investor confidence and disrupt the AI supply chain that underpins many businesses",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Chinese autonomous‑vehicle maker Pony.ai is shifting to domestically produced chips to avoid potential Nvidia export restrictions, illustrating how geopolitical tensions can force companies to redesign hardware strategies and affect product timelines",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "Congressional moves to tighten AI chip exports aim to prevent advanced hardware from reaching foreign adversaries, which could preserve U.S. technological leadership but also create compliance challenges for firms that rely on Nvidia technology",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Nvidia's GPUs power most global AI workloads and represent about 6 % of the S&P 500, so leadership turmoil could shake investor confidence and disrupt the AI supply chain that underpins many businesses.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention GPUs powering the AI boom and the 6 % S&P 500 figure, but they do not state that Nvidia’s GPUs power *most* global AI workloads."
+      ]
+    },
+    {
+      "where": "repair card[0] hook",
+      "text": "Nvidia CEO Jensen Huang steps down, sparking security worries.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Jensen Huang resigned after controversies surfaced in late 2025 and early 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source links his resignation to controversies specifically in late 2025 and early 2026."
+      ]
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "A New York Times report linked him to a Chinese spy plot and alleged chip‑smuggling.",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "His exit raises national‑security concerns and could shake investor confidence in the AI supply chain.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] take",
+      "text": "Watch your AI tool choices; leadership turmoil may affect chip availability.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] ask",
+      "text": "Will this shake the AI market?",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] cover",
+      "text": "Nvidia CEO quits amid spy scandal.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Nvidia faces Congress export push over spy scandal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Congress is moving to tighten AI chip export rules after spy ties surfaced.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Both parties support the measures and have asked Nvidia leaders to testify.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "The push could limit China’s access to powerful chips, affecting tech firms.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Watch for policy shifts that may affect AI tool availability.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Should Congress act on tech security?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Congress targets Nvidia chips after spy scandal.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] hook",
+      "text": "Nvidia shortage pushes Pony.ai to use domestic chips now.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Pony.ai reports Nvidia chip demand outpaces supply, so it adds cheaper compute and local chips for training.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Engineers now favor mid‑tier resources over top‑tier GPUs to maximise efficiency.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "The shift gives Pony.ai flexibility and narrows the performance gap as export limits loom.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] take",
+      "text": "If your AI tools rely on Nvidia GPUs, expect slower rollout or higher costs as firms switch to cheaper chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] ask",
+      "text": "Will domestic chips keep self‑driving progress on track?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] cover",
+      "text": "Pony.ai adds domestic chips amid Nvidia shortage.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Ransomware attackers are using AI to craft convincing phishing emails.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Alleged attacks on public leak sites reached nearly 3,000 over the summer.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Attackers are also using large language models to automate their negotiation messages.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Ransomware targets institutions and indirectly affects individuals, driven by more international campaigns.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "Watch for sharper workplace phishing emails as attackers test large language models in their operations.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Have you seen smarter phishing emails recently?",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "AI fuels ransomware attack surge.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 28,
+  "unused": 52,
+  "date": "2026-11-16",
+  "slug": "2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+  "model": "gemini:gemini-3.8-flash"
+}
