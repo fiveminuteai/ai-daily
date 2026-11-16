@@ -294,6 +294,18 @@ def run(date: str, now: datetime, root: Path | None = None, http=None, offline: 
     return r
 
 
+def day_to_check(now: datetime, site: dict | None = None) -> str:
+    """The India date whose post should exist by now. 16 Nov 2026: a check that ran at 03:37 IST failed because
+    it looked for that day's post, which is only written at 05:45. Before the daily run's time plus 90 minutes
+    (time for a normal run), the day to check is yesterday's."""
+    from datetime import time as dtime, timedelta
+    from . import config
+    ist = now.astimezone(IST)
+    hh, mm = (str(((site or config.site_config()).get("schedule") or {}).get("daily") or "05:45").split(":") + ["0"])[:2]
+    ready = (datetime.combine(ist.date(), dtime(int(hh), int(mm)), IST) + timedelta(minutes=90))
+    return (ist.date() - timedelta(days=1)).isoformat() if ist < ready else ist.date().isoformat()
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m fma.health")
     ap.add_argument("--date")
@@ -301,7 +313,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--write", action="store_true", help="save data/health/<date>.json")
     a = ap.parse_args(argv)
     now = datetime.now(timezone.utc)
-    date = a.date or now.astimezone(IST).date().isoformat()
+    date = a.date or day_to_check(now)
     http = None
     if not a.offline:
         import requests

@@ -167,3 +167,27 @@ def test_machine_phrases_and_model_disclaimers_are_caught_on_cards_and_in_the_bl
     assert any("hook" in p for p in found) and any("points" in p for p in found)
     assert not style_problems({"hook": "Nvidia cut its chip prices by 10 percent[S1].", "points": ["Sales rose[S1]."]})
     assert {"plays a pivotal role", "based on available information", "let's dive in"} <= set(HYPE_WORDS)
+
+
+def test_a_lost_card_is_rebuilt_from_the_storys_checked_sentences():
+    """16 Nov 2026: 4 of 5 cards were rejected for overstating their stories and only 1 Reel of 4 was made."""
+    from fma.reel_desk import fallback_cards
+    para = ("Acme cut the price of Nova to 5 dollars a month on Monday[S1]. "
+            "She said the change was overdue for many of the smaller customers[S1]. "
+            "The company said 2 million people already use the cheaper plan every week[S1]. "
+            "Rivals including Beta and Gamma have not changed their prices yet this month[S2].")
+    verified = {"what_happened": ["Acme halved the price of its Nova assistant to 5 dollars[S1]."],
+                "sections": [{"story": 1, "title": "Acme cuts prices", "paragraphs": [para], "card": None},
+                             {"story": 2, "title": "Kept", "paragraphs": [para], "card": {"hook": "h[S1]."}}]}
+    draft = {"sections": [{"story": 1, "card": {"hook": "Acme destroys rivals[S1].", "reel": 8, "pain": "money"}},
+                          {"story": 2, "card": {"hook": "h[S1]."}}]}
+    v, rep = fallback_cards(verified, draft, {})
+    card = v["sections"][0]["card"]
+    assert rep["cards_fallback"] == 1 and card["fallback"] and card["reel"] == 8 and card["pain"] == "money"
+    assert card["hook"] == "Acme halved the price of its Nova assistant to 5 dollars[S1]."   # the post's own bullet leads
+    assert all(p in para for p in card["points"]) and len(card["points"]) >= 2               # whole checked sentences
+    assert not any("She said" in p for p in card["points"])                                 # no unnamed "she"
+    assert v["sections"][1]["card"] == {"hook": "h[S1]."}                                   # a card that survived is kept
+    v, rep = fallback_cards({"what_happened": [], "sections": [{"story": 1, "paragraphs": ["Too short[S1]."], "card": None}]},
+                            draft, {})
+    assert v["sections"][0]["card"] is None and "cards_fallback" not in rep                 # nothing usable: no card

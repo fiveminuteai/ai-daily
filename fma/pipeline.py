@@ -288,6 +288,9 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
                 from .reel_desk import repair_cards
                 verified, report = repair_cards(chain, verified, draft, sources, report,
                                                 check_layer2=bool(pipe.get("llm_check", True)))
+            if pipe.get("reel_desk", True):  # 16 Nov 2026: a card still lost is rebuilt from checked sentences
+                from .reel_desk import fallback_cards
+                verified, report = fallback_cards(verified, draft, report)
             times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away

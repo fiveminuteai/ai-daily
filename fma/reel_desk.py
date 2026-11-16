@@ -314,6 +314,53 @@ def repair_cards(chain, verified: dict, draft: dict, sources: list[dict], report
     return verified, report
 
 
+from .gate import DANGLING  # noqa: E402  (the gate's own list of words that point at nothing)
+THIRD_PERSON = re.compile(r"\b(she|her|hers|they|them|their|theirs)\b", re.I)
+
+
+def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dict]:
+    """The last resort for a story whose Reel card was rejected and could not be repaired (16 Nov 2026: the writer
+    overstated 4 of 5 cards, the fact-check rejected them, repair ran out of time, and only 1 Reel of 4 was made).
+    The card is rebuilt from the story's OWN blog sentences, which have already passed both fact-checks: the
+    hook is the first short sentence that names someone or gives a number, the points are the next short ones.
+    Plainer than the writer's card, but true, and a true Reel beats no Reel. It keeps the writer's original
+    score so the story keeps its place in the Reel order, and it is marked "fallback" so the run log says so.
+    Nothing new is written here, so nothing needs checking again."""
+    from .verify import cites, split_sentences
+    by_story = {s.get("story"): s for s in draft.get("sections", []) if s.get("card")}
+    bullets = [b for b in verified.get("what_happened", []) if cites(b)]
+    words = lambda s: len(plain_text(s).split())
+    rebuilt = 0
+    for sec in verified.get("sections", []):
+        old = (by_story.get(sec.get("story")) or {}).get("card")
+        if sec.get("card") or not old:
+            continue
+        # Blog sentences run long (median 19-26 words on 16 Nov) and are never cut here: cutting a clause can drop
+        # a "not" or a "proposed". So the lines are longer than the writer's (a hook up to 22 words, points up to
+        # 28), whole sentences only. The story's "what happened" bullet, the post's own summary of it, leads.
+        said = [s.strip() for p in sec.get("paragraphs", []) for s in split_sentences(p) if cites(s)]
+        own = set(i for s in said for i in cites(s))
+        # A sentence lifted out of an article can point at someone the card never names ("confiscated her passport",
+        # 16 Nov test): none that opens on a pointing word, and none with she/her/they/them/their
+        said = [s for s in said if not DANGLING.match(plain_text(s)) and not THIRD_PERSON.search(plain_text(s))]
+        lead = [b for b in bullets if set(cites(b)) <= own]
+        hook = next((s for s in lead + said if 6 <= words(s) <= 22 and not hook_problems(s)), None)
+        if not hook:
+            continue
+        points = [s for s in said if s != hook and 6 <= words(s) <= 28]
+        points = points[:3] if all(words(s) <= 20 for s in points[:3]) else points[:2]
+        if len(points) < 2:
+            continue
+        sec["card"] = {"hook": hook, "points": points, "take": None, "take_kind": "read", "ask": None,
+                       "reel": old.get("reel"), "interest": old.get("interest", 3), "fallback": True,
+                       **{k: old[k] for k in ("pain", "hook_type", "bonus") if k in old}}
+        rebuilt += 1
+        log.info("Reel card for %r rebuilt from its checked sentences", sec.get("title"))
+    if rebuilt:
+        report["cards_fallback"] = rebuilt
+    return verified, report
+
+
 def produce(chain, draft: dict, sources: list[dict], rejected: list[str] | None = None) -> dict:
     """Replace each section's card with the producer's script, then let the editor-in-chief compare the scripts. The
     card's "reel" score (0-10) is the mean of the producer's rubric and the chief's comparison, and "desk" keeps both

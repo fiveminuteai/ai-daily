@@ -88,3 +88,13 @@ def test_dead_feeds_are_reported_before_they_thin_the_post():
     run["stages"]["collect"]["sources"].update(b=src(True, 3), c=src(True, 2), d=src(True, 9))
     r = Report("d"); check_post(r, post(), run)
     assert levels(r, "feeds") == [("OK", "all 4 sources gave stories")]
+
+
+def test_before_the_morning_post_is_due_the_check_looks_at_yesterday():
+    """16 Nov 2026: a 03:37 IST run failed for not finding a post that is written at 05:45."""
+    from datetime import datetime, timezone
+    from fma.health import day_to_check
+    site = {"schedule": {"daily": "05:45"}}
+    assert day_to_check(datetime(2026, 11, 15, 22, 7, tzinfo=timezone.utc), site) == "2026-11-15"   # 03:37 IST on the 16th
+    assert day_to_check(datetime(2026, 11, 16, 2, 30, tzinfo=timezone.utc), site) == "2026-11-16"   # 08:00 IST
+    assert day_to_check(datetime(2026, 11, 16, 17, 50, tzinfo=timezone.utc), site) == "2026-11-16"  # 23:20 IST
