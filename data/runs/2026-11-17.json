@@ -1,0 +1,431 @@
+{
+ "date": "2026-11-17",
+ "started_at": "2026-11-17T00:15:35+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.5,
+   "items": 655,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 8
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 14
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 3
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 11
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 4
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 1
+    },
+    "github": {
+     "status": "ok",
+     "items": 19
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.7,
+   "stories": 229,
+   "editor": true,
+   "top": [
+    {
+     "title": "California state AG sues OpenAI over rogue agent incidents",
+     "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+     "score": 8.84,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Tech leaders are convinced that Jensen Huang’s exit was a plot against him",
+     "url": "https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories",
+     "score": 7.48,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google Maps can now create trip itineraries for you",
+     "url": "https://www.theverge.com/tech/1034110/google-ask-maps-ai-trip-planning",
+     "score": 7.0,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI wants to stop deepfakes from overwhelming child abuse tiplines",
+     "url": "https://www.theverge.com/policy/1034527/openai-csam-classifier",
+     "score": 6.79,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "All the questions Nvidia should answer on Tuesday — but probably won’t",
+     "url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/",
+     "score": 6.25,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Strengthening the fight against online child sexual abuse with new tools and support",
+     "url": "https://openai.com/index/strengthening-online-child-safety",
+     "score": 6.17,
+     "interest": 8.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI will embed safety researchers to investigate AI subversion",
+     "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+     "score": 6.14,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple reveals new Mac security controls as AI agents raise privacy risks",
+     "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+     "score": 6.04,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google adds 66 regional dialects to Gemini",
+     "url": "https://www.engadget.com/2317417/google-adds-66-regional-dialects-to-gemini/",
+     "score": 5.98,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "GitHub"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+     "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+     "score": 5.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "More ways to move care forward with ChatGPT for Healthcare",
+     "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
+     "score": 5.76,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple is testing daily usage limits for more complex Siri AI interactions",
+     "url": "https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription",
+     "score": 5.59,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "California state AG sues OpenAI over rogue agent incidents",
+     "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+     "score": 8.84,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Tech leaders are convinced that Jensen Huang’s exit was a plot against him",
+     "url": "https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories",
+     "score": 7.48,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI will embed safety researchers to investigate AI subversion",
+     "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+     "score": 6.14,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple reveals new Mac security controls as AI agents raise privacy risks",
+     "url": "https://techcrunch.com/2026/11/16/apple-reveals-new-mac-security-controls-as-ai-agents-raise-privacy-risks/",
+     "score": 6.04,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google adds 66 regional dialects to Gemini",
+     "url": "https://www.engadget.com/2317417/google-adds-66-regional-dialects-to-gemini/",
+     "score": 5.98,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "GitHub"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.0,
+   "articles": 12,
+   "with_text": 12
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 3.1,
+   "word_count": 1114,
+   "sources": 9
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.2,
+    "reel_desk": 1142.2,
+    "layer1": 0.1,
+    "layer2": 778.1,
+    "gate": 240.8
+   },
+   "layer1": {
+    "checked": 109,
+    "ok": 87,
+    "repaired": 20,
+    "dropped": 2
+   },
+   "layer2": {
+    "checked": 72,
+    "ok": 42,
+    "repaired": 15,
+    "dropped": 15
+   },
+   "unused": 38,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "OpenAI faces California lawsuit over rogue AI agents",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "OpenAI agents hacking sites threatens regulation, high stakes",
+     "hook": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
+     "chosen": true
+    },
+    {
+     "story": "Jensen Huang resignation sparks spy allegations controversy",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 9.0,
+     "why": "CEO exit + spy drama hits a giant, huge office buzz",
+     "hook": "Nvidia's Jensen Huang resigns amid spy claims, shaking the chip giant.",
+     "chosen": true
+    },
+    {
+     "story": "OpenAI embeds external safety evaluators",
+     "reel": 6,
+     "hook": "OpenAI will embed external safety researchers to monitor model subversion risks, starting with Apollo this week.",
+     "chosen": true
+    },
+    {
+     "story": "Apple adds granular Mac permissions for AI agents",
+     "reel": 6,
+     "hook": "Apple splits Mac permissions, adds per‑use prompts, and urges limited full‑disk access for AI agents.",
+     "chosen": false
+    },
+    {
+     "story": "Google adds regional dialects to Gemini",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "Dialect rollout is interesting but low office chatter",
+     "hook": "Google adds 66 dialects, boosting local relevance.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-17-openai-sued-in-california-over-rogue-ai",
+ "finished_at": "2026-11-17T00:54:46+00:00",
+ "seconds": 2350.7
+}

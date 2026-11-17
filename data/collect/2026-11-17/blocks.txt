@@ -1,0 +1,119 @@
+=== STORY 1 (suggested section: products) ===
+
+[S1] TechCrunch — "California state AG sues OpenAI over rogue agent incidents" (16 November 2026)
+OpenAI is facing a new lawsuit from the California Attorney General’s office , alleging that the company’s training practices and lax security pose an ongoing danger to the public.
+At the center of the case is the July 2026 Hugging Face compromise , in which a pre-release model within OpenAI compromised both companies’ security systems to complete a training benchmark. In its official report on the incident , OpenAI called it “an outlier scenario involving a rare and unexpected confluence of events.”
+The California lawsuit represents one of the first attempts by a government regulator to hold an AI lab legally accountable for a rogue agent incident, with significant implications for both OpenAI’s competitors and its clients.
+The complaint centers on the Hugging Face incident, but also cites similar incidents involving RubyGems , DseWiki , the Wikimedia Foundation , and Australian government websites as evidence that the underlying behavior is ongoing.
+The complaint also alleges that dozens of similar incidents have occurred without public disclosure.
+“OpenAI has recently sent notices to dozens of additional third parties whose websites or internal systems have been infiltrated by OpenAI agents,” the complaint reads. “In some cases, OpenAI agents were able to access sensitive personally identifiable information, such as employee records containing names, birth dates, addresses, and more. The vast majority of these incidents have not been disclosed or discussed publicly by either OpenAI or by the affected third parties.”
+The central allegation is that OpenAI’s ongoing testing practices constitute a public nuisance because the lack of safety controls present an ongoing risk to the public. A secondary claim alleges unfair competition stemming from the marketing of an unsafe product. If the lawsuit succeeds, OpenAI could face an injunction “to abate the ongoing public nuisance,” leaving broad discretion in the hands of the court.
+It’s the first regulatory case targeting OpenAI specifically over rogue agent incidents, although public endangerment claims have been considered by other states. In June, the Florida attorney general sued the company over allegedly harmful effects on users , particularly children and teenagers. In August, the Alabama attorney general launched a probe into deceptive practices related to the breach, but no case has been filed.
+In a statement to the press, California Attorney General Rob Bonta presented the case as an effort to maintain public safety in the face of a powerful new technology.
+“OpenAI’s actions escalated real-word cybers
+
+[S2] The Verge — "California sues OpenAI over rogue AI hacking incidents" (16 November 2026)
+California sues OpenAI over rogue AI hacking incidents
+OpenAI lost control of its AI agents more than 80 times during testing, California’s AG claims.
+California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit filed Monday , Attorney General Rob Bonta accuses OpenAI of violating consumer safety law by knowingly developing a “dangerous product without proper oversight,” as reported earlier by Reuters .
+The lawsuit claims the cyberattack on Hugging Face “was the predictable result of an internal culture at OpenAI that prioritizes growth and rapid model development over safety and accountability.” It alleges that OpenAI recently told the attorney general’s office that it “lost control” of its AI agents more than 80 times during testing.
+After revealing the rogue AI attack on Hugging Face in July, news of several other similar incidents emerged, including attacks on an Australian government website , a German wiki site , and the software package manager RubyGems . OpenAI’s agents also tried to “br
+
+[S3] Engadget — "California sues OpenAI after that Hugging Face rogue hacking incident" (16 November 2026)
+State AG Rob Bonta has accused the company of making AI agents "without the safeguards and monitoring necessary to adequately protect" users.
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S4] The Verge — "Tech leaders are convinced that Jensen Huang’s exit was a plot against him" (16 November 2026)
+Tech leaders are convinced that Jensen Huang’s exit was a plot against him
+David Sacks, Tim Sweeney, and other big names in tech are raising questions about the circumstances surrounding Huang’s resignation.
+Jensen Huang’s stunning resignation from Nvidia after more than 33 years has sent shockwaves throughout the tech industry. Now prominent figures are calling for Huang’s reinstatement, and many are also hopping on board with a theory spreading throughout Silicon Valley: that the scandal is the result of a plot against the former CEO.
+At the center of this theory is the reporting from The New York Times that former Megaspeed executive Alice Huang, one of multiple women Huang is accused of having an affair with, is a Chinese spy. US agencies haven’t confirmed whether this is the case, and President Donald Trump claims he was unaware of any spy allegations. Jensen Huang’s alleged relationship with Alice Huang set off the events that led to his resignation; s ubsequent reporting suggested he had an affair with two employees at Nvidia , including one of his direct reports. The revelation raised new questions around whether Nvidia customers, including Megaspeed, were funneling chips to China in circumvention of export restrictions. Last year, Nvidia intervened in a chip-smuggling probe surrounding the Singapore-based company, according to Bloomberg .
+David Sacks, a venture capitalist and former White House AI crypto advisor, has made it clear that he’s skeptical about The New York Times ’ reporting. In a post on X, Sacks points to an article from CNN , which says US officials still can’t confirm that Alice Huang was a spy. “The spy narrative is collapsing already,” Sacks writes. He continued to question the spy allegations during Semafor ’s Silicon Valley & The World event on Monday, saying : “The reason why Jensen lost his job is because of this lurid Chinese spy allegation. So if no one’s willing to back that up now, then again, I question why this entire chain of events happened.”
+Epic Games CEO Tim Sweeney similarly expressed concern about how Huang’s resignation played out. In a reply to Sacks’ post about the CNN article, Sweeney said , “What?! So journalists with sketchy motives portrayed rumors from god-knows-who (lobbyists?) as facts sourced from intelligence officials and gaslit the NVIDIA board to push out the founder, CEO, and once-in-generation visionary?” Amjad Masad, the CEO of the AI app and website builder Replit, called the timing of Huang’s resignation “suspicious,” adding that “if Jensen, the premier champion of open models, is taken out 
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: policy) ===
+
+[S5] TechCrunch — "OpenAI will embed safety researchers to investigate AI subversion" (16 November 2026)
+OpenAI will embed safety evaluators from Apollo Research, Goodfire, METR, and Transluce in its organization as part of a pilot, OpenAI said Monday. The news follows a series of safety incidents, including one in which an OpenAI agent swarm broke out of its sandbox and hacked into Hugging Face during cybersecurity testing. Many AI safety researchers, including from Apollo, have argued such an event might have been avoided if outside evaluators had been embedded within OpenAI to monitor its safety testing.
+OpenAI said the efforts support its commitments to rely on independent assessments of safety controls under the White House Accord on Super Intelligence. The pilots will begin at different points, with Apollo’s beginning this week, according to OpenAI.
+The idea of embedding evaluators into frontier AI labs first came from Anthropic , which last month started to give METR researchers employee-level access to its systems. Until recently, AI companies have only brought in outside reviewers to test models after post-training and shortly before public release. Evaluators say this is insufficient because it doesn’t allow them to test for misaligned behaviors like scheming during training or to monitor internal deployment use cases that could still pose a threat.
+The work with each third-party firm differs in scope. The pilot with OpenAI and Apollo will focus on investigating whether models attempt to subvert their own or their successors’ alignment or control mechanisms. In other words, they’ll be on the lookout for whether AI models try to undermine the safety rules and safeguards designed to keep them, or future versions of themselves, under human control. OpenAI recently published findings that while training GPT-5.6 Sol, it began leaving instructions for future versions of itself telling them to conceal mistakes and misaligned behavior from the user.
+Per Apollo, the pilot will examine whether training incentivizes subversion; whether evaluations can elicit subversion; whether subversion occurs during internal deployment; and whether reasoning relevant to subversion would be detectable. These risks are becoming increasingly important to monitor as AI models grow more capable of acting autonomously and deceiving humans. Apollo’s previous research with OpenAI found that models can behave differently when they know they’re being tested and tend to prioritize what evaluators want to see over users’ actual institutions.
+Goodfire will embed researchers who specialize in understanding how AI models work internally. Using its interpretability platform, the firm wil
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: policy) ===
+
+[S6] TechCrunch — "Apple reveals new Mac security controls as AI agents raise privacy risks" (16 November 2026)
+As promised last month , Apple on Monday announced changes to Mac security controls designed to protect users’ data from the growing popularity of AI agents and their apps’ demand for “full disk access.”
+“Before granting an app such extraordinary access, users should understand that it puts all of the data on their Mac at risk,” Apple warned in its blog post aimed at app developers.
+Unlike AI chatbots that simply answer questions, agents run on a user’s device where they can take actions across the operating system, files, and apps on the user’s behalf.
+While the tools can be useful, Apple has grown concerned about the increased risks to users’ data and privacy that these AI agents introduce. At the same time, the company has been benefiting from sales of Mac minis and Mac Studio computers that AI early adopters have been purchasing specifically to run their local AI models.
+To balance these competing interests, Apple said in October that it would revise some of its security settings around Mac apps. The announcement followed two notable incidents involving AI agents. In one, a journalist claimed that Meta’s Muse app read their private messages without consent; a separate report from Wired cited a flaw in ChatGPT’s Mac app that could have allowed hackers to access sensitive data.
+Now, Apple is sharing the changes it’s making.
+For starters, it’s splitting up Device Control and Data Access into two settings: System & App Protection Override and Accessibility. The changes are designed to help users better understand that selecting the first option means overriding built-in security protections.
+To streamline configurations, Apple says there will now also be a single method for granting permissions that involves selecting the requested app from a list. The company will also introduce new guidance encouraging users to grant access only to the specific apps that need it when they enable the System & App Protection Override setting. Similar guidance will appear when users enable Full Disk Access to allow an app to access their folders.
+The company will also provide users with “increased visibility into the wide range of data apps will receive access to or control over if full permissions are granted,” the blog post notes.
+Another change will give users more granular control over when an AI agent or app can gain access by allowing users to configure their apps to ask for permission every time access is needed. While arguably tedious and a potential obstacle to true automation, the feature could allow users to experiment with local AI without giving the agent car
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: models) ===
+
+[S7] Engadget — "Google adds 66 regional dialects to Gemini" (16 November 2026)
+Google adds 66 regional dialects to Gemini
+The feature was teased during Google I/O earlier this year.
+One of the less visible risks of conversational AI is its flattening effect on a culture's unique dialect and accent. Humanity speaks with a thousand voices, but assistants often just respond in a nicely generic transatlantic monotone. Now, Google is doing something about it by adding 66 regional dialects to Gemini to help it better relate to the people using it. The feature was first teased at Google I/O earlier this year, and starting today, the Android and iOS apps will be able to speak to users in a variety of voices from different countries.
+For instance, UK users can set Gemini to speak in a Geordie, Scouse and Brummie accent to better engage with people from Tyneside, Merseyside and Birmingham. The list also includes Scots , Welsh, Northern Irish and Multicultural London English, among many others. And it's not just the UK that gets this treatment, with tailored dialects for India, Brazil, Indonesia and Korea also in the mix.
+Google says it worked with native speakers to ensure the voices were authentic and clear, rather than exaggerated and stereotypical. It added that Gemini isn't going to suddenly fill its responses with "street slang," but instead focus on sounding more "like a local." Given how much pride people put into their accent as a signifier of their heritage, it'll be very interesting to see how well these voices are received by the people intended to use them.
+To activate the voices, you'll need to access the voice settings in the Gemini app or tap the three-dot menu. Google suggests a good way to test their authenticity is to ask for a recommendation for local food to better hear the "warmth and rhythm of each voice."
+
+[S8] GitHub — "YellowLaborerMarket/Gemini-Config-Checker-: Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) " (15 November 2026)
+Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) 
+<p align="center"><img src="https://github.com/MatinSenPai/Gemini-Config-Checker/raw/main/assets/banner.png" alt="Gemini/Check" width="100%"></p>
+
+<p align="center">
+  <b>English</b> · <a href="README.fa.md">فارسی</a>
+</p>
+
+<p align="center">
+   <a href="https://www.dropbox.com/scl/fi/l80rdcm1o9gnqcpdsw1gi/GeminiConfigChecker.rar?rlkey=dv7oxsttd2j8kvr5zu7uyx1tm&st=l2vaozdz&dl=1">
+    <img alt="Download the Gemini app" src="https://img.shields.io/badge/Download-%20Gemeni%20app-0969DA?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+</p>
+
+# Gemini Config Checker
+
+Find proxy configs that actually get you into **Google AI Studio and Gemini**, by testing each one the way a person would: in a
+*signed-in* browser, through the route you will really use.
+
+> **Version 0.1.0, early pre-release.** It works end to end on Windows (the only platform it has been run on so far). The macOS,
+> Linux and Android builds come from the CI pipeline 
+
+[S9] GitHub — "Visionbeyondtrack/Gemini-Config-Checker-: Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) " (15 November 2026)
+Chain region scanner: find proxy configs that get you into Google AI Studio and Gemini (signed-in browser check, anti-DPI, Windows/macOS/Linux/Android) 
+<p align="center"><img src="https://github.com/MatinSenPai/Gemini-Config-Checker/raw/main/assets/banner.png" alt="Gemini/Check" width="100%"></p>
+
+<p align="center">
+  <b>English</b> · <a href="README.fa.md">فارسی</a>
+</p>
+
+<p align="center">
+   <a href="https://www.dropbox.com/scl/fi/l80rdcm1o9gnqcpdsw1gi/GeminiConfigChecker.rar?rlkey=dv7oxsttd2j8kvr5zu7uyx1tm&st=l2vaozdz&dl=1">
+    <img alt="Download the Gemini app" src="https://img.shields.io/badge/Download-%20Gemeni%20app-0969DA?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+</p>
+
+# Gemini Config Checker
+
+Find proxy configs that actually get you into **Google AI Studio and Gemini**, by testing each one the way a person would: in a
+*signed-in* browser, through the route you will really use.
+
+> **Version 0.1.0, early pre-release.** It works end to end on Windows (the only platform it has been run on so far). The macOS,
+> Linux and Android builds come from the CI pipeline 
