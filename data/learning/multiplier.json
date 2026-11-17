@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T18:02:03+00:00",
+ "updated": "2026-11-17T01:48:50+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
@@ -70,7 +70,7 @@
    "x": {
     "reach": 1.25,
     "watch_s": 1.56,
-    "held": 1.38,
+    "held": 1.39,
     "sent_saved": null
    },
    "overall": 1.39,
@@ -112,10 +112,10 @@
    "x": {
     "reach": 1.2,
     "watch_s": 1.44,
-    "held": 1.37,
+    "held": 1.38,
     "sent_saved": null
    },
-   "overall": 1.33,
+   "overall": 1.34,
    "category": "policy",
    "player": "giant",
    "hook_type": "untagged",

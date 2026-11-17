@@ -1,13 +1,13 @@
 {
- "date": "2026-11-16",
+ "date": "2026-11-17",
  "window": [
-  "2026-11-10",
-  "2026-11-16"
+  "2026-11-11",
+  "2026-11-17"
  ],
  "this_week": {
-  "reels": 15,
-  "reach": 115,
-  "skip_rate": 61.8,
+  "reels": 12,
+  "reach": 117.0,
+  "skip_rate": 62.4,
   "avg_watch_s": 5.7,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
@@ -17,19 +17,19 @@
  },
  "last_week": {
   "reels": 19,
-  "reach": 104,
-  "skip_rate": 61.2,
-  "avg_watch_s": 5.4,
+  "reach": 106,
+  "skip_rate": 60.8,
+  "avg_watch_s": 5.5,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0
  },
- "followers": 10,
+ "followers": 11,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 61.8,
+   "value": 62.4,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
@@ -65,27 +65,13 @@
  ],
  "best": [
   {
-   "id": "18131624308862947",
-   "day": "2026-11-10",
-   "caption": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
-   "reach": 116,
-   "skip_rate": 35.6,
-   "avg_watch_s": 12.1,
-   "likes_per_1k": 8.6,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-10-reel-3",
-   "youtube": "https://www.youtube.com/shorts/aZyH4NT30w8"
-  },
-  {
    "id": "18416406334090272",
    "day": "2026-11-15",
    "caption": "Nvidia kept GPU prices high with circular financing deals.",
-   "reach": 366,
-   "skip_rate": 36.7,
+   "reach": 367,
+   "skip_rate": 36.6,
    "avg_watch_s": 9.0,
-   "likes_per_1k": 5.5,
+   "likes_per_1k": 5.4,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
@@ -105,6 +91,20 @@
    "comments": 0,
    "ours": "2026-11-11-reel-3",
    "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
+  },
+  {
+   "id": "17998784472099824",
+   "day": "2026-11-15",
+   "caption": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
+   "reach": 126,
+   "skip_rate": 62.4,
+   "avg_watch_s": 7.2,
+   "likes_per_1k": 23.8,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-15-reel-4",
+   "youtube": "https://www.youtube.com/shorts/SEt6EUk91No"
   }
  ]
 }

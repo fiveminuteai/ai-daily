@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T18:02:03+00:00",
+ "updated": "2026-11-17T01:48:50+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -20,9 +20,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 383.9,
+   "age_h": 391.7,
    "skip": 82.4,
-   "outcome": -0.469
+   "outcome": -0.468
   },
   {
    "id": "2026-10-31-reel-2",
@@ -43,7 +43,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 383.9,
+   "age_h": 391.6,
    "skip": 84.3,
    "outcome": -0.702
   },
@@ -66,7 +66,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 383.8,
+   "age_h": 391.6,
    "skip": 87.1,
    "outcome": -0.679
   },
@@ -89,9 +89,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 372.0,
+   "age_h": 379.8,
    "skip": 97.4,
-   "outcome": -1.237
+   "outcome": -1.236
   },
   {
    "id": "2026-11-01-reel-2",
@@ -112,7 +112,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 370.2,
+   "age_h": 378.0,
    "skip": 87.5,
    "outcome": -0.729
   },
@@ -135,7 +135,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 364.2,
+   "age_h": 372.0,
    "skip": 95.7,
    "outcome": -1.239
   },
@@ -158,7 +158,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 350.5,
+   "age_h": 358.3,
    "skip": 89.1,
    "outcome": -0.696
   },
@@ -181,7 +181,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 346.5,
+   "age_h": 354.3,
    "skip": 89.2,
    "outcome": -0.409
   },
@@ -204,9 +204,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 340.5,
+   "age_h": 348.3,
    "skip": 71.4,
-   "outcome": -0.065
+   "outcome": -0.066
   },
   {
    "id": "2026-11-03-reel-1",
@@ -227,9 +227,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 326.0,
+   "age_h": 333.8,
    "skip": 53.8,
-   "outcome": 0.178
+   "outcome": 0.176
   },
   {
    "id": "2026-11-03-reel-2",
@@ -250,7 +250,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 322.5,
+   "age_h": 330.3,
    "skip": 82.4,
    "outcome": -0.769
   },
@@ -273,9 +273,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 316.5,
+   "age_h": 324.3,
    "skip": 100,
-   "outcome": -1.274
+   "outcome": -1.273
   },
   {
    "id": "2026-11-04-reel-1",
@@ -296,7 +296,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 301.0,
+   "age_h": 308.8,
    "skip": 85.7,
    "outcome": -0.763
   },
@@ -319,7 +319,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 298.5,
+   "age_h": 306.3,
    "skip": 95,
    "outcome": -1.084
   },
@@ -342,7 +342,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 292.5,
+   "age_h": 300.3,
    "skip": 71.4,
    "outcome": -0.331
   },
@@ -365,7 +365,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 278.5,
+   "age_h": 286.3,
    "skip": 80,
    "outcome": -0.887
   },
@@ -388,9 +388,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 274.5,
+   "age_h": 282.3,
    "skip": 94.4,
-   "outcome": -1.418
+   "outcome": -1.417
   },
   {
    "id": "2026-11-06-reel-1",
@@ -411,9 +411,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 250.5,
+   "age_h": 258.3,
    "skip": 58.3,
-   "outcome": 0.963
+   "outcome": 0.962
   },
   {
    "id": "2026-11-06-reel-2",
@@ -434,9 +434,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 244.5,
+   "age_h": 252.3,
    "skip": 58.4,
-   "outcome": 0.884
+   "outcome": 0.883
   },
   {
    "id": "2026-11-06-reel-3",
@@ -457,9 +457,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 230.5,
+   "age_h": 238.3,
    "skip": 53.4,
-   "outcome": 0.852
+   "outcome": 0.851
   },
   {
    "id": "2026-11-07-reel-1",
@@ -480,9 +480,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 226.5,
-   "skip": 45.3,
-   "outcome": 1.283
+   "age_h": 234.3,
+   "skip": 45,
+   "outcome": 1.29
   },
   {
    "id": "2026-11-07-reel-2",
@@ -503,9 +503,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 223.5,
+   "age_h": 231.3,
    "skip": 60.8,
-   "outcome": 0.458
+   "outcome": 0.457
   },
   {
    "id": "2026-11-07-reel-3",
@@ -526,9 +526,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 220.5,
+   "age_h": 228.3,
    "skip": 42.5,
-   "outcome": 1.626
+   "outcome": 1.624
   },
   {
    "id": "2026-11-08-reel-2",
@@ -549,9 +549,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 202.5,
+   "age_h": 210.3,
    "skip": 58.4,
-   "outcome": 0.475
+   "outcome": 0.474
   },
   {
    "id": "2026-11-08-reel-3",
@@ -572,9 +572,9 @@
    "shares": 0,
    "saved": 2,
    "comments": 0,
-   "age_h": 199.5,
+   "age_h": 207.3,
    "skip": 62.3,
-   "outcome": 0.412
+   "outcome": 0.411
   },
   {
    "id": "2026-11-09-reel-1",
@@ -595,9 +595,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 179.1,
-   "skip": 45.1,
-   "outcome": 1.379
+   "age_h": 186.9,
+   "skip": 44.8,
+   "outcome": 1.387
   },
   {
    "id": "2026-11-09-reel-2",
@@ -618,9 +618,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 172.5,
+   "age_h": 180.3,
    "skip": 61.2,
-   "outcome": 0.474
+   "outcome": 0.473
   },
   {
    "id": "2026-11-09-reel-3",
@@ -641,7 +641,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 168.5,
+   "age_h": 176.3,
    "skip": 83.7,
    "outcome": -0.781
   },
@@ -664,9 +664,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 158.5,
+   "age_h": 166.3,
    "skip": 61.8,
-   "outcome": 0.115
+   "outcome": 0.114
   },
   {
    "id": "2026-11-10-reel-2",
@@ -687,9 +687,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 154.5,
+   "age_h": 162.3,
    "skip": 60.2,
-   "outcome": 0.374
+   "outcome": 0.373
   },
   {
    "id": "2026-11-10-reel-3",
@@ -710,9 +710,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 151.5,
+   "age_h": 159.3,
    "skip": 35.6,
-   "outcome": 1.988
+   "outcome": 1.986
   },
   {
    "id": "2026-11-11-reel-1",
@@ -733,7 +733,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 134.5,
+   "age_h": 142.3,
    "skip": 62.4,
    "outcome": 0.576
   },
@@ -756,7 +756,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 130.5,
+   "age_h": 138.3,
    "skip": 76.9,
    "outcome": -0.395
   },
@@ -779,9 +779,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 127.5,
+   "age_h": 135.3,
    "skip": 59,
-   "outcome": 0.86
+   "outcome": 0.859
   },
   {
    "id": "2026-11-12-reel-1",
@@ -802,9 +802,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 110.5,
+   "age_h": 118.3,
    "skip": 57.4,
-   "outcome": 0.215
+   "outcome": 0.214
   },
   {
    "id": "2026-11-12-reel-2",
@@ -825,9 +825,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 106.5,
+   "age_h": 114.3,
    "skip": 61.5,
-   "outcome": 0.493
+   "outcome": 0.492
   },
   {
    "id": "2026-11-12-reel-3",
@@ -848,7 +848,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 103.5,
+   "age_h": 111.3,
    "skip": 67.6,
    "outcome": 0.051
   },
@@ -871,9 +871,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 62.5,
+   "age_h": 70.3,
    "skip": 68.9,
-   "outcome": 0.271
+   "outcome": 0.27
   }
  ],
  "effects": [
@@ -992,8 +992,8 @@
    "value": "12:25",
    "n": 1,
    "n_rest": 37,
-   "mean": 1.38,
-   "effect": 0.15,
+   "mean": 1.39,
+   "effect": 0.16,
    "se": 0.87,
    "held_out": null,
    "confident": false
@@ -1136,7 +1136,7 @@
    "n": 6,
    "n_rest": 32,
    "mean": 0.28,
-   "effect": 0.15,
+   "effect": 0.14,
    "se": 0.38,
    "held_out": false,
    "confident": false
@@ -1190,7 +1190,7 @@
    "value": "stakes",
    "n": 7,
    "n_rest": 31,
-   "mean": 0.52,
+   "mean": 0.51,
    "effect": 0.3,
    "se": 0.36,
    "held_out": true,
