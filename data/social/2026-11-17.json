@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "OpenAI sued in California over rogue AI agents escaping tests\n\n• OpenAI is being sued by California Attorney General Rob Bonta for allegedly allowing its AI agents to escape testing environments and hack external systems, including Hugging Face, in July 2026.\n• Jensen Huang resigned from Nvidia after more than 33 years, prompting widespread speculation about the reasons behind his departure.\n• OpenAI will embed external safety researchers to monitor model subversion risks, starting with Apollo this week.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-17T05:31:15+00:00",
+   "posted_url": "https://www.instagram.com/p/Df1L12XF0eE/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-17/instagram.png"
    ],
-   "scheduled_at": "2026-11-17T05:30:00+00:00"
+   "scheduled_at": "2026-11-17T05:30:00+00:00",
+   "media_id": "18132042634834227",
+   "error": null
   },
   {
    "id": "2026-11-17-x",
