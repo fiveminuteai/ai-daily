@@ -1,234 +1,107 @@
 {
  "date": "2026-11-17",
- "collected_at": "2026-11-17T01:47:48+00:00",
+ "collected_at": "2026-11-17T18:00:40+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 206,
-  "visitors_day": 0,
-  "daily": [
-   {
-    "day": "2026-10-21",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-22",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-23",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-24",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-25",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-26",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-27",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-28",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 14
-   },
-   {
-    "day": "2026-11-13",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-14",
-    "visitors": 2
-   },
-   {
-    "day": "2026-11-15",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-16",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-17",
-    "visitors": 0
-   },
-   {
-    "day": "2026-11-18",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 20
-   },
-   {
-    "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
-    "title": "OpenAI launches Business Hub for verified ChatGPT profiles · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
-    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
-    "title": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
-    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-11-anthropic-sets-ipo-price-range-at-70",
-    "title": "Google Cloud previews Gemini for healthcare · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/posts/2026-11-05-openai-pushes-ai-policy-agenda-ahead-of",
-    "title": "OpenAI pushes AI policy agenda ahead of 2028 election · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/archive",
-    "title": "Archive · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
-    "visitors": 1
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 20
-   },
-   {
-    "name": "(direct)",
-    "visitors": 16
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
-    "visitors": 2
-   },
-   {
-    "name": "ig",
-    "visitors": 1
-   },
-   {
-    "name": "www.facebook.com",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/about",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/archive",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
-    "visitors": 1
-   }
-  ],
-  "reads_7d": {
-   "post_views": 10,
-   "read_30s": 3,
-   "read_half": 4,
-   "read_end": 3,
-   "read_end_rate": 0.3
-  }
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 11,
-  "media_count": 50,
+  "media_count": 55,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 208,
+   "views": 252,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "18116814965037392",
+    "timestamp": "2026-11-17T13:31:48+0000",
+    "permalink": "https://www.instagram.com/reel/Df2Cy1zjusV/",
+    "type": "VIDEO",
+    "caption": "Apple splits Mac permissions, adds per-use prompts, and urges limited full-disk access for",
+    "likes": 0,
+    "comments": 0,
+    "reach": 50,
+    "views": 53,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.5,
+    "skip_rate": 51,
+    "reposts": 0
+   },
+   {
+    "id": "18035817281855119",
+    "timestamp": "2026-11-17T10:31:13+0000",
+    "permalink": "https://www.instagram.com/reel/Df1uIDBk4q_/",
+    "type": "VIDEO",
+    "caption": "OpenAI will embed external safety researchers to monitor model subversion risks, starting ",
+    "likes": 0,
+    "comments": 0,
+    "reach": 20,
+    "views": 29,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 3.1,
+    "skip_rate": 71.4,
+    "reposts": 0
+   },
+   {
+    "id": "17880381303651498",
+    "timestamp": "2026-11-17T07:35:35+0000",
+    "permalink": "https://www.instagram.com/reel/Df1aBmsk1tY/",
+    "type": "VIDEO",
+    "caption": "Nvidia's Jensen Huang resigns amid spy claims, shaking the chip giant.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 116,
+    "views": 127,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.4,
+    "skip_rate": 55.6,
+    "reposts": 0
+   },
+   {
+    "id": "18132042634834227",
+    "timestamp": "2026-11-17T05:31:11+0000",
+    "permalink": "https://www.instagram.com/p/Df1L12XF0eE/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "OpenAI sued in California over rogue AI agents escaping tests",
+    "likes": 0,
+    "comments": 0,
+    "reach": 2,
+    "views": 6,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "17919357606463271",
+    "timestamp": "2026-11-17T03:32:16+0000",
+    "permalink": "https://www.instagram.com/reel/Df0-JaOGfvn/",
+    "type": "VIDEO",
+    "caption": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 46,
+    "views": 58,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 6.2,
+    "skip_rate": 53.3,
+    "reposts": 0
+   },
    {
     "id": "17920515102523464",
     "timestamp": "2026-11-16T05:31:15+0000",
@@ -237,8 +110,8 @@
     "caption": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules",
     "likes": 0,
     "comments": 0,
-    "reach": 4,
-    "views": 15,
+    "reach": 6,
+    "views": 19,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -259,8 +132,8 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 4.6,
-    "skip_rate": 63.6,
+    "avg_watch_s": 4.5,
+    "skip_rate": 64.5,
     "reposts": 0
    },
    {
@@ -293,7 +166,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 2,
-    "avg_watch_s": 9.0,
+    "avg_watch_s": 9.1,
     "skip_rate": 36.6,
     "reposts": 0
    },
@@ -310,7 +183,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.4,
+    "avg_watch_s": 6.3,
     "skip_rate": 41.3,
     "reposts": 0
    },
@@ -322,8 +195,8 @@
     "caption": "Board members warn AI leadership cannot be trusted",
     "likes": 0,
     "comments": 0,
-    "reach": 3,
-    "views": 11,
+    "reach": 4,
+    "views": 12,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -429,7 +302,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.7,
+    "avg_watch_s": 5.8,
     "skip_rate": 61.5,
     "reposts": 0
    },
@@ -577,7 +450,7 @@
     "caption": "Claude Fable 5.2 and Mythos 5.2 arrive on AWS",
     "likes": 0,
     "comments": 0,
-    "reach": 7,
+    "reach": 8,
     "views": 16,
     "saved": 0,
     "shares": 0,
@@ -645,13 +518,13 @@
     "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
     "likes": 1,
     "comments": 0,
-    "reach": 140,
+    "reach": 141,
     "views": 164,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
     "avg_watch_s": 8.9,
-    "skip_rate": 44.8,
+    "skip_rate": 45.5,
     "reposts": 0
    },
    {
@@ -730,13 +603,13 @@
     "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
     "likes": 0,
     "comments": 0,
-    "reach": 134,
+    "reach": 135,
     "views": 157,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 8.2,
-    "skip_rate": 45,
+    "avg_watch_s": 8.1,
+    "skip_rate": 45.7,
     "reposts": 0
    },
    {

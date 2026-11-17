@@ -5,10 +5,10 @@
   "2026-11-17"
  ],
  "this_week": {
-  "reels": 12,
-  "reach": 117.0,
-  "skip_rate": 62.4,
-  "avg_watch_s": 5.7,
+  "reels": 16,
+  "reach": 113.5,
+  "skip_rate": 62.0,
+  "avg_watch_s": 5.6,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 62.4,
+   "value": 62.0,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.7,
+   "value": 5.6,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -70,7 +70,7 @@
    "caption": "Nvidia kept GPU prices high with circular financing deals.",
    "reach": 367,
    "skip_rate": 36.6,
-   "avg_watch_s": 9.0,
+   "avg_watch_s": 9.1,
    "likes_per_1k": 5.4,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
