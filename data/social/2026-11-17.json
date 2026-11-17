@@ -133,13 +133,17 @@
    "cover": null,
    "text": "Apple splits Mac permissions, adds per-use prompts, and urges limited full-disk access for AI agents.\n\n• Apple announced new Mac security controls on Monday to limit the data access of AI agents that run on users' devices.\n• The changes split existing permissions into System & App Protection Override and Accessibility settings.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #apple",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-17T13:31:59+00:00",
+   "posted_url": "https://www.instagram.com/reel/Df2Cy1zjusV/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-17/reels/04.mp4"
    ],
-   "scheduled_at": "2026-11-17T13:30:00+00:00"
+   "scheduled_at": "2026-11-17T13:30:00+00:00",
+   "media_id": "18116814965037392",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/vZdAZPZBbGk",
+   "youtube_error": null
   }
  ]
 }
