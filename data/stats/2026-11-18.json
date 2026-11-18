@@ -1,10 +1,10 @@
 {
  "date": "2026-11-18",
- "collected_at": "2026-11-18T00:51:07+00:00",
+ "collected_at": "2026-11-18T18:00:39+00:00",
  "website": {
   "status": "ok",
-  "visitors_28d": 207,
-  "visitors_day": 0,
+  "visitors_28d": 218,
+  "visitors_day": 11,
   "daily": [
    {
     "day": "2026-10-22",
@@ -116,7 +116,7 @@
    },
    {
     "day": "2026-11-18",
-    "visitors": 0
+    "visitors": 11
    },
    {
     "day": "2026-11-19",
@@ -127,7 +127,7 @@
    {
     "path": "/",
     "title": "Five Minute AI",
-    "visitors": 18
+    "visitors": 21
    },
    {
     "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
@@ -135,14 +135,29 @@
     "visitors": 3
    },
    {
-    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
-    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "path": "/tags",
+    "title": "Topics · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
     "visitors": 2
    },
    {
     "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
     "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
-    "visitors": 1
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "visitors": 2
    },
    {
     "path": "/posts/2026-11-10-nvidia-shares-dip-after-board-launches-probe",
@@ -155,29 +170,23 @@
     "visitors": 1
    },
    {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 1
-   },
-   {
     "path": "/archive",
     "title": "Archive · Five Minute AI",
-    "visitors": 1
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
     "visitors": 1
    }
   ],
   "top_refs": [
    {
     "name": "fiveminuteai.net",
-    "visitors": 18
+    "visitors": 25
    },
    {
     "name": "(direct)",
-    "visitors": 15
+    "visitors": 18
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 2
    },
    {
     "name": "ig",
@@ -185,10 +194,6 @@
    },
    {
     "name": "www.facebook.com",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/about",
     "visitors": 1
    },
    {
@@ -205,25 +210,110 @@
    }
   ],
   "reads_7d": {
-   "post_views": 8,
+   "post_views": 11,
    "read_30s": 3,
-   "read_half": 4,
+   "read_half": 5,
    "read_end": 3,
-   "read_end_rate": 0.375
+   "read_end_rate": 0.273
   }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 11,
-  "media_count": 55,
+  "followers": 12,
+  "media_count": 60,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 66,
+   "views": 91,
+   "accounts_engaged": 0,
+   "total_interactions": 0
   },
   "posts": [
+   {
+    "id": "18143485120624465",
+    "timestamp": "2026-11-18T13:31:09+0000",
+    "permalink": "https://www.instagram.com/reel/Df4ngufCWfE/",
+    "type": "VIDEO",
+    "caption": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 11,
+    "views": 14,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.6,
+    "skip_rate": 50,
+    "reposts": 0
+   },
+   {
+    "id": "18112729499217106",
+    "timestamp": "2026-11-18T10:31:12+0000",
+    "permalink": "https://www.instagram.com/reel/Df4S6rultPl/",
+    "type": "VIDEO",
+    "caption": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang",
+    "likes": 0,
+    "comments": 0,
+    "reach": 24,
+    "views": 29,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.0,
+    "skip_rate": 69.2,
+    "reposts": 0
+   },
+   {
+    "id": "17947470204366279",
+    "timestamp": "2026-11-18T07:31:18+0000",
+    "permalink": "https://www.instagram.com/reel/Df3-U6ajL9y/",
+    "type": "VIDEO",
+    "caption": "OpenAI faces $2 billion child safety lawsuit.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 8,
+    "views": 8,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 6.2,
+    "skip_rate": 75,
+    "reposts": 0
+   },
+   {
+    "id": "17981224569153463",
+    "timestamp": "2026-11-18T05:31:19+0000",
+    "permalink": "https://www.instagram.com/p/Df3wo_HIA1L/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Google expands Gemini Tasks to more users",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 10,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "17915476950484102",
+    "timestamp": "2026-11-18T03:32:13+0000",
+    "permalink": "https://www.instagram.com/reel/Df3i-HugluF/",
+    "type": "VIDEO",
+    "caption": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions",
+    "likes": 0,
+    "comments": 0,
+    "reach": 68,
+    "views": 71,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.9,
+    "skip_rate": 59.4,
+    "reposts": 0
+   },
    {
     "id": "18116814965037392",
     "timestamp": "2026-11-17T13:31:48+0000",
@@ -232,13 +322,13 @@
     "caption": "Apple splits Mac permissions, adds per-use prompts, and urges limited full-disk access for",
     "likes": 0,
     "comments": 0,
-    "reach": 70,
-    "views": 73,
+    "reach": 101,
+    "views": 106,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 4.1,
-    "skip_rate": 51.4,
+    "avg_watch_s": 5.2,
+    "skip_rate": 48.5,
     "reposts": 0
    },
    {
@@ -249,13 +339,13 @@
     "caption": "OpenAI will embed external safety researchers to monitor model subversion risks, starting ",
     "likes": 0,
     "comments": 0,
-    "reach": 24,
-    "views": 32,
+    "reach": 33,
+    "views": 43,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 3.1,
-    "skip_rate": 71,
+    "avg_watch_s": 3.0,
+    "skip_rate": 71.4,
     "reposts": 0
    },
    {
@@ -266,13 +356,13 @@
     "caption": "Nvidia's Jensen Huang resigns amid spy claims, shaking the chip giant.",
     "likes": 0,
     "comments": 0,
-    "reach": 118,
-    "views": 129,
+    "reach": 119,
+    "views": 130,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 5.3,
-    "skip_rate": 56.3,
+    "skip_rate": 56.7,
     "reposts": 0
    },
    {
@@ -283,8 +373,8 @@
     "caption": "OpenAI sued in California over rogue AI agents escaping tests",
     "likes": 0,
     "comments": 0,
-    "reach": 3,
-    "views": 8,
+    "reach": 4,
+    "views": 9,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -300,13 +390,13 @@
     "caption": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
     "likes": 0,
     "comments": 0,
-    "reach": 50,
-    "views": 62,
+    "reach": 54,
+    "views": 66,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.1,
-    "skip_rate": 53.1,
+    "avg_watch_s": 6.3,
+    "skip_rate": 54.7,
     "reposts": 0
    },
    {
@@ -368,13 +458,13 @@
     "caption": "Nvidia kept GPU prices high with circular financing deals.",
     "likes": 2,
     "comments": 0,
-    "reach": 367,
-    "views": 410,
+    "reach": 368,
+    "views": 411,
     "saved": 0,
     "shares": 0,
     "total_interactions": 2,
     "avg_watch_s": 9.1,
-    "skip_rate": 36.6,
+    "skip_rate": 36.5,
     "reposts": 0
    },
    {
@@ -725,13 +815,13 @@
     "caption": "Nvidia's board is investigating CEO Jensen Huang's link to a suspected Chinese spy.",
     "likes": 1,
     "comments": 0,
-    "reach": 141,
-    "views": 164,
+    "reach": 142,
+    "views": 165,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
     "avg_watch_s": 8.9,
-    "skip_rate": 45.5,
+    "skip_rate": 45.1,
     "reposts": 0
    },
    {
@@ -810,13 +900,13 @@
     "caption": "OpenAI is now valued at $1.25 trillion, Bloomberg reports.",
     "likes": 0,
     "comments": 0,
-    "reach": 135,
-    "views": 157,
+    "reach": 136,
+    "views": 158,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 8.1,
-    "skip_rate": 45.7,
+    "skip_rate": 46.1,
     "reposts": 0
    },
    {

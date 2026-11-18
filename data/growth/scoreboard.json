@@ -5,15 +5,15 @@
   "2026-11-18"
  ],
  "this_week": {
-  "reels": 13,
-  "reach": 115,
+  "reels": 17,
+  "reach": 101,
   "skip_rate": 61.5,
   "avg_watch_s": 5.5,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 4
+  "follows_per_week": 5
  },
  "last_week": {
   "reels": 19,
@@ -25,7 +25,7 @@
   "saves_per_1k": 0.0,
   "comments": 0
  },
- "followers": 11,
+ "followers": 12,
  "gates": [
   {
    "metric": "skip_rate",
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 4,
+   "value": 5,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
@@ -68,8 +68,8 @@
    "id": "18416406334090272",
    "day": "2026-11-15",
    "caption": "Nvidia kept GPU prices high with circular financing deals.",
-   "reach": 367,
-   "skip_rate": 36.6,
+   "reach": 368,
+   "skip_rate": 36.5,
    "avg_watch_s": 9.1,
    "likes_per_1k": 5.4,
    "sends_per_1k": 0.0,
@@ -93,18 +93,18 @@
    "youtube": "https://www.youtube.com/shorts/SEt6EUk91No"
   },
   {
-   "id": "18134689273684513",
-   "day": "2026-11-15",
-   "caption": "Helen Toner says we cannot trust AI CEOs to keep us safe.",
-   "reach": 115,
-   "skip_rate": 41.3,
+   "id": "17919357606463271",
+   "day": "2026-11-17",
+   "caption": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
+   "reach": 54,
+   "skip_rate": 54.7,
    "avg_watch_s": 6.3,
    "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-15-reel-2",
-   "youtube": "https://www.youtube.com/shorts/OZGKvefXZKM"
+   "ours": "2026-11-17-reel-1",
+   "youtube": "https://www.youtube.com/shorts/muoM-MRzgBk"
   }
  ]
 }
