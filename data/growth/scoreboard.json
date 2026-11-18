@@ -1,14 +1,14 @@
 {
- "date": "2026-11-17",
+ "date": "2026-11-18",
  "window": [
-  "2026-11-11",
-  "2026-11-17"
+  "2026-11-12",
+  "2026-11-18"
  ],
  "this_week": {
-  "reels": 16,
-  "reach": 113.5,
-  "skip_rate": 62.0,
-  "avg_watch_s": 5.6,
+  "reels": 13,
+  "reach": 115,
+  "skip_rate": 61.5,
+  "avg_watch_s": 5.5,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -17,9 +17,9 @@
  },
  "last_week": {
   "reels": 19,
-  "reach": 106,
-  "skip_rate": 60.8,
-  "avg_watch_s": 5.5,
+  "reach": 111,
+  "skip_rate": 60.2,
+  "avg_watch_s": 5.6,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,14 +29,14 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 62.0,
+   "value": 61.5,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.6,
+   "value": 5.5,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -79,20 +79,6 @@
    "youtube": "https://www.youtube.com/shorts/jINI-lh7eRs"
   },
   {
-   "id": "17992554318118995",
-   "day": "2026-11-11",
-   "caption": "Anthropic founders will sell shares worth nearly $250 million.",
-   "reach": 130,
-   "skip_rate": 59,
-   "avg_watch_s": 8.1,
-   "likes_per_1k": 0.0,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-11-reel-3",
-   "youtube": "https://www.youtube.com/shorts/KMp270AfxNc"
-  },
-  {
    "id": "17998784472099824",
    "day": "2026-11-15",
    "caption": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
@@ -105,6 +91,20 @@
    "comments": 0,
    "ours": "2026-11-15-reel-4",
    "youtube": "https://www.youtube.com/shorts/SEt6EUk91No"
+  },
+  {
+   "id": "18134689273684513",
+   "day": "2026-11-15",
+   "caption": "Helen Toner says we cannot trust AI CEOs to keep us safe.",
+   "reach": 115,
+   "skip_rate": 41.3,
+   "avg_watch_s": 6.3,
+   "likes_per_1k": 0.0,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-15-reel-2",
+   "youtube": "https://www.youtube.com/shorts/OZGKvefXZKM"
   }
  ]
 }
