@@ -345,6 +345,16 @@ def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dic
         said = [s for s in said if not DANGLING.match(plain_text(s)) and not THIRD_PERSON.search(plain_text(s))]
         lead = [b for b in bullets if set(cites(b)) <= own]
         hook = next((s for s in lead + said if 6 <= words(s) <= 22 and not hook_problems(s)), None)
+        kept = sec.get("kept_duo")
+        spark = [ln["text"] for ln in (kept or {}).get("lines", []) if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
+        if kept and len(spark) >= 3:
+            # the duo survived both checks: its own Spark lines are the card, so the Reel stays a duo
+            sec["card"] = {"hook": spark[0], "points": spark[1:4], "take": None, "take_kind": "read", "ask": None,
+                           "reel": old.get("reel"), "interest": old.get("interest", 3), "fallback": True, "duo": kept,
+                           **{k: old[k] for k in ("pain", "hook_type", "bonus") if k in old}}
+            rebuilt += 1
+            log.info("Reel card for %r rebuilt from its checked duo", sec.get("title"))
+            continue
         if not hook:
             continue
         points = [s for s in said if s != hook and 6 <= words(s) <= 28]
@@ -356,6 +366,10 @@ def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dic
                        **{k: old[k] for k in ("pain", "hook_type", "bonus") if k in old}}
         rebuilt += 1
         log.info("Reel card for %r rebuilt from its checked sentences", sec.get("title"))
+    for sec in verified.get("sections", []):     # a repaired card with no duo of its own takes the kept one
+        kept = sec.pop("kept_duo", None)
+        if kept and sec.get("card") and not sec["card"].get("duo"):
+            sec["card"]["duo"] = kept
     if rebuilt:
         report["cards_fallback"] = rebuilt
     return verified, report

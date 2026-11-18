@@ -98,3 +98,16 @@ def test_before_the_morning_post_is_due_the_check_looks_at_yesterday():
     assert day_to_check(datetime(2026, 11, 15, 22, 7, tzinfo=timezone.utc), site) == "2026-11-15"   # 03:37 IST on the 16th
     assert day_to_check(datetime(2026, 11, 16, 2, 30, tzinfo=timezone.utc), site) == "2026-11-16"   # 08:00 IST
     assert day_to_check(datetime(2026, 11, 16, 17, 50, tzinfo=timezone.utc), site) == "2026-11-16"  # 23:20 IST
+
+
+def test_a_day_with_fewer_than_half_duo_reels_fails_the_check():
+    """19 Nov 2026: 17 and 18 Nov had 1 duo Reel of 4 and only per-Reel warnings, which reached no one."""
+    from fma.health import Report, check_media
+    post = {"slug": "s", "sections": [{"card": {}}] * 4}
+    reel = lambda k, duo: {"file": f"reels/0{k}.mp4", "duo": duo, "story": k - 1, "seconds": 36, "audio": True, "cover": True}
+    for duos, fails in ((1, True), (2, False), (4, False)):
+        media = {"slug": "s", "voice": True, "slides": ["a"],
+                 "reels": [reel(k, "doubt" if k <= duos else None) for k in range(1, 5)]}
+        r = Report("2026-11-18")
+        check_media(r, media, post)
+        assert any("Reels are duos" in i["msg"] and i["level"] == "FAIL" for i in r.items) == fails

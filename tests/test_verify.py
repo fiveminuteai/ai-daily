@@ -607,3 +607,38 @@ def test_a_cover_that_drops_who_said_it_is_not_used():
     card = post["sections"][0]["card"]
     assert card["hook"] and "cover" not in card
     assert any(e["where"].endswith("cover") and e["status"] == "dropped" for e in report["entries"])
+
+
+def test_a_good_duo_survives_its_card_losing_the_hook_and_comes_back_on_the_rebuilt_card():
+    """18 Nov 2026: four duos were written; three cards then lost their hooks, the duos went with them, and the
+    rebuilt cards could only be Spark alone. The duo is spoken from its own checked lines, so it is kept."""
+    from conftest import FakeChain
+    from fma.reel_desk import fallback_cards
+    from fma.verify import llm_check
+    duo = {"guest": "doubt", "lines": [
+        {"who": "spark", "text": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1]."},
+        {"who": "guest", "text": "A test score. How thrilling."},
+        {"who": "spark", "text": "The company said the model costs $2 per million tokens [S1]."},
+        {"who": "guest", "text": "Cheaper than my cardboard."},
+        {"who": "spark", "text": "Acme said Nova-2 scores 87.5% on the MMLU benchmark, up from 81.2% for Nova-1 [S1]."},
+        {"who": "guest", "text": "Fine. I am mildly impressed."}]}
+    draft = good_draft()
+    draft["sections"][0]["card"] = {"hook": "Acme now has 9 million paying users worldwide [S1].",   # not in the source
+                                    "points": ["Nova-2 scores 87.5% on MMLU [S1].", "It costs $2 per million tokens [S1]."],
+                                    "reel": 8, "duo": duo}
+    post, report = verify_draft(draft, SOURCES)
+    sec = post["sections"][0]
+    assert sec["card"] is None and sec["kept_duo"]["guest"] == "doubt"          # layer 1 lost the card, kept the duo
+    chain = FakeChain([])
+    post, report = llm_check(chain, post, SOURCES, report)
+    assert "Nova-2 scores 87.5% on the MMLU benchmark" in "\n".join(chain.prompts)   # layer 2 checked the kept duo
+    post, rep = fallback_cards(post, draft, report)
+    card = post["sections"][0]["card"]
+    assert card["duo"]["guest"] == "doubt" and card["fallback"] and card["reel"] == 8
+    assert card["hook"].replace(" [S1]", "[S1]") == duo["lines"][0]["text"].replace(" [S1]", "[S1]")
+    assert "kept_duo" not in post["sections"][0]
+    # a duo line the model check rejects means no kept duo
+    draft2 = good_draft(); draft2["sections"][0]["card"] = dict(draft["sections"][0]["card"])
+    post, report = verify_draft(draft2, SOURCES)
+    post, report = llm_check(FakeChain([], flag_text={"costs $2 per million tokens": "wrong"}), post, SOURCES, report)
+    assert "kept_duo" not in post["sections"][0]

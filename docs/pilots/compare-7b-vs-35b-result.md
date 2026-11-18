@@ -79,3 +79,14 @@ the laptop.
    with aicli's `start-llama.ps1`, so it is not a child of any FMA job. Whatever uses it waits for an idle slot.
 
 **Raw samples and logs:** `C:\Users\saipa\Personal\Projects\AI\fma-compare\`.
+
+## Notes from the aicli session (19 Nov), for when this is wired in
+- The server runs one model and accepts any model name; thinking-off through `chat_template_kwargs` matches aicli's
+  own qwen36 profile.
+- Start it only with `scripts/start-llama.ps1`: it refuses below 13 GB free and honours the hold file
+  `~/.aicli/run/llama-server.hold`. The server is shared with other sessions: never stop it while another session is
+  using it, and `stop-llama.ps1` stops it only by its recorded pid.
+- At night the 35B has mostly been down or busy with another session (free memory peaked at 6-8 GB on the last three
+  nights). So the shadow test should skip, or fall back to the 7B, when it isn't up, never try to start it.
+- A detached nightly process that launches children on Windows needs `CREATE_NO_WINDOW`, or the children die with
+  0xC0000142 once the starting session has ended (fixed in aicli 342af2d).

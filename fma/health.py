@@ -131,6 +131,13 @@ def check_media(r: Report, media: dict | None, post: dict | None) -> None:
                 (r.fail if reel.get("duo") else r.warn)("media", f"{name}: {p}")
         if not reel.get("cover"):
             r.warn("media", f"{name}: no cover image")
+    made = [x for x in media.get("reels", []) if x.get("file")]
+    duos = [x for x in made if x.get("duo")]
+    if made and len(duos) * 2 < len(made):
+        # 19 Nov 2026: on 17 and 18 Nov only 1 Reel a day of 4 was a duo, and a warning per Reel reached no one.
+        # Duo Reels reach about 10x plain ones (8 Nov), so a day with fewer than half is a failure: the run turns
+        # red and GitHub emails the owner.
+        r.fail("media", f"only {len(duos)} of {len(made)} Reels are duos today; the rest are Spark alone or plain")
 
 
 def _when(item: dict) -> datetime | None:

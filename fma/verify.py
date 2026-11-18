@@ -611,8 +611,15 @@ def verify_draft(draft: dict, sources: list[dict], max_quotes: int = 1) -> tuple
         words = sum(len(plain(x).split()) for x in paras)
         if words >= 80:
             ids = list(dict.fromkeys(i for p in paras for i in cites(p)))
-            post["sections"].append({**s, "title": v.section_title(s, paras), "paragraphs": paras,
-                                     "card": v.card(s.get("card"), ids, n)})
+            card = v.card(s.get("card"), ids, n)
+            kept = {}
+            if card is None and (s.get("card") or {}).get("duo"):
+                # 18-19 Nov 2026: a card that lost its hook took a good duo down with it (the Reel is spoken from
+                # the duo's lines, not the hook). The duo is checked on its own and kept for the rebuilt card.
+                duo = v.duo(s["card"]["duo"], ids, n)
+                if duo:
+                    kept = {"kept_duo": duo}
+            post["sections"].append({**s, "title": v.section_title(s, paras), "paragraphs": paras, "card": card, **kept})
         else:
             v.log.append({"where": f"sections[{n}]", "text": s.get("title", ""), "sources": [], "status": "dropped",
                           "problems": [f"only {words} verified words left in section"]})
@@ -786,7 +793,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     # Instagram card lines are public claims too: hook and takeaways as facts, the take as commentary
     for sec in post["sections"]:
         c = sec.get("card") or {}
-        duo_facts = [(ln["text"], "fact") for ln in (c.get("duo") or {}).get("lines", [])
+        duo_facts = [(ln["text"], "fact") for ln in ((c.get("duo") or sec.get("kept_duo")) or {}).get("lines", [])
                      if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
         # 15 Nov 2026: the cover is also the hook text on the Reel's first frame, so it gets the second check too
         # ("AI CEOs can't be trusted" had dropped its "Helen Toner says" and only the code check had seen it)
@@ -931,6 +938,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
             mark_dropped(report, post["quote"]["text"], cites(s), f"model check (speaker): {bad[k]}")
             post["quote"] = None
     for sec in post["sections"]:
+        if any(ln["text"] in drop for ln in (sec.get("kept_duo") or {}).get("lines", [])):
+            sec.pop("kept_duo")
         c = sec.get("card")
         if c:
             c = {**c, "points": [p for p in c["points"] if p not in drop],
@@ -942,6 +951,8 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
                 c.pop("cover")
                 c.pop("cover_hi", None)
             sec["card"] = None if c["hook"] in drop or len(c["points"]) < 2 else c
+            if sec["card"] is None and c.get("duo"):
+                sec["kept_duo"] = c["duo"]       # every line of it passed this check: kept for the rebuilt card
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]
     post["sections"] = [{**s, "paragraphs": [x for x in (filt(p) for p in s["paragraphs"]) if x]} for s in post["sections"]]
