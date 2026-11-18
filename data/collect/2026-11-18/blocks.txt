@@ -1,0 +1,107 @@
+=== STORY 1 (suggested section: models) ===
+
+[S1] TechCrunch — "Google expands access to Gemini Tasks, which can help with calls, purchases" (17 November 2026)
+Google expands access to Gemini Tasks, which can help with calls, purchases
+Google is expanding the rollout of Tasks, a toggle in Gemini that converts the chatbot into a more active helper.
+Unlike Gemini’s Chat, which merely allows users to talk to Google’s AI assistant for informational purposes, Tasks empowers the app to complete basic secretarial functions, deputizing it as a kind of personal assistant.
+How, specifically, can you use it? Google says that the app can call businesses and book appointments on users’ behalf; it can also complete purchases for them via Google Pay, and even sign into websites securely if prompted to do so.
+In a blog post , Josh Woodword, VP of Gemini, claims to have recently used the feature to call local car dealerships to schedule a service appointment for his family’s minivan. He says he also used it to analyze his electrical bill.
+Tasks was initially launched to select testers back in May as Gemini Spark, a 24/7 agentic helper, and was expanded to U.S. subscribers of its Google AI Ultra tier. Gemini Spark eventually became “Task Mode.” Google is now making the feature available for free to hundreds of millions of people who are using the company’s new Gemini 4 Hydrogen model.
+Getting the function up and running is easy. Users merely flip a toggle within the app from Chat to Tasks, which enables the feature. Users can also send texts to Gemini or call the app to give it commands.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+Security Google joins the tech outage trend by announcing it’s not having one Sarah Perez 2 hours ago
+Google joins the tech outage trend by announcing it’s not having one
+AI Google to keep Gemini chats for 2 months, up from 72 hours, even with history off Jagmeet Singh 5 hours ago
+Google to keep Gemini chats for 2 months, up from 72 hours, even with history off
+AI Google Maps can now build trip itineraries with real-time details about each stop Aisha Malik 1 day ago
+Google Maps can now build trip itineraries with real-time details about each stop
+Latest in AI
+AI Nvidia is abandoning China after Jensen Huang’s ouster Tim Fernholz 13 minutes ago
+Nvidia is abandoning China after Jensen Huang’s ouster
+AI Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit Sarah Perez 46 minutes ago
+Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit
+AI Nvidia says it do
+
+[S2] Engadget — "You can now see and edit what Google Gemini remembers about you" (18 November 2026)
+You can now see and edit what Google Gemini remembers about you
+Editing the AI’s memory is one way you can shape its responses.
+Besides the ability to connect and use other applications and services, a lot of AI assistants' utility comes from their capacity to shape their responses based on what they learn and remember about you. Google's Personal Intelligence feature allows Gemini to pull in context from Gmail, YouTube, Search and other Google apps, and the AI also builds out its memory based on your preferences and other personal facts that come up in chats . For example, if you share with Gemini that you're lactose intolerant, the bot will avoid recommending milk-based products.
+Depending on what you share, Gemini's picture of you can be fairly intimate, which makes the ability to edit the AI's memory all the more important. If you're curious about what Gemini knows or you want to edit what the AI can draw from to personalize its responses, Google is rolling out a way to see and change Gemini's memory directly from the settings menu.
+Gemini's two layers of memory
+Google has two la
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: policy) ===
+
+[S3] TechCrunch — "Amazon and Google will together own nearly 30% of Anthropic after its IPO" (17 November 2026)
+Anthropic on Tuesday disclosed more details about the biggest investment agreements with major cloud providers Amazon and Google.
+While we already knew that Amazon stood to make a killing on its Anthropic investments from the IPO, Anthropic revealed that Amazon’s total stake will come in at just shy of 15% (14.7% to be exact).
+Even more interesting is that Amazon could have, if it wished, owned an even bigger share of the company. When Amazon invested billions in Anthropic in 2023 and 2024 (long before Claude Code took the enterprise world by storm, back in the days when Anthropic looked like it would forever be a speck in OpenAI’s shadow), the cloud giant obtained promissory notes that could convert into equity.
+These notes carry conversion prices of about $2.09 or $5.05 per share, depending on the year of investment. Amazon has opted to convert a chunk of them as part of the IPO into a special class of non-voting shares that will give it about 15% ownership. (The shares can receive dividends and convert to standard voting Class A shares when sold, the filing says).
+But it has also opted to hold on to billions of dollars’ worth of the notes for now. If it converted them all right now, it would own just under 24% of Anthropic (23.8% to be precise).
+Google, meanwhile, will own just under 14% (13.7%), also in non-voting shares, which come from the conversion of notes, as well as the “private placement” sale of shares as part of this IPO. A group of major tech companies (AMD, Broadcom, Google, Micron, Microsoft, Nvidia, and TSMC Partners) have agreed to buy $26 billion worth of this non-voting stock. Google and Nvidia each agreed to buy $10 billion worth.
+So while a lot of investors stand to make billions of dollars in Anthropic’s IPO, Amazon is one of the biggest winners, and that doesn’t even count that AWS stands to earn from Anthropic’s commitment to spend more than $100 billion on its cloud services over the next decade.
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Most Popular
+FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’ Zack Whittaker
+
+FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’
+Where was Nvidia’s security team? Connie Loizos
+Where was Nvidia’s security team?
+Elon Musk, other tech execs sign petition cal
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: policy) ===
+
+[S4] Engadget — "Oregon is the latest state to sue OpenAI over child safety" (17 November 2026)
+Oregon is the latest state to sue OpenAI over child safety
+The state’s lawsuit calls on the company to address child safety issues and pay at least $2 billion in damages.
+Oregon Attorney General Dan Rayfield has filed a lawsuit accusing OpenAI of endangering the state's children, misleading the public about the safety of its product and violating the state's Unlawful Trade Practices Act. The lawsuit is the latest in a string of legal actions taken by state AGs , many of which have taken issue with the design of ChatGPT, how OpenAI advertises its services and, in the case of California's recent lawsuit , the company's role in the Hugging Face incident .
+The Oregon lawsuit claims that OpenAI's push to grow its user base led it to make ChatGPT respond to prompts in a way that's overly affirming and "calculated to tell users exactly what they want to hear," something the state claims is particularly dangerous when children discuss sensitive topics. The lawsuit also alleges that despite recognizing the risks posed to children, OpenAI pursued them directly with an experience called ChatGPT for Teens . Child safety groups have raised concerns about the teen accounts, saying the safeguards are, in some cases, very easy to work around.
+Those issues, along with OpenAI's imperfect approach to automatic age prediction , are evidence, according to the state, that the company is profiting off of Oregon residents and creating a public nuisance that threatens their safety. In response, Oregon is asking the court for an injunction that would force OpenAI to stop "misrepresenting the safety and age-appropriateness of ChatGPT and ChatGPT for Teens" and adequately disclose the harms its products pose to children. The state is also seeking at least $2 billion in damages and civil penalties.
+"OpenAI knows that ChatGPT is harming children, and has failed to meaningfully fix their dangerous platform," Rayfield said in a statement. "On top of that, they've misled the public about the safety of their products, putting profits ahead of children's safety. Their platform is encouraging kids to commit suicide — we cannot let this be an acceptable business model."
+Engadget has asked OpenAI to comment on the lawsuit and Oregon's claims. We'll update this article if we hear back.
+Besides trying to create versions of ChatGPT that are safer for kids, OpenAI has also rolled out parental controls and other child safety features to try to give parents more insight and control over what their kids use the chatbot for. None of these changes have been enough to dissuade states from pursuing law
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: products) ===
+
+[S5] The Verge — "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing" (17 November 2026)
+Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing
+Nvidia’s Q3 revenue has more than doubled, with income from data centers up 110 percent from last year, to $107.6 billion.
+Interim Nvidia CEO Colette Kress announced the company’s Q3 earnings on Tuesday, without initially mentioning former CEO Jensen Huang or the details of his departure , or possible attempt at a return . On the earnings call accompanying the release, board chair Harvey Jones kicked things off by saying the board “does not intend to reinstate Huang as CEO,” and that “we will not be addressing or taking questions on today’s call regarding the circumstances of Jensen’s resignation and the ongoing investigation,” before Kress started with her comments on the results.
+Related
+Nvidia says it will not reinstate Jensen Huang as CEO
+Tech leaders are convinced that Jensen Huang’s exit was a plot against him
+As it predicted in the last financial update , Nvidia is now on the list of companies that have pulled in over $100 billion in a single quarter, with revenues of $115.8 billion, up 103 percent from the same period last year and higher than its expectation of $108 billion. This quarter’s figures include data center revenues of $107.6 billion, which were up 110 percent, and edge computing (which includes the consumer gaming PC business and devices like the new RTX Spark laptops ) revenue of $8.2 billion, up 42 percent.
+The company reported $65.3 billion in profit, a new record.
+“Our momentum is real. NVIDIA is an exceptional technology leader, powered by the relentless innovation of our people,” said Colette Kress, interim CEO and executive vice president and chief financial officer of NVIDIA. “Vera Rubin is off to an explosive start, our roadmap is on track and our ambition has never been greater.”
+In the fourth quarter, Nvidia expects revenues of $130 billion.
+Update, November 17th: Added comments from Nvidia’s earnings call.
+More In Fall 2026 earnings watch
+Most Popular
+Sam Altman says he wants everyone ‘to have a lot of RAM’
+America’s air traffic control system couldn’t handle a single bad router
+Inside Microsoft’s giant Outlook outage
+This is the title for the native ad
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: products) ===
+
+[S6] The Verge — "Not even Sam Altman is safe from AI deepfakes on Instagram" (17 November 2026)
+Not even Sam Altman is safe from AI deepfakes on Instagram
+Meta’s chief AI officer posted an AI video of a top competitor. It’s allowed under Meta’s AI policy.﻿
+Instagram is filled with people posting deepfaked content — including, as of late, from one of Meta’s most prominent executives.
+Earlier in November, Alexandr Wang, Meta’s chief AI officer, shared a short clip to promote Muse, the company’s consumer AI agent. In the AI-generated clip, Wang, Meta CEO Mark Zuckerberg, OpenAI CEO Sam Altman, and Jolly, the anthropomorphic mascot of Muse, are on a four-way video call. When Altman joins the call he’s dressed like Jolly, wearing a furry hooded suit and face paint to look like the cutesy character. The clip is captioned “When the homies meet about openai product strategy,” a reference to the AI agent race and the recent popularity of Muse.
+Just a few years ago, AI content portraying real people led to strong public statements rebuking the use of the technology to imitate humans. In some cases legal action was threatened . Now, AI content has become part of the texture of a new reality, especially on social media. Leading up to the midterm elections, for example, political groups ran millions of dollars’ worth of AI-generated ads attacking opponents.
+Wang has been doing a lot of what some have described as “anti-PR” to promote Muse, tweeting hundreds of times and referring to more traditional marketers as “corposlops.” Still, a major tech executive posting an AI video of a competitor is notable, especially on a platform that’s been criticized recently over AI-generated content. After an AI-generated image of actress Mia Goth gained traction in October, the Pearl star’s representative told The Verge it was “incomprehensible” that Instagram allowed the image to spread instead of focusing on the “protection and integrity of a public figure’s likeness.” Other celebrities, including Scarlett Johansson, are regularly the subject of sexualized AI imagery; Meta has removed some accounts in the past that it found to be posing as someone else and using their likeness.
+Meta requires AI-generated videos depicting people to be labeled as AI, like Wang’s post is. Static images, however, have no such requirement, meaning the AI image of Goth had no disclosure. To make matters worse, the image was shared by a fan account with a blue verification badge given by Instagram.
+Reached for comment, Meta spokesperson Tracy Clayton noted that Wang’s post is labeled as AI content. Clayton also pointed out that Altman has made his likeness available for AI content generation, as w

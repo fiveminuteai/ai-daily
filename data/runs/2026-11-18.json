@@ -1,0 +1,431 @@
+{
+ "date": "2026-11-18",
+ "started_at": "2026-11-18T00:15:39+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 6.5,
+   "items": 662,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 14
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 5
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 2
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 6
+    },
+    "github": {
+     "status": "ok",
+     "items": 20
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 259,
+   "editor": true,
+   "top": [
+    {
+     "title": "Introducing GPT-6.2 Astra and Sol",
+     "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+     "score": 9.34,
+     "interest": 9.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI",
+      "openai.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google expands access to Gemini Tasks, which can help with calls, purchases",
+     "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
+     "score": 7.68,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Introducing ChatGPT for Sales",
+     "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+     "score": 6.95,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+     "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+     "score": 6.86,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google’s Spark AI agent becomes ‘Tasks’ — and now it’s free",
+     "url": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
+     "score": 6.78,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Oregon is the latest state to sue OpenAI over child safety",
+     "url": "https://www.engadget.com/2320041/oregon-is-the-latest-state-to-sue-openai-over-child-safety/",
+     "score": 6.59,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing",
+     "url": "https://www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang",
+     "score": 6.24,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Not even Sam Altman is safe from AI deepfakes on Instagram",
+     "url": "https://www.theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake",
+     "score": 6.22,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Grok Bot took unapproved actions, ignored orders to stop, and then denied it",
+     "url": "https://arstechnica.com/security/2026/11/grok-bot-took-unapproved-actions-ignored-orders-to-stop-and-then-denied-it/",
+     "score": 6.08,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The open-source movement wants Jensen Huang back",
+     "url": "https://www.technologyreview.com/2026/11/16/1148624/the-open-source-movement-wants-jensen-huang-back/",
+     "score": 5.97,
+     "interest": 3.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "MIT Technology Review",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Announcing AI data preparation capabilities in Amazon SageMaker: Build high-quality datasets for model development workflows",
+     "url": "https://aws.amazon.com/blogs/machine-learning/announcing-ai-data-preparation-capabilities-in-amazon-sagemaker-build-high-quality-datasets-for-model-development-workflows/",
+     "score": 5.74,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing OpenAI for Chile",
+     "url": "https://openai.com/index/introducing-openai-for-chile",
+     "score": 5.62,
+     "interest": 5.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Google expands access to Gemini Tasks, which can help with calls, purchases",
+     "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
+     "score": 7.68,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+     "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+     "score": 6.86,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Oregon is the latest state to sue OpenAI over child safety",
+     "url": "https://www.engadget.com/2320041/oregon-is-the-latest-state-to-sue-openai-over-child-safety/",
+     "score": 6.59,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing",
+     "url": "https://www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang",
+     "score": 6.24,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Not even Sam Altman is safe from AI deepfakes on Instagram",
+     "url": "https://www.theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake",
+     "score": 6.22,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.9,
+   "articles": 11,
+   "with_text": 11
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.1,
+   "word_count": 1197,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.8,
+    "reel_desk": 1081.5,
+    "layer1": 0.1,
+    "layer2": 808.8,
+    "gate": 119.6
+   },
+   "layer1": {
+    "checked": 111,
+    "ok": 100,
+    "repaired": 6,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 70,
+    "ok": 50,
+    "repaired": -1,
+    "dropped": 21
+   },
+   "unused": 44,
+   "fails": [
+    "word count 1193 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Google expands Gemini Tasks to more users",
+     "reel": 8,
+     "hook": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.",
+     "chosen": true
+    },
+    {
+     "story": "Amazon and Google secure nearly 30% of Anthropic after IPO",
+     "reel": null,
+     "hook": "Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership.",
+     "chosen": false
+    },
+    {
+     "story": "Oregon sues OpenAI over child safety",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 9.0,
+     "why": "$2 billion child‑safety lawsuit against OpenAI is high‑stakes and office‑watercooler material",
+     "hook": "OpenAI faces $2 billion child safety lawsuit.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia reports record Q3 revenue and profit",
+     "reel": 6,
+     "hook": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation.",
+     "chosen": true
+    },
+    {
+     "story": "Meta chief AI officer posts AI‑generated video of Sam Altman",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "Meta deepfake raises policy concerns but lacks the punch of a lawsuit or product launch",
+     "hook": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+ "finished_at": "2026-11-18T00:52:21+00:00",
+ "seconds": 2202.4
+}

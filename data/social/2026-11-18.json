@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-18",
+ "slug": "2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+ "headline": "Google expands Gemini Tasks to more users",
+ "url": "https://fiveminuteai.net/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of/",
+ "generated_at": "2026-11-18T00:52:23+00:00",
+ "items": [
+  {
+   "id": "2026-11-18-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Google expands Gemini Tasks to more users\n\n• Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.\n• Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership.\n• Oregon sues OpenAI, seeking $2 billion and an injunction over child safety concerns.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-18/instagram.png"
+   ],
+   "scheduled_at": "2026-11-18T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-18-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Google expands Gemini Tasks to more users\n\n• Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.\n\nhttps://fiveminuteai.net/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 170
+  },
+  {
+   "id": "2026-11-18-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Google expands Gemini Tasks to more users\n\n• Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.\n• Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership.\n• Oregon sues OpenAI, seeking $2 billion and an injunction over child safety concerns.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-18-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users[S1].",
+   "duo": false,
+   "cover": null,
+   "text": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.\n\n• The feature, first released to a limited tester group in May as Gemini Spark, later became Task Mode for Google AI Ultra subscribers.\n• As of the announcement, the toggle is free for hundreds of millions of people using the Gemini 4 Hydrogen model.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-18/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-18T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-18-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "OpenAI faces $2 billion child safety lawsuit[S4].",
+   "duo": false,
+   "cover": "OpenAI sued for $2 billion over child safety[S4].",
+   "text": "OpenAI faces $2 billion child safety lawsuit.\n\n• Oregon Attorney General sued OpenAI, saying its chatbots endanger kids.\n• The suit demands at least $2 billion in damages and claims age-verification can be bypassed.\n• Parents and Teens in Oregon could see stricter controls or a court-ordered fix.\n\nOur read: Watch for new safeguards if you let kids use ChatGPT.\n\nSend this to someone who follows tech news.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-18/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-18T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-18-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation[S5].",
+   "duo": false,
+   "cover": null,
+   "text": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation.\n\n• The board chair Harvey Jones clarified that the board will not reinstate Huang as CEO.\n• Nvidia’s total quarterly revenue surpassed $100 billion, placing the company among a small group that has achieved such scale in a single quarter.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-18/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-18T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-18-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "Meta posts AI deepfake of Sam Altman, sparking policy worries[S6].",
+   "duo": true,
+   "cover": "Meta posts AI deepfake of Sam Altman[S6].",
+   "text": "Meta posts AI deepfake of Sam Altman, sparking policy worries.\n\n• Alexandr Wang shared a fake video of OpenAI CEO Sam Altman on Instagram.\n• The clip is labeled but reveals a loophole where static deepfakes remain unlabeled.\n• This raises concerns for anyone worried about AI-generated likenesses on their feeds.\n\nOur read: Watch for AI labels and question video authenticity on social media.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #meta",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-18/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-18T13:30:00+00:00"
+  }
+ ]
+}

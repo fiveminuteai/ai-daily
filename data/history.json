@@ -2380,5 +2380,114 @@
     "yellowlaborermarket"
    ]
   ]
+ },
+ {
+  "date": "2026-11-18",
+  "slug": "2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+  "urls": [
+   "engadget.com/2315475/google-gemini-memory-summary-see-what-remembers-about-you",
+   "engadget.com/2320041/oregon-is-the-latest-state-to-sue-openai-over-child-safety",
+   "techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo",
+   "techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases",
+   "theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake",
+   "theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang"
+  ],
+  "tokens": [
+   "access",
+   "altman",
+   "amazon",
+   "anthropic",
+   "calls",
+   "child",
+   "deepfakes",
+   "earnings",
+   "edit",
+   "even",
+   "expands",
+   "gemini",
+   "google",
+   "help",
+   "hit",
+   "huang",
+   "instagram",
+   "ipo",
+   "jensen",
+   "latest",
+   "mark",
+   "mentioning",
+   "nearly",
+   "nvidia",
+   "openai",
+   "oregon",
+   "own",
+   "purchases",
+   "remembers",
+   "safe",
+   "safety",
+   "sam",
+   "see",
+   "state",
+   "sue",
+   "tasks",
+   "thing",
+   "together",
+   "which",
+   "whole",
+   "without"
+  ],
+  "story_tokens": [
+   [
+    "access",
+    "calls",
+    "edit",
+    "expands",
+    "gemini",
+    "google",
+    "help",
+    "purchases",
+    "remembers",
+    "see",
+    "tasks",
+    "which"
+   ],
+   [
+    "amazon",
+    "anthropic",
+    "google",
+    "ipo",
+    "nearly",
+    "own",
+    "together"
+   ],
+   [
+    "child",
+    "latest",
+    "openai",
+    "oregon",
+    "safety",
+    "state",
+    "sue"
+   ],
+   [
+    "earnings",
+    "hit",
+    "huang",
+    "jensen",
+    "mark",
+    "mentioning",
+    "nvidia",
+    "thing",
+    "whole",
+    "without"
+   ],
+   [
+    "altman",
+    "deepfakes",
+    "even",
+    "instagram",
+    "safe",
+    "sam"
+   ]
+  ]
  }
 ]

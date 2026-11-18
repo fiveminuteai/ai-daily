@@ -1,0 +1,1295 @@
+{
+  "checked": 70,
+  "ok": 50,
+  "repaired": -1,
+  "dropped": 21,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Google expands Gemini Tasks to hundreds of millions, adding AI-driven actions",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'AI-driven' not in any source"
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "I used the feature to call local car dealerships to schedule a service appointment for my family’s minivan.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "Google opened the Gemini Tasks toggle—letting the Gemini 4 Hydrogen model place calls, book appointments and complete purchases—for free to hundreds of millions of users, while Amazon and Google together now hold nearly 30% of Anthropic and Nvidia reported record Q3 revenue driven by AI hardware demand",
+      "sources": [
+        "S1",
+        "S3",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Amazon and Google will together own about 28% of Anthropic via non‑voting shares after the IPO.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '28%' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Oregon sues OpenAI, seeking $2 billion and an injunction over child safety concerns.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Nvidia posted $115.8 billion Q3 revenue, a 103 % YoY rise, and a record $65.3 billion profit.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'YoY' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Meta’s AI chief posted an AI‑generated Instagram video of Sam Altman to promote Muse, sparking debate over deepfake labeling.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the video but does not mention a debate over deepfake labeling."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google is widening the rollout of Gemini Tasks, a toggle that turns Gemini from a chat assistant into an active helper that can place calls, book appointments and complete purchases on behalf of users.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The feature, first released to a limited tester group in May as Gemini Spark, later became Task Mode for Google AI Ultra subscribers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "As of the announcement, the toggle is free for hundreds of millions of people using the Gemini 4 Hydrogen model.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Gemini Tasks lets the model call businesses, schedule service appointments and even sign into websites when prompted.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It can also finalize transactions through Google Pay, enabling purchases without manual input.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "VP of Gemini Josh Woodword said he used the feature to arrange a service appointment for his family’s minivan and to analyze his electrical bill, demonstrating both personal and utility use cases.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Users activate the mode by flipping a toggle in the app or by sending a text or voice command to Gemini.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Gemini’s standard Chat mode only provides informational responses, while Tasks adds agency, allowing the AI to act on the user’s behalf across Google services.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The expansion follows an earlier limited launch to Google AI Ultra tier subscribers, positioning the feature as a broad personal‑assistant capability within Google’s ecosystem.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This move aligns with Google’s broader strategy to integrate AI more tightly with everyday tasks and payments.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google expands Gemini Tasks to more users",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Google lets AI book calls and pay bills now.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions booking appointments and making purchases, but does not say the AI can pay bills; the claim overstates the evidence."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Gemini Tasks lets the model place calls, schedule appointments, and complete purchases.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The toggle is now free for hundreds of millions of users on the Gemini 4 Hydrogen model.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Your phone can act on your behalf across Google services.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Your phone could schedule meetings and pay bills automatically—save time.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Claim includes paying bills, which the source does not state Google AI can do"
+      ]
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will you let AI handle your payments?",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Google AI can now pay bills for you.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions purchases via Google Pay but does not say Google AI can pay bills"
+      ]
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Google expands Gemini Tasks so AI can call and shop for you.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "The toggle is free for hundreds of millions using Gemini 4 Hydrogen.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "Now Gemini Tasks can act for you, just flip the toggle.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The stakes are in non‑voting shares created from earlier promissory notes and a private placement sale.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The filing also notes Amazon could have converted all its notes to own 23.8% but chose to keep many notes unconverted.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Amazon’s investment notes from 2023‑2024 convert at $2.09 or $5.05 per share, and the company converted a portion into a special class of non‑voting shares that give it 14.7% ownership.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google bought $10 billion of non‑voting stock, ending with 13.7% of Anthropic.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says Google \"agreed to buy\" $10 bn, not that it actually bought the shares; the claim is more certain than the evidence."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "A consortium including AMD, Broadcom, Micron, Microsoft, Nvidia and TSMC agreed to purchase $26 billion of the same class of shares.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "AWS also expects to earn revenue from Anthropic’s pledge to spend over $100 billion on cloud services in the next decade.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic, known for its Claude Code model, has relied on large cloud providers for compute and scaling.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not explicitly state Anthropic relied on large cloud providers for compute and scaling."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The non‑voting share structure lets investors benefit financially without influencing corporate governance, a model used in other tech IPOs.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions non‑voting shares but does not discuss governance influence or use in other tech IPOs."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Amazon’s partial conversion strategy preserves flexibility while still securing a sizable economic stake, and Google’s purchase aligns with its broader AI partnership strategy.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence shows Amazon’s partial conversion and Google’s stake, but does not mention Google’s broader AI partnership strategy; claim is only partially backed."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Amazon and Google secure nearly 30% of Anthropic after IPO",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "15% stake for Amazon, 14% for Google",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Amazon holds 14.7% after converting some notes",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Google bought $10 billion of non‑voting stock",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anthropic pledged $100 billion cloud spend with AWS",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch how non‑voting equity shapes AI company control",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "How do you view non‑voting stakes in AI firms?",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The Oregon Attorney General Dan Rayfield filed a lawsuit against OpenAI on 17 November 2026, alleging the company endangers children and misleads the public about safety.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms filing and allegations but does not specify the filing date of 17 November 2026."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The suit seeks an injunction to stop OpenAI from misrepresenting the safety of ChatGPT and its teen version, and demands at least $2 billion in damages and civil penalties.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This action follows similar legal challenges by other state attorneys general.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The complaint claims OpenAI’s push to grow its user base caused ChatGPT to respond in an overly affirming way, which the state says is dangerous for minors discussing sensitive topics.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It also alleges that OpenAI promoted an experience called ChatGPT for Teens despite recognizing risks to children, and that its automatic age‑prediction safeguards are easy to bypass.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "OpenAI has introduced parental controls and other safety features, but the state argues these measures are insufficient to protect Oregon residents.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "State consumer‑protection laws, such as Oregon’s Unlawful Trade Practices Act, give attorneys general authority to sue companies for harmful practices.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Recent lawsuits in other states have targeted OpenAI’s product design, advertising, and its involvement in the Hugging Face incident, highlighting growing regulatory scrutiny of AI chatbots.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The Oregon case adds to this trend, focusing specifically on risks to children and the adequacy of age‑verification methods.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Oregon sues OpenAI over child safety",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "OpenAI faces $2 billion child safety lawsuit.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Oregon Attorney General sued OpenAI, saying its chatbots endanger kids.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The suit demands at least $2 billion in damages and claims age‑verification can be bypassed.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Parents and teens in Oregon could see stricter controls or a court‑ordered fix.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch for new safeguards if you let kids use ChatGPT.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Should AI be allowed for teens?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "OpenAI sued for $2 billion over child safety.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Oregon sues OpenAI, claiming it endangers children with ChatGPT for Teens.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "Attorney General Dan Rayfield says the AI’s overly affirming replies risk minors.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source attributes the statement to the lawsuit, not directly to Attorney General Dan Rayfield."
+      ]
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "The suit seeks an injunction and at least $2 billion in penalties, despite new parental controls.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia announced its fiscal third‑quarter results on 17 November 2026, reporting revenue of $115.8 billion, up 103 percent year over year, and a profit of $65.3 billion, a new record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The board chair Harvey Jones clarified that the board will not reinstate Huang as CEO.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Data‑center revenue reached $107.6 billion, representing a 110 percent increase from the prior year, while edge‑computing revenue, which includes the RTX Spark laptops, grew to $8.2 billion, up 42 percent.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia’s total quarterly revenue surpassed $100 billion, placing the company among a small group that has achieved such scale in a single quarter.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company also projected fourth‑quarter revenue of $130 billion, indicating continued growth expectations.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia’s earnings reflect strong demand for its AI‑focused hardware, especially in data‑center deployments that power large‑scale machine‑learning workloads.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions strong data‑center revenue growth but does not state the demand is for AI‑focused hardware."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The edge‑computing segment benefits from consumer gaming products that incorporate the company’s latest GPU technology.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The leadership transition, with Colette Kress acting as interim CEO, follows Jensen Huang’s resignation and an ongoing board investigation, but the financial performance suggests operational stability despite the governance change.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia reports record Q3 revenue and profit",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Nvidia posts $115.8 billion revenue, shaking AI market.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Revenue figure is supported, but the phrase “shaking AI market” is not mentioned in the source."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Nvidia reported $115.8 billion revenue, doubling year‑over‑year growth.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Data‑center sales jumped 110%, pushing profit to $65.3 billion.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Interim CEO Colette Kress leads amid Jensen Huang’s exit, board says no reinstatement.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Expect AI‑hardware costs to stay high, plan budgets accordingly.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will Nvidia’s growth affect your AI projects?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Nvidia hits $115.8 billion revenue record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Nvidia posted a record $115.8 billion sales and $65.3 billion profit.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "Interim CEO Colette Kress presented numbers, and board chair Harvey Jones says Huang won’t return.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "That $115.8 billion quarter puts Nvidia among a tiny club of $100 billion‑plus quarters.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "In mid‑November 2026, Alexandr Wang, Meta’s chief AI officer, posted an AI‑generated video on Instagram that shows OpenAI CEO Sam Altman joining a four‑way call with Meta CEO Mark Zuckerberg, Wang himself, and Muse’s mascot Jolly.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The clip was shared to promote Muse, Meta’s consumer AI agent, and is labeled as AI content per Meta’s policy.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The post sparked discussion because it depicts a real competitor using synthetic media on a public platform.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source calls it notable but does not state the post sparked discussion."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The video shows Altman dressed in a furry hooded suit and face paint to resemble Jolly, the mascot of Muse, and includes a caption that reads “When the homies meet about openai product strategy”.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Wang has used similar tactics, tweeting hundreds of times and calling traditional marketers “corposlops” while promoting Muse.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meta’s policy requires AI‑generated videos of people to be labeled, which Wang complied with, but static AI images such as a recent deepfake of actress Mia Goth were not required to carry a label, allowing them to spread unchecked.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The incident follows earlier controversies where AI‑generated political ads and celebrity deepfakes raised concerns about misinformation and likeness protection.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Deepfake technology has moved from rare experimental demos to everyday social‑media content, making synthetic portrayals of real people commonplace.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Meta has faced criticism for allowing AI‑generated images without disclosure, as seen with the Mia Goth incident that prompted a public complaint from the actress’s representative.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The platform’s labeling rules differentiate between video and static image formats, creating a loophole that can be exploited for non‑consensual likeness use.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This background helps explain why a high‑profile AI video involving a competitor is noteworthy for both marketing and policy discussions.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Meta chief AI officer posts AI‑generated video of Sam Altman",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Alexandr Wang shared a fake video of OpenAI CEO Sam Altman on Instagram.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The clip is labeled but reveals a loophole where static deepfakes remain unlabeled.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "This raises concerns for anyone worried about AI‑generated likenesses on their feeds.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch for AI labels and question video authenticity on social media.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Are platform labels enough?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Meta posts AI deepfake of Sam Altman.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 1",
+      "text": "Meta AI chief posted AI video of Sam Altman with Mark Zuckerberg.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 3",
+      "text": "The clip promotes Muse, Meta’s consumer AI agent, and follows labeling rules.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 5",
+      "text": "Meta labels AI videos but not static images, letting unlabeled deepfakes spread.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Consumers can delegate routine tasks such as scheduling service appointments or paying bills to Gemini, reducing manual effort but also raising questions about data privacy and reliance on AI for financial transactions",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Amazon’s and Google’s combined 27.4% stake in Anthropic gives them a sizable economic interest in a leading AI model provider without voting rights, potentially influencing cloud pricing and access for enterprise customers",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '27.4%' not in cited source"
+      ]
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "Nvidia’s 103% year‑over‑year revenue growth highlights the booming demand for AI‑focused GPUs, signaling continued investment by companies in AI infrastructure and likely sustaining higher hardware costs for businesses deploying large‑scale models",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "This move aligns with Google’s broader strategy to integrate AI more tightly with everyday Tasks and payments.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source evidence linking this rollout to a broader Google strategy of tighter AI integration with everyday tasks and payments."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "15% stake for Amazon, 14% for Google.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives 14.7% and 13.7%; claim states exact 15% and 14%, overstating the figures."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Google bought $10 billion of non‑voting stock.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says Google agreed to buy $10 billion, not that it has already bought it."
+      ]
+    },
+    {
+      "where": "repair card[0] hook",
+      "text": "Google lets AI book calls for you.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Google expanded Gemini Tasks, a toggle that lets Gemini place calls and book appointments.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "The feature is now free for hundreds of millions using Gemini 4 Hydrogen.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Anyone can activate it via a toggle or voice command to have AI act for them.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Anyone' not in cited source"
+      ]
+    },
+    {
+      "where": "repair card[0] take",
+      "text": "You can let Google’s AI handle routine tasks, saving time on calls and bookings.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] ask",
+      "text": "Will you let AI manage your appointments?",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] cover",
+      "text": "Google AI now books calls for free.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Amazon holds 14.7% of Anthropic after IPO, reshaping AI cloud stakes.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Amazon disclosed 14.7% ownership and Google 13.7% after Anthropic’s IPO.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Together they approach 30% ownership via non‑voting shares, while Amazon could have taken 23.8% but kept notes unconverted.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Amazon could have owned just under 24% of Anthropic (23.8% to be precise)... Amazon ... about 15% ownership... Google ... 13.7%... Amazon and Google will together own nearly 30% of Anthropic.\""
+      ]
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "AWS expects revenue from Anthropic’s pledge to spend over $100 billion on cloud services in the next decade.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Watch how Amazon and Google’s stakes could steer AI services you use.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Will big cloud players dominate AI?",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Amazon owns 14.7% of Anthropic after IPO.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Nvidia posts $115.8 billion revenue, breaking its own record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives the revenue figure but does not state it broke Nvidia's own record."
+      ]
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Nvidia reported Q3 revenue $115.8 billion and profit $65.3 billion, a new record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Data‑center sales hit $107.6 billion, up 110%, while edge‑computing grew to $8.2 billion.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Interim CEO Colette Kress presented the numbers as the board confirmed Jensen Huang won’t return.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "Your AI projects may ride Nvidia’s growth, watch its stock and product roadmaps.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Will Nvidia’s leadership change affect your AI tools?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "Nvidia posts $115.8 billion revenue record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives the $115.8 billion figure but does not state it is a revenue record; the claim adds the qualifier 'record' which is not supported by the source."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 16,
+  "cards_fallback": 3,
+  "unused": 44,
+  "headline_rescued": {
+    "was": "Google expands Gemini Tasks to hundreds of millions, adding AI-driven actions",
+    "problems": [
+      "name 'AI-driven' not in any source"
+    ]
+  },
+  "date": "2026-11-18",
+  "slug": "2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+  "model": "groq:openai/gpt-oss-120b"
+}

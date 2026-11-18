@@ -1,0 +1,301 @@
+{
+  "date": "2026-11-18",
+  "slug": "2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+  "headline": "Google expands Gemini Tasks to more users",
+  "dek": "Google opened the Gemini Tasks toggle—letting the Gemini 4 Hydrogen model place calls, book appointments and complete purchases—for free to hundreds of millions of users, while Amazon and Google together now hold nearly 30% of Anthropic and Nvidia reported record Q3 revenue driven by AI hardware demand[S1][S3][S5].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "models",
+    "policy",
+    "products",
+    "google",
+    "ai-assistants",
+    "anthropic",
+    "openai"
+  ],
+  "what_happened": [
+    "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users[S1].",
+    "Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership[S3].",
+    "Oregon sues OpenAI, seeking $2 billion and an injunction over child safety concerns[S4]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Google expands Gemini Tasks to more users",
+      "category": "models",
+      "paragraphs": [
+        "Google is widening the rollout of Gemini Tasks, a toggle that turns Gemini from a Chat assistant into an active helper that can place calls, book appointments and complete purchases on behalf of users[S1]. The feature, first released to a limited tester group in May as Gemini Spark, later became Task Mode for Google AI Ultra subscribers[S1]. As of the announcement, the toggle is free for hundreds of millions of people using the Gemini 4 Hydrogen model[S1].",
+        "Gemini Tasks lets the model call businesses, schedule service appointments and even sign into websites when prompted[S1]. It can also finalize transactions through Google Pay, enabling purchases without manual input[S1]. VP of Gemini Josh Woodword said he used the feature to arrange a service appointment for his family’s minivan and to analyze his electrical bill, demonstrating both personal and utility use cases[S1]. Users activate the mode by flipping a toggle in the app or by sending a text or voice command to Gemini[S1].",
+        "Gemini’s standard Chat mode only provides informational responses, while Tasks adds agency, allowing the AI to act on the user’s behalf across Google services[S1]. The expansion follows an earlier limited launch to Google AI Ultra tier subscribers, positioning the feature as a broad personal‑assistant capability within Google’s ecosystem[S1]."
+      ],
+      "card": {
+        "hook": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of users[S1].",
+        "points": [
+          "The feature, first released to a limited tester group in May as Gemini Spark, later became Task Mode for Google AI Ultra subscribers[S1].",
+          "As of the announcement, the toggle is free for hundreds of millions of people using the Gemini 4 Hydrogen model[S1]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": null,
+        "reel": 8,
+        "interest": 4,
+        "fallback": true,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 2,
+      "title": "Amazon and Google secure nearly 30% of Anthropic after IPO",
+      "category": "policy",
+      "paragraphs": [
+        "Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership[S3]. The stakes are in non‑voting shares created from earlier promissory notes and a private placement sale[S3]. The filing also notes Amazon could have converted all its notes to own 23.8% but chose to keep many notes unconverted[S3].",
+        "Amazon’s investment notes from 2023‑2024 convert at $2.09 or $5.05 per share, and the company converted a portion into a special class of non‑voting shares that give it 14.7% ownership[S3]. A consortium including AMD, Broadcom, Micron, Microsoft, Nvidia and TSMC agreed to purchase $26 billion of the same class of shares[S3]. AWS also expects to earn revenue from Anthropic’s pledge to spend over $100 billion on cloud services in the next decade[S3]."
+      ],
+      "card": {
+        "hook": "Anthropic disclosed that Amazon will hold 14.7% and Google 13.7% of the company after its initial public offering, together approaching 30% ownership[S3].",
+        "points": [
+          "The stakes are in non‑voting shares created from earlier promissory notes and a private placement sale[S3].",
+          "The filing also notes Amazon could have converted all its notes to own 23.8% but chose to keep many notes unconverted[S3]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": null,
+        "reel": null,
+        "interest": 4,
+        "fallback": true
+      }
+    },
+    {
+      "story": 3,
+      "title": "Oregon sues OpenAI over child safety",
+      "category": "policy",
+      "paragraphs": [
+        "The suit seeks an injunction to stop OpenAI from misrepresenting the safety of ChatGPT and its teen version, and demands at least $2 billion in damages and civil penalties[S4]. This action follows similar legal challenges by other state attorneys general[S4].",
+        "The complaint claims OpenAI’s push to grow its user base caused ChatGPT to respond in an overly affirming way, which the state says is dangerous for minors discussing sensitive topics[S4]. It also alleges that OpenAI promoted an experience called ChatGPT for Teens despite recognizing risks to children, and that its automatic age‑prediction safeguards are easy to bypass[S4]. OpenAI has introduced parental controls and other safety features, but the state argues these measures are insufficient to protect Oregon residents[S4].",
+        "State consumer‑protection laws, such as Oregon’s Unlawful Trade Practices Act, give attorneys general authority to sue companies for harmful practices[S4]. Recent lawsuits in other states have targeted OpenAI’s product design, advertising, and its involvement in the Hugging Face incident, highlighting growing regulatory scrutiny of AI chatbots[S4]. The Oregon case adds to this trend, focusing specifically on risks to children and the adequacy of age‑verification methods[S4]."
+      ],
+      "card": {
+        "hook": "OpenAI faces $2 billion child safety lawsuit[S4].",
+        "points": [
+          "Oregon Attorney General sued OpenAI, saying its chatbots endanger kids[S4].",
+          "The suit demands at least $2 billion in damages and claims age‑verification can be bypassed[S4].",
+          "Parents and Teens in Oregon could see stricter controls or a court‑ordered fix[S4]."
+        ],
+        "take": "Watch for new safeguards if you let kids use ChatGPT[S4].",
+        "take_kind": "read",
+        "ask": "Should AI be allowed for Teens[S4]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "State lawsuit could change how AI tools are used by minors.",
+        "desk": {
+          "rubric": 8,
+          "chief": 9.0,
+          "why": "$2 billion child‑safety lawsuit against OpenAI is high‑stakes and office‑watercooler material"
+        },
+        "bonus": 0.0,
+        "pain": "safety",
+        "hook_type": "number",
+        "cover": "OpenAI sued for $2 billion over child safety[S4].",
+        "cover_hi": "$2 billion"
+      }
+    },
+    {
+      "story": 4,
+      "title": "Nvidia reports record Q3 revenue and profit",
+      "category": "products",
+      "paragraphs": [
+        "Nvidia announced its fiscal third‑quarter results on 17 November 2026, reporting revenue of $115.8 billion, up 103 percent year over year, and a profit of $65.3 billion, a new record[S5]. Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation[S5]. The board chair Harvey Jones clarified that the board will not reinstate Huang as CEO[S5].",
+        "Data‑center revenue reached $107.6 billion, representing a 110 percent increase from the prior year, while edge‑computing revenue, which includes the RTX Spark laptops, grew to $8.2 billion, up 42 percent[S5]. Nvidia’s total quarterly revenue surpassed $100 billion, placing the company among a small group that has achieved such scale in a single quarter[S5]. The company also projected fourth‑quarter revenue of $130 billion, indicating continued growth expectations[S5].",
+        "The edge‑computing segment benefits from consumer gaming products that incorporate the company’s latest GPU technology[S5]. The leadership transition, with Colette Kress acting as interim CEO, follows Jensen Huang’s resignation and an ongoing board investigation, but the financial performance suggests operational stability despite the governance change[S5]."
+      ],
+      "card": {
+        "hook": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his resignation[S5].",
+        "points": [
+          "The board chair Harvey Jones clarified that the board will not reinstate Huang as CEO[S5].",
+          "Nvidia’s total quarterly revenue surpassed $100 billion, placing the company among a small group that has achieved such scale in a single quarter[S5]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": null,
+        "reel": 6,
+        "interest": 3,
+        "fallback": true,
+        "pain": "money",
+        "hook_type": "number",
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 5,
+      "title": "Meta chief AI officer posts AI‑generated video of Sam Altman",
+      "category": "products",
+      "paragraphs": [
+        "In mid‑November 2026, Alexandr Wang, Meta’s chief AI officer, posted an AI‑generated video on Instagram that shows OpenAI CEO Sam Altman joining a four‑way call with Meta CEO Mark Zuckerberg, Wang himself, and Muse’s mascot Jolly[S6]. The clip was shared to promote Muse, Meta’s consumer AI agent, and is labeled as AI content per Meta’s policy[S6].",
+        "The video shows Altman dressed in a furry hooded suit and face paint to resemble Jolly, the mascot of Muse, and includes a caption that reads “When the homies meet about openai product strategy”[S6]. Wang has used similar tactics, tweeting hundreds of times and calling traditional marketers “corposlops” while promoting Muse[S6]. Meta’s policy requires AI‑generated videos of people to be labeled, which Wang complied with, but static AI images such as a recent deepfake of actress Mia Goth were not required to carry a label, allowing them to spread unchecked[S6]. The incident follows earlier controversies where AI‑generated political ads and celebrity deepfakes raised concerns about misinformation and likeness protection[S6].",
+        "Deepfake technology has moved from rare experimental demos to everyday social‑media content, making synthetic portrayals of real people commonplace[S6]. Meta has faced criticism for allowing AI‑generated images without disclosure, as seen with the Mia Goth incident that prompted a public complaint from the actress’s representative[S6]. The platform’s labeling rules differentiate between video and static image formats, creating a loophole that can be exploited for non‑consensual likeness use[S6]. This background helps explain why a high‑profile AI video involving a competitor is noteworthy for both marketing and policy discussions[S6]."
+      ],
+      "card": {
+        "hook": "Meta posts AI deepfake of Sam Altman, sparking policy worries[S6].",
+        "points": [
+          "Alexandr Wang shared a fake video of OpenAI CEO Sam Altman on Instagram[S6].",
+          "The clip is labeled but reveals a loophole where static deepfakes remain unlabeled[S6].",
+          "This raises concerns for anyone worried about AI‑generated likenesses on their feeds[S6]."
+        ],
+        "take": "Watch for AI labels and question video authenticity on social media[S6].",
+        "take_kind": "read",
+        "ask": "Are platform labels enough[S6]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "AI‑generated deepfakes on social media threaten trust in what you see",
+        "desk": {
+          "rubric": 6,
+          "chief": 5.0,
+          "why": "Meta deepfake raises policy concerns but lacks the punch of a lawsuit or product launch"
+        },
+        "bonus": 0.0,
+        "pain": "trust",
+        "hook_type": "stakes",
+        "cover": "Meta posts AI deepfake of Sam Altman[S6].",
+        "cover_hi": "deepfake of Sam",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Meta AI chief posted AI video of Sam Altman with Mark Zuckerberg[S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, another fake celebrity—my boxy brain is thrilled."
+            },
+            {
+              "who": "spark",
+              "text": "The clip promotes Muse, Meta’s consumer AI agent, and follows labeling rules[S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Sure, it follows the rules, but my coffee will still taste like regret.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Meta labels AI videos but not static images, letting unlabeled deepfakes spread[S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Unlabeled images? Perfect, now I get to play 'guess which is real'—my favorite pastime as a box.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "Snappy, box‑centric jokes that a scrolling 25‑year‑old will likely chuckle at twice."
+        },
+        "arm": "short-close"
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "Consumers can delegate routine Tasks such as scheduling service appointments or paying bills to Gemini, reducing manual effort but also raising questions about data privacy and reliance on AI for financial transactions[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Nvidia’s 103% year‑over‑year revenue growth highlights the booming demand for AI‑focused GPUs, signaling continued investment by companies in AI infrastructure and likely sustaining higher hardware costs for businesses deploying large‑scale models[S5].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-17T19:02:20+00:00",
+      "title": "Google expands Gemini Tasks to more users",
+      "publisher": "TechCrunch",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-17T22:29:05+00:00",
+      "title": "Amazon and Google secure nearly 30% of Anthropic after IPO",
+      "publisher": "TechCrunch",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-17T23:45:32+00:00",
+      "title": "Oregon sues OpenAI over child safety",
+      "publisher": "Engadget",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-17T21:40:59+00:00",
+      "title": "Nvidia reports record Q3 revenue and profit",
+      "publisher": "The Verge",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-17T21:00:55+00:00",
+      "title": "Meta chief AI officer posts AI‑generated video of Sam Altman",
+      "publisher": "The Verge",
+      "category": "products"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Google expands access to Gemini Tasks, which can help with calls, purchases",
+      "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-17T19:02:20+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+      "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-17T22:29:05+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Oregon is the latest state to sue OpenAI over child safety",
+      "url": "https://www.engadget.com/2320041/oregon-is-the-latest-state-to-sue-openai-over-child-safety/",
+      "publisher": "Engadget",
+      "published": "2026-11-17T23:45:32+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Nvidia’s Q3 earnings hit the mark, without mentioning the whole Jensen Huang thing",
+      "url": "https://www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang",
+      "publisher": "The Verge",
+      "published": "2026-11-17T21:40:59+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Not even Sam Altman is safe from AI deepfakes on Instagram",
+      "url": "https://www.theverge.com/news/1035957/meta-alexandr-wang-sam-altman-instagram-ai-deepfake",
+      "publisher": "The Verge",
+      "published": "2026-11-17T21:00:55+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-18T00:50:18+00:00",
+  "verification": {
+    "checked": 70,
+    "ok": 50,
+    "repaired": -1,
+    "dropped": 21,
+    "unused": 44,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1197,
+  "reading_minutes": 6
+}
