@@ -98,6 +98,9 @@ class Provider:
     timeout: float = 1800.0
     min_interval_s: float = 0.0     # pace calls to stay under a per-minute token limit (Groq free plan)
     extra: dict | None = None       # provider-specific request fields, e.g. {"reasoning_effort": "low"}
+    # 19 Nov 2026: "local" says the model runs on this machine; "api" says how to talk to it. Ollama has its own API;
+    # the 35B on llama.cpp (aicli's start-llama.ps1) speaks the OpenAI one.
+    api: str = "ollama"
     _last_call: float = 0.0
     exhausted: bool = False         # hit a daily limit during this run; skipped from then on
 
@@ -109,9 +112,16 @@ class Provider:
 
     @property
     def key(self) -> str | None:
-        return os.environ.get(self.key_env) if self.key_env else None
+        if not self.key_env:
+            return None
+        return os.environ.get(self.key_env) or ("none" if self.local else None)   # a local server needs no real key
 
     def available(self) -> bool:
+        if self.local and self.api == "openai":
+            try:              # a llama.cpp server that is up lists its model; one that is down refuses at once
+                return local_request("GET", self.base_url.rstrip("/") + "/models", 10).ok
+            except requests.RequestException:
+                return False
         if self.local:
             try:
                 return local_request("GET", self.base_url.rstrip("/") + "/api/tags", 30).ok   # a busy Ollama can take a while to answer
@@ -121,7 +131,7 @@ class Provider:
 
     def chat(self, system: str, user: str, temperature: float = 0.3, want_json: bool = True, careful: bool = False,
              schema: dict | None = None) -> str:
-        if self.local:
+        if self.local and self.api != "openai":
             return self._ollama(system, user, temperature, want_json, schema)
         return self._openai(system, user, temperature, want_json, careful)
 
@@ -213,10 +223,17 @@ def providers_from_config(site_cfg: dict, only: str | None = None) -> list[Provi
         out.append(Provider(name=p["name"], base_url=p["base_url"], model=p["model"],
                             key_env=p.get("key_env"), local=bool(p.get("local", False)),
                             min_interval_s=float(p.get("min_interval_s", 0)), extra=p.get("extra"),
+                            api=str(p.get("api", "ollama")),
                             # a stalled cloud call must fail inside the 40-minute job so the retry can run;
                             # a local model on a slow machine genuinely needs the long wait
                             timeout=float(p.get("timeout", 1800 if p.get("local") else 180))))
     return out
+
+
+def local_providers(site_cfg: dict | None = None) -> list[Provider]:
+    """The configured local writers that are up right now, best first (19 Nov 2026: the 35B, then the 7B)."""
+    from . import config
+    return [p for p in providers_from_config(site_cfg or config.site_config()) if p.local and p.available()]
 
 
 def parse_json(text: str) -> dict:

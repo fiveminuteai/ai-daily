@@ -359,3 +359,18 @@ def test_a_reel_with_no_question_never_says_tell_us_in_the_comments():
     assert closes == [OUTRO_NO_ASK] and not any("comments" in t.lower() for _w, t, *_ in lines)
     _g, lines = duo_desk.script({"duo": duo, "ask": "Would you use it?"}, OUTRO)
     assert any(t == "Would you use it? " + OUTRO for _w, t, *_ in lines)
+
+
+def test_tuned_prompts_belong_to_the_model_they_were_tuned_on(tmp_path, monkeypatch):
+    """19 Nov 2026: the 7B's tuned prompts were applied to any local model; the 35B now starts from the built-in."""
+    import json
+    from fma import config, duo_desk
+    monkeypatch.setattr(config, "ROOT", tmp_path)
+    (tmp_path / "data" / "tuned").mkdir(parents=True)
+    t = {"instructions": "Do it like this.", "demos": []}
+    (tmp_path / "data/tuned/local.json").write_text(json.dumps({"model": "qwen2.5:7b", "facts": t}), encoding="utf-8")
+    assert duo_desk.tuned("facts", "qwen2.5:7b") == t
+    assert duo_desk.tuned("facts", "qwen3.6-35b-a3b") is None                 # no file of its own: built-in prompts
+    assert duo_desk.tuned_path("qwen3.6-35b-a3b").name == "qwen3.6-35b-a3b.json"
+    (tmp_path / "data/tuned/qwen3.6-35b-a3b.json").write_text(json.dumps({"model": "qwen2.5:7b", "facts": t}), encoding="utf-8")
+    assert duo_desk.tuned("facts", "qwen3.6-35b-a3b") is None                 # a file tuned on another model is ignored

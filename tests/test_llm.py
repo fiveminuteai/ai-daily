@@ -41,3 +41,33 @@ def test_a_reply_cut_off_at_the_token_limit_is_a_failure(monkeypatch):
     p = llm.Provider(name="groq", base_url="https://x/", model="m", key_env="FAKE_KEY")
     with _p.raises(llm.LLMError, match="cut off"):
         p._openai("s", "u", 0.3, True)
+
+
+def test_a_local_openai_style_server_is_used_and_checked_the_openai_way(monkeypatch):
+    """19 Nov 2026: the 35B (llama.cpp) is local but speaks the OpenAI API; the 7B (Ollama) keeps its own."""
+    from fma import llm
+    calls = []
+
+    class R:
+        ok, status_code, headers, text = True, 200, {}, ""
+        def json(self):
+            return {"choices": [{"message": {"content": '{"ok": 1}'}, "finish_reason": "stop"}], "usage": {}}
+
+    monkeypatch.setattr(llm, "local_request", lambda method, url, timeout, **kw: calls.append((method, url, kw)) or R())
+    monkeypatch.setenv("FMA_MODEL_CONSOLE", "off")
+    p = llm.Provider(name="llama", base_url="http://127.0.0.1:8080/v1/", model="qwen3.6-35b-a3b",
+                     key_env="LLAMA_LOCAL_KEY", local=True, api="openai",
+                     extra={"chat_template_kwargs": {"enable_thinking": False}})
+    monkeypatch.delenv("LLAMA_LOCAL_KEY", raising=False)
+    assert p.key == "none" and p.available()
+    assert calls[-1][:2] == ("GET", "http://127.0.0.1:8080/v1/models")
+    assert p.chat("s", "u") == '{"ok": 1}'
+    method, url, kw = calls[-1]
+    assert url.endswith("/v1/chat/completions") and kw["json"]["chat_template_kwargs"] == {"enable_thinking": False}
+
+
+def test_the_config_lists_the_35b_first_then_the_7b():
+    from fma import config
+    from fma.llm import providers_from_config
+    local = [p for p in providers_from_config(config.site_config()) if p.local]
+    assert [(p.model, p.api) for p in local] == [("qwen3.6-35b-a3b", "openai"), ("qwen2.5:7b", "ollama")]

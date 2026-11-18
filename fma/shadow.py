@@ -30,13 +30,17 @@ def copied(joke: str, examples: list[str]) -> str | None:
     return None
 
 
-def local_chain(model: str):
-    from .llm import Chain, Provider
+def local_chain(model: str = "auto"):
+    """"auto" (19 Nov 2026): the configured local writers, the 35B first when its server is up, else the 7B. The
+    35B is never started from here: aicli's start-llama.ps1 owns it and other sessions share it."""
+    from .llm import Chain, Provider, local_providers
+    if model == "auto":
+        return Chain(local_providers())
     return Chain([Provider(name="ollama", base_url="http://localhost:11434", model=model, key_env=None, local=True,
                            timeout=1800)])
 
 
-def run(date: str, model: str = "qwen2.5:7b") -> dict:
+def run(date: str, model: str = "auto") -> dict:
     from .duo_desk import assemble, ceiling_problems, facts_step, jokes_step, pick_guest, problems
     from .judge import judge
     from .manual import duo_seconds
@@ -130,7 +134,7 @@ def main() -> None:
     from .manual import _today
     ap = argparse.ArgumentParser(prog="python -m fma.shadow")
     ap.add_argument("date", nargs="?")
-    ap.add_argument("--model", default="qwen2.5:7b")
+    ap.add_argument("--model", default="auto", help='"auto": the 35B when up, else the 7B; or an Ollama model name')
     ap.add_argument("--render", action="store_true", help="also render the local model's Reels beside the published ones")
     ap.add_argument("--render-only", action="store_true", help="render the saved shadow scripts without running the model")
     a = ap.parse_args()

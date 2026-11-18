@@ -439,12 +439,30 @@ def is_local(chain) -> bool:
     return bool(provs) and all(getattr(p, "local", False) for p in provs)
 
 
-def tuned(step: str) -> dict | None:
-    """The overnight-tuned prompt for a step (fma/tune.py, data/tuned/local.json), or None."""
+def tuned_path(model: str):
+    """Where a model's overnight-tuned prompts live. 19 Nov 2026: one file per model; the 7B keeps its old name."""
+    import re
+    from . import config
+    name = "local" if model == "qwen2.5:7b" else re.sub(r"[^a-z0-9.]+", "-", model.lower()).strip("-")
+    return config.ROOT / "data" / "tuned" / f"{name}.json"
+
+
+def local_model(chain) -> str:
+    """The local model this chain will try first."""
+    provs = getattr(chain, "providers", None) or []
+    return provs[0].model if provs else ""
+
+
+def tuned(step: str, model: str = "qwen2.5:7b") -> dict | None:
+    """The overnight-tuned prompt for a step and model (fma/tune.py), or None. 19 Nov 2026: prompts tuned on one
+    model are never given to another (the 7B's were picked by scoring the 7B); a model with no file of its own
+    uses the built-in prompts, which carry every current rule."""
     try:
         import json
-        from . import config
-        t = json.loads((config.ROOT / "data" / "tuned" / "local.json").read_text(encoding="utf-8")).get(step)
+        data = json.loads(tuned_path(model).read_text(encoding="utf-8"))
+        if data.get("model") and data["model"] != model:
+            return None
+        t = data.get(step)
         return t if t and t.get("instructions") else None
     except (OSError, ValueError):
         return None
@@ -530,7 +548,7 @@ def facts_step(chain, section: dict, check_facts: bool = True) -> list[str] | No
     limits like "at least"), sent back once with the problems."""
     source = " ".join(section.get("paragraphs", []))
     base = FACTS_TASK + f"\n\nSTORY: {section.get('title', '')}\nStory text:\n" + "\n".join(section.get("paragraphs", []))
-    t = tuned("facts") if is_local(chain) else None       # the local model gets its overnight-tuned prompt
+    t = tuned("facts", local_model(chain)) if is_local(chain) else None       # the local model gets its overnight-tuned prompt
     if t:
         base = tuned_facts_prompt(t, section)
     prompt = base
@@ -646,7 +664,7 @@ def jokes_step(chain, guest: str, lines: list[str], k: int = 3, sensitive: bool 
         best = None
         for _try in range(2):
             said = "; ".join(f'"{x}"' for x in out) or "nothing yet"
-            tj = tuned("jokes") if is_local(chain) else None
+            tj = tuned("jokes", local_model(chain)) if is_local(chain) else None
             prompt = (tuned_joke_prompt(tj, name, PERSONA[guest], k, pairs, said, plain(line)) if tj else
                       JOKE_TASK.format(name=name, name_up=name.upper(), persona=PERSONA[guest], k=k, pairs=pairs,
                                        said=said, line=plain(line)))

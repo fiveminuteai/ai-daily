@@ -151,12 +151,26 @@ def with_prompt(program, saved: dict | None):
     return prog
 
 
-def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: bool = True) -> dict:
+def pick_model(model: str = "auto") -> "tuple[str, dict]":
+    """The model to tune and how DSPy reaches it. "auto" (19 Nov 2026): the 35B when its server is up, else the 7B."""
+    from .llm import local_api_base, local_providers
+    if model == "auto":
+        ups = local_providers()
+        model = ups[0].model if ups else "qwen2.5:7b"
+    if model == "qwen3.6-35b-a3b":
+        return model, {"model": f"openai/{model}", "api_base": local_api_base("http://127.0.0.1:8080/v1"),
+                       "api_key": "none", "extra_body": {"chat_template_kwargs": {"enable_thinking": False}}}
+    return model, {"model": f"ollama_chat/{model}", "api_base": local_api_base("http://localhost:11434"), "api_key": ""}
+
+
+def tune(auto: str = "light", model: str = "auto", seed: int = 7, search: bool = True) -> dict:
     """search False (--judge-only): no new candidate is searched for; the kept prompt is only re-tested against
     the default on the held-out examples, and dropped if the default clearly beats it."""
     import dspy
-    from .llm import local_api_base
-    lm = dspy.LM(f"ollama_chat/{model}", api_base=local_api_base("http://localhost:11434"), api_key="", temperature=0.4, max_tokens=900)
+    from .duo_desk import tuned_path
+    model, how = pick_model(model)
+    out = tuned_path(model)               # each model keeps its own tuned prompts (19 Nov 2026)
+    lm = dspy.LM(how.pop("model"), **how, temperature=0.4, max_tokens=900)
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())   # 6 Nov 2026: the default text format confused the 7B
     facts, joke, persona = _programs()
     rnd = random.Random(seed)
@@ -188,7 +202,7 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: 
         return scores
 
     result = {"date": datetime.now(timezone.utc).isoformat(timespec="seconds"), "model": model, "auto": auto}
-    prev = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
+    prev = json.loads(out.read_text(encoding="utf-8")) if out.exists() else {}
     keep: dict = {}
     for name, prog, train, held, metric in (("facts", facts, f_train, f_held, f_metric),
                                             ("jokes", joke, j_train, j_held, j_metric)):
@@ -208,9 +222,9 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: 
                         "instructions": tuned.signature.instructions if tuned else "", "demos": demos}
         # what the daily code will read: tonight's prompt, the earlier one, or nothing (the built-in default)
         keep[name] = result[name] if verdict["use"] == "new" else prev_saved if verdict["use"] == "kept" else None
-    OUT.parent.mkdir(parents=True, exist_ok=True)
+    out.parent.mkdir(parents=True, exist_ok=True)
     meta = {k: v for k, v in result.items() if k not in ("facts", "jokes")}
-    OUT.write_text(json.dumps({**meta, **{k: v for k, v in keep.items() if v}}, ensure_ascii=False, indent=1),
+    out.write_text(json.dumps({**meta, **{k: v for k, v in keep.items() if v}}, ensure_ascii=False, indent=1),
                    encoding="utf-8")
     hist = config.ROOT / "data" / "tuned" / "history.jsonl"
     with hist.open("a", encoding="utf-8") as f:
@@ -222,7 +236,7 @@ def tune(auto: str = "light", model: str = "qwen2.5:7b", seed: int = 7, search: 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m fma.tune")
     ap.add_argument("--auto", default="light", choices=["light", "medium", "heavy"])
-    ap.add_argument("--model", default="qwen2.5:7b")
+    ap.add_argument("--model", default="auto", help='"auto": the 35B when up, else the 7B')
     ap.add_argument("--judge-only", action="store_true", help="re-test the kept prompts against the default; no search")
     a = ap.parse_args()
     r = tune(a.auto, a.model, search=not a.judge_only)

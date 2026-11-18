@@ -97,4 +97,10 @@ providers:
   - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.6-flash, key_env: GEMINI_API_KEY}
   - {name: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta/openai/", model: gemini-3.5-flash, key_env: GEMINI_API_KEY}
   - {name: openrouter, base_url: "https://openrouter.ai/api/v1/", model: "openai/gpt-oss-120b:free", key_env: OPENROUTER_API_KEY}
-  - {name: ollama, base_url: "http://localhost:11434", model: "qwen2.5:14b", key_env: null, local: true}
+  # Local writers, used only on this laptop (on GitHub Actions they are unreachable and skipped). 19 Nov 2026: the
+  # 35B won the 7B comparison outright (docs/pilots/compare-7b-vs-35b-result.md). It is started only by aicli's
+  # start-llama.ps1 and shared with other sessions, so nothing here starts or stops it; when it is down, the 7B on
+  # Ollama is used. (The 14B named here before was never installed.)
+  - {name: llama, base_url: "http://127.0.0.1:8080/v1/", model: qwen3.6-35b-a3b, key_env: LLAMA_LOCAL_KEY,
+     local: true, api: openai, timeout: 900, extra: {chat_template_kwargs: {enable_thinking: false}, max_tokens: 1500}}
+  - {name: ollama, base_url: "http://localhost:11434", model: "qwen2.5:7b", key_env: null, local: true}
