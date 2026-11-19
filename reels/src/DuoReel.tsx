@@ -5,6 +5,8 @@ import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Audio, continueRender, delayRender, interpolate, spring, staticFile, useCurrentFrame,
         useVideoConfig, Easing} from 'remotion';
 import {Doubt, Rex, Spark, Vis} from './Characters';
+import {CommentDrop} from './CommentDrop';
+import {IMPACT_S, ImpactFrame} from './ImpactFrame';
 
 // Rhubarb's mouth shapes (fma/lipsync.py) as mouth geometry: how open, how wide, teeth showing, tongue up
 const SHAPES: Record<string, Vis> = {
@@ -229,8 +231,17 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
     else if (ln.who === 'spark' && !ln.fig && k > 0 && panel && off === null && t >= ln.start) off = ln.start;
   }
   const fade = off === null ? 1 : Math.max(0, 1 - (t - off) / 0.3);
+  // 19 Nov 2026 (brief B): the impact frame and the comment drop, each switched on by the timeline (fx), off before
+  const fx = (timeline.fx || {}) as {impact?: boolean; comment?: boolean};
+  const ask = fx.comment && timeline.ask ? (timeline.ask as {text: string; at: number}) : null;
+  const askOn = !!ask && t >= ask.at && t < cardFrom;
   const hookOff = timeline.hookCard ? (timeline.hookUntil ?? 3.2) + 0.4 : -1;
   const hookOn = t < hookOff;
+  const panelFrom = panel ? Math.max(panel.at, hookOff) : 0;     // when the panel really appears
+  const impactSince = fx.impact && panel ? t - panelFrom : -1;
+  const impactOn = impactSince >= 0 && impactSince < IMPACT_S && !onCard && !hookOn && !askOn;
+  const nI = Math.round(impactSince * fps);            // the impact shakes the picture as the hook's kick does
+  const iKick = impactOn && nI < 7 ? (nI % 2 ? -1 : 1) * Math.pow(1 - nI / 7, 1.5) : 0;
   const party = lines.find((ln) => ln.tags.includes('confetti'));
   const flopLine = party ? lines.find((ln) => ln.tags.includes('drop') && ln.start > party.start) : undefined;
   const slogan = lines.find((ln) => ln.card && ln.who !== 'spark');
@@ -241,11 +252,12 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
   return (
     <AbsoluteFill style={{backgroundColor: NIGHT}}>
       <Audio src={staticFile(audio)} />
-      <AbsoluteFill style={{transform: `translateX(${camX + kickX}px) scale(${zoom}) rotate(${kickR}deg)`}}>
+      <AbsoluteFill style={{transform: `translateX(${camX + kickX + 14 * iKick}px) scale(${zoom}) rotate(${kickR + 0.23 * iKick}deg)`}}>
         <Background t={t} i={i} since={lt} />
         {/* header */}
         <div style={{position: 'absolute', left: 130, right: 150, top: 290,
-          opacity: (1 - cp) * interpolate(t, [3.0, 3.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>{/* 130: the punch-in zoom must not carry it past x 80 */}
+          opacity: (1 - cp) * interpolate(t, [3.0, 3.5], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})
+            * (ask ? interpolate(t, [ask.at, ask.at + 0.25], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : 1)}}>{/* 130: the punch-in zoom must not carry it past x 80 */}
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             <span style={{fontFamily: 'Inter', fontWeight: 800, fontSize: 32, letterSpacing: 1, color: YELLOW}}>{timeline.site}</span>
             <span style={{fontFamily: 'Inter', fontWeight: 700, fontSize: 28, color: INK, border: `3px solid ${INK}cc`, borderRadius: 30, padding: '6px 24px'}}>{timeline.label}</span>
@@ -256,7 +268,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
         </div>
         {/* 15 Nov 2026: the number panel waits for the hook card to go (they shared the same spot and the panel's edges
             showed round the card on the live Spark-alone Reel); it then rises in as if new */}
-        {panel && fade > 0 && !onCard && !hookOn && <Panel text={panel.text} p={(t - Math.max(panel.at, hookOff)) / 0.6} fade={fade} t={t} />}
+        {panel && fade > 0 && !onCard && !hookOn && !askOn && !impactOn &&
+          <Panel text={panel.text} p={fx.impact ? 1 : (t - panelFrom) / 0.6} fade={fade} t={t} />}
         {order.map(char)}
         {party && t >= party.start && <Confetti since={t - party.start} flop={flopLine && t >= flopLine.start ? t - flopLine.start : null} />}
         {/* the logo card */}
@@ -309,6 +322,8 @@ export const DuoReel: React.FC<{timeline: Timeline; audio: string}> = ({timeline
           </div>
         );
       })()}
+      {impactOn && <ImpactFrame text={panel!.text} since={impactSince} fps={fps} />}
+      {ask && t >= ask.at && !onCard && <CommentDrop text={ask.text} since={t - ask.at} fps={fps} until={cardFrom - ask.at - 0.3} />}
       {flash > 0 && <AbsoluteFill style={{background: '#fff', opacity: flash}} />}
     </AbsoluteFill>
   );

@@ -379,10 +379,31 @@ def timeline(post: dict, section: dict, pl: dict) -> dict:
     kicks = [0.0] + [round(ln["start"] + line_times(ln, pl["lead"])[-1][1], 3)
                      for ln in pl["lines"] if (solo or ln["who"] != "spark") and not ln["card"]]
     pilot["kicks"] = kicks
+    pilot.update(reel_fx(card, lines))
     return {**pilot, "fps": FPS, "seconds": round(pl["seconds"], 3), "guest": pl["guest"], "source": publishers(post, section),
             "label": CAT_NAMES.get(section.get("category", ""), "").upper(), "site": "FIVE MINUTE AI", "lines": lines,
             "mouth": {w: [round(float(x), 3) for x in m] for w, m in pl["mouth"].items()},
             "visemes": pl.get("visemes") or {}}
+
+
+def reel_fx(card: dict, lines: list[dict], fx: dict | None = None) -> dict:
+    """The Remotion effects switched on in config (site.yaml reel_fx; 19 Nov 2026, brief B): "impact", a hard cut to
+    the number as each new figure is said, and "comment", the card's own question dropping in as our pinned comment
+    on the closing line. The comment needs the line that says the question; without it, it is left out."""
+    if fx is None:
+        from .config import site_config
+        fx = site_config().get("reel_fx") or {}
+    on = {k: True for k in ("impact", "comment") if fx.get(k)}
+    if not on:
+        return {}
+    out: dict = {"fx": on}
+    ask = plain(str(card.get("ask") or "")).strip()
+    if on.get("comment") and ask:
+        close = next((ln for ln in lines if ln["who"] == "spark" and not ln["card"]
+                      and ln["text"].strip().lower().startswith(ask.lower()[:24])), None)
+        if close:
+            out["ask"] = {"text": ask, "at": round(close["start"], 3)}
+    return out
 
 
 def remotion_render(post: dict, section: dict, pl: dict, audio: Path, out: Path) -> Path:

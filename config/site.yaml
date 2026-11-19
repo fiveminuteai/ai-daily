@@ -41,6 +41,9 @@ growth:
 # the tagline and comeback; the learning loop compares it with the others ("test arm") under its usual guards.
 # Delete this block, or let `until` pass, to stop the test.
 experiment: {arm: short-close, reel: 4, until: "2026-12-06", why: "every source says end on the payoff with one ask; ours adds three lines"}
+# Remotion effects (19 Nov 2026, brief B; fma/duo_reel.reel_fx): "impact" cuts hard to each new number as it is said;
+# "comment" drops the card's own question in as our pinned comment on the closing line. Off until their test renders pass.
+reel_fx: {impact: false, comment: false}
 
 # When things run, India time. The Clock workflow (fma/clock.py) starts each one; the control app edits these.
 # daily: 03:00-07:00. reels: 1-5 times, the first at least 90 minutes after the post, 30 minutes apart, by 23:00; a
