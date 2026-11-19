@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T18:01:54+00:00",
+ "updated": "2026-11-19T00:10:45+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
@@ -110,12 +110,12 @@
    "hook": "You can now text Alexa to find and buy things on Amazon.",
    "judged": "final",
    "x": {
-    "reach": 1.05,
+    "reach": 1.06,
     "watch_s": 1.86,
     "held": 1.42,
     "sent_saved": null
    },
-   "overall": 1.4,
+   "overall": 1.41,
    "category": "products",
    "player": "giant",
    "hook_type": "untagged",
