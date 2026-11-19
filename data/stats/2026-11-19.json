@@ -1,22 +1,296 @@
 {
  "date": "2026-11-19",
- "collected_at": "2026-11-19T00:09:00+00:00",
+ "collected_at": "2026-11-19T18:00:39+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 221,
+  "visitors_day": 3,
+  "daily": [
+   {
+    "day": "2026-10-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 14
+   },
+   {
+    "day": "2026-11-13",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-14",
+    "visitors": 2
+   },
+   {
+    "day": "2026-11-15",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-16",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-17",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-18",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-19",
+    "visitors": 3
+   },
+   {
+    "day": "2026-11-20",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 21
+   },
+   {
+    "path": "/tags",
+    "title": "Topics · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-12-openai-launches-business-hub-for-verified-chatgpt",
+    "title": "OpenAI launches Business Hub for verified ChatGPT profiles · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 18
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 17
+   },
+   {
+    "name": "ig",
+    "visitors": 1
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/posts/2026-11-09-nvidia-board-probes-ceo-s-link-to",
+    "visitors": 1
+   }
+  ],
+  "reads_7d": {
+   "post_views": 7,
+   "read_30s": 2,
+   "read_half": 3,
+   "read_end": 1,
+   "read_end_rate": 0.143
+  }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
-  "followers": 12,
-  "media_count": 60,
+  "followers": 13,
+  "media_count": 65,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 310,
+   "views": 368,
+   "accounts_engaged": 2,
+   "total_interactions": 2
   },
   "posts": [
+   {
+    "id": "18394630039238848",
+    "timestamp": "2026-11-19T13:31:35+0000",
+    "permalink": "https://www.instagram.com/reel/Df7MUvWCbus/",
+    "type": "VIDEO",
+    "caption": "Anthropic priced IPO at $83, shaking AI market.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 129,
+    "views": 172,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 12.0,
+    "skip_rate": 44.9,
+    "reposts": 0
+   },
+   {
+    "id": "18132293075301653",
+    "timestamp": "2026-11-19T10:31:13+0000",
+    "permalink": "https://www.instagram.com/reel/Df63t63EUcZ/",
+    "type": "VIDEO",
+    "caption": "Google DeepMind released Gemini 4 Neon, a high-capacity, low-fabrication model for enterpr",
+    "likes": 0,
+    "comments": 0,
+    "reach": 2,
+    "views": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 3.8,
+    "skip_rate": 100,
+    "reposts": 0
+   },
+   {
+    "id": "18147367837615406",
+    "timestamp": "2026-11-19T07:35:11+0000",
+    "permalink": "https://www.instagram.com/reel/Df6jkjMGVDf/",
+    "type": "VIDEO",
+    "caption": "Google forces schools to lose Search if they skip Gemini.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 107,
+    "views": 118,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 7.0,
+    "skip_rate": 35.4,
+    "reposts": 0
+   },
+   {
+    "id": "18290409238290353",
+    "timestamp": "2026-11-19T05:31:19+0000",
+    "permalink": "https://www.instagram.com/p/Df6Vbx-muhQ/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Gemini 4 Neon offers fast, multi-step AI assistance",
+    "likes": 0,
+    "comments": 0,
+    "reach": 2,
+    "views": 4,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18080062715732720",
+    "timestamp": "2026-11-19T03:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/Df6HppRgZnt/",
+    "type": "VIDEO",
+    "caption": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
+    "likes": 3,
+    "comments": 0,
+    "reach": 224,
+    "views": 259,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 3,
+    "avg_watch_s": 12.1,
+    "skip_rate": 42.2,
+    "reposts": 0
+   },
    {
     "id": "18143485120624465",
     "timestamp": "2026-11-18T13:31:09+0000",
@@ -25,12 +299,12 @@
     "caption": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
     "likes": 0,
     "comments": 0,
-    "reach": 11,
-    "views": 14,
+    "reach": 12,
+    "views": 16,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.6,
+    "avg_watch_s": 7.1,
     "skip_rate": 50,
     "reposts": 0
    },
@@ -42,13 +316,13 @@
     "caption": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang",
     "likes": 0,
     "comments": 0,
-    "reach": 30,
-    "views": 34,
+    "reach": 50,
+    "views": 54,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 4.8,
-    "skip_rate": 67.7,
+    "avg_watch_s": 6.2,
+    "skip_rate": 56.9,
     "reposts": 0
    },
    {
@@ -59,13 +333,13 @@
     "caption": "OpenAI faces $2 billion child safety lawsuit.",
     "likes": 0,
     "comments": 0,
-    "reach": 8,
-    "views": 8,
+    "reach": 10,
+    "views": 10,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.2,
-    "skip_rate": 75,
+    "avg_watch_s": 5.6,
+    "skip_rate": 70,
     "reposts": 0
    },
    {
@@ -93,13 +367,13 @@
     "caption": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions",
     "likes": 0,
     "comments": 0,
-    "reach": 71,
-    "views": 74,
+    "reach": 83,
+    "views": 87,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 5.0,
-    "skip_rate": 59.7,
+    "avg_watch_s": 5.3,
+    "skip_rate": 57.1,
     "reposts": 0
    },
    {
@@ -281,7 +555,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 4,
-    "views": 12,
+    "views": 13,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,

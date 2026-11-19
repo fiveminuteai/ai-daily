@@ -5,15 +5,15 @@
   "2026-11-19"
  ],
  "this_week": {
-  "reels": 14,
-  "reach": 103.5,
-  "skip_rate": 61.0,
-  "avg_watch_s": 5.5,
+  "reels": 18,
+  "reach": 106.5,
+  "skip_rate": 56.8,
+  "avg_watch_s": 6.0,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 5
+  "follows_per_week": 6
  },
  "last_week": {
   "reels": 20,
@@ -25,18 +25,18 @@
   "saves_per_1k": 0.0,
   "comments": 0
  },
- "followers": 12,
+ "followers": 13,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 61.0,
+   "value": 56.8,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.5,
+   "value": 6.0,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
@@ -57,13 +57,41 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 5,
+   "value": 6,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
   }
  ],
  "best": [
+  {
+   "id": "18080062715732720",
+   "day": "2026-11-19",
+   "caption": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
+   "reach": 224,
+   "skip_rate": 42.2,
+   "avg_watch_s": 12.1,
+   "likes_per_1k": 13.4,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-19-reel-1",
+   "youtube": "https://www.youtube.com/shorts/lahIhaCmPrg"
+  },
+  {
+   "id": "18394630039238848",
+   "day": "2026-11-19",
+   "caption": "Anthropic priced IPO at $83, shaking AI market.",
+   "reach": 129,
+   "skip_rate": 44.9,
+   "avg_watch_s": 12.0,
+   "likes_per_1k": 7.8,
+   "sends_per_1k": 0.0,
+   "saves_per_1k": 0.0,
+   "comments": 0,
+   "ours": "2026-11-19-reel-4",
+   "youtube": "https://www.youtube.com/shorts/IuZ_pJbF2vA"
+  },
   {
    "id": "18416406334090272",
    "day": "2026-11-15",
@@ -77,34 +105,6 @@
    "comments": 0,
    "ours": "2026-11-15-reel-3",
    "youtube": "https://www.youtube.com/shorts/jINI-lh7eRs"
-  },
-  {
-   "id": "17998784472099824",
-   "day": "2026-11-15",
-   "caption": "Elon Musk and over 115,000 signers are demanding Nvidia reinstate ousted CEO Jensen Huang.",
-   "reach": 126,
-   "skip_rate": 62.4,
-   "avg_watch_s": 7.2,
-   "likes_per_1k": 23.8,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-15-reel-4",
-   "youtube": "https://www.youtube.com/shorts/SEt6EUk91No"
-  },
-  {
-   "id": "17919357606463271",
-   "day": "2026-11-17",
-   "caption": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
-   "reach": 54,
-   "skip_rate": 54.7,
-   "avg_watch_s": 6.3,
-   "likes_per_1k": 0.0,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-17-reel-1",
-   "youtube": "https://www.youtube.com/shorts/muoM-MRzgBk"
   }
  ]
 }

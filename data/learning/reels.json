@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T00:10:45+00:00",
+ "updated": "2026-11-19T18:02:29+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -20,9 +20,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 438.0,
+   "age_h": 455.9,
    "skip": 82.4,
-   "outcome": -0.559
+   "outcome": -0.595
   },
   {
    "id": "2026-10-31-reel-2",
@@ -43,9 +43,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 438.0,
+   "age_h": 455.9,
    "skip": 84.3,
-   "outcome": -0.796
+   "outcome": -0.839
   },
   {
    "id": "2026-10-31-reel-3",
@@ -66,9 +66,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 438.0,
+   "age_h": 455.8,
    "skip": 87.1,
-   "outcome": -0.77
+   "outcome": -0.811
   },
   {
    "id": "2026-11-01-reel-1",
@@ -89,9 +89,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 426.1,
+   "age_h": 444.0,
    "skip": 97.4,
-   "outcome": -1.323
+   "outcome": -1.378
   },
   {
    "id": "2026-11-01-reel-2",
@@ -112,9 +112,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 424.4,
+   "age_h": 442.2,
    "skip": 87.5,
-   "outcome": -0.821
+   "outcome": -0.864
   },
   {
    "id": "2026-11-01-reel-3",
@@ -135,9 +135,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 418.3,
+   "age_h": 436.2,
    "skip": 95.7,
-   "outcome": -1.33
+   "outcome": -1.385
   },
   {
    "id": "2026-11-02-reel-1",
@@ -158,9 +158,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 404.6,
+   "age_h": 422.5,
    "skip": 89.1,
-   "outcome": -0.784
+   "outcome": -0.824
   },
   {
    "id": "2026-11-02-reel-2",
@@ -181,9 +181,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 400.6,
+   "age_h": 418.5,
    "skip": 89.2,
-   "outcome": -0.483
+   "outcome": -0.513
   },
   {
    "id": "2026-11-02-reel-3",
@@ -204,9 +204,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 394.6,
+   "age_h": 412.5,
    "skip": 71.4,
-   "outcome": -0.136
+   "outcome": -0.163
   },
   {
    "id": "2026-11-03-reel-1",
@@ -227,9 +227,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 380.1,
+   "age_h": 398.0,
    "skip": 53.8,
-   "outcome": 0.079
+   "outcome": 0.051
   },
   {
    "id": "2026-11-03-reel-2",
@@ -250,9 +250,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 376.6,
+   "age_h": 394.5,
    "skip": 82.4,
-   "outcome": -0.856
+   "outcome": -0.902
   },
   {
    "id": "2026-11-03-reel-3",
@@ -273,9 +273,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 370.6,
+   "age_h": 388.5,
    "skip": 100,
-   "outcome": -1.367
+   "outcome": -1.422
   },
   {
    "id": "2026-11-04-reel-1",
@@ -296,9 +296,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 355.1,
+   "age_h": 373.0,
    "skip": 85.7,
-   "outcome": -0.847
+   "outcome": -0.891
   },
   {
    "id": "2026-11-04-reel-2",
@@ -319,9 +319,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 352.6,
+   "age_h": 370.5,
    "skip": 95,
-   "outcome": -1.162
+   "outcome": -1.212
   },
   {
    "id": "2026-11-04-reel-3",
@@ -342,9 +342,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 346.6,
+   "age_h": 364.5,
    "skip": 71.4,
-   "outcome": -0.411
+   "outcome": -0.447
   },
   {
    "id": "2026-11-05-reel-1",
@@ -365,9 +365,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 332.6,
+   "age_h": 350.5,
    "skip": 80,
-   "outcome": -0.973
+   "outcome": -1.023
   },
   {
    "id": "2026-11-05-reel-2",
@@ -388,9 +388,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 328.6,
+   "age_h": 346.5,
    "skip": 94.4,
-   "outcome": -1.504
+   "outcome": -1.565
   },
   {
    "id": "2026-11-06-reel-1",
@@ -411,9 +411,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 304.6,
+   "age_h": 322.5,
    "skip": 58.3,
-   "outcome": 0.869
+   "outcome": 0.867
   },
   {
    "id": "2026-11-06-reel-2",
@@ -434,9 +434,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 298.6,
+   "age_h": 316.5,
    "skip": 58.4,
-   "outcome": 0.787
+   "outcome": 0.783
   },
   {
    "id": "2026-11-06-reel-3",
@@ -457,9 +457,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 284.6,
+   "age_h": 302.5,
    "skip": 53.4,
-   "outcome": 0.749
+   "outcome": 0.741
   },
   {
    "id": "2026-11-07-reel-1",
@@ -480,9 +480,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 280.6,
+   "age_h": 298.5,
    "skip": 46.1,
-   "outcome": 1.146
+   "outcome": 1.148
   },
   {
    "id": "2026-11-07-reel-2",
@@ -503,9 +503,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 277.6,
+   "age_h": 295.5,
    "skip": 60.8,
-   "outcome": 0.354
+   "outcome": 0.337
   },
   {
    "id": "2026-11-07-reel-3",
@@ -526,9 +526,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 274.6,
+   "age_h": 292.5,
    "skip": 42.5,
-   "outcome": 1.53
+   "outcome": 1.543
   },
   {
    "id": "2026-11-08-reel-2",
@@ -549,9 +549,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 256.6,
+   "age_h": 274.5,
    "skip": 58.4,
-   "outcome": 0.369
+   "outcome": 0.351
   },
   {
    "id": "2026-11-08-reel-3",
@@ -572,9 +572,9 @@
    "shares": 0,
    "saved": 2,
    "comments": 0,
-   "age_h": 253.6,
+   "age_h": 271.5,
    "skip": 62.3,
-   "outcome": 0.309
+   "outcome": 0.291
   },
   {
    "id": "2026-11-09-reel-1",
@@ -595,9 +595,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 233.2,
+   "age_h": 251.1,
    "skip": 45.1,
-   "outcome": 1.279
+   "outcome": 1.285
   },
   {
    "id": "2026-11-09-reel-2",
@@ -618,9 +618,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 226.6,
+   "age_h": 244.5,
    "skip": 61.2,
-   "outcome": 0.371
+   "outcome": 0.354
   },
   {
    "id": "2026-11-09-reel-3",
@@ -641,9 +641,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 222.6,
+   "age_h": 240.5,
    "skip": 83.7,
-   "outcome": -0.877
+   "outcome": -0.924
   },
   {
    "id": "2026-11-10-reel-1",
@@ -664,9 +664,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 212.6,
+   "age_h": 230.5,
    "skip": 61.8,
-   "outcome": 0.017
+   "outcome": -0.009
   },
   {
    "id": "2026-11-10-reel-2",
@@ -687,9 +687,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 208.6,
+   "age_h": 226.5,
    "skip": 60.2,
-   "outcome": 0.267
+   "outcome": 0.247
   },
   {
    "id": "2026-11-10-reel-3",
@@ -710,9 +710,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 205.6,
+   "age_h": 223.5,
    "skip": 35.6,
-   "outcome": 1.89
+   "outcome": 1.911
   },
   {
    "id": "2026-11-11-reel-1",
@@ -733,9 +733,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 188.6,
+   "age_h": 206.5,
    "skip": 62.4,
-   "outcome": 0.478
+   "outcome": 0.466
   },
   {
    "id": "2026-11-11-reel-2",
@@ -756,9 +756,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 184.6,
+   "age_h": 202.5,
    "skip": 76.9,
-   "outcome": -0.499
+   "outcome": -0.536
   },
   {
    "id": "2026-11-11-reel-3",
@@ -779,9 +779,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 181.6,
+   "age_h": 199.5,
    "skip": 59,
-   "outcome": 0.763
+   "outcome": 0.758
   },
   {
    "id": "2026-11-12-reel-1",
@@ -802,9 +802,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 164.6,
+   "age_h": 182.5,
    "skip": 57.4,
-   "outcome": 0.107
+   "outcome": 0.08
   },
   {
    "id": "2026-11-12-reel-2",
@@ -825,9 +825,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 160.6,
+   "age_h": 178.5,
    "skip": 61.5,
-   "outcome": 0.402
+   "outcome": 0.387
   },
   {
    "id": "2026-11-12-reel-3",
@@ -848,9 +848,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 157.6,
+   "age_h": 175.5,
    "skip": 67.6,
-   "outcome": -0.049
+   "outcome": -0.076
   },
   {
    "id": "2026-11-14-reel-1",
@@ -871,9 +871,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 116.6,
+   "age_h": 134.5,
    "skip": 68.9,
-   "outcome": 0.172
+   "outcome": 0.153
   },
   {
    "id": "2026-11-15-reel-1",
@@ -894,9 +894,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 91.1,
+   "age_h": 109.0,
    "skip": 70.1,
-   "outcome": 0.131
+   "outcome": 0.111
   },
   {
    "id": "2026-11-15-reel-2",
@@ -917,9 +917,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 88.6,
+   "age_h": 106.5,
    "skip": 41.3,
-   "outcome": 1.035
+   "outcome": 1.032
   },
   {
    "id": "2026-11-15-reel-3",
@@ -940,9 +940,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 85.6,
+   "age_h": 103.5,
    "skip": 36.5,
-   "outcome": 1.758
+   "outcome": 1.775
   },
   {
    "id": "2026-11-15-reel-4",
@@ -963,9 +963,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 82.6,
+   "age_h": 100.5,
    "skip": 62.4,
-   "outcome": 0.551
+   "outcome": 0.541
   },
   {
    "id": "2026-11-16-reel-1",
@@ -986,9 +986,102 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 68.6,
+   "age_h": 86.5,
    "skip": 64.5,
-   "outcome": 0.133
+   "outcome": 0.11
+  },
+  {
+   "id": "2026-11-17-reel-1",
+   "date": "2026-11-17",
+   "slot": 1,
+   "time": "09:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 8,
+   "desk": 8,
+   "hook": "OpenAI’s agents hacked dozens of sites, sparking lawsuit.",
+   "pain": "privacy",
+   "pace": "slow",
+   "hook_type": "stakes",
+   "reach": 54,
+   "watch_s": 6.3,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 62.5,
+   "skip": 54.7,
+   "outcome": 0.47
+  },
+  {
+   "id": "2026-11-17-reel-2",
+   "date": "2026-11-17",
+   "slot": 2,
+   "time": "13:00",
+   "category": "products",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 11,
+   "desk": 8,
+   "hook": "Nvidia's Jensen Huang resigns amid spy claims, shaking the chip giant.",
+   "pain": "job",
+   "pace": "no duo",
+   "hook_type": "stakes",
+   "reach": 119,
+   "watch_s": 5.3,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 58.4,
+   "skip": 56.7,
+   "outcome": 0.464
+  },
+  {
+   "id": "2026-11-17-reel-3",
+   "date": "2026-11-17",
+   "slot": 3,
+   "time": "16:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 16,
+   "desk": 6,
+   "hook": "OpenAI will embed external safety researchers to monitor model subversion risks, starting with Apollo this week.",
+   "pain": "trust",
+   "pace": "no duo",
+   "hook_type": "stakes",
+   "reach": 33,
+   "watch_s": 3.0,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 55.5,
+   "skip": 71.4,
+   "outcome": -0.533
+  },
+  {
+   "id": "2026-11-17-reel-4",
+   "date": "2026-11-17",
+   "slot": 4,
+   "time": "19:00",
+   "category": "policy",
+   "player": "giant",
+   "hook_number": false,
+   "hook_words": 15,
+   "desk": 6,
+   "hook": "Apple splits Mac permissions, adds per‑use prompts, and urges limited full‑disk access for AI agents.",
+   "pain": "privacy",
+   "pace": "no duo",
+   "hook_type": "stakes",
+   "reach": 101,
+   "watch_s": 5.2,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 52.5,
+   "skip": 48.5,
+   "arm": "short-close",
+   "outcome": 0.656
   }
  ],
  "effects": [
@@ -996,20 +1089,20 @@
    "feature": "category",
    "value": "impact",
    "n": 8,
-   "n_rest": 35,
-   "mean": -0.39,
-   "effect": -0.24,
+   "n_rest": 39,
+   "mean": -0.42,
+   "effect": -0.26,
    "se": 0.34,
-   "held_out": true,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "category",
    "value": "models",
    "n": 6,
-   "n_rest": 37,
-   "mean": 0.08,
-   "effect": 0.04,
+   "n_rest": 41,
+   "mean": 0.06,
+   "effect": 0.03,
    "se": 0.38,
    "held_out": null,
    "confident": false
@@ -1017,22 +1110,22 @@
   {
    "feature": "category",
    "value": "policy",
-   "n": 10,
-   "n_rest": 33,
-   "mean": 0.15,
-   "effect": 0.11,
-   "se": 0.31,
+   "n": 12,
+   "n_rest": 35,
+   "mean": 0.12,
+   "effect": 0.1,
+   "se": 0.29,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "category",
    "value": "products",
-   "n": 14,
-   "n_rest": 29,
-   "mean": -0.06,
-   "effect": -0.06,
-   "se": 0.28,
+   "n": 16,
+   "n_rest": 31,
+   "mean": -0.02,
+   "effect": -0.02,
+   "se": 0.27,
    "held_out": true,
    "confident": false
   },
@@ -1040,8 +1133,8 @@
    "feature": "category",
    "value": "research",
    "n": 2,
-   "n_rest": 41,
-   "mean": 0.16,
+   "n_rest": 45,
+   "mean": 0.14,
    "effect": 0.03,
    "se": 0.63,
    "held_out": null,
@@ -1051,8 +1144,8 @@
    "feature": "category",
    "value": "tools",
    "n": 3,
-   "n_rest": 40,
-   "mean": 0.53,
+   "n_rest": 44,
+   "mean": 0.52,
    "effect": 0.15,
    "se": 0.52,
    "held_out": null,
@@ -1061,10 +1154,10 @@
   {
    "feature": "player",
    "value": "giant",
-   "n": 35,
+   "n": 39,
    "n_rest": 8,
    "mean": 0.13,
-   "effect": 0.36,
+   "effect": 0.38,
    "se": 0.34,
    "held_out": null,
    "confident": false
@@ -1073,10 +1166,10 @@
    "feature": "player",
    "value": "other",
    "n": 7,
-   "n_rest": 36,
-   "mean": -0.59,
-   "effect": -0.33,
-   "se": 0.36,
+   "n_rest": 40,
+   "mean": -0.63,
+   "effect": -0.35,
+   "se": 0.35,
    "held_out": null,
    "confident": false
   },
@@ -1084,8 +1177,8 @@
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 42,
-   "mean": -0.56,
+   "n_rest": 46,
+   "mean": -0.59,
    "effect": -0.06,
    "se": 0.88,
    "held_out": null,
@@ -1094,11 +1187,11 @@
   {
    "feature": "slot",
    "value": "09:00",
-   "n": 13,
-   "n_rest": 30,
-   "mean": -0.2,
-   "effect": -0.18,
-   "se": 0.29,
+   "n": 14,
+   "n_rest": 33,
+   "mean": -0.18,
+   "effect": -0.16,
+   "se": 0.28,
    "held_out": true,
    "confident": false
   },
@@ -1106,7 +1199,7 @@
    "feature": "slot",
    "value": "12:25",
    "n": 1,
-   "n_rest": 42,
+   "n_rest": 46,
    "mean": 1.28,
    "effect": 0.14,
    "se": 0.88,
@@ -1116,33 +1209,33 @@
   {
    "feature": "slot",
    "value": "13:00",
-   "n": 13,
-   "n_rest": 30,
-   "mean": -0.16,
-   "effect": -0.14,
-   "se": 0.29,
+   "n": 14,
+   "n_rest": 33,
+   "mean": -0.14,
+   "effect": -0.13,
+   "se": 0.28,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "16:00",
-   "n": 6,
-   "n_rest": 37,
-   "mean": 0.84,
-   "effect": 0.42,
-   "se": 0.38,
+   "n": 7,
+   "n_rest": 40,
+   "mean": 0.64,
+   "effect": 0.35,
+   "se": 0.35,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "slot",
    "value": "19:00",
-   "n": 9,
-   "n_rest": 34,
-   "mean": -0.09,
-   "effect": -0.06,
-   "se": 0.33,
+   "n": 10,
+   "n_rest": 37,
+   "mean": -0.04,
+   "effect": -0.03,
+   "se": 0.31,
    "held_out": null,
    "confident": false
   },
@@ -1150,8 +1243,8 @@
    "feature": "slot",
    "value": "19:30",
    "n": 1,
-   "n_rest": 42,
-   "mean": -0.88,
+   "n_rest": 46,
+   "mean": -0.92,
    "effect": -0.1,
    "se": 0.88,
    "held_out": null,
@@ -1160,11 +1253,11 @@
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 26,
+   "n": 30,
    "n_rest": 17,
-   "mean": -0.07,
-   "effect": -0.11,
-   "se": 0.27,
+   "mean": -0.05,
+   "effect": -0.09,
+   "se": 0.26,
    "held_out": false,
    "confident": false
   },
@@ -1172,43 +1265,43 @@
    "feature": "number in hook",
    "value": "yes",
    "n": 17,
-   "n_rest": 26,
-   "mean": 0.1,
-   "effect": 0.11,
-   "se": 0.27,
+   "n_rest": 30,
+   "mean": 0.08,
+   "effect": 0.09,
+   "se": 0.26,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "long (11+ words)",
-   "n": 31,
-   "n_rest": 12,
-   "mean": 0.02,
-   "effect": 0.04,
-   "se": 0.3,
+   "n": 34,
+   "n_rest": 13,
+   "mean": 0.01,
+   "effect": 0.03,
+   "se": 0.28,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
-   "n": 12,
-   "n_rest": 31,
-   "mean": -0.05,
-   "effect": -0.04,
-   "se": 0.3,
+   "n": 13,
+   "n_rest": 34,
+   "mean": -0.04,
+   "effect": -0.03,
+   "se": 0.28,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 25,
-   "n_rest": 18,
+   "n": 27,
+   "n_rest": 20,
    "mean": 0.34,
    "effect": 0.55,
-   "se": 0.27,
+   "se": 0.26,
    "held_out": true,
    "confident": true
   },
@@ -1216,32 +1309,32 @@
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 34,
-   "mean": -0.78,
-   "effect": -0.53,
-   "se": 0.33,
+   "n_rest": 38,
+   "mean": -0.82,
+   "effect": -0.54,
+   "se": 0.32,
    "held_out": null,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "under 7",
-   "n": 9,
-   "n_rest": 34,
-   "mean": -0.18,
+   "n": 11,
+   "n_rest": 36,
+   "mean": -0.16,
    "effect": -0.12,
-   "se": 0.33,
+   "se": 0.3,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "pain",
    "value": "job",
-   "n": 1,
-   "n_rest": 42,
-   "mean": 0.17,
-   "effect": 0.02,
-   "se": 0.88,
+   "n": 2,
+   "n_rest": 45,
+   "mean": 0.31,
+   "effect": 0.06,
+   "se": 0.63,
    "held_out": null,
    "confident": false
   },
@@ -1249,19 +1342,19 @@
    "feature": "pain",
    "value": "money",
    "n": 7,
-   "n_rest": 36,
-   "mean": 0.4,
-   "effect": 0.23,
-   "se": 0.36,
-   "held_out": false,
+   "n_rest": 40,
+   "mean": 0.39,
+   "effect": 0.21,
+   "se": 0.35,
+   "held_out": true,
    "confident": false
   },
   {
    "feature": "pain",
    "value": "power",
    "n": 2,
-   "n_rest": 41,
-   "mean": 0.34,
+   "n_rest": 45,
+   "mean": 0.33,
    "effect": 0.07,
    "se": 0.63,
    "held_out": null,
@@ -1270,11 +1363,11 @@
   {
    "feature": "pain",
    "value": "privacy",
-   "n": 2,
-   "n_rest": 41,
-   "mean": -0.43,
-   "effect": -0.09,
-   "se": 0.63,
+   "n": 4,
+   "n_rest": 43,
+   "mean": 0.05,
+   "effect": 0.02,
+   "se": 0.45,
    "held_out": null,
    "confident": false
   },
@@ -1282,8 +1375,8 @@
    "feature": "pain",
    "value": "safety",
    "n": 2,
-   "n_rest": 41,
-   "mean": 0.58,
+   "n_rest": 45,
+   "mean": 0.57,
    "effect": 0.12,
    "se": 0.63,
    "held_out": null,
@@ -1293,10 +1386,21 @@
    "feature": "pain",
    "value": "tools",
    "n": 3,
-   "n_rest": 40,
-   "mean": 0.89,
-   "effect": 0.26,
+   "n_rest": 44,
+   "mean": 0.88,
+   "effect": 0.25,
    "se": 0.52,
+   "held_out": null,
+   "confident": false
+  },
+  {
+   "feature": "pain",
+   "value": "trust",
+   "n": 1,
+   "n_rest": 46,
+   "mean": -0.53,
+   "effect": -0.06,
+   "se": 0.88,
    "held_out": null,
    "confident": false
   },
@@ -1304,10 +1408,10 @@
    "feature": "pain",
    "value": "untagged",
    "n": 26,
-   "n_rest": 17,
-   "mean": -0.26,
-   "effect": -0.43,
-   "se": 0.27,
+   "n_rest": 21,
+   "mean": -0.29,
+   "effect": -0.45,
+   "se": 0.25,
    "held_out": null,
    "confident": false
   },
@@ -1315,8 +1419,8 @@
    "feature": "hook type",
    "value": "conflict",
    "n": 1,
-   "n_rest": 42,
-   "mean": 0.55,
+   "n_rest": 46,
+   "mean": 0.54,
    "effect": 0.06,
    "se": 0.88,
    "held_out": null,
@@ -1326,30 +1430,30 @@
    "feature": "hook type",
    "value": "number",
    "n": 4,
-   "n_rest": 39,
-   "mean": 0.25,
-   "effect": 0.09,
-   "se": 0.46,
-   "held_out": false,
+   "n_rest": 43,
+   "mean": 0.23,
+   "effect": 0.08,
+   "se": 0.45,
+   "held_out": null,
    "confident": false
   },
   {
    "feature": "hook type",
    "value": "stakes",
-   "n": 9,
+   "n": 13,
    "n_rest": 34,
-   "mean": 0.53,
-   "effect": 0.36,
-   "se": 0.33,
-   "held_out": true,
+   "mean": 0.44,
+   "effect": 0.38,
+   "se": 0.28,
+   "held_out": false,
    "confident": false
   },
   {
    "feature": "hook type",
    "value": "surprise",
    "n": 2,
-   "n_rest": 41,
-   "mean": 0.58,
+   "n_rest": 45,
+   "mean": 0.57,
    "effect": 0.12,
    "se": 0.63,
    "held_out": null,
@@ -1359,10 +1463,10 @@
    "feature": "hook type",
    "value": "untagged",
    "n": 26,
-   "n_rest": 17,
-   "mean": -0.26,
-   "effect": -0.43,
-   "se": 0.27,
+   "n_rest": 21,
+   "mean": -0.29,
+   "effect": -0.45,
+   "se": 0.25,
    "held_out": null,
    "confident": false
   },
@@ -1370,8 +1474,8 @@
    "feature": "hook type",
    "value": "you",
    "n": 1,
-   "n_rest": 42,
-   "mean": -0.88,
+   "n_rest": 46,
+   "mean": -0.92,
    "effect": -0.1,
    "se": 0.88,
    "held_out": null,
@@ -1381,9 +1485,9 @@
    "feature": "pace",
    "value": "brisk",
    "n": 10,
-   "n_rest": 33,
-   "mean": 0.65,
-   "effect": 0.48,
+   "n_rest": 37,
+   "mean": 0.64,
+   "effect": 0.46,
    "se": 0.31,
    "held_out": true,
    "confident": false
@@ -1391,23 +1495,45 @@
   {
    "feature": "pace",
    "value": "no duo",
-   "n": 19,
-   "n_rest": 24,
-   "mean": -0.7,
-   "effect": -0.85,
-   "se": 0.27,
-   "held_out": null,
+   "n": 22,
+   "n_rest": 25,
+   "mean": -0.62,
+   "effect": -0.81,
+   "se": 0.25,
+   "held_out": true,
    "confident": true
   },
   {
    "feature": "pace",
    "value": "slow",
-   "n": 14,
-   "n_rest": 29,
-   "mean": 0.49,
-   "effect": 0.46,
-   "se": 0.28,
+   "n": 15,
+   "n_rest": 32,
+   "mean": 0.47,
+   "effect": 0.45,
+   "se": 0.27,
    "held_out": false,
+   "confident": false
+  },
+  {
+   "feature": "test arm",
+   "value": "control",
+   "n": 46,
+   "n_rest": 1,
+   "mean": -0.01,
+   "effect": -0.07,
+   "se": 0.88,
+   "held_out": null,
+   "confident": false
+  },
+  {
+   "feature": "test arm",
+   "value": "short-close",
+   "n": 1,
+   "n_rest": 46,
+   "mean": 0.66,
+   "effect": 0.07,
+   "se": 0.88,
+   "held_out": null,
    "confident": false
   }
  ]
