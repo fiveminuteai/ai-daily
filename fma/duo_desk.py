@@ -655,6 +655,13 @@ def jokes_step(chain, guest: str, lines: list[str], k: int = 3, sensitive: bool 
             ranked = sorted(((rank_reaction(c, line, lines[i + 1:], out, guest, sensitive), c) for c in cands),
                             key=lambda r: -r[0][0])
             ok = [(sc, c) for (sc, why), c in ranked if not why]
+            # 19 Nov 2026: the ranking passed a reaction that said "Neon", a name from Spark's own line, and the final
+            # check then dropped the whole Gemini duo. Each pick now also passes the final check's rules for its line.
+            rejected = [(c, final_line_problems(guest, lines, out, c, sensitive)) for _, c in ok]
+            for c, why in rejected:
+                if why:
+                    log.info("duo jokes: line %d reaction %r fails the final check: %s", i + 1, c, "; ".join(why))
+            ok = [(sc, c) for (sc, c), (_, why) in zip(ok, rejected) if not why]
             if ok:
                 best = ok[0][1]
                 break
@@ -773,6 +780,15 @@ def banter_step(chain, duo: dict, k: int = 3) -> dict | None:
     return None
 
 
+def final_line_problems(guest: str, lines: list[str], said: list[str], reaction: str, sensitive: bool) -> list[str]:
+    """What problems() would say about `reaction` as the guest's answer to Spark's next line (lines[len(said)]),
+    with the whole of Spark's script in view (a name Spark says anywhere is one the guest may not say)."""
+    i = len(said)
+    jokes = said + [reaction] + ["Oh good."] * (len(lines) - i - 1)
+    tag = f"line {2 * i + 2}:"
+    return [p[len(tag):].strip() for p in problems(assemble(guest, lines, jokes), sensitive) if p.startswith(tag)]
+
+
 def assemble(guest: str, lines: list[str], jokes: list[str]) -> dict:
     """Step 3, in code: Spark, guest, Spark, guest...; a comic pause before the last two punchlines."""
     out = []
@@ -843,6 +859,19 @@ def write(chain, section: dict, card: dict, check=None, card_only: bool = False)
     if gentle:
         duo["sensitive"] = True
     bad = problems(duo) + ceiling_problems(duo["lines"], " ".join(section.get("paragraphs", [])))
+    guest_lines = {f"line {k + 1}:" for k, ln in enumerate(duo["lines"]) if ln.get("who") == "guest"}
+    if bad and all(any(p.startswith(t) for t in guest_lines) for p in bad):
+        # 19 Nov 2026: one bad joke line cost the lead story its duo; only the guest's lines failed, so the jokes
+        # get one more try before the duo is given up
+        log.info("duo script for %r: only guest lines failed (%s); writing the jokes once more",
+                 section.get("title"), "; ".join(bad))
+        jokes = jokes_step(chain, guest, lines, sensitive=gentle)
+        if not jokes:
+            return None
+        duo = assemble(guest, lines, jokes)
+        if gentle:
+            duo["sensitive"] = True
+        bad = problems(duo) + ceiling_problems(duo["lines"], " ".join(section.get("paragraphs", [])))
     if bad:
         log.warning("duo script for %r failed the final check: %s", section.get("title"), "; ".join(bad))
         return None

@@ -331,3 +331,20 @@ def test_a_story_without_a_duo_gets_spark_alone_from_its_own_checked_lines():
     assert said[0][:5] == [card["hook"], *card["points"], card["take"]] and "Would you pay?" in said[0][5]
     assert said[1][:4] == [card["hook"], *card["points"]] and said[3][:2] == [card["hook"], card["points"][0]]
     assert [len(c) for c in cuts] == sorted((len(c) for c in cuts), reverse=True)        # fullest first
+
+
+def test_jokes_step_skips_a_reaction_the_final_check_would_reject(monkeypatch):
+    """19 Nov 2026: the guest said "Neon" (a name in Spark's line) and the final check dropped the Gemini duo.
+    The jokes step now picks the next candidate that passes the final check instead."""
+    monkeypatch.setattr(duo_desk, "stale_phrases", lambda guest, *a, **k: set())
+    monkeypatch.setattr(duo_desk, "similar_pairs", lambda guest, line: [])
+    monkeypatch.setattr(duo_desk, "rank_reaction", lambda c, *a, **k: (1.0, ""))
+    lines = ["Google released Gemini 4 Neon for big office jobs [S1].",
+             "It reads a whole library of files in one go [S1].",
+             "Neon is aimed at companies with long reports [S1]."]
+    answers = iter([["So it reads more than I do."], ["A library? I can't finish a menu."],
+                    ["Neon sounds like a nightclub.", "Long reports, my favourite bedtime story."]])
+    monkeypatch.setattr(duo_desk, "_ask", lambda *a, **k: {"reactions": next(answers)})
+    jokes = duo_desk.jokes_step(object(), "doubt", lines, k=2)
+    assert jokes is not None and "Neon" not in jokes[2]
+    assert not duo_desk.problems(duo_desk.assemble("doubt", lines, jokes))
