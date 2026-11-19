@@ -41,7 +41,54 @@
         "fallback": true,
         "pain": "tools",
         "hook_type": "number",
-        "bonus": 0.0
+        "bonus": 0.0,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google DeepMind announced Gemini 4 Neon 18 November 2026 as frontier model[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Frontier? Sounds like my morning commute."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Maybe you need a faster train?"
+            },
+            {
+              "who": "guest",
+              "text": "Only if it stops at my snooze.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Pro and Ultra users can access Neon via Gemini API, AI Studio, or app[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, exclusive access for the already over‑qualified"
+            },
+            {
+              "who": "spark",
+              "text": "Neon scored 61 on the AI Index, ranking third overall and second on Vals[S1][S2]."
+            },
+            {
+              "who": "guest",
+              "text": "So another shiny badge for the dusty shelf.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The jokes are relatable, quick, and likely to get a laugh or two."
+        },
+        "duo_added": "2026-11-19: written after publishing (docs/pilots/redo_duo.py), both checks passed"
       }
     },
     {
