@@ -97,6 +97,14 @@ def build_queue(post: dict, site: dict, existing: dict | None = None) -> dict:
                                                   "media_id", "error", "attempts", "youtube_url", "youtube_error",
                                                   "youtube_tries") if k2 in prev})
         items.append(item)
+    # checks dated today (fma/checks.py, 20 Nov 2026): their own carousel, approved when the piece was
+    from .checks import queue_items
+    for item in queue_items(config.CONTENT_DIR, post["date"], site):
+        prev = old.get(item["id"])
+        if prev:
+            item.update({k2: prev[k2] for k2 in ("edited_text", "status", "decided_at", "posted_url", "scheduled_at",
+                                                  "media_id", "error", "attempts") if k2 in prev})
+        items.append(item)
     # a Reel already in this day's queue stays, unchanged, even if the schedule now has fewer slots: a change of
     # times only shapes new queues, never what is already queued, approved or posted
     have = {i["id"] for i in items}
@@ -153,7 +161,7 @@ def plan_action(root: Path, iid: str, action: str, text: str | None = None) -> d
         how += f", at {item['scheduled_at']} (UTC) or as soon as possible after"
     return {"item": iid, "action": "approve", "platform": item["platform"], "would": how,
             "text": final, "media": item.get("media", []), "scheduled_at": item.get("scheduled_at"),
-            "story": item.get("story"), "duo": item.get("duo")}
+            "story": item.get("story"), "duo": item.get("duo"), "slides": item.get("slides")}
 
 
 JOURNAL = ".post-journal.jsonl"   # not committed: what this run did, replayed if git can't merge the queue
@@ -228,7 +236,8 @@ def _post(root: Path, iid: str, plan: dict, site: dict, http, token: str | None,
                                   ai_label=growth.get("ai_label", True), trial=trial_for(iid, growth))
             what = "Reel"
         else:
-            images = slide_urls(http, site["base_url"], iid[:10])
+            # a check's carousel names its own slides (fma/checks.py); the daily one reads them off the share page
+            images = list(plan["media"]) if plan.get("slides") else slide_urls(http, site["base_url"], iid[:10])
             if not images:
                 raise PublishError("no carousel slides on the share page (only the newest post has them)")
             result = publish_carousel(http, ig_id, token or "", images, plan["text"])
@@ -370,7 +379,8 @@ def due(root: Path, site: dict, http, token: str | None, now: datetime | None = 
             if item.get("scheduled_at") and datetime.fromisoformat(item["scheduled_at"]) > now:
                 continue
             plan = {"platform": item["platform"], "media": item.get("media", []),
-                    "text": item.get("edited_text") or item["text"], "story": item.get("story"), "duo": item.get("duo")}
+                    "text": item.get("edited_text") or item["text"], "story": item.get("story"), "duo": item.get("duo"),
+                    "slides": item.get("slides")}
             try:
                 out.append(_post(root, item["id"], plan, site, http, token, item.get("edited_text"), tried, now=now))
             except PublishError as exc:

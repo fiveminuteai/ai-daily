@@ -1,0 +1,49 @@
+{
+ "slug": "claude-plugins-we-checked",
+ "date": "2026-11-20",
+ "checked": "19 November 2026",
+ "post_at": "14:30",
+ "approved": "Pavan, 20 Nov 2026: \"go ahead with your recommendations\" (plugins post yes; the strategy-test post waits)",
+ "headline": "We checked the Claude plugins a viral post says to install",
+ "dek": "An Instagram carousel listed 30 of the most-starred Claude plugins and skills. The star counts are right. Five things the slides leave out matter more.",
+ "blocks": [
+  {"p": "A carousel posted on 15 Nov lists 30 Claude plugins and skills, ranked by GitHub stars, in five \"teams\" of six. We compared every star count with GitHub on 19 Nov. Each was within about 5% of GitHub's own figure."},
+  {"p": "Stars measure attention, not fit or safety. So we read the GitHub pages of the plugins. Five things stand out."},
+  {"ol": [
+   "**GSD is archived.** The get-shit-done repository is read-only on GitHub [S1]. Its last code push was on 31 May 2026 [S1]. An archived project gets no fixes.",
+   "**Claude-Mem sends usage analytics unless you turn them off.** Its README says anonymous usage analytics are on by default, and `npx claude-mem telemetry disable` turns them off [S2]. Its hooks hand each tool call your agent makes to a local worker [S2].",
+   "**Headroom does the same.** Its README says an anonymous beacon is on by default [S3]. Setting `HEADROOM_TELEMETRY=off` turns it off [S3].",
+   "**ECC installs hooks into your global setup.** Its README walks you through choosing \"Global user\" and \"Standard\" hooks [S4]. Hooks run on your machine every time they fire.",
+   "**REA warns about copies of itself.** REA was created on 14 Apr 2026 and had 468,809 stars on 19 Nov [S5]. Its README says a similar name \"does not establish that a download is official\" [S6]. Install it only from the links the project itself gives."
+  ]},
+  {"p": "One more: **Karpathy Skills has no licence** on GitHub [S7]. Without a licence, nobody may legally reuse its text."},
+  {"p": "None of this makes a plugin bad. Telemetry that is disclosed and easy to switch off is common. But you should know before you install, not after."},
+  {"h": "Five checks before you install any plugin"},
+  {"ul": [
+   "Is the repository archived?",
+   "What licence does it have?",
+   "Does it send telemetry by default, and how do you turn it off?",
+   "Does it add hooks, and where?",
+   "Are you on the official page, or a copy?"
+  ]}
+ ],
+ "sources": [
+  {"id": "S1", "label": "GitHub API, gsd-build/get-shit-done (archived: true; last push 2026-05-31)", "url": "https://github.com/gsd-build/get-shit-done"},
+  {"id": "S2", "label": "thedotmack/claude-mem README", "url": "https://github.com/thedotmack/claude-mem"},
+  {"id": "S3", "label": "headroomlabs-ai/headroom README, \"Telemetry\" section", "url": "https://github.com/headroomlabs-ai/headroom"},
+  {"id": "S4", "label": "affaan-m/ECC README, setup steps", "url": "https://github.com/affaan-m/ECC"},
+  {"id": "S5", "label": "GitHub API, morluto/rea (created 2026-04-14; 468,809 stars on 19 Nov 2026)", "url": "https://github.com/morluto/rea"},
+  {"id": "S6", "label": "morluto/rea README", "url": "https://github.com/morluto/rea"},
+  {"id": "S7", "label": "GitHub API, multica-ai/andrej-karpathy-skills (licence: none)", "url": "https://github.com/multica-ai/andrej-karpathy-skills"}
+ ],
+ "slides": [
+  {"kind": "cover", "text": "We checked the Claude plugins a viral post says to install."},
+  {"kind": "line", "text": "The star counts were right. Stars measure attention, not safety."},
+  {"kind": "line", "label": "GSD", "text": "GSD is archived. No more fixes.", "source": "GitHub"},
+  {"kind": "line", "label": "Telemetry", "text": "Claude-Mem and Headroom send usage data by default. One setting turns it off.", "source": "their READMEs"},
+  {"kind": "line", "label": "Hooks", "text": "ECC installs hooks into your global setup.", "source": "ECC README"},
+  {"kind": "line", "label": "Copies", "text": "REA warns that copies of it may not be official. Karpathy Skills has no licence.", "source": "GitHub"},
+  {"kind": "checks", "text": "Before you install:", "items": ["Archived?", "Licence?", "Telemetry?", "Hooks?", "Official page?"]}
+ ],
+ "caption": "A viral post listed 30 Claude plugins by GitHub stars. We read their GitHub pages. Five things the slides don't say, and five checks to run before you install anything. Every claim sourced: link in bio.\n\nWhich plugin do you actually use every day?"
+}

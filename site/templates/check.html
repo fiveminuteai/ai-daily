@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block main %}
+<article class="wrap-narrow page prose check">
+  <p class="kicker">We checked · {{ check.date_long }}</p>
+  <h1 class="page-title">{{ check.headline }}</h1>
+  <p class="lede">{{ check.dek }}</p>
+  {% for b in check.blocks %}
+  {% if b.p %}<p>{{ inline(b.p) }}</p>
+  {% elif b.h %}<h2>{{ b.h }}</h2>
+  {% elif b.ol %}<ol>{% for li in b.ol %}<li>{{ inline(li) }}</li>{% endfor %}</ol>
+  {% elif b.ul %}<ul>{% for li in b.ul %}<li>{{ inline(li) }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% endfor %}
+  <h2>Sources</h2>
+  <ol class="check-sources">
+    {% for s in check.sources %}<li id="{{ s.id }}">{{ s.label }}: <a href="{{ s.url }}" rel="noopener">{{ s.url | replace("https://", "") }}</a></li>
+    {% endfor %}
+  </ol>
+  <p class="check-note">Facts read on the sources on {{ check.checked }}. Written with AI from those pages; every fact was re-read on its source that day, like the daily posts (<a href="{{ base }}about/">how this blog is made</a>). Star counts and settings change; the links show today's.</p>
+</article>
+{% endblock %}

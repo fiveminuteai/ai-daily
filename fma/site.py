@@ -453,6 +453,16 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
                 description="Every sentence the verifier checked for this post, and what it removed.",
                 og_image=f"{base}og/{p['slug']}.png", canonical=f"{p['url_path']}verification/", og_type="article"))
 
+    # checks: one-off pieces outside the daily post (fma/checks.py, 20 Nov 2026), each with its carousel slides
+    from .checks import inline, load_checks, slides as check_slides
+    checks = load_checks(content_dir)
+    for c in checks:
+        c["date_long"] = fmt_date(c["date"] + "T00:00:00+00:00")
+        write(f"checks/{c['slug']}/index.html", env.get_template("check.html").render(
+            check=c, inline=inline, page_title=c["headline"], description=c["dek"], og_image=f"{base}og/default.png",
+            canonical=f"checks/{c['slug']}/", og_type="article"))
+        check_slides(out_dir / "checks" / c["slug"], c, site)
+
     # share kits for the last week: ready-to-paste posts and an Instagram card. Unlisted pages (noindex, not in the
     # sitemap); share/ always holds today's
     for i, p in enumerate(posts[:7]):
@@ -512,7 +522,7 @@ def build(content_dir: Path | None = None, out_dir: Path | None = None, base_url
         rfc=lambda iso: format_datetime(_utc(iso).astimezone(ZoneInfo(site.get("timezone", "Asia/Kolkata"))))))
     urls = (["", "archive/", "tags/", "about/", "search/", "privacy/", "terms/"] + [p["url_path"] for p in posts]
             + [f"{p['url_path']}verification/" for p in posts if (content_dir / "reports" / f"{p['date']}.json").exists()]
-            + [f"tags/{tag_slug(t)}/" for t in tags])
+            + [f"tags/{tag_slug(t)}/" for t in tags] + [f"checks/{c['slug']}/" for c in checks])
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "\n".join(f"  <url><loc>{html.escape(origin + base + u)}</loc></url>" for u in urls) + "\n</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: {base}share/\nSitemap: {origin}{base}sitemap.xml\n")
