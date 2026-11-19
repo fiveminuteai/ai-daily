@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Gemini 4 Neon offers fast, multi-step AI assistance\n\n• Google DeepMind released Gemini 4 Neon, a high-capacity, low-fabrication model for enterprise tasks, on 18 Nov 2026.\n• Nvidia announced it will stop shipping its H200 AI chips to China following Jensen Huang's resignation as CEO last week.\n• Anthropic priced its IPO at $83 per share, valuing the company at $1.5 trillion and beginning Nasdaq trading under “ANT”.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-19T05:31:23+00:00",
+   "posted_url": "https://www.instagram.com/p/Df6Vbx-muhQ/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-19/instagram.png"
    ],
-   "scheduled_at": "2026-11-19T05:30:00+00:00"
+   "scheduled_at": "2026-11-19T05:30:00+00:00",
+   "media_id": "18290409238290353",
+   "error": null
   },
   {
    "id": "2026-11-19-x",
