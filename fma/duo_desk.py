@@ -919,6 +919,9 @@ def script(card: dict, outro: str, pick: int = 0) -> tuple[str, list[tuple]]:
     duo = card["duo"]
     guest = duo["guest"]
     lines = [(guest if ln["who"] == "guest" else "spark", ln["text"], *ln.get("fx", [])) for ln in duo["lines"]]
+    if not (card.get("ask") or "").strip():
+        from .voice import OUTRO, OUTRO_NO_ASK
+        outro = OUTRO_NO_ASK if outro == OUTRO else outro    # no question: nothing to "tell us in the comments"
     close = ((card.get("ask") or "").strip() + " " + outro).strip()
     lines.append(("spark", close))
     if card.get("arm") == "short-close":

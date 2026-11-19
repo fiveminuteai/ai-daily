@@ -293,7 +293,7 @@ def render_frames(post: dict, section: dict, n: int, site: dict, plan: dict):
     end_timed = []
     if card.get("ask"):
         end_timed += word_times(card["ask"], plan["said"]["ask"], lead)
-    end_timed += word_times(voice.OUTRO, plan["said"]["outro"], plan["outro_at"])
+    end_timed += word_times(voice.outro(card.get("ask")), plan["said"]["outro"], plan["outro_at"])
     groups["end"] = chunks(end_timed)
     figs = {key: figure(text) for key, text in lines}
     fig_at = {key: figure_time(word_times(text, plan["said"][key], lead), figs[key]) for key, text in lines if figs[key]}

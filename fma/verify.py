@@ -761,8 +761,10 @@ def code_confirms(claim: str, ids: list[str], by_id: dict) -> bool:
         return False
 
 
-def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dict, dict]:
-    """Ask the model which sentences their cited sources don't support, and drop those."""
+def llm_check(chain, post: dict, sources: list[dict], report: dict, min_words: int = 80) -> tuple[dict, dict]:
+    """Ask the model which sentences their cited sources don't support, and drop those. A section left with fewer
+    than `min_words` words of story is removed; a one-card mini-post (reel_desk.repair_cards) passes 0, as it
+    carries no story text (19 Nov 2026: with the default, every repaired card was deleted here since 14 Nov)."""
     by_id = {s["id"]: s for s in sources}
     sentences: list[tuple[str, str, str]] = []   # (key, sentence, kind): fact | analysis | headline | title | quote
     tags = {"fact": "", "analysis": "[analysis] ", "headline": "[headline] ", "title": "[title] ", "quote": "[quote] ",
@@ -956,7 +958,7 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict) -> tuple[dic
     post["dek"] = filt(post["dek"])
     post["what_happened"] = [x for x in (filt(b) for b in post["what_happened"]) if x]
     post["sections"] = [{**s, "paragraphs": [x for x in (filt(p) for p in s["paragraphs"]) if x]} for s in post["sections"]]
-    post["sections"] = [s for s in post["sections"] if sum(len(plain(p).split()) for p in s["paragraphs"]) >= 80]
+    post["sections"] = [s for s in post["sections"] if sum(len(plain(p).split()) for p in s["paragraphs"]) >= min_words]
     post["why_it_matters"] = [{**w, "text": filt(w["text"])} for w in post["why_it_matters"] if filt(w["text"])]
     for s, reason in drop.items():
         mark_dropped(report, plain(s), cites(s), f"model check: {reason}")

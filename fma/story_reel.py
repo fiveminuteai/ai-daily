@@ -547,7 +547,7 @@ def voice_plan(card: dict, n: int, who: str | None = None, sign_off: str | None 
         said["ask"] = len(clips["ask"]) / voice.SR
         end_clips.append((lead, clips["ask"]))
     outro_at = lead + said.get("ask", 0) + (gap if card.get("ask") else 0)
-    clips["outro"] = voice.say(voice.OUTRO, voice=who)
+    clips["outro"] = voice.say(voice.outro(card.get("ask")), voice=who)
     said["outro"] = len(clips["outro"]) / voice.SR
     end_clips.append((outro_at, clips["outro"]))
     seconds = t0 + outro_at + len(clips["outro"]) / voice.SR + 1.6

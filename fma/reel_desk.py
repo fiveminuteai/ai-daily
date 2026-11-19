@@ -297,7 +297,7 @@ def repair_cards(chain, verified: dict, draft: dict, sources: list[dict], report
             if card and check_layer2:
                 mini = {"headline": "", "dek": "", "what_happened": [], "why_it_matters": [], "quote": None,
                         "sections": [{**sec, "paragraphs": [], "card": card}]}
-                mini, sub_report = llm_check(chain, mini, sources, sub_report)
+                mini, sub_report = llm_check(chain, mini, sources, sub_report, min_words=0)
                 kept = mini.get("sections") or []       # the check can drop the mini-post's only section
                 card = kept[0].get("card") if kept else None
         except Exception as exc:  # noqa: BLE001 - see above
@@ -316,6 +316,27 @@ def repair_cards(chain, verified: dict, draft: dict, sources: list[dict], report
 
 from .gate import DANGLING  # noqa: E402  (the gate's own list of words that point at nothing)
 THIRD_PERSON = re.compile(r"\b(she|her|hers|they|them|their|theirs)\b", re.I)
+
+
+def carried_ask(old: dict, lines: list[str]) -> str | None:
+    """The writer's comment question, kept on a rebuilt card when it is a plain opinion question that states nothing
+    (19 Nov 2026, Pavan: the 09:00 Reel's rebuilt card had no question, so it ended on "Tell us in the comments
+    below" with nothing to answer). Code only: it ends in "?", has 3-12 words, no number, no citation, and names
+    nothing the card's own checked lines do not name."""
+    from .verify import plain
+    ask = plain_text(plain(str(old.get("ask") or ""))).strip()       # the card's citation goes, as on screen
+    words = [w for w in re.findall(r"[A-Za-z'’]+", ask) if not re.fullmatch(r"[A-Z]{2,}s?", w)]   # AI, IPOs
+    if not ask.endswith("?") or not 3 <= len(ask.split()) <= 12 or re.search(r"\d|\[S\d+\]", ask):
+        return None
+    named = {w.lower() for t in lines for w in re.findall(r"[A-Za-z'’]+", plain_text(t))} | {"ai", "i", "ceo", "ceos"}
+    if any(w[0].isupper() and w.lower() not in named for w in words[1:]) or (words and words[0][0].isupper()
+            and words[0].lower() not in named and words[0].lower() not in ASK_OPENERS):
+        return None
+    return ask
+
+
+ASK_OPENERS = {"would", "will", "should", "could", "can", "do", "does", "did", "is", "are", "was", "have", "has",
+               "what", "which", "who", "how", "why", "when", "where", "if", "your", "you"}
 
 
 def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dict]:
@@ -349,7 +370,8 @@ def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dic
         spark = [ln["text"] for ln in (kept or {}).get("lines", []) if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
         if kept and len(spark) >= 3:
             # the duo survived both checks: its own Spark lines are the card, so the Reel stays a duo
-            sec["card"] = {"hook": spark[0], "points": spark[1:4], "take": None, "take_kind": "read", "ask": None,
+            sec["card"] = {"hook": spark[0], "points": spark[1:4], "take": None, "take_kind": "read",
+                           "ask": carried_ask(old, spark),
                            "reel": old.get("reel"), "interest": old.get("interest", 3), "fallback": True, "duo": kept,
                            **{k: old[k] for k in ("pain", "hook_type", "bonus") if k in old}}
             rebuilt += 1
@@ -361,7 +383,8 @@ def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dic
         points = points[:3] if all(words(s) <= 20 for s in points[:3]) else points[:2]
         if len(points) < 2:
             continue
-        sec["card"] = {"hook": hook, "points": points, "take": None, "take_kind": "read", "ask": None,
+        sec["card"] = {"hook": hook, "points": points, "take": None, "take_kind": "read",
+                       "ask": carried_ask(old, [hook, *points]),
                        "reel": old.get("reel"), "interest": old.get("interest", 3), "fallback": True,
                        **{k: old[k] for k in ("pain", "hook_type", "bonus") if k in old}}
         rebuilt += 1

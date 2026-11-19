@@ -141,12 +141,39 @@ def test_a_card_the_fact_check_rejected_gets_one_checked_rewrite(monkeypatch):
     # was skipped. With layer 2 on, a dropped section or a crash leaves the story without a card; the run goes on.
     import fma.verify as verify
     monkeypatch.setattr(reel_desk, "script", fake_script)
-    for check in (lambda chain, post, s, r: ({**post, "sections": []}, r),
-                  lambda chain, post, s, r: (_ for _ in ()).throw(RuntimeError("layer 2 down"))):
+    for check in (lambda chain, post, s, r, **k: ({**post, "sections": []}, r),
+                  lambda chain, post, s, r, **k: (_ for _ in ()).throw(RuntimeError("layer 2 down"))):
         monkeypatch.setattr(verify, "llm_check", check)
         verified["sections"][0]["card"] = None
         out, _ = reel_desk.repair_cards(object(), verified, draft, src, {"entries": report["entries"]}, check_layer2=True)
         assert out["sections"][0]["card"] is None
+
+
+def test_a_repaired_card_survives_the_real_model_check_when_it_passes(monkeypatch):
+    """19 Nov 2026: the real layer 2 removed every section under 80 words of story, and the repair's one-card
+    mini-post has none, so from 14 Nov no repaired card was ever kept (0 in five runs). The old test faked llm_check."""
+    import re
+    from fma import reel_desk
+    src = [{"id": "S1", "story": 1, "title": "Acme ships Nova", "url": "u", "publisher": "P",
+            "text": "Acme shipped Nova on Monday. Nova costs 5 dollars a month. Acme said 2 million people signed up."}]
+    draft = {"sections": [{"story": 1, "title": "Acme ships Nova", "card": {"hook": "x[S1].", "points": []},
+                           "paragraphs": ["Acme shipped Nova on Monday[S1]."]}]}
+    verified = {"sections": [{"story": 1, "title": "Acme ships Nova", "card": None,
+                              "paragraphs": ["Acme shipped Nova on Monday[S1]."]}]}
+    report = {"entries": [{"where": "card[0] hook", "text": "x", "status": "dropped", "problems": ["model check: no"]}]}
+    monkeypatch.setattr(reel_desk, "script", lambda *a, **k: {
+        "hook": "Acme shipped Nova on Monday[S1].",
+        "points": ["Nova costs 5 dollars a month[S1].", "Acme said 2 million people signed up[S1]."], "reel": 7})
+
+    class Approves:                     # a checker that supports every claim with a real quote from the source
+        def ask_json(self, system, prompt, **k):
+            claims = prompt.split("CLAIMS", 1)[1].split("SOURCES", 1)[0]
+            return {"checks": [{"id": i, "evidence": "Nova costs 5 dollars a month", "supported": True, "reason": "ok"}
+                               for i in dict.fromkeys(re.findall(r"\bC\d+\b", claims))]}
+    out, rep = reel_desk.repair_cards(Approves(), verified, draft, src, report, check_layer2=True)
+    card = out["sections"][0]["card"]
+    assert card and card["repaired"] and card["hook"].startswith("Acme shipped Nova")
+    assert rep["cards_repaired"] == 1
 
 
 def test_the_producer_prompt_says_only_facts_from_the_text():
@@ -191,3 +218,17 @@ def test_a_lost_card_is_rebuilt_from_the_storys_checked_sentences():
     v, rep = fallback_cards({"what_happened": [], "sections": [{"story": 1, "paragraphs": ["Too short[S1]."], "card": None}]},
                             draft, {})
     assert v["sections"][0]["card"] is None and "cards_fallback" not in rep                 # nothing usable: no card
+
+
+def test_a_rebuilt_card_keeps_a_plain_comment_question_and_never_a_claim():
+    """19 Nov 2026, Pavan: the 09:00 Reel's rebuilt card had no question, so it said "Tell us in the comments" to
+    nothing. A rebuilt card keeps the writer's question when it states nothing the card does not."""
+    from fma.reel_desk import carried_ask
+    lines = ["Nvidia stopped H200 chip sales to China[S4].", "Interim CEO Colette Kress announced the halt[S4]."]
+    assert carried_ask({"ask": "Will this slow your AI projects?"}, lines) == "Will this slow your AI projects?"
+    assert carried_ask({"ask": "Will AI IPOs change your career path[S6]?"}, lines) == "Will AI IPOs change your career path?"
+    assert carried_ask({"ask": "Would you trust Kress?"}, lines)                  # a name the card already says
+    assert carried_ask({"ask": "Will Nvidia lose 5 billion?"}, lines) is None      # a number is a claim
+    assert carried_ask({"ask": "Should Huawei win now?"}, lines) is None           # a name the card never says
+    assert carried_ask({"ask": "Tell us what you think"}, lines) is None           # not a question
+    assert carried_ask({}, lines) is None

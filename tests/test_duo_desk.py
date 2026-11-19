@@ -348,3 +348,14 @@ def test_jokes_step_skips_a_reaction_the_final_check_would_reject(monkeypatch):
     jokes = duo_desk.jokes_step(object(), "doubt", lines, k=2)
     assert jokes is not None and "Neon" not in jokes[2]
     assert not duo_desk.problems(duo_desk.assemble("doubt", lines, jokes))
+
+
+def test_a_reel_with_no_question_never_says_tell_us_in_the_comments():
+    """19 Nov 2026, Pavan: the 09:00 Reel ended "Tell us in the comments below" with no question before it."""
+    from fma.voice import OUTRO, OUTRO_NO_ASK
+    duo = {"guest": "doubt", "lines": [{"who": "spark", "text": "A fact[S1]."}, {"who": "guest", "text": "Oh no."}]}
+    _g, lines = duo_desk.script({"duo": duo, "ask": None}, OUTRO)
+    closes = [t for who, t, *_ in lines if who == "spark" and "follow us" in t.lower()]
+    assert closes == [OUTRO_NO_ASK] and not any("comments" in t.lower() for _w, t, *_ in lines)
+    _g, lines = duo_desk.script({"duo": duo, "ask": "Would you use it?"}, OUTRO)
+    assert any(t == "Would you use it? " + OUTRO for _w, t, *_ in lines)

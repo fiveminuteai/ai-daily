@@ -17,6 +17,14 @@ SR = 24000
 VOICE = "bm_george"            # British male (Pavan's pick, 4 Nov 2026); Kokoro has no Indian English voice
 SPEED = 1.0
 OUTRO = "Tell us in the comments below and follow us for such updates."    # Pavan's words, 4 Nov 2026
+# 19 Nov 2026, Pavan: the 09:00 Reel said "Tell us in the comments below" with no question before it (its card was
+# rebuilt and had none). Without a question, the close only asks for the follow.
+OUTRO_NO_ASK = "Follow us for such updates."
+
+
+def outro(ask: str | None) -> str:
+    """The spoken close after the card's question; never "tell us in the comments" when there is no question."""
+    return OUTRO if (ask or "").strip() else OUTRO_NO_ASK
 
 # How names should be read. Kokoro reads most brand names well; these it spells or stresses wrongly.
 PRONOUNCE = {
