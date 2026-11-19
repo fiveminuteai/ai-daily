@@ -1,0 +1,433 @@
+{
+ "date": "2026-11-19",
+ "started_at": "2026-11-19T00:15:38+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.8,
+   "items": 661,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 14
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 7
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 3
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 5
+    },
+    "github": {
+     "status": "ok",
+     "items": 20
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.0,
+   "stories": 267,
+   "editor": true,
+   "top": [
+    {
+     "title": "Introducing Gemini 4 Neon",
+     "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+     "score": 10.2,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google DeepMind",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "“Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia",
+     "url": "https://arstechnica.com/tech-policy/2026/11/trump-was-in-bed-with-jensen-critics-balk-at-huangs-wish-to-return-to-nvidia/",
+     "score": 9.07,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Advancing chip design with OpenAI models",
+     "url": "https://openai.com/index/advancing-chip-design-with-our-models",
+     "score": 8.48,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI",
+      "openai.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic reportedly prices IPO at $83 a share, above projected range",
+     "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/",
+     "score": 7.45,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Genie 4 is now available",
+     "url": "https://deepmind.google/blog/genie-4-is-now-available/",
+     "score": 7.31,
+     "interest": 9.0,
+     "category": "research",
+     "player": "",
+     "outlets": [
+      "Google DeepMind"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The nation’s largest school districts consider ditching Google Search",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1037151/school-districts-ditching-google",
+     "score": 6.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt",
+     "url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/",
+     "score": 6.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The Gemini app is now available on lower-memory Android devices.",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
+     "score": 6.82,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Nvidia’s rise, visualized",
+     "url": "https://www.theverge.com/tech/1035924/nvidia-visualized-revenue-profit-earnings-after-huang",
+     "score": 6.79,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Copilot is \"the new OS for work,\" and now Office runs inside of it",
+     "url": "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/",
+     "score": 6.5,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+     "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+     "score": 6.29,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Satya Nadella predicts AI agents will reshuffle the economics of the web",
+     "url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+     "score": 6.27,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Introducing Gemini 4 Neon",
+     "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+     "score": 10.2,
+     "interest": 9.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google DeepMind",
+      "blog.google (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "“Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia",
+     "url": "https://arstechnica.com/tech-policy/2026/11/trump-was-in-bed-with-jensen-critics-balk-at-huangs-wish-to-return-to-nvidia/",
+     "score": 9.07,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic reportedly prices IPO at $83 a share, above projected range",
+     "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/",
+     "score": 7.45,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Genie 4 is now available",
+     "url": "https://deepmind.google/blog/genie-4-is-now-available/",
+     "score": 7.31,
+     "interest": 9.0,
+     "category": "research",
+     "player": "",
+     "outlets": [
+      "Google DeepMind"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The nation’s largest school districts consider ditching Google Search",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1037151/school-districts-ditching-google",
+     "score": 6.88,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.3,
+   "articles": 11,
+   "with_text": 11
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.8,
+   "word_count": 1038,
+   "sources": 8
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.1,
+    "reel_desk": 841.8,
+    "layer1": 0.1,
+    "layer2": 749.3,
+    "gate": 150.4
+   },
+   "layer1": {
+    "checked": 101,
+    "ok": 89,
+    "repaired": 6,
+    "dropped": 6
+   },
+   "layer2": {
+    "checked": 75,
+    "ok": 52,
+    "repaired": 2,
+    "dropped": 21
+   },
+   "unused": 28,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Gemini 4 Neon offers fast, multi‑step AI assistance",
+     "reel": 7,
+     "hook": "Google DeepMind released Gemini 4 Neon, a high‑capacity, low‑fabrication model for enterprise tasks, on 18 Nov 2026.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia halts H200 chip sales to China after CEO departure",
+     "reel": 8,
+     "hook": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic prices IPO above range",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Big IPO price matters to investors, less buzz for daily workers",
+     "hook": "Anthropic priced IPO at $83, shaking AI market.",
+     "chosen": false
+    },
+    {
+     "story": "Genie 4 expands interactive world creation",
+     "reel": 5,
+     "rubric": 5,
+     "chief": 5.0,
+     "why": "Cool creator tool, niche appeal",
+     "hook": "Google adds real‑time world editing for creators.",
+     "chosen": false
+    },
+    {
+     "story": "Google schools face search dilemma",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Potential loss of Google Search in schools creates real‑world conflict",
+     "hook": "Google forces schools to lose Search if they skip Gemini.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-19-google-launches-gemini-4-neon-with-million",
+ "finished_at": "2026-11-19T00:47:51+00:00",
+ "seconds": 1932.6
+}

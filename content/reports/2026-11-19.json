@@ -1,0 +1,1156 @@
+{
+  "checked": 75,
+  "ok": 52,
+  "repaired": 2,
+  "dropped": 21,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Google launches Gemini 4 Neon with million‑token context, Nvidia halts H200 sales to China",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources confirm Google launched Gemini 4 Neon with a million-token context, but provide no evidence that Nvidia halted H200 sales to China.",
+        "model check: Sources confirm Google launched Gemini 4 Neon with a million-token context, but provide no evidence that Nvidia halted H200 sales to China."
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "Google DeepMind unveiled Gemini 4 Neon, a model with a 1 million‑token window and low fabrication rates, while Nvidia announced it will stop shipping its powerful H200 AI chips to China after its CEO’s departure",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Google DeepMind released Gemini 4 Neon, a high‑capacity, low‑fabrication model for enterprise tasks, on 18 Nov 2026.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Nvidia stops H200 chip shipments to China after CEO Jensen Huang steps down, citing a shift in export policy.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the stop after Huang stepped down but does not cite a shift in export policy as the reason."
+      ]
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Anthropic priced its IPO at $83 per share, valuing the company at $1.5 trillion and beginning Nasdaq trading under “ANT”.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Genie 4 lets Google AI Ultra users edit worlds in real time with text and audio, and share them via a community gallery.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Largest U.S. school districts may abandon Google Search if forced to keep Gemini AI features.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Google DeepMind announced Gemini 4 Neon on 18 November 2026, positioning it as a frontier‑level model for software engineering, knowledge work, and scientific tasks.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The model is available through the Gemini API, Google AI Studio, and the Gemini app for Pro and Ultra subscribers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It supports a 1 million‑token context window and is priced at $3 per million input tokens and $15 per million output tokens.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Neon achieved a score of 61 on the Artificial Analysis Intelligence Index, ranking #3 overall and #2 on the Vals Index with 70.9% performance.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "It leads on the Agent Arena Index for steerability, ranking #2, and records the lowest fabrication rate in Google’s internal Antigravity tests.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Independent benchmarks place Neon #1 on the Legal Research Bench, Tax Agent Bench, and most finance and accounting tasks on Surge AI, while it scores 73.5% on Chartography for dense chart reading.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The model also matches top scores on Agents' Last Exam v1.1 (75.8%) and tops Zapier’s AutomationBench (56.3%) and Andon Labs' Vending‑Bench 2 ($16,843).",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Large language models are increasingly used for complex, multi‑modal workflows, but many struggle with long contexts and reliable step‑by‑step reasoning.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not mention that many models struggle with long contexts or step‑by‑step reasoning; they only highlight Neon’s capabilities."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Gemini 4 Neon’s 1 million‑token window allows it to process spreadsheets, PDFs, audio, and video together, reducing the need for manual data stitching.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Neon can synthesize across spreadsheets, PDFs, audio, and video in a single 1 million‑token context window, turning inputs into structured deliverables.\""
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Its improved steerability means users can correct the model mid‑task without restarting, addressing a common pain point in enterprise AI adoption.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence shows mid‑task correction ability but does not state it addresses a common enterprise AI pain point."
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Google's Gemini 4 Neon handles 1 million tokens instantly.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the token window size but does not claim instant handling."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Neon can read spreadsheets, PDFs, audio, and video in one go.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Its million‑token window cuts manual data stitching, saving hours.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows the window reduces stitching but does not quantify hour savings."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Pro and Ultra users get it via API, Studio, or app.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Try Neon if you need AI to juggle big files quickly.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will you let AI stitch your data?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Google's Gemini Neon processes 1 million‑token files.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Gemini 4 Neon offers fast, multi‑step AI assistance",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia announced it will stop shipping its H200 AI chips to China following Jensen Huang's resignation as CEO last week.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Interim CEO Colette Kress made the statement during the company's earnings call on Tuesday.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The decision ends a controversial arrangement that allowed the chips to be exported through the United States with a 25% tariff.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The H200 chips are built on Nvidia's Hopper architecture and were previously sold to Chinese customers after a special export license was granted in December 2025.",
+      "sources": [
+        "S4",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Under Huang, the deal was brokered with President Donald Trump and required the chips to pass through U.S. ports, generating revenue for the U.S. government.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Kress said Nvidia's guidance now excludes any licensed Hopper data‑center products for China, and she gave no further explanation for the halt.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia's H200 chips are among the most powerful AI accelerators, used by labs for large‑scale model training.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not state H200 chips are among the most powerful or used for large‑scale model training"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The United States has imposed restrictions on advanced semiconductor exports to China to preserve its lead in AI technology.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The recent leadership change at Nvidia and political scrutiny over alleged Chinese espionage involving Huang have heightened sensitivity around such exports.",
+      "sources": [
+        "S3",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Nvidia stops H200 chips to China, hurting AI labs.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not mention that stopping H200 chips hurts AI labs"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Nvidia announced it will halt shipping H200 AI chips to China after CEO Jensen Huang resigned.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The chips previously crossed U.S. ports under a 25% tariff, generating US revenue.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Chinese AI labs lose access to one of the world’s most powerful accelerators.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Consider alternative GPU providers now to avoid training delays.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will this slow your AI projects?",
+      "sources": [
+        "S4",
+        "S5",
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Nvidia stops H200 chips to China.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Chinese AI labs lose access to some of the world’s most powerful chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "Interim CEO Colette Kress announced the halt during Tuesday’s earnings call.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia halts H200 chip sales to China after CEO departure",
+      "sources": [
+        "S4",
+        "S5",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Anthropic priced its initial public offering at $83 per share on Thursday, November 18, 2026, above the previously indicated range of $70 to $78.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state the specific date November 18, 2026; it only says the IPO will begin on Thursday."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company will begin trading on Nasdaq under the ticker “ANT” and is valued at about $1.5 trillion on a fully diluted basis.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The pricing suggests strong investor interest despite recent market volatility linked to Nvidia CEO Jensen Huang’s departure.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The $83 price places Anthropic’s market value at $1.5 trillion, up from $965 billion in May when it raised $65 billion in a private round, but below the $2 trillion target it had set months earlier.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Strategic partners Amazon and Google own nearly 15 % and almost 14 % of the company respectively, dwarfing the stakes of any single venture‑capital backer, none of which hold more than 5 %.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "A consortium of tech firms including AMD, Broadcom, Micron, Microsoft, Nvidia and TSMC agreed to buy $26 billion of non‑voting shares in a private placement alongside the IPO.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Anthropic is a leading AI startup known for its Claude models and has been preparing for an IPO as the AI sector seeks public market validation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The pricing comes after a period of uncertainty in AI stocks, highlighted by the market reaction to Nvidia’s leadership change, which had shaken confidence in the industry.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The IPO’s success could set a benchmark for other private AI firms, such as OpenAI, which remains privately valued at $1.25 billion and has not announced IPO plans.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Anthropic priced IPO at $83, shaking AI market.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Anthropic set its IPO price at $83 per share on Nasdaq.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The price puts the company at a $1.5 trillion valuation, above expectations.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives the $1.5 trillion valuation but does not state it is above expectations."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Investors see a signal for AI stocks, and rivals watch the benchmark.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch AI IPO trends; they could affect your tech investments.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will AI IPOs change your career path?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Anthropic IPO hits $83, valuing it at $1.5 trillion.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "9 words, card limit is 8"
+      ]
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Anthropic priced its IPO at $83 a share, above the $70‑78 range.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "The pricing shows strong investor interest despite Nvidia CEO Jensen Huang’s departure.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Amazon and Google together own nearly 15% and almost 14% of Anthropic.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic prices IPO above range",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google DeepMind rolled out Genie 4 on 18 November 2026 to eligible Google AI Ultra subscribers, adding real‑time text and audio editing to Project Genie environments.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The update also introduced a Project Genie agent that guides users through natural‑language conversations to build custom worlds.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Subscribers can publish their creations in a new community gallery for others to explore and remix.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Genie 4 enables users to change weather, add characters, and insert adaptive audio while navigating a world, all triggered by typed prompts.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The earlier Genie 3 model now supports longer sessions, panorama grounding, and linked world sequences, improving continuity across scenes.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Project Genie agent assists in constructing complex environments through simple dialogue, and the community gallery serves as a shared repository for created worlds.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Project Genie began earlier in 2026 as an experimental prototype that let users generate and explore interactive digital worlds.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Early testers asked for deeper control and easier sharing, prompting the development of Genie 4 and the agent interface.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports testers' requests but does not state that these requests directly prompted Genie 4 or the agent interface."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The rollout integrates Google’s most advanced world models with Gemini models, allowing browser‑based generation, immersion, and modification of worlds without specialized software.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Google adds real‑time world editing for creators.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Genie 4 lets subscribers edit weather, characters, and audio via typed prompts.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The Project Genie agent guides dialogue, enabling complex worlds without coding.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Users can share creations in a community gallery for others to remix.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Try Genie 4 to prototype interactive demos faster.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Which world would you build first?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Google launches Genie 4 real‑time world editor.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Genie 4 expands interactive world creation",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "New York, Los Angeles and Chicago school districts are weighing alternatives to Google Search after Google announced it will disable Search for schools that opt out of its Gemini AI features starting next year.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google vice‑president of education Chris Phillips said Search and AI are “deeply integrated” and that turning off Gemini also turns off Search.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Officials such as NYC Mayor Zohran Mamdani and Senator Bernie Sanders called the move “extortion”.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'NYC' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google plans to make Gemini app, Gemini Notebook and Search off by default for schools, requiring districts to enable each service individually.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The company will pilot Guided Learning in Search this month to provide step‑by‑step problem assistance rather than quick answers.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "In response, NYC schools chancellor Kamar H. Samuels warned the district will explore other search options if Google does not reconsider.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'NYC' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Chicago public schools have issued a similar warning, saying they will look for other solutions if a non‑AI Search version is not offered.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google’s suite, including Google Classroom and Chromebooks, is already entrenched in U.S. classrooms, making a complete switch challenging for districts.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Studies cited in the article suggest students using AI tools may perform worse on tests and risk mental‑health issues from early chatbot interactions.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The controversy reflects broader concerns about AI’s impact on critical thinking and educational equity.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence mentions critical thinking but not educational equity."
+      ]
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Google forces schools to lose Search if they skip Gemini.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "NYC, LA and Chicago districts are weighing non‑Google search options after Google’s new policy.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'NYC' not in cited source",
+        "name 'LA' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "If a district disables Gemini, Google automatically turns off Search for that school.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Officials say they’ll explore alternatives unless Google reconsiders the forced change.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Expect your school’s search to change next year—plan alternatives now.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should schools stick with Google or switch?",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Google threatens school Search loss.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google schools face search dilemma",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Enterprises can leverage Neon’s long‑context capability to automate multi‑modal tasks like spreadsheet and PDF analysis, reducing manual data stitching, and the suspension of H200 chip sales may slow Chinese AI research and impact firms that depend on those accelerators for large‑scale model training",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "Google DeepMind unveiled Gemini 4 Neon, a model with a 1 million‑token window and low fabrication rates, while Nvidia announced it will stop shipping its powerful H200 AI chips to China after its CEO’s departure.",
+      "sources": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Introducing Gemini 4 Neon ... with a 1 million-token context window and recording our lowest fabrication rate yet; Nvidia has stopped sending its advanced AI chips to China after Huang stepped down as\""
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Anthropic is a leading AI Startup known for its Claude models and has been preparing for an IPO as the AI sector seeks public market validation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not explicitly describe Anthropic as a \"leading AI Startup known for its Claude models\" nor state the AI sector is seeking public‑market validation."
+      ]
+    },
+    {
+      "where": "repair card[0] hook",
+      "text": "Google launches Gemini 4 Neon, reshaping AI work.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source announces the launch but does not state it reshapes AI work."
+      ]
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Gemini 4 Neon is a new model for software engineering, knowledge work, and scientific tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "It offers a 1 million‑token context window and leads benchmarks in legal, tax, finance, and chart reading.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Pro and Ultra subscribers can use it via the Gemini API, AI Studio, or the Gemini app.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] take",
+      "text": "If you write code or analyze data, Neon handles longer inputs at modest token prices.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] ask",
+      "text": "Will longer context windows change your workflow?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] cover",
+      "text": "Google's Gemini 4 Neon launches 1 million‑token AI.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Nvidia stops H200 chips to China, raising AI stakes.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Nvidia announced it will stop shipping H200 AI chips to China after CEO Jensen Huang resigned.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "The chips previously entered China via a special export license with a 25% tariff.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a 25% tariff but does not specify a \"special export license\" as claimed."
+      ]
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "This ends the licensed Hopper data‑center product flow for Chinese customers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Watch for supply changes if you rely on AI cloud services.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Will this shift AI power globally?",
+      "sources": [
+        "S4",
+        "S5",
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Nvidia halts H200 chips to China.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 15,
+  "cards_fallback": 2,
+  "unused": 28,
+  "headline_rescued": {
+    "was": "Google launches Gemini 4 Neon with million‑token context, Nvidia halts H200 sales to China",
+    "problems": [
+      "model check: Sources confirm Google launched Gemini 4 Neon with a million-token context, but provide no evidence that Nvidia halted H200 sales to China."
+    ]
+  },
+  "date": "2026-11-19",
+  "slug": "2026-11-19-google-launches-gemini-4-neon-with-million",
+  "model": "groq:openai/gpt-oss-120b"
+}

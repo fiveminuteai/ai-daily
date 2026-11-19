@@ -1,0 +1,103 @@
+=== STORY 1 (suggested section: models) ===
+
+[S1] Google DeepMind — "Introducing Gemini 4 Neon" (18 November 2026)
+Introducing Gemini 4 Neon
+Bringing frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.
+SVP, Google DeepMind and Chief AI Architect, Google
+Your browser does not support the audio element.
+Today, we’re introducing Gemini 4 Neon — bringing frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.
+Neon ranks ahead of comparable models and #3 overall with a score of 61 on the Artificial Analysis Intelligence Index at its xhigh thinking level, landing just behind larger, slower models. On the Vals Index , Neon ranks #2 and lands on the Pareto frontier. Beyond just pushing on raw model capability, we’re continuing to make our models better to work with, Neon ranks #2 on steerability (adapting cleanly to mid-task user corrections) on the new Agent Arena Index . Neon also excels at multi-step instruction following and builds on our ongoing progress to curb fabrication, recording our lowest fabrication rate yet in internal Google Antigravity testing.
+The model is priced at $3 per million input tokens ($0.15 per million cached input tokens, a 95% discount) and $15 per million output tokens, with a 1 million-token context window.
+Gemini 4 Neon is rolling out today in the Gemini API in Google AI Studio , Gemini for business (via API and model dropdown), for paid Google AI Pro and Ultra subscribers in Google Antigravity , and for Pro and Ultra subscribers in the Gemini app .
+Delivers across enterprise, analytical, and scientific work
+Enterprise work lives in spreadsheets, PDFs, charts, audio, and video. Neon can synthesize across all of these inputs in a single 1 million-token context window and turns inputs into structured deliverables. Independent evaluations rank Neon as one of the top models and on benchmarks like the Vals Index , it ranks #2 (70.9%), and reaches #1 on both the Legal Research Bench and Tax Agent Bench .
+Neon also shows strong wins across categories on Surge AI , ranking #1 on most benchmarks across finance, accounting, spreadsheet modeling, and complex constraint following. It also scores 73.5% on Chartography for reading dense professional charts and performs on par with leading models on Agents' Last Exam v1.1 (75.8%). It achieves #1 overall on both Zapier’s AutomationBench (56.3%) and Andon Labs' Vending-Bench 2 ($16,843), a long-horizon simulation of running a business. Finally, it debuts #2 globally with a score of 1336 on Arena's new Agent Arena Index across 4,200+ real-w
+
+[S2] blog.google (via Hacker News) — "Gemini 4 Neon" (18 November 2026)
+Introducing Gemini 4 Neon
+Bringing frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.
+SVP, Google DeepMind and Chief AI Architect, Google
+Your browser does not support the audio element.
+Today, we’re introducing Gemini 4 Neon — bringing frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows.
+Neon ranks ahead of comparable models and #3 overall with a score of 61 on the Artificial Analysis Intelligence Index at its xhigh thinking level, landing just behind larger, slower models. On the Vals Index , Neon ranks #2 and lands on the Pareto frontier. Beyond just pushing on raw model capability, we’re continuing to make our models better to work with, Neon ranks #2 on steerability (adapting cleanly to mid-task user corrections) on the new Agent Arena Index . Neon also excels at multi-step instruction following and builds on our ongoing progress to curb fabrication, recording our lowest fabrication rate yet in internal 
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S3] Ars Technica — "“Trump was in bed with Jensen”: Critics balk at Huang’s wish to return to Nvidia" (17 November 2026)
+On Monday, large trucks began circling the streets of Washington, DC, carrying billboards urging Congress to investigate the Trump administration’s ties with Nvidia’s disgraced CEO Jensen Huang.
+“Jensen was in bed with a spy from China,” the billboards created by the Tech Oversight Project (TOP) alleged. “Trump was in bed with Jensen.” TOP is a nonprofit that describes itself as “dedicated to reining in Big Tech.”
+Currently, Trump is supporting a campaign to bring back Huang as Nvidia’s CEO—despite many Republicans calling it a “ horrible idea. ” Breaking his silence, Huang issued a statement Tuesday saying he would be “honored” to return, but the board said reinstatement is not under consideration as an internal investigation into US spying claims remains ongoing. Huang used the moment to say that his interests align with the US’s, saying:
+I came to the United States 53 years ago, and becoming an American citizen is one of the greatest gifts and proudest moments of my life. Nvidia has been my life’s work. Building it into the company it is today alongside my colleagues has been a privilege and an honor. Nowhere but in America could a company like Nvidia be possible. I love our country, and I love Nvidia.
+Trump may have learned as early as this spring that Huang was potentially the target of Chinese espionage, but the president claimed recently that he didn’t know Huang was potentially exposed to a Chinese spy as he was becoming a prominent part of Trump’s inner circle, CNN reported .
+If Trump wasn’t adequately briefed, it raises question about whether the White House acted with “sufficient urgency” to address a serious espionage threat, CNN said. But if Trump is deflecting, an even “graver question” will emerge about why Trump didn’t act on information and instead continued to keep Huang close, CNN said.
+Instead of distancing himself from the Nvidia CEO, Trump invited Huang to sit at the head table during a state dinner with China’s president Xi Jinping, and last month, Trump awarded Huang the National Medal of Science, the nation’s highest scientiﬁc honor, for his AI achievements.
+“Not only has he continued to do nothing, he’s invited that very CEO into the White House and on state visits to China with him,” Sacha Haworth, TOP’s founder and CEO, told Ars. “And the question we all have to ask is ‘why on Earth would he do that?’”
+Trump officials accused of “corruption”
+What Trump and Nvidia knew—and when—have become central questions for some Republicans, as well as top Democrats who plan to investigate the scandal when they assume control of key committ
+
+[S4] The Verge — "Nvidia isn’t selling any more AI chips to China" (18 November 2026)
+Nvidia isn’t selling any more AI chips to China
+After former CEO Jensen Huang fought for US approval to sell H200 chips in China, Nvidia is now walking away.﻿
+Nvidia has stopped sending its advanced AI chips to China despite the approval it received from the White House to do so in December last year . The announcement was made by interim Nvidia CEO Colette Kress during an earnings call on Tuesday , marking a notable shift for the company that, under former CEO Jensen Huang, fought for the right to ship its powerful Hopper architecture H200 chips to China.
+“Our guidance ⁠does not have any licensed Hopper data center products included, and we are no longer shipping ​licenced Hopper data center products to China,” Kress said . She did not explain why Nvidia was ceasing its H200 processor shipments or clarify whether Nvidia would pursue other business with China in the future.
+The pivot comes after Huang stepped down from his position as Nvidia CEO last week following reports of multiple extramarital affairs, one with a woman who was suspected by US intelligence to be a Chinese spy . Nv
+
+[S5] TechCrunch — "Nvidia is abandoning China after Jensen Huang’s ouster" (17 November 2026)
+Nvidia will no longer sell its H200 chips in China, acting CEO Colette Kress said Tuesday, ending the company’s participation in a controversial loophole in the U.S. ban on the sale of advanced chips to the country.
+China’s access to leading AI accelerators was an important topic during the company’s first earnings call since CEO and co-founder Jensen Huang stepped down last week. The disclosure comes the same day Nvidia announced it was creating a board-level committee to oversee national security policies , export control compliance, and global trade risks.
+Nvidia’s deal to sell H200 chips in China was brokered by Huang and President Donald Trump. The arrangement required the chips to be shipped through the U.S., allowing the government to collect a 25% tariff.
+The pathway angered China hawks who wanted to deny Chinese labs computing power and maintain the United States’ lead in AI, but Huang long argued that it was more important for the U.S. to compete in China. In April, he told podcaster Dwarkesh Patel that “to concede that market for the United States technology industry is a 
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: policy) ===
+
+[S6] TechCrunch — "Anthropic reportedly prices IPO at $83 a share, above projected range" (18 November 2026)
+Anthropic has reportedly priced its long-awaited IPO at $83 per share, above its initial range of $70 to $78, signaling strong investor appetite for one of the companies at the center of the AI boom, despite market jitters following the departure of Nvidia CEO Jensen Huang, which shook confidence in the industry.
+At the IPO price, Anthropic is reportedly valued at $1.5 trillion on a fully diluted basis, a significant increase from the $965 billion the company reached in May when it raised $65 billion in its last private market round , but below the $2 trillion it was reportedly aiming for several months ago.
+Anthropic will begin its life as a public company on Thursday, trading on Nasdaq under the ticker symbol “ANT.” A strong first day of trading would signal that investors remain optimistic about AI adoption, despite recent volatility in AI-driven stocks.
+The company’s performance is expected to set expectations for private AI companies, including Anthropic’s main rival OpenAI, which was last reportedly valued at $1.25 billion but has yet to announce plans for an IPO.
+Although none of Anthropic’s venture capital investors holds more than a 5% stake in the company, the IPO is a massive windfall for its numerous backers . Investors that own approximately 1% of the company reportedly include Sequoia and former Google CEO Eric Schmidt. Singaporean sovereign wealth fund GIC also holds about a 1% stake in the company, according to a person familiar with the matter. Other backers set to make billions are Iconiq, Menlo Ventures, Coatue, and Sound Ventures, a firm launched by Guy Oseary and actor Ashton Kutcher, and Spark Ventures, the only VC firm known to hold a board seat at the company.
+Some of the company’s existing investors, namely Sequoia, Iconiq, Lightspeed, Accel, and Altimeter Capital Management, are so enthusiastic about Anthropic’s future that they were reportedly planning to buy billions of dollars’ worth of the company’s shares in the IPO.
+Yet the investors’ holdings in Anthropic pale in comparison to those of the Claude maker’s strategic partners , Amazon, which owns nearly 15% of the company, and Google, which holds almost 14%. A group of major tech companies, including AMD, Broadcom, Google, Micron, Microsoft, Nvidia, and TSMC Partners, have also agreed to purchase $26 billion worth of non-voting shares through a private placement alongside the IPO.
+The company’s seven co-founders , including CEO Dario Amodei, each sold nearly 3.4 million shares in the IPO, according to the S-1 filing, bringing in about $282 million for each.
+When you purchase
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: research) ===
+
+[S7] Google DeepMind — "Genie 4 is now available" (18 November 2026)
+Genie 4 is now available
+Explore a new Project Genie experience for Google AI Ultra subscribers, featuring Genie 4, the Project Genie agent, and a community gallery.
+Group Product Manager, Google DeepMind
+Group Product Manager, Google Labs
+We are rolling out Genie 4 to eligible Google AI Ultra subscribers, offering more responsive, social, and interactive world generation. You can now use natural language to edit environments in real time, add native audio, and share your creations in our new community gallery. Visit the Project Genie website to start building your own worlds or join the waitlist if you are a Google AI Pro member.
+We are rolling out Genie 4 to eligible Google AI Ultra subscribers for creating interactive worlds.
+You can now modify environments in real time using text prompts and native audio features.
+Our updated Genie 3 model supports longer sessions, panorama grounding, and linked world sequences today.
+The new Project Genie agent helps you build custom worlds through simple natural language conversations.
+You can publish your creations to our community gallery for others to explore and remix.
+We are updating Project Genie to help you create and explore interactive digital worlds. With our new Genie 4 model, you can change weather, add characters, and hear adaptive audio in real time just by typing prompts. You can also use our new creative agent to build complex environments through simple conversation. If you subscribe to Google AI Ultra, you can start building, sharing, and remixing these custom worlds in our community gallery today.
+Earlier this year we introduced Project Genie , an experimental research prototype that lets you generate and explore interactive worlds. Early testers told us they wanted deeper control over what happens inside those worlds, and easier ways to build and share them.
+So today, we are rolling out a new Project Genie experience to eligible Google AI Ultra subscribers, making these worlds far more responsive, creative, and social. This update unlocks first-time access to Genie 4, new upgrades to Genie 3, the Project Genie agent which helps users build their vision, and a community gallery to discover, explore, and remix worlds.
+Project Genie brings together our most advanced world models alongside our Gemini models, empowering you to generate, step inside, and shape worlds directly from your browser.
+Experience Genie 4 in Project Genie
+With Genie 4 , our most realistic and interactive world model yet, you can now prompt mid-session to change the world you created. Just type a new prompt while you navigate y
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: products) ===
+
+[S8] The Verge — "The nation’s largest school districts consider ditching Google Search" (18 November 2026)
+The nation’s largest school districts consider ditching Google Search
+Google is trying to force Gemini on schools, and they’re not thrilled.
+New York, Los Angeles, and Chicago schools are considering Google alternatives after the company said it will disable Search for schools that opt out of its AI features, according to The New York Times . Starting next year, schools will not have the option to disable Gemini-powered features without also disabling Search. Chris Phillips, Google’s vice president of education, told the Times that, “Search and AI are deeply integrated,” and that schools that turn off Google’s AI features “will not have access to Search.”
+Many elected officials, including New York City Mayor Zohran Mamdani and Senator Bernie Sanders, responded harshly, calling Google’s behavior “extortion.” Mamdani had recently announced a policy that barred 2-K-8 students from using AI in the classroom. In a statement to the Times , New York City schools chancellor Kamar H. Samuels said, “If Google doesn’t reconsider their position, we will explore other search options.” Chicago’s public schools have also reportedly told Google that if it can’t provide a version of Search without AI, “the district will look to other search solutions.”
+In a statement to The Verge , Google spokesperson Laura Breen said, “We hear parents and teachers’ concerns about students using AI to shortcut learning, and we share the same goal: help students learn. To improve Search for the classroom, we’re starting to pilot Guided Learning capabilities in Search this month to walk students step-by-step through a range of complex problems, instead of just giving quick answers. Next year, we’re also updating our approach to controls for schools to address feedback we’ve heard from educators, so Gemini app, Gemini Notebook and Search will be off by default until schools decide which services to enable. We are actively building these experiences in partnership with educators, listening closely to ensure our products support students and teachers.”
+Educators are wary of AI’s effect on students’ critical thinking skills , and some studies have shown that students who use AI generally perform worse on tests . There are also concerns about the mental health effects on children who develop relationships with chatbots at a young age . But Google is deeply embedded in classrooms across the US, which rely on Google Classroom, Chromebooks, and other services, and going fully Google-free might prove difficult.
+Most Popular
+Grand Theft Auto VI does something impossible — it lives up to the hype
+Sat
