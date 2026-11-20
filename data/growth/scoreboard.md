@@ -5,7 +5,7 @@ Followers: **13**. Reels this week: 22 (last week 18).
 | Gate | This week | Last week | Target | |
 |---|---|---|---|---|
 | % leave in the first 3 s | 57 | 60.5 | at most 45 | **not yet** |
-| s watched on average | 6 | 5.5 | at least 15 | **not yet** |
+| s watched on average | 5.9 | 5.5 | at least 15 | **not yet** |
 | sends per 1,000 reached | 0 | 0 | at least 5 | **not yet** |
 | likes per 1,000 reached | 0 | 0 | at least 30 | **not yet** |
 | new followers a week | 5 | n/a | at least 15 | **not yet** |

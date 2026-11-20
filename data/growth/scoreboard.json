@@ -8,7 +8,7 @@
   "reels": 22,
   "reach": 105.5,
   "skip_rate": 57.0,
-  "avg_watch_s": 6.0,
+  "avg_watch_s": 5.9,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -36,7 +36,7 @@
   },
   {
    "metric": "avg_watch_s",
-   "value": 6.0,
+   "value": 5.9,
    "target": "at least 15",
    "what": "s watched on average",
    "met": false
