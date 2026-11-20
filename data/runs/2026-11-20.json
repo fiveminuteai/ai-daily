@@ -1,0 +1,436 @@
+{
+ "date": "2026-11-20",
+ "started_at": "2026-11-20T00:15:40+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.4,
+   "items": 671,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 9
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 13
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 8
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 4
+    },
+    "github": {
+     "status": "ok",
+     "items": 19
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.3,
+   "stories": 251,
+   "editor": true,
+   "top": [
+    {
+     "title": "With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1037459/anthropic-ipo-safe-ai-reputation-power-structure",
+     "score": 9.83,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge",
+      "reuters.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The unfolding Jensen Huang scandal: a timeline",
+     "url": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+     "score": 8.31,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Muse privacy invasions are freaking out Meta staffers, internal chats show",
+     "url": "https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/",
+     "score": 7.65,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic starts trading on Wall Street",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq",
+     "score": 7.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic’s Record-Breaking IPO Highlights the AI Giant’s Worst Enemy—Itself",
+     "url": "https://www.wired.com/story/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself/",
+     "score": 7.17,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic is now a public company worth more than $1 trillion",
+     "url": "https://www.engadget.com/2322144/anthropic-is-now-a-public-company-worth-more-than-1-trillion/",
+     "score": 7.11,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google gives Gemini the ability to use your Mac for you",
+     "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
+     "score": 7.07,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google Built a Giant ‘Mirror Dimension’ Internet to Test Its Chrome AI Agents",
+     "url": "https://www.wired.com/story/google-built-a-giant-mirror-dimension-internet-to-test-its-chrome-ai-agents/",
+     "score": 6.65,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit",
+     "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+     "score": 6.51,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+     "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+     "score": 6.5,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Meta’s Muse Charm might cost $300",
+     "url": "https://www.theverge.com/tech/1038087/meta-muse-charm-ai-price",
+     "score": 6.47,
+     "interest": 5.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Apple is hiring engineers to build its own AI agent",
+     "url": "https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing",
+     "score": 6.26,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1037459/anthropic-ipo-safe-ai-reputation-power-structure",
+     "score": 9.83,
+     "interest": 9.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge",
+      "reuters.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The unfolding Jensen Huang scandal: a timeline",
+     "url": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+     "score": 8.31,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Muse privacy invasions are freaking out Meta staffers, internal chats show",
+     "url": "https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/",
+     "score": 7.65,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic starts trading on Wall Street",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1035384/anthropic-ipo-trading-nasdaq",
+     "score": 7.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google gives Gemini the ability to use your Mac for you",
+     "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
+     "score": 7.07,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.0,
+   "articles": 14,
+   "with_text": 14
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 6.4,
+   "word_count": 940,
+   "sources": 9
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.3,
+    "reel_desk": 1111.4,
+    "layer1": 0.1,
+    "layer2": 868.0,
+    "gate": 151.5
+   },
+   "layer1": {
+    "checked": 112,
+    "ok": 95,
+    "repaired": 13,
+    "dropped": 4
+   },
+   "layer2": {
+    "checked": 79,
+    "ok": 52,
+    "repaired": 3,
+    "dropped": 24
+   },
+   "unused": 35,
+   "fails": [
+    "no 'why it matters'"
+   ],
+   "reel_desk": [
+    {
+     "story": "Anthropic’s IPO raises governance questions",
+     "reel": 7,
+     "rubric": 6,
+     "chief": 8.0,
+     "why": "Anthropic's massive IPO with founder control could reshape AI governance",
+     "hook": "Anthropic’s $81.3 billion IPO gives founders permanent control.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia leadership turmoil hits restaurant fans",
+     "reel": 8,
+     "hook": "Nvidia says it will not reinstate co‑founder Jensen Huang after affairs reported.",
+     "chosen": true
+    },
+    {
+     "story": "Meta’s Muse agent leaks private data in internal tests",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Meta's internal AI leak of real bank data raises personal privacy alarm",
+     "hook": "Meta’s Muse leaked bank balances, alarming staff.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic begins trading on Nasdaq",
+     "reel": 6,
+     "hook": "Anthropic listed on Nasdaq at $111.50, reporting an $80.7 billion loss and $16.3 billion revenue, while emphasizing safety governance.",
+     "chosen": false
+    },
+    {
+     "story": "Google adds computer‑use agent to Gemini for Mac",
+     "reel": 6,
+     "hook": "Google's Gemini controls Mac apps for you.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
+ "finished_at": "2026-11-20T00:54:25+00:00",
+ "seconds": 2324.7
+}

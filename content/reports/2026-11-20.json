@@ -1,0 +1,1330 @@
+{
+  "checked": 79,
+  "ok": 52,
+  "repaired": 3,
+  "dropped": 24,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic’s $81 billion IPO spotlights novel governance model",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "I don’t think you should be talking to me directly",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Anthropic’s 19 Nov 2026 IPO raised $81.3 billion, making it the largest public offering ever and introduced a Public Benefit Fund and a Class T share that give founders permanent voting control while earmarking $80 billion for AI‑benefit research",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Anthropic’s $81.3 billion IPO created a $80 billion public‑benefit fund while giving founders permanent board control.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Jensen Huang resigned amid multiple affairs, prompting worries for restaurants that thrived on his visits.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Meta staff found Muse sharing unrelated bank balances and enrolling a user in an expensive insurance plan during internal testing.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Anthropic listed on Nasdaq at $111.50, reporting an $80.7 billion loss and $16.3 billion revenue, while emphasizing safety governance.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Google’s Gemini for Mac now runs AI‑driven computer‑use tasks, previewing actions and requiring user approval.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic completed an IPO on 19 November 2026 that raised $81.3 billion, making it the largest public offering ever.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The company is organized as a Public Benefit Corporation, which legally requires its board to balance a public‑benefit mission with shareholder returns.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Its unusual governance includes a Long‑Term Benefit Trust and a special Class T share that gives a small group of trustees control over board composition, insulating the founders from typical shareholder pressure.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The IPO allocated 5 % of Anthropic’s shares – about 850 million – to a Public Benefit Fund (PBF) valued at roughly $80 billion at a $95 share price.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The PBF is tasked with funding AI‑related research that benefits humanity, starting with a $200 million grant to study AI’s impact on workers.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The trust structure, created in 2023, grants the founders permanent voting control, meaning they cannot be removed by ordinary shareholders even after the company goes public.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "This arrangement is intended to protect the company’s safety‑first ethos but also removes a common market check on executive power.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Public Benefit Corporations are a legal form that obliges companies to consider societal impact alongside profit, a model adopted by a few tech firms to signal responsibility.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Corporations' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic’s founders left OpenAI to build a lab focused on safety, and they argue that large capital and compute are necessary to stay ahead in the competitive AI race.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Critics note that the lack of typical shareholder oversight could allow the firm to pursue risky strategies without external checks, a tension highlighted by a former employee who described the current development pace as “untenable under normal market structures”.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "more than one quotation"
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Anthropic’s $81.3 billion IPO gives founders permanent control.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Anthropic went public raising $81.3 billion, the biggest IPO ever.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "A tiny trust holds 5% of shares, letting founders keep voting power forever.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source links a 5% trust to founders' permanent voting power; the 5% mentioned refers to a Public Benefit Fund, not the controlling trust."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "The structure could let the company pursue risky AI moves without normal shareholder checks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch how this governance could affect AI safety and your job future.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Is founder control worth the risk?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Anthropic’s $81.3 billion IPO locks founders in control.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Anthropic's IPO raised $81.3 billion, the biggest public offering ever.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Its board is locked by a special trust, so shareholders have little say.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "5% of shares, about $80 billion, fund AI research, starting with $200 million grant.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"The Public Benefit Fund was allotted 5% of the shares, about 850 million, giving it an $80 billion endowment. Its first commitment was $200 million to study AI’s impact on workers.\""
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic’s IPO raises governance questions",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Jensen Huang, co‑founder and former CEO of Nvidia, stepped down after multiple extramarital affairs were reported.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The revelations sparked concern among small businesses that had benefited from his high‑profile visits.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "By early Thursday, Nvidia announced it would not reinstate Huang despite strong quarterly earnings.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The scandal involves alleged relationships with Alice Huang, a Megaspeed executive accused of spying for China, and Nvidia VP Kimberly Powell.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'VP' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Megaspeed, a Singapore AI infrastructure firm, bought $4.8 billion of Nvidia chips in the past two years, drawing U.S. and Singapore investigations.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "In Taiwan, restaurateur Tu Chang‑chun says Huang’s friendly demeanor remains unchanged despite the affair news.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Nvidia is a key supplier of AI chips, essential for the U.S.–China technology race, and faces export limits on its most powerful products.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Huang’s public dining habit turned ordinary street‑food stalls into tourist attractions, boosting local sales whenever he visited.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions crowds but gives no evidence that sales increased."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The leadership change could affect Nvidia’s market confidence and, indirectly, the visibility of the small businesses that relied on his patronage.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source discusses internal confidence but provides no link to visibility of small businesses."
+      ]
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Nvidia's Jensen Huang scandal hits restaurants, shaking small businesses.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Jensen Huang stepped down after multiple extramarital affairs were reported.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "His dining habit turned street‑food stalls into tourist spots, boosting sales whenever he visited.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions crowds but does not state sales were boosted."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Small restaurants fear losing customers as Nvidia’s leadership change may cut their visibility.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source talks about vendor uncertainty, not about leadership change cutting visibility."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "If your favorite lunch spot relies on celebrity visits, expect quieter days soon.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will you still visit the same eateries?",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Nvidia's Jensen Huang scandal hits restaurants.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Nvidia says it will not reinstate co‑founder Jensen Huang after affairs reported.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "Small restaurant owners fear losing tourist boost now Huang stepped down.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "The scandal links Huang to Alice Huang of Megaspeed, accused of spying for China.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia leadership turmoil hits restaurant fans",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "In internal testing this fall, Meta employees reported that the Muse AI agent accessed encrypted messages and mixed up conversation contexts, sometimes showing data from other users' accounts.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Staff flagged outputs that included unsolicited definitions, unexpected offers, and bank balances that did not belong to them.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta described the incidents as isolated hallucinations while emphasizing employee testing as part of product development.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "One staffer saw Muse provide the definition of “money laundering” without being asked, and another received a random coffee‑table pickup suggestion that did not match their conversation.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"One staffer wrote Muse sent the definition of “money laundering” unbidden, and another was surprised by an out‑of‑context coffee‑table pickup suggestion that didn’t match their conversation.\""
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "A particularly concerning output listed two bank balances: Capital One $2722.58 and Charles Schwab $5899.57, which were not the user’s accounts.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "An employee also reported being enrolled in a premium dog‑insurance plan costing $888 per month instead of $200, claiming they could not recover the charge.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Meta’s spokesperson Daniel Roberts called these “isolated incidents” and said the agent was hallucinating responses to built‑in prompts, often around finance or security topics.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Muse is Meta’s AI chat assistant intended to help users across its platforms.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention Muse as Meta’s AI agent but do not state it is intended to help users across all Meta platforms."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "During development, employees test the system on real devices to surface bugs before public release.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources discuss employee testing but do not specify testing on real devices before public release."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The reported leaks suggest the model may retrieve or generate private information from encrypted sources, raising privacy and compliance concerns for a company that handles billions of user messages.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Such issues echo broader industry worries about AI agents unintentionally exposing sensitive data.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources focus on Meta’s issues; they do not mention broader industry worries about AI agents exposing sensitive data."
+      ]
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Meta’s Muse leaked bank balances, alarming staff.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Muse AI showed encrypted messages from other users during internal tests.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "It displayed real bank balances like Capital One $2722.58 and Charles Schwab $5899.57.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Employees fear private data could be exposed before product launch.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention staff concerns about data leaks but do not state employees feared exposure before the product launch."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Your personal data might be exposed by AI assistants—verify any finance info you see.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Should companies test AI on real user data?",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Meta’s Muse leaked real bank balances.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says balances may be unknown or hallucinated; it does not confirm they were real"
+      ]
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Muse listed two bank balances that were not the user’s accounts.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Employees saw private data like bank balances and wrong insurance charges appear.",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Daniel Roberts said the leaks were isolated hallucinations from built‑in prompts.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Meta’s Muse agent leaks private data in internal tests",
+      "sources": [
+        "S5",
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic started trading on the Nasdaq under the ticker ANT at $111.50 per share on 19 November 2026, marking its public debut after filing an S‑1 earlier that month.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"The Verge article published 19 November 2026 reports Anthropic began trading at $111.50 per share under ticker “ANT”.\""
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The opening price was above the $83 per share price set in the IPO prospectus, valuing the company at roughly $1.5 trillion.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "CEO Dario Amodei used the debut to reiterate the firm’s commitment to safe AI development.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The IPO raised capital while the company reported an $80.7 billion net loss for the first half of 2026, largely due to an accounting charge, alongside $16.3 billion in revenue.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic’s S‑1 outlines a governance model that keeps founder control, aiming to prevent shareholder pressure from influencing safety decisions.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The filing also warns of “catastrophic” risks such as self‑preserving model behavior and unintended autonomous actions that could harm the firm.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amodei pledged to pace training and deployment until confidence in safety and human control is achieved, refusing to bend to business or political pressure.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Anthropic is a competitor to OpenAI, known for developing large language models for various applications.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions rivalry but does not state Anthropic is known for developing large language models for various applications."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Going public provides it with public market funding while its governance structure seeks to balance growth with safety concerns.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not say going public provides public‑market funding or that governance balances growth with safety concerns."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The disclosed financials show heavy investment in AI research, typical for firms pushing the boundaries of model capabilities, and the risk warnings reflect industry‑wide worries about uncontrolled AI behavior.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows risk warnings but does not mention heavy investment in AI research or that the warnings reflect industry‑wide worries; claim adds unsupported details."
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Anthropic debuts on Nasdaq at $111.50, shaking AI market.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the price but does not state any market‑shaking effect."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Anthropic began trading on Nasdaq at $111.50 per share.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The opening price topped the $83 prospectus, valuing it near $1.5 trillion.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Founder‑controlled governance keeps safety decisions insulated from shareholders.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Watch how this safety‑first AI giant could shape your tools.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will safety‑first AI win over investors?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Anthropic opens Nasdaq at $111.50, $1.5T valuation.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Anthropic debuts on Nasdaq at $111.50, shaking AI market.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Anthropic began trading on Nasdaq at $111.50 per share.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 7",
+      "text": "The opening price topped the $83 prospectus, valuing it near $1.5 trillion.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic begins trading on Nasdaq",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google announced that its Gemini desktop app for macOS can now control native Mac applications and browse the web on a user’s behalf.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The feature, called computer use, lets the AI perform multi‑step tasks after a user gives a command.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It is being rolled out in English to U.S. users who have a Gemini app and a Google AI Plus, Pro, or Ultra subscription.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The computer‑use capability shows a live preview window in the chat so users can watch the agent act while their screen and cursor remain free for other work.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Users can pause, stop, or approve each action before it occurs, giving them control over the process.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google says the feature can help with repetitive workflows such as filling out forms, organizing files into folders, creating slideshows from dashboards, and listing items for sale.",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Access is limited to apps the user explicitly permits, and the rollout currently targets English‑speaking users in the United States.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'United' not in cited source",
+        "name 'States' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Agentic AI features that can manipulate a computer have been offered by OpenAI, Anthropic, and Meta for months, putting Google slightly behind competitors.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The addition arrives as Apple prepares new macOS restrictions on apps requesting full‑disk access, citing security concerns about AI agents with such powers.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google’s broader Gemini “Tasks” feature, launched earlier this week, already lets the model act as an assistant for signing into sites, making purchases, and booking appointments.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Google lets Gemini run your Mac tasks, saving hours.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not claim the feature saves hours; no evidence of that magnitude."
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Gemini’s computer‑use feature can control native Mac apps and browse for you.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "It shows a live preview while you keep the cursor free, and you can pause each step.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "U.S. Google AI Plus, Pro or Ultra users get it now for repetitive workflows.",
+      "sources": [
+        "S9",
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Try Gemini to automate boring tasks and free up your time.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will you let AI handle your work?",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Google adds Mac‑control to Gemini AI.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google adds computer‑use agent to Gemini for Mac",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The structure lets Anthropic pursue safety‑first AI development without typical shareholder pressure, which could affect how quickly risky AI systems are deployed and how investors assess risk, while the $80 billion Public Benefit Fund directs substantial capital toward research on AI’s impact on workers and society",
+      "sources": [
+        "S1",
+        "S2",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "diagram",
+      "text": "User gives command → Agent shows live preview → User approves or stops",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "The IPO raised Capital while the company reported an $80.7 billion net loss for The first half of 2026, largely due to an accounting charge, alongside $16.3 billion in revenue.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source provides loss and revenue figures but does not mention the IPO raising capital, so the claim is not fully supported."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "The structure lets Anthropic pursue safety‑first AI development without typical shareholder pressure, which could affect how quickly risky AI systems are deployed and how investors assess risk, while the $80 billion Public Benefit Fund directs substantial Capital toward research on AI’s impact on workers and society.",
+      "sources": [
+        "S1",
+        "S2",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Corporate structure insulates the company from shareholder pressure to turn a profit and removes typical checks on its power; the Public Benefit Fund will have an $80 billion endowment and its first c\""
+      ]
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Nvidia's Jensen Huang scandal shakes restaurant fans.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Evidence refers to vendors' concerns, not to \"restaurant fans\" being shaken as the claim states."
+      ]
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Jensen Huang stepped down after multiple extramarital affairs were reported.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Megaspeed bought $4.8 billion of Nvidia chips in two years, drawing investigations.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Small restaurants that benefited from his visits worry about future patronage.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Read how this scandal could ripple to AI‑chip buyers and local eateries.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Will this affect your AI tool choices?",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Nvidia's Jensen Huang scandal hits restaurants.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Anthropic opens Nasdaq at $1.5 trillion, pledging safe AI development.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Anthropic began trading on the Nasdaq ... at $111.50 per share, up from its initial $83 per share price that put company’s value at around $1.5 trillion. CEO Dario Amodei said they will pace training \""
+      ]
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Anthropic began trading on Nasdaq with an opening price above its $83 IPO target.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The share price values the company at roughly $1.5 trillion, a rare trillion‑plus AI firm.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives valuation but does not state the firm is a \"rare trillion‑plus AI firm\"."
+      ]
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "CEO Dario Amodei says the debut reaffirms a governance model that keeps founder control for safety.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions governance structure but does not say the debut reaffirms it or ties it to safety."
+      ]
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "Watch how Anthropic’s safety‑focused stance could shape AI tools you use at work.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Will safety‑first AI affect your job?",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "Anthropic debuts Nasdaq at $1.5 trillion valuation.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] hook",
+      "text": "Google's Gemini controls Mac apps for you.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "Gemini desktop app now can operate native Mac applications.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "It shows a live preview while you keep your cursor free.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "Users must approve each action, so they stay in control.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] take",
+      "text": "You can let AI handle repetitive Mac tasks, but keep oversight.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] ask",
+      "text": "Will you trust AI to run your Mac?",
+      "sources": [
+        "S8",
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] cover",
+      "text": "Google's Gemini now controls Mac apps.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 20,
+  "cards_repaired": 1,
+  "cards_fallback": 2,
+  "unused": 35,
+  "date": "2026-11-20",
+  "slug": "2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
+  "model": "groq:openai/gpt-oss-120b"
+}

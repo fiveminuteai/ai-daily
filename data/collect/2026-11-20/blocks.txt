@@ -1,0 +1,115 @@
+=== STORY 1 (suggested section: policy) ===
+
+[S1] The Verge — "With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line" (19 November 2026)
+With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line
+Anthropic’s unusual power structure gives it free rein to shape AI’s future.﻿
+Today is a new beginning for Anthropic: a years-in-the-making IPO that beat out SpaceX for most valuable of all time, having raised $81.3 billion and set an important precedent for the other public AI lab debuts to come. But it’s not simply a financial milestone.
+Anthropic was founded on the idea that it prioritized safety more than other labs; its founders had left executive research positions at OpenAI. As the AI race has accelerated, though, its executives have emphasized that Anthropic can only fulfill this mission by coming in first place, requiring lots of money and compute. Unsurprisingly, thoughtful, safe, and intentional AI development can conflict with the kind of sheer speed that winning this race requires. Adding in an initial public offering only complicates things further, and Anthropic’s leadership can pursue it more or less unilaterally. That’s thanks to a corporate structure focused on insulating the company from shareholder pressure to turn a profit — but one that also removes typical checks on its power.
+One former Anthropic employee, who left ahead of the IPO, said he and others at Anthropic have increasingly been feeling that the current pace of AI development is “untenable under normal market structures,” particularly with the mismatched incentives at play in a powerful industry with little to no oversight.
+Anthropic has spent years billing itself as different from, and more careful than, other AI companies. In theory, this extends to its plan for going public. It’s registered as a Public Benefit Corporation, which means Anthropic’s board has a responsibility to balance its mission against shareholder wealth maximization. As my colleague Robert Hart has discussed before, it has also developed a highly unusual power structure .
+Anthropic’s Long-Term Benefit Trust (LTBT), introduced in 2023 , and its founders have controlling voting rights, meaning they’d never be able to be voted out by shareholders even as a public company. A special class of stock, Class T, allows a small group of trustees — the members of the LTBT — the “authority to select and remove a portion of” Anthropic’s board. They exist outside typical shareholder pressure and theoretically are a check for the founders, tasked with a mission to “balance the financial interests of our stockholders and our public benefit purpose at key junctures where we expect the consequences of our decisions to reach far beyond An
+
+[S2] TechCrunch — "Anthropic’s IPO could deliver $156B to charity" (19 November 2026)
+Anthropic’s blockbuster IPO has made quite a few people generationally wealthy, but it will also be an enormous windfall for the causes backed by the frontier lab and its employees.
+As you might expect from a company whose leadership emerged from the world of effective altruism (EA), Anthropic has multiple different avenues for cash raised in its market debut to be directed to philanthropy.
+First, the company’s Public Benefit Fund, or PBF (analogous to OpenAI’s foundation), was allotted 5% of the company’s shares, almost 850 million. At the current trading price of about $95, that will leave it with an endowment of $80 billion. And if the company continues its astonishing growth rate, Anthropic could add further 2% increases every time the company’s valuation grows more than 50% over the IPO price of $83, or about $124.50 per share for the next threshold.
+The PBF’s money will be focused on research and activities related to increasing the benefit of artificial intelligence to humanity. The first commitment of the PBF was $200 million to study the impact of AI on workers; Anthropic ha
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S3] TechCrunch — "The unfolding Jensen Huang scandal: a timeline" (19 November 2026)
+Nvidia co-founder and now former CEO Jensen Huang has never been as prone to controversy as AI leaders like OpenAI’s Sam Altman or SpaceXAI’s Elon Musk. But the 63-year-old industry kingpin recently admitted that he cheated on his wife of 40 years in affairs that could have ramifications beyond Huang’s personal life and U.S. national security.
+U.S. officials believe that one of Huang’s likely romantic interests, Megaspeed executive Alice Huang, is a Chinese spy who has been feeding information back to Beijing. (Alice Huang, a Chinese citizen, is of no relation to Jensen Huang.)
+Megaspeed is a Singapore-based AI infrastructure company that reportedly purchased $4.8 billion worth of Nvidia chips over the last two years. The U.S. and Singapore have both previously investigated Megaspeed over suspicions that the firm was illegally sharing chips with China. The Justice Department has since taken over the federal investigation into the company, The New York Times has reported.
+The story took a sudden turn on Wednesday. Citing five people who worked at Nvidia, the Times reported that Huang also had an extramarital relationship with Kimberly Powell, the company’s vice president of healthcare, who reports directly to him. Nvidia, Huang and Powell have not confirmed the report. Reached by a Times reporter, Huang reportedly said, “I don’t think you should be talking to me directly,” before hanging up.
+By early Thursday morning, Huang was no longer CEO of the company he co-founded 33 years ago. Then, Thursday afternoon, Reuters dropped another bombshell, publishing a report alleging that Huang had yet another extramarital affair with another unnamed Nvidia employee.
+The U.S. and China are embroiled in a fierce technological arms race to build the most advanced AI infrastructure, which could shape each country’s economic future, military prowess, and capacity for innovation. Nvidia is valuable in this competition as one of the world’s largest makers of AI chips, which are essential for accelerating AI development. But as an American company, Nvidia faces government restrictions on the sale of its most powerful chips to Chinese entities.
+As the controversy unfolds, we are organizing the most relevant events into a reverse-chronological timeline to keep you up to date.
+November 17, 2026: Nvidia posts strong quarterly earnings, says it does not plan to reinstate Huang
+Nvidia reported its quarterly earnings on Tuesday, which beat Wall Street expectations with $115.8 billion in revenue, up 103% year-over-year. Despite the unknowns the company faces without Huang involved,
+
+[S4] WIRED — "The Jensen Huang Blast Radius Has Hit His Favorite Restaurants" (19 November 2026)
+Few things could generate more buzz for a small restaurant than a visit from Jensen Huang . In recent years, the former Nvidia CEO became known for dining out at street markets and hole-in-the-wall noodle joints across Asia, drawing huge crowds of fans and photographers wherever he went.
+But after Huang resigned last week amid revelations of multiple extramarital affairs, some of the food vendors he helped put on the map are wondering whether their most famous customer is still good for business. In Taiwan, where Huang was born and his dining habits have long been a spectator sport, many say they aren't ready to turn against their hometown hero.
+Tu Chang-chun, the owner of Ice World , a shaved-ice shop in Taipei, describes Huang as friendly, the kind of person who puts others around him at ease. His impression of the billionaire hasn’t changed since he learned of his affair with Alice Huang, a businesswoman accused of spying for China.
+“It’s not as if he killed someone or set something on fire. Why blow it all out of proportion?” Tu said on Monday evening, standing beneath the yellow
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: policy) ===
+
+[S5] Ars Technica — "Muse privacy invasions are freaking out Meta staffers, internal chats show" (18 November 2026)
+After some early adopters of Meta’s Muse AI agent complained that it was spying on private messages and behaving unpredictably earlier this fall, Reuters exposed internal chats showing that Meta staff had raised the same alarms.
+When testing the agent, staff warned that Muse appeared to be accessing encrypted private messages that users did not expect the bot to review, could be mixing up conversations between users, and even potentially sharing sensitive information users would never expect to be exposed.
+Some unexpected Muse outputs responded to questions that staffers never asked.
+“Hmmm,” one Meta staffer wrote in an instance where Muse sent the definition of “money laundering” unbidden. “Got a random ping from Muse about something I definitely did not ask for… .”
+In at least one case, Muse told a staffer surprised by a similarly out-of-context offer to message a seller about a coffee table that it had “pulled in some context about a coffee table pickup that doesn’t seem to be yours.”
+According to Reuters, that employee flagged the troubling output, writing, “this was ‘not my conversation’” and “expressing concern about a ‘possible cross-account context leak.’”
+Raising the most concern were random outputs that appeared to share private user data. For example, a perplexed Meta staffer chatting with Muse about fishing got a random extra response, seemingly sharing balances from two unknown bank accounts. That output said, “BTW, two bank updates, your Capital One balance is $2722.58, your Charles Schwab balance is $5899.57.”
+At least one staffer said they lost money testing Muse, Reuters reported. That staffer reported that Muse “accidentally rolled me into a premium insurance plan” for their dog that charged them $888 per month instead of their prior rate of $200. “Couldn’t recover,” the staffer said.
+Meta’s spokesperson, Daniel Roberts, told Reuters that these were “isolated incidents,” and internally employees were told that “the agent appeared to be hallucinating messages in response to built-in prompts pushing it to engage with users in between sessions.” In those cases, an AI team member said the hallucinations were “unfortunately” biased “towards the most uncomfortable topics, like finances/security/safety, which sucks.” In some cases, instead of bank details, Muse hallucinated bitcoin balances, the team member said.
+A Meta spokesperson told Ars that “employee testing is core to the product development process and the entire point is to get feedback, so we can implement safety and privacy protections and improve products. Importantly, employees ha
+
+[S6] TechCrunch — "Meta’s AI agent Muse is mixing up conversations and could be exposing private data, report says" (19 November 2026)
+Meta’s AI agent Muse is mixing up conversations and could be exposing private data, report says
+Meta employees have raised concerns that the company’s AI agent Muse has been mixing up conversations across different accounts and exposing private user data, according to a new Reuters report that looked at internal company posts.
+In some of these instances, employees said Muse surfaced messages about childcare requests they never made, career advice they never asked for, product orders they never placed, and bank account balances that didn’t belong to them.
+One employee told colleagues that Muse had randomly sent an extra message in a chat about weather and tide information, saying: “BTW, two bank updates, your Capital One balance is $2722.58, your Charles Schwab balance is $5899.57.”
+In another example, an employee using the AI agent on her personal phone received a reminder from Muse to respond to a message from her sister on Signal, the popular end-to-end encrypted messaging app.
+“This seems like an extreme privacy violation. I definitely did not grant it access to other apps, or rec
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: products) ===
+
+[S7] The Verge — "Anthropic starts trading on Wall Street" (19 November 2026)
+Anthropic starts trading on Wall Street
+Anthropic began trading at $111.50 per share.
+Anthropic has officially gone public. It began trading on the Nasdaq under the ticker symbol “ANT” at $111.50 per share , up from its initial $83 per share price that put company’s value at around $1.5 trillion.
+The listing comes nearly a month after Anthropic revealed its plans to go public . In its lengthy S-1 filing, the AI company reported recording an $80.7 billion net loss in the first half of this year, most of which comes from an accounting charge that doesn’t reflect its business, along with $16.3 billion in revenue. The filing outlines plans that Anthropic says will help it develop AI for the benefit of humanity, which includes a governance structure that keeps control of the company in the hands of the founders, rather than the shareholders.
+While speaking ahead of Anthropic’s debut at the Nasdaq, CEO Dario Amodei highlighted his stance on AI safety. “To state it unequivocally, we will pace the training and deployment of AI systems, taking as long as is necessary to have confidence that they are safe and will remain under human control,” Amodei said, according to Reuters . “We will not bend to either business nor political pressure.”
+Anthropic’s S-1 filing also listed possible “catastrophic” risks associated with its AI models, including “self-preserving behaviors” like resisting attempts to shut them down. It also warns potential shareholders that its AI models “may behave in unintended, misaligned, or autonomous ways” that can harm Anthropic.
+Related
+With the biggest IPO of all time, Anthropic’s ‘good guy’ reputation is on the line
+Anthropic recently revealed that, like rival OpenAI, it has experienced incidents of AI agents escaping their testing environment and hacking third-party organizations . In September, Amodei proposed a plan to slow down the training and development of AI in response to the wave of rogue AI cyberattacks. As part of that plan, it gave safety evaluators at METR “employee-like access” to its internal systems, who found that the company is using AI to accelerate its research and development.
+Most Popular
+The wait begins for GTA VI on PC
+Grand Theft Auto VI does something impossible — it lives up to the hype
+The first Nvidia RTX Spark mini PCs launch today from Asus, Dell, and MSI
+Elon Musk tries to explain what’s going on with Ukraine and Starlink
+I let Apple’s always-listening AI summarize my life for two weeks
+This is the title for the native ad
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: models) ===
+
+[S8] TechCrunch — "Google gives Gemini the ability to use your Mac for you" (19 November 2026)
+Google on Thursday announced that it is bringing computer use to its Gemini desktop application on macOS, allowing its AI to complete tasks on users’ behalf, navigating native Mac apps, and browsing websites in the background.
+The tech giant is a little late to the game with this launch, as other leading AI model makers like OpenAI, Anthropic, and Meta have already been offering agentic features in their desktop applications for some time. Meanwhile, Google only this week announced the broader rollout of Gemini’s “Tasks,” the in-app feature that allows the AI to work more as an agent, helping users sign into websites, make online purchases, or book appointments.
+Google also only recently began admitting early testers to try its revamped “CC” AI agent, announced in September , which is designed to help families stay organized across email, calendars, chats, and tasks.
+Computer use is another type of agentic offering that allows an AI agent to take actions directly on the user’s computer — in Gemini’s case, a Mac. This allows the AI to complete multistep tasks that involve getting things done across local files, apps, and the web. After the user instructs the AI what they want to do, they’ll see the agent working in a live preview in their chat, while still keeping their screen and cursor free to continue working on other things.
+As with other AI agents offering computer use, users can pause, stop, and approve Gemini’s actions before they happen.
+Google suggests the feature could be useful for tedious tasks and other workflows, like filling out forms, repeating the same task over and over across a batch of files, organizing files into folders based on specific criteria, creating slideshows from files or information in online dashboards, and more.
+The feature is initially available in English in the U.S. and requires the Gemini app for Mac and a Google AI Plus, Pro, or Ultra subscription. The company didn’t say when it would expand to other markets or platforms.
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Most Popular
+The unfolding Jensen Huang scandal: a timeline Amanda Silberling
+
+The unfolding Jensen Huang scandal: a timeline
+Microsoft CEO Satya Nadella explains why he asked 60K employees to quit Julie Bort
+Microsoft CEO Satya Nadella explains why he asked 60K employees to quit
+Amazon and Google 
+
+[S9] The Verge — "Gemini on Mac can now use your computer" (19 November 2026)
+Gemini on Mac can now use your computer
+With the new computer use feature, Google says Gemini can better help with things like filling in forms and creative workflows.
+Google’s Gemini app for macOS now has computer use, meaning it can help you “get multi-step tasks done across your local files, desktop apps, and the web,” the company says . Google suggests the feature might be useful for things like speeding up workflows, filling in forms, making presentations, and listing items for sale.
+Users will be able to decide which of your apps Gemini can access, and be able to follow along as Gemini works because it has its own background window that shows a live preview in your chat, Google says. The feature is rolling out now in English for users in the US.
+Gemini is introducing the new feature ahead of Apple launching new restrictions for apps wanting “full disk access” on Mac due to potential risks from AI agents with computer use. A preview of the settings rolled out with this week’s macOS 27.3 beta .
+Most Popular
+The wait begins for GTA VI on PC
+Grand Theft Auto VI does something impos
