@@ -642,3 +642,16 @@ def test_a_good_duo_survives_its_card_losing_the_hook_and_comes_back_on_the_rebu
     post, report = verify_draft(draft2, SOURCES)
     post, report = llm_check(FakeChain([], flag_text={"costs $2 per million tokens": "wrong"}), post, SOURCES, report)
     assert "kept_duo" not in post["sections"][0]
+
+def test_evidence_with_an_aside_left_out_or_a_frame_added_is_found_but_scrambled_words_are_not():
+    # 20 Nov 2026: true lines were dropped because the checker left out an aside or added "The Verge ... reports"
+    from fma.verify import evidence_found, norm
+    c = norm("The Verge — Anthropic starts trading on Wall Street (published 19 November 2026) "
+             "Anthropic starts trading on Wall Street. Anthropic began trading at $111.50 per share. Anthropic has "
+             "officially gone public. It began trading on the Nasdaq under the ticker symbol “ANT” at $111.50 per share. "
+             "First, the company’s Public Benefit Fund, or PBF (analogous to OpenAI’s foundation), was allotted 5% of "
+             "the company’s shares, almost 850 million.")
+    assert evidence_found("The Public Benefit Fund was allotted 5% of the shares", c)
+    assert evidence_found("The Verge article published 19 November 2026 reports Anthropic began trading at $111.50 per "
+                          "share under ticker “ANT”.", c)
+    assert not evidence_found("Shares of the foundation were allotted to OpenAI under the Nasdaq ticker symbol PBF", c)

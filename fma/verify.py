@@ -722,6 +722,28 @@ def evidence_found(quote: str, corpus_norm: str, need: float = 0.85, cover: floa
                     hit += 1
             if hit / len(q) >= need:
                 return True
+        return in_order(q)
+
+    def in_order(q: list[str], share: float = 0.8) -> bool:
+        # 20 Nov 2026: true lines were dropped because the checker quoted loosely. It left out an aside ("the
+        # company's Public Benefit Fund, or PBF (analogous to ...), was allotted 5%" quoted as "The Public Benefit
+        # Fund was allotted 5%") or added a frame ("The Verge article published 19 November 2026 reports Anthropic
+        # began trading..."). So a clause also counts when 80% of its words appear IN ORDER within a stretch about
+        # two and a half times its length. Order keeps out sentences built from scattered words.
+        span = int(2.5 * len(q)) + 4
+        firsts = set(q[:3])
+        for i, t in enumerate(ctoks):
+            if t not in firsts:
+                continue
+            win = ctoks[i:i + span]
+            prev = [0] * (len(win) + 1)               # longest common subsequence of q and the window
+            for w in q:
+                cur = [0] * (len(win) + 1)
+                for j, c in enumerate(win, 1):
+                    cur[j] = prev[j - 1] + 1 if w == c else max(prev[j], cur[j - 1])
+                prev = cur
+            if prev[-1] / len(q) >= share:
+                return True
         return False
 
     return sum(len(q) for q in pieces if found(q)) / total >= cover
