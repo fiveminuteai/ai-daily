@@ -1,22 +1,309 @@
 {
  "date": "2026-11-20",
- "collected_at": "2026-11-20T00:31:04+00:00",
+ "collected_at": "2026-11-20T18:00:42+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 227,
+  "visitors_day": 6,
+  "daily": [
+   {
+    "day": "2026-10-24",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-25",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-26",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 14
+   },
+   {
+    "day": "2026-11-13",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-14",
+    "visitors": 2
+   },
+   {
+    "day": "2026-11-15",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-16",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-17",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-18",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-19",
+    "visitors": 3
+   },
+   {
+    "day": "2026-11-20",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-21",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 20
+   },
+   {
+    "path": "/tags",
+    "title": "Topics · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
+    "title": "Anthropic’s $81 billion IPO spotlights novel governance model · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-13-google-deepmind-launches-gemini-4-hydrogen-for",
+    "title": "Google DeepMind launches Gemini 4 Hydrogen for faster coding · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 18
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 15
+   },
+   {
+    "name": "ig",
+    "visitors": 1
+   },
+   {
+    "name": "www.facebook.com",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 1
+   }
+  ],
+  "reads_7d": {
+   "post_views": 7,
+   "read_30s": 2,
+   "read_half": 2,
+   "read_end": 0,
+   "read_end_rate": 0.0
+  }
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 13,
-  "media_count": 65,
+  "media_count": 71,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 288,
+   "views": 334,
+   "accounts_engaged": 2,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "18117065834135225",
+    "timestamp": "2026-11-20T13:32:26+0000",
+    "permalink": "https://www.instagram.com/reel/Df9xOA2irGa/",
+    "type": "VIDEO",
+    "caption": "Anthropic listed on Nasdaq at $111.50, reporting an $80.7 billion loss and $16.3 billion r",
+    "likes": 0,
+    "comments": 0,
+    "reach": 28,
+    "views": 33,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 4.4,
+    "skip_rate": 67.9,
+    "reposts": 0
+   },
+   {
+    "id": "18181322104386876",
+    "timestamp": "2026-11-20T10:31:56+0000",
+    "permalink": "https://www.instagram.com/p/Df9cpLCl4dT/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "A viral post listed 30 Claude plugins by GitHub stars. We read their GitHub pages. Five th",
+    "likes": 0,
+    "comments": 0,
+    "reach": 1,
+    "views": 2,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18121987495777749",
+    "timestamp": "2026-11-20T10:31:13+0000",
+    "permalink": "https://www.instagram.com/reel/Df9chFZiEMT/",
+    "type": "VIDEO",
+    "caption": "Meta’s Muse leaked bank balances, alarming staff.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 105,
+    "views": 119,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 4.2,
+    "skip_rate": 60.2,
+    "reposts": 0
+   },
+   {
+    "id": "17959539060270298",
+    "timestamp": "2026-11-20T07:31:13+0000",
+    "permalink": "https://www.instagram.com/reel/Df9H6GWDHMB/",
+    "type": "VIDEO",
+    "caption": "Anthropic’s $81.3 billion IPO gives founders permanent control.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 157,
+    "views": 170,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 8.8,
+    "skip_rate": 49.7,
+    "reposts": 0
+   },
+   {
+    "id": "18470279185190844",
+    "timestamp": "2026-11-20T05:31:23+0000",
+    "permalink": "https://www.instagram.com/p/Df86PKaE3nE/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Anthropic’s $81 billion IPO spotlights novel governance model",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 7,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "18054376226812836",
+    "timestamp": "2026-11-20T03:31:29+0000",
+    "permalink": "https://www.instagram.com/reel/Df8scr-jq5e/",
+    "type": "VIDEO",
+    "caption": "Nvidia says it will not reinstate co-founder Jensen Huang after affairs reported.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 3,
+    "views": 3,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 7.4,
+    "skip_rate": 66.7,
+    "reposts": 0
+   },
    {
     "id": "18394630039238848",
     "timestamp": "2026-11-19T13:31:35+0000",
@@ -25,13 +312,13 @@
     "caption": "Anthropic priced IPO at $83, shaking AI market.",
     "likes": 1,
     "comments": 0,
-    "reach": 189,
-    "views": 236,
+    "reach": 225,
+    "views": 275,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 10.4,
-    "skip_rate": 51.2,
+    "avg_watch_s": 10.0,
+    "skip_rate": 53.1,
     "reposts": 0
    },
    {
@@ -47,7 +334,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 4.3,
+    "avg_watch_s": 3.5,
     "skip_rate": 100,
     "reposts": 0
    },
@@ -60,12 +347,12 @@
     "likes": 0,
     "comments": 0,
     "reach": 108,
-    "views": 119,
+    "views": 121,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 7.3,
-    "skip_rate": 35.1,
+    "avg_watch_s": 7.2,
+    "skip_rate": 34.8,
     "reposts": 0
    },
    {
@@ -93,13 +380,13 @@
     "caption": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
     "likes": 3,
     "comments": 0,
-    "reach": 247,
-    "views": 285,
+    "reach": 264,
+    "views": 303,
     "saved": 0,
     "shares": 0,
     "total_interactions": 3,
-    "avg_watch_s": 11.9,
-    "skip_rate": 42.7,
+    "avg_watch_s": 11.6,
+    "skip_rate": 43.2,
     "reposts": 0
    },
    {
@@ -247,7 +534,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 4,
-    "views": 9,
+    "views": 10,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -778,7 +1065,7 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 8.1,
+    "avg_watch_s": 8.0,
     "skip_rate": 46.1,
     "reposts": 0
    },
@@ -1103,23 +1390,6 @@
     "total_interactions": 2,
     "avg_watch_s": 2.9,
     "skip_rate": 84.3,
-    "reposts": 0
-   },
-   {
-    "id": "18132685601497886",
-    "timestamp": "2026-10-31T18:07:50+0000",
-    "permalink": "https://www.instagram.com/reel/DfKw3Zzkv3p/",
-    "type": "VIDEO",
-    "caption": "A hacked Claude Code update reached up to 5,000 developers.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 50,
-    "views": 54,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 4.4,
-    "skip_rate": 82.4,
     "reposts": 0
    }
   ]
