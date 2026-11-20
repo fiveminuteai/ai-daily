@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T18:02:29+00:00",
+ "updated": "2026-11-20T00:32:38+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
@@ -336,6 +336,27 @@
    "time": "09:00"
   },
   {
+   "id": "2026-10-31-reel-3",
+   "date": "2026-10-31",
+   "kind": "plain",
+   "hook": "An AI coding agent sent Pentagon system logins to a risky website.",
+   "judged": "final",
+   "x": {
+    "reach": 1.53,
+    "watch_s": 0.84,
+    "held": 0.86,
+    "sent_saved": null
+   },
+   "overall": 1.03,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "no duo",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
    "id": "2026-11-03-reel-1",
    "date": "2026-11-03",
    "kind": "plain",
@@ -418,27 +439,6 @@
    "pace": "slow",
    "hook_number": false,
    "time": "13:00"
-  },
-  {
-   "id": "2026-10-31-reel-3",
-   "date": "2026-10-31",
-   "kind": "plain",
-   "hook": "An AI coding agent sent Pentagon system logins to a risky website.",
-   "judged": "final",
-   "x": {
-    "reach": 1.51,
-    "watch_s": 0.84,
-    "held": 0.77,
-    "sent_saved": null
-   },
-   "overall": 0.99,
-   "category": "models",
-   "player": "giant",
-   "hook_type": "untagged",
-   "pain": "untagged",
-   "pace": "no duo",
-   "hook_number": false,
-   "time": "19:00"
   },
   {
    "id": "2026-11-02-reel-2",

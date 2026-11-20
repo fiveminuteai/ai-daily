@@ -1,25 +1,25 @@
 {
- "date": "2026-11-19",
+ "date": "2026-11-20",
  "window": [
-  "2026-11-13",
-  "2026-11-19"
+  "2026-11-14",
+  "2026-11-20"
  ],
  "this_week": {
   "reels": 18,
-  "reach": 106.5,
+  "reach": 107.0,
   "skip_rate": 56.8,
   "avg_watch_s": 6.0,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 6
+  "follows_per_week": 5
  },
  "last_week": {
-  "reels": 20,
-  "reach": 111.5,
-  "skip_rate": 59.6,
-  "avg_watch_s": 5.7,
+  "reels": 18,
+  "reach": 110.0,
+  "skip_rate": 60.5,
+  "avg_watch_s": 5.5,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 6,
+   "value": 5,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
@@ -68,10 +68,10 @@
    "id": "18080062715732720",
    "day": "2026-11-19",
    "caption": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
-   "reach": 224,
-   "skip_rate": 42.2,
-   "avg_watch_s": 12.1,
-   "likes_per_1k": 13.4,
+   "reach": 247,
+   "skip_rate": 42.7,
+   "avg_watch_s": 11.9,
+   "likes_per_1k": 12.1,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
@@ -82,10 +82,10 @@
    "id": "18394630039238848",
    "day": "2026-11-19",
    "caption": "Anthropic priced IPO at $83, shaking AI market.",
-   "reach": 129,
-   "skip_rate": 44.9,
-   "avg_watch_s": 12.0,
-   "likes_per_1k": 7.8,
+   "reach": 189,
+   "skip_rate": 51.2,
+   "avg_watch_s": 10.4,
+   "likes_per_1k": 5.3,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
