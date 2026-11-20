@@ -108,13 +108,17 @@
    "cover": null,
    "text": "Meta’s Muse leaked bank balances, alarming staff.\n\n• Muse AI showed encrypted messages from other users during internal tests.\n• It displayed real bank balances like Capital One $2722.58 and Charles Schwab $5899.57.\n\nOur read: Your personal data might be exposed by AI assistants—verify any finance info you see.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #meta",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-20T10:31:24+00:00",
+   "posted_url": "https://www.instagram.com/reel/Df9chFZiEMT/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-20/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-20T10:30:00+00:00"
+   "scheduled_at": "2026-11-20T10:30:00+00:00",
+   "media_id": "18121987495777749",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/COeNgjecL2M",
+   "youtube_error": null
   },
   {
    "id": "2026-11-20-reel-4",
@@ -145,9 +149,9 @@
    "slides": true,
    "text": "A viral post listed 30 Claude plugins by GitHub stars. We read their GitHub pages. Five things the slides don't say, and five checks to run before you install anything. Every claim sourced: link in bio.\n\nWhich plugin do you actually use every day?",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-20T10:32:01+00:00",
+   "posted_url": "https://www.instagram.com/p/Df9cpLCl4dT/",
    "media": [
     "https://fiveminuteai.net/checks/claude-plugins-we-checked/01.jpg",
     "https://fiveminuteai.net/checks/claude-plugins-we-checked/02.jpg",
@@ -157,7 +161,9 @@
     "https://fiveminuteai.net/checks/claude-plugins-we-checked/06.jpg",
     "https://fiveminuteai.net/checks/claude-plugins-we-checked/07.jpg"
    ],
-   "scheduled_at": "2026-11-20T09:00:00+00:00"
+   "scheduled_at": "2026-11-20T09:00:00+00:00",
+   "media_id": "18181322104386876",
+   "error": null
   }
  ]
 }
