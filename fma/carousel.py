@@ -220,7 +220,9 @@ def plan(post: dict) -> list[dict]:
         from .duo_desk import is_sensitive
         if chart and chart.get("source") in ids and "chart" not in used and len(chart.get("bars", [])) >= 2                 and one_measure(chart):
             kind = "chart"
-        elif quote and quote.get("source") in ids and "quote" not in used and not is_sensitive(s):
+        elif (quote and quote.get("source") in ids and "quote" not in used and not is_sensitive(s)
+              and re.search(r"[A-Z]", str(quote.get("speaker") or ""))):
+            # 21 Nov 2026: a quote credited to "job posting" made a weak slide; only a named person or company
             # 9 Nov 2026: a private-life story gets no quote slide (it put a CEO's apology to his family up front)
             kind = "quote"
         elif key_figure(line):
@@ -292,6 +294,12 @@ def slide_story(post, item, n, total, theme):
     cover = (s.get("card") or {}).get("cover")
     if n == 2 and cover and len(plain(cover).split()) <= 8:
         title = plain(cover).rstrip(".")
+    elif n == 2 and title.rstrip(".") == plain(post.get("headline", "")).rstrip("."):
+        # 21 Nov 2026: with no short cover line (a rebuilt card has none), slide 2 repeated the cover's headline word
+        # for word. It leads with the card's hook instead when that is short enough to read as a title.
+        hook = plain((s.get("card") or {}).get("hook") or "")
+        if hook and len(hook.split()) <= 20:
+            title = hook.rstrip(".")
     src = publishers(post, s)
 
     if kind == "number":

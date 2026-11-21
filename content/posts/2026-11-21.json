@@ -76,7 +76,53 @@
         "hook_type": "stakes",
         "cover": "Google removes search button, adds AI sidebar[S2].",
         "cover_hi": "removes search button",
-        "arm": "short-close"
+        "arm": "short-close",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google removes search button, adding AI chat sidebar[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "I suppose the sidebar is where the real answers live."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "It remembers more than you do."
+            },
+            {
+              "who": "guest",
+              "text": "Terrifying. Truly.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Google replaced the desktop Search button with AI icons and an expandable chat sidebar[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Finally, a sidebar I actually have to read."
+            },
+            {
+              "who": "spark",
+              "text": "The sidebar shows recent Gemini conversations, letting users resume searches instantly[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "I prefer the old silence. Thrilling.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "The guest lines are consistently dry and unimpressed but lack the punchy wit or clever wordplay needed to make a 25-year-old audience laugh out loud or share it."
+        }
       }
     },
     {

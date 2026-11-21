@@ -225,3 +225,15 @@ def test_locked_cast_voices():
     assert duo_reel.GUESTS["doubt"]["voice"] == "doubt-british"
     for name in ("spark-strong", "doubt-british", "rex"):
         assert name in voice.CHARACTERS
+
+
+def test_a_quote_credited_to_a_document_gets_no_quote_slide():
+    """21 Nov 2026: "Imagine an AI agent..." credited to "job posting" made a weak quote slide."""
+    post = json.loads(json.dumps(POST))
+    q = post.get("quote") or {}
+    if not q:
+        return
+    named = [x["kind"] for x in plan(post)]
+    post["quote"] = {**q, "speaker": "job posting"}
+    assert "quote" not in [x["kind"] for x in plan(post)]
+    assert "quote" in named or not any(q.get("source") in str(s["paragraphs"]) for s in post["sections"])
