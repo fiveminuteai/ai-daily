@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-21",
+ "slug": "2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
+ "headline": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+ "url": "https://fiveminuteai.net/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann/",
+ "generated_at": "2026-11-21T00:58:22+00:00",
+ "items": [
+  {
+   "id": "2026-11-21-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Anthropic mathematician claims Claude proved the Riemann hypothesis\n\n• Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.\n• Google’s desktop homepage now shows AI feature icons and a sidebar for recent AI chats, while the classic Search button is removed.\n• Apple is hiring a senior engineering manager to lead development of an AI agent that can operate a Mac, according to a job posting cited by Bloomberg and reported by TechCrunch on 20 November 2026.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-21/instagram.png"
+   ],
+   "scheduled_at": "2026-11-21T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-21-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Anthropic mathematician claims Claude proved the Riemann hypothesis\n\n• Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.\n\nhttps://fiveminuteai.net/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 209
+  },
+  {
+   "id": "2026-11-21-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Anthropic mathematician claims Claude proved the Riemann hypothesis\n\n• Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.\n• Google’s desktop homepage now shows AI feature icons and a sidebar for recent AI chats, while the classic Search button is removed.\n• Apple is hiring a senior engineering manager to lead development of an AI agent that can operate a Mac, according to a job posting cited by Bloomberg and reported by TechCrunch on 20 November 2026.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-21-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified[S1].",
+   "duo": false,
+   "cover": null,
+   "text": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.\n\n• Levent Alpöge, a mathematician at Anthropic, announced on his website that he believes he has proved the Riemann hypothesis using the large language model Claude.\n• The claim has not been independently verified and Anthropic has not commented on the result.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-21/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-21T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-21-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Apple hires manager to build Mac AI agent now[S4].",
+   "duo": true,
+   "cover": "Apple hiring manager for Mac AI agent[S4].",
+   "text": "Apple hires manager to build Mac AI agent now.\n\n• Apple posted a senior engineering manager role to lead a Mac-running AI agent project.\n• The agent would browse, run commands, write and debug code, and call services across apps.\n\nOur read: It could let you run web searches, code, and services from one AI Assistant on your Mac.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #apple",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-21/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-21T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-21-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "Meta's $300 Muse Charm launches before holidays[S8].",
+   "duo": true,
+   "cover": "Meta's $300 Muse Charm announced[S8].",
+   "text": "Meta's $300 Muse Charm launches before holidays.\n\n• Meta announced the Muse Charm wearable will cost $300 and ship before December holidays.\n• It uses a fingerprint sensor to activate AI without unlocking a phone, plus a free 12-month 5G plan.\n• AI wearables have struggled to gain mass adoption, as seen with the Humane AI Pin.\n\nOur read: Consider if $300 for a pocket AI fits your workflow before the holidays.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #meta",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-21/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-21T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-21-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Google removes search button, adding AI chat sidebar[S2].",
+   "duo": false,
+   "cover": "Google removes search button, adds AI sidebar[S2].",
+   "text": "Google removes search button, adding AI chat sidebar.\n\n• Google replaced the desktop Search button with AI icons and an expandable chat sidebar.\n• The sidebar shows recent Gemini conversations, letting users resume searches instantly.\n\nOur read: Expect a faster, AI-driven search experience on your desktop.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-21/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-21T13:30:00+00:00"
+  }
+ ]
+}

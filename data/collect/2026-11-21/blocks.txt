@@ -1,0 +1,109 @@
+=== STORY 1 (suggested section: models) ===
+
+[S1] The Verge — "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude" (20 November 2026)
+Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude
+An Anthropic mathmetician’s latest breakthrough is another sign of how quickly AI is transforming mathematics.
+If you buy something from a link, The Verge may earn a commission. See our ethics statement.
+Anthropic mathematician Levent Alpöge claims he has proved the Riemann hypothesis, one of mathematics’s most notoriously difficult problems, with the help of Claude, cracking a puzzle that has eluded some of the world’s best mathematicians for decades. If verified, it would mark yet another seismic achievement for AI in mathematics and add to the upheaval already unleashed by OpenAI’s previous, often inelegant forays into the field.
+Alpöge’s solution has yet to be verified independently. Anthropic has not commented or involved itself in Alpöge’s announcement. In a document on his website , Alpöge says he texted Anthropic CEO Dario Amodei about the solution “late Sunday night” and suggests he held off publication until after the company’s IPO on Thursday .
+The Riemann hypothesis is one of seven Millennium Prize problems, which are widely considered some of the most formidable open challenges in mathematics. First proposed in 1859, the Riemann hypothesis concerns the distribution of prime numbers and how zeroes of a function are involved. It’s regarded as one of the most important unsolved problems in mathematics.
+A statement on Alpöge’s website says Claude was integral to developing the proof:
+I believe I have, working with Claude, discovered a proof 1 of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I expect, with more time, the Extended Riemann Hypothesis too. Claude and I have also formalized the arguments without assumptions. It is natural to feel that this is an end, in my case a loss of a principal guiding light, but what I saw during the course of progress so amazed me that I believe it is one dawn across science of something far greater.
+The Verge reached out to Anthropic but didn’t immediately hear back. Anthropic said it was working on the Riemann Hypothesis with Claude in August , but noted at the time: “We don’t expect that the techniques Claude used will lead to proving the Riemann hypothesis.”
+Alpöge’s solution, presented in Lean, has only been published on his website and has not yet been publicly accepted by the Clay Mathematics Institute, which administers the Millennium Prize and offers a $1 million bounty for each problem solved. Under the institute’s rules 
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S2] Ars Technica — "Google rolls out new search homepage with AI chat history and no search button" (20 November 2026)
+Google’s flagship search experience is evolving into an AI experience with stunning speed. Even time-tested elements of search are getting AI makeovers, and the latest to get this treatment is the search homepage on Google.com. A redesign that’s been in testing for the last few weeks is now official, bringing easier access to AI chats and dropping the dedicated search button entirely.
+Google search VP Robby Stein confirmed on X that Google is deploying the new desktop search page after a successful test. The page will now have a few more buttons under the search bar, all connected to AI features. There’s an image generation button, one for analyzing files, and one for brainstorming with Gemini. The “I’m Feeling Lucky” button remains, but the Google Search button that used to sit next to it is gone.
+The search button has obviously been a part of Google’s search page forever. However, it wasn’t in a very convenient location in the modern interface. When you begin typing a query, the autocomplete suggestions cover that button. You have to click out of the text field to access the button, which is an extra step compared to simply mashing the Enter key to run your search.
+The other big change brings your recent AI conversations to the forefront. If you’re logged into Google, the search homepage will have an expandable sidebar on the left with your recent AI Mode search threads. This sidebar will also be accessible on the results page. According to Stein, the sidebar made a “big difference” in how people made progress on their web searches, calling it a “simpler way to pick up where you left off.”
+It’s easy to feel frustrated by changes like this if you don’t like Google’s new AI approach to search. But at the same time, the loss of functionality is minimal. Google probably has usage data that shows that particular search button was rarely used. Most people probably just hit Enter or click an autocomplete suggestion to go to the results.
+This change says more about Google’s priorities and the future of search. AI features get prominent buttons, and your AI conversations now have a whole sidebar UI. Meanwhile, traditional search is increasingly de-emphasized. There may come a day when AI Mode takes over completely, forcing you to manually select the old-fashioned version of search. It does feel like Google is inching in that direction.
+
+[S3] The Verge — "Google is putting AI chats right on the homepage" (19 November 2026)
+Google is putting AI chats right on the homepage
+You can now view your recent AI searches by opening the sidebar on Google’s homepage.
+Google is updating its homepage to include AI searches. In a post on X , Google’s vice president of product, Robby Stein, shows how you can now open a collapsible sidebar to view and continue your AI chats.
+Based on the GIF shared by Stein, it looks like you can open the sidebar by clicking the gray bar that appears on the left side of your screen. From there, Google will show a list of the searches you’ve made using AI Mode, along with the ability to start a new thread, search your threads, or connect a Gemini Notebook.
+It’s yet another big change for Google’s homepage, which has long presented you with a single bar to kick off your web search. The company brought its AI Mode button to its search bar last year, which opens up a chatbot-like search experience within Google. In May, Google updated its search box to accommodate longer queries and added AI-powered autocomplete.
+Stein says Google is rolling out the option because “people are coming to Sea
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S4] TechCrunch — "Apple may be developing its own AI agent that runs your Mac" (20 November 2026)
+Apple appears to be working on its own AI agent to conduct computer work on behalf of users — including using apps, accessing websites, and coding, among other things.
+The news was originally reported by Bloomberg, which spotted a job listing the iPhone maker recently posted for a senior engineering manager to oversee the creation of an “AI agent that can use a computer.”
+“Imagine an AI agent that can use a computer the way a capable person does,” the posting says. “It browses the web, works across apps, runs commands, writes and debugs code, and calls services, and it chooses the right tool for each step. It does all this privately and with the polish people expect from Apple.”
+The posting additionally notes that the agents should be able to move “fluidly between tools” and “carry out multi-step tasks across apps, browsers, command lines, code, and APIs.”
+TechCrunch reached out to Apple for more information but did not receive a response.
+Agents capable of computer work have become one of the hottest commodities in the tech industry over the past year. Major labs like Anthropic and OpenAI have launched such services, while other major tech brands — like Meta, which recently launched its Muse agent line — have also moved into the space. It makes sense that Apple — which is trying to expand its AI offerings in the new John Ternus era — would want to follow suit.
+Bloomberg additionally notes that, at the same time that Apple is working on its own digital assistant, the company is making it significantly harder for third-party agents to gain total control over its computers.
+The outlet notes that the version of its upcoming macOS 27.3 will deploy warnings discouraging users from granting full access to third-party agents. In October, Apple issued a notification to developers stating that the company planned to “introduce additional controls to ensure that users who genuinely wish to grant an app this extraordinary level of access can only do so with very explicit user action.”
+Bloomberg writes that while the iPhone maker “has eyed introducing the service as soon as the end of next year,” progress on its in-house agent “remains in the early stages.”
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Senior Writer, TechCrunch
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Most Popular
+Microsoft CEO Satya Nadella explains why he asked 60K employees to qui
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: models) ===
+
+[S5] The Verge — "Signal is blocking Gemini and Siri AI from reading your screen" (20 November 2026)
+Signal is blocking Gemini and Siri AI from reading your screen
+Signal will now restrict screenshots on mobile devices, and says AI agents are ‘hostile to privacy.’
+Signal is restricting the ability to take screenshots on Android and iOS devices in an effort to prevent AI agents from reading users’ messages and other data. The agentic AI capabilities built into operating systems that analyze on-screen information to learn more about the user are “undermining Signal’s ability to independently guarantee privacy,” Signal president Meredith Whittaker said in a blog post , while urging OS providers to make it easier for app developers to control what data agents can access.
+“We want to be very clear: it is a serious problem that Signal – and application developers beyond – lack robust tools to prevent AI agents from undermining application-level privacy,” Whittaker said. “Even where we are able to detect and block AI data access, Google, Apple, Microsoft, and others do not provide ways for developers to easily restrict such AI data access without making drastic compromises to the core user experience. This is also the reason we are currently unable to implement these protections on macOS.”
+Signal is addressing the privacy concerns by blocking the ability to take screenshots in the app on iOS 27 and Android, which should prevent Siri , Gemini, and other Android AI assistants from reading on-screen content. Users can restore screenshot capabilities in Signal’s app settings, but Whittaker warns that doing so will “potentially expose your (and your contacts’) Signal content to these AI agents, and break our privacy guarantees.” Whittaker admits that Signal’s screenshot-blocking remedy is “incomplete,” as it doesn’t address alternative ways that AI agents can access app data, such as retrieving it via the device file system.
+Signal took a similar approach last year to prevent Microsoft’s controversial Recall feature from capturing secured chats. The encrypted messaging service says it’s struggling to develop a better solution due to the lack of available information regarding how AI agents are actually accessing application data, and is now calling on Apple, Google, and Microsoft to provide “simple technical tools and accurate documentation” to app developers. Signal also says more tools are needed to prevent third-party agents, like Meta’s Muse, from using deep accessibility settings in apps like a “skeleton key” to access application data.
+“We all need to recognize that the current integration of AI agents into the operating system, without these common-sense rem
+
+[S6] Engadget — "Signal now blocks screenshots by default to stymie AI agents" (20 November 2026)
+Signal now blocks screenshots by default to stymie AI agents
+The company is calling for a simple way for developers to opt out of AI snooping.
+Signal views AI agents built into phones as an "existential threat," and it's acting accordingly. The encrypted messaging app said Friday that it will block screenshots by default on iOS 27, and on Android when AI assistants try to capture the screen.
+The measures keep Apple's Siri AI and Google's Gemini Intelligence from snooping on your chats, at least to a degree. The assistants are designed to help users by reading what's on the screen and pulling in information to better answer their questions. But the byproduct is that chats meant to be private — including encrypted ones — can end up on a remote server outside your or Signal's control.
+The move echoes one from last year, when Signal blocked Microsoft's Recall from snapshotting chats on Windows 11.
+Signal's concerns aren't limited to the built-in assistants. It's also worried about third-party agents like Meta's Muse , which Reuters caught reading Signal messages via permissions granted d
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: policy) ===
+
+[S7] TechCrunch — "Meta’s new Muse Charm device may cost $300" (19 November 2026)
+Meta’s new Muse Charm device may cost $300
+Meta plans to charge $300 for Muse Charm, its upcoming Tamagotchi-like AI device that was teased at the company’s Connect event earlier this year, The Information has reported .
+When reached for comment by TechCrunch, a Meta spokesperson didn’t deny the claims, merely providing the following statement: “We’re charmed by the interest in our AI devices, and we’ll have more to share soon.”
+So far, Meta has made a relatively successful push into consumer AI, launching Muse — its agentic helper — along with a variety of cute avatars that users can use to give the system more of a personality.
+Muse Charm, the company’s push into AI hardware, will allow users to carry a physical personification of its software around in their pocket (or potentially wear it around their neck), talking to it, asking it questions, and giving it commands.
+It remains to be seen whether customers will bite or not. AI wearables have had a rough go of it so far (here’s looking at you, Humane Ai pin ), but companies continue to iterate on the concept in an attempt to break through to a broader audience.
+Indeed, $300 is arguably a pretty steep price for a product the size of a keychain, although it’s also a price point that’s in line with what other companies have been charging. The wearable launched by Friend — the AI startup whose device lets you text and talk to an AI persona — is currently retailing for $250. On the other hand, Amazon’s all-new Bee Frontier wearable AI device — which transcribes conversations and tracks tasks — lists for $75 and is currently on a Black Friday, 30% off sale of $52.49. Even with its $99/year subscription to let it tie into a user’s apps (photos, emails, etc.), it’s still far less expensive than Muse Charm.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+AI Apple may be developing its own AI agent that runs your Mac Lucas Ropek 23 hours ago
+Apple may be developing its own AI agent that runs your Mac
+Apps Superhuman pushes its Go assistant everywhere Ivan Mehta 1 day ago
+Superhuman pushes its Go assistant everywhere
+Latest in AI
+Climate Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building. Tim De Chant 4 hours ago
+Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building.
+AI AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too Tim Fern
+
+[S8] The Verge — "Meta’s Muse Charm might cost $300" (19 November 2026)
+Meta’s Muse Charm might cost $300
+The Information has reported a potential price for the Muse Charm, which is expected to ship in time for the holidays.
+Meta is planning to price the Muse Charm, a little gadget with a screen that lets you chat with your Muse AI agent, at $300, according to The Information . CEO Mark Zuckerberg revealed the gadget earlier this year and said the company expected to ship the Charm “in time for the holidays in December,” but he didn’t provide a price at the time.
+When he announced the Muse Charm, Zuckerberg said that the company had “packed the whole Muse experience,” including real-time voice and avatar technology, into the gadget. It has a fingerprint sensor, and you can tap it to be able to talk to a Muse AI agent without unlocking a phone or opening an app. The Information reports that the Muse Charm will come with a free 12-month 5G data plan from Verizon.
+Spokesperson Tyler Yee wrote to The Information that “We’re charmed by the interest in our AI devices, and we’ll have more to share soon.” When reached for comment by The Verge , Yee provided the 
+
+[S9] Engadget — "Ray-Ban Meta (Gen 3) review: Minor upgrades that cost too much" (20 November 2026)
+Meta's very best AI glasses are only slightly better than other recent models.

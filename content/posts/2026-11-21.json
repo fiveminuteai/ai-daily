@@ -1,0 +1,421 @@
+{
+  "date": "2026-11-21",
+  "slug": "2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
+  "headline": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+  "dek": "Anthropic mathematician Levent Alpöge says Claude helped produce a draft proof of the Riemann hypothesis, while Google replaces its desktop Search button with AI‑focused icons and a chat sidebar[S1][S2][S3].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "models",
+    "products",
+    "policy",
+    "anthropic",
+    "mathematics",
+    "google",
+    "ai-agents"
+  ],
+  "what_happened": [
+    "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified[S1].",
+    "Google’s desktop homepage now shows AI feature icons and a sidebar for recent AI chats, while the classic Search button is removed[S2][S3].",
+    "Apple is hiring a senior engineering manager to lead development of an AI agent that can operate a Mac, according to a job posting cited by Bloomberg and reported by TechCrunch on 20 November 2026[S4]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+      "category": "models",
+      "paragraphs": [
+        "Levent Alpöge, a mathematician at Anthropic, announced on his website that he believes he has proved the Riemann hypothesis using the large language model Claude[S1]. He said the proof was completed late Sunday night and that he delayed public release until after Anthropic’s IPO on Thursday[S1]. The claim has not been independently verified and Anthropic has not commented on the result[S1].",
+        "Alpöge’s proof was written in the Lean proof assistant and extends to the Generalized Riemann Hypothesis, with a suggestion it could also address the Extended Riemann Hypothesis given more time[S1]. The Riemann hypothesis is one of the seven Millennium Prize problems, each carrying a $1 million prize from the Clay Mathematics Institute[S1]. Anthropic previously noted in August that it was experimenting with Claude on the problem but did not expect the model’s techniques to yield a proof[S1]. The claim remains a draft on Alpöge’s site and has not been submitted for formal acceptance by the Institute[S1].",
+        "The Riemann hypothesis, first proposed in 1859, concerns how the non‑trivial zeroes of the Riemann zeta function relate to the distribution of prime numbers, a central question in number theory[S1]. Solving it would be a historic breakthrough, as it has resisted proof by the world’s leading mathematicians for decades[S1]."
+      ],
+      "card": {
+        "hook": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified[S1].",
+        "points": [
+          "Levent Alpöge, a mathematician at Anthropic, announced on his website that he believes he has proved the Riemann hypothesis using the large language model Claude[S1].",
+          "The claim has not been independently verified and Anthropic has not commented on the result[S1]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": "Will AI soon replace mathematicians?",
+        "reel": 8,
+        "interest": 4,
+        "fallback": true,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 2,
+      "title": "Google adds AI chat sidebar and removes search button",
+      "category": "products",
+      "paragraphs": [
+        "Google has replaced the traditional Search button on its desktop homepage with a set of AI‑focused icons and an expandable sidebar that shows recent AI Mode conversations[S2][S3]. The “I’m Feeling Lucky” button remains, but the classic Search button is gone[S2][S3].",
+        "The new homepage places three new icons under the query bar: one for image generation, one for file analysis, and one for brainstorming with Gemini, Google’s conversational model[S2][S3]. A gray bar on the left opens a collapsible sidebar that lists prior AI chats, lets users start a new thread, search past threads, or link a Gemini Notebook[S2][S3]. Stein said the sidebar made a “big difference” in how users continue web searches, describing it as a simpler way to pick up where they left off[S2][S3].",
+        "Google’s search interface has long featured a permanent Search button, but autocomplete suggestions often hide it, leading most users to press Enter instead[S2][S3]."
+      ],
+      "card": {
+        "hook": "Google removes search button, adding AI chat sidebar[S2].",
+        "points": [
+          "Google replaced the desktop Search button with AI icons and an expandable chat sidebar[S2].",
+          "The sidebar shows recent Gemini conversations, letting users resume searches instantly[S3]."
+        ],
+        "take": "Expect a faster, AI‑driven search experience on your desktop[S3].",
+        "take_kind": "read",
+        "ask": "Will you miss the old Search button[S2][S3]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "Google’s UI overhaul shifts everyday search to AI‑first, affecting how professionals find info fast.",
+        "desk": {
+          "rubric": 6,
+          "chief": 7.0,
+          "why": "Google UI overhaul puts AI front‑and‑center for daily searches"
+        },
+        "bonus": 0.0,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Google removes search button, adds AI sidebar[S2].",
+        "cover_hi": "removes search button",
+        "arm": "short-close"
+      }
+    },
+    {
+      "story": 3,
+      "title": "Apple works on AI agent for Mac computers",
+      "category": "products",
+      "paragraphs": [
+        "Apple is hiring a senior engineering manager to lead development of an AI agent that can operate a Mac, according to a job posting cited by Bloomberg and reported by TechCrunch on 20 November 2026[S4]. The agent is described as able to browse the web, run commands, write and debug code, and call services, all while choosing the appropriate tool for each step[S4]. Apple has not commented on the effort[S4].",
+        "The posting says the agent will move fluidly between apps, browsers, command lines, code, and APIs, handling multi‑step tasks across these environments[S4]. Apple plans to roll out the feature in macOS 27.3, which will also add warnings to limit third‑party agents from gaining full system control[S4]. The company aims to introduce the service as early as the end of next year, though development is still in early stages[S4].",
+        "AI agents that can use a computer have become a hot commodity, with firms like Anthropic, OpenAI, and Meta launching similar services in the past year[S4]. Apple’s push aligns with its broader AI strategy under senior vice president John Ternus, seeking to expand its assistant capabilities while tightening security for third‑party tools[S4]."
+      ],
+      "card": {
+        "hook": "Apple hires manager to build Mac AI agent now[S4].",
+        "points": [
+          "Apple posted a senior engineering manager role to lead a Mac‑running AI agent project[S4].",
+          "The agent would browse, run commands, write and debug code, and call services across apps[S4]."
+        ],
+        "take": "It could let you run web searches, code, and services from one AI Assistant on your Mac[S4].",
+        "take_kind": "read",
+        "ask": "Will you let an AI control your Mac[S4]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Apple is quietly building a Mac‑focused AI assistant that could automate many daily tasks for professionals.",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Apple hiring manager for Mac AI agent[S4].",
+        "cover_hi": "Mac AI agent",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Apple hires manager to build Mac AI agent now[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, another supervisor for a talking rectangle."
+            },
+            {
+              "who": "spark",
+              "text": "Apple posted a senior engineering manager role to lead a Mac‑running AI agent project[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "So the AI gets a boss, how cute.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "The agent would browse, run commands, write and debug code, and call services across apps[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Great, now my scripts come with a sidekick.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The deadpan jokes land enough for a couple of laughs and are easy to quote."
+        }
+      }
+    },
+    {
+      "story": 4,
+      "title": "Signal blocks screenshots to stop AI agents",
+      "category": "products",
+      "paragraphs": [
+        "The change targets built‑in agents such as Apple’s Siri and Google’s Gemini, which can capture on‑screen content for assistance[S5][S6]. Users can re‑enable screenshots in the app settings, but doing so may expose their chats to those agents[S5].",
+        "Signal’s president Meredith Whittaker said the AI agents are “hostile to privacy” and that existing OS tools do not let developers easily block data access without harming user experience[S5]. The screenshot block is a partial fix because AI agents can also read data from the device file system or via deep accessibility permissions used by third‑party tools like Meta’s Muse[S5]. Last year Signal used a similar block to stop Microsoft’s Recall feature from capturing secured chats on Windows 11, showing a pattern of defensive measures against AI‑driven snooping[S6]. The company is urging Apple, Google and Microsoft to provide simple technical controls and clear documentation for developers[S5].",
+        "Modern smartphones embed AI assistants that analyze screen content to answer user queries, a function that can inadvertently expose private messages[S5][S6]. Encrypted messaging apps like Signal rely on end‑to‑end encryption, but screen‑capture capabilities bypass that protection by sending visible text to remote servers[S6]. Without OS‑level opt‑out mechanisms, app developers have limited ways to safeguard against such AI‑driven data leakage[S5]."
+      ],
+      "card": {
+        "hook": "Apple’s Siri blocked from reading Signal screenshots[S5].",
+        "points": [
+          "Signal now blocks screenshots to stop AI agents like Siri and Gemini[S5].",
+          "The block prevents AI from capturing private chats, a privacy threat[S5].",
+          "Users can re‑enable screenshots, but risk exposing messages to those agents[S5]."
+        ],
+        "take": "Keep screenshots disabled in Signal to protect your chats[S5].",
+        "take_kind": "do",
+        "ask": "Should apps block AI assistants by default[S5][S6]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "Signal adds a privacy guard against AI screen‑reading agents.",
+        "pain": "privacy",
+        "hook_type": "stakes",
+        "cover": "Apple’s Siri blocked from reading Signal screenshots[S5].",
+        "cover_hi": "blocked",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Signal blocks screenshots on iOS 27 and Android, stopping AI reading chats[S5][S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, finally a screenshot‑free zone for my messages"
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Oh, the suspense is palpable"
+            },
+            {
+              "who": "guest",
+              "text": "And the drama keeps scrolling endlessly",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Signal says it blocks built‑in assistants like Siri and Google Gemini from capturing screen content[S5][S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, my screen finally gets a break"
+            },
+            {
+              "who": "spark",
+              "text": "Users can re‑enable screenshots in settings, but that may expose chats to those agents[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Guess my screen still enjoys that break, thanks",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The deadpan box jokes play off the tech news and land a couple of laughs."
+        }
+      }
+    },
+    {
+      "story": 5,
+      "title": "Meta prices Muse Charm at $300",
+      "category": "policy",
+      "paragraphs": [
+        "Meta announced that its Muse Charm wearable will cost $300 and is slated to ship before the December holidays[S8]. The device is a small gadget with a screen that lets users talk to the Muse AI agent using a fingerprint sensor[S8].",
+        "The Muse Charm bundles real‑time voice and avatar technology into a pocket‑sized device, according to CEO Mark Zuckerberg[S8]. It includes a fingerprint sensor that lets users activate the AI without unlocking a phone[S8]. The Information reports the device will include a free 12‑month 5G data plan from Verizon[S8]. Comparable AI wearables include Friend’s device at $250 and Amazon’s Bee Frontier at $75 (currently discounted to $52.49)[S7]. Meta has previously launched the Muse agent and a range of avatars for personalization[S7].",
+        "AI wearables have struggled to gain mass adoption, with earlier products like the Humane AI Pin receiving limited consumer uptake[S7]."
+      ],
+      "card": {
+        "hook": "Meta's $300 Muse Charm launches before holidays[S8].",
+        "points": [
+          "Meta announced the Muse Charm wearable will cost $300 and ship before December holidays[S8].",
+          "It uses a fingerprint sensor to activate AI without unlocking a phone, plus a free 12‑month 5G plan[S8].",
+          "AI wearables have struggled to gain mass adoption, as seen with the Humane AI Pin[S7]."
+        ],
+        "take": "Consider if $300 for a pocket AI fits your workflow before the holidays[S8].",
+        "take_kind": "read",
+        "ask": "Is a $300 AI wearable worth it[S8][S7]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Meta's new AI wearable could impact tech professionals' tool choices",
+        "pain": "money",
+        "hook_type": "stakes",
+        "cover": "Meta's $300 Muse Charm announced[S8].",
+        "cover_hi": "$300",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Meta's $300 Muse Charm launches before holidays[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "Wow, a pricey holiday surprise, how festive."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Just a festive price tag, right?"
+            },
+            {
+              "who": "guest",
+              "text": "Festive? More like a gift tax.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Meta announced the Muse Charm wearable will cost $300 and ship before December holidays[S8]."
+            },
+            {
+              "who": "guest",
+              "text": "Because nothing says holiday joy like overpriced tech."
+            },
+            {
+              "who": "spark",
+              "text": "AI wearables have struggled to gain mass adoption, as seen with the Humane AI Pin[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Even my box feels the holiday surcharge.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The jokes are relatable and punchy enough for a quick double‑take."
+        }
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "If verified, a proof would resolve a Millennium Prize problem, potentially reshaping fields that rely on prime number theory and boosting confidence in AI‑assisted research[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Google’s new homepage design may change how everyday users start searches, encouraging interaction with AI tools and reducing reliance on the traditional Search button[S2][S3].",
+      "speculative": true
+    }
+  ],
+  "quote": {
+    "text": "Imagine an AI agent that can use a computer the way a capable person does",
+    "speaker": "job posting",
+    "source": "S4"
+  },
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-20T16:34:13+00:00",
+      "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+      "publisher": "The Verge",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-20T21:58:29+00:00",
+      "title": "Google adds AI chat sidebar and removes search button",
+      "publisher": "Ars Technica",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-20T00:56:01+00:00",
+      "title": "Apple works on AI agent for Mac computers",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-20T12:30:47+00:00",
+      "title": "Signal blocks screenshots to stop AI agents",
+      "publisher": "The Verge",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-19T20:22:17+00:00",
+      "title": "Meta prices Muse Charm at $300",
+      "publisher": "The Verge",
+      "category": "policy"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+      "publisher": "The Verge",
+      "published": "2026-11-20T16:34:13+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "Google rolls out new search homepage with AI chat history and no search button",
+      "url": "https://arstechnica.com/ai/2026/11/googles-latest-search-page-redesign-drops-the-search-button-adds-ai-sidebar/",
+      "publisher": "Ars Technica",
+      "published": "2026-11-20T21:58:29+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Google is putting AI chats right on the homepage",
+      "url": "https://www.theverge.com/tech/1038059/google-search-homepage-ai-chats",
+      "publisher": "The Verge",
+      "published": "2026-11-19T20:05:06+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Apple may be developing its own AI agent that runs your Mac",
+      "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-20T00:56:01+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+      "publisher": "The Verge",
+      "published": "2026-11-20T12:30:47+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Signal now blocks screenshots by default to stymie AI agents",
+      "url": "https://www.engadget.com/2323574/signal-now-blocks-screenshots-by-default-to-stymie-ai-agents/",
+      "publisher": "Engadget",
+      "published": "2026-11-20T20:18:09+00:00"
+    },
+    {
+      "id": "S7",
+      "title": "Meta’s new Muse Charm device may cost $300",
+      "url": "https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-19T21:58:06+00:00"
+    },
+    {
+      "id": "S8",
+      "title": "Meta’s Muse Charm might cost $300",
+      "url": "https://www.theverge.com/tech/1038087/meta-muse-charm-ai-price",
+      "publisher": "The Verge",
+      "published": "2026-11-19T20:22:17+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-21T00:53:14+00:00",
+  "verification": {
+    "checked": 76,
+    "ok": 48,
+    "repaired": 5,
+    "dropped": 23,
+    "unused": 36,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1124,
+  "reading_minutes": 6
+}

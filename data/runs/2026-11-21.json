@@ -1,0 +1,429 @@
+{
+ "date": "2026-11-21",
+ "started_at": "2026-11-21T00:15:37+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 6.3,
+   "items": 666,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 9
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 10
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 6
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 6
+    },
+    "github": {
+     "status": "ok",
+     "items": 17
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.3,
+   "stories": 244,
+   "editor": true,
+   "top": [
+    {
+     "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+     "score": 7.93,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "The Verge",
+      "economist.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google rolls out new search homepage with AI chat history and no search button",
+     "url": "https://arstechnica.com/ai/2026/11/googles-latest-search-page-redesign-drops-the-search-button-adds-ai-sidebar/",
+     "score": 7.74,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple may be developing its own AI agent that runs your Mac",
+     "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+     "score": 7.11,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+     "score": 6.96,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta’s new Muse Charm device may cost $300",
+     "url": "https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/",
+     "score": 6.71,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple is hiring engineers to build its own AI agent",
+     "url": "https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing",
+     "score": 6.49,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic rival says companies can (mostly) skip the pricey models",
+     "url": "https://techcrunch.com/2026/11/19/anthropic-rival-says-companies-can-mostly-skip-the-pricey-models/",
+     "score": 6.38,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic hits Nasdaq exchanges at $111, 33% above IPO price",
+     "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/",
+     "score": 5.84,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google Built a Giant ‘Mirror Dimension’ Internet to Test Its Chrome AI Agents",
+     "url": "https://www.wired.com/story/google-built-a-giant-mirror-dimension-internet-to-test-its-chrome-ai-agents/",
+     "score": 5.78,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "These tech outages are giving Y2K, AI agent style",
+     "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
+     "score": 5.78,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing Tool Retrieval in the Gemini API",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "score": 5.3,
+     "interest": 5.0,
+     "category": "tools",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI brings its collaborative Space hubs to Plus users",
+     "url": "https://www.engadget.com/2323016/openai-brings-its-collaborative-space-hubs-to-plus-users/",
+     "score": 5.3,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+     "score": 7.93,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "The Verge",
+      "economist.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Google rolls out new search homepage with AI chat history and no search button",
+     "url": "https://arstechnica.com/ai/2026/11/googles-latest-search-page-redesign-drops-the-search-button-adds-ai-sidebar/",
+     "score": 7.74,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Apple may be developing its own AI agent that runs your Mac",
+     "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+     "score": 7.11,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app",
+     "score": 6.96,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta’s new Muse Charm device may cost $300",
+     "url": "https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/",
+     "score": 6.71,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 2.0,
+   "articles": 15,
+   "with_text": 14
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 5.3,
+   "word_count": 1124,
+   "sources": 8
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.1,
+    "reel_desk": 1081.3,
+    "layer1": 0.1,
+    "layer2": 988.5,
+    "gate": 301.5
+   },
+   "layer1": {
+    "checked": 110,
+    "ok": 94,
+    "repaired": 11,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 76,
+    "ok": 48,
+    "repaired": 5,
+    "dropped": 23
+   },
+   "unused": 36,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+     "reel": 8,
+     "hook": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.",
+     "chosen": true
+    },
+    {
+     "story": "Google adds AI chat sidebar and removes search button",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 7.0,
+     "why": "Google UI overhaul puts AI front‑and‑center for daily searches",
+     "hook": "Google removes search button, adding AI chat sidebar.",
+     "chosen": false
+    },
+    {
+     "story": "Apple works on AI agent for Mac computers",
+     "reel": 7,
+     "hook": "Apple hires manager to build Mac AI agent now.",
+     "chosen": true
+    },
+    {
+     "story": "Signal blocks screenshots to stop AI agents",
+     "reel": 6,
+     "hook": "Apple’s Siri blocked from reading Signal screenshots.",
+     "chosen": false
+    },
+    {
+     "story": "Meta prices Muse Charm at $300",
+     "reel": 7,
+     "hook": "Meta's $300 Muse Charm launches before holidays.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
+ "finished_at": "2026-11-21T00:58:21+00:00",
+ "seconds": 2564.4
+}
