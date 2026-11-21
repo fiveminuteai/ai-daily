@@ -1,13 +1,13 @@
 {
- "date": "2026-11-20",
+ "date": "2026-11-21",
  "window": [
-  "2026-11-14",
-  "2026-11-20"
+  "2026-11-15",
+  "2026-11-21"
  ],
  "this_week": {
-  "reels": 22,
-  "reach": 105.5,
-  "skip_rate": 57.0,
+  "reels": 25,
+  "reach": 106,
+  "skip_rate": 56.7,
   "avg_watch_s": 5.9,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
@@ -16,10 +16,10 @@
   "follows_per_week": 5
  },
  "last_week": {
-  "reels": 18,
-  "reach": 110.0,
-  "skip_rate": 60.5,
-  "avg_watch_s": 5.5,
+  "reels": 15,
+  "reach": 109,
+  "skip_rate": 61.5,
+  "avg_watch_s": 5.4,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -29,7 +29,7 @@
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 57.0,
+   "value": 56.7,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
    "met": false

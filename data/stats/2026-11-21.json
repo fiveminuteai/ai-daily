@@ -1,198 +1,107 @@
 {
  "date": "2026-11-21",
- "collected_at": "2026-11-20T23:53:59+00:00",
+ "collected_at": "2026-11-21T18:00:33+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 227,
-  "visitors_day": 0,
-  "daily": [
-   {
-    "day": "2026-10-25",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-26",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-27",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-28",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 14
-   },
-   {
-    "day": "2026-11-13",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-14",
-    "visitors": 2
-   },
-   {
-    "day": "2026-11-15",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-16",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-17",
-    "visitors": 1
-   },
-   {
-    "day": "2026-11-18",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-19",
-    "visitors": 3
-   },
-   {
-    "day": "2026-11-20",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-21",
-    "visitors": 0
-   },
-   {
-    "day": "2026-11-22",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 16
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
-    "title": "Anthropic’s $81 billion IPO spotlights novel governance model · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
-    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
-    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
-    "visitors": 2
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "(direct)",
-    "visitors": 15
-   },
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 14
-   },
-   {
-    "name": "www.facebook.com",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/about",
-    "visitors": 1
-   }
-  ],
-  "reads_7d": {
-   "post_views": 6,
-   "read_30s": 2,
-   "read_half": 2,
-   "read_end": 0,
-   "read_end_rate": 0.0
-  }
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
   "username": "fiveminute_ai",
   "followers": 13,
-  "media_count": 71,
+  "media_count": 76,
   "day": {
-   "reach": null,
-   "views": null,
-   "accounts_engaged": null,
-   "total_interactions": null
+   "reach": 239,
+   "views": 277,
+   "accounts_engaged": 1,
+   "total_interactions": 1
   },
   "posts": [
+   {
+    "id": "17929255839441898",
+    "timestamp": "2026-11-21T13:32:03+0000",
+    "permalink": "https://www.instagram.com/reel/DgAV_ATHOum/",
+    "type": "VIDEO",
+    "caption": "Google removes search button, adding AI chat sidebar.",
+    "likes": 1,
+    "comments": 0,
+    "reach": 107,
+    "views": 122,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1,
+    "avg_watch_s": 6.2,
+    "skip_rate": 40.2,
+    "reposts": 0
+   },
+   {
+    "id": "18149880346498815",
+    "timestamp": "2026-11-21T10:31:26+0000",
+    "permalink": "https://www.instagram.com/reel/DgABTbHlPSk/",
+    "type": "VIDEO",
+    "caption": "Meta's $300 Muse Charm launches before holidays.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 14,
+    "views": 17,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 3.8,
+    "skip_rate": 56.3,
+    "reposts": 0
+   },
+   {
+    "id": "18110123537206146",
+    "timestamp": "2026-11-21T07:31:51+0000",
+    "permalink": "https://www.instagram.com/reel/Df_sugIgpTP/",
+    "type": "VIDEO",
+    "caption": "Apple hires manager to build Mac AI agent now.",
+    "likes": 0,
+    "comments": 0,
+    "reach": 114,
+    "views": 131,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": 5.9,
+    "skip_rate": 49.6,
+    "reposts": 0
+   },
+   {
+    "id": "17993744016066845",
+    "timestamp": "2026-11-21T05:31:17+0000",
+    "permalink": "https://www.instagram.com/p/Df_fCCel6y-/",
+    "type": "CAROUSEL_ALBUM",
+    "caption": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+    "likes": 0,
+    "comments": 0,
+    "reach": 0,
+    "views": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0,
+    "avg_watch_s": null,
+    "skip_rate": null,
+    "reposts": null
+   },
+   {
+    "id": "17918491686510041",
+    "timestamp": "2026-11-21T03:31:15+0000",
+    "permalink": "https://www.instagram.com/reel/Df_RPiDlJSC/",
+    "type": "VIDEO",
+    "caption": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the resu",
+    "likes": 0,
+    "comments": 0,
+    "reach": 115,
+    "views": 131,
+    "saved": 0,
+    "shares": 1,
+    "total_interactions": 1,
+    "avg_watch_s": 4.6,
+    "skip_rate": 69.7,
+    "reposts": 0
+   },
    {
     "id": "18117065834135225",
     "timestamp": "2026-11-20T13:32:26+0000",
@@ -201,13 +110,13 @@
     "caption": "Anthropic listed on Nasdaq at $111.50, reporting an $80.7 billion loss and $16.3 billion r",
     "likes": 1,
     "comments": 0,
-    "reach": 37,
-    "views": 45,
+    "reach": 53,
+    "views": 63,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 4.5,
-    "skip_rate": 74.4,
+    "avg_watch_s": 4.6,
+    "skip_rate": 70.2,
     "reposts": 0
    },
    {
@@ -219,7 +128,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 2,
-    "views": 3,
+    "views": 4,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -235,13 +144,13 @@
     "caption": "Meta’s Muse leaked bank balances, alarming staff.",
     "likes": 1,
     "comments": 0,
-    "reach": 105,
-    "views": 119,
+    "reach": 106,
+    "views": 120,
     "saved": 0,
     "shares": 0,
     "total_interactions": 1,
-    "avg_watch_s": 4.2,
-    "skip_rate": 60.2,
+    "avg_watch_s": 4.3,
+    "skip_rate": 59.6,
     "reposts": 0
    },
    {
@@ -252,13 +161,13 @@
     "caption": "Anthropic’s $81.3 billion IPO gives founders permanent control.",
     "likes": 0,
     "comments": 0,
-    "reach": 180,
-    "views": 190,
+    "reach": 187,
+    "views": 198,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 7.9,
-    "skip_rate": 54.2,
+    "avg_watch_s": 7.8,
+    "skip_rate": 55.4,
     "reposts": 0
    },
    {
@@ -320,12 +229,12 @@
     "caption": "Google DeepMind released Gemini 4 Neon, a high-capacity, low-fabrication model for enterpr",
     "likes": 0,
     "comments": 0,
-    "reach": 2,
-    "views": 1,
+    "reach": 3,
+    "views": 2,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 3.5,
+    "avg_watch_s": 2.9,
     "skip_rate": 100,
     "reposts": 0
    },
@@ -337,13 +246,13 @@
     "caption": "Google forces schools to lose Search if they skip Gemini.",
     "likes": 0,
     "comments": 0,
-    "reach": 108,
-    "views": 121,
+    "reach": 109,
+    "views": 122,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 7.2,
-    "skip_rate": 34.8,
+    "skip_rate": 35.3,
     "reposts": 0
    },
    {
@@ -355,7 +264,7 @@
     "likes": 0,
     "comments": 0,
     "reach": 3,
-    "views": 7,
+    "views": 9,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -388,13 +297,13 @@
     "caption": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
     "likes": 0,
     "comments": 0,
-    "reach": 12,
-    "views": 16,
+    "reach": 13,
+    "views": 19,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 7.1,
-    "skip_rate": 50,
+    "avg_watch_s": 6.6,
+    "skip_rate": 55.6,
     "reposts": 0
    },
    {
@@ -439,8 +348,8 @@
     "caption": "Google expands Gemini Tasks to more users",
     "likes": 0,
     "comments": 0,
-    "reach": 3,
-    "views": 10,
+    "reach": 4,
+    "views": 13,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
@@ -1296,91 +1205,6 @@
     "total_interactions": 2,
     "avg_watch_s": 4.0,
     "skip_rate": 89.1,
-    "reposts": 0
-   },
-   {
-    "id": "18157837654520665",
-    "timestamp": "2026-11-01T13:49:37+0000",
-    "permalink": "https://www.instagram.com/reel/DfM4GWbjwYb/",
-    "type": "VIDEO",
-    "caption": "AI completed a live mouse brain injection.",
-    "likes": 1,
-    "comments": 0,
-    "reach": 41,
-    "views": 49,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1,
-    "avg_watch_s": 1.5,
-    "skip_rate": 95.7,
-    "reposts": 0
-   },
-   {
-    "id": "17916240315549399",
-    "timestamp": "2026-11-01T07:45:39+0000",
-    "permalink": "https://www.instagram.com/reel/DfMOdXcgWky/",
-    "type": "VIDEO",
-    "caption": "OpenAI cut its funding goal to $20 billion.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 60,
-    "views": 70,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 3.1,
-    "skip_rate": 87.5,
-    "reposts": 0
-   },
-   {
-    "id": "18065605586789086",
-    "timestamp": "2026-11-01T06:01:13+0000",
-    "permalink": "https://www.instagram.com/reel/DfMCgctin89/",
-    "type": "VIDEO",
-    "caption": "New malware uses an AI model to size up its victims.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 36,
-    "views": 43,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 2.2,
-    "skip_rate": 97.4,
-    "reposts": 0
-   },
-   {
-    "id": "18125094034900078",
-    "timestamp": "2026-10-31T18:10:50+0000",
-    "permalink": "https://www.instagram.com/reel/DfKxNIIkai5/",
-    "type": "VIDEO",
-    "caption": "An AI coding agent sent Pentagon system logins to a risky website.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 59,
-    "views": 71,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 3.5,
-    "skip_rate": 85.7,
-    "reposts": 0
-   },
-   {
-    "id": "18038621561913181",
-    "timestamp": "2026-10-31T18:09:06+0000",
-    "permalink": "https://www.instagram.com/reel/DfKxBcCDEuh/",
-    "type": "VIDEO",
-    "caption": "830,000 suspicious student-aid accounts. AI kept fake students enrolled.",
-    "likes": 2,
-    "comments": 0,
-    "reach": 49,
-    "views": 59,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2,
-    "avg_watch_s": 2.9,
-    "skip_rate": 84.3,
     "reposts": 0
    }
   ]

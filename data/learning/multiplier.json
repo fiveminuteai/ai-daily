@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-20T23:55:26+00:00",
+ "updated": "2026-11-21T18:02:26+00:00",
  "window_days": 90,
  "judged_at_days": 11,
  "medians": {
   "duo": {
-   "n": 26,
+   "n": 30,
    "reach": 111.5,
-   "watch_s": 6.05,
-   "held": 0.413,
+   "watch_s": 6.3,
+   "held": 0.416,
    "sent_saved": 0.0
   },
   "plain": {
@@ -91,11 +91,11 @@
    "judged": "early",
    "x": {
     "reach": 3.3,
-    "watch_s": 1.5,
-    "held": 1.54,
+    "watch_s": 1.44,
+    "held": 1.53,
     "sent_saved": null
    },
-   "overall": 1.97,
+   "overall": 1.94,
    "category": "tools",
    "player": "giant",
    "hook_type": "stakes",
@@ -147,6 +147,27 @@
    "time": "09:00"
   },
   {
+   "id": "2026-11-19-reel-1",
+   "date": "2026-11-19",
+   "kind": "duo",
+   "hook": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
+   "judged": "early",
+   "x": {
+    "reach": 2.37,
+    "watch_s": 1.84,
+    "held": 1.37,
+    "sent_saved": null
+   },
+   "overall": 1.81,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
    "id": "2026-11-18-reel-3",
    "date": "2026-11-18",
    "kind": "plain",
@@ -168,18 +189,40 @@
    "time": "16:00"
   },
   {
+   "id": "2026-11-19-reel-4",
+   "date": "2026-11-19",
+   "kind": "duo",
+   "hook": "Anthropic priced IPO at $83, shaking AI market.",
+   "judged": "early",
+   "x": {
+    "reach": 2.02,
+    "watch_s": 1.59,
+    "held": 1.13,
+    "sent_saved": null
+   },
+   "overall": 1.54,
+   "category": "policy",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "19:00",
+   "arm": "short-close"
+  },
+  {
    "id": "2026-11-10-reel-3",
    "date": "2026-11-10",
    "kind": "duo",
    "hook": "Anthropic's new Claude Fable 5.2 is out, and cheaper than before.",
-   "judged": "early",
+   "judged": "final",
    "x": {
     "reach": 1.04,
-    "watch_s": 2.0,
-    "held": 1.56,
+    "watch_s": 1.92,
+    "held": 1.55,
     "sent_saved": null
    },
-   "overall": 1.48,
+   "overall": 1.46,
    "category": "models",
    "player": "giant",
    "hook_type": "stakes",
@@ -196,11 +239,11 @@
    "judged": "final",
    "x": {
     "reach": 1.07,
-    "watch_s": 1.77,
-    "held": 1.39,
+    "watch_s": 1.7,
+    "held": 1.38,
     "sent_saved": null
    },
-   "overall": 1.38,
+   "overall": 1.36,
    "category": "products",
    "player": "giant",
    "hook_type": "untagged",
@@ -217,11 +260,11 @@
    "judged": "final",
    "x": {
     "reach": 1.27,
-    "watch_s": 1.47,
-    "held": 1.33,
+    "watch_s": 1.41,
+    "held": 1.32,
     "sent_saved": null
    },
-   "overall": 1.35,
+   "overall": 1.33,
    "category": "policy",
    "player": "giant",
    "hook_type": "untagged",
@@ -238,17 +281,38 @@
    "judged": "final",
    "x": {
     "reach": 1.22,
-    "watch_s": 1.32,
-    "held": 1.31,
+    "watch_s": 1.27,
+    "held": 1.3,
     "sent_saved": null
    },
-   "overall": 1.28,
+   "overall": 1.26,
    "category": "policy",
    "player": "giant",
    "hook_type": "untagged",
    "pain": "untagged",
    "pace": "brisk",
    "hook_number": true,
+   "time": "13:00"
+  },
+  {
+   "id": "2026-11-19-reel-2",
+   "date": "2026-11-19",
+   "kind": "duo",
+   "hook": "Google forces schools to lose Search if they skip Gemini.",
+   "judged": "early",
+   "x": {
+    "reach": 0.98,
+    "watch_s": 1.14,
+    "held": 1.56,
+    "sent_saved": null
+   },
+   "overall": 1.2,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "slow",
+   "hook_number": false,
    "time": "13:00"
   },
   {
@@ -259,11 +323,11 @@
    "judged": "final",
    "x": {
     "reach": 1.2,
-    "watch_s": 1.34,
-    "held": 1.01,
+    "watch_s": 1.29,
+    "held": 1.0,
     "sent_saved": null
    },
-   "overall": 1.18,
+   "overall": 1.16,
    "category": "policy",
    "player": "giant",
    "hook_type": "untagged",
@@ -280,11 +344,11 @@
    "judged": "final",
    "x": {
     "reach": 1.06,
-    "watch_s": 1.49,
-    "held": 1.01,
+    "watch_s": 1.43,
+    "held": 1.0,
     "sent_saved": null
    },
-   "overall": 1.17,
+   "overall": 1.15,
    "category": "products",
    "player": "giant",
    "hook_type": "untagged",
@@ -301,11 +365,11 @@
    "judged": "early",
    "x": {
     "reach": 1.17,
-    "watch_s": 1.34,
+    "watch_s": 1.29,
     "held": 0.99,
     "sent_saved": null
    },
-   "overall": 1.16,
+   "overall": 1.14,
    "category": "policy",
    "player": "giant",
    "hook_type": "number",
@@ -322,11 +386,11 @@
    "judged": "early",
    "x": {
     "reach": 1.03,
-    "watch_s": 1.04,
-    "held": 1.42,
+    "watch_s": 1.0,
+    "held": 1.41,
     "sent_saved": null
    },
-   "overall": 1.15,
+   "overall": 1.13,
    "category": "impact",
    "player": "other",
    "hook_type": "surprise",
@@ -334,27 +398,6 @@
    "pace": "brisk",
    "hook_number": false,
    "time": "13:00"
-  },
-  {
-   "id": "2026-11-06-reel-3",
-   "date": "2026-11-06",
-   "kind": "duo",
-   "hook": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
-   "judged": "final",
-   "x": {
-    "reach": 1.0,
-    "watch_s": 1.14,
-    "held": 1.13,
-    "sent_saved": null
-   },
-   "overall": 1.09,
-   "category": "models",
-   "player": "giant",
-   "hook_type": "untagged",
-   "pain": "untagged",
-   "pace": "slow",
-   "hook_number": true,
-   "time": "09:00"
   },
   {
    "id": "2026-10-31-reel-1",
@@ -378,6 +421,27 @@
    "time": "09:00"
   },
   {
+   "id": "2026-11-06-reel-3",
+   "date": "2026-11-06",
+   "kind": "duo",
+   "hook": "GPT-6 Cyber went out of bounds less than 1% of the time in testing.",
+   "judged": "final",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 1.1,
+    "held": 1.12,
+    "sent_saved": null
+   },
+   "overall": 1.07,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "09:00"
+  },
+  {
    "id": "2026-11-11-reel-1",
    "date": "2026-11-11",
    "kind": "duo",
@@ -385,11 +449,11 @@
    "judged": "early",
    "x": {
     "reach": 1.0,
-    "watch_s": 1.12,
-    "held": 0.91,
+    "watch_s": 1.08,
+    "held": 0.9,
     "sent_saved": null
    },
-   "overall": 1.01,
+   "overall": 0.99,
    "category": "policy",
    "player": "giant",
    "hook_type": "number",
@@ -397,27 +461,6 @@
    "pace": "slow",
    "hook_number": true,
    "time": "09:00"
-  },
-  {
-   "id": "2026-11-12-reel-2",
-   "date": "2026-11-12",
-   "kind": "duo",
-   "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover",
-   "judged": "early",
-   "x": {
-    "reach": 1.09,
-    "watch_s": 0.96,
-    "held": 0.93,
-    "sent_saved": null
-   },
-   "overall": 0.99,
-   "category": "products",
-   "player": "giant",
-   "hook_type": "stakes",
-   "pain": "tools",
-   "pace": "slow",
-   "hook_number": false,
-   "time": "13:00"
   },
   {
    "id": "2026-10-31-reel-3",
@@ -441,6 +484,27 @@
    "time": "19:00"
   },
   {
+   "id": "2026-11-12-reel-2",
+   "date": "2026-11-12",
+   "kind": "duo",
+   "hook": "OpenAI lets companies showcase verified profiles inside ChatGPT, changing how you discover",
+   "judged": "early",
+   "x": {
+    "reach": 1.09,
+    "watch_s": 0.92,
+    "held": 0.93,
+    "sent_saved": null
+   },
+   "overall": 0.98,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "13:00"
+  },
+  {
    "id": "2026-11-03-reel-1",
    "date": "2026-11-03",
    "kind": "plain",
@@ -460,27 +524,6 @@
    "pace": "no duo",
    "hook_number": false,
    "time": "09:00"
-  },
-  {
-   "id": "2026-11-09-reel-2",
-   "date": "2026-11-09",
-   "kind": "duo",
-   "hook": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports.",
-   "judged": "final",
-   "x": {
-    "reach": 1.0,
-    "watch_s": 0.93,
-    "held": 0.94,
-    "sent_saved": null
-   },
-   "overall": 0.96,
-   "category": "products",
-   "player": "giant",
-   "hook_type": "stakes",
-   "pain": "tools",
-   "pace": "slow",
-   "hook_number": false,
-   "time": "19:00"
   },
   {
    "id": "2026-11-17-reel-3",
@@ -504,6 +547,27 @@
    "time": "16:00"
   },
   {
+   "id": "2026-11-09-reel-2",
+   "date": "2026-11-09",
+   "kind": "duo",
+   "hook": "Apple's boss wants Siri to become a powerful AI agent, Bloomberg reports.",
+   "judged": "final",
+   "x": {
+    "reach": 1.0,
+    "watch_s": 0.89,
+    "held": 0.93,
+    "sent_saved": null
+   },
+   "overall": 0.94,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "tools",
+   "pace": "slow",
+   "hook_number": false,
+   "time": "19:00"
+  },
+  {
    "id": "2026-11-02-reel-2",
    "date": "2026-11-02",
    "kind": "plain",
@@ -525,48 +589,6 @@
    "time": "13:00"
   },
   {
-   "id": "2026-11-07-reel-2",
-   "date": "2026-11-07",
-   "kind": "duo",
-   "hook": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
-   "judged": "final",
-   "x": {
-    "reach": 0.93,
-    "watch_s": 0.91,
-    "held": 0.95,
-    "sent_saved": null
-   },
-   "overall": 0.93,
-   "category": "products",
-   "player": "giant",
-   "hook_type": "untagged",
-   "pain": "untagged",
-   "pace": "slow",
-   "hook_number": true,
-   "time": "16:00"
-  },
-  {
-   "id": "2026-11-08-reel-2",
-   "date": "2026-11-08",
-   "kind": "duo",
-   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
-   "judged": "final",
-   "x": {
-    "reach": 0.95,
-    "watch_s": 0.83,
-    "held": 1.01,
-    "sent_saved": null
-   },
-   "overall": 0.93,
-   "category": "research",
-   "player": "giant",
-   "hook_type": "untagged",
-   "pain": "untagged",
-   "pace": "slow",
-   "hook_number": true,
-   "time": "13:00"
-  },
-  {
    "id": "2026-11-08-reel-3",
    "date": "2026-11-08",
    "kind": "duo",
@@ -574,11 +596,11 @@
    "judged": "final",
    "x": {
     "reach": 0.98,
-    "watch_s": 0.89,
+    "watch_s": 0.86,
     "held": 0.91,
     "sent_saved": null
    },
-   "overall": 0.93,
+   "overall": 0.92,
    "category": "tools",
    "player": "giant",
    "hook_type": "untagged",
@@ -609,25 +631,46 @@
    "time": "09:00"
   },
   {
-   "id": "2026-11-14-reel-1",
-   "date": "2026-11-14",
+   "id": "2026-11-07-reel-2",
+   "date": "2026-11-07",
    "kind": "duo",
-   "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
-   "judged": "early",
+   "hook": "Google bought a troubled Wyoming data centre project and plans to invest $17 billion.",
+   "judged": "final",
    "x": {
-    "reach": 1.07,
-    "watch_s": 0.94,
-    "held": 0.75,
+    "reach": 0.93,
+    "watch_s": 0.87,
+    "held": 0.94,
     "sent_saved": null
    },
    "overall": 0.91,
-   "category": "impact",
+   "category": "products",
    "player": "giant",
-   "hook_type": "stakes",
-   "pain": "job",
-   "pace": "brisk",
-   "hook_number": false,
-   "time": "09:00"
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "16:00"
+  },
+  {
+   "id": "2026-11-08-reel-2",
+   "date": "2026-11-08",
+   "kind": "duo",
+   "hook": "Anthropic’s AI tools doubled research speed, making employees 12× more productive.",
+   "judged": "final",
+   "x": {
+    "reach": 0.95,
+    "watch_s": 0.79,
+    "held": 1.0,
+    "sent_saved": null
+   },
+   "overall": 0.91,
+   "category": "research",
+   "player": "giant",
+   "hook_type": "untagged",
+   "pain": "untagged",
+   "pace": "slow",
+   "hook_number": true,
+   "time": "13:00"
   },
   {
    "id": "2026-11-01-reel-2",
@@ -649,6 +692,27 @@
    "pace": "no duo",
    "hook_number": true,
    "time": "13:00"
+  },
+  {
+   "id": "2026-11-14-reel-1",
+   "date": "2026-11-14",
+   "kind": "duo",
+   "hook": "Microsoft’s network upgrade knocked out Outlook for tens of millions worldwide.",
+   "judged": "early",
+   "x": {
+    "reach": 1.07,
+    "watch_s": 0.9,
+    "held": 0.75,
+    "sent_saved": null
+   },
+   "overall": 0.9,
+   "category": "impact",
+   "player": "giant",
+   "hook_type": "stakes",
+   "pain": "job",
+   "pace": "brisk",
+   "hook_number": false,
+   "time": "09:00"
   },
   {
    "id": "2026-10-31-reel-2",
@@ -676,14 +740,14 @@
    "date": "2026-11-10",
    "kind": "duo",
    "hook": "Nvidia's stock slid more than 4% after its board's CEO probe.",
-   "judged": "early",
+   "judged": "final",
    "x": {
     "reach": 0.94,
-    "watch_s": 0.76,
+    "watch_s": 0.73,
     "held": 0.96,
     "sent_saved": null
    },
-   "overall": 0.88,
+   "overall": 0.87,
    "category": "products",
    "player": "giant",
    "hook_type": "number",
@@ -700,11 +764,11 @@
    "judged": "early",
    "x": {
     "reach": 0.95,
-    "watch_s": 0.74,
-    "held": 0.86,
+    "watch_s": 0.71,
+    "held": 0.85,
     "sent_saved": null
    },
-   "overall": 0.85,
+   "overall": 0.83,
    "category": "impact",
    "player": "other",
    "hook_type": "stakes",
@@ -721,11 +785,11 @@
    "judged": "early",
    "x": {
     "reach": 0.48,
-    "watch_s": 1.04,
-    "held": 1.1,
+    "watch_s": 1.0,
+    "held": 1.09,
     "sent_saved": null
    },
-   "overall": 0.82,
+   "overall": 0.81,
    "category": "products",
    "player": "giant",
    "hook_type": "stakes",
@@ -847,11 +911,11 @@
    "judged": "early",
    "x": {
     "reach": 0.62,
-    "watch_s": 0.74,
+    "watch_s": 0.71,
     "held": 0.78,
     "sent_saved": null
    },
-   "overall": 0.71,
+   "overall": 0.7,
    "category": "research",
    "player": "giant",
    "hook_type": "stakes",
@@ -868,11 +932,11 @@
    "judged": "early",
    "x": {
     "reach": 0.5,
-    "watch_s": 0.61,
-    "held": 1.03,
+    "watch_s": 0.59,
+    "held": 1.02,
     "sent_saved": null
    },
-   "overall": 0.68,
+   "overall": 0.67,
    "category": "models",
    "player": "giant",
    "hook_type": "stakes",
@@ -886,14 +950,14 @@
    "date": "2026-11-10",
    "kind": "duo",
    "hook": "Google says your Gmail and Drive files can reach Gemini's human reviewers.",
-   "judged": "early",
+   "judged": "final",
    "x": {
     "reach": 0.26,
-    "watch_s": 0.86,
+    "watch_s": 0.83,
     "held": 0.92,
     "sent_saved": null
    },
-   "overall": 0.59,
+   "overall": 0.58,
    "category": "models",
    "player": "giant",
    "hook_type": "stakes",
@@ -901,27 +965,6 @@
    "pace": "slow",
    "hook_number": false,
    "time": "09:00"
-  },
-  {
-   "id": "2026-11-11-reel-2",
-   "date": "2026-11-11",
-   "kind": "duo",
-   "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
-   "judged": "early",
-   "x": {
-    "reach": 0.95,
-    "watch_s": 0.36,
-    "held": 0.56,
-    "sent_saved": null
-   },
-   "overall": 0.58,
-   "category": "products",
-   "player": "giant",
-   "hook_type": "number",
-   "pain": "money",
-   "pace": "brisk",
-   "hook_number": true,
-   "time": "13:00"
   },
   {
    "id": "2026-11-05-reel-1",
@@ -945,18 +988,39 @@
    "time": "09:00"
   },
   {
+   "id": "2026-11-11-reel-2",
+   "date": "2026-11-11",
+   "kind": "duo",
+   "hook": "Google launches AI to fix 28 hours of weekly clinician paperwork.",
+   "judged": "early",
+   "x": {
+    "reach": 0.95,
+    "watch_s": 0.35,
+    "held": 0.56,
+    "sent_saved": null
+   },
+   "overall": 0.57,
+   "category": "products",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "money",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "13:00"
+  },
+  {
    "id": "2026-11-18-reel-4",
    "date": "2026-11-18",
    "kind": "duo",
    "hook": "Meta posts AI deepfake of Sam Altman, sparking policy worries.",
    "judged": "early",
    "x": {
-    "reach": 0.11,
-    "watch_s": 1.17,
-    "held": 1.21,
+    "reach": 0.12,
+    "watch_s": 1.05,
+    "held": 1.07,
     "sent_saved": null
    },
-   "overall": 0.54,
+   "overall": 0.51,
    "category": "products",
    "player": "giant",
    "hook_type": "stakes",
@@ -1037,11 +1101,11 @@
    "judged": "final",
    "x": {
     "reach": 0.43,
-    "watch_s": 0.35,
+    "watch_s": 0.33,
     "held": 0.39,
     "sent_saved": null
    },
-   "overall": 0.39,
+   "overall": 0.38,
    "category": "products",
    "player": "giant",
    "hook_type": "you",
@@ -1091,19 +1155,37 @@
    "pace": "no duo",
    "hook_number": false,
    "time": "19:00"
+  },
+  {
+   "id": "2026-11-19-reel-3",
+   "date": "2026-11-19",
+   "kind": "duo",
+   "hook": "Google DeepMind released Gemini 4 Neon, a high‑capacity, low‑fabrication model for enterpr",
+   "judged": "early",
+   "x": {
+    "reach": 0.03,
+    "watch_s": 0.46,
+    "held": 0.0,
+    "sent_saved": null
+   },
+   "overall": 0.1,
+   "category": "models",
+   "player": "giant",
+   "hook_type": "number",
+   "pain": "tools",
+   "pace": "brisk",
+   "hook_number": true,
+   "time": "16:00"
   }
  ],
- "judged": 28,
+ "judged": 31,
  "top_tenth": {
   "reels": [
+   "2026-11-10-reel-3",
    "2026-11-07-reel-3",
    "2026-11-09-reel-1"
   ],
-  "all_share": {
-   "player": "giant",
-   "pace": "slow",
-   "hook_number": false
-  }
+  "all_share": {}
  },
  "top_tenth_needs": 20
 }
