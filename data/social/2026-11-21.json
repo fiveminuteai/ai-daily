@@ -58,13 +58,17 @@
    "cover": null,
    "text": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is still unverified.\n\n• Levent Alpöge, a mathematician at Anthropic, announced on his website that he believes he has proved the Riemann hypothesis using the large language model Claude.\n• The claim has not been independently verified and Anthropic has not commented on the result.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-21T03:31:27+00:00",
+   "posted_url": "https://www.instagram.com/reel/Df_RPiDlJSC/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-21/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-21T03:30:00+00:00"
+   "scheduled_at": "2026-11-21T03:30:00+00:00",
+   "media_id": "17918491686510041",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/-Sd99PhBXEk",
+   "youtube_error": null
   },
   {
    "id": "2026-11-21-reel-2",
