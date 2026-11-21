@@ -368,7 +368,7 @@ def fallback_cards(verified: dict, draft: dict, report: dict) -> tuple[dict, dic
         hook = next((s for s in lead + said if 6 <= words(s) <= 22 and not hook_problems(s)), None)
         kept = sec.get("kept_duo")
         spark = [ln["text"] for ln in (kept or {}).get("lines", []) if ln.get("who") == "spark" and ln.get("kind") != "comeback"]
-        if kept and len(spark) >= 3:
+        if kept and len(spark) >= 2:     # 21 Nov 2026: a duo cut to two checked lines (duo_desk.prune) still counts
             # the duo survived both checks: its own Spark lines are the card, so the Reel stays a duo
             sec["card"] = {"hook": spark[0], "points": spark[1:4], "take": None, "take_kind": "read",
                            "ask": carried_ask(old, spark),

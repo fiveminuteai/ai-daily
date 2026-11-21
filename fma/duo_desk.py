@@ -172,6 +172,35 @@ def is_fact(ln: dict) -> bool:
     """A line that states facts: Spark's, unless it is a comeback. Only these are fact-checked."""
     return ln.get("who") == "spark" and ln.get("kind") != "comeback"
 
+
+MIN_KEPT_FACTS = 2
+
+
+def prune(duo: dict | None, bad) -> dict | None:
+    """The duo without the Spark lines in `bad` (lines the fact-check refused), each taken out together with the
+    guest's answer and any comeback that follow it, so every joke left still answers the line before it.
+    21 Nov 2026: the check was all or nothing. One overreaching Spark line (of three) threw the whole double act
+    away, and the Reel went out as Spark alone (2 of 4 on 21 Nov). Kept when at least two checked Spark lines and
+    their answers remain and the rest still passes every rule of problems() except the writer's minimum length."""
+    if not duo:
+        return None
+    bad = set(bad)
+    lines, skipping = [], False
+    for ln in duo.get("lines") or []:
+        if is_fact(ln):
+            skipping = ln.get("text") in bad
+        if not skipping:
+            lines.append(ln)
+    if len(lines) == len(duo.get("lines") or []):
+        return duo
+    if sum(1 for ln in lines if is_fact(ln)) < MIN_KEPT_FACTS or not any(ln.get("who") == "guest" for ln in lines):
+        return None
+    out = {**duo, "lines": lines}
+    # pruning only shortens, so the writer's minimum length (lines and words) is the one rule it may break
+    left = [p for p in problems(out) if not re.fullmatch(r"\d+ (?:lines|words); write \d+ to \d+", p)]
+    return None if left else out
+
+
 DUO_SYSTEM = """You write a 40-second comedy news double act for Instagram Reels, for an AI news show. You are as
 funny as a good sitcom writer and as strict as a newspaper fact-checker: you never add a fact, number or name that
 is not in the story text. You reply with one JSON object and nothing else."""

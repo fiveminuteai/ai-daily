@@ -457,25 +457,29 @@ class Verifier:
 
     def duo(self, d: dict | None, ids: list[str], n: int) -> dict | None:
         """Layer 1 for the duo Reel script (fma/duo_desk.py). Each Spark line is checked like a sentence of the post;
-        the guest's lines are re-checked for no numbers, names or citations. All or nothing: a double act with a
-        line missing stops making sense, so one failed line drops the duo and the story keeps its ordinary Reel."""
+        the guest's lines are re-checked for no numbers, names or citations. A Spark line that fails goes out with
+        the guest's answer to it (duo_desk.prune, 21 Nov 2026); if too little is left, the duo is dropped and the
+        story keeps its ordinary Reel."""
         if not d:
             return None
-        from .duo_desk import problems
+        from .duo_desk import problems, prune
         bad = problems(d)
         if bad:
             self.log.append({"where": f"card[{n}] duo", "text": "; ".join(bad)[:300], "sources": [],
                              "status": "dropped", "problems": bad[:5]})
             return None
-        lines = []
+        lines, failed = [], set()
         for k, ln in enumerate(d["lines"]):
             if ln["who"] == "spark" and ln.get("kind") != "comeback":     # a comeback states no facts
                 text = self.sentence(ln["text"], f"card[{n}] duo line {k + 1}", ids)
                 if not text:
-                    return None
+                    failed.add(ln["text"])
+                    lines.append(ln)
+                    continue
                 ln = {**ln, "text": text}
             lines.append(ln)
-        return {"guest": d["guest"], "lines": lines, **{k: d[k] for k in ("laughs", "laughs_why", "sensitive") if k in d}}
+        return prune({"guest": d["guest"], "lines": lines,
+                      **{k: d[k] for k in ("laughs", "laughs_why", "sensitive") if k in d}}, failed)
 
     def paragraph(self, text: str, where: str, story_ids: list[str] | None = None) -> str:
         """A paragraph's sentences, each checked; an uncited sentence is checked against the paragraph's citations,
@@ -961,16 +965,21 @@ def llm_check(chain, post: dict, sources: list[dict], report: dict, min_words: i
         else:
             mark_dropped(report, post["quote"]["text"], cites(s), f"model check (speaker): {bad[k]}")
             post["quote"] = None
+    from .duo_desk import prune
     for sec in post["sections"]:
-        if any(ln["text"] in drop for ln in (sec.get("kept_duo") or {}).get("lines", [])):
-            sec.pop("kept_duo")
+        if sec.get("kept_duo"):
+            sec["kept_duo"] = prune(sec["kept_duo"], drop)      # a refused line goes with its answer (21 Nov 2026)
+            if not sec["kept_duo"]:
+                sec.pop("kept_duo")
         c = sec.get("card")
         if c:
             c = {**c, "points": [p for p in c["points"] if p not in drop],
                  "take": None if c.get("take") in drop else c.get("take"),
                  "ask": None if c.get("ask") in drop else c.get("ask")}
-            if any(ln["text"] in drop for ln in (c.get("duo") or {}).get("lines", [])):
-                c.pop("duo")            # all or nothing, as in layer 1
+            if c.get("duo"):
+                c["duo"] = prune(c["duo"], drop)   # a refused line goes with its answer, as in layer 1
+                if not c["duo"]:
+                    c.pop("duo")
             if c.get("cover") in drop:  # the Reel keeps its hook; only the thumbnail line and the frame-1 text go
                 c.pop("cover")
                 c.pop("cover_hi", None)

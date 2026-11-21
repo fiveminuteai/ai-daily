@@ -637,11 +637,52 @@ def test_a_good_duo_survives_its_card_losing_the_hook_and_comes_back_on_the_rebu
     assert card["duo"]["guest"] == "doubt" and card["fallback"] and card["reel"] == 8
     assert card["hook"].replace(" [S1]", "[S1]") == duo["lines"][0]["text"].replace(" [S1]", "[S1]")
     assert "kept_duo" not in post["sections"][0]
-    # a duo line the model check rejects means no kept duo
+    # 21 Nov 2026: a duo line the model check rejects goes with its answer; two checked lines and answers remain,
+    # so the duo is kept, and the rebuilt card is still a duo
     draft2 = good_draft(); draft2["sections"][0]["card"] = dict(draft["sections"][0]["card"])
     post, report = verify_draft(draft2, SOURCES)
     post, report = llm_check(FakeChain([], flag_text={"costs $2 per million tokens": "wrong"}), post, SOURCES, report)
+    kept = post["sections"][0]["kept_duo"]
+    assert [ln["text"].replace(" [", "[") for ln in kept["lines"]] == [duo["lines"][k]["text"].replace(" [", "[")
+                                                                      for k in (0, 1, 4, 5)]
+    post, rep = fallback_cards(post, draft2, report)
+    assert post["sections"][0]["card"]["duo"]["guest"] == "doubt"
+    # with two of its three Spark lines refused, too little is left: no duo
+    draft3 = good_draft(); draft3["sections"][0]["card"] = dict(draft["sections"][0]["card"])
+    post, report = verify_draft(draft3, SOURCES)
+    post, report = llm_check(FakeChain([], flag_text={"costs $2 per million tokens": "wrong",
+                                                      "up from 81.2%": "wrong"}), post, SOURCES, report)
     assert "kept_duo" not in post["sections"][0]
+
+
+def test_a_refused_duo_line_goes_with_its_answer_and_a_kept_card_keeps_its_duo():
+    """21 Nov 2026: 2 of 4 Reels were Spark alone. Each lost its duo to one refused Spark line out of three
+    (all or nothing); one rebuilt card then had too few short lines, the other had no time left for a new duo."""
+    from conftest import FakeChain
+    from fma.duo_desk import prune
+    from fma.verify import llm_check
+    duo = {"guest": "doubt", "lines": [
+        {"who": "spark", "text": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1]."},
+        {"who": "guest", "text": "A test score. How thrilling."},
+        {"who": "spark", "text": "The company said the model costs $2 per million tokens [S1]."},
+        {"who": "guest", "text": "Cheaper than my cardboard."},
+        {"who": "spark", "text": "Acme said Nova-2 scores 87.5% on the MMLU benchmark, up from 81.2% for Nova-1 [S1]."},
+        {"who": "guest", "text": "Fine. I am mildly impressed."}]}
+    assert prune(duo, set()) is duo
+    assert prune(duo, {duo["lines"][0]["text"]})["lines"][0] == duo["lines"][2]         # the next fact line leads
+    assert prune(duo, {duo["lines"][0]["text"], duo["lines"][4]["text"]}) is None       # one line left: no duo
+    draft = good_draft()
+    draft["sections"][0]["card"] = {"hook": "Acme said Nova-2 scores 87.5% on the MMLU benchmark [S1].",
+                                    "points": ["Nova-2 scores 87.5% on MMLU [S1].", "It costs $2 per million tokens [S1]."],
+                                    "reel": 8, "duo": duo}
+    post, report = verify_draft(draft, SOURCES)
+    post, report = llm_check(FakeChain([], flag_text={"costs $2 per million tokens": "wrong"}), post, SOURCES, report)
+    card = post["sections"][0]["card"]
+    assert card is None or card["duo"]["guest"] == "doubt"
+    if card is None:                         # the card fell to the refused point too: the kept duo carries it
+        assert len(post["sections"][0]["kept_duo"]["lines"]) == 4
+    else:
+        assert [ln["who"] for ln in card["duo"]["lines"]] == ["spark", "guest", "spark", "guest"]
 
 def test_evidence_with_an_aside_left_out_or_a_frame_added_is_found_but_scrambled_words_are_not():
     # 20 Nov 2026: true lines were dropped because the checker left out an aside or added "The Verge ... reports"
