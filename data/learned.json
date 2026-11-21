@@ -1,13 +1,20 @@
 {
  "reels_counted": 55,
- "checked": "2026-11-21T18:02:26+00:00",
+ "checked": "2026-11-21T23:00:00+00:00",
  "lessons": [
   {
-   "lesson": "Avoid using a \"no duo\" pacing style, as it shows a strong negative effect on outcomes.",
+   "lesson": "Use a \"stakes\" hook (e.g., highlight high‑impact consequences) to boost performance.",
    "evidence": [
-    "pace = no duo: n 17, effect -0.87"
+    "hook type = stakes: n 18, effect 0.53"
    ],
-   "added": "2026-11-15T18:02:00+00:00"
+   "added": "2026-11-21T23:00:00+00:00"
+  },
+  {
+   "lesson": "Avoid a \"no duo\" pacing style; it is strongly associated with poorer outcomes.",
+   "evidence": [
+    "pace = no duo: n 25, effect -0.75"
+   ],
+   "added": "2026-11-21T23:00:00+00:00"
   }
  ]
 }
