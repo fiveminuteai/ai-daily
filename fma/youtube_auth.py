@@ -3,7 +3,9 @@
     python -m fma.youtube_auth --client-file "C:\\Users\\you\\Downloads\\client_secret_....json"
 
 It opens Google's consent page in your browser; you pick the Five Minute AI channel and allow "Manage your YouTube
-videos" (only the upload permission is asked: scope youtube.upload). Then it saves the three GitHub secrets
+videos" and "See, edit and delete your YouTube videos, comments and playlists" (scopes youtube.upload and
+youtube.force-ssl; 22 Nov 2026: the second lets the daily stats read each Short's views and lets us add playlists
+and our question as the first comment. Nothing deletes anything). Then it saves the three GitHub secrets
 (YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN) itself through `gh secret set`, feeding each value
 on stdin: nothing is printed, written to disk, or put on a command line. Afterwards, delete the downloaded file.
 `--print` prints the refresh token instead of saving it (for another repository or Chakra's Credential Manager).
@@ -31,7 +33,7 @@ from pathlib import Path
 
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
-SCOPE = "https://www.googleapis.com/auth/youtube.upload"
+SCOPE = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl"
 REPO = "fiveminuteai/ai-daily"
 
 
