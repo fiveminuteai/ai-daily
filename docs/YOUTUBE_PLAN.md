@@ -10,6 +10,10 @@ Pavan: "build a strategy to push youtube views, they are dead. work on autopilot
   Google's AI Coach" (31), "Apple splits Mac permissions…" (23), "Nvidia inflated GPU prices" (23). The winners are
   specific: a named person, a how-to, a concrete number. The losers are generic headlines ("AI CEOs can't be trusted").
 
+- **API baseline (data/stats/2026-11-22.json, read 22 Nov 22:15 IST, after the new sign-in): 42 Shorts in the
+  last 28 days, 13 with zero views, median 2 views, 149 channel views, 4 subscribers.** The daily stats now record
+  this every night, so the 14-day comparison reads straight from data/stats.
+
 ## What the research says (sources in the session report; YouTube's own pages first)
 
 1. Distribution is per viewer: "viewed vs swiped away", watch time, and responses. Near-zero views means the feed is
@@ -36,9 +40,9 @@ Pavan: "build a strategy to push youtube views, they are dead. work on autopilot
 1. **A real take in every Short** (the biggest lever, step 2 of the research). Spark's last line before the question
    becomes the card's checked "why it matters" line, so each Short says something no feed reading does. Needs care: a
    longer script must still fit the length cap, or the Reel loses its duo. Built and tested on a trial render first.
-2. **Numbers for decisions** — *needs Pavan once*: re-run `python -m fma.youtube_auth` adding the
-   `youtube.readonly` scope, so the daily stats collect views per Short (today I read them off the public page by
-   hand). Same step with `youtube.force-ssl` unlocks playlists by topic and the question as our first comment.
+2. ~~Numbers for decisions~~ **done 22 Nov**: Pavan re-signed in with `youtube.force-ssl`. The daily stats read
+   every Short's views; each new Short joins a public topic playlist and gets its question as our first comment
+   (pinning it stays a manual step in Studio: the API can't pin).
 3. **A weekly long-form recap** (5-8 min, the week's best stories with the cast), linked from the Shorts as their
    related video in Studio. Linking Shorts to long-form is the funnel creators recommend; it's also original content.
 4. **Measure for 14 days** (from 23 Nov): views per Short, share of Shorts with zero views, subscribers. Baseline
