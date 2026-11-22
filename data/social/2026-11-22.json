@@ -108,13 +108,17 @@
    "cover": "Google AI now books calls in Gemini[S4].",
    "text": "Google now books reservations via Gemini Tasks, handling calls for you.\n\n• Google added Duplex to Gemini Tasks, letting the AI place calls and make reservations.\n• The system now handles real-world errands, built on a low-latency speech and reasoning pipeline.\n\nOur read: You can let Google’s AI handle routine calls, so you focus on higher-value work.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-22T10:31:24+00:00",
+   "posted_url": "https://www.instagram.com/reel/DgCmGUCjlt4/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-22/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-22T10:30:00+00:00"
+   "scheduled_at": "2026-11-22T10:30:00+00:00",
+   "media_id": "18128597761958990",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/SABlqU_xmqw",
+   "youtube_error": null
   },
   {
    "id": "2026-11-22-reel-4",
