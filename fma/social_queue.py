@@ -329,7 +329,19 @@ def mirror(root: Path, iid: str, site: dict, http) -> str:
                    youtube_tries=MAX_ATTEMPTS if gone else item.get("youtube_tries", 0) + 1)
         return f"; YouTube not uploaded (recorded{', given up' if gone else ''}): {exc}"
     _save_item(root, iid, youtube_url=url, youtube_error=None)
-    return f"; YouTube Short: {url}"
+    from .youtube import extras
+    topic, ask = _story_of(root, iid[:10], item)
+    return f"; YouTube Short: {url}" + extras(http, url, topic, ask)
+
+
+def _story_of(root: Path, date: str, item: dict) -> tuple[str, str]:
+    """The Reel's topic and question, from the day's post: the section the queue item names as its story."""
+    try:
+        post = json.loads((root / "content" / "posts" / f"{date}.json").read_text(encoding="utf-8"))
+        sec = post["sections"][int(item.get("story"))]
+    except (OSError, ValueError, KeyError, IndexError, TypeError):
+        return "", ""
+    return sec.get("category", ""), (sec.get("card") or {}).get("ask") or ""
 
 
 def act(root: Path, iid: str, action: str, text: str | None, site: dict, http, token: str | None,

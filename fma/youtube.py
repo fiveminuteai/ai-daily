@@ -147,6 +147,99 @@ def upload_short(http, video_url: str, caption: str, hook: str, site: dict, date
     raise YouTubeError("upload: refused")
 
 
+# ---------------------------------------------------------------- after the upload (22 Nov 2026)
+# Pavan re-signed in on 22 Nov with youtube.force-ssl as well (fma/youtube_auth.py), which allows reading each
+# Short's numbers, adding it to a playlist and commenting on it. Each of these is an extra: a failure is noted,
+# never a failed upload.
+API = "https://www.googleapis.com/youtube/v3"
+TOPICS = {"models": "AI models", "architecture": "How AI models are built", "research": "AI research",
+          "products": "New AI products", "tools": "AI tools", "policy": "AI rules and safety", "impact": "AI and people"}
+
+
+def video_id(url: str) -> str:
+    m = re.search(r"(?:shorts/|v=|youtu\.be/)([A-Za-z0-9_-]{11})", url or "")
+    return m.group(1) if m else ""
+
+
+def _call(http, method: str, path: str, access: str, **kw) -> dict:
+    r = getattr(http, method)(f"{API}/{path}", headers={"Authorization": f"Bearer {access}"}, **kw)
+    if r.status_code not in (200, 201):
+        reason = ""
+        try:
+            errs = r.json().get("error", {})
+            reason = ",".join(e.get("reason", "") for e in errs.get("errors", [])) or str(errs.get("message", ""))[:120]
+        except ValueError:
+            pass
+        raise YouTubeError(f"{path.split('?')[0]}: HTTP {r.status_code} {reason}".strip())
+    return r.json() if r.content else {}
+
+
+def playlist_for(http, access: str, topic: str) -> str:
+    """Our public playlist for the topic, made the first time it is needed. Returns its id."""
+    title = f"Five Minute AI: {TOPICS.get(topic, 'AI news')}"
+    got = _call(http, "get", "playlists?part=snippet&mine=true&maxResults=50", access)
+    for p in got.get("items", []):
+        if p.get("snippet", {}).get("title") == title:
+            return p["id"]
+    made = _call(http, "post", "playlists?part=snippet,status", access, json={
+        "snippet": {"title": title, "description": "Daily AI news in under a minute. Every claim checked against its "
+                    "source at fiveminuteai.net", "defaultLanguage": "en"}, "status": {"privacyStatus": "public"}})
+    return made["id"]
+
+
+def extras(http, url: str, topic: str, question: str, env: dict | None = None) -> str:
+    """Put a new Short in its topic playlist and post the Reel's question as our first comment (a pin is a manual
+    step: the API has none). Returns a note for the log; never raises."""
+    env = os.environ if env is None else env
+    vid, notes = video_id(url), []
+    if not vid or not configured(env):
+        return ""
+    try:
+        access = _token(http, env)
+    except YouTubeError as exc:
+        return f"; YouTube extras skipped: {exc}"
+    try:
+        pl = playlist_for(http, access, topic)
+        _call(http, "post", "playlistItems?part=snippet", access, json={
+            "snippet": {"playlistId": pl, "resourceId": {"kind": "youtube#video", "videoId": vid}}})
+        notes.append(f"in playlist {TOPICS.get(topic, 'AI news')}")
+    except YouTubeError as exc:
+        notes.append(f"playlist failed: {exc}")
+    q = _plain(question)
+    if q:
+        try:
+            _call(http, "post", "commentThreads?part=snippet", access, json={
+                "snippet": {"videoId": vid, "topLevelComment": {"snippet": {"textOriginal": q}}}})
+            notes.append("question posted as first comment")
+        except YouTubeError as exc:
+            notes.append(f"comment failed: {exc}")
+    return "; " + ", ".join(notes) if notes else ""
+
+
+def shorts_stats(http, urls: list[str], env: dict | None = None) -> dict:
+    """Each Short's public numbers and the channel's subscribers (videos.list / channels.list, 1 unit each call)."""
+    env = os.environ if env is None else env
+    if not configured(env):
+        return {"status": "off", "note": "YouTube sign-in not set (python -m fma.youtube_auth)"}
+    access = _token(http, env)
+    ids = [v for v in dict.fromkeys(video_id(u) for u in urls) if v]
+    shorts = {}
+    for k in range(0, len(ids), 50):
+        got = _call(http, "get", f"videos?part=statistics,snippet&id={','.join(ids[k:k + 50])}", access)
+        for v in got.get("items", []):
+            st = v.get("statistics", {})
+            shorts[v["id"]] = {"title": v.get("snippet", {}).get("title", ""),
+                               "published": v.get("snippet", {}).get("publishedAt", ""),
+                               **{n: int(st[n]) for n in ("viewCount", "likeCount", "commentCount") if n in st}}
+    ch = _call(http, "get", "channels?part=statistics&mine=true", access).get("items", [{}])
+    cst = (ch[0] if ch else {}).get("statistics", {})
+    views = [s.get("viewCount", 0) for s in shorts.values()]
+    return {"status": "ok", "subscribers": int(cst.get("subscriberCount", 0) or 0),
+            "channel_views": int(cst.get("viewCount", 0) or 0), "shorts": shorts,
+            "summary": {"shorts": len(views), "zero_views": sum(1 for x in views if not x),
+                        "median_views": sorted(views)[len(views) // 2] if views else 0}}
+
+
 def main(argv=None) -> int:
     """`python -m fma.youtube --check`: the sign-in works (a token refresh, nothing uploaded). Prints no secrets."""
     import sys

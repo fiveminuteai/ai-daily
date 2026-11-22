@@ -186,7 +186,28 @@ def collect(http, day: str, site: dict, env: dict | None = None) -> dict:
         else {"status": "off", "note": "set GOATCOUNTER_TOKEN" if gc else "no goatcounter site in config/site.yaml"},
         "instagram": _safely("instagram", instagram, http, ig_token, day, site.get("instagram_id")) if ig_token
         else {"status": "off", "note": "set INSTAGRAM_TOKEN"},
+        "youtube": youtube(http, day, env),
     }
+
+
+def youtube(http, day: str, env: dict) -> dict:
+    """22 Nov 2026 (docs/YOUTUBE_PLAN.md): every Short of the last 28 days, its views, likes and comments, and the
+    channel's subscribers. A failure is recorded here, never a failed run."""
+    from datetime import date, timedelta
+    from .youtube import YouTubeError, shorts_stats
+    urls = []
+    for k in range(28):
+        f = config.ROOT / "data" / "social" / f"{date.fromisoformat(day) - timedelta(days=k)}.json"
+        try:
+            urls += [i["youtube_url"] for i in json.loads(f.read_text(encoding="utf-8")).get("items", [])
+                     if i.get("youtube_url")]
+        except (OSError, ValueError):
+            continue
+    try:
+        return shorts_stats(http, urls, env)
+    except YouTubeError as exc:
+        log.warning("youtube stats failed: %s", exc)
+        return {"status": "error", "error": str(exc)}
 
 
 def write_snapshot(root: Path, snap: dict) -> Path:
@@ -209,7 +230,7 @@ def main(argv=None) -> int:
     day = args.date or today_in(site["timezone"])
     snap = collect(Http(), day, site)
     path = write_snapshot(config.ROOT, snap)
-    print(f"wrote {path}: " + ", ".join(f"{k} {snap[k]['status']}" for k in ("website", "instagram")))
+    print(f"wrote {path}: " + ", ".join(f"{k} {snap[k]['status']}" for k in ("website", "instagram", "youtube")))
     return 0       # a platform that failed is recorded in the file, not a failed run
 
 
