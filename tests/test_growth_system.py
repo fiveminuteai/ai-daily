@@ -88,8 +88,8 @@ class YT:
         return Resp(200, {"access_token": "acc"})
 
 
-def test_short_titles_fit_and_say_shorts():
-    assert youtube.title_for("OpenAI raised $11 billion[S1].") == "OpenAI raised $11 billion. #Shorts"
+def test_short_titles_fit_and_are_plain_search_phrases():
+    assert youtube.title_for("OpenAI raised $11 billion[S1].") == "OpenAI raised $11 billion"     # 22 Nov: no #Shorts
     assert len(youtube.title_for("word " * 40)) <= youtube.TITLE_MAX
 
 
@@ -105,7 +105,7 @@ def test_upload_short_and_retry_without_the_disclosure_field():
                                "(fiveminuteai.net)", "Hook[S1].", SITE, "2026-11-09", env=ENV, uploader=uploader)
     assert url == "https://www.youtube.com/shorts/abc"
     assert b"containsSyntheticMedia" in calls[0] and b"containsSyntheticMedia" not in calls[1]
-    assert b"https://fiveminuteai.net/" in calls[1] and b"link in bio" not in calls[1]
+    assert b"fiveminuteai.net" in calls[1] and b"link in bio" not in calls[1]
 
 
 def test_youtube_stays_off_without_its_secrets(tmp_path, monkeypatch):
@@ -218,4 +218,16 @@ def test_an_upload_lost_mid_send_is_never_retried_on_its_own():
 def test_the_youtube_description_gets_a_clickable_link_from_the_new_caption():
     from fma import youtube
     d = youtube.description_for(social.reel_caption(section(), SITE), {"base_url": "https://fiveminuteai.net/"}, "2026-11-16")
-    assert "Every claim sourced: https://fiveminuteai.net/" in d
+    assert "Every claim checked against its source: fiveminuteai.net" in d
+
+
+def test_youtube_gets_a_short_description_and_only_the_days_first_two_reels():
+    """22 Nov 2026: most Shorts had no views; YouTube names templated, mass-produced news readings as inauthentic."""
+    from fma import youtube
+    cap = ("Nvidia halted H200 sales in China[S1].\n\n• Board members blamed a pattern of lying.\n\n"
+           "Send this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia")
+    d = youtube.description_for(cap, {"base_url": "https://fiveminuteai.net/"}, "2026-11-22")
+    assert d.startswith("Nvidia halted H200 sales in China.\nBoard members blamed")
+    assert "Send this" not in d and "fiveminuteai.net" in d and d.endswith("#ai #ainews #nvidia #shorts")
+    assert [youtube.wanted(f"2026-11-22-reel-{k}", {}) for k in (1, 2, 3, 4)] == [True, True, False, False]
+    assert youtube.wanted("2026-11-22-reel-3", {"youtube_slots": [3]})

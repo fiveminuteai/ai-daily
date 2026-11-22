@@ -35,6 +35,7 @@ growth:
   trial_reels: "off"
   trial_slots: []
   youtube: true
+  youtube_slots: [1, 2]      # 22 Nov 2026: two Shorts a day, not four (fma/youtube.wanted)
   daily_carousel: true        # 9 Nov 2026, Pavan: carousels, posts and Reels every day (posts at schedule.carousel)
 
 # One test at a time, on one Reel a day (fma/experiment.py): add an `experiment:` block here to run one.

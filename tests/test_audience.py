@@ -94,7 +94,7 @@ def test_duo_hook_line_must_land_in_four_seconds():
 def test_youtube_title_uses_the_short_cover_headline():
     from fma import youtube
     assert youtube.title_for("Nvidia's board opens an investigation into its CEO[S1].") == \
-        "Nvidia's board opens an investigation into its CEO. #Shorts"
+        "Nvidia's board opens an investigation into its CEO"
 
 
 def test_pacing_measures_hook_longest_line_and_length():

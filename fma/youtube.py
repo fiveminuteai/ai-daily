@@ -43,21 +43,41 @@ def _plain(s: str) -> str:
 
 
 def title_for(hook: str) -> str:
-    """The Reel's hook, as YouTube allows: at most 100 characters, no angle brackets, ending with #Shorts if it fits."""
-    t = re.sub(r"[<>]", "", _plain(hook)).strip()
-    if len(t) + len(" #Shorts") <= TITLE_MAX:
-        return t + " #Shorts"
-    return t[:TITLE_MAX - 1].rsplit(" ", 1)[0] + "…"
+    """The Reel's short cover line as a plain searchable phrase, at most 100 characters, no angle brackets.
+    22 Nov 2026: " #Shorts" is no longer added. A vertical video under three minutes is a Short anyway, and Shorts got
+    their own search filter on 8 Jan 2026, so the title's room goes to the words people search for."""
+    t = re.sub(r"[<>]", "", _plain(hook)).strip().rstrip(".")
+    return t if len(t) <= TITLE_MAX else t[:TITLE_MAX - 1].rsplit(" ", 1)[0] + "…"
 
 
 def description_for(caption: str, site: dict, date: str) -> str:
-    """The Instagram caption, with the real link instead of "link in bio" (YouTube descriptions take links)."""
-    url = f"{site['base_url']}"
-    text = re.sub(r"Full story, every claim sourced: link in bio \([^)]*\)",
-                  f"Full story, every claim sourced: {url}", caption)
-    # 15 Nov 2026: Reel captions now say "Every claim sourced at fiveminuteai.net"; YouTube gets the clickable link
-    text = re.sub(r"Every claim sourced at [^\s]+", f"Every claim sourced: {url}", text)
-    return (text + "\n\n#Shorts")[:DESC_MAX]
+    """A short YouTube description made from the Reel's caption (22 Nov 2026): the story's lines, where it is checked,
+    and its topic hashtags. Instagram-only lines ("link in bio", "Send this to a friend") are left out: the pasted
+    caption read as a cross-post. Links in Shorts descriptions aren't clickable, so the site is named, not linked."""
+    domain = re.sub(r"^https?://|/$", "", site["base_url"])
+    keep, tags = [], []
+    for ln in (caption or "").splitlines():
+        t = ln.strip()
+        if not t:
+            continue
+        if t.startswith("#"):
+            tags += [w for w in t.split() if w.startswith("#")]
+        elif re.search(r"link in bio|send this|every claim sourced|tag a friend|follow", t, re.I):
+            continue
+        else:
+            keep.append(_plain(t.lstrip("•")))
+    tags = list(dict.fromkeys([*tags, "#ainews", "#shorts"]))[:5]
+    text = "\n".join(keep[:3]) + f"\n\nEvery claim checked against its source: {domain}\n\n" + " ".join(tags)
+    return text[:DESC_MAX]
+
+
+def wanted(iid: str, growth: dict) -> bool:
+    """Which of the day's Reels go to YouTube (22 Nov 2026). YouTube's rules name templated, mass-produced readings
+    of news feeds as inauthentic, and four look-alike Shorts a day reached almost no one (most had no views at all).
+    So only the Reel numbers in growth.youtube_slots go, the day's best stories first (default: 1 and 2)."""
+    n = iid.rsplit("-", 1)[-1]
+    slots = growth.get("youtube_slots") or [1, 2]
+    return n.isdigit() and int(n) in slots
 
 
 def _token(http, env: dict) -> str:

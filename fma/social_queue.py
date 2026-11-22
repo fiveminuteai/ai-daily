@@ -310,8 +310,10 @@ def trial_for(iid: str, growth: dict) -> str | None:
 def mirror(root: Path, iid: str, site: dict, http) -> str:
     """Copy a posted Reel to YouTube Shorts (8 Nov 2026, growth plan). Off until the YouTube secrets exist; a failure
     is recorded on the item and never touches the Instagram post. Returns a note for the log."""
-    from .youtube import YouTubeError, configured, upload_short
+    from .youtube import YouTubeError, configured, upload_short, wanted
     if not (site.get("growth") or {}).get("youtube", True) or not configured():
+        return ""
+    if not wanted(iid, site.get("growth") or {}):
         return ""
     path = queue_path(root, iid[:10])
     item = next(i for i in json.loads(path.read_text(encoding="utf-8"))["items"] if i["id"] == iid)
