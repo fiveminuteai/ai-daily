@@ -1,0 +1,94 @@
+=== STORY 1 (suggested section: products) ===
+
+[S1] TechCrunch — "The fallout from Nvidia’s Jensen Huang scandal continues" (20 November 2026)
+The fallout from Nvidia’s Jensen Huang scandal continues
+In the midst of dealing with the fallout from its ouster of CEO Jensen Huang, Nvidia delivered its latest earnings report this week, with healthy growth and promises that the good times will continue .
+At the same time, the chipmaker said it will stop selling its H200 chips in China , and it dismissed calls to bring Huang back as CEO .
+On the latest episode of TechCrunch’s Equity podcast, Kirsten Korosec, Anthony Ha, and Tim De Chant discussed what the future holds for Nvidia and the broader AI industry, especially as Anthropic goes public and puts the industry’s circular funding model to the test .
+Keep listening to hear more about:
+Waymo’s decision to suspend freeway rides nationally
+Tesla making the Cybercab available for personal orders , with some serious fine print
+Battery startu p Our Next Energy going public after a brush with death
+Plural’s new fund to back European moonshots
+Subscribe to Equity on YouTube , Apple Podcasts , Overcast , Spotify and all the casts. You also can follow Equity on X and Threads , at @EquityPod.
+Theresa Loconsolo is an audio producer at TechCrunch focusing on Equity, the network’s flagship podcast. Before joining TechCrunch in 2022, she was one of 2 producers at a four-station conglomerate where she wrote, recorded, voiced and edited content, and engineered live performances and interviews from guests like lovelytheband. Theresa is based in New Jersey and holds a bachelors degree in Communication from Monmouth University.
+You can contact or verify outreach from Theresa by emailing [email protected] .
+Anthony Ha is TechCrunch’s weekend editor. Previously, he worked as a tech reporter at Adweek, a senior editor at VentureBeat, a local government reporter at the Hollister Free Lance, and vice president of content at a VC firm. He lives in New York City.
+You can contact or verify outreach from Anthony by emailing [email protected] .
+Tim De Chant is a senior climate reporter at TechCrunch. He has written for a wide range of publications, including Wired magazine, the Chicago Tribune, Ars Technica, The Wire China, and NOVA Next, where he was founding editor.
+De Chant is also a lecturer in MIT’s Graduate Program in Science Writing, and he was awarded a Knight Science Journalism Fellowship at MIT in 2018, during which time he studied climate technologies and explored new business models for journalism. He received his PhD in environmental science, policy, and management from the University of California, Berkeley, and his BA degree in environmental studies, English, and 
+
+[S2] WIRED — "Jensen Huang’s ‘Lying’ Alarmed Nvidia Board Ahead of His Resignation" (20 November 2026)
+Jensen Huang was ousted from Nvidia amid allegations of extramarital affairs , including a relationship with an alleged Chinese intelligence asset. Yet it was “multiple issues” related to Huang’s “lack of candor” and “lying” that ultimately moved the board of directors , according to two people familiar with private discussions among the chair and other members.
+While Huang admitted to having an affair with Alice Huang on November 8, the board couldn’t determine in the moment whether she was an intelligence operative for China, these sources say. That same day, the board announced an independent investigation “in light of recent reporting” that their CEO had “been the target of a foreign intelligence effort.” China’s Ministry of Foreign Affairs has rejected allegations that Alice Huang was a spy.
+But in the following days, once allegations of other affairs surfaced, including one reportedly with a direct report, “what could be determined was [Huang’s] lying, and that spanned a year, from October 2025 through recent events,” a source close to the board told WIRED, who requested anonym
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: policy) ===
+
+[S3] The Verge — "Can Anthropic afford to put safety first?" (21 November 2026)
+Can Anthropic afford to put safety first?
+The Anthropic IPO raises big questions about the future of AI, the company’s safety-first mission, and how we balance idealism with capitalism.
+Today, I’m talking with Hayden Field, The Verge ’s senior AI reporter, about the Anthropic IPO for the third and final episode in our series about AI in real life.
+The AI lab behind Claude went public on the Nasdaq last Thursday. The numbers are gigantic, but not really that important for this conversation, except to say that Anthropic has become one of the most valuable companies on the planet.
+The real story is what happens now — and whether Anthropic can continue to thread the needle of caring about and investing in AI safety while also being a public company beholden to shareholders. Oh, and it also continuously growing the amount of money it makes so it can keep paying its ever-increasing compute bills, which total roughly $900 billion over the coming years.
+All of these ideas sit in a fascinating tension with one another, and so Hayden and I really tried to break down how we think this might play out as Anthropic navigates the pressures of the public markets.
+You’ll hear us talk about the company’s unique corporate governance structure , something that is especially relevant in the wake of the ongoing Jensen Huang saga. We also get into why OpenAI seems happy to have let Anthropic go public first , and why Anthropic’s whole pitch to big customers boils down to the same safety branding that now sits in conflict with the profit-oriented part of its business.
+Before we get going, do me a favor and subscribe to Decoder on YouTube, where we put out new episodes every Monday and Thursday.
+Okay: Hayden Field, The Verge ’s senior AI reporter, on the Anthropic IPO and the economics of frontier AI. Here we go.
+This interview has been lightly edited for length and clarity.
+Hayden Field, welcome back to Decoder .
+Thanks. Great to be here.
+I’m excited to talk to you today because it’s not pure soap opera drama chaos.
+It’s like a normal thing that happened.
+It’s for once not personality-based and soap opera. It’s about cold, hard would-be cash.
+[Laughs] Well, there is some personality in it because we’re going to talk a lot about Anthropic’s IPO, which has a bunch of big personalities in it, and the way they have structured this company to repel the rapacious pressures of capitalism is, I would say, very eccentric. It reflects the beliefs of a number of eccentric people.
+Yep, absolutely. It’s really been interesting digging into the S-1 again and just seeing who was on what commi
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: research) ===
+
+[S4] Google Research — "How Google Duplex evolved to also call businesses for you in Gemini" (20 November 2026)
+How Google Duplex evolved to also call businesses for you in Gemini
+Yossi Matias, Vice President, Google & GM, Google Research, Yaniv Leviathan, Google Fellow, Google Research, and Janet Zhou, Group Product Manager, Google Maps
+When we introduced Google Duplex in 2018, it pioneered natural voice conversations between AI and local businesses over the phone. Since then, this technology has worked behind the scenes across many Google products. These capabilities are integrated directly in Tasks in Gemini .
+Quick links
+Completing tasks like making dinner reservations or booking a hair appointment is time consuming. Live phone conversations move fast and rarely follow a script. The person on the other end can say almost anything, often revising their thoughts mid-sentence – and people often rely on subtle tone changes to indicate whose turn it is to speak. Pause half a second too long, and it sounds like the call dropped; speak too soon, and you end up talking over each other. Leveraging AI to complete these tasks respectfully over the phone required us to consider high quality speech understanding, contextual reasoning, and speech synthesis working together in a single, low-latency system.
+We introduced Google Duplex nearly a decade ago to help address this challenge. Propelled by advances in foundation models, the Duplex architecture has evolved to power autonomous task completion across many core products, such as Google Search and Maps. This week, we launched Duplex in Tasks in Gemini App , a personal AI collaborator that can help coordinate real-world chores, like calling businesses for you and handling real-world requests on behalf of the user. In this post, we look back at the decade-long architectural evolution that made this possible — moving from early, closed-domain models to a unified stack built entirely with Gemini.
+From closed-domain calls to Tasks in Gemini
+What began as a narrow, task-specific system quickly expanded into a shared conversational infrastructure, built in collaboration with teams across Google.
+During the COVID-19 pandemic, when business hours and services shifted rapidly, Duplex doubled down on verifying merchant info automatically to keep listings accurate. It remains an important data source; for example, business information sourced from Duplex’s phone calls had been shown in Search and Maps over one trillion times , as we shared in 2023.
+Simultaneously, we worked with Android and hardware teams to bring these conversational models directly on-device. Starting in 2019, we rolled out new Pixel Call Assist features across fiv
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: products) ===
+
+[S5] TechCrunch — "A tale of two Nvidias" (21 November 2026)
+We got two very different pictures of Nvidia this week, depending on whether you were focused on the company’s latest earnings report or the tech executives loudly calling for former CEO Jensen Huang’s return.
+On the latest episode of TechCrunch’s Equity podcast , Kirsten Korosec, Tim De Chant, and I discussed the latest news from the AI chipmaker, which reported soaring revenue and insisted that it has no plans for Huang to return.
+Kirsten described this as “the tale of two Nvidias this week,” with the company’s current executives assuring investors, “Hey, we’ve got this.” At the same time, “You’ve got Elon Musk and others out there really pushing to bring Jensen back , circulating a petition, Jensen himself saying that he’s prepared to come back.” (The company’s falling stock price certainly suggests that Wall Street isn’t feeling reassured.)
+Keep reading for a preview of our conversation, edited for length and clarity.
+Kirsten Korosec: Nvidia will no longer sell its H200 chips in China . This was coming directly from the interim CEO Colette Kress, and that coincides with the Trump administration also talking about closing off what we have discussed in the past, which is this idea of remote access — really closing and tightening all these restrictions [so] the chips can’t make it into China.
+What was happening is that data centers were being set up right outside, in countries like Malaysia and elsewhere, and then companies within China were remote accessing these chips, and so that’s now also been shut down.
+A lot is happening on the China front that is so much bigger than Nvidia, but Nvidia came out publicly and said, “Nope, we’re shutting this part down.” I’ll be very curious to see if this changes, maybe in the first half of 2027.
+Tim De Chant: I’d love to be a fly on the wall in some of these Trump administration conversations, because they were much more stringent in terms of export controls at the end of the first Trump administration, and that continued through the Biden administration, where they really restricted Nvidia’s ability to export chips to China. I think that something changed in the last couple of years that really opened Nvidia’s ability to sell in the country.
+Anthony Ha: One of the things that really surprised me as we were preparing for this episode was [learning that critics] of Nvidia’s stance towards China estimate that 20% of their business comes from China.
+And again, that’s not something you’re going to see directly in their financials, because that’s not direct sales to Chinese companies. But they’re saying, “A lot of the 
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: architecture) ===
+
+[S6] OpenAI — "Combatting adversarial distillation" (20 November 2026)
+Combatting adversarial distillation
+How we’re addressing safety risks of distillation and lessons we’ve learned for strengthening safeguards across the industry.
+As frontier AI models become more capable, safeguards play an increasingly important role in how they can be used responsibly. Adversarial distillation creates a path for bad actors to reproduce these capabilities without appropriate safeguards. An actor may use a frontier model’s outputs without authorization to train another model with similar capabilities, then deploy it without comparable protections. For instance, an adversary might distill a model’s cyber capabilities and use the resulting model to help carry out cyberattacks that the original model would have refused to assist with or that its safeguards would have blocked.
+We’re sharing how OpenAI detects and disrupts adversarial distillation, how we’ve strengthened protections for our models’ protected reasoning, and what we’ve learned that can help strengthen defenses across the industry.
+Our approach to adversarial distillation combines adversarial testing, model training, classifiers, and API-level protections with investigations into coordinated attempts to extract model capabilities. These updated safeguards align more closely with those we use for biology and cybersecurity.
+We place particular emphasis on preventing attackers from extracting our models’ protected reasoning: the intermediate steps a model generates internally while working toward an answer, known as its chain-of-thought. These traces can contain information the final answer leaves out, making them especially valuable training data for another model.
+W e’ve strengthened our defenses against protected reasoning extraction in GPT‑6.2 Astra and GPT‑6.2 Sol. In an internal adaptive evaluation using strong automated red-teaming , we tested whether attackers could recover protected reasoning the model had generated while answering an earlier prompt. The average attack success rate fell from 54.0% against GPT‑6 Astra with its original safeguards to 0.2% against GPT‑6.2 Astra with its updated safeguards.
+Why distillation is a safety issue
+Distillation is a common machine-learning technique in which one model learns from data produced by another. For example, a model can learn from another model’s answers, its reasoning, or its judgments about which answers are better and why . Beyond intellectual property concerns, unauthorized distillation poses serious safety risks. Through adversarial distillation, a second model can learn advanced frontier capabilities without inheritin

@@ -1,0 +1,421 @@
+{
+ "date": "2026-11-22",
+ "started_at": "2026-11-22T00:15:39+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 6.9,
+   "items": 530,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 8
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 8
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 1
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 3
+    },
+    "github": {
+     "status": "ok",
+     "items": 14
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.8,
+   "stories": 98,
+   "editor": true,
+   "top": [
+    {
+     "title": "The fallout from Nvidia’s Jensen Huang scandal continues",
+     "url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+     "score": 7.32,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Can Anthropic afford to put safety first?",
+     "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+     "score": 6.1,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "How Google Duplex evolved to also call businesses for you in Gemini",
+     "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
+     "score": 5.96,
+     "interest": 7.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "Google Research"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A tale of two Nvidias",
+     "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+     "score": 5.83,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The Outages Are Just Getting Started",
+     "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+     "score": 5.59,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing managed cluster extensions for observability and user management in Amazon SageMaker HyperPod Slurm",
+     "url": "https://aws.amazon.com/blogs/machine-learning/introducing-managed-cluster-extensions-for-observability-and-user-management-in-amazon-sagemaker-hyperpod-slurm/",
+     "score": 5.58,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Announcing Amazon Textract Insights: Verifiable generative AI for documents",
+     "url": "https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents/",
+     "score": 5.56,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+     "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
+     "score": 5.46,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Combatting adversarial distillation",
+     "url": "https://openai.com/index/combatting-adversarial-distillation",
+     "score": 5.31,
+     "interest": 7.0,
+     "category": "architecture",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Experts warn: Nearly everyone in AI is susceptible to a honey-trap scheme right now",
+     "url": "https://techcrunch.com/2026/11/20/experts-warn-nearly-everyone-in-ai-is-susceptible-to-a-honey-trap-scheme-right-now/",
+     "score": 5.0,
+     "interest": 7.0,
+     "category": "architecture",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "New in AWS Quick: More capable flows, an updated web experience, and agents that work together",
+     "url": "https://aws.amazon.com/blogs/machine-learning/new-in-aws-quick-more-capable-flows-an-updated-web-experience-and-agents-that-work-together/",
+     "score": 4.99,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+     "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+     "score": 4.87,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "The fallout from Nvidia’s Jensen Huang scandal continues",
+     "url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+     "score": 7.32,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Can Anthropic afford to put safety first?",
+     "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+     "score": 6.1,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "How Google Duplex evolved to also call businesses for you in Gemini",
+     "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
+     "score": 5.96,
+     "interest": 7.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "Google Research"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A tale of two Nvidias",
+     "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+     "score": 5.83,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Combatting adversarial distillation",
+     "url": "https://openai.com/index/combatting-adversarial-distillation",
+     "score": 5.31,
+     "interest": 7.0,
+     "category": "architecture",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 0.9,
+   "articles": 8,
+   "with_text": 8
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 6.5,
+   "word_count": 871,
+   "sources": 6
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.3,
+    "reel_desk": 931.9,
+    "layer1": 0.1,
+    "layer2": 988.0,
+    "gate": 1.1
+   },
+   "layer1": {
+    "checked": 108,
+    "ok": 88,
+    "repaired": 7,
+    "dropped": 13
+   },
+   "layer2": {
+    "checked": 70,
+    "ok": 37,
+    "repaired": -1,
+    "dropped": 34
+   },
+   "unused": 38,
+   "fails": [
+    "word count 867 outside 880-1150",
+    "no 'why it matters'"
+   ],
+   "reel_desk": [
+    {
+     "story": "Nvidia stops selling H200 chips in China",
+     "reel": 8,
+     "hook": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic IPO tests safety‑first model",
+     "reel": 7,
+     "hook": "Anthropic IPO sparks safety vs profit clash.",
+     "chosen": true
+    },
+    {
+     "story": "Google Duplex added to Gemini tasks",
+     "reel": 7,
+     "hook": "Google now books reservations via Gemini Tasks, handling calls for you.",
+     "chosen": true
+    },
+    {
+     "story": "Nvidia stops H200 chip sales to China",
+     "reel": 7,
+     "hook": "Nvidia stops H200 sales China, investors worry.",
+     "chosen": false
+    },
+    {
+     "story": "OpenAI upgrades safeguards against adversarial distillation",
+     "reel": 6,
+     "hook": "OpenAI also aligned these measures with protections used in biology and cybersecurity, emphasizing cross‑domain safety consistency.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-22-nvidia-halts-h200-ai-chip-sales-to",
+ "finished_at": "2026-11-22T00:50:54+00:00",
+ "seconds": 2115.4
+}

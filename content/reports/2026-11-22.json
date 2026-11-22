@@ -1,0 +1,1415 @@
+{
+  "checked": 70,
+  "ok": 37,
+  "repaired": -1,
+  "dropped": 34,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia halts H200 AI chip sales to China amid export controls",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms Nvidia stopped H200 sales to China but does not mention export controls, so the claim adds unsupported context",
+        "model check: Source confirms Nvidia stopped H200 sales to China but does not mention export controls, so the claim adds unsupported context"
+      ]
+    },
+    {
+      "where": "quote",
+      "text": "It’s like a normal thing that happened.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Nvidia announced an immediate suspension of its H200 accelerator chip sales to Chinese customers, citing tighter U.S. export‑control restrictions and ongoing board turmoil over CEO Jensen Huang's removal.",
+      "sources": [
+        "S1",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Nvidia will stop selling its H200 AI accelerator chips in China after board concerns over CEO Jensen Huang's conduct.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic’s Nasdaq debut brings $900 billion in projected compute costs into conflict with its safety‑first promise.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions $900 billion compute costs and a separate safety‑vs‑shareholder tension, but does not state that the compute costs are in conflict with the safety‑first promise."
+      ]
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Google Duplex, first launched in 2018, is now part of Gemini Tasks, enabling AI‑driven phone calls for everyday chores.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Nvidia halts H200 chip sales to China, ending remote access via overseas data centres.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "OpenAI reduced adversarial distillation success from 54% to 0.2% with new safeguards for GPT‑6.2 models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '54%' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia announced it will cease sales of its H200 accelerator chips in China following the board's decision to remove CEO Jensen Huang, a move reported on 20 November 2026.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The company released its latest earnings report the same week, showing continued revenue growth despite the leadership turmoil.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The halt affects customers relying on the H200 for high‑performance AI workloads in the Chinese market.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions the impact on customers or high‑performance AI workloads in China."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The H200 chip, part of Nvidia's data‑center portfolio, is designed for large‑scale AI training and inference tasks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not describe the H200 chip’s design purpose or its role in large‑scale AI training/inference."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia said the sales suspension is immediate and will remain in place while the board evaluates its China strategy.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not state that the sales suspension is immediate or that it will remain while the board evaluates its China strategy."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "No alternative product was offered, and the company did not disclose the financial impact of the pause.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions that no alternative product was offered or that Nvidia disclosed the financial impact of the pause."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The decision follows internal concerns about Huang's conduct, including alleged extramarital affairs and questions about candor that led to his ouster.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Board members cited “multiple issues” and a year‑long pattern of lying as reasons for the leadership change.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia dominates the AI hardware market, and its H200 chip competes with offerings from rivals like AMD and Intel.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'AMD' not in cited source",
+        "name 'Intel' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The chip’s importance stems from its ability to handle massive model sizes and high throughput, which many Chinese AI firms depend on.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Chinese' not in cited source",
+        "overstates: 'massive' is not in the source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The suspension comes at a time when geopolitical tensions are prompting tech firms to reassess supply chains and market exposure in China.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not discuss geopolitical tensions prompting tech firms to reassess supply chains or market exposure in China."
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia halts H200 chip sales, hurting Chinese AI firms.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms halt of sales but does not mention hurting Chinese AI firms"
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Nvidia announced it will stop selling its H200 accelerator chips in China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The board also removed CEO Jensen Huang amid conduct allegations.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Chinese AI companies must find alternative hardware, delaying projects.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions Chinese AI companies needing alternative hardware or project delays"
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "If you rely on AI tools, expect slower performance or higher costs until new chips arrive.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will Nvidia’s move hurt your AI workflow?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia stops H200 sales in China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Chinese AI firms lose access to H200 chips for their high‑performance workloads, Nvidia said.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions stopping sales, not specifically Chinese AI firms losing access for high‑performance workloads."
+      ]
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "Board members blamed multiple issues and a year‑long lying pattern for Huang’s removal.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia stops selling H200 chips in China",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic, the AI lab behind Claude, completed an IPO on the Nasdaq last Thursday, becoming one of the most valuable companies on the planet.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The filing shows the firm expects compute costs of roughly $900 billion over the coming years.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The public listing raises questions about whether the company can keep prioritising safety while answering shareholder pressure.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The IPO prospectus outlines a unique corporate‑governance structure designed to shield the firm from aggressive capitalist demands.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Hayden Field notes that Anthropic’s pitch to large customers centres on its safety branding, which now sits in tension with profit motives.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI’s decision to let Anthropic go public first is also discussed as a strategic move in the broader AI market.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic was founded to develop AI systems that are steerable and aligned with human values, a mission embodied in its Claude models.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source does not mention Anthropic's founding purpose of steerable, human‑aligned AI or link it to Claude models"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "As AI systems grow more capable, compute expenses skyrocket, driving firms to seek public funding to sustain development.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "hype word 'skyrocket'",
+        "overstates: 'skyrocket' is not in the source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The tension between safety research and shareholder expectations is a recurring theme in the industry, highlighted by recent debates over governance at other AI firms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Anthropic IPO bets safety over profit.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source notes a tension, not that Anthropic is betting safety over profit"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anthropic listed on Nasdaq, joining the world’s most valuable firms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Prospectus reveals $900 billion compute costs looming, tightening profit demands.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Prospectus' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Safety‑first branding now clashes with shareholders, risking the AI you rely on.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a clash between safety branding and profit motives, but does not state it risks the AI you rely on."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "If AI safety slips, the tools you use could change dramatically.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'dramatically' is not in the source"
+      ]
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will safety trump profit in AI?",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Anthropic IPO risks safety for profit.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Anthropic’s IPO makes it one of the planet’s most valuable companies.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "Anthropic’s filing says the firm expects compute costs of roughly $900 billion.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Hayden Field notes Anthropic’s safety branding now clashes with profit motives.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic IPO tests safety‑first model",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Google introduced Duplex in 2018 to enable natural voice calls with local businesses and later integrated it into the Gemini app this week, allowing the AI to make reservations and other errands on a user's behalf.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The feature now runs as part of Gemini Tasks, a personal AI collaborator that can place calls and handle real‑world requests.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Duplex began as a narrow, closed‑domain system but has been rebuilt on the Gemini foundation model stack, combining speech understanding, contextual reasoning, and speech synthesis in a low‑latency pipeline.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "During the COVID‑19 pandemic the system added automatic merchant‑info verification, contributing data that appeared in Search and Maps over one trillion times by 2023.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Since 2019 Google also moved parts of the model onto Pixel devices via Call Assist features.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Duplex was created to address the difficulty of phone conversations that do not follow strict scripts, requiring the AI to handle interruptions, tone cues, and timing nuances.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Its evolution reflects broader Google efforts to embed conversational AI across products such as Search and Maps, leveraging advances in large foundation models to deliver more seamless, real‑world assistance.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Google AI books dinner reservations, saving you minutes.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions reservations but does not claim the AI saves minutes."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Google added Duplex to Gemini Tasks, so the AI can call businesses for you.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The system now handles real‑world errands, from reservations to info checks, using speech and reasoning.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Anyone using Gemini will get hands‑free phone help, changing how we schedule tasks.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Anyone' not in cited source"
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Expect your phone to handle calls, freeing time for work.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source describes AI calling businesses, not a general expectation that your phone will handle calls to free work time; no evidence for this claim."
+      ]
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will you let AI handle your calls?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Google AI now books calls for you.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Google added Duplex to Gemini Tasks, letting AI book reservations.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Now your phone can ask Gemini to call businesses and run errands.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Duplex was rebuilt on Gemini’s model, mixing speech, reasoning and fast responses.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google Duplex added to Gemini tasks",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia announced it will no longer sell its H200 AI chips to customers in China, according to interim CEO Colette Kress, and the decision was confirmed on the TechCrunch Equity podcast on 21 November 2026.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The move follows U.S. export‑control discussions that aim to prevent remote access to the chips from Chinese data centres.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia said the policy will stay in place at least through the first half of 2027, though it may be revisited later.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source only speculates a possible change in the first half of 2027; it does not say the policy will remain in place through that period."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The H200 chips were previously accessed by Chinese firms via data centres located in nearby countries such as Malaysia, allowing remote use of the hardware despite export bans.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia publicly declared the shutdown of this arrangement, citing tighter restrictions from the Trump administration and ongoing limits under the Biden administration.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Analysts estimate that roughly 20% of Nvidia's overall business is linked to China, though this figure is not reflected in direct sales numbers because the revenue comes through indirect channels.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The company’s executives reassured investors that they have the situation under control, even as the stock price fell amid uncertainty.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "U.S. export controls on advanced AI chips have been tightened since the first Trump administration and continued under President Biden, aiming to limit China’s access to high‑performance computing hardware.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'U.S' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia’s H200 is a high‑end accelerator used for large language model training, making it a focal point of these policies.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions H200 chip sales but does not describe it as a high‑end accelerator for large language model training."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The restriction reflects broader geopolitical tension over AI technology and its strategic importance.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Nvidia halts H200 chip sales to China, shaking AI projects.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the halt but does not mention any impact on AI projects."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Nvidia announced it will stop selling its H200 AI chips to Chinese customers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The chips previously ran remotely via data centres in places like Malaysia, bypassing bans.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Roughly 20% of Nvidia’s business is linked to China, so the cut could hit revenue and AI development.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "If you rely on Nvidia AI tools, expect slower performance or higher costs.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will this push you to seek alternative AI hardware?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Nvidia stops H200 sales to China.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Nvidia halts H200 AI chip sales to China, CEO Colette Kress says.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "The ban blocks Chinese firms from remote H200 use via nearby data centres.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 7",
+      "text": "Nvidia says the restriction will last at least through early 2027, may be revisited.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source only speculates about a possible change in early 2027; it does not contain a statement from Nvidia that the restriction will last at least through early 2027."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia stops H200 chip sales to China",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "OpenAI announced updated defenses for its GPT‑6.2 Astra and GPT‑6.2 Sol models to block adversarial distillation, a technique where attackers copy model capabilities without permission.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The changes were disclosed on 20 November 2026 and focus on protecting the models' internal reasoning steps, known as chain‑of‑thought, from being harvested for training new models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Combatting adversarial distillation (published 20 November 2026) | We place particular emphasis on preventing attackers from extracting our models’ protected reasoning: the intermediate steps ... know\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The effort follows internal red‑team testing that showed a dramatic drop in extraction success rates.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'dramatic' is not in the source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The new safeguards combine adversarial testing, specialized classifiers, and API‑level controls to detect and disrupt attempts to extract protected reasoning.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "In an adaptive evaluation, attack success fell from 54.0% on the original GPT‑6 Astra to 0.2% on the upgraded GPT‑6.2 Astra, indicating a near‑complete block of chain‑of‑thought leakage.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "OpenAI also aligned these measures with protections used in biology and cybersecurity, emphasizing cross‑domain safety consistency.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Adversarial distillation lets bad actors train a surrogate model using outputs and internal steps from a frontier AI, potentially bypassing safety filters.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This risk extends beyond intellectual property, as the extracted reasoning can enable harmful actions such as cyberattacks that the original model would refuse.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "By strengthening defenses, OpenAI aims to set industry standards for preventing capability leakage while maintaining model usefulness.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "OpenAI slashes AI theft success to 0.2%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'slashes' is not in the source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "OpenAI added new defenses to GPT‑6.2 models to block adversarial distillation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Attack success dropped from 54% to just 0.2%, nearly stopping chain‑of‑thought leaks.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '54%' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Developers and users gain safer AI tools, reducing risk of stolen capabilities.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch for updated API limits and expect more reliable, secure outputs from OpenAI’s models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should AI providers lock down model internals more?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "OpenAI cuts AI theft to 0.2%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI upgrades safeguards against adversarial distillation",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Chinese AI firms that rely on the H200 for large‑scale model training will lose access to a key high‑performance processor, potentially slowing product development and increasing costs as they seek alternative hardware, while Nvidia investors face uncertainty about revenue from its roughly 20% China‑linked business.",
+      "sources": [
+        "S1",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms ~20% China‑linked business but provides no evidence that Chinese AI firms rely on the H200 or that losing it will slow development or raise costs."
+      ]
+    },
+    {
+      "where": "diagram",
+      "text": "Adversarial testing → Specialized classifiers → API‑level protections → Chain‑of‑thought extraction block",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] hook",
+      "text": "Nvidia stops H200 chip sales in China, shaking AI hardware supply.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source confirms stop of sales but does not state that it shakes AI hardware supply"
+      ]
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Nvidia announced it will cease H200 accelerator chip sales in China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "The board removed CEO Jensen Huang over alleged affairs and lying concerns.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Despite the turmoil, Nvidia reported continued revenue growth in its earnings.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] take",
+      "text": "Nvidia’s H200 chips will no longer be sold in China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] ask",
+      "text": "Will this affect your AI projects?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] cover",
+      "text": "Nvidia stops H200 sales in China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair layer2",
+      "text": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the ouster and the sales halt in the same paragraph but does not explicitly state the halt occurred *after* the board ousted Huang, so the causal claim is not directly supported."
+      ]
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Anthropic IPO sparks safety vs profit clash.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Anthropic completed a Nasdaq IPO, becoming one of the planet’s most valuable firms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "The prospectus shows it expects roughly $900 billion in compute costs over coming years.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "Shareholder pressure now tests whether its safety branding can survive profit demands.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Shareholder pressure could limit the safety features you rely on in AI tools.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Will profit pressure hurt AI safety?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Anthropic IPO pits safety against profit",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] hook",
+      "text": "Google now books reservations via Gemini Tasks, handling calls for you.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Google added Duplex to Gemini Tasks, letting the AI place calls and make reservations.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "The system now handles real‑world errands, built on a low‑latency speech and reasoning pipeline.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Anyone using Gemini gets a personal AI collaborator that can manage phone tasks on their behalf.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Anyone' not in cited source"
+      ]
+    },
+    {
+      "where": "repair card[2] take",
+      "text": "You can let Google’s AI handle routine calls, so you focus on higher‑value work.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] ask",
+      "text": "Will you let AI schedule your meetings?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] cover",
+      "text": "Google AI now books calls in Gemini.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Nvidia stops H200 sales China, investors worry.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Nvidia announced it will no longer sell H200 AI chips to customers in China.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The chips were previously accessed via data centres in nearby countries, bypassing export bans.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Analysts say about 20% of Nvidia’s business ties to China, though not in direct sales.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "If you depend on AI hardware, track Nvidia’s policy changes.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Will this hurt AI projects?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "Nvidia halts H200 sales to China.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] hook",
+      "text": "OpenAI cuts adversarial distillation success to 0.2% protecting your data.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source reports success rate drop but does not mention protecting your data, so claim adds unsupported detail"
+      ]
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "OpenAI added new safeguards to GPT‑6.2 Astra and Sol models to block adversarial distillation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "In adaptive tests attack success fell from 54.0% to 0.2% on the upgraded model.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "The fix aims to stop stolen reasoning that could enable cyberattacks.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] take",
+      "text": "Know OpenAI is tightening model security, so your AI tools stay safer.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] ask",
+      "text": "Should AI companies share these safeguards?",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] cover",
+      "text": "OpenAI reduces AI theft success to 0.2%.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "layer2_flagged": 21,
+  "cards_repaired": 3,
+  "cards_fallback": 2,
+  "unused": 38,
+  "headline_rescued": {
+    "was": "Nvidia halts H200 AI chip sales to China amid export controls",
+    "problems": [
+      "model check: Source confirms Nvidia stopped H200 sales to China but does not mention export controls, so the claim adds unsupported context"
+    ]
+  },
+  "date": "2026-11-22",
+  "slug": "2026-11-22-nvidia-halts-h200-ai-chip-sales-to",
+  "model": "groq:openai/gpt-oss-120b"
+}

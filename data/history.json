@@ -2852,5 +2852,87 @@
     "muse"
    ]
   ]
+ },
+ {
+  "date": "2026-11-22",
+  "slug": "2026-11-22-nvidia-halts-h200-ai-chip-sales-to",
+  "urls": [
+   "openai.com/index/combatting-adversarial-distillation",
+   "research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini",
+   "techcrunch.com/2026/11/21/a-tale-of-two-nvidias",
+   "techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues",
+   "theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+   "wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation"
+  ],
+  "tokens": [
+   "adversarial",
+   "afford",
+   "ahead",
+   "alarmed",
+   "also",
+   "anthropic",
+   "board",
+   "businesses",
+   "call",
+   "combatting",
+   "continues",
+   "distillation",
+   "duplex",
+   "evolved",
+   "fallout",
+   "gemini",
+   "google",
+   "his",
+   "huang",
+   "jensen",
+   "lying",
+   "nvidia",
+   "nvidias",
+   "put",
+   "resignation",
+   "safety",
+   "scandal",
+   "tale"
+  ],
+  "story_tokens": [
+   [
+    "ahead",
+    "alarmed",
+    "board",
+    "continues",
+    "fallout",
+    "his",
+    "huang",
+    "jensen",
+    "lying",
+    "nvidia",
+    "resignation",
+    "scandal"
+   ],
+   [
+    "afford",
+    "anthropic",
+    "put",
+    "safety"
+   ],
+   [
+    "also",
+    "businesses",
+    "call",
+    "duplex",
+    "evolved",
+    "gemini",
+    "google"
+   ],
+   [
+    "nvidias",
+    "tale"
+   ],
+   [
+    "adversarial",
+    "combatting",
+    "distillation"
+   ]
+  ]
  }
 ]

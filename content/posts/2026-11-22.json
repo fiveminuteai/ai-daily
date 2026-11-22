@@ -1,0 +1,432 @@
+{
+  "date": "2026-11-22",
+  "slug": "2026-11-22-nvidia-halts-h200-ai-chip-sales-to",
+  "headline": "Nvidia stops selling H200 chips in China",
+  "dek": "Nvidia announced it will cease sales of its H200 accelerator chips in China following the board's decision to remove CEO Jensen Huang, a move reported on 20 November 2026[S1][S2].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "products",
+    "policy",
+    "research",
+    "architecture",
+    "nvidia",
+    "china",
+    "ai-hardware"
+  ],
+  "what_happened": [
+    "Nvidia will stop selling its H200 AI accelerator chips in China after board concerns over CEO Jensen Huang's conduct[S1][S2].",
+    "Anthropic, the AI lab behind Claude, completed an IPO on the Nasdaq last Thursday, becoming one of the most valuable companies on the planet[S3].",
+    "Google Duplex, first launched in 2018, is now part of Gemini Tasks, enabling AI‑driven phone calls for everyday chores[S4]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Nvidia stops selling H200 chips in China",
+      "category": "products",
+      "paragraphs": [
+        "Nvidia announced it will cease sales of its H200 accelerator chips in China following the board's decision to remove CEO Jensen Huang, a move reported on 20 November 2026[S1][S2]. The company released its latest earnings report the same week, showing continued revenue growth despite the leadership turmoil[S1].",
+        "The decision follows internal concerns about Huang's conduct, including alleged extramarital affairs and questions about candor that led to his ouster[S2]. Board members cited “multiple issues” and a year‑long pattern of lying as reasons for the leadership change[S2]."
+      ],
+      "card": {
+        "hook": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang[S1][S2].",
+        "points": [
+          "Board members blamed multiple issues and a year‑long lying pattern for Huang’s removal[S2]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": null,
+        "reel": 8,
+        "interest": 4,
+        "fallback": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang[S1][S2]."
+            },
+            {
+              "who": "guest",
+              "text": "So they just pulled the plug because the head got the boot?"
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Looks like the chips decided to take a holiday."
+            },
+            {
+              "who": "guest",
+              "text": "Vacation? I hope they packed a suitcase.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Board members blamed multiple issues and a year‑long lying pattern for Huang’s removal[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "My old printer still tells tall tales, but at least it keeps humming.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "light, relatable jokes with a playful twist"
+        },
+        "pain": "tools",
+        "hook_type": "stakes",
+        "bonus": 0.0
+      }
+    },
+    {
+      "story": 2,
+      "title": "Anthropic IPO tests safety‑first model",
+      "category": "policy",
+      "paragraphs": [
+        "Anthropic, the AI lab behind Claude, completed an IPO on the Nasdaq last Thursday, becoming one of the most valuable companies on the planet[S3]. The filing shows the firm expects compute costs of roughly $900 billion over the coming years[S3]. The public listing raises questions about whether the company can keep prioritising safety while answering shareholder pressure[S3].",
+        "The IPO prospectus outlines a unique corporate‑governance structure designed to shield the firm from aggressive capitalist demands[S3]. Hayden Field notes that Anthropic’s pitch to large customers centres on its safety branding, which now sits in tension with profit motives[S3]. OpenAI’s decision to let Anthropic go public first is also discussed as a strategic move in the broader AI market[S3].",
+        "The tension between safety research and shareholder expectations is a recurring theme in the industry, highlighted by recent debates over governance at other AI firms[S3]."
+      ],
+      "card": {
+        "hook": "Anthropic IPO sparks safety vs profit clash[S3].",
+        "points": [
+          "Anthropic completed a Nasdaq IPO, becoming one of the planet’s most valuable firms[S3].",
+          "The prospectus shows it expects roughly $900 billion in compute costs over coming years[S3].",
+          "Shareholder pressure now tests whether its safety branding can survive profit demands[S3]."
+        ],
+        "take": "Shareholder pressure could limit the safety features you rely on in AI tools[S3].",
+        "take_kind": "read",
+        "ask": "Will profit pressure hurt AI safety[S3]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Anthropic’s $900 billion compute bill raises doubts about its safety‑first promise after going public.",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Anthropic IPO pits safety against profit[S3].",
+        "cover_hi": "safety against profit",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Anthropic’s IPO makes it one of the planet’s most valuable companies[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Valuable? So the planet just got a fresh ego boost."
+            },
+            {
+              "who": "spark",
+              "text": "Anthropic’s filing says the firm expects compute costs of roughly $900 billion[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Great, now even my old office printer can feel a little insecure.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Hayden Field notes Anthropic’s safety branding now clashes with profit motives[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "I'm just a box, but even I see their safety slogans trying on profit shoes—still a tight fit.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "The jokes are relatable and punchy, but not unforgettable."
+        }
+      }
+    },
+    {
+      "story": 3,
+      "title": "Google Duplex added to Gemini tasks",
+      "category": "research",
+      "paragraphs": [
+        "Google introduced Duplex in 2018 to enable natural voice calls with local businesses and later integrated it into the Gemini app this week, allowing the AI to make reservations and other errands on a user's behalf[S4]. The feature now runs as part of Gemini Tasks, a personal AI collaborator that can place calls and handle real‑world requests[S4].",
+        "Duplex began as a narrow, closed‑domain system but has been rebuilt on the Gemini foundation model stack, combining speech understanding, contextual reasoning, and speech synthesis in a low‑latency pipeline[S4]. During the COVID‑19 pandemic the system added automatic merchant‑info verification, contributing data that appeared in Search and Maps over one trillion times by 2023[S4]. Since 2019 Google also moved parts of the model onto Pixel devices via Call Assist features[S4].",
+        "Duplex was created to address the difficulty of phone conversations that do not follow strict scripts, requiring the AI to handle interruptions, tone cues, and timing nuances[S4]. Its evolution reflects broader Google efforts to embed conversational AI across products such as Search and Maps, leveraging advances in large foundation models to deliver more seamless, real‑world assistance[S4]."
+      ],
+      "card": {
+        "hook": "Google now books reservations via Gemini Tasks, handling calls for you[S4].",
+        "points": [
+          "Google added Duplex to Gemini Tasks, letting the AI place calls and make reservations[S4].",
+          "The system now handles real‑world errands, built on a low‑latency speech and reasoning pipeline[S4]."
+        ],
+        "take": "You can let Google’s AI handle routine calls, so you focus on higher‑value work[S4].",
+        "take_kind": "read",
+        "ask": "Will you let AI schedule your meetings[S4]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Google's new AI can call businesses for you, freeing up your time.",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Google AI now books calls in Gemini[S4].",
+        "cover_hi": "books calls",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google added Duplex to Gemini Tasks, letting AI book reservations[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Great, now my calendar can be double‑booked by a robot"
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "At least it can fetch coffee"
+            },
+            {
+              "who": "guest",
+              "text": "Only if it brings my overdue bills too",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Now your phone can ask Gemini to call businesses and run errands[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Wow, my phone finally needs a personal assistant."
+            },
+            {
+              "who": "spark",
+              "text": "Duplex was rebuilt on Gemini’s model, mixing speech, reasoning and fast responses[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Fast replies? My inbox still naps, double‑booked as usual",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "The jokes are light and relatable, but not punchy enough for viral quotes."
+        }
+      }
+    },
+    {
+      "story": 4,
+      "title": "Nvidia stops H200 chip sales to China",
+      "category": "products",
+      "paragraphs": [
+        "Nvidia announced it will no longer sell its H200 AI chips to customers in China, according to interim CEO Colette Kress, and the decision was confirmed on the TechCrunch Equity podcast on 21 November 2026[S5].",
+        "The H200 chips were previously accessed by Chinese firms via data centres located in nearby countries such as Malaysia, allowing remote use of the hardware despite export bans[S5]. Nvidia publicly declared the shutdown of this arrangement, citing tighter restrictions from the Trump administration and ongoing limits under the Biden administration[S5]. Analysts estimate that roughly 20% of Nvidia's overall business is linked to China, though this figure is not reflected in direct sales numbers because the revenue comes through indirect channels[S5]. The company’s executives reassured investors that they have the situation under control, even as the stock price fell amid uncertainty[S5].",
+        "The restriction reflects broader geopolitical tension over AI technology and its strategic importance[S5]."
+      ],
+      "card": {
+        "hook": "Nvidia stops H200 sales China, investors worry[S5].",
+        "points": [
+          "Nvidia announced it will no longer sell H200 AI chips to customers in China[S5].",
+          "The chips were previously accessed via data centres in nearby countries, bypassing export bans[S5].",
+          "Analysts say about 20% of Nvidia’s business ties to China, though not in direct sales[S5]."
+        ],
+        "take": "If you depend on AI hardware, track Nvidia’s policy changes[S5].",
+        "take_kind": "read",
+        "ask": "Will this hurt AI projects[S5]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Nvidia’s cut off H200 chips to China could ripple through AI tool supply chains.",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Nvidia halts H200 sales to China[S5].",
+        "cover_hi": "halts H200",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Nvidia halts H200 AI chip sales to China, CEO Colette Kress says[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "So the chip takes a coffee break now."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Maybe it needs a nap"
+            },
+            {
+              "who": "guest",
+              "text": "A nap? It’ll snore louder than my printer",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "The ban blocks Chinese firms from remote H200 use via nearby data centres[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Great, now the cloud needs a passport."
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The jokes land with relatable tech frustrations and a solid payoff, likely to earn a couple of laughs."
+        },
+        "arm": "short-close"
+      }
+    },
+    {
+      "story": 5,
+      "title": "OpenAI upgrades safeguards against adversarial distillation",
+      "category": "architecture",
+      "paragraphs": [
+        "OpenAI announced updated defenses for its GPT‑6.2 Astra and GPT‑6.2 Sol models to block adversarial distillation, a technique where attackers copy model capabilities without permission[S6].",
+        "The new safeguards combine adversarial testing, specialized classifiers, and API‑level controls to detect and Disrupt attempts to extract protected reasoning[S6]. In an adaptive evaluation, attack success fell from 54.0% on the original GPT‑6 Astra to 0.2% on the upgraded GPT‑6.2 Astra, indicating a near‑complete block of chain‑of‑thought leakage[S6]. OpenAI also aligned these measures with protections used in biology and cybersecurity, emphasizing cross‑domain safety consistency[S6].",
+        "Adversarial distillation lets bad actors train a surrogate model using outputs and internal steps from a frontier AI, potentially bypassing safety filters[S6]. This risk extends beyond intellectual property, as the extracted reasoning can enable harmful actions such as cyberattacks that the original model would refuse[S6]. By strengthening defenses, OpenAI aims to set industry standards for preventing capability leakage while maintaining model usefulness[S6]."
+      ],
+      "card": {
+        "hook": "OpenAI also aligned these measures with protections used in biology and cybersecurity, emphasizing cross‑domain safety consistency[S6].",
+        "points": [
+          "OpenAI announced updated defenses for its GPT‑6.2 Astra and GPT‑6.2 Sol models to block adversarial distillation, a technique where attackers copy model capabilities without permission[S6].",
+          "The new safeguards combine adversarial testing, specialized classifiers, and API‑level controls to detect and Disrupt attempts to extract protected reasoning[S6]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": "Should AI providers lock down model internals more?",
+        "reel": 6,
+        "interest": 3,
+        "fallback": true,
+        "pain": "trust",
+        "hook_type": "stakes",
+        "bonus": 0.0
+      }
+    }
+  ],
+  "why_it_matters": [],
+  "quote": {
+    "text": "It’s like a normal thing that happened.",
+    "speaker": "Hayden Field",
+    "source": "S3"
+  },
+  "chart": null,
+  "diagram": {
+    "title": "Comparison of safeguard layers",
+    "source": "S6",
+    "steps": [
+      "Adversarial testing",
+      "Specialized classifiers",
+      "API‑level protections",
+      "Chain‑of‑thought extraction block"
+    ],
+    "kind": "compare",
+    "baseline": [
+      "Token embeddings",
+      "Every parameter used per token"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "2026-11-20T14:55:44+00:00",
+      "title": "Nvidia stops selling H200 chips in China",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-21T15:00:00+00:00",
+      "title": "Anthropic IPO tests safety‑first model",
+      "publisher": "The Verge",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-20T23:30:30+00:00",
+      "title": "Google Duplex added to Gemini tasks",
+      "publisher": "Google Research",
+      "category": "research"
+    },
+    {
+      "time": "2026-11-21T21:07:42+00:00",
+      "title": "Nvidia stops H200 chip sales to China",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-20T10:00:00+00:00",
+      "title": "OpenAI upgrades safeguards against adversarial distillation",
+      "publisher": "OpenAI",
+      "category": "architecture"
+    }
+  ],
+  "visuals": [
+    "timeline",
+    "diagram"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "The fallout from Nvidia’s Jensen Huang scandal continues",
+      "url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-20T14:55:44+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "Jensen Huang’s ‘Lying’ Alarmed Nvidia Board Ahead of His Resignation",
+      "url": "https://www.wired.com/story/jensen-huangs-lying-alarmed-nvidia-board-ahead-of-his-resignation/",
+      "publisher": "WIRED",
+      "published": "2026-11-20T19:52:21+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Can Anthropic afford to put safety first?",
+      "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+      "publisher": "The Verge",
+      "published": "2026-11-21T15:00:00+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "How Google Duplex evolved to also call businesses for you in Gemini",
+      "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/",
+      "publisher": "Google Research",
+      "published": "2026-11-20T23:30:30+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "A tale of two Nvidias",
+      "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-21T21:07:42+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "Combatting adversarial distillation",
+      "url": "https://openai.com/index/combatting-adversarial-distillation",
+      "publisher": "OpenAI",
+      "published": "2026-11-20T10:00:00+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-22T00:50:47+00:00",
+  "verification": {
+    "checked": 70,
+    "ok": 37,
+    "repaired": -1,
+    "dropped": 34,
+    "unused": 38,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 871,
+  "reading_minutes": 4,
+  "edition": "short"
+}

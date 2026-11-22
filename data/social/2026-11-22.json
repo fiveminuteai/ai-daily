@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-22",
+ "slug": "2026-11-22-nvidia-halts-h200-ai-chip-sales-to",
+ "headline": "Nvidia stops selling H200 chips in China",
+ "url": "https://fiveminuteai.net/posts/2026-11-22-nvidia-halts-h200-ai-chip-sales-to/",
+ "generated_at": "2026-11-22T00:50:55+00:00",
+ "items": [
+  {
+   "id": "2026-11-22-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Nvidia stops selling H200 chips in China\n\n• Nvidia will stop selling its H200 AI accelerator chips in China after board concerns over CEO Jensen Huang's conduct.\n• Anthropic, the AI lab behind Claude, completed an IPO on the Nasdaq last Thursday, becoming one of the most valuable companies on the planet.\n• Google Duplex, first launched in 2018, is now part of Gemini Tasks, enabling AI-driven phone calls for everyday chores.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-22/instagram.png"
+   ],
+   "scheduled_at": "2026-11-22T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-22-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Nvidia stops selling H200 chips in China\n\n• Nvidia will stop selling its H200 AI accelerator chips in China after board concerns over CEO Jensen Huang's conduct.\n\nhttps://fiveminuteai.net/posts/2026-11-22-nvidia-halts-h200-ai-chip-sales-to/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 186
+  },
+  {
+   "id": "2026-11-22-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Nvidia stops selling H200 chips in China\n\n• Nvidia will stop selling its H200 AI accelerator chips in China after board concerns over CEO Jensen Huang's conduct.\n• Anthropic, the AI lab behind Claude, completed an IPO on the Nasdaq last Thursday, becoming one of the most valuable companies on the planet.\n• Google Duplex, first launched in 2018, is now part of Gemini Tasks, enabling AI-driven phone calls for everyday chores.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-22-nvidia-halts-h200-ai-chip-sales-to/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-22-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang[S1][S2].",
+   "duo": true,
+   "cover": null,
+   "text": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang.\n\n• Board members blamed multiple issues and a year-long lying pattern for Huang’s removal.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-22/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-22T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-22-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Anthropic IPO sparks safety vs profit clash[S3].",
+   "duo": true,
+   "cover": "Anthropic IPO pits safety against profit[S3].",
+   "text": "Anthropic IPO sparks safety vs profit clash.\n\n• Anthropic completed a Nasdaq IPO, becoming one of the planet’s most valuable firms.\n• The prospectus shows it expects roughly $900 billion in compute costs over coming years.\n• Shareholder pressure now tests whether its safety branding can survive profit demands.\n\nOur read: Shareholder pressure could limit the safety features you rely on in AI tools.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-22/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-22T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-22-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Google now books reservations via Gemini Tasks, handling calls for you[S4].",
+   "duo": true,
+   "cover": "Google AI now books calls in Gemini[S4].",
+   "text": "Google now books reservations via Gemini Tasks, handling calls for you.\n\n• Google added Duplex to Gemini Tasks, letting the AI place calls and make reservations.\n• The system now handles real-world errands, built on a low-latency speech and reasoning pipeline.\n\nOur read: You can let Google’s AI handle routine calls, so you focus on higher-value work.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-22/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-22T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-22-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Nvidia stops H200 sales China, investors worry[S5].",
+   "duo": true,
+   "cover": "Nvidia halts H200 sales to China[S5].",
+   "text": "Nvidia stops H200 sales China, investors worry.\n\n• Nvidia announced it will no longer sell H200 AI chips to customers in China.\n• The chips were previously accessed via data centres in nearby countries, bypassing export bans.\n• Analysts say about 20% of Nvidia’s business ties to China, though not in direct sales.\n\nOur read: If you depend on AI hardware, track Nvidia’s policy changes.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-22/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-22T13:30:00+00:00"
+  }
+ ]
+}
