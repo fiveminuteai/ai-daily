@@ -17,4 +17,4 @@ Median reach per Reel: 105 (last week 115). Comments: 0.
 Best Reels this week (by watch time):
 - Nvidia halted H200 AI chip shipments to China after CEO quit. (11.6 s, reach 264, skip 43.2%)
 - Anthropic priced IPO at $83, shaking AI market. (10 s, reach 225, skip 53.1%)
-- Anthropic IPO sparks safety vs profit clash. (9.1 s, reach 115, skip 45.7%)
+- Anthropic IPO sparks safety vs profit clash. (9.1 s, reach 115, skip 45.3%)

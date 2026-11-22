@@ -1,190 +1,9 @@
 {
  "date": "2026-11-22",
- "collected_at": "2026-11-22T16:34:03+00:00",
+ "collected_at": "2026-11-22T18:00:36+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 240,
-  "visitors_day": 4,
-  "daily": [
-   {
-    "day": "2026-10-26",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-27",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-28",
-    "visitors": 0
-   },
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 14
-   },
-   {
-    "day": "2026-11-13",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-14",
-    "visitors": 2
-   },
-   {
-    "day": "2026-11-15",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-16",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-17",
-    "visitors": 1
-   },
-   {
-    "day": "2026-11-18",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-19",
-    "visitors": 3
-   },
-   {
-    "day": "2026-11-20",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-21",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-22",
-    "visitors": 4
-   },
-   {
-    "day": "2026-11-23",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 14
-   },
-   {
-    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
-    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
-    "visitors": 4
-   },
-   {
-    "path": "/posts/2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
-    "title": "Anthropic’s $81 billion IPO spotlights novel governance model · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
-    "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
-    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/about",
-    "title": "How this blog is made · Five Minute AI",
-    "visitors": 2
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 19
-   },
-   {
-    "name": "(direct)",
-    "visitors": 18
-   },
-   {
-    "name": "search.daum.net/search",
-    "visitors": 1
-   },
-   {
-    "name": "fiveminuteai.net/about",
-    "visitors": 1
-   }
-  ],
-  "reads_7d": {
-   "post_views": 11,
-   "read_30s": 4,
-   "read_half": 4,
-   "read_end": 1,
-   "read_end_rate": 0.091
-  }
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "ok",
@@ -192,8 +11,8 @@
   "followers": 13,
   "media_count": 81,
   "day": {
-   "reach": 240,
-   "views": 269,
+   "reach": 247,
+   "views": 278,
    "accounts_engaged": 1,
    "total_interactions": 0
   },
@@ -206,13 +25,13 @@
     "caption": "Nvidia stops H200 sales China, investors worry.",
     "likes": 0,
     "comments": 0,
-    "reach": 107,
-    "views": 119,
+    "reach": 108,
+    "views": 120,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
-    "avg_watch_s": 6.3,
-    "skip_rate": 41.6,
+    "avg_watch_s": 6.2,
+    "skip_rate": 43,
     "reposts": 0
    },
    {
@@ -223,13 +42,13 @@
     "caption": "Google now books reservations via Gemini Tasks, handling calls for you.",
     "likes": 0,
     "comments": 0,
-    "reach": 23,
-    "views": 29,
+    "reach": 29,
+    "views": 36,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 9.0,
-    "skip_rate": 58.3,
+    "skip_rate": 58.1,
     "reposts": 0
    },
    {
@@ -241,12 +60,12 @@
     "likes": 0,
     "comments": 0,
     "reach": 115,
-    "views": 121,
+    "views": 122,
     "saved": 0,
     "shares": 0,
     "total_interactions": 0,
     "avg_watch_s": 9.1,
-    "skip_rate": 45.7,
+    "skip_rate": 45.3,
     "reposts": 0
    },
    {
@@ -1398,7 +1217,7 @@
    "qqt-6S20uCo": {
     "title": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang. #Shorts",
     "published": "2026-11-22T03:31:47Z",
-    "viewCount": 20,
+    "viewCount": 19,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -1412,7 +1231,7 @@
    "SABlqU_xmqw": {
     "title": "Google AI now books calls in Gemini. #Shorts",
     "published": "2026-11-22T10:31:44Z",
-    "viewCount": 0,
+    "viewCount": 2,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -1496,7 +1315,7 @@
    "Y39lllqpsRE": {
     "title": "Google DeepMind released Gemini 4 Neon, a high‑capacity, low‑fabrication model for enterprise…",
     "published": "2026-11-19T10:32:04Z",
-    "viewCount": 5,
+    "viewCount": 6,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -1692,7 +1511,7 @@
   },
   "summary": {
    "shorts": 42,
-   "zero_views": 13,
+   "zero_views": 12,
    "median_views": 2
   }
  }
