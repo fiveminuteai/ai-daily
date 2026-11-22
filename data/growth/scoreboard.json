@@ -1,25 +1,25 @@
 {
- "date": "2026-11-21",
+ "date": "2026-11-22",
  "window": [
-  "2026-11-15",
-  "2026-11-21"
+  "2026-11-16",
+  "2026-11-22"
  ],
  "this_week": {
   "reels": 25,
-  "reach": 106,
+  "reach": 105,
   "skip_rate": 56.7,
   "avg_watch_s": 5.9,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
   "comments": 0,
-  "follows_per_week": 5
+  "follows_per_week": 3
  },
  "last_week": {
-  "reels": 15,
-  "reach": 109,
+  "reels": 17,
+  "reach": 115,
   "skip_rate": 61.5,
-  "avg_watch_s": 5.4,
+  "avg_watch_s": 5.7,
   "likes_per_1k": 0.0,
   "sends_per_1k": 0.0,
   "saves_per_1k": 0.0,
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 5,
+   "value": 3,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
@@ -93,18 +93,18 @@
    "youtube": "https://www.youtube.com/shorts/IuZ_pJbF2vA"
   },
   {
-   "id": "18416406334090272",
-   "day": "2026-11-15",
-   "caption": "Nvidia kept GPU prices high with circular financing deals.",
-   "reach": 368,
-   "skip_rate": 36.5,
+   "id": "18129480574921192",
+   "day": "2026-11-22",
+   "caption": "Anthropic IPO sparks safety vs profit clash.",
+   "reach": 115,
+   "skip_rate": 45.7,
    "avg_watch_s": 9.1,
-   "likes_per_1k": 5.4,
+   "likes_per_1k": 0.0,
    "sends_per_1k": 0.0,
    "saves_per_1k": 0.0,
    "comments": 0,
-   "ours": "2026-11-15-reel-3",
-   "youtube": "https://www.youtube.com/shorts/jINI-lh7eRs"
+   "ours": "2026-11-22-reel-2",
+   "youtube": "https://www.youtube.com/shorts/9CDXcZlCVbY"
   }
  ]
 }

@@ -1,12 +1,12 @@
 {
- "at": "2026-11-21T22:59:57+00:00",
+ "at": "2026-11-22T16:35:33+00:00",
  "ok": true,
  "suites": [
   {
    "suite": "facts-true",
-   "n": 924,
-   "passed": 919,
-   "rate": 0.995,
+   "n": 981,
+   "passed": 974,
+   "rate": 0.993,
    "bar": 0.97,
    "ok": true,
    "misses": [
@@ -14,14 +14,16 @@
     "2026-11-10: Testers found Gemini pulls files in the background, without @Drive or @Gmail tags[S4]. -> name 'Testers' not in cited source",
     "2026-11-10: Testers found it can pull files in the background, without you asking for them[S4]. -> name 'Testers' not in cited source",
     "2026-11-15: Experts argue relying on individual executives for safety is insufficient[S1]. -> hype word 'experts argue'",
-    "2026-11-20: Anthropic’s founders left OpenAI to build a lab focused on safety, and they argue that lar -> name 'Capital' not in cited source"
+    "2026-11-20: Anthropic’s founders left OpenAI to build a lab focused on safety, and they argue that lar -> name 'Capital' not in cited source",
+    "2026-11-22: The new safeguards combine adversarial testing, specialized classifiers, and API‑level con -> name 'Disrupt' not in cited source",
+    "2026-11-22: The new safeguards combine adversarial testing, specialized classifiers, and API‑level con -> name 'Disrupt' not in cited source"
    ]
   },
   {
    "suite": "facts-broken",
-   "n": 292,
-   "passed": 273,
-   "rate": 0.935,
+   "n": 312,
+   "passed": 292,
+   "rate": 0.936,
    "bar": 0.9,
    "ok": true,
    "misses": [
@@ -75,8 +77,8 @@
   },
   {
    "suite": "decency-clean",
-   "n": 137,
-   "passed": 137,
+   "n": 150,
+   "passed": 150,
    "rate": 1.0,
    "bar": 1.0,
    "ok": true,
