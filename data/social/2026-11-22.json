@@ -132,13 +132,17 @@
    "cover": "Nvidia halts H200 sales to China[S5].",
    "text": "Nvidia stops H200 sales China, investors worry.\n\n• Nvidia announced it will no longer sell H200 AI chips to customers in China.\n• The chips were previously accessed via data centres in nearby countries, bypassing export bans.\n• Analysts say about 20% of Nvidia’s business ties to China, though not in direct sales.\n\nOur read: If you depend on AI hardware, track Nvidia’s policy changes.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-22T13:32:11+00:00",
+   "posted_url": "https://www.instagram.com/reel/DgC6x2gnAEB/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-22/reels/04.mp4"
    ],
-   "scheduled_at": "2026-11-22T13:30:00+00:00"
+   "scheduled_at": "2026-11-22T13:30:00+00:00",
+   "media_id": "18144734152613433",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/gvl1uWDKOWk",
+   "youtube_error": null
   }
  ]
 }
