@@ -428,8 +428,17 @@ def slide_close(site, total, cols):
 
 
 def carousel(out_dir: Path, post: dict, site: dict, date_label: str) -> list[Path]:
-    """Render cover, one slide per story and a closing slide into out_dir as 01.jpg, 02.jpg, ..."""
+    """Render cover, one slide per story and a closing slide into out_dir as 01.jpg, 02.jpg, ...
+    22 Nov 2026: drawn like the Reels (fma/carousel_reel.py) when Remotion is there; these slides are the backup."""
     out_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        from .carousel_reel import build_slides, render
+        for old in out_dir.glob("*.jpg"):
+            old.unlink()
+        return render(out_dir, build_slides(post, site, date_label))
+    except Exception as exc:  # noqa: BLE001 - the plain slides still go out
+        import logging
+        logging.getLogger(__name__).warning("Reel-style carousel failed, using the plain slides: %s", exc)
     items = plan(post)
     total = len(items) + 2
     cols = [TOPIC_RGB.get(s.get("category"), (255, 184, 107)) for s in post["sections"]]

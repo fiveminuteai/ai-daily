@@ -18,7 +18,7 @@ from . import config
 from .editor import apply_editor
 from .extract import about_title, extract_item
 from .feeds import fetch_all
-from .gate import SHORT_EDITION, calm_post, check_images, dedupe_sentences, rescue_headline, run_gate, soft_only, word_count
+from .gate import SHORT_EDITION, calm_post, check_images, dedupe_sentences, dedupe_stories, rescue_headline, run_gate, soft_only, word_count
 from .rank import history_entry, lineup_caps, pick_lineup, rank
 from .reel_desk import produce
 from .verify import cites, llm_check, mark_dropped, mark_unused, norm, plain, split_sentences, verify_draft
@@ -294,6 +294,10 @@ def _run_day(date: str, http, chain, now, skip_links, root: Path, build_fn, summ
             times["layer2"], t = time.monotonic() - t, time.monotonic()
             post = assemble(date, verified, sources, site, chain.used or "unknown", report)
             post = calm_post(post)           # a stray "!" is fixed, not a reason to throw the draft away
+            post, twins = dedupe_stories(post)   # 22 Nov 2026: one section per event (two told the same news)
+            if twins:
+                log.warning("removed %d section(s) telling a story already in the post: %s", len(twins), twins)
+                report["twin_sections"] = twins
             post = rescue_headline(post, report)   # so is a headline that failed its check
             if pipe.get("reel_desk", True):          # every Reel story has its duo, also one promoted by the checks
                 from .duo_desk import top_up

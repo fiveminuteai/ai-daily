@@ -37,10 +37,9 @@ growth:
   youtube: true
   daily_carousel: true        # 9 Nov 2026, Pavan: carousels, posts and Reels every day (posts at schedule.carousel)
 
-# One test at a time, on one Reel a day (fma/experiment.py). The 4th Reel ends on its question and the name, without
-# the tagline and comeback; the learning loop compares it with the others ("test arm") under its usual guards.
-# Delete this block, or let `until` pass, to stop the test.
-experiment: {arm: short-close, reel: 4, until: "2026-12-06", why: "every source says end on the payoff with one ask; ours adds three lines"}
+# One test at a time, on one Reel a day (fma/experiment.py): add an `experiment:` block here to run one.
+# 22 Nov 2026: the short-close test (4th Reel without the tagline and comeback) was stopped early. Pavan: duo
+# Reels must keep their closing line.
 # Remotion effects (19 Nov 2026, brief B; fma/duo_reel.reel_fx): "impact" cuts hard to each new number as it is said;
 # "comment" drops the card's own question in as our pinned comment on the closing line. Switched on 20 Nov 2026
 # (Pavan: "go ahead with your recommendations"); set either to false to turn it off.

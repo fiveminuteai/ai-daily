@@ -56,14 +56,36 @@ def calm_post(post: dict) -> dict:
             "why_it_matters": [{**w, "text": calm(w.get("text", ""))} for w in post.get("why_it_matters", [])]}
 
 
+def _words(s: str) -> list[str]:
+    # small words and reporting verbs aside, so "Alpöge says Claude helped" doesn't match "Alpöge says Claude proved"
+    skip = {"a", "an", "the", "of", "to", "and", "on", "in", "his", "her", "is", "says", "said", "claims", "claimed"}
+    return [w for w in _norm(s).split() if w not in skip]
+
+
+def repeats_refused(text: str, refused: list[str], run: int = 4) -> bool:
+    """True when `text` repeats `run` words in a row from a line the fact-check refused today (small words aside)."""
+    w = _words(text)
+    grams = {tuple(w[i:i + run]) for i in range(len(w) - run + 1)}
+    return any(tuple(r[i:i + run]) in grams for r in map(_words, refused) for i in range(len(r) - run + 1))
+
+
 def rescue_headline(post: dict, report: dict) -> dict:
     """A headline that failed its check is replaced by the lead story's title, which passed both fact-check layers,
-    instead of failing the day (6 Nov 2026: a headline that mixed two stories cost a whole attempt)."""
+    instead of failing the day (6 Nov 2026: a headline that mixed two stories cost a whole attempt).
+    22 Nov 2026: on 21 Nov the title said "claims Claude proved the Riemann hypothesis", the very words the check had
+    refused in a Reel line ("he discovered a proof with Claude"). A candidate that repeats a refused line is passed
+    over for the lead card's cover line, then its hook (20 words at most)."""
     if not report.get("headline_problems") or not post.get("sections"):
         return post
-    title = post["sections"][0].get("title")
-    if not title:
+    lead = post["sections"][0]
+    card = lead.get("card") or {}
+    refused = [e.get("text", "") for e in report.get("entries", []) if e.get("status") == "dropped"]
+    cands = [lead.get("title") or "", card.get("cover") or "",
+             card.get("hook") if len(_norm(card.get("hook") or "").split()) <= 20 else ""]
+    cands = [re.sub(r"\s*\[S\d+\]", "", c).strip().rstrip(".") for c in cands if c]
+    if not cands:
         return post
+    title = next((c for c in cands if not repeats_refused(c, refused)), cands[0])
     report["headline_rescued"] = {"was": post.get("headline", ""), "problems": report.pop("headline_problems")}
     return {**post, "headline": title}
 
@@ -82,6 +104,33 @@ def _key(s: str) -> str:
     """Near-duplicates count as repeats: the same words without the small ones ("is"/"remains", "a", "the")."""
     small = {"a", "an", "the", "is", "was", "are", "remains", "it", "its", "of", "to", "with", "and"}
     return " ".join(w for w in _norm(s).split() if w not in small)
+
+
+def dedupe_stories(post: dict) -> tuple[dict, list[str]]:
+    """Keep one section per event. 22 Nov 2026: two lineup stories with feature headlines ("The fallout from Nvidia's
+    Jensen Huang scandal continues", "A tale of two Nvidias") shared only "Nvidia", so both were picked, and the writer
+    told the same H200 news twice; the carousel and two Reels repeated it (Pavan: "content is repeated"). After
+    writing, a section whose title shares four word roots with an earlier one (not counting event words like "IPO";
+    fewer shared roots, such as "Claude Code" or "Nvidia ... export ... chips", were different stories in the replay of
+    every post to date) goes, with its "what
+    happened" bullet. Removal only: nothing needs checking again. Returns the post and the titles removed."""
+    from .rank import EVENT_WORDS, stems
+
+    def second_angle(a: str, b: str) -> bool:
+        return len((stems(a) & stems(b)) - EVENT_WORDS) >= 4
+    keep, gone = [], []
+    for sec in post.get("sections", []):
+        if any(second_angle(sec.get("title", ""), k.get("title", "")) for k in keep):
+            gone.append(sec.get("title", ""))
+        else:
+            keep.append(sec)
+    if not gone:
+        return post, []
+    bullets = []
+    for b in post.get("what_happened", []):
+        if not any(second_angle(b, x) for x in bullets):
+            bullets.append(b)
+    return {**post, "sections": keep, "what_happened": bullets}, gone
 
 
 def dedupe_sentences(post: dict) -> tuple[dict, int]:

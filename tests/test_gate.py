@@ -181,3 +181,39 @@ def test_dangling_openers_and_thin_sections_fail():
     body = " ".join(["Google says users can switch off the AI Coach in the app settings[S5]."] * 1)
     assert any("dangling" in x for x in quality_problems(_post(["They then select Your data[S5]. " + body])))
     assert any("too thin" in x for x in quality_problems(_post(["Google released an update[S5]."])))
+
+
+def test_a_rescued_headline_never_repeats_words_the_check_refused():
+    """21 Nov 2026: the rescue took the lead title "...claims Claude proved the Riemann hypothesis" though the check
+    had refused "Levent Alpöge says Claude proved the Riemann hypothesis" (he found a proof with Claude)."""
+    from fma.gate import rescue_headline
+    report = {"headline_problems": ["x"], "entries": [
+        {"status": "dropped", "text": "Levent Alpöge says Claude proved the Riemann hypothesis on his website."}]}
+    post = {"headline": "Bad", "sections": [{"title": "Anthropic mathematician claims Claude proved the Riemann hypothesis",
+            "card": {"hook": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis[S1]."}}]}
+    assert rescue_headline(post, dict(report))["headline"] == \
+        "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis"
+    ok = {"headline": "Bad", "sections": [{"title": "Google adds AI chat sidebar"}]}
+    assert rescue_headline(ok, dict(report))["headline"] == "Google adds AI chat sidebar"
+
+
+def test_two_sections_telling_the_same_event_keep_only_the_first():
+    """22 Nov 2026: "Nvidia stops selling H200 chips in China" and "Nvidia stops H200 chip sales to China" both ran."""
+    from fma.gate import dedupe_stories
+    post = {"sections": [{"title": "Nvidia stops selling H200 chips in China"},
+                         {"title": "Anthropic IPO tests safety-first model"},
+                         {"title": "Nvidia stops H200 chip sales to China"},
+                         {"title": "Claude Code linked to Pentagon system"},
+                         {"title": "Claude Code extension backdoor on Cursor"}],
+            "what_happened": ["Nvidia stops selling H200 chips in China[S1].", "Nvidia stops H200 chip sales to China[S3]."]}
+    out, gone = dedupe_stories(post)
+    assert gone == ["Nvidia stops H200 chip sales to China"]
+    assert [s["title"] for s in out["sections"]][-2:] == ["Claude Code linked to Pentagon system",
+                                                         "Claude Code extension backdoor on Cursor"]   # not the same story
+    assert len(out["what_happened"]) == 1
+
+
+def test_no_test_arm_takes_the_closing_off_duo_reels():
+    """22 Nov 2026, Pavan: duo Reels must keep their closing line (the short-close test dropped it on Reel 4)."""
+    from fma import config
+    assert (config.site_config().get("experiment") or {}).get("arm") != "short-close"

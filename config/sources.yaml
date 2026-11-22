@@ -99,6 +99,6 @@ category_hints:
   policy:   [law, "AI Act", police, surveillance, privacy, security, vulnerability, exposure, leak, leaked, breach, exploit, regulation, regulator, senate, congress, EU, court, lawsuit, ban, safety, copyright, policy, government, IPO, S-1, prospectus]
   models:   [release, releases, launches, launch, model, models, open-weight, weights, benchmark, GPT, Gemini, Claude, Llama, Qwen]
   research: [paper, study, researchers, arxiv, dataset, discovery, breakthrough, method]
-  products: [app, feature, available, rolls, rollout, pricing, subscription, assistant, Siri, Copilot]
+  products: [app, feature, available, rolls, rollout, pricing, subscription, assistant, Siri, Copilot, device, devices, wearable, glasses, phone, laptop, price, priced, cost, costs, homepage, sidebar, button, ships]   # 22 Nov 2026: "Muse Charm might cost $300" was tagged Policy
   tools:    [open-source, library, framework, SDK, repo, GitHub, API, tool, toolkit]
   impact:   [jobs, workers, schools, hospital, health, climate, energy, students, economy]
