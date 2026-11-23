@@ -1,59 +1,59 @@
 {
- "date": "2026-11-22",
+ "date": "2026-11-23",
  "window": [
-  "2026-11-16",
-  "2026-11-22"
+  "2026-11-17",
+  "2026-11-23"
  ],
  "this_week": {
-  "reels": 25,
-  "reach": 101,
-  "skip_rate": 56.7,
-  "avg_watch_s": 5.9,
-  "likes_per_1k": 0.0,
-  "sends_per_1k": 0.0,
-  "saves_per_1k": 0.0,
+  "reels": 0,
+  "reach": null,
+  "skip_rate": null,
+  "avg_watch_s": null,
+  "likes_per_1k": null,
+  "sends_per_1k": null,
+  "saves_per_1k": null,
   "comments": 0,
   "follows_per_week": 3
  },
  "last_week": {
-  "reels": 17,
-  "reach": 115,
-  "skip_rate": 61.5,
-  "avg_watch_s": 5.7,
-  "likes_per_1k": 0.0,
-  "sends_per_1k": 0.0,
-  "saves_per_1k": 0.0,
+  "reels": 0,
+  "reach": null,
+  "skip_rate": null,
+  "avg_watch_s": null,
+  "likes_per_1k": null,
+  "sends_per_1k": null,
+  "saves_per_1k": null,
   "comments": 0
  },
  "followers": 13,
  "gates": [
   {
    "metric": "skip_rate",
-   "value": 56.7,
+   "value": null,
    "target": "at most 45",
    "what": "% leave in the first 3 s",
-   "met": false
+   "met": null
   },
   {
    "metric": "avg_watch_s",
-   "value": 5.9,
+   "value": null,
    "target": "at least 15",
    "what": "s watched on average",
-   "met": false
+   "met": null
   },
   {
    "metric": "sends_per_1k",
-   "value": 0.0,
+   "value": null,
    "target": "at least 5",
    "what": "sends per 1,000 reached",
-   "met": false
+   "met": null
   },
   {
    "metric": "likes_per_1k",
-   "value": 0.0,
+   "value": null,
    "target": "at least 30",
    "what": "likes per 1,000 reached",
-   "met": false
+   "met": null
   },
   {
    "metric": "follows_per_week",
@@ -63,48 +63,5 @@
    "met": false
   }
  ],
- "best": [
-  {
-   "id": "18080062715732720",
-   "day": "2026-11-19",
-   "caption": "Nvidia halted H200 AI chip shipments to China after CEO quit.",
-   "reach": 264,
-   "skip_rate": 43.2,
-   "avg_watch_s": 11.6,
-   "likes_per_1k": 11.4,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-19-reel-1",
-   "youtube": "https://www.youtube.com/shorts/lahIhaCmPrg"
-  },
-  {
-   "id": "18394630039238848",
-   "day": "2026-11-19",
-   "caption": "Anthropic priced IPO at $83, shaking AI market.",
-   "reach": 225,
-   "skip_rate": 53.1,
-   "avg_watch_s": 10.0,
-   "likes_per_1k": 4.4,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-19-reel-4",
-   "youtube": "https://www.youtube.com/shorts/IuZ_pJbF2vA"
-  },
-  {
-   "id": "18129480574921192",
-   "day": "2026-11-22",
-   "caption": "Anthropic IPO sparks safety vs profit clash.",
-   "reach": 116,
-   "skip_rate": 46.2,
-   "avg_watch_s": 9.1,
-   "likes_per_1k": 0.0,
-   "sends_per_1k": 0.0,
-   "saves_per_1k": 0.0,
-   "comments": 0,
-   "ours": "2026-11-22-reel-2",
-   "youtube": "https://www.youtube.com/shorts/9CDXcZlCVbY"
-  }
- ]
+ "best": []
 }

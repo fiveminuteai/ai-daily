@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T23:31:05+00:00",
+ "updated": "2026-11-23T18:00:45+00:00",
  "reels": [
   {
    "id": "2026-10-31-reel-1",
@@ -22,7 +22,7 @@
    "comments": 0,
    "age_h": 455.9,
    "skip": 82.4,
-   "outcome": -0.641
+   "outcome": -0.647
   },
   {
    "id": "2026-10-31-reel-2",
@@ -45,7 +45,7 @@
    "comments": 0,
    "age_h": 479.9,
    "skip": 84.3,
-   "outcome": -0.882
+   "outcome": -0.89
   },
   {
    "id": "2026-10-31-reel-3",
@@ -68,7 +68,7 @@
    "comments": 0,
    "age_h": 479.8,
    "skip": 85.7,
-   "outcome": -0.815
+   "outcome": -0.822
   },
   {
    "id": "2026-11-01-reel-1",
@@ -91,7 +91,7 @@
    "comments": 0,
    "age_h": 468.0,
    "skip": 97.4,
-   "outcome": -1.409
+   "outcome": -1.42
   },
   {
    "id": "2026-11-01-reel-2",
@@ -114,7 +114,7 @@
    "comments": 0,
    "age_h": 466.3,
    "skip": 87.5,
-   "outcome": -0.913
+   "outcome": -0.921
   },
   {
    "id": "2026-11-01-reel-3",
@@ -137,7 +137,7 @@
    "comments": 0,
    "age_h": 460.2,
    "skip": 95.7,
-   "outcome": -1.419
+   "outcome": -1.431
   },
   {
    "id": "2026-11-02-reel-1",
@@ -160,7 +160,7 @@
    "comments": 0,
    "age_h": 470.5,
    "skip": 89.1,
-   "outcome": -0.871
+   "outcome": -0.878
   },
   {
    "id": "2026-11-02-reel-2",
@@ -183,7 +183,7 @@
    "comments": 0,
    "age_h": 466.5,
    "skip": 89.2,
-   "outcome": -0.548
+   "outcome": -0.553
   },
   {
    "id": "2026-11-02-reel-3",
@@ -206,7 +206,7 @@
    "comments": 0,
    "age_h": 460.5,
    "skip": 71.4,
-   "outcome": -0.152
+   "outcome": -0.153
   },
   {
    "id": "2026-11-03-reel-1",
@@ -229,7 +229,7 @@
    "comments": 0,
    "age_h": 446.0,
    "skip": 53.8,
-   "outcome": 0.039
+   "outcome": 0.04
   },
   {
    "id": "2026-11-03-reel-2",
@@ -252,7 +252,7 @@
    "comments": 0,
    "age_h": 442.5,
    "skip": 82.4,
-   "outcome": -0.916
+   "outcome": -0.923
   },
   {
    "id": "2026-11-03-reel-3",
@@ -273,9 +273,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 466.0,
+   "age_h": 460.5,
    "skip": 100,
-   "outcome": -1.477
+   "outcome": -1.489
   },
   {
    "id": "2026-11-04-reel-1",
@@ -296,9 +296,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 450.4,
+   "age_h": 445.0,
    "skip": 85.7,
-   "outcome": -0.909
+   "outcome": -0.917
   },
   {
    "id": "2026-11-04-reel-2",
@@ -319,9 +319,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 448.0,
+   "age_h": 442.5,
    "skip": 95,
-   "outcome": -1.223
+   "outcome": -1.233
   },
   {
    "id": "2026-11-04-reel-3",
@@ -342,9 +342,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 442.0,
+   "age_h": 436.5,
    "skip": 71.4,
-   "outcome": -0.438
+   "outcome": -0.441
   },
   {
    "id": "2026-11-05-reel-1",
@@ -365,9 +365,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 428.0,
+   "age_h": 422.5,
    "skip": 80,
-   "outcome": -1.016
+   "outcome": -1.024
   },
   {
    "id": "2026-11-05-reel-2",
@@ -388,9 +388,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 424.0,
+   "age_h": 418.5,
    "skip": 94.4,
-   "outcome": -1.569
+   "outcome": -1.581
   },
   {
    "id": "2026-11-06-reel-1",
@@ -411,9 +411,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 400.0,
+   "age_h": 394.5,
    "skip": 58.3,
-   "outcome": 0.786
+   "outcome": 0.791
   },
   {
    "id": "2026-11-06-reel-2",
@@ -434,9 +434,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 394.0,
+   "age_h": 388.5,
    "skip": 58.4,
-   "outcome": 0.698
+   "outcome": 0.702
   },
   {
    "id": "2026-11-06-reel-3",
@@ -457,9 +457,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 380.0,
+   "age_h": 374.5,
    "skip": 53.4,
-   "outcome": 0.662
+   "outcome": 0.667
   },
   {
    "id": "2026-11-07-reel-1",
@@ -480,9 +480,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 376.0,
+   "age_h": 370.5,
    "skip": 46.1,
-   "outcome": 1.036
+   "outcome": 1.043
   },
   {
    "id": "2026-11-07-reel-2",
@@ -503,9 +503,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 372.9,
+   "age_h": 367.5,
    "skip": 60.8,
-   "outcome": 0.264
+   "outcome": 0.265
   },
   {
    "id": "2026-11-07-reel-3",
@@ -526,9 +526,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 370.0,
+   "age_h": 364.5,
    "skip": 42.5,
-   "outcome": 1.455
+   "outcome": 1.466
   },
   {
    "id": "2026-11-08-reel-2",
@@ -549,9 +549,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 352.0,
+   "age_h": 346.5,
    "skip": 58.4,
-   "outcome": 0.277
+   "outcome": 0.278
   },
   {
    "id": "2026-11-08-reel-3",
@@ -572,9 +572,9 @@
    "shares": 0,
    "saved": 2,
    "comments": 0,
-   "age_h": 349.0,
+   "age_h": 343.5,
    "skip": 62.3,
-   "outcome": 0.217
+   "outcome": 0.218
   },
   {
    "id": "2026-11-09-reel-1",
@@ -595,9 +595,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 328.5,
+   "age_h": 323.1,
    "skip": 45.1,
-   "outcome": 1.183
+   "outcome": 1.191
   },
   {
    "id": "2026-11-09-reel-2",
@@ -618,9 +618,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 322.0,
+   "age_h": 316.5,
    "skip": 61.2,
-   "outcome": 0.278
+   "outcome": 0.28
   },
   {
    "id": "2026-11-09-reel-3",
@@ -641,9 +641,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 318.0,
+   "age_h": 312.5,
    "skip": 83.7,
-   "outcome": -0.966
+   "outcome": -0.974
   },
   {
    "id": "2026-11-10-reel-1",
@@ -664,7 +664,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 308.0,
+   "age_h": 302.5,
    "skip": 61.8,
    "outcome": -0.045
   },
@@ -687,9 +687,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 304.0,
+   "age_h": 298.5,
    "skip": 60.2,
-   "outcome": 0.174
+   "outcome": 0.175
   },
   {
    "id": "2026-11-10-reel-3",
@@ -710,9 +710,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 301.0,
+   "age_h": 295.5,
    "skip": 35.6,
-   "outcome": 1.822
+   "outcome": 1.835
   },
   {
    "id": "2026-11-11-reel-1",
@@ -733,9 +733,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 284.0,
+   "age_h": 278.5,
    "skip": 62.4,
-   "outcome": 0.389
+   "outcome": 0.391
   },
   {
    "id": "2026-11-11-reel-2",
@@ -756,9 +756,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 280.0,
+   "age_h": 274.5,
    "skip": 76.9,
-   "outcome": -0.604
+   "outcome": -0.609
   },
   {
    "id": "2026-11-11-reel-3",
@@ -779,9 +779,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 277.0,
+   "age_h": 271.5,
    "skip": 59,
-   "outcome": 0.675
+   "outcome": 0.679
   },
   {
    "id": "2026-11-12-reel-1",
@@ -802,7 +802,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 260.0,
+   "age_h": 254.5,
    "skip": 57.4,
    "outcome": 0.026
   },
@@ -825,9 +825,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 256.0,
+   "age_h": 250.5,
    "skip": 61.5,
-   "outcome": 0.309
+   "outcome": 0.31
   },
   {
    "id": "2026-11-12-reel-3",
@@ -848,9 +848,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 253.0,
+   "age_h": 247.5,
    "skip": 67.6,
-   "outcome": -0.135
+   "outcome": -0.137
   },
   {
    "id": "2026-11-14-reel-1",
@@ -871,7 +871,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 212.0,
+   "age_h": 206.5,
    "skip": 68.9,
    "outcome": 0.077
   },
@@ -894,7 +894,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 186.5,
+   "age_h": 181.0,
    "skip": 70.1,
    "outcome": 0.033
   },
@@ -917,9 +917,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 184.0,
+   "age_h": 178.5,
    "skip": 41.3,
-   "outcome": 0.95
+   "outcome": 0.957
   },
   {
    "id": "2026-11-15-reel-3",
@@ -940,9 +940,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 181.0,
+   "age_h": 175.5,
    "skip": 36.5,
-   "outcome": 1.642
+   "outcome": 1.654
   },
   {
    "id": "2026-11-15-reel-4",
@@ -963,9 +963,32 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 178.0,
+   "age_h": 172.5,
    "skip": 62.4,
-   "outcome": 0.46
+   "outcome": 0.463
+  },
+  {
+   "id": "2026-11-16-reel-1",
+   "date": "2026-11-16",
+   "slot": 1,
+   "time": "09:00",
+   "category": "impact",
+   "player": "other",
+   "hook_number": false,
+   "hook_words": 6,
+   "desk": 7,
+   "hook": "FAA groundstop sparks AI safety fears.",
+   "pain": "safety",
+   "pace": "slow",
+   "hook_type": "stakes",
+   "reach": 106,
+   "watch_s": 4.5,
+   "shares": 0,
+   "saved": 0,
+   "comments": 0,
+   "age_h": 158.5,
+   "skip": 64.5,
+   "outcome": 0.037
   },
   {
    "id": "2026-11-17-reel-1",
@@ -986,9 +1009,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 139.9,
+   "age_h": 134.5,
    "skip": 54.7,
-   "outcome": 0.414
+   "outcome": 0.416
   },
   {
    "id": "2026-11-17-reel-2",
@@ -1009,9 +1032,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 135.9,
+   "age_h": 130.4,
    "skip": 56.7,
-   "outcome": 0.385
+   "outcome": 0.387
   },
   {
    "id": "2026-11-17-reel-3",
@@ -1032,9 +1055,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 133.0,
+   "age_h": 127.5,
    "skip": 71.4,
-   "outcome": -0.568
+   "outcome": -0.573
   },
   {
    "id": "2026-11-17-reel-4",
@@ -1055,10 +1078,10 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 130.0,
+   "age_h": 124.5,
    "skip": 48.5,
    "arm": "short-close",
-   "outcome": 0.581
+   "outcome": 0.585
   },
   {
    "id": "2026-11-18-reel-1",
@@ -1079,9 +1102,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 115.9,
+   "age_h": 110.5,
    "skip": 57.1,
-   "outcome": 0.304
+   "outcome": 0.306
   },
   {
    "id": "2026-11-18-reel-2",
@@ -1102,9 +1125,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 112.0,
+   "age_h": 106.5,
    "skip": 70,
-   "outcome": -0.43
+   "outcome": -0.434
   },
   {
    "id": "2026-11-18-reel-3",
@@ -1125,9 +1148,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 109.0,
+   "age_h": 103.5,
    "skip": 56.9,
-   "outcome": 0.323
+   "outcome": 0.325
   },
   {
    "id": "2026-11-18-reel-4",
@@ -1148,10 +1171,10 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 106.0,
+   "age_h": 100.5,
    "skip": 55.6,
    "arm": "short-close",
-   "outcome": 0.159
+   "outcome": 0.16
   },
   {
    "id": "2026-11-19-reel-1",
@@ -1172,9 +1195,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 92.0,
+   "age_h": 86.5,
    "skip": 43.2,
-   "outcome": 1.698
+   "outcome": 1.709
   },
   {
    "id": "2026-11-19-reel-2",
@@ -1195,9 +1218,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 87.9,
+   "age_h": 82.4,
    "skip": 35.3,
-   "outcome": 1.224
+   "outcome": 1.233
   },
   {
    "id": "2026-11-19-reel-3",
@@ -1218,9 +1241,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 85.0,
+   "age_h": 79.5,
    "skip": 100,
-   "outcome": -1.831
+   "outcome": -1.845
   },
   {
    "id": "2026-11-19-reel-4",
@@ -1241,10 +1264,10 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 82.0,
+   "age_h": 76.5,
    "skip": 53.1,
    "arm": "short-close",
-   "outcome": 1.183
+   "outcome": 1.191
   },
   {
    "id": "2026-11-20-reel-1",
@@ -1265,9 +1288,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 68.0,
+   "age_h": 62.5,
    "skip": 75,
-   "outcome": -0.669
+   "outcome": -0.674
   },
   {
    "id": "2026-11-20-reel-2",
@@ -1288,9 +1311,9 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 64.0,
+   "age_h": 58.5,
    "skip": 55.4,
-   "outcome": 0.814
+   "outcome": 0.819
   },
   {
    "id": "2026-11-20-reel-3",
@@ -1311,7 +1334,7 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 61.0,
+   "age_h": 55.5,
    "skip": 59.6,
    "outcome": 0.157
   },
@@ -1334,21 +1357,21 @@
    "shares": 0,
    "saved": 0,
    "comments": 0,
-   "age_h": 57.9,
+   "age_h": 52.5,
    "skip": 70.2,
    "arm": "short-close",
-   "outcome": -0.249
+   "outcome": -0.252
   }
  ],
  "effects": [
   {
    "feature": "category",
    "value": "impact",
-   "n": 7,
+   "n": 8,
    "n_rest": 51,
-   "mean": -0.53,
-   "effect": -0.28,
-   "se": 0.35,
+   "mean": -0.47,
+   "effect": -0.27,
+   "se": 0.33,
    "held_out": null,
    "confident": false
   },
@@ -1356,7 +1379,7 @@
    "feature": "category",
    "value": "models",
    "n": 8,
-   "n_rest": 50,
+   "n_rest": 51,
    "mean": -0.18,
    "effect": -0.1,
    "se": 0.33,
@@ -1367,7 +1390,7 @@
    "feature": "category",
    "value": "policy",
    "n": 16,
-   "n_rest": 42,
+   "n_rest": 43,
    "mean": 0.15,
    "effect": 0.14,
    "se": 0.26,
@@ -1378,10 +1401,10 @@
    "feature": "category",
    "value": "products",
    "n": 22,
-   "n_rest": 36,
+   "n_rest": 37,
    "mean": 0.06,
    "effect": 0.07,
-   "se": 0.24,
+   "se": 0.23,
    "held_out": true,
    "confident": false
   },
@@ -1389,7 +1412,7 @@
    "feature": "category",
    "value": "research",
    "n": 2,
-   "n_rest": 56,
+   "n_rest": 57,
    "mean": 0.07,
    "effect": 0.01,
    "se": 0.63,
@@ -1400,7 +1423,7 @@
    "feature": "category",
    "value": "tools",
    "n": 3,
-   "n_rest": 55,
+   "n_rest": 56,
    "mean": 0.44,
    "effect": 0.12,
    "se": 0.52,
@@ -1411,21 +1434,21 @@
    "feature": "player",
    "value": "giant",
    "n": 51,
-   "n_rest": 7,
+   "n_rest": 8,
    "mean": 0.11,
-   "effect": 0.41,
-   "se": 0.35,
+   "effect": 0.39,
+   "se": 0.33,
    "held_out": null,
    "confident": false
   },
   {
    "feature": "player",
    "value": "other",
-   "n": 6,
+   "n": 7,
    "n_rest": 52,
-   "mean": -0.8,
-   "effect": -0.38,
-   "se": 0.38,
+   "mean": -0.68,
+   "effect": -0.36,
+   "se": 0.35,
    "held_out": null,
    "confident": false
   },
@@ -1433,8 +1456,8 @@
    "feature": "player",
    "value": "rivalry",
    "n": 1,
-   "n_rest": 57,
-   "mean": -0.64,
+   "n_rest": 58,
+   "mean": -0.65,
    "effect": -0.07,
    "se": 0.88,
    "held_out": null,
@@ -1443,11 +1466,11 @@
   {
    "feature": "slot",
    "value": "09:00",
-   "n": 16,
+   "n": 17,
    "n_rest": 42,
-   "mean": -0.12,
+   "mean": -0.11,
    "effect": -0.11,
-   "se": 0.26,
+   "se": 0.25,
    "held_out": false,
    "confident": false
   },
@@ -1455,8 +1478,8 @@
    "feature": "slot",
    "value": "12:25",
    "n": 1,
-   "n_rest": 57,
-   "mean": 1.18,
+   "n_rest": 58,
+   "mean": 1.19,
    "effect": 0.13,
    "se": 0.88,
    "held_out": null,
@@ -1466,7 +1489,7 @@
    "feature": "slot",
    "value": "13:00",
    "n": 17,
-   "n_rest": 41,
+   "n_rest": 42,
    "mean": -0.07,
    "effect": -0.06,
    "se": 0.25,
@@ -1477,7 +1500,7 @@
    "feature": "slot",
    "value": "16:00",
    "n": 10,
-   "n_rest": 48,
+   "n_rest": 49,
    "mean": 0.26,
    "effect": 0.17,
    "se": 0.3,
@@ -1488,7 +1511,7 @@
    "feature": "slot",
    "value": "19:00",
    "n": 13,
-   "n_rest": 45,
+   "n_rest": 46,
    "mean": 0.02,
    "effect": 0.02,
    "se": 0.27,
@@ -1499,7 +1522,7 @@
    "feature": "slot",
    "value": "19:30",
    "n": 1,
-   "n_rest": 57,
+   "n_rest": 58,
    "mean": -0.97,
    "effect": -0.1,
    "se": 0.88,
@@ -1509,7 +1532,7 @@
   {
    "feature": "number in hook",
    "value": "no",
-   "n": 35,
+   "n": 36,
    "n_rest": 23,
    "mean": -0.04,
    "effect": -0.08,
@@ -1521,7 +1544,7 @@
    "feature": "number in hook",
    "value": "yes",
    "n": 23,
-   "n_rest": 35,
+   "n_rest": 36,
    "mean": 0.07,
    "effect": 0.08,
    "se": 0.23,
@@ -1532,28 +1555,28 @@
    "feature": "hook length",
    "value": "long (11+ words)",
    "n": 40,
-   "n_rest": 18,
+   "n_rest": 19,
    "mean": -0.05,
    "effect": -0.1,
-   "se": 0.25,
+   "se": 0.24,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "hook length",
    "value": "short (<=10 words)",
-   "n": 18,
+   "n": 19,
    "n_rest": 40,
    "mean": 0.1,
    "effect": 0.1,
-   "se": 0.25,
+   "se": 0.24,
    "held_out": true,
    "confident": false
   },
   {
    "feature": "desk score",
    "value": "7+",
-   "n": 34,
+   "n": 35,
    "n_rest": 24,
    "mean": 0.25,
    "effect": 0.44,
@@ -1565,8 +1588,8 @@
    "feature": "desk score",
    "value": "none",
    "n": 9,
-   "n_rest": 49,
-   "mean": -0.85,
+   "n_rest": 50,
+   "mean": -0.86,
    "effect": -0.53,
    "se": 0.32,
    "held_out": null,
@@ -1576,7 +1599,7 @@
    "feature": "desk score",
    "value": "under 7",
    "n": 15,
-   "n_rest": 43,
+   "n_rest": 44,
    "mean": -0.06,
    "effect": -0.05,
    "se": 0.26,
@@ -1587,7 +1610,7 @@
    "feature": "pain",
    "value": "job",
    "n": 3,
-   "n_rest": 55,
+   "n_rest": 56,
    "mean": 0.43,
    "effect": 0.12,
    "se": 0.52,
@@ -1598,7 +1621,7 @@
    "feature": "pain",
    "value": "money",
    "n": 11,
-   "n_rest": 47,
+   "n_rest": 48,
    "mean": 0.25,
    "effect": 0.18,
    "se": 0.29,
@@ -1609,7 +1632,7 @@
    "feature": "pain",
    "value": "power",
    "n": 2,
-   "n_rest": 56,
+   "n_rest": 57,
    "mean": 0.25,
    "effect": 0.05,
    "se": 0.63,
@@ -1620,7 +1643,7 @@
    "feature": "pain",
    "value": "privacy",
    "n": 5,
-   "n_rest": 53,
+   "n_rest": 54,
    "mean": 0.03,
    "effect": 0.01,
    "se": 0.41,
@@ -1630,11 +1653,11 @@
   {
    "feature": "pain",
    "value": "safety",
-   "n": 2,
+   "n": 3,
    "n_rest": 56,
-   "mean": 0.26,
+   "mean": 0.19,
    "effect": 0.05,
-   "se": 0.63,
+   "se": 0.52,
    "held_out": null,
    "confident": false
   },
@@ -1642,8 +1665,8 @@
    "feature": "pain",
    "value": "tools",
    "n": 7,
-   "n_rest": 51,
-   "mean": 0.54,
+   "n_rest": 52,
+   "mean": 0.55,
    "effect": 0.29,
    "se": 0.35,
    "held_out": true,
@@ -1653,8 +1676,8 @@
    "feature": "pain",
    "value": "trust",
    "n": 2,
-   "n_rest": 56,
-   "mean": -0.2,
+   "n_rest": 57,
+   "mean": -0.21,
    "effect": -0.04,
    "se": 0.63,
    "held_out": null,
@@ -1664,7 +1687,7 @@
    "feature": "pain",
    "value": "untagged",
    "n": 26,
-   "n_rest": 32,
+   "n_rest": 33,
    "mean": -0.33,
    "effect": -0.44,
    "se": 0.23,
@@ -1675,7 +1698,7 @@
    "feature": "hook type",
    "value": "conflict",
    "n": 1,
-   "n_rest": 57,
+   "n_rest": 58,
    "mean": 0.46,
    "effect": 0.05,
    "se": 0.88,
@@ -1686,7 +1709,7 @@
    "feature": "hook type",
    "value": "number",
    "n": 7,
-   "n_rest": 51,
+   "n_rest": 52,
    "mean": -0.19,
    "effect": -0.1,
    "se": 0.35,
@@ -1696,11 +1719,11 @@
   {
    "feature": "hook type",
    "value": "stakes",
-   "n": 21,
+   "n": 22,
    "n_rest": 37,
-   "mean": 0.45,
+   "mean": 0.43,
    "effect": 0.5,
-   "se": 0.24,
+   "se": 0.23,
    "held_out": true,
    "confident": true
   },
@@ -1708,7 +1731,7 @@
    "feature": "hook type",
    "value": "surprise",
    "n": 2,
-   "n_rest": 56,
+   "n_rest": 57,
    "mean": 0.49,
    "effect": 0.1,
    "se": 0.63,
@@ -1719,7 +1742,7 @@
    "feature": "hook type",
    "value": "untagged",
    "n": 26,
-   "n_rest": 32,
+   "n_rest": 33,
    "mean": -0.33,
    "effect": -0.44,
    "se": 0.23,
@@ -1730,7 +1753,7 @@
    "feature": "hook type",
    "value": "you",
    "n": 1,
-   "n_rest": 57,
+   "n_rest": 58,
    "mean": -0.97,
    "effect": -0.1,
    "se": 0.88,
@@ -1741,8 +1764,8 @@
    "feature": "pace",
    "value": "brisk",
    "n": 14,
-   "n_rest": 44,
-   "mean": 0.53,
+   "n_rest": 45,
+   "mean": 0.54,
    "effect": 0.45,
    "se": 0.27,
    "held_out": true,
@@ -1752,8 +1775,8 @@
    "feature": "pace",
    "value": "no duo",
    "n": 26,
-   "n_rest": 32,
-   "mean": -0.55,
+   "n_rest": 33,
+   "mean": -0.56,
    "effect": -0.74,
    "se": 0.23,
    "held_out": true,
@@ -1762,18 +1785,18 @@
   {
    "feature": "pace",
    "value": "slow",
-   "n": 18,
+   "n": 19,
    "n_rest": 40,
-   "mean": 0.38,
+   "mean": 0.37,
    "effect": 0.38,
-   "se": 0.25,
+   "se": 0.24,
    "held_out": false,
    "confident": false
   },
   {
    "feature": "test arm",
    "value": "control",
-   "n": 54,
+   "n": 55,
    "n_rest": 4,
    "mean": -0.03,
    "effect": -0.15,
@@ -1785,7 +1808,7 @@
    "feature": "test arm",
    "value": "short-close",
    "n": 4,
-   "n_rest": 54,
+   "n_rest": 55,
    "mean": 0.42,
    "effect": 0.15,
    "se": 0.45,
