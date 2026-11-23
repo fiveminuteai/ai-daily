@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Anthropic raises $81.3 billion in record IPO\n\n• Notable’s early Series E stake turned into a 15-fold paper gain after Anthropic’s $1.5 trillion IPO.\n• Jakub Pachocki proposes using perplexity, a stable language-model metric, to set industry-wide AI development speed limits.\n• AWS Quick now supports Meta ads management via natural language prompts.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-23T05:31:22+00:00",
+   "posted_url": "https://www.instagram.com/p/DgEom-cl2fs/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-23/instagram.png"
    ],
-   "scheduled_at": "2026-11-23T05:30:00+00:00"
+   "scheduled_at": "2026-11-23T05:30:00+00:00",
+   "media_id": "18100865900117137",
+   "error": null
   },
   {
    "id": "2026-11-23-x",
