@@ -2934,5 +2934,84 @@
     "distillation"
    ]
   ]
+ },
+ {
+  "date": "2026-11-23",
+  "slug": "2026-11-23-anthropic-raises-81-3-billion-in-record",
+  "urls": [
+   "aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick",
+   "openai.com/index/perplexity-and-intelligence",
+   "techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo",
+   "techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development",
+   "wired.com/story/banks-are-cracking-down-on-ai-agents"
+  ],
+  "tokens": [
+   "ads",
+   "agent",
+   "anthropic",
+   "available",
+   "aws",
+   "baillie",
+   "banks",
+   "before",
+   "bet",
+   "big",
+   "capital",
+   "chief",
+   "development",
+   "gic",
+   "gifford",
+   "had",
+   "here",
+   "intelligence",
+   "ipo",
+   "limit",
+   "meta",
+   "notable",
+   "openai",
+   "perplexity",
+   "quick",
+   "scientist",
+   "thoughts"
+  ],
+  "story_tokens": [
+   [
+    "anthropic",
+    "baillie",
+    "before",
+    "bet",
+    "big",
+    "capital",
+    "gic",
+    "gifford",
+    "ipo",
+    "notable"
+   ],
+   [
+    "chief",
+    "development",
+    "limit",
+    "openai",
+    "scientist",
+    "thoughts"
+   ],
+   [
+    "ads",
+    "available",
+    "aws",
+    "meta",
+    "quick"
+   ],
+   [
+    "agent",
+    "banks",
+    "had",
+    "here"
+   ],
+   [
+    "intelligence",
+    "perplexity"
+   ]
+  ]
  }
 ]

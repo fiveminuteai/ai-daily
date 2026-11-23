@@ -1,0 +1,1212 @@
+{
+  "checked": 120,
+  "ok": 51,
+  "repaired": 54,
+  "dropped": 15,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic raises $81.3 billion in record IPO",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "We just knew that for AI, the developer is at the center because they’re the early adopters.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "dek",
+      "text": "Anthropic completed an IPO raising $81.3 billion, while OpenAI proposed a new safety metric and banks restricted AI agent access.",
+      "sources": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Notable’s early Series E stake turned into a 15‑fold paper gain after Anthropic’s $1.5 trillion IPO.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Jakub Pachocki proposes using perplexity, a stable language‑model metric, to set industry‑wide AI development speed limits.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "AWS Quick now supports Meta ads management via natural language prompts.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Major US banks are updating terms to limit or warn against using third-party AI agents for transactions.",
+      "sources": [],
+      "status": "dropped",
+      "problems": [
+        "no citation"
+      ]
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "OpenAI released internal perplexity scores to support industry-wide safety standards.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Notable Capital invested about 10% of the U.S. side of its $1 billion‑plus fund in Anthropic’s Series E round in early 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not state that Notable Capital's Series E investment occurred in early 2026."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The venture firm, formerly GGV Capital, made the bet despite Anthropic trailing OpenAI and facing new competition from DeepSeek’s R1 model.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "At the time Anthropic was valued at $61.5 billion, the highest valuation Notable had ever funded in its 25‑year history.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The investment team, including managing partners Hans Tung and Glenn Solomon and principal Dan Cahana, noted that developers were using Claude 70 % of the time, up from the previous year.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states that developers using Claude 70% of the time was 'a reversal from the previous year', not 'up from the previous year'."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Tung said the developer is the central early adopter for AI.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "After two years Anthropic completed an IPO that raised $81.3 billion, giving a fully diluted valuation of about $1.5 trillion and a paper return of roughly 15 times for Notable’s stake.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic’s growth comes as enterprise customers increasingly prefer U.S.‑based, closed‑source models for mission‑critical tasks, a factor highlighted by Notable’s experience with U.S–China investment dynamics.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Singapore’s sovereign wealth fund GIC also entered Anthropic in 2025 after meeting CFO Krishna Rao, later leading larger rounds at $183 billion and $380 billion valuations.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Singapore' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "These moves illustrate how venture capital is betting on a narrow set of large AI labs despite market volatility.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source discusses specific investors (Notable, GIC) and their returns. It does not explicitly state that venture capital is betting on a 'narrow set of large AI labs' or discuss 'market volatility' as a general trend. This is an interpretation not directly supported by the specific text provided."
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Notable Capital bet big on Anthropic before its IPO.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "They invested in Anthropic's Series E round in early 2026.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source does not state the investment happened in 'early 2026'. It mentions the IPO was 'less than two years later' (from the investment) and the article is published in Nov 2026, implying the investment was likely in 2024 or 2025, not necessarily early 2026. Furthermore, GIC's first investment was in early 2025, but Notable's timing is not explicitly dated to early 2026 in the text provided."
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "The IPO raised $81.3 billion, valuing Anthropic at $1.5 trillion.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Notable's stake returned roughly 15 times its initial investment.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "This shows major investors still believe in Anthropic's long-term value despite market noise.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Is Anthropic worth the hype?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Anthropic IPO: $1.5T Valuation",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Notable Capital bet big on Anthropic before its record-breaking IPO.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Developers used Claude 70% of the time, up from the previous year.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "Notable invested about 10% of its fund in the company.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Notable Capital backs Anthropic ahead of record IPO",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "OpenAI’s chief scientist Jakub Pachocki published a blog post proposing perplexity as a metric to limit AI development speed.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The idea follows recent calls from Anthropic CEO Dario Amodei, OpenAI CEO Sam Altman and SpaceX CEO Elon Musk to set common safety standards and pace the frontier.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Pachocki argues that a shared benchmark could help companies agree not to exceed a defined threshold until monitoring capabilities improve.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Pachocki notes that downstream capability benchmarks become outdated quickly, while perplexity—measuring how well a model predicts the next token—remains informative.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "He cites a chart showing OpenAI model perplexity falling from GPT‑3.5 to GPT‑4, which sits at roughly 0.91, and newer models dropping below 0.8, coinciding with the emergence of capabilities in cybersecurity and mathematics.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The post suggests that once perplexity reaches a low enough value, companies could commit to a “speed limit” until they achieve concrete monitoring milestones.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Perplexity is a standard language‑model metric: lower values indicate more accurate token predictions.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Using it as a progress gauge differs from task‑specific benchmarks that quickly become obsolete as models improve.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The proposal aims to create a common, quantifiable target for AI safety agreements, echoing broader industry concerns about catastrophic or existential risks.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "OpenAI's chief scientist wants a speed limit.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Jakub Pachocki proposes using perplexity to cap AI progress.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "GPT-4 perplexity is 0.91; newer models drop below 0.8.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Companies would pause development until monitoring improves.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "AI development may slow down as safety standards become quantifiable.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should AI development have a speed limit?",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "OpenAI proposes AI speed limit.",
+      "sources": [
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "OpenAI's chief scientist wants a speed limit.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Jakub Pachocki proposes using perplexity to cap AI progress.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "GPT-4 perplexity is 0.91; newer models drop below 0.8.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI chief scientist proposes perplexity as speed limit metric",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "AWS Quick added a Meta ads AI connector on 22 November 2026.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This tool lets marketers use natural language to manage campaigns.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It connects directly to the Meta ad management network.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users can create, manage, and analyze ads within Quick.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The system supports tasks like pulling performance insights.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It also allows for editing existing campaigns.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "New campaigns can be created from scratch.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The connector aims to reduce manual tool switching.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The connector accesses Meta ads Model Context Protocol server operations.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It combines Meta data with first- and third-party sources.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This creates dashboards, documents, and slide decks.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Automated workflows are also supported.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "A demo shows installation via Customize > Connectors.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Users sign in with Facebook to grant access.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "One prompt generates an eight-slide launch-plan deck.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions generating an eight-slide launch-plan deck from a single prompt."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Another builds a dashboard comparing spend and leads.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "It includes recommended tests for two ad sets.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Marketers often struggle with data scattered across platforms.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states marketers have more data, but does not explicitly state they 'struggle' with it being 'scattered across platforms' in that specific phrasing, though the context implies fragmentation. However, the claim is a generalization not directly stated as a struggle with scattering, but rather a volume issue. More importantly, the source describes the *solution* to the fragmentation, but the specific claim about 'struggling with data scattered' is an inference. Let's look closer. The source says 'campaign results live in Meta Ads Manager, briefs... in shared storage, and inventory... in a data lake.' This implies scattering. Does it say they struggle? It says 'the path from insight to action stays slow and manual.' This supports the struggle. But does it say 'data scattered across platforms'? It lists different locations. The claim is a reasonable paraphrase of the problem description. However, strict fact-checking often requires explicit support. Let's look at C41-C45 which are more specific. C40 is a bit vague. Let's re-read the prompt: 'A claim is NOT supported if... no evidence exists.' The evidence for 'struggle' is 'slow and manual'. The evidence for 'scattered' is the list of different locations. It's a strong inference. But let's look at the other claims first. Actually, looking at the source: 'Marketers have never had more data to act on.' It doesn't explicitly say 'struggle with data scattered'. It describes the *state* of the data. I will mark it as not supported because the specific phrasing 'struggle with data scattered' is not in the text, only the consequences (slow/manual) and the locations are listed."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Campaign results sit in Meta Ads Manager.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Assets live in shared storage.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Inventory data stays in separate lakes.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Analysts manually merge spreadsheets to rebuild reports.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This process makes data age before action.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Teams judge campaigns on metrics alone.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The path from insight to action remains slow.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This connector seeks to streamline that workflow.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "AWS added a Meta ads connector to your workflow.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Marketers can now manage Meta campaigns inside AWS Quick.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "One prompt generates an eight-slide launch-plan deck.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "It connects Meta data with other sources for dashboards.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "If you use AWS, this tool may simplify your ad reporting.",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Do you use AI for ad management?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "AWS adds Meta ads connector.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AWS Quick adds Meta ads AI connector",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Wells Fargo is updating its customer agreement starting Tuesday to address AI agents.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The new terms state that using any AI agent is at the customer's own risk.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This move follows similar actions by other major US banks in late 2026.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "JPMorgan Chase banned third-party agents that log in with user credentials in late October.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Bank of America warned customers not to share login info with agents on the same day.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Citibank and PNC have also updated their terms to include warnings about agents.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "AI agents automate online tasks by clicking on a user's behalf.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "While useful for shopping, they can make errors like posting private details.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Users often grant sweeping permissions without considering security risks, leading to friction with service providers.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Wells Fargo says using AI agents is your risk.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "New terms make customers liable for AI agent actions.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "JPMorgan Chase banned third-party agents using user logins.",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Agents can accidentally post private details online.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The provided source text does not mention agents accidentally posting private details online; it focuses on campaign management, data integration, and governance features."
+      ]
+    },
+    {
+      "where": "card[3] take",
+      "text": "Check your bank's new terms before letting AI handle your money.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Would you let an AI manage your bank account?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Wells Fargo: AI is your risk.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Wells Fargo: AI is your risk.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "the hook attributes this claim to someone; the cover states it as fact"
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Banks restrict ai agent access",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "OpenAI published a post by Chief Scientist Jakub Pachocki on 22 November 2026.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The post argues for using perplexity as a shared metric.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It aims to help the industry build common safety standards.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This move increases transparency for competitors.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Perplexity measures how well a model predicts the next token.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Lower scores indicate better prediction accuracy.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "OpenAI has tracked this metric since GPT-3.5.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source states they have been tracking perplexity 'over the years' and shows evolution 'starting with GPT-3.5', but does not explicitly state that the tracking of this specific metric began *since* GPT-3.5; it implies a longer history ('over the years') and uses GPT-3.5 as the start of the specific plot shown."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The company released its internal measurements for the first time.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Pachocki noted that this gives competitors a clearer picture of OpenAI's standing.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Modern AI models are often described as compressors trained on large datasets.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "This process creates latent capabilities that are then elicited.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Pachocki calls this underlying process an \"alien mind\".",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Tracking compressor progress helps understand AI advances.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "It provides a scientific basis for pacing efforts.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "OpenAI just shared its secret safety scores.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source discusses publishing 'perplexity measurements' (a performance metric), not 'safety scores'. While safety is mentioned as a motivation, the data shared is not described as safety scores."
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Chief Scientist Jakub Pachocki released internal perplexity data.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "This metric tracks how well models predict next tokens.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The goal is to build common safety standards.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "OpenAI wants industry-wide safety rules, not just its own.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should AI companies share safety data?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "OpenAI shares secret scores.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI shares internal perplexity data",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "Anthropic’s $1.5 trillion valuation signals strong investor confidence in U.S. AI labs, potentially increasing competition for enterprise contracts.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "This capital may accelerate model development, though the long-term impact on market stability remains speculative.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Banks like Wells Fargo are shifting liability for AI agent errors to customers, requiring users to manage security risks themselves.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "This change may limit the adoption of automated agents for sensitive financial tasks due to increased personal accountability.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "GPT‑3.5: 1.2",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "value or label not in chart source"
+      ]
+    },
+    {
+      "where": "chart",
+      "text": "GPT‑4: 0.91",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "chart",
+      "text": "Latest model: 0.78",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "value or label not in chart source"
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 9,
+  "cards_fallback": 1,
+  "unused": 9,
+  "date": "2026-11-23",
+  "slug": "2026-11-23-anthropic-raises-81-3-billion-in-record",
+  "model": "groq:qwen/qwen3.8-27b"
+}

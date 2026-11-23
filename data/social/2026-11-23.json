@@ -1,0 +1,110 @@
+{
+ "date": "2026-11-23",
+ "slug": "2026-11-23-anthropic-raises-81-3-billion-in-record",
+ "headline": "Anthropic raises $81.3 billion in record IPO",
+ "url": "https://fiveminuteai.net/posts/2026-11-23-anthropic-raises-81-3-billion-in-record/",
+ "generated_at": "2026-11-23T02:45:39+00:00",
+ "items": [
+  {
+   "id": "2026-11-23-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Anthropic raises $81.3 billion in record IPO\n\n• Notable’s early Series E stake turned into a 15-fold paper gain after Anthropic’s $1.5 trillion IPO.\n• Jakub Pachocki proposes using perplexity, a stable language-model metric, to set industry-wide AI development speed limits.\n• AWS Quick now supports Meta ads management via natural language prompts.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-23/instagram.png"
+   ],
+   "scheduled_at": "2026-11-23T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-23-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Anthropic raises $81.3 billion in record IPO\n\n• Notable’s early Series E stake turned into a 15-fold paper gain after Anthropic’s $1.5 trillion IPO.\n\nhttps://fiveminuteai.net/posts/2026-11-23-anthropic-raises-81-3-billion-in-record/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 173
+  },
+  {
+   "id": "2026-11-23-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Anthropic raises $81.3 billion in record IPO\n\n• Notable’s early Series E stake turned into a 15-fold paper gain after Anthropic’s $1.5 trillion IPO.\n• Jakub Pachocki proposes using perplexity, a stable language-model metric, to set industry-wide AI development speed limits.\n• AWS Quick now supports Meta ads management via natural language prompts.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-23-anthropic-raises-81-3-billion-in-record/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-23-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "OpenAI's chief scientist wants a speed limit[S2].",
+   "duo": true,
+   "cover": "OpenAI proposes AI speed limit[S2].",
+   "text": "OpenAI's chief scientist wants a speed limit.\n\n• Jakub Pachocki proposes using perplexity to cap AI progress.\n• GPT-4 perplexity is 0.91; newer models drop below 0.8.\n• Companies would pause development until monitoring improves.\n\nOur read: AI development may slow down as safety standards become quantifiable.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-23/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-23T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-23-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "Wells Fargo says using AI agents is your risk[S4].",
+   "duo": false,
+   "cover": null,
+   "text": "Wells Fargo says using AI agents is your risk.\n\n• New terms make customers liable for AI agent actions.\n• JPMorgan Chase banned third-party agents using user logins.\n\nDo this: Check your bank's new terms before letting AI handle your money.\n\nSave this so you can find it later.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-23/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-23T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-23-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Notable Capital bet big on Anthropic before its IPO[S1].",
+   "duo": true,
+   "cover": "Anthropic IPO: $1.5T Valuation[S1].",
+   "text": "Notable Capital bet big on Anthropic before its IPO.\n\n• The IPO raised $81.3 billion, valuing Anthropic at $1.5 trillion.\n• Notable's stake returned roughly 15 times its initial investment.\n\nOur read: This shows major investors still believe in Anthropic's long-term value despite market noise.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-23/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-23T10:30:00+00:00"
+  }
+ ]
+}

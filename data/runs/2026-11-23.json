@@ -1,0 +1,427 @@
+{
+ "date": "2026-11-23",
+ "started_at": "2026-11-23T02:00:36+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 10.7,
+   "items": 471,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 13
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 0
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 6
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 2
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 5
+    },
+    "github": {
+     "status": "ok",
+     "items": 13
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.8,
+   "stories": 28,
+   "editor": true,
+   "top": [
+    {
+     "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+     "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+     "score": 6.89,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+     "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+     "score": 6.19,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta ads is now available in AWS Quick",
+     "url": "https://aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick/",
+     "score": 6.18,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": true
+    },
+    {
+     "title": "We haven’t seen the last of the major tech outages",
+     "url": "https://www.theverge.com/tech/1039851/major-tech-outages",
+     "score": 5.82,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Banks Have Had It Up to Here With Your AI Agent",
+     "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+     "score": 5.54,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "The UN fails to agree on rules regulating ‘killer robots’",
+     "url": "https://www.theverge.com/tech/1039554/un-regulations-killer-robots",
+     "score": 5.45,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "The Outages Are Just Getting Started",
+     "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+     "score": 5.34,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Why data centers are at the center of the Big Tech backlash",
+     "url": "https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/",
+     "score": 5.13,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+     "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+     "score": 4.86,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Perplexity and Intelligence",
+     "url": "https://openai.com/index/perplexity-and-intelligence",
+     "score": 4.59,
+     "interest": 5.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+     "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+     "score": 4.54,
+     "interest": 4.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "gpupartner.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "TechCrunch Mobility: A/B testing robots vs. humans",
+     "url": "https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans/",
+     "score": 4.34,
+     "interest": 6.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+     "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+     "score": 6.89,
+     "interest": 8.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+     "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+     "score": 6.19,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Meta ads is now available in AWS Quick",
+     "url": "https://aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick/",
+     "score": 6.18,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Banks Have Had It Up to Here With Your AI Agent",
+     "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+     "score": 5.54,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Perplexity and Intelligence",
+     "url": "https://openai.com/index/perplexity-and-intelligence",
+     "score": 4.59,
+     "interest": 5.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.3,
+   "articles": 8,
+   "with_text": 8
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 4.6,
+   "word_count": 940,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:qwen/qwen3.8-27b",
+   "seconds": {
+    "write": 178.5,
+    "reel_desk": 1663.6,
+    "layer1": 0.1,
+    "layer2": 840.8,
+    "gate": 0.9
+   },
+   "layer1": {
+    "checked": 129,
+    "ok": 64,
+    "repaired": 59,
+    "dropped": 6
+   },
+   "layer2": {
+    "checked": 120,
+    "ok": 51,
+    "repaired": 54,
+    "dropped": 15
+   },
+   "unused": 9,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Notable Capital backs Anthropic ahead of record IPO",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Massive Anthropic valuation ($1.5T) gets tech attention, but VC returns are mostly investor chatter.",
+     "hook": "Notable Capital bet big on Anthropic before its IPO.",
+     "chosen": true
+    },
+    {
+     "story": "OpenAI chief scientist proposes perplexity as speed limit metric",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "OpenAI's top scientist calling to actively pause AI progress is high stakes and controversial.",
+     "hook": "OpenAI's chief scientist wants a speed limit.",
+     "chosen": true
+    },
+    {
+     "story": "AWS Quick adds Meta ads AI connector",
+     "reel": 4,
+     "rubric": 4,
+     "chief": 3.0,
+     "why": "Routine cloud-to-ad tech integration news; feels like an enterprise product update.",
+     "hook": "AWS added a Meta ads connector to your workflow.",
+     "chosen": false
+    },
+    {
+     "story": "Banks restrict ai agent access",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 9.0,
+     "why": "Direct consumer threat and legal drama: your bank blaming you for AI agent mistakes hits personal finance paranoia.",
+     "hook": "Wells Fargo says using AI agents is your risk.",
+     "chosen": true
+    },
+    {
+     "story": "OpenAI shares internal perplexity data",
+     "reel": 5,
+     "hook": "OpenAI released internal perplexity scores to support industry-wide safety standards.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-23-anthropic-raises-81-3-billion-in-record",
+ "finished_at": "2026-11-23T02:45:38+00:00",
+ "seconds": 2702.3
+}

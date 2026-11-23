@@ -1,6 +1,37 @@
-=== STORY 1 (suggested section: products) ===
+=== STORY 1 (suggested section: policy) ===
 
-[S1] AWS Machine Learning — "Meta ads is now available in AWS Quick" (22 November 2026)
+[S1] TechCrunch — "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO" (23 November 2026)
+When Notable Capital poured roughly 10% of the U.S. portion of its $1 billion-plus fund into Anthropic’s Series E, many limited partners were perplexed by the massive bet. Claude’s maker was still trailing its biggest rival, OpenAI, and DeepSeek had released its R1 model just weeks earlier, threatening to overtake closed-source competitors. Moreover, at $61.5 billion, Anthropic’s valuation was by far the highest that the predominantly early-stage venture firm had invested at in its 25-year history.
+But investors at Notable, formerly known as GGV Capital before its 2024 split from its China operations, were confident in Anthropic’s future. A team that included managing partners Hans Tung and Glenn Solomon and principal Dan Cahana crunched the numbers and found that developers were increasingly favoring Claude over ChatGPT, using Claude 70% of the time, a reversal from the previous year.
+“We just knew that for AI, the developer is at the center because they’re the early adopters,” Tung, a co-founder of the firm, told TechCrunch.
+Having navigated the complexities of U.S.-China relations firsthand, Notable was also convinced that “mission-critical” work would always require U.S.-based, closed-source models, Tung said.
+Less than two years later, Notable’s LPs are no longer questioning the outsized investment. On Wednesday, Anthropic raised $81.3 billion in the largest IPO in history, reaching a fully diluted valuation of about $1.5 trillion before its shares began trading the next day, a paper return of roughly 15 times.
+Notable is, of course, not the only firm sitting on a massive paper windfall from Anthropic. Even traditional late-stage investors, who rarely see venture-scale multiples, are set for a big win.
+Singaporean sovereign wealth fund GIC had been researching Anthropic throughout 2024, but it didn’t make its first investment until after Chris Emanuel, head of the fund’s tech investments, met with Anthropic CFO Krishna Rao at Che Fico, an Italian restaurant in San Francisco, in early 2025. Rao helped pique Emanuel’s interest in the company by showing that model improvements were driving rising enterprise adoption. GIC then made its first investment in Anthropic’s Series F, a round announced in September 2025 at a $183 billion valuation.
+“Claude Code was just released then,” Emanuel told TechCrunch. “It was very early, but even then, we could see signs that it was really popular with developers.” GIC’s conviction in the AI lab was so high that the fund later led Anthropic’s Series G alongside Coatue at a $380 billion valuation, and returned as one of
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S2] TechCrunch — "OpenAI’s chief scientist has thoughts on how to limit AI development" (22 November 2026)
+A new blog post from OpenAI’s chief scientist Jakub Pachocki discusses potential limits on AI development, with a focus on a measurement called perplexity.
+Slowing AI development became a particularly hot topic after a former OpenAI and Anthropic researcher said the companies were “gambling with our lives,” and even Anthropic’s IPO filing suggested that the technology could pose “catastrophic or existential risks to society.”
+Anthropic CEO Dario Amodei then published a plan to “pace the frontier,” seemingly endorsed by OpenAI CEO Sam Altman and SpaceX CEO Elon Musk. Among other things, Amodei called for companies to agree to “common safety standards as well as limits on the rate of unchecked AI progress.”
+But to establish a speed limit on AI development, you need to agree on how you measure speed. Pachocki’s post — described by Altman as “the most important thing OpenAI has published in a while” — suggests perplexity (not to be confused with the company of the same name ) could be that measurement.
+In Pachochki’s argument, benchmarks that focus on AI’s “downstream capabilities” have quickly become outdated as the technology advances. But perplexity — which “measures how well a model predicts the next token on average; lower perplexity means better predictions” — has remained “informative.”
+Pachochki’s post includes a chart of how the perplexity of OpenAI’s models has fallen since GPT 3.5.
+“GPT‑4, at ~0.91, was proficient at utilizing chain-of-thought reasoning productively, which motivated the subsequent targeted elicitation of this capability and the creation of modern reasoning models,” he wrote. “Now, as we have reached losses below 0.8, we have seen the emergence of transformative capabilities in fields like cybersecurity and mathematics.”
+So in his view, perplexity could provide the basis for “a shared benchmark for general intelligence,” which AI companies could then use to establish “common limits.” With perplexity serving as a standard measurement for AI progress, the companies would commit not to go past a certain threshold “until our ability to understand and monitor AI behavior achieves a certain concrete milestone.”
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Anthony Ha is TechCrunch’s weekend editor. Previously, he worked as a tech reporter at Adweek, a senior editor at VentureBeat, a local government reporter at the Hollister Free Lance, and vice president of content at a VC firm. He lives in New York City.
+You can contact or verify outreach from Anthony b
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S3] AWS Machine Learning — "Meta ads is now available in AWS Quick" (22 November 2026)
 Meta ads is now available in AWS Quick
 Marketers have never had more data to act on. Take an apparel brand that advertises on Meta technologies: campaign results live in Meta Ads Manager, briefs and creative assets in shared storage, and inventory, customer lifetime value, and in-store purchases in a data lake. Analysts export reports, merge spreadsheets, and rebuild the same deck each week, and the data ages before anyone acts on it. When the team does decide what to change, someone returns to Ads Manager to update campaigns, ad sets, budgets, and audiences by hand. As a result, teams judge campaigns on metrics alone, and the path from insight to action stays slow and manual.
 Today, AWS Quick added a Meta ads AI connector. The connector gives Quick access to ads Model Context Protocol (MCP) server operations. Meta ads customers can use natural language to create, manage, and analyze campaigns within Quick, while staying connected to the Meta ad management network. Marketers can complete tasks with support from AI, such as pulling insights to understand ads performance, creating product catalogs, and editing existing or creating new campaigns. Quick can also combine Meta ad management data with first- and third-party data sources to create dashboards, documents, slide decks, and automated workflows.
@@ -12,31 +43,9 @@ The video shows how to install the Meta ads connector from Customize > Connector
 
 =========== STORY BLOCK ===========
 
-=== STORY 2 (suggested section: products) ===
+=== STORY 4 (suggested section: impact) ===
 
-[S2] The Verge — "We haven’t seen the last of the major tech outages" (22 November 2026)
-We haven’t seen the last of the major tech outages
-Microsoft and the US government agree there are more outages to come.
-Over the last week or so, we have seen a nationwide FAA ground stop, a multi-day Outlook outage that brought entire companies to a standstill, and a banking outage at JPMorgan Chase . But the consensus is that there are more to come . Director of National Intelligence Jay Clayton told CNN :
-“The American people should be prepared for a great deal of investment in upgrading our systems; they should be prepared for investment in cybersecurity, and they should be prepared that any time there is a step change in technology, a step change in both compute and applications, there will be bumps in the road.”
-Microsoft President Brad Smith issued a similar warning about further outages to CBS , but sounded a much more ominous tone.
-“I think we have to be prepared, frankly, for the coming months because this isn’t the type of thing that just gets done in a couple of weeks … The whole information infrastructure of the world is in effect being upgraded right now.”
-While the outages over the last week were believed to be caused by cyberattacks, Smith said that AI has made it easier to find flaws , “and then you can either use that knowledge to patch the code, or if you’re a bad actor, you can use that knowledge to try to hack into systems,” he said.
-The last few months have also seen an increase in attacks on government and commercial systems, including those at the USDA , JP Morgan , and supermarkets .
-Whether outages are brought on by AI-assisted hackers or human error during the rush to patch an aging system , one thing seems certain: there will be more in the coming months.
-Most Popular
-Teenage Engineering’s first CD player puts the spinning disc on display
-The vibe-coding revolution is coming to all the gadgets
-Nintendo’s Switch 2 console is $50 off for Black Friday
-Google says it’s going to shut off Google Assistant on smart speakers next year
-The Xiaomi 18 Pro proves two screens aren’t better than one
-This is the title for the native ad
-
-=========== STORY BLOCK ===========
-
-=== STORY 3 (suggested section: impact) ===
-
-[S3] WIRED — "Banks Have Had It Up to Here With Your AI Agent" (22 November 2026)
+[S4] WIRED — "Banks Have Had It Up to Here With Your AI Agent" (22 November 2026)
 Wells Fargo is set to enact an updated agreement with millions of customers, specifically about AI agents , starting on Tuesday. The bank’s warning to early adopters could not be clearer. “Your use of any AI Agent is AT YOUR OWN RISK,” read Wells Fargo’s new terms .
 AI agents, which automate online tasks and click on your behalf , have stumbled through 2026. They remain nascent technology, but a growing subset of power users latched onto the personal bots this year. Sometimes these early adopters enjoyed the efficient help of automation, and other times they publicly embarrassed themselves when the AI agents made major mistakes, like posting bank details for everyone at work to see.
 Builders of these AI tools often market agents as the ultimate tool for shopping decisions, whether that’s putting together a grocery order, finding accommodations for a vacation, or discovering specific holiday gifts for your parents. I’ve used an agent to help shop for a new couch , comparing options within a specific budget and tracking price drops.
@@ -44,34 +53,6 @@ Some users value these agents so much that they are oblivious to the overarching
 It’s not just banks; AI agents are igniting turf wars around the web. Amazon, one of the largest online retailers, blocked Meta’s Muse, one of the most widely used AI agents, from making purchases on its platform. Travel companies are also pushing back—United recently announced that personal bots would be blocked from purchasing flights on your behalf.
 As the end of the year approaches, multiple banks have enacted new policies around agents or sent warnings. In late October, JPMorgan Chase changed its terms to ban third-party agents that log in with your credentials. That same day, Bank of America warned its customers not to share login info with agents. Along with the announced change coming from Wells Fargo, Citibank and PNC have also changed their terms to include warnings about agents.
 The automation, which remains a central selling point of always-on agents, is exactly what may get users in trouble. “Consumers authorize goals, not every click,” says Kacy Kim , an associate professor of marketing at Bryant University who studies consumer behavior and emerging tech. While Kim expects some consumers to feel like it's unfair to be held accountable
-
-=========== STORY BLOCK ===========
-
-=== STORY 4 (suggested section: policy) ===
-
-[S4] TechCrunch — "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance" (21 November 2026)
-Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance
-Signal announced Friday that it’s limiting users’ ability to take screenshots within the secure messaging app — a response to what President Meredith Whittaker described as the “existential threat” of operating systems that integrate agentic AI.
-Whittaker wrote that by giving AI agents the ability to “scan” the information on users’ screens, Windows, Android, and macOS/iOS “are undermining Signal’s ability to independently guarantee privacy.”
-“Now, in service of AI agentic capabilities, your sensitive data is being captured, stored, and made accessible to whatever local database or remote server an OS-level AI agent is using at that moment,” she said. “All of this is outside of Signal’s control once the data has been captured, and imperils the privacy of all the participants in a conversation.”
-Signal already sought to limit these risks by blocking screenshots of its Windows app by default. Now it’s adding similar restrictions in Android and iOS.
-That said, users can disable this setting if they wish, which Whittaker said would “break our privacy guarantees.” She also admitted this is an “incomplete” solution, as it doesn’t “address other more sneaky ways AI agents could potentially access application data.”
-Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
-Newsletters
-Subscribe for the industry’s biggest tech news
-Related
-AI OpenAI’s chief scientist has thoughts on how to limit AI development Anthony Ha 3 hours ago
-OpenAI’s chief scientist has thoughts on how to limit AI development
-AI A tale of two Nvidias Anthony Ha 1 day ago
-A tale of two Nvidias
-AI Here are the top AI agents that can live in your text messages Lauren Forristal 1 day ago
-Here are the top AI agents that can live in your text messages
-Latest in Apps
-Social The best apps to make new friends right now Lauren Forristal 3 hours ago
-The best apps to make new friends right now
-In Brief Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance Anthony Ha 1 day ago
-Apps Startup sues Apple in India over tap-to-share contacts feature Jagmeet Singh 2 days ago
-Startup sues Apple in India over tap-to-share contacts feature
 
 =========== STORY BLOCK ===========
 

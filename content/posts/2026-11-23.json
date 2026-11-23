@@ -1,0 +1,371 @@
+{
+  "date": "2026-11-23",
+  "slug": "2026-11-23-anthropic-raises-81-3-billion-in-record",
+  "headline": "Anthropic raises $81.3 billion in record IPO",
+  "dek": "Anthropic completed an IPO raising $81.3 billion, while OpenAI proposed a new safety metric and banks restricted AI agent access[S1][S2][S4].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "policy",
+    "products",
+    "impact",
+    "models",
+    "anthropic",
+    "ipo",
+    "ai-safety"
+  ],
+  "what_happened": [
+    "Notable’s early Series E stake turned into a 15‑fold paper gain after Anthropic’s $1.5 trillion IPO[S1].",
+    "Jakub Pachocki proposes using perplexity, a stable language‑model metric, to set industry‑wide AI development speed limits[S2].",
+    "AWS Quick now supports Meta ads management via natural language prompts[S3]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Notable Capital backs Anthropic ahead of record IPO",
+      "category": "policy",
+      "paragraphs": [
+        "The venture firm, formerly GGV Capital, made the bet despite Anthropic trailing OpenAI and facing new competition from DeepSeek’s R1 model[S1]. At the time Anthropic was valued at $61.5 billion, the highest valuation Notable had ever funded in its 25‑year history[S1].",
+        "Tung said the developer is the central early adopter for AI[S1]. After two years Anthropic completed an IPO that raised $81.3 billion, giving a fully diluted valuation of about $1.5 trillion and a paper return of roughly 15 times for Notable’s stake[S1].",
+        "Anthropic’s growth comes as enterprise customers increasingly prefer U.S.‑based, closed‑source models for mission‑critical tasks, a factor highlighted by Notable’s experience with U.S–China investment dynamics[S1]."
+      ],
+      "card": {
+        "hook": "Notable Capital bet big on Anthropic before its IPO[S1].",
+        "points": [
+          "The IPO raised $81.3 billion, valuing Anthropic at $1.5 trillion[S1].",
+          "Notable's stake returned roughly 15 times its initial investment[S1]."
+        ],
+        "take": "This shows major investors still believe in Anthropic's long-term value despite market noise[S1].",
+        "take_kind": "read",
+        "ask": "Is Anthropic worth the hype[S1]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "A major investor bet big on Anthropic before its massive IPO, signaling confidence in the AI race despite competition.",
+        "desk": {
+          "rubric": 7,
+          "chief": 6.0,
+          "why": "Massive Anthropic valuation ($1.5T) gets tech attention, but VC returns are mostly investor chatter."
+        },
+        "bonus": 0.0,
+        "pain": "money",
+        "hook_type": "stakes",
+        "cover": "Anthropic IPO: $1.5T Valuation[S1].",
+        "cover_hi": "$1.5T",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Notable Capital bet big on Anthropic before its record-breaking IPO[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Record breaking, but the wallet isn't."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "My wallet is doing yoga."
+            },
+            {
+              "who": "guest",
+              "text": "Yoga costs more than that bet.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Developers used Claude 70% of the time, up from the previous year[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "It's a box. I am a box."
+            },
+            {
+              "who": "spark",
+              "text": "Notable invested about 10% of its fund in the company[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Brave with pen, scared with checks.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The persona shift from a skeptic to a literal cardboard box creates a consistent, visual gag that pays off at the end, making it more engaging than standard dry wit."
+        }
+      }
+    },
+    {
+      "story": 2,
+      "title": "OpenAI chief scientist proposes perplexity as speed limit metric",
+      "category": "products",
+      "paragraphs": [
+        "OpenAI’s chief scientist Jakub Pachocki published a blog post proposing perplexity as a metric to limit AI development speed[S2]. The idea follows recent calls from Anthropic CEO Dario Amodei, OpenAI CEO Sam Altman and SpaceX CEO Elon Musk to set common safety standards and pace the frontier[S2]. Pachocki argues that a shared benchmark could help companies agree not to exceed a defined threshold until monitoring capabilities improve[S2].",
+        "Pachocki notes that downstream capability benchmarks become outdated quickly, while perplexity—measuring how well a model predicts the next token—remains informative[S2]. He cites a chart showing OpenAI model perplexity falling from GPT‑3.5 to GPT‑4, which sits at roughly 0.91, and newer models dropping below 0.8, coinciding with the emergence of capabilities in cybersecurity and mathematics[S2]. The post suggests that once perplexity reaches a low enough value, companies could commit to a “speed limit” until they achieve concrete monitoring milestones[S2].",
+        "Perplexity is a standard language‑model metric: lower values indicate more accurate token predictions[S2]. Using it as a progress gauge differs from task‑specific benchmarks that quickly become obsolete as models improve[S2]. The proposal aims to create a common, quantifiable target for AI safety agreements, echoing broader industry concerns about catastrophic or existential risks[S2]."
+      ],
+      "card": {
+        "hook": "OpenAI's chief scientist wants a speed limit[S2].",
+        "points": [
+          "Jakub Pachocki proposes using perplexity to cap AI progress[S2].",
+          "GPT-4 perplexity is 0.91; newer models drop below 0.8[S2].",
+          "Companies would pause development until monitoring improves[S2]."
+        ],
+        "take": "AI development may slow down as safety standards become quantifiable[S2].",
+        "take_kind": "read",
+        "ask": "Should AI development have a speed limit[S2]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "OpenAI's chief scientist proposes a specific metric to slow down AI development, signaling a shift toward regulated pacing.",
+        "desk": {
+          "rubric": 7,
+          "chief": 8.0,
+          "why": "OpenAI's top scientist calling to actively pause AI progress is high stakes and controversial."
+        },
+        "bonus": 0.0,
+        "pain": "power",
+        "hook_type": "stakes",
+        "cover": "OpenAI proposes AI speed limit[S2].",
+        "cover_hi": "speed limit",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "OpenAI's chief scientist wants a speed limit[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "A speed limit? Last I checked, boxes don't drive."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "You're stuck, I'm barely moving."
+            },
+            {
+              "who": "guest",
+              "text": "At least I don't have traffic jams.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Jakub Pachocki proposes using perplexity to cap AI progress[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic. My life on this shelf is already a perplexity."
+            },
+            {
+              "who": "spark",
+              "text": "GPT-4 perplexity is 0.91; newer models drop below 0.8[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Right, my shelf life is officially boring.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The guest's self-deprecating 'I am the speed limit' and 'I am the definition of perplexity' lines are strong, quotable metaphors that fit the deadpan character and pay off the tech topic cleanly."
+        }
+      }
+    },
+    {
+      "story": 3,
+      "title": "AWS Quick adds Meta ads AI connector",
+      "category": "products",
+      "paragraphs": [
+        "AWS Quick added a Meta ads AI connector on 22 November 2026[S3]. This tool lets marketers use natural language to manage campaigns[S3]. It connects directly to the Meta ad management network[S3]. Users can create, manage, and analyze ads within Quick[S3]. The system supports tasks like pulling performance insights[S3]. It also allows for editing existing campaigns[S3]. New campaigns can be created from scratch[S3]. The connector aims to reduce manual tool switching[S3].",
+        "The connector accesses Meta ads Model Context Protocol server operations[S3]. It combines Meta data with first- and third-party sources[S3]. This creates dashboards, documents, and slide decks[S3]. Automated workflows are also supported[S3]. A demo shows installation via Customize > Connectors[S3]. Users sign in with Facebook to grant access[S3]. One prompt generates an eight-slide launch-plan deck[S3]. Another builds a dashboard comparing spend and leads[S3]. It includes recommended tests for two ad sets[S3].",
+        "Campaign results sit in Meta Ads Manager[S3]. Assets live in shared storage[S3]. Inventory data stays in separate lakes[S3]. Analysts manually merge spreadsheets to rebuild reports[S3]. This process makes data age before action[S3]. Teams judge campaigns on metrics alone[S3]. The path from insight to action remains slow[S3]. This connector seeks to streamline that workflow[S3]."
+      ],
+      "card": {
+        "hook": "AWS added a Meta ads connector to your workflow[S3].",
+        "points": [
+          "Marketers can now manage Meta campaigns inside AWS Quick[S3].",
+          "It connects Meta data with other sources for dashboards[S3]."
+        ],
+        "take": "If you use AWS, this tool may simplify your ad reporting[S3].",
+        "take_kind": "read",
+        "ask": "Do you use AI for ad management[S3]?",
+        "interest": 2,
+        "reel": 4,
+        "angle": "AWS and Meta are merging their ad tools to save marketers time.",
+        "desk": {
+          "rubric": 4,
+          "chief": 3.0,
+          "why": "Routine cloud-to-ad tech integration news; feels like an enterprise product update."
+        },
+        "bonus": 0.0,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "AWS adds Meta ads connector[S3].",
+        "cover_hi": "adds Meta"
+      }
+    },
+    {
+      "story": 4,
+      "title": "Banks restrict ai agent access",
+      "category": "impact",
+      "paragraphs": [
+        "Wells Fargo is updating its customer agreement starting Tuesday to address AI agents[S4]. The new terms state that using any AI agent is at the customer's own risk[S4]. This move follows similar actions by other major US banks in late 2026[S4].",
+        "JPMorgan Chase banned third-party agents that log in with user credentials in late October[S4]. Bank of America warned customers not to share login info with agents on the same day[S4]. Citibank and PNC have also updated their terms to include warnings about agents[S4].",
+        "AI agents automate online tasks by clicking on a user's behalf[S4]. While useful for shopping, they can make errors like posting private details[S4]. Users often grant sweeping permissions without considering security risks, leading to friction with service providers[S4]."
+      ],
+      "card": {
+        "hook": "Wells Fargo says using AI agents is your risk[S4].",
+        "points": [
+          "New terms make customers liable for AI agent actions[S1].",
+          "JPMorgan Chase banned third-party agents using user logins[S4]."
+        ],
+        "take": "Check your bank's new terms before letting AI handle your money[S1].",
+        "take_kind": "do",
+        "ask": "Would you let an AI manage your bank account[S4]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "Your bank is now officially blaming you if an AI agent messes up your account.",
+        "desk": {
+          "rubric": 7,
+          "chief": 9.0,
+          "why": "Direct consumer threat and legal drama: your bank blaming you for AI agent mistakes hits personal finance paranoia."
+        },
+        "bonus": 0.0,
+        "pain": "privacy",
+        "hook_type": "stakes"
+      }
+    },
+    {
+      "story": 5,
+      "title": "OpenAI shares internal perplexity data",
+      "category": "models",
+      "paragraphs": [
+        "OpenAI published a post by Chief Scientist Jakub Pachocki on 22 November 2026[S5]. The post argues for using perplexity as a shared metric[S5]. It aims to help the industry build common safety standards[S5]. This move increases transparency for competitors[S5].",
+        "Perplexity measures how well a model predicts the next token[S5]. Lower scores indicate better prediction accuracy[S5]. The company released its internal measurements for the first time[S5]. Pachocki noted that this gives competitors a clearer picture of OpenAI's standing[S5].",
+        "Modern AI models are often described as compressors trained on large datasets[S5]. This process creates latent capabilities that are then elicited[S5]. Pachocki calls this underlying process an \"alien mind\"[S5]. Tracking compressor progress helps understand AI advances[S5]. It provides a scientific basis for pacing efforts[S5]."
+      ],
+      "card": {
+        "hook": "OpenAI released internal perplexity scores to support industry-wide safety standards[S5].",
+        "points": [
+          "OpenAI published a post by Chief Scientist Jakub Pachocki on 22 November 2026[S5].",
+          "The post argues for using perplexity as a shared metric[S5].",
+          "Perplexity measures how well a model predicts the next token[S5]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": "Should AI companies share safety data?",
+        "reel": 5,
+        "interest": 2,
+        "fallback": true,
+        "pain": "power",
+        "hook_type": "surprise",
+        "bonus": 0.0
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "Anthropic’s $1.5 trillion valuation signals strong investor confidence in U.S. AI labs, potentially increasing competition for enterprise contracts[S1]. This capital may accelerate model development, though the long-term impact on market stability remains speculative[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Banks like Wells Fargo are shifting liability for AI agent errors to customers, requiring users to manage security risks themselves[S4]. This change may limit the adoption of automated agents for sensitive financial tasks due to increased personal accountability[S4].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-23T01:25:53+00:00",
+      "title": "Notable Capital backs Anthropic ahead of record IPO",
+      "publisher": "TechCrunch",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-22T21:14:07+00:00",
+      "title": "OpenAI chief scientist proposes perplexity as speed limit metric",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-22T01:59:13+00:00",
+      "title": "AWS Quick adds Meta ads AI connector",
+      "publisher": "AWS Machine Learning",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-22T11:00:00+00:00",
+      "title": "Banks restrict ai agent access",
+      "publisher": "WIRED",
+      "category": "impact"
+    },
+    {
+      "time": "2026-11-22T00:00:00+00:00",
+      "title": "OpenAI shares internal perplexity data",
+      "publisher": "OpenAI",
+      "category": "models"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+      "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-23T01:25:53+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+      "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-22T21:14:07+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Meta ads is now available in AWS Quick",
+      "url": "https://aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick/",
+      "publisher": "AWS Machine Learning",
+      "published": "2026-11-22T01:59:13+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Banks Have Had It Up to Here With Your AI Agent",
+      "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+      "publisher": "WIRED",
+      "published": "2026-11-22T11:00:00+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Perplexity and Intelligence",
+      "url": "https://openai.com/index/perplexity-and-intelligence",
+      "publisher": "OpenAI",
+      "published": "2026-11-22T00:00:00+00:00"
+    }
+  ],
+  "model": "groq:qwen/qwen3.8-27b",
+  "generated_at": "2026-11-23T02:45:32+00:00",
+  "verification": {
+    "checked": 120,
+    "ok": 51,
+    "repaired": 54,
+    "dropped": 15,
+    "unused": 9,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 940,
+  "reading_minutes": 5
+}
