@@ -58,13 +58,17 @@
    "cover": "OpenAI proposes AI speed limit[S2].",
    "text": "OpenAI's chief scientist wants a speed limit.\n\n• Jakub Pachocki proposes using perplexity to cap AI progress.\n• GPT-4 perplexity is 0.91; newer models drop below 0.8.\n• Companies would pause development until monitoring improves.\n\nOur read: AI development may slow down as safety standards become quantifiable.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
-   "posted_url": null,
+   "status": "posted",
+   "decided_at": "2026-11-23T03:31:53+00:00",
+   "posted_url": "https://www.instagram.com/reel/DgEa5c7mZp_/",
    "media": [
     "https://fiveminuteai.net/share/2026-11-23/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-23T03:30:00+00:00"
+   "scheduled_at": "2026-11-23T03:30:00+00:00",
+   "media_id": "17892062766479665",
+   "error": null,
+   "youtube_url": "https://www.youtube.com/shorts/YBYXTpMWmis",
+   "youtube_error": null
   },
   {
    "id": "2026-11-23-reel-2",
