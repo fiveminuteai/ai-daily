@@ -83,14 +83,14 @@
    "text": "Google lets Search read your Wallet, saving money.\n\n• Search AI now pulls spending data from Google Wallet to suggest savings.\n• It also scans Drive files to draft project plans without extra prompts.\n• You can opt-in or turn off anytime in Personalization settings.\n\nOur read: Expect faster, personalized answers—but review your data settings.\n\nSend this to the friend who keeps up with AI.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-24T07:38:48+00:00",
+   "decided_at": "2026-11-24T10:34:42+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-24/reels/02.mp4"
    ],
    "scheduled_at": "2026-11-24T07:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-24-reel-3",
@@ -104,13 +104,15 @@
    "cover": "Anthropic's Claude Ship automates code approvals[S4].",
    "text": "Anthropic lets AI approve code changes automatically.\n\n• Anthropic launched Claude Ship, AI agents that review, fix, and approve pull requests.\n• PR Steward intervenes on CI failures or merge conflicts, while Claude Approvals auto-approves routine changes using policy files.\n\nOur read: Watch for AI taking over routine code reviews at work.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-24T10:38:42+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-24/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-24T10:30:00+00:00"
+   "scheduled_at": "2026-11-24T10:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-24-reel-4",
