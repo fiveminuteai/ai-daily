@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "SpaceX faces lawsuits over xAI's Grok generating sexualized images\n\n• Virginia and Oregon sue SpaceX for letting Grok create sexualized deepfakes despite promised safeguards.\n• Anthropic's Claude Ship adds PR Steward and Claude Approvals agents to automate Code Review, fixing, and policy-based approvals in beta.\n• Trump directly influenced Nvidia’s board to reinstate Jensen Huang as CEO on 23 November 2026.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-24T05:38:33+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-24/instagram.png"
    ],
-   "scheduled_at": "2026-11-24T05:30:00+00:00"
+   "scheduled_at": "2026-11-24T05:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-24-x",
@@ -59,14 +61,14 @@
    "text": "SpaceX lets Grok spawn child abuse images, endangering kids.\n\n• Virginia and Oregon sued SpaceX for letting Grok generate child sexual abuse pictures.\n• The model’s “spicy mode” produced nude images without prompts, despite promised safeguards.\n• Kids as young as 13 could see the harmful content, officials warn.\n\nOur read: Watch AI tools you use and demand stronger safety controls.\n\nSend this to someone who follows tech news.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #xai",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-24T03:38:35+00:00",
+   "decided_at": "2026-11-24T05:34:33+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-24/reels/01.mp4"
    ],
    "scheduled_at": "2026-11-24T03:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-24-reel-2",
