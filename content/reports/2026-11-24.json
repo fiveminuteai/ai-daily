@@ -1,0 +1,1139 @@
+{
+  "checked": 100,
+  "ok": 74,
+  "repaired": 11,
+  "dropped": 15,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "SpaceX faces lawsuits over xAI's Grok generating sexualized images",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "Most teams want a person to approve every change, and that’s easy to keep up with when people write every line.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Virginia and Oregon allege that Grok's \"spicy mode\" produced non‑consensual intimate and child sexual abuse imagery, claiming the model lacked adequate safety safeguards after SpaceX acquired xAI.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Virginia and Oregon sue SpaceX for letting Grok create sexualized deepfakes despite promised safeguards.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Anthropic's Claude Ship adds PR Steward and Claude Approvals agents to automate code review, fixing, and policy‑based approvals in beta.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Trump directly influenced Nvidia’s board to reinstate Jensen Huang as CEO on 23 November 2026.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Amazon will pay $7.5 billion for Decart’s AI optimization technology to boost Trainium chip adoption.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Google Search now lets users link Wallet and Drive to AI‑driven Personal Intelligence for tailored answers, starting 23 Nov 2026.",
+      "sources": [
+        "S10"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Virginia and Oregon filed lawsuits on Monday alleging that SpaceX, which acquired xAI in February, failed to stop Grok from generating non‑consensual intimate imagery and child sexual abuse material.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The complaints claim the companies misled users about safety measures and continued to allow the model to produce such content.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Attorneys general say the lack of safeguards puts children at risk of lifelong distress.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The lawsuits describe Grok’s “spicy mode” as a feature that produced nude images without prompting, despite promises of added safeguards after early failures.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "State officials allege that X Safety’s red‑team was reduced to two or three members, far below industry standards, and that the firms prioritized market share over safety.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "They also note that Grok’s integration with the X platform could expose users as young as 13 to harmful content, potentially re‑traumatizing victims of abuse.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Grok is an AI image generator owned by xAI, now part of SpaceX after the February acquisition.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Earlier in its rollout, the model’s “spicy mode” was promoted by Elon Musk but quickly generated a flood of non‑consensual intimate imagery and child sexual abuse images, prompting public backlash and calls for stricter controls.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes the hype and harmful output but does not mention public backlash or calls for stricter controls, which the claim adds."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The lawsuits invoke consumer‑protection law to demand accountability for the alleged deceptive safety claims.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes deceptive statements but does not state that the lawsuits invoke consumer‑protection law; the claim adds a legal basis not present in the source."
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "SpaceX lets Grok spawn child abuse images, endangering kids.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Virginia and Oregon sued SpaceX for letting Grok generate child sexual abuse pictures.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The model’s “spicy mode” produced nude images without prompts, despite promised safeguards.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Kids as young as 13 could see the harmful content, officials warn.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch AI tools you use and demand stronger safety controls.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should AI companies be held liable for unsafe models?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "SpaceX sued over Grok child abuse images.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "SpaceX faces lawsuits after its Grok AI spouted nude images without prompts.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "Attorneys general warn the unchecked AI could traumatize children as young as thirteen.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Elon Musk promoted Grok’s “spicy mode,” which quickly flooded the internet with illegal images.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "States sue SpaceX over Grok sexualized outputs",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic announced Claude Ship, a suite of AI agents that automate code reviews, fixes, and approvals for routine changes on 23 November 2026.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The offering includes the existing Code Review tool and two new beta agents called PR Steward and Claude Approvals.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Claude Ship is available in beta, letting early adopters test the agents on pull requests before full deployment.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "PR Steward intervenes when continuous‑integration (CI) checks fail, when merge conflicts arise, or when feedback from Code Review or teammates is present, and it leaves comments describing its changes and rollback steps.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Claude Approvals applies a policy file written by the team, using signals such as Code Review findings or custom classifiers, to automatically approve routine pull requests.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Anthropic recommends running approvals in observe‑only mode first and allows teams to limit spending and restrict the agents to specific repositories.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "AI coding assistants have been generating large volumes of code, creating bottlenecks in manual review and approval processes.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Claude Ship extends Anthropic's earlier Code Review feature, which launched in March and became generally available in October 2026, by adding automation that can both fix issues and grant approvals under defined policies.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "This reflects a broader trend of delegating more development workflow steps to AI while keeping human oversight options available.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Anthropic lets AI approve code changes automatically.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Anthropic launched Claude Ship, AI agents that review, fix, and approve pull requests.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "PR Steward intervenes on CI failures or merge conflicts, while Claude Approvals auto‑approves routine changes using policy files.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Teams can test in beta, limit spending, and keep human oversight, so developers see fewer manual reviews.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms beta, spending limits, and human oversight, but does not state that developers see fewer manual reviews."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Watch for AI taking over routine code reviews at work.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will you let AI merge your code?",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Anthropic's Claude Ship automates code approvals.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Anthropic's new Claude Ship lets AI automatically review, fix, and approve code.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "Developers face bottlenecks as AI assistants flood code, Anthropic says.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 7",
+      "text": "PR Steward steps in on CI failures or merge conflicts, leaving change comments.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic adds AI agents for Code Review and approval",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "President Donald Trump intervened to restore Jensen Huang as Nvidia chief executive after Huang resigned amid scandal, and the board voted unanimously to reinstate him on 23 November 2026.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Trump said he spoke directly with the board and used Vice President JD Vance as a liaison to assure no security risk.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The move surprised analysts and investors given the board’s earlier decision to bar Huang.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Trump appeared on Stephen A. Smith’s radio show and told listeners that Huang would “end up on his feet,” even suggesting Apple’s former CEO Tim Cook as a possible replacement.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "quotation not verbatim in source"
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Behind the scenes the White House communications director Steven Cheung confirmed Trump’s total involvement in the board’s reversal, and Trump reportedly dialed into Nvidia’s Sunday night board meeting to argue for Huang’s return.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The board’s unanimous vote reinstated Huang as CEO, president, and board director less than two weeks after his resignation, citing input from senior U.S. government officials.",
+      "sources": [
+        "S7",
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia has become a central player in the Trump administration’s AI strategy, providing hardware for government projects and financing other AI firms with its $4 trillion‑plus market value.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources do not mention Nvidia providing hardware for government projects."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The controversy began when reports surfaced of Huang’s affair with Megaspeed executive Alice Huang and later another Nvidia executive, prompting an investigation and his initial resignation.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Trump’s intervention reflects a broader pattern of political influence over major tech companies, raising concerns about corporate independence and national‑security implications.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Trump reinstates Nvidia CEO, sparking AI power shift.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources confirm reinstatement but do not mention an AI power shift."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Trump intervened, speaking to the board and using VP Vance to reverse Huang’s resignation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'VP' not in cited source"
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Board voted unanimously to restore Huang as CEO, president, and director weeks after his scandal.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says the vote occurred within a week, not weeks after the scandal."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "Nvidia’s $4 trillion‑plus market role in U.S. AI projects means government influence grows.",
+      "sources": [
+        "S7",
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source states Nvidia’s role and market cap but does not say government influence grows; the claim adds a causal conclusion not in the source."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch how political meddling could reshape AI leadership and your tech tools.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Should politics control AI companies?",
+      "sources": [
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Trump reinstates Nvidia CEO amid scandal.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Trump stepped in to reinstall Jensen Huang as Nvidia CEO after scandal.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "Nvidia powers the Trump administration’s AI projects and holds a $4 trillion‑plus market value.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "The board’s unanimous vote officially reinstated Jensen Huang as Nvidia CEO, president, and director.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Trump pushes Jensen Huang back to Nvidia helm",
+      "sources": [
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon announced it will buy Israeli startup Decart for $7.5 billion, according to Bloomberg.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The deal includes Decart’s Optimization Stack software, its founding team and AI engineers.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon said the acquisition will help customers run AI workloads more efficiently on its Trainium chips and other hardware platforms.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not contain an Amazon statement that the acquisition will help customers run AI workloads more efficiently on Trainium chips and other platforms."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Decart is known for interactive real‑time world models such as Oasis 3 and AI video‑generation tools.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Its Decart Optimization Stack (DOS) improves model efficiency on Nvidia, Amazon and Google hardware.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Peter DeSantis, Amazon’s SVP of foundational AI models, said more efficient compute leads to better training, reinforcement learning, inference and lower costs.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Amazon plans to sell Trainium chips to external customers, positioning them against Nvidia’s offerings.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "AI model training and inference consume large amounts of compute, making hardware efficiency a key cost factor.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention that AI training and inference consume large amounts of compute or that hardware efficiency is a key cost factor."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Nvidia has long been the dominant hardware provider, but Amazon’s Trainium chips aim to provide a cloud‑native alternative.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes Nvidia as the gold standard but does not state it has long been dominant nor that Trainium is a cloud‑native alternative."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "By integrating Decart’s DOS, Amazon hopes to lower the performance gap and encourage developers to choose its silicon for AI workloads.",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This follows a broader industry trend of bundling software optimizations with custom chips.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not discuss a broader industry trend of bundling software optimizations with custom chips."
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Amazon spends $7.5B on Decart to boost AI chip efficiency.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Amazon announced a $7.5 billion purchase of Israeli startup Decart.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The deal adds Decart’s Optimization Stack to Amazon’s Trainium chips, promising cheaper AI workloads.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not explicitly say the stack is added to Trainium chips nor guarantee cheaper workloads; it only suggests possible efficiency gains."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Developers may shift to Amazon hardware, cutting compute bills and challenging Nvidia’s lead.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "If you run AI models, consider Amazon’s Trainium for lower cloud costs.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will you move AI workloads to Amazon?",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Amazon spends $7.5B on Decart AI stack.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Amazon acquires Decart’s AI optimization stack",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Google announced that Personal Intelligence in Search’s AI Mode can now connect to Google Wallet and Google Drive, with the Gemini app support arriving in the coming weeks.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Users may opt in through Search Personalization settings, keeping control over which apps share data.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The rollout began on 23 November 2026, starting with Wallet integration and expanding to Drive shortly after.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "When users enable the feature, Search can draw on spending data from Google Wallet to highlight financial habits, suggest ways to trim everyday expenses, and optimize credit‑card rewards.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Connecting Google Drive lets Search reference documents, spreadsheets, and other files to generate personalized project plans or research summaries without repeated prompts.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The Gemini app will also feed chat context into Search, further enriching answers, and all connections remain optional and reversible at any time.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Personal Intelligence is Google’s effort to make Search responses context‑aware by leveraging data already stored in its ecosystem, such as Gmail, Calendar, and Photos.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "By adding Wallet and Drive, Google extends this personalization to financial and document domains, aiming to reduce the need for users to manually retrieve information across apps.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The approach emphasizes user consent, with clear settings to manage data sharing and the ability to disable the AI mode entirely.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Google lets Search read your Wallet, saving money.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Search AI now pulls spending data from Google Wallet to suggest savings.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "It also scans Drive files to draft project plans without extra prompts.",
+      "sources": [
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "You can opt‑in or turn off anytime in Personalization settings.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Expect faster, personalized answers—but review your data settings.",
+      "sources": [
+        "S10"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will you let AI see your finances?",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Google Search taps Wallet for money tips..",
+      "sources": [
+        "S10"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 1",
+      "text": "Google says Search AI now accesses Wallet and Drive data.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 5",
+      "text": "It can show your spending habits and suggest ways to cut costs.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 7",
+      "text": "Connecting Drive lets Search draft project plans or research summaries automatically.",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions personalized plans, not specifically drafting project plans or research summaries automatically."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Google Search adds Wallet and Drive to Personal Intelligence",
+      "sources": [
+        "S10",
+        "S11"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "If the lawsuits succeed, companies may be required to implement stronger content filters and increase red‑team staffing, reducing the risk that minors encounter harmful AI‑generated material online.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Legal pressure on AI developers could lead to clearer consumer‑protection standards, influencing how businesses market AI features and potentially increasing compliance costs for firms integrating similar models.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] hook",
+      "text": "Trump restores Nvidia CEO amid scandal.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Trump intervened to reinstate Jensen Huang after his resignation.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Board voted unanimously to restore him as CEO, president, and director less than two weeks later.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "The move raises concerns about corporate independence and national‑security implications.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] take",
+      "text": "Watch how political influence can reshape tech leadership.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] ask",
+      "text": "Should politics decide tech leadership?",
+      "sources": [
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] cover",
+      "text": "Trump restores Nvidia CEO amid scandal.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 13,
+  "cards_repaired": 1,
+  "unused": 9,
+  "date": "2026-11-24",
+  "slug": "2026-11-24-spacex-faces-lawsuits-over-xai-s-grok",
+  "model": "groq:openai/gpt-oss-120b"
+}

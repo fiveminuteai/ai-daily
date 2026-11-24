@@ -1,0 +1,441 @@
+{
+ "date": "2026-11-24",
+ "started_at": "2026-11-24T00:15:39+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 5.4,
+   "items": 632,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 12
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 1
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 7
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 2
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 3
+    },
+    "github": {
+     "status": "ok",
+     "items": 0
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 208,
+   "editor": true,
+   "top": [
+    {
+     "title": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+     "url": "https://arstechnica.com/tech-policy/2026/11/states-sue-spacex-to-stop-grok-from-generating-child-sex-images-revenge-porn/",
+     "score": 8.26,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "score": 7.75,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Trump engineered a risky comeback for Jensen Huang",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
+     "score": 7.45,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+     "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+     "score": 7.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A more tailored Google Search that’s uniquely yours",
+     "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+     "score": 7.12,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "CrowdStrike to acquire Zscaler for $44 billion",
+     "url": "https://techcrunch.com/2026/11/23/crowdstrike-to-acquire-zscaler-for-44-billion/",
+     "score": 6.16,
+     "interest": 9.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI and Cisco introduce Shirudo",
+     "url": "https://openai.com/index/introducing-shirudo",
+     "score": 6.1,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Nvidia Is Powering Brain-Computer Interfaces Now",
+     "url": "https://www.wired.com/story/nvidia-is-powering-brain-computer-interfaces-now/",
+     "score": 5.99,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Sierra doubles valuation to $30B within six months as demand for AI in CX takes off",
+     "url": "https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/",
+     "score": 5.7,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Anthropic softens its data retention policy for Mythos and Fable model use",
+     "url": "https://www.engadget.com/2325684/anthropic-softens-its-data-retention-policy-for-mythos-and-fable-model-use/",
+     "score": 4.73,
+     "interest": 5.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Nothing’s upcoming Ear Note is a pair of earbuds with AI transcription",
+     "url": "https://www.theverge.com/gadgets/1040357/nothing-ear-note-earbuds-ai-recording",
+     "score": 4.58,
+     "interest": 6.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Connected intelligence for in-house legal",
+     "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+     "score": 4.15,
+     "interest": 5.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+     "url": "https://arstechnica.com/tech-policy/2026/11/states-sue-spacex-to-stop-grok-from-generating-child-sex-images-revenge-porn/",
+     "score": 8.26,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "score": 7.75,
+     "interest": 8.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Trump engineered a risky comeback for Jensen Huang",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
+     "score": 7.45,
+     "interest": 6.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+     "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+     "score": 7.34,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A more tailored Google Search that’s uniquely yours",
+     "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+     "score": 7.12,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog",
+      "TechCrunch"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.6,
+   "articles": 16,
+   "with_text": 16
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 6.9,
+   "word_count": 1070,
+   "sources": 9
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.4,
+    "reel_desk": 1051.4,
+    "layer1": 0.2,
+    "layer2": 719.7,
+    "gate": 1.3
+   },
+   "layer1": {
+    "checked": 109,
+    "ok": 91,
+    "repaired": 16,
+    "dropped": 2
+   },
+   "layer2": {
+    "checked": 100,
+    "ok": 74,
+    "repaired": 11,
+    "dropped": 15
+   },
+   "unused": 9,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "States sue SpaceX over Grok sexualized outputs",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 9.0,
+     "why": "Child abuse images from SpaceX AI is shocking and high‑stakes",
+     "hook": "SpaceX lets Grok spawn child abuse images, endangering kids.",
+     "chosen": true
+    },
+    {
+     "story": "Anthropic adds AI agents for Code Review and approval",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "Useful for developers but less office‑wide buzz",
+     "hook": "Anthropic lets AI approve code changes automatically.",
+     "chosen": true
+    },
+    {
+     "story": "Trump pushes Jensen Huang back to Nvidia helm",
+     "reel": 6,
+     "hook": "Trump restores Nvidia CEO amid scandal.",
+     "chosen": false
+    },
+    {
+     "story": "Amazon acquires Decart’s AI optimization stack",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 6.0,
+     "why": "Big $7.5B AI chip deal, notable but more niche",
+     "hook": "Amazon spends $7.5B on Decart to boost AI chip efficiency.",
+     "chosen": false
+    },
+    {
+     "story": "Google Search adds Wallet and Drive to Personal Intelligence",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Google pulling personal finance data is surprising and widely relevant",
+     "hook": "Google lets Search read your Wallet, saving money.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-24-spacex-faces-lawsuits-over-xai-s-grok",
+ "finished_at": "2026-11-24T00:48:25+00:00",
+ "seconds": 1966.1
+}

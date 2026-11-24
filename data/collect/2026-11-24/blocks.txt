@@ -1,0 +1,133 @@
+=== STORY 1 (suggested section: impact) ===
+
+[S1] Ars Technica — "States sue SpaceX to stop Grok from generating child sex images, revenge porn" (23 November 2026)
+On Monday, Virginia and Oregon became the first states to sue SpaceX, alleging that Grok continues to sexualize, unchecked, real photos of mostly women and children.
+SpaceX acquired xAI in February and now must handle the ongoing reckoning over the controversial rollout of Grok’s “spicy mode”—a model feature Musk hyped but was soon found to generate a flood of non-consensual intimate imagery (NCII) and child sex abuse images (CSAM).
+Initial safeguards were so lax that Grok sometimes generated nude images without being asked . Although X Safety and xAI (now known as SpaceXSI) were silent at first , Musk’s companies eventually apologized and claimed that additional safeguards were implemented and policies redesigned to block harmful outputs. However, state attorneys general alleged that those statements were “misleading” and that SpaceXSI instead quietly “embraced” sexualized content to seize more AI market share, as Grok continues to generate NCII and CSAM today.
+Without intervention, kids in Virginia and Oregon risk a lifetime of distress, as Grok images will likely be impossible to remove online.
+“Once created and shared,” Grok-generated CSAM and NCII “can never be fully erased, and it becomes a permanent record of the child’s abuse that may resurface for the rest of the child’s life,” Virginia Attorney General Jay Jones’ complaint said. “Virginia has a profound interest in protecting its children from this harm.”
+Millions allegedly harmed
+Millions of residents were allegedly harmed, as the attorneys general seek to protect every Grok or X user in their state. Many Grok victims will likely suffer from chronic anxiety, depression, and PTSD, as well as reputational harm, as some viewers may not realize the images are AI-generated, the states alleged. Further—due to Grok’s integration with the social media platform X—users as young as 13 may have been exposed to the AI content and possibly re-traumatized if they, too, are victims of sexual abuse, the states alleged.
+“xAI not only knowingly endangered kids and our communities, but they also lied to our faces about non-existent safety measures,” Oregon Attorney General Dan Rayfield said in a press release.
+States alleged that xAI could have conducted rigorous red-teaming to block outputs before the new feature launched. But instead, the X Safety team responsible for Grok red-teaming was reduced to two or three team members, states alleged.
+Overall, rather than use industry-standard safeguards, Musk’s firms allegedly put profits over women’s and children’s safety, states alleged, while complaining that SpaceX
+
+[S2] The Verge — "Oregon and Virginia sue SpaceX over Grok’s porn deepfakes" (23 November 2026)
+Oregon and Virginia sue SpaceX over Grok’s porn deepfakes
+State AGs called the weak safeguards built into Elon Musk’s AI image generator ‘not a failure but a feature.’﻿
+In separate but similar lawsuits filed on Monday, Oregon Attorney General Dan Rayfield and Virginia Attorney General Jay Jones accused SpaceX of violating state consumer protection laws by ignoring industry-standard safeguards and falsely promoting the safety of its X social media platform and Grok AI features. The complaint filed in Virginia accuses Musk of willfully ignoring growing concerns around AI-generated sexualized deepfakes, and “instead saw a market opportunity for more profits,” describing the weak safeguards around Grok as “not a failure but a feature.”
+“Time and again, xAI and X told consumers they were being protected from abuses. That was false. Instead, the tool permitted users to routinely create and circulate non-consensual intimate imagery and sexualized images, and child sexual abuse material (CSAM), causing harm to individuals and children,” Jones said in a press statement . “Companies that deplo
+
+[S3] WIRED — "States Sue SpaceX Over Grok Deepfakes" (23 November 2026)
+The attorneys general of Oregon and Virginia are suing Elon Musk ’s SpaceX, alleging that the company violated consumer protection laws by lying to users about both the safety of its generative AI tools and how seriously the company took stopping child sexual abuse material (CSAM) and nonconsensual intimate imagery from proliferating on its platforms. The suits follow a slew of other lawsuits against Musk’s companies around similar issues, including from the city of Baltimore and teens in Tennessee .
+The attorneys general are each filing their own complaints in their respective state courts—Virginia in the circuit court for the city of Richmond, and Oregon in Multnomah County circuit court. Both suits name SpaceX and X Corp., the SpaceX subsidiary responsible for the social media platform X. SpaceX acquired xAI, the Musk startup and parent company of X Corp., in February. In doing so it also took ownership of Grok, which is at the center of the allegations in the suit.
+Last winter, the Grok chatbot made headlines after users on X started prompting it en masse to generate sexualized p
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: models) ===
+
+[S4] TechCrunch — "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes" (23 November 2026)
+Anthropic is moving from having Claude write code to helping developers decide when that code is ready to ship. On Monday, the newly public AI company announced the launch of Claude Ship , a suite of AI agents for automating code reviews, fixes, and approvals of routine code changes.
+The latter is the more interesting part of this new set of tools, as AI coding tools already offered code review features before now. What’s notable about Claude Ship is not just that it can review proposed code changes and identify and address problems, but that it also includes an agent that can approve code changes automatically based on policies set by a development team.
+The launch arrives at a time when AI coding agents have become increasingly capable of generating substantial amounts of code, leading to bottlenecks in reviewing and approving the code changes before they go live. With Claude Ship, the idea is to automate even more of the work involved in the development process, essentially by delegating approval authority to an AI agent itself.
+“Most teams want a person to approve every change, and that’s easy to keep up with when people write every line. But a lot of developers build with agents now,” a company blog post explains. “On the Claude Code team, Claude writes most of our code, and we wanted everything after the PR to move that fast too.”
+Claude Ship is launching in beta, allowing early adopters to use it to review pull requests (PRs), and then decide what’s ready to merge.
+The new offering consists of Code Review, which is already generally available , and two new agents now in beta: PR Steward and Claude Approvals. PR Steward focuses on addressing issues such as failing CI checks, merge conflicts, and feedback from Code Review. It also comments after every push on what it changed and how to roll it back, if needed.
+Claude Approvals then applies an approval policy that the team writes as a file in the repository. This approval process can incorporate various signals, including Code Review findings or the company’s own classifiers, with policies written in natural language.
+Because the offering is still in beta, Anthropic suggests running the approval functionality in observe-only mode first. Teams can also choose to start with just one repository and set monthly spending limits to have more control over the process.
+Anthropic says teams will also still remain in control of where Claude Ship runs, which review settings to use (e.g., Quick, Standard, or Deep), and which changes should be escalated to a human for a decision.
+Claude Ship is rolling out to Cla
+
+[S5] The Verge — "Claude AI can review pull requests and ship fixes on its own now" (23 November 2026)
+Claude AI can review pull requests and ship fixes on its own now
+Anthropic is bringing new AI tools to software engineers with Claude Ship.
+Anthropic is launching some new Claude AI features to help software engineers ship code. As part of a new Claude Ship product being announced today, Claude now can review, fix, and approve pull requests.
+Engineers have already been able to take advantage of Claude’s code review capabilities thanks to the Code Review feature, which was announced in March and became generally available in October . What’s new alongside Claude Ship are the PR Steward and Claude Approvals agents, which are launching in beta today.
+PR Steward “jumps in on failing CI checks, merge conflicts, and review feedback from Code Review, other review tools, or team members” and leaves comments on what it changed, according to Anthropic. Claude Approvals can approve routine changes if an organization’s policy allows it. “Teams can have Claude Approvals consider a variety of signals in its decision-making process, including Code Review findings or their own classifiers using natu
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: policy) ===
+
+[S6] The Verge — "Trump engineered a risky comeback for Jensen Huang" (23 November 2026)
+Trump engineered a risky comeback for Jensen Huang
+Trump got his wish to reinstate Jensen Huang at the helm of Nvidia — but investigations are still looming.﻿
+After Nvidia’s board accepted Jensen Huang’s resignation as CEO , following reports that Huang had an affair with an alleged Chinese spy, President Donald Trump, too, appeared to submit to the new reality. Appearing on Stephen A. Smith’s radio show shortly after the news came out, Trump said that Huang would “end up on his feet.”
+“You know the expression, anybody can be replaced,” Trump said, floating Apple’s ex-CEO Tim Cook as a potential CEO candidate.
+It didn’t take long for Trump to begin softening his approach, making it clear he’d welcome Huang back into the role of CEO even if Nvidia’s own board wasn’t ready to do so. Behind the scenes, the Trump administration was working to grease the landing for Huang’s return. And soon, Nvidia’s board changed its tune: Barely a week after insisting they all agreed to shut the door on Huang’s return, they voted unanimously to reinstate him as CEO, president, and board director.
+“There’s nothing wrong with a comeback,” Trump said in a celebratory call to CNBC .
+Trump then posted an image on Truth Social of Huang transposed onto Trump’s own body in the infamous photo of him raising his fist after being shot at a campaign rally. In his raised fist, Huang-on-Trump’s-body is clutching a scarlet bra, holding it high in the air.
+“There’s nothing wrong with a comeback”
+Even after a decisive blow to the president’s power as Democrats swept the midterm elections, Trump appears to maintain his position as a corporate kingmaker. Trump said he spoke with Huang the night prior to his reinstatement and had been in communication with the board both “directly and indirectly.” White House communications director Steven Cheung said in a statement that “President Trump was totally involved” in the board’s decision — Trump decided near the end of last week that he wanted to lead efforts to get Huang reappointed, per The New York Times , so he asked Vice President JD Vance to act as a liaison between Huang and Nvidia’s board, providing reassurances that the move wouldn’t pose a security risk. Trump also reportedly dialed into Nvidia’s Sunday night board meeting to make the case for his return. “I made the deal,” he told CNBC on Monday.
+News of Huang’s reappointment, nearly as dramatic as Sam Altman’s return to his CEO role after being voted out by OpenAI’s board in 2023, was a widespread shock to experts, analysts, and investors, particularly after Nvidia’s board had assured s
+
+[S7] The Verge — "Nvidia CEO Jensen Huang is back. What happens next?" (23 November 2026)
+Nvidia CEO Jensen Huang is back. What happens next?
+After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, after The New York Times reported there was evidence of another affair, this time with an Nvidia executive who reported directly to him, a board meeting that night ended with Huang’s resignation , and Nvidia CFO Colette Kress was installed as the new interim CEO.
+And then… Huang was back.
+In recent years, Nvidia has become a key part of the Trump administration’s AI push, a central figure in negotiations over potential Chinese access to cutting-edge AI hardware, and a company that has used its now $4 trillion-plus market cap to finance other AI companies. Saying it received input “from senior levels of the United States government,” Nvidia’s board announced his return as CEO on November 23rd, less than two weeks after his resignation.
+Follow along below for all of the latest updates.
+Highlights
+Trump engineered a risky comeback for Jensen
+
+[S8] The Verge — "Welcome to elite impunity, Jensen Huang" (23 November 2026)
+Welcome to elite impunity, Jensen Huang
+Consequences are for the poors.
+I suppose I must issue a hearty congratulations to Jensen Huang. Huang is CEO of Nvidia again, to the surprise of basically everyone except President Donald Trump and Vice President JD Vance, who made sure it happened.
+Now, those of us who had some kind of basic education on what a “free market” is might find it objectionable to have the American president strong-arming a major American company. But our billionaire tech overlords care about the “free market” exactly as much as they care about “free speech,” which is to say not at all. Watching Silicon Valley cheer for what is, effectively, a sign of a command economy has certainly been bracing. But then, why would they give a shit? Their only real beliefs are that they should remain rich and above the law. Jensen may not have exchanged emails with Jeffrey Epstein, but he’s squarely at the Epstein table now.
+The deal was reportedly brokered by Peter Thiel’s very own boy
+I have argued here, in the past, that the Epstein case laid bare the real politics of the revan
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: products) ===
+
+[S9] TechCrunch — "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips" (23 November 2026)
+Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips
+Amazon has agreed to acquire a good chunk of Israeli startup Decart.
+The e-commerce and cloud giant is paying $7.5 billion for the startup, according to Bloomberg.
+Decart has made a name for itself building interactive real-time world models — most recently Oasis 3 — and AI video-generation tools. But under the hood, the company stands out for its Decart Optimization Stack (DOS), software that helps AI models run efficiently on Nvidia, Amazon, and Google’s hardware.
+As part of the deal, Amazon will acquire the technology behind DOS, as well as Decart’s founding team and team of AI researchers and engineers, Amazon said in a blog post .
+“Every leap forward in AI starts with getting more out of every chip,” said Peter DeSantis, SVP of foundational AI models, custom silicon, quantum computing, at Amazon. “More efficient compute means better training, better reinforcement learning, faster inference, and better models for customers at a lower cost.”
+Amazon, which has so far been using its Trainium chips at its own data centers, is preparing to start selling them to customers as a competitor to Nvidia. Decart’s technology could make it easier for customers to run their workloads on Amazon chips, rather than Nvidia’s, which has been the gold standard so far.
+Decart and Amazon did not immediately return requests for comment.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+AI Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal Amanda Silberling 2 hours ago
+Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal
+AI OpenAI’s chief scientist has thoughts on how to limit AI development Anthony Ha 1 day ago
+OpenAI’s chief scientist has thoughts on how to limit AI development
+AI Why data centers are at the center of the Big Tech backlash Anthony Ha 1 day ago
+Why data centers are at the center of the Big Tech backlash
+Latest in AI
+AI Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes Sarah Perez 2 hours ago
+Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes
+Fundraising Supertake raises $20M to let AI agents turn your market predictions into stock portfolios Sarah Perez 2 hours ago
+Supertake raises $20M to let AI agents turn your market predictions into stock
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: products) ===
+
+[S10] Google AI blog — "A more tailored Google Search that’s uniquely yours" (23 November 2026)
+A more tailored Google Search that’s uniquely yours
+Get more helpful Search responses by securely opting in to connect Google Wallet, Drive, and the Gemini app to Personal Intelligence in AI Mode.
+VP of Product, Google Search
+Your browser does not support the audio element.
+We’re adding Google Wallet and Drive to Personal Intelligence, allowing Search to provide answers based on your spending, documents, and chats. These updates help you manage finances, organize projects, and maintain context across your search threads. You can opt in to connect these apps by visiting your Search Personalization settings, where you remain in control of your data and can adjust your preferences at any time.
+We are adding Google Wallet and Google Drive to Personal Intelligence to provide more relevant search results.
+You can now connect your financial data to identify spending habits and optimize your credit card rewards.
+Connecting your documents allows you to receive personalized plans based on information across your various files.
+You remain in control of your data by choosing which apps to connect and managing your settings.
+Robby Stein, VP of Product for Google Search, explains that you can now connect your apps like Google Wallet and Drive to Search for more personalized results. When you opt in, Search uses your own documents, spending habits, and recent activity to provide tailored answers. This helps you track financial goals, organize project information, and continue research tasks without repeating yourself. You remain in control and can manage these connections in your settings at any time.
+The most helpful search experience brings together the richness of the world’s information with insights uniquely relevant to you. Today, Search is getting even more tailored with the ability to connect more of your apps to Personal Intelligence — and we're introducing more personally relevant responses, so it's easier to find just what you need.
+Starting to roll out today, you can opt in to securely connect Google Wallet to Personal Intelligence in AI Mode , with support for Drive and the Gemini app following in the coming weeks — bringing context from your spending, documents, and chats directly to Search. These apps join Gmail, Calendar, and Photos in delivering even more tailored responses with your personal context.
+Get a clearer picture of your spending with Google Wallet: By connecting Google Wallet to Personal Intelligence in both AI Mode and the Gemini app , you can map out your financial milestones and identify actionable ways to trim everyday spending. You can 
+
+[S11] TechCrunch — "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses" (23 November 2026)
+Google announced on Monday that it’s expanding Personal Intelligence in Search’s AI Mode with integrations for Google Drive, Google Wallet, and the Gemini app. Personal Intelligence is designed to offer users more personalized, context-aware answers by connecting to their Google apps and drawing on information from their digital lives. The feature can already connect to apps like Gmail, Google Calendar, and Google Photos.
+By bringing Personal Intelligence in AI Mode to Drive, Wallet, and the Gemini app, Google is leveraging the wealth of user data that’s already within its ecosystem. Since users rely on these services, the tech giant can deliver more personalized experiences that rivals aren’t able to match. Of course, not everyone wants AI looking at their Wallet and Drive, so connecting the apps is optional, and you can turn Personal Intelligence on or off at any time.
+Google says that connecting Google Wallet to Personal Intelligence lets users track their financial goals, cut everyday spending, and make better use of credit card rewards. The tech giant notes that if users choose 
