@@ -58,13 +58,15 @@
    "cover": "SpaceX sued over Grok child abuse images[S1].",
    "text": "SpaceX lets Grok spawn child abuse images, endangering kids.\n\n• Virginia and Oregon sued SpaceX for letting Grok generate child sexual abuse pictures.\n• The model’s “spicy mode” produced nude images without prompts, despite promised safeguards.\n• Kids as young as 13 could see the harmful content, officials warn.\n\nOur read: Watch AI tools you use and demand stronger safety controls.\n\nSend this to someone who follows tech news.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #xai",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-24T03:38:35+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-24/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-24T03:30:00+00:00"
+   "scheduled_at": "2026-11-24T03:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-24-reel-2",
