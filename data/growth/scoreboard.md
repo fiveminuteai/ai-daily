@@ -1,4 +1,4 @@
-# Growth scoreboard, 2026-11-23
+# Growth scoreboard, 2026-11-24
 
 Followers: **13**. Reels this week: 0 (last week 0).
 
@@ -8,7 +8,7 @@ Followers: **13**. Reels this week: 0 (last week 0).
 | s watched on average | n/a | n/a | at least 15 | n/a |
 | sends per 1,000 reached | n/a | n/a | at least 5 | n/a |
 | likes per 1,000 reached | n/a | n/a | at least 30 | n/a |
-| new followers a week | 3 | n/a | at least 15 | **not yet** |
+| new followers a week | 2 | n/a | at least 15 | **not yet** |
 
 Median reach per Reel: n/a (last week n/a). Comments: 0.
 

@@ -1,0 +1,518 @@
+{
+ "date": "2026-11-24",
+ "collected_at": "2026-11-24T03:55:07+00:00",
+ "website": {
+  "status": "ok",
+  "visitors_28d": 245,
+  "visitors_day": 5,
+  "daily": [
+   {
+    "day": "2026-10-28",
+    "visitors": 0
+   },
+   {
+    "day": "2026-10-29",
+    "visitors": 33
+   },
+   {
+    "day": "2026-10-30",
+    "visitors": 25
+   },
+   {
+    "day": "2026-10-31",
+    "visitors": 18
+   },
+   {
+    "day": "2026-11-01",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 14
+   },
+   {
+    "day": "2026-11-13",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-14",
+    "visitors": 2
+   },
+   {
+    "day": "2026-11-15",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-16",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-17",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-18",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-19",
+    "visitors": 3
+   },
+   {
+    "day": "2026-11-20",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-21",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-22",
+    "visitors": 4
+   },
+   {
+    "day": "2026-11-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-11-24",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-25",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 12
+   },
+   {
+    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
+    "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
+    "title": "Anthropic’s $81 billion IPO spotlights novel governance model · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/tags",
+    "title": "Topics · Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/about",
+    "title": "How this blog is made · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-24-spacex-faces-lawsuits-over-xai-s-grok",
+    "title": "SpaceX faces lawsuits over xAI's Grok generating sexualized images · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-16-nvidia-ceo-jensen-huang-resigns-amid-spy",
+    "title": "Nvidia CEO Jensen Huang resigns amid spy scandal, prompting tighter US chip export rules · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 20
+   },
+   {
+    "name": "(direct)",
+    "visitors": 16
+   },
+   {
+    "name": "search.daum.net/search",
+    "visitors": 1
+   },
+   {
+    "name": "fiveminuteai.net/about",
+    "visitors": 1
+   }
+  ],
+  "reads_7d": {
+   "post_views": 12,
+   "read_30s": 4,
+   "read_half": 4,
+   "read_end": 1,
+   "read_end_rate": 0.083
+  }
+ },
+ "instagram": {
+  "status": "error",
+  "error": "HTTP 400 (Meta error 200)"
+ },
+ "youtube": {
+  "status": "ok",
+  "subscribers": 4,
+  "channel_views": 299,
+  "shorts": {
+   "YBYXTpMWmis": {
+    "title": "OpenAI proposes AI speed limit",
+    "published": "2026-11-23T03:32:17Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 1
+   },
+   "eUeDcPmhACI": {
+    "title": "Wells Fargo says using AI agents is your risk",
+    "published": "2026-11-23T07:31:53Z",
+    "viewCount": 5,
+    "likeCount": 0,
+    "commentCount": 1
+   },
+   "qqt-6S20uCo": {
+    "title": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang. #Shorts",
+    "published": "2026-11-22T03:31:47Z",
+    "viewCount": 33,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "9CDXcZlCVbY": {
+    "title": "Anthropic IPO pits safety against profit. #Shorts",
+    "published": "2026-11-22T07:31:47Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "SABlqU_xmqw": {
+    "title": "Google AI now books calls in Gemini. #Shorts",
+    "published": "2026-11-22T10:31:44Z",
+    "viewCount": 11,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "gvl1uWDKOWk": {
+    "title": "Nvidia halts H200 sales to China. #Shorts",
+    "published": "2026-11-22T13:32:36Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "-Sd99PhBXEk": {
+    "title": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is…",
+    "published": "2026-11-21T03:31:49Z",
+    "viewCount": 133,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "GY-0TYZv40c": {
+    "title": "Apple hiring manager for Mac AI agent. #Shorts",
+    "published": "2026-11-21T07:32:34Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "6kshlBz3zzo": {
+    "title": "Meta's $300 Muse Charm announced. #Shorts",
+    "published": "2026-11-21T10:31:55Z",
+    "viewCount": 15,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "vL2a_4MNYq8": {
+    "title": "Google removes search button, adds AI sidebar. #Shorts",
+    "published": "2026-11-21T13:32:34Z",
+    "viewCount": 9,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "DF9bRWxBBsM": {
+    "title": "Nvidia says it will not reinstate co‑founder Jensen Huang after affairs reported. #Shorts",
+    "published": "2026-11-20T03:32:00Z",
+    "viewCount": 9,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "lUMvdrA5co4": {
+    "title": "Anthropic’s $81.3 billion IPO locks founders in control. #Shorts",
+    "published": "2026-11-20T07:31:52Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "COeNgjecL2M": {
+    "title": "Meta’s Muse leaked bank balances, alarming staff. #Shorts",
+    "published": "2026-11-20T10:32:00Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "HrOtxU-iuKU": {
+    "title": "Anthropic listed on Nasdaq at $111.50, reporting an $80.7 billion loss and $16.3 billion revenue,…",
+    "published": "2026-11-20T13:32:56Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "lahIhaCmPrg": {
+    "title": "Nvidia halted H200 AI chip shipments to China after CEO quit. #Shorts",
+    "published": "2026-11-19T03:31:56Z",
+    "viewCount": 2,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "lncyiX9EyYI": {
+    "title": "Google threatens school Search loss. #Shorts",
+    "published": "2026-11-19T07:35:47Z",
+    "viewCount": 3,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "Y39lllqpsRE": {
+    "title": "Google DeepMind released Gemini 4 Neon, a high‑capacity, low‑fabrication model for enterprise…",
+    "published": "2026-11-19T10:32:04Z",
+    "viewCount": 7,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "IuZ_pJbF2vA": {
+    "title": "Anthropic priced IPO at $83, shaking AI market. #Shorts",
+    "published": "2026-11-19T13:32:10Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "pZb7VWGQoK8": {
+    "title": "Google opens Gemini Tasks, enabling calls, bookings and purchases for hundreds of millions of…",
+    "published": "2026-11-18T03:32:56Z",
+    "viewCount": 11,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "0udwsmh9nfY": {
+    "title": "OpenAI sued for $2 billion over child safety. #Shorts",
+    "published": "2026-11-18T07:31:49Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "IcnrjuwA7Co": {
+    "title": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his…",
+    "published": "2026-11-18T10:31:43Z",
+    "viewCount": 2,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "jRB7-SIo5Xs": {
+    "title": "Meta posts AI deepfake of Sam Altman. #Shorts",
+    "published": "2026-11-18T13:31:40Z",
+    "viewCount": 4,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "muoM-MRzgBk": {
+    "title": "OpenAI sued for rogue AI hacks. #Shorts",
+    "published": "2026-11-17T03:32:42Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "e3oRnkaFu2g": {
+    "title": "Jensen Huang resigns, spy claims ignite Nvidia drama. #Shorts",
+    "published": "2026-11-17T07:36:15Z",
+    "viewCount": 3,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "yaAvO-1jwYI": {
+    "title": "OpenAI will embed external safety researchers to monitor model subversion risks, starting with…",
+    "published": "2026-11-17T10:31:51Z",
+    "viewCount": 6,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "vZdAZPZBbGk": {
+    "title": "Apple splits Mac permissions, adds per‑use prompts, and urges limited full‑disk access for AI…",
+    "published": "2026-11-17T13:32:22Z",
+    "viewCount": 23,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "binCry8t2b0": {
+    "title": "FAA groundstop sparks AI safety fears. #Shorts",
+    "published": "2026-11-16T03:32:08Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "H_ZcNcikpcc": {
+    "title": "Nvidia CEO resigns amid federal probe. #Shorts",
+    "published": "2026-11-15T05:02:01Z",
+    "viewCount": 2,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "OZGKvefXZKM": {
+    "title": "AI CEOs can't be trusted. #Shorts",
+    "published": "2026-11-15T07:31:56Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "jINI-lh7eRs": {
+    "title": "Nvidia inflated GPU prices. #Shorts",
+    "published": "2026-11-15T10:32:05Z",
+    "viewCount": 23,
+    "likeCount": 1,
+    "commentCount": 0
+   },
+   "SEt6EUk91No": {
+    "title": "Over 115,000 demand Huang's return. #Shorts",
+    "published": "2026-11-15T13:32:10Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "AQvCQBpZAoM": {
+    "title": "Microsoft outage stalls global work tools. #Shorts",
+    "published": "2026-11-14T03:32:00Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "kGar7N_ofqk": {
+    "title": "Google’s new API makes decisions 5× cheaper. #Shorts",
+    "published": "2026-11-12T03:32:07Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "AOL786ERU0U": {
+    "title": "OpenAI adds verified business profiles to ChatGPT. #Shorts",
+    "published": "2026-11-12T07:32:09Z",
+    "viewCount": 3,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "biiMRT4NVmI": {
+    "title": "Google launches cheaper Gemini 4 Carbon. #Shorts",
+    "published": "2026-11-12T10:32:33Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "cSe3QdMSb-Q": {
+    "title": "Anthropic IPO: $1.4T valuation. #Shorts",
+    "published": "2026-11-11T03:31:55Z",
+    "viewCount": 5,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "pg5REQ1HJoQ": {
+    "title": "Google launches AI to fix 28 hours of weekly clinician paperwork. #Shorts",
+    "published": "2026-11-11T07:31:49Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "KMp270AfxNc": {
+    "title": "Founders cash in at $1.4T. #Shorts",
+    "published": "2026-11-11T10:31:48Z",
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "b1DijUW1G28": {
+    "title": "Google's AI reviewers may read your files. #Shorts",
+    "published": "2026-11-10T03:31:55Z",
+    "viewCount": 12,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "K3dS7YEibzU": {
+    "title": "The race to sue Nvidia has begun. #Shorts",
+    "published": "2026-11-10T07:32:37Z",
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "aZyH4NT30w8": {
+    "title": "Anthropic's new Claude is cheaper and faster. #Shorts",
+    "published": "2026-11-10T10:31:45Z",
+    "viewCount": 4,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "MCoBfhyh64M": {
+    "title": "Nvidia's board opens an investigation into its CEO. #Shorts",
+    "published": "2026-11-09T12:45:04Z",
+    "viewCount": 4,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "2L6wf2jE4Xs": {
+    "title": "Apple is racing to make Siri an agent. #Shorts",
+    "published": "2026-11-09T13:31:56Z",
+    "viewCount": 6,
+    "likeCount": 0,
+    "commentCount": 0
+   },
+   "7TwtOx3fyWA": {
+    "title": "How to switch off Google's AI Coach. #Shorts",
+    "published": "2026-11-09T17:32:30Z",
+    "viewCount": 32,
+    "likeCount": 0,
+    "commentCount": 0
+   }
+  },
+  "summary": {
+   "shorts": 44,
+   "zero_views": 12,
+   "median_views": 3
+  }
+ }
+}
