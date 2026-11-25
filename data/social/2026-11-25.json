@@ -127,14 +127,14 @@
    "text": "Anthropic drops below $83 IPO, shaking AI startup hopes.\n\n• Anthropic shares fell to $76, under its $83 IPO price.\n• That’s a 12% drop in a single day, echoing Nvidia’s 7% sell-off.\n• Investors worry future AI IPOs may fetch lower valuations.\n\nOur read: Watch AI stock moves; they could affect funding for new tools you use.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-25T13:30:09+00:00",
+   "decided_at": "2026-11-25T13:38:41+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/04.mp4"
    ],
    "scheduled_at": "2026-11-25T13:30:00+00:00",
-   "error": "reel: HTTP 400 (Meta error 200)",
-   "attempts": 1
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 4
   }
  ]
 }
