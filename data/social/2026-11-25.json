@@ -105,14 +105,14 @@
    "text": "Amazon buys Decart for $7.5 billion to boost Trainium.\n\n• Amazon announced acquisition of Decart and its team for $7.5 billion.\n• Decart’s Optimization Stack lets AI models run efficiently on non-Nvidia silicon, valued at several billion dollars.\n\nOur read: Watch AWS push its own chips harder, could affect your AI workloads.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #amazon",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-25T10:38:43+00:00",
+   "decided_at": "2026-11-25T13:26:08+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/03.mp4"
    ],
    "scheduled_at": "2026-11-25T10:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-25-reel-4",
@@ -126,13 +126,15 @@
    "cover": "Anthropic slides below $83 IPO price[S1].",
    "text": "Anthropic drops below $83 IPO, shaking AI startup hopes.\n\n• Anthropic shares fell to $76, under its $83 IPO price.\n• That’s a 12% drop in a single day, echoing Nvidia’s 7% sell-off.\n• Investors worry future AI IPOs may fetch lower valuations.\n\nOur read: Watch AI stock moves; they could affect funding for new tools you use.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-25T13:30:09+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/04.mp4"
    ],
-   "scheduled_at": "2026-11-25T13:30:00+00:00"
+   "scheduled_at": "2026-11-25T13:30:00+00:00",
+   "error": "reel: HTTP 400 (Meta error 200)",
+   "attempts": 1
   }
  ]
 }
