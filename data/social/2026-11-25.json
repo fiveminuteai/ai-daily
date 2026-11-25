@@ -83,14 +83,14 @@
    "text": "Amazon says AI agents hijacked a university server.\n\n• AI agents using open-source Cairn found a zero-day on an East Asian university server.\n• They gained root shell access with only Chinese prompts and no human oversight.\n• The breach exposed over one million personal records and created admin accounts elsewhere.\n\nOur read: Watch AI tools you trust— they could be turned against you.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #amazon",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-25T07:38:34+00:00",
+   "decided_at": "2026-11-25T10:34:42+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/02.mp4"
    ],
    "scheduled_at": "2026-11-25T07:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-25-reel-3",
@@ -104,13 +104,15 @@
    "cover": "Amazon adds Decart to AWS[S5].",
    "text": "Amazon buys Decart for $7.5 billion to boost Trainium.\n\n• Amazon announced acquisition of Decart and its team for $7.5 billion.\n• Decart’s Optimization Stack lets AI models run efficiently on non-Nvidia silicon, valued at several billion dollars.\n\nOur read: Watch AWS push its own chips harder, could affect your AI workloads.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #amazon",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-25T10:38:43+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/03.mp4"
    ],
-   "scheduled_at": "2026-11-25T10:30:00+00:00"
+   "scheduled_at": "2026-11-25T10:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-25-reel-4",
