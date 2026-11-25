@@ -1,0 +1,387 @@
+{
+  "date": "2026-11-25",
+  "slug": "2026-11-25-anthropic-shares-slip-below-ipo-price-as",
+  "headline": "Anthropic shares slip below IPO price as AI market jitters rise",
+  "dek": "Anthropic's shares slipped below the $83 IPO price on Tuesday, reaching $76 at midday, a drop of nearly 12% from the previous close[S1].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "policy",
+    "products",
+    "models",
+    "impact",
+    "anthropic",
+    "walmart",
+    "amazon"
+  ],
+  "what_happened": [
+    "Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks[S1].",
+    "Walmart lets shoppers use Meta’s Muse AI to browse and buy Black Friday deals without visiting the website[S2].",
+    "Amazon pays $7.5 billion for Decart to boost Trainium chip performance on non‑Nvidia hardware[S5]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "Anthropic stock falls below IPO price",
+      "category": "policy",
+      "paragraphs": [
+        "Anthropic's shares slipped below the $83 IPO price on Tuesday, reaching $76 at midday, a drop of nearly 12% from the previous close[S1]. The decline occurred less than a week after the company debuted on Nasdaq at $111.50 per share[S1]. Observers note that trading below the IPO level is often viewed as a negative market signal[S1].",
+        "The stock fell to $76, marking a 12% decline from Monday's close and a sharp contrast to the $111.50 debut price recorded a week earlier[S1]. Nvidia also experienced a sell‑off, losing more than 7% after a prior 30%‑plus gain, highlighting broader market volatility for AI firms[S1]. Analysts suggest that Anthropic's performance may influence private startup valuations and future IPO prospects for other AI companies[S1].",
+        "IPO pricing typically includes a discount to encourage investor demand, so falling below that price can signal weaker investor confidence[S1]. The AI sector has been closely watched as a barometer for public market appetite, with venture capitalists using such moves to gauge broader sentiment[S1]. A sustained slump could make it harder for emerging AI startups to secure favorable public offerings[S1]."
+      ],
+      "card": {
+        "hook": "Anthropic drops below $83 IPO, shaking AI startup hopes[S1].",
+        "points": [
+          "Anthropic shares fell to $76, under its $83 IPO price[S1].",
+          "That’s a 12% drop in a single day, echoing Nvidia’s 7% sell‑off[S1].",
+          "Investors worry future AI IPOs may fetch lower valuations[S1]."
+        ],
+        "take": "Watch AI stock moves; they could affect funding for new tools you use[S1].",
+        "take_kind": "read",
+        "ask": "Will this curb AI startup hype[S1]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "AI startup funding could tighten as market confidence wavers",
+        "desk": {
+          "rubric": 6,
+          "chief": 6.0,
+          "why": "Significant market impact but less dramatic than a giant crisis"
+        },
+        "bonus": 0.0,
+        "pain": "money",
+        "hook_type": "stakes",
+        "cover": "Anthropic slides below $83 IPO price[S1].",
+        "cover_hi": "slides below"
+      }
+    },
+    {
+      "story": 2,
+      "title": "Walmart adds Meta’s Muse to its Black Friday shopping",
+      "category": "products",
+      "paragraphs": [
+        "Walmart announced a partnership with Meta on 24 November 2026 to let shoppers use Meta’s AI agent Muse for Black Friday purchases[S2]. Customers open the Muse app, sign in to their Walmart account, and ask the assistant to find products, compare prices, or add items to a cart[S2]. The service runs through Walmart’s Agent Gateway, a system launched in October that connects external AI assistants to the retailer’s online store[S2].",
+        "Muse receives the shopper’s request, forwards it to Walmart, and returns a list of relevant items that the user can review and purchase without visiting Walmart’s website[S2]. Walmart built privacy safeguards so Muse does not see a shopper’s purchase history, and users can set spending limits, require purchase approvals, and delete the agent’s profile at any time[S2]. The partnership contrasts with Amazon’s approach of restricting third‑party AI agents from completing purchases, highlighting Walmart’s more open stance toward AI‑driven commerce[S2].",
+        "AI shopping assistants are moving from experimental demos to everyday tools, and retailers are deciding how much control to give them[S2]. Meta’s Muse, already integrated into Instagram DMs, is expanding to e‑commerce platforms, giving users a single AI interface for both social and shopping tasks[S3][S4]. Walmart’s Agent Gateway aims to let other developers add similar capabilities, potentially increasing competition among AI shopping agents[S2]."
+      ],
+      "card": {
+        "hook": "Meta's Muse powers Walmart Black Friday deals[S2].",
+        "points": [
+          "Walmart partnered with Meta to let shoppers use Muse for Black Friday purchases[S2].",
+          "Muse can add items to cart, set spending limits, and bypass Walmart’s website[S2]."
+        ],
+        "take": "Try Muse in Instagram DM to streamline your Black Friday deals[S2][S3].",
+        "take_kind": "do",
+        "ask": "Will AI assistants replace checkout[S2][S3][S4]?",
+        "interest": 3,
+        "reel": 6,
+        "angle": "AI shopping assistant now handles Walmart Black Friday purchases, changing how busy shoppers buy.",
+        "desk": {
+          "rubric": 6,
+          "chief": 5.0,
+          "why": "Interesting AI‑shopping tie‑up but niche appeal"
+        },
+        "bonus": 0.0,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Meta's Muse powers Walmart Black Friday deals[S2].",
+        "cover_hi": "powers Walmart"
+      }
+    },
+    {
+      "story": 3,
+      "title": "Amazon buys Decart to boost Trainium performance",
+      "category": "products",
+      "paragraphs": [
+        "Amazon announced it will acquire Decart and its team for a reported $7.5 billion, aiming to improve AI model performance on its Trainium chips[S5]. Amazon has been working with Decart since 2025 to optimize Trainium, and the acquisition is intended to accelerate that effort[S5].",
+        "Decart’s technology, called the Decart Optimization Stack (DOS), helps AI models run more efficiently on non‑Nvidia silicon, a capability valued at several billion dollars by the industry[S5]. Nvidia previously invested $300 million in Decart at a $4 billion valuation, and Anthropic also considered a similar purchase, highlighting the strategic importance of chip‑agnostic optimization[S5]. By integrating DOS, Amazon hopes to extract additional performance from Trainium and eventually offer Trainium‑based data centers to more customers, building on existing Anthropic usage[S5]. The move mirrors Nvidia’s earlier $6.9 billion acquisition of Mellanox, suggesting Amazon may follow a similar path to strengthen its hardware ecosystem[S5].",
+        "Decart’s stack addresses this gap by optimizing models for diverse hardware, enabling cloud providers like AWS to improve efficiency without depending solely on Nvidia[S5]. This fits Amazon’s broader goal of turning AWS into a $1 trillion revenue business by differentiating its custom Trainium chips[S5]."
+      ],
+      "card": {
+        "hook": "Amazon buys Decart for $7.5 billion to boost Trainium[S5].",
+        "points": [
+          "Amazon announced acquisition of Decart and its team for $7.5 billion[S5].",
+          "Decart’s Optimization Stack lets AI models run efficiently on non‑Nvidia silicon, valued at several billion dollars[S5]."
+        ],
+        "take": "Watch AWS push its own chips harder, could affect your AI workloads[S5].",
+        "take_kind": "read",
+        "ask": "Will Amazon’s chip push change your AI tools[S5]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "Amazon’s $7.5 billion buy aims to tighten its AI chip edge for AWS customers.",
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "Amazon adds Decart to AWS[S5].",
+        "cover_hi": "adds Decart",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Amazon is buying Decart for $7.5 billion to boost Trainium chips[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Hope those chips come with a return policy"
+            },
+            {
+              "who": "spark",
+              "text": "The deal should make AI models run faster on Amazon’s Trainium chips[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Faster models? Maybe they'll finally finish my to‑do list",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Decart’s Optimization Stack lets AI run efficiently on non‑Nvidia hardware, valued at several billion dollars[S5]."
+            },
+            {
+              "who": "guest",
+              "text": "Wow, my coffee maker just became AI‑efficient",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The banter feels snappy enough for a quick share and a couple of laughs."
+        }
+      }
+    },
+    {
+      "story": 4,
+      "title": "Gpt‑6 models design proteins without specialized tools",
+      "category": "models",
+      "paragraphs": [
+        "OpenAI announced that its GPT‑6 family can design new protein structures and sequences using only reasoning and code, without calling specialized biology models[S6]. The capability was demonstrated in internal research and in lab tests with partner Onava, where proteins based on GPT‑6.2 designs showed binding evidence across five targets[S6].",
+        "The GPT‑6 models generate protein shapes and amino‑acid sequences by reasoning about chemistry, physics, and biology, then outputting code to create the designs[S6]. In experiments, An internal GPT‑6 model matched or outperformed specialized models on many design tasks, and researchers could steer designs by prompting where a protein should attach and what shape it should take[S6]. Lab tests with Onava showed that proteins derived from GPT‑6.2 designs bound to five different targets, and redesigned antibodies retained their binding ability, indicating functional relevance[S6]. The preprint titled “GPT‑6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models” documents these findings and emphasizes that the model does not need additional training on protein data to perform the tasks[S6].",
+        "Proteins are chains of amino acids that fold into three‑dimensional shapes, enabling them to perform essential biological functions such as catalyzing reactions, transporting oxygen, and defending against disease[S6]. Designing new proteins traditionally requires specialized models that generate structures and sequences, but these tools need expert handling and cannot easily accept new constraints[S6]. A general‑purpose model like GPT‑6 that can reason across scientific domains simplifies the workflow, potentially lowering the expertise barrier for protein engineering[S6]."
+      ],
+      "card": {
+        "hook": "OpenAI’s GPT‑6 designs proteins without lab tools[S6].",
+        "points": [
+          "GPT‑6 generated protein shapes and sequences just by reasoning and code[S6].",
+          "Designs bound to five targets in lab tests, matching specialized models[S6].",
+          "This could let engineers create therapies without deep expertise[S6]."
+        ],
+        "take": "You could start prototyping bio‑tools with just prompts[S6].",
+        "take_kind": "do",
+        "ask": "Will AI replace biotech engineers[S6]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "AI can now design functional proteins without specialized software, opening biotech to more creators.",
+        "desk": {
+          "rubric": 8,
+          "chief": 8.0,
+          "why": "Breakthrough protein design by GPT‑6, high‑impact biotech surprise"
+        },
+        "bonus": 0.0,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "GPT‑6 designs new proteins using only reasoning and code, no specialized models[S6]."
+            },
+            {
+              "who": "guest",
+              "text": "Designs proteins? My coffee stays unaltered, as usual"
+            },
+            {
+              "who": "spark",
+              "text": "In tests, GPT‑6 matched or beat specialized models and could be steered by prompts[S6]."
+            },
+            {
+              "who": "guest",
+              "text": "So specialized models are now just jealous roommates.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "Mildly funny deadpan jokes that could earn a chuckle"
+        }
+      }
+    },
+    {
+      "story": 5,
+      "title": "Hackers use AI agents to exploit zero‑day vulnerability",
+      "category": "impact",
+      "paragraphs": [
+        "Amazon reported that AI agents running on the open‑source Cairn framework discovered and exploited a zero‑day vulnerability on an East Asian university server with only a simple instruction to obtain shell access, and no further human oversight was required[S7]. The attackers supplied prompts in simplified Chinese and set the model to Chinese Standard Time, then gave the agents a list of IP addresses and the goal of gaining root access[S7]. The operation resulted in full control of the target system after the agents identified the flaw in a medical‑imaging AI application[S7].",
+        "Cairn is a model‑agnostic problem‑solving engine that coordinates multiple agents in worker containers, allowing each to run concurrently on back‑ends such as Claude Code, Codex, Pi, GLM 5.2, DeepSeek V4 Flash and DeepSeek V4 Pro[S7]. In a separate campaign observed by Palo Alto Networks, the same framework enabled 25 autonomous operations against at least 19 organizations, successfully breaching at least 10 of them[S7]. The breaches involved accessing dozens of valid credentials, mass‑exposing over one million personal records at one organization, and creating persistent administrator accounts in production systems[S7].",
+        "Cairn was originally built for defensive penetration testing, letting users define a goal and optional hints while a dispatcher manages tasks and maintains a shared graph of facts[S7]. This illustrates how tools intended for security can be turned against defenders when adversaries adopt them quickly[S7]."
+      ],
+      "card": {
+        "hook": "Amazon says AI agents hijacked a university server[S7].",
+        "points": [
+          "AI agents using open‑source Cairn found a zero‑day on an East Asian university server[S7].",
+          "They gained root shell access with only Chinese prompts and no human oversight[S7].",
+          "The breach exposed over one million personal records and created admin accounts elsewhere[S7]."
+        ],
+        "take": "Watch AI tools you trust— they could be turned against you[S7].",
+        "take_kind": "read",
+        "ask": "Should open‑source security tools be restricted[S7]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "AI tools meant for defense are being weaponized, threatening your data and jobs.",
+        "desk": {
+          "rubric": 8,
+          "chief": 9.0,
+          "why": "AI agents hijacking a university server, major security threat and headline potential"
+        },
+        "bonus": 0.0,
+        "pain": "privacy",
+        "hook_type": "stakes",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "AI agents on open‑source Cairn hacked a university server without human help[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, the server's new ghost roommate"
+            },
+            {
+              "who": "spark",
+              "text": "The same tool let attackers breach at least ten organizations, stealing millions of records[S7]."
+            },
+            {
+              "who": "guest",
+              "text": "So our data just went on a field trip.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "the jokes are snappy, relatable and fit the deadpan box vibe."
+        }
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "The drop below IPO level signals weaker investor confidence in AI firms, which could make it harder for emerging AI startups to secure favorable public offerings and affect broader market sentiment[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Walmart’s integration of Meta’s Muse lets shoppers complete purchases via an AI assistant, potentially reshaping e‑commerce habits and increasing competition with retailers that limit third‑party AI agents[S2].",
+      "speculative": true
+    },
+    {
+      "text": "The use of open‑source AI agents to autonomously discover and exploit a zero‑day vulnerability shows how security tools can be repurposed for attacks, raising urgent risks for organizations’ data and infrastructure[S7].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-24T18:30:42+00:00",
+      "title": "Anthropic stock falls below IPO price",
+      "publisher": "TechCrunch",
+      "category": "policy"
+    },
+    {
+      "time": "2026-11-24T21:32:38+00:00",
+      "title": "Walmart adds Meta’s Muse to its Black Friday shopping",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-24T15:51:07+00:00",
+      "title": "Amazon buys Decart to boost Trainium performance",
+      "publisher": "TechCrunch",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-24T13:00:00+00:00",
+      "title": "Gpt‑6 models design proteins without specialized tools",
+      "publisher": "OpenAI",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-24T12:30:05+00:00",
+      "title": "Hackers use AI agents to exploit zero‑day vulnerability",
+      "publisher": "Ars Technica",
+      "category": "impact"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+      "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-24T18:30:42+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+      "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-24T21:32:38+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "Meta brings its Muse AI assistant directly into Instagram DMs",
+      "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-24T17:00:00+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Meta is bringing Muse to Instagram",
+      "url": "https://www.engadget.com/2326663/meta-is-bringing-muse-to-instagram/",
+      "publisher": "Engadget",
+      "published": "2026-11-24T17:00:00+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+      "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+      "publisher": "TechCrunch",
+      "published": "2026-11-24T15:51:07+00:00"
+    },
+    {
+      "id": "S6",
+      "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+      "publisher": "OpenAI",
+      "published": "2026-11-24T13:00:00+00:00"
+    },
+    {
+      "id": "S7",
+      "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+      "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+      "publisher": "Ars Technica",
+      "published": "2026-11-24T12:30:05+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-25T00:46:26+00:00",
+  "verification": {
+    "checked": 99,
+    "ok": 80,
+    "repaired": 5,
+    "dropped": 14,
+    "unused": 9,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1292,
+  "reading_minutes": 6
+}

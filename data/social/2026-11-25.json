@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-25",
+ "slug": "2026-11-25-anthropic-shares-slip-below-ipo-price-as",
+ "headline": "Anthropic shares slip below IPO price as AI market jitters rise",
+ "url": "https://fiveminuteai.net/posts/2026-11-25-anthropic-shares-slip-below-ipo-price-as/",
+ "generated_at": "2026-11-25T00:48:21+00:00",
+ "items": [
+  {
+   "id": "2026-11-25-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "Anthropic shares slip below IPO price as AI market jitters rise\n\n• Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks.\n• Walmart lets shoppers use Meta’s Muse AI to browse and buy Black Friday deals without visiting the website.\n• Amazon pays $7.5 billion for Decart to boost Trainium chip performance on non-Nvidia hardware.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-25/instagram.png"
+   ],
+   "scheduled_at": "2026-11-25T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-25-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "Anthropic shares slip below IPO price as AI market jitters rise\n\n• Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks.\n\nhttps://fiveminuteai.net/posts/2026-11-25-anthropic-shares-slip-below-ipo-price-as/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 191
+  },
+  {
+   "id": "2026-11-25-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: Anthropic shares slip below IPO price as AI market jitters rise\n\n• Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks.\n• Walmart lets shoppers use Meta’s Muse AI to browse and buy Black Friday deals without visiting the website.\n• Amazon pays $7.5 billion for Decart to boost Trainium chip performance on non-Nvidia hardware.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-25-anthropic-shares-slip-below-ipo-price-as/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-25-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 3,
+   "hook": "OpenAI’s GPT‑6 designs proteins without lab tools[S6].",
+   "duo": true,
+   "cover": null,
+   "text": "OpenAI’s GPT-6 designs proteins without lab tools.\n\n• GPT-6 generated protein shapes and sequences just by reasoning and code.\n• Designs bound to five targets in lab tests, matching specialized models.\n• This could let engineers create therapies without deep expertise.\n\nDo this: You could start prototyping bio-tools with just prompts.\n\nSave this so you can find it later.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-25/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-25T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-25-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "Amazon says AI agents hijacked a university server[S7].",
+   "duo": true,
+   "cover": null,
+   "text": "Amazon says AI agents hijacked a university server.\n\n• AI agents using open-source Cairn found a zero-day on an East Asian university server.\n• They gained root shell access with only Chinese prompts and no human oversight.\n• The breach exposed over one million personal records and created admin accounts elsewhere.\n\nOur read: Watch AI tools you trust— they could be turned against you.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #amazon",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-25/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-25T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-25-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Amazon buys Decart for $7.5 billion to boost Trainium[S5].",
+   "duo": true,
+   "cover": "Amazon adds Decart to AWS[S5].",
+   "text": "Amazon buys Decart for $7.5 billion to boost Trainium.\n\n• Amazon announced acquisition of Decart and its team for $7.5 billion.\n• Decart’s Optimization Stack lets AI models run efficiently on non-Nvidia silicon, valued at several billion dollars.\n\nOur read: Watch AWS push its own chips harder, could affect your AI workloads.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #amazon",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-25/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-25T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-25-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "Anthropic drops below $83 IPO, shaking AI startup hopes[S1].",
+   "duo": false,
+   "cover": "Anthropic slides below $83 IPO price[S1].",
+   "text": "Anthropic drops below $83 IPO, shaking AI startup hopes.\n\n• Anthropic shares fell to $76, under its $83 IPO price.\n• That’s a 12% drop in a single day, echoing Nvidia’s 7% sell-off.\n• Investors worry future AI IPOs may fetch lower valuations.\n\nOur read: Watch AI stock moves; they could affect funding for new tools you use.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #anthropic #claude",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-25/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-25T13:30:00+00:00"
+  }
+ ]
+}

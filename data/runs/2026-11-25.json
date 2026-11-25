@@ -1,0 +1,435 @@
+{
+ "date": "2026-11-25",
+ "started_at": "2026-11-25T00:15:48+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.9,
+   "items": 640,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 12
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 4
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 0
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 9
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 2
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 3
+    },
+    "github": {
+     "status": "ok",
+     "items": 9
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.0,
+   "stories": 224,
+   "editor": true,
+   "top": [
+    {
+     "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+     "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+     "score": 7.95,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "bloomberg.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+     "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+     "score": 7.73,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+     "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+     "score": 6.72,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+     "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+     "score": 6.66,
+     "interest": 9.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Nvidia Is Powering Brain-Computer Interfaces Now",
+     "url": "https://www.wired.com/story/nvidia-is-powering-brain-computer-interfaces-now/",
+     "score": 6.36,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to U.S. industrial might — not a champion",
+     "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+     "score": 6.3,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Clay helps sales teams win with Codex and ChatGPT",
+     "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+     "score": 6.22,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Pinterest will now let parents limit the AI-generated content their teens see",
+     "url": "https://techcrunch.com/2026/11/24/pinterest-will-now-let-parents-limit-the-ai-generated-content-their-teens-see/",
+     "score": 5.85,
+     "interest": 5.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch",
+      "michaelharley.net (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing the Amazon Bedrock Trusted Access API, with Enterprise Frontier Safeguards and Enterprise Data Controls for Claude models",
+     "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+     "score": 5.61,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "AWS Machine Learning"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI and Cisco introduce Shirudo",
+     "url": "https://openai.com/index/introducing-shirudo",
+     "score": 5.58,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Amazon drone crashes on garage after delivering shampoo, draws FAA probe",
+     "url": "https://arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage/",
+     "score": 5.57,
+     "interest": 6.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+     "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+     "score": 7.95,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "bloomberg.com (via Hacker News)"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+     "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+     "score": 7.73,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+     "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+     "score": 6.72,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+     "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+     "score": 6.66,
+     "interest": 9.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "OpenAI"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+     "score": 6.66,
+     "interest": 8.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.4,
+   "articles": 12,
+   "with_text": 11
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 5.2,
+   "word_count": 1292,
+   "sources": 7
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.1,
+    "reel_desk": 930.5,
+    "layer1": 0.1,
+    "layer2": 721.0,
+    "gate": 109.0
+   },
+   "layer1": {
+    "checked": 107,
+    "ok": 98,
+    "repaired": 8,
+    "dropped": 1
+   },
+   "layer2": {
+    "checked": 99,
+    "ok": 80,
+    "repaired": 5,
+    "dropped": 14
+   },
+   "unused": 9,
+   "fails": [
+    "word count 1292 outside 880-1150"
+   ],
+   "reel_desk": [
+    {
+     "story": "Anthropic stock falls below IPO price",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "Significant market impact but less dramatic than a giant crisis",
+     "hook": "Anthropic drops below $83 IPO, shaking AI startup hopes.",
+     "chosen": false
+    },
+    {
+     "story": "Walmart adds Meta’s Muse to its Black Friday shopping",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 5.0,
+     "why": "Interesting AI‑shopping tie‑up but niche appeal",
+     "hook": "Meta's Muse powers Walmart Black Friday deals.",
+     "chosen": false
+    },
+    {
+     "story": "Amazon buys Decart to boost Trainium performance",
+     "reel": 7,
+     "hook": "Amazon buys Decart for $7.5 billion to boost Trainium.",
+     "chosen": true
+    },
+    {
+     "story": "Gpt‑6 models design proteins without specialized tools",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 8.0,
+     "why": "Breakthrough protein design by GPT‑6, high‑impact biotech surprise",
+     "hook": "OpenAI’s GPT‑6 designs proteins without lab tools.",
+     "chosen": true
+    },
+    {
+     "story": "Hackers use AI agents to exploit zero‑day vulnerability",
+     "reel": 8,
+     "rubric": 8,
+     "chief": 9.0,
+     "why": "AI agents hijacking a university server, major security threat and headline potential",
+     "hook": "Amazon says AI agents hijacked a university server.",
+     "chosen": true
+    }
+   ]
+  }
+ ],
+ "published_attempt": 1,
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-25-anthropic-shares-slip-below-ipo-price-as",
+ "finished_at": "2026-11-25T00:48:20+00:00",
+ "seconds": 1952.2
+}

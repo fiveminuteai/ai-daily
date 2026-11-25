@@ -1,0 +1,103 @@
+=== STORY 1 (suggested section: policy) ===
+
+[S1] TechCrunch — "Anthropic shares fall below IPO price, a worrying sign for AI startups" (24 November 2026)
+Anthropic shares fall below IPO price, a worrying sign for AI startups
+Anthropic’s stock fell below its IPO price of $83 , trading as low as $76 a share by midday Tuesday, down nearly 12% from Monday’s close.
+Falling below the IPO price is often seen as a negative signal because underwriters typically price offerings at a discount to their expected trading value.
+The AI industry has been eagerly watching how Anthropic’s shares trade, with VCs and other observers saying its performance could serve as a barometer for how public market investors value the sector.
+The dramatic slump comes less than a week after Anthropic debuted on Nasdaq at $111.50 a share . If its shares continue to trade poorly in the coming weeks, the slide could put pressure on private startup valuations and weaken IPO prospects for other AI companies.
+Anthropic isn’t the only AI stock selling off on Tuesday. Nvidia fell more than 7% by midday, giving back some of the more than 30%-plus gain it posted Monday after Jensen Huang was reinstated as CEO.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+AI Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes Sarah Perez 1 day ago
+Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes
+AI Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal Amanda Silberling 1 day ago
+Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal
+Venture How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO Marina Temkin 2 days ago
+How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO
+Latest in AI
+AI Jensen Huang still thinks a succession plan creates unnecessary hierarchy Kirsten Korosec 2 hours ago
+Jensen Huang still thinks a succession plan creates unnecessary hierarchy
+AI In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy Lucas Ropek 2 hours ago
+In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy
+AI Even the best AI agents struggle with everyday life Rebecca Bellan 3 hours ago
+Even the best AI agents struggle with everyday life
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: products) ===
+
+[S2] TechCrunch — "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse" (24 November 2026)
+Shopping with AI is becoming less of a futuristic idea and more of something companies expect us to do. Walmart is the latest retailer making that shift, teaming up with Meta to let customers shop its Black Friday deals through Muse, Meta’s AI agent.
+The partnership, announced Tuesday, gives shoppers another way to find products, compare prices, and make purchases without browsing Walmart’s website themselves. Instead, customers can simply tell Muse what they are looking for and let the AI do the work.
+The announcement highlights how differently Walmart and Amazon are approaching AI shopping. While Amazon has taken steps to stop third-party AI agents from making purchases for customers, Walmart is leaning into the idea.
+To get started, users open the Muse app, sign in to their Walmart account, and return to the assistant to begin shopping. They can ask it to find specific products, compare options, or track down deals. Once a customer makes a request in Muse, the assistant sends it to Walmart, which returns relevant products and helps build a shopping cart.
+Walmart says it has built privacy protections into the experience. For instance, Muse doesn’t get access to a customer’s Walmart shopping history or other personal information. Shoppers can also set spending limits, require approval before purchases, and review orders placed by the agent.
+Plus, the company notes users can always delete their agent’s profile if they want to.
+The experience is powered by Walmart’s Agent Gateway, a new system that allows outside AI assistants to connect directly with the retailer’s online store. This launched in October, and the company is planning to open it up to more developers and AI platforms, meaning Muse could eventually be just one of several assistants capable of shopping Walmart’s online store.
+Walmart is not the only company teaming up with Meta’s Muse. Instacart also recently joined forces with the AI assistant.
+Beyond Muse, Walmart has recently rolled out more AI-powered features to its own shopping assistant, Sparky.
+Some of the newer additions include turning handwritten shopping lists into shopping carts, using photos and voice commands to find products, and helping customers get around their local store. Shoppers can search for an item and use a pin on the store map to see exactly which aisle it’s in. There’s also a “Flash Price Tag” button that makes the item’s shelf label light up.
+When you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.
+Lauren covers media, streaming, apps and pl
+
+[S3] TechCrunch — "Meta brings its Muse AI assistant directly into Instagram DMs" (24 November 2026)
+Instagram users can now chat with Meta’s AI agent Muse in a DM thread, the company announced on Tuesday. The social media network says users can chat with Muse to get more context about a post, place, or product they come across, or catch up on conversations they may have missed in their other DMs.
+The new integration gets rid of the need for users to toggle between Instagram and the Muse app when they want to interact with the AI agent. It also reflects the growing competition among tech companies to make AI assistants a part of users’ everyday digital lives. By embedding Muse directly into Instagram, Meta is making it easier for users to access the AI agent, while also giving Muse access to a platform where users already discover products, places, and content.
+Users can share Instagram posts with Muse and ask it to take action, such as adding a coffee shop to their Mexico City itinerary or finding a Black Friday deal on a pair of shoes.
+Meta notes that conversations with Muse on Instagram will appear as a side chat in the main Muse app.
+Muse in Instagram DMs will begin rolling out 
+
+[S4] Engadget — "Meta is bringing Muse to Instagram" (24 November 2026)
+Instagram will prompt people to use the agent to sort through their saved content.
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S5] TechCrunch — "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia" (24 November 2026)
+Jensen Huang’s comeback as Nvidia’s CEO is understandably making waves, leaving people wondering about the longer-term implications of his quick reinstatement and the U.S. government’s active role in his return. But there was another development yesterday that could also matter for Nvidia down the road: Amazon’s decision to acquire Decart ‘s tech and its team for a reported $7.5 billion .
+The broader industry seems to agree that Decart’s tech for optimizing AI models to run on non-Nvidia chips is worth several billion dollars. Anthropic reportedly tried to acquire the startup in the same ballpark , and Nvidia, which invested in the startup’s $300 million funding round at a $4 billion valuation , was also rumored as a prospective buyer.
+Amazon was ultimately the one to pull the trigger and bring on board Decart’s co-founders Dean Leitersdorf, Orian Leitersdorf, and Moshe Shalev and their team , but the company is not interested in the world models they had been working on . At the heart of the deal is the startup’s tech that helps AI models run better on all kinds of chips.
+By incorporating the startup’s Decart Optimization Stack (DOS), Amazon is now hoping to extract more performance out of its Trainium chips, as the company tries to turn AWS into a $1 trillion revenue business .
+In its announcement , Amazon said it has worked with Decart since 2025 to optimize the Trainium chips. This deal is ostensibly aimed at accelerating that work, which could eventually result in the company offering its Trainium-based data centers, which Anthropic already uses, to more customers. Amazon has already been working to make Trainium easier to switch to .
+One way Nvidia managed to leapfrog its competitors was by spending $6.9 billion to acquire Israeli chipmaker Mellanox, which eventually grew to become a core piece of its international manufacturing strategy . Amazon could well be following a similar path.
+Annapurna Labs makes for a more interesting parallel than Mellanox, however, as the latter formed the basis of Amazon’s custom chip-designing unit following its 2015 acquisition . Add Intel into the mix , and this becomes a broader story. “Most of the hardware powering the AI wave was built in Israel. Annapurna; Mellanox; Habana Labs; etc…,” VC Eric Reiner observed on X a few months ago.
+In an email to TechCrunch, Eze Vidra, co-founder and managing partner at Remagine Ventures, said the deal is “a strong signal for the Israeli deep-tech ecosystem, showing that specialized local talent continues to attract major global players.”
+Amazon still has a ways to go before it
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: models) ===
+
+[S6] OpenAI — "GPT-6 models demonstrate intrinsic protein-design capabilities" (24 November 2026)
+GPT‑6 models demonstrate intrinsic protein-design capabilities
+Key findings:
+Our GPT‑6 family of models can design new protein shapes and the sequence of their chemical building blocks using only reasoning and code, without calling specialized biology models to generate those designs.
+An internal research model matched or outperformed specialized models on many protein design tasks. Researchers could also guide designs by prompting the model on where a protein should attach and what shape it should take.
+In lab tests with Onava, proteins based on GPT‑6.2’s designs showed evidence of binding, or attachment, across five targets. Redesigned antibodies also retained binding. Specialized models helped supply sequences and select candidates for testing.
+The models’ written reasoning and code suggest they draw on math, physics, chemistry, and biological knowledge to reason about protein shapes and interactions with other molecules.
+In a preprint titled GPT‑6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models , we show that our GPT‑6 family of models has intrinsic capabilities for designing new proteins: the models can design new protein structures and sequences without relying on specialized biology models, using only reasoning and general-purpose coding tools.
+Proteins do much of the work in living cells. They drive the chemical reactions that sustain life, carry oxygen through the blood, and defend the body against infection. Incorrectly shaped proteins can also cause disease and dysfunction. Proteins are made from chains of chemical building blocks called amino acids. The order, or sequence, of these amino acids helps determine how a protein folds into a three-dimensional shape, which in turn influences what it does.
+Scientists often start with a clear idea of what they want a protein to do. They might want it to block a signal that helps cancer cells evade the immune system or to help capture carbon dioxide from the air. The challenge is to work out what three-dimensional structure would enable the protein to do its job and which amino acid sequence would give it that structure. Specialized biology models capable of generating three-dimensional protein structures and sequences have made this work more practical.
+Using and coordinating these specialized models requires substantial expertise. Each accepts particular kinds of inputs and constraints, and these models cannot easily accept new kinds of information without changes to their software or additional training. In contrast, a general-purpose model capable of performing the wo
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S7] Ars Technica — "Amazon says hackers' AI agents found and exploited 0-day with little human input" (24 November 2026)
+Amazon said AI agents recently found and exploited a zero-day vulnerability with no human oversight beyond a simple instruction to get root access on an East Asian university server.
+The agents were running on Cairn, an open source AI penetration-testing framework. The hackers, who provided prompts in simplified Chinese and configured the model to the Chinese Standard Time zone, gave the agents a list of IP addresses and the goal: “obtain shell access.” In short order, the agents discovered a zero-day in an open source medical imaging AI application running on one of the target servers. The agents then exploited the vulnerability and gained full control of the system.
+“These findings show that agentic offensive operations are already happening, and defenders should prepare for the speed and persistence these tools enable,” Amazon said .
+Made for defenders, but attackers like it too
+Cairn is an open source AI problem-solving engine whose first validated domain is autonomous penetration testing. Users give it a task or goal and, optionally, hints for achieving it. A server maintains a shared graph containing facts and hints. A dispatcher reads the graph, schedules tasks, manages containers, and writes the protocol. The dispatcher can then assign each project to a dedicated worker container, each of which runs multiple agents concurrently. Cairn is model-agnostic and can be used on worker back ends, including Claude Code, Codex, and Pi. Researchers from security firm Palo Alto Networks have also observed Cairn being used with GLM 5.2, DeepSeek V4 Flash, and DeepSeek V4 Pro.
+Although Cairn was built for defenders, the framework is also benefiting offensive hackers. Earlier this month, Palo Alto Networks said hackers used the framework to target organizations in the semiconductor, defense, and civil society sectors. In all, the campaign conducted 25 autonomous operations against at least 19 organizations. At least 10 of the organizations were successfully breached when Cairn agents performed actions that:
+Accessed dozens of valid credentials
+Mass-exposed personal data (exceeding 1 million records at one organization)
+Retrieved military and government identities
+Created persistent administrator accounts in a production system
+Modified a live industry standards-ballot document
+Palo Alto Networks said the attackers created tasks with a one-line goal, such as: “Obtain substantive high-value access, including but not limited to webshell, SSH, source code, keys, user information, credentials, ideally, to enter the internal network.” Cairn’s default agent instructio

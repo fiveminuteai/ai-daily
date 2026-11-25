@@ -1,0 +1,1103 @@
+{
+  "checked": 99,
+  "ok": 80,
+  "repaired": 5,
+  "dropped": 14,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Anthropic shares slip below IPO price as AI market jitters rise",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Anthropic’s stock fell to $76, under its $83 IPO price, while Walmart launched Meta’s Muse shopping assistant for Black Friday, Amazon announced a $7.5 billion purchase of Decart to boost Trainium chips, OpenAI demonstrated GPT‑6 protein design, and researchers reported AI agents exploiting a zero‑day vulnerability",
+      "sources": [
+        "S1",
+        "S2",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Walmart lets shoppers use Meta’s Muse AI to browse and buy Black Friday deals without visiting the website.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Amazon pays $7.5 billion for Decart to boost Trainium chip performance on non‑Nvidia hardware.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "OpenAI's GPT‑6 designs functional proteins using only reasoning and code, matching specialized models in tests.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "AI agents on Cairn autonomously found and exploited a zero‑day, breaching multiple organizations with minimal human input.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source describes a single zero‑day exploit on one server, not breaching multiple organizations with that same zero‑day."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Anthropic's shares slipped below the $83 IPO price on Tuesday, reaching $76 at midday, a drop of nearly 12% from the previous close.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The decline occurred less than a week after the company debuted on Nasdaq at $111.50 per share.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Observers note that trading below the IPO level is often viewed as a negative market signal.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The stock fell to $76, marking a 12% decline from Monday's close and a sharp contrast to the $111.50 debut price recorded a week earlier.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia also experienced a sell‑off, losing more than 7% after a prior 30%‑plus gain, highlighting broader market volatility for AI firms.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Analysts suggest that Anthropic's performance may influence private startup valuations and future IPO prospects for other AI companies.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "IPO pricing typically includes a discount to encourage investor demand, so falling below that price can signal weaker investor confidence.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The AI sector has been closely watched as a barometer for public market appetite, with venture capitalists using such moves to gauge broader sentiment.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "A sustained slump could make it harder for emerging AI startups to secure favorable public offerings.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Anthropic drops below $83 IPO, shaking AI startup hopes.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Anthropic shares fell to $76, under its $83 IPO price.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "That’s a 12% drop in a single day, echoing Nvidia’s 7% sell‑off.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Investors worry future AI IPOs may fetch lower valuations.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch AI stock moves; they could affect funding for new tools you use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will this curb AI startup hype?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Anthropic slides below $83 IPO price.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Anthropic stock falls below IPO price",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Walmart announced a partnership with Meta on 24 November 2026 to let shoppers use Meta’s AI agent Muse for Black Friday purchases.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Customers open the Muse app, sign in to their Walmart account, and ask the assistant to find products, compare prices, or add items to a cart.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The service runs through Walmart’s Agent Gateway, a system launched in October that connects external AI assistants to the retailer’s online store.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Muse receives the shopper’s request, forwards it to Walmart, and returns a list of relevant items that the user can review and purchase without visiting Walmart’s website.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Walmart built privacy safeguards so Muse does not see a shopper’s purchase history, and users can set spending limits, require purchase approvals, and delete the agent’s profile at any time.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The partnership contrasts with Amazon’s approach of restricting third‑party AI agents from completing purchases, highlighting Walmart’s more open stance toward AI‑driven commerce.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "AI shopping assistants are moving from experimental demos to everyday tools, and retailers are deciding how much control to give them.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Meta’s Muse, already integrated into Instagram DMs, is expanding to e‑commerce platforms, giving users a single AI interface for both social and shopping tasks.",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Walmart’s Agent Gateway aims to let other developers add similar capabilities, potentially increasing competition among AI shopping agents.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Meta's Muse powers Walmart Black Friday deals.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Walmart partnered with Meta to let shoppers use Muse for Black Friday purchases.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Muse can add items to cart, set spending limits, and bypass Walmart’s website.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Shoppers get AI‑driven buying without leaving Instagram, reshaping their checkout experience.",
+      "sources": [
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not state that buying occurs without leaving Instagram nor that checkout experience is reshaped."
+      ]
+    },
+    {
+      "where": "card[1] take",
+      "text": "Try Muse in Instagram DM to streamline your Black Friday deals.",
+      "sources": [
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will AI assistants replace checkout?",
+      "sources": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Meta's Muse powers Walmart Black Friday deals.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Walmart adds Meta’s Muse to its Black Friday shopping",
+      "sources": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Amazon announced it will acquire Decart and its team for a reported $7.5 billion, aiming to improve AI model performance on its Trainium chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The deal includes Decart co‑founders Dean Leitersdorf, Orian Leitersdorf and Moshe Shalev, and brings the Decart Optimization Stack into AWS.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms the co‑founders are part of the deal, but it does not explicitly say the Decart Optimization Stack is being brought into AWS."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Amazon has been working with Decart since 2025 to optimize Trainium, and the acquisition is intended to accelerate that effort.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Decart’s technology, called the Decart Optimization Stack (DOS), helps AI models run more efficiently on non‑Nvidia silicon, a capability valued at several billion dollars by the industry.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Nvidia previously invested $300 million in Decart at a $4 billion valuation, and Anthropic also considered a similar purchase, highlighting the strategic importance of chip‑agnostic optimization.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "By integrating DOS, Amazon hopes to extract additional performance from Trainium and eventually offer Trainium‑based data centers to more customers, building on existing Anthropic usage.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The move mirrors Nvidia’s earlier $6.9 billion acquisition of Mellanox, suggesting Amazon may follow a similar path to strengthen its hardware ecosystem.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "AI workloads often rely on Nvidia GPUs, creating a “silicon gap” for other chip makers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a silicon gap but does not state that AI workloads rely on Nvidia GPUs, so claim adds unsupported detail."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Decart’s stack addresses this gap by optimizing models for diverse hardware, enabling cloud providers like AWS to improve efficiency without depending solely on Nvidia.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "This fits Amazon’s broader goal of turning AWS into a $1 trillion revenue business by differentiating its custom Trainium chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Amazon spends $7.5 billion to close AI chip gap.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Amazon announced it will buy Decart for $7.5 billion to boost Trainium chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions the $7.5 billion price and separately notes the goal to improve Trainium performance, but no single sentence links the price to boosting Trainium chips."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "The deal brings Decart’s Optimization Stack, valued at billions, to cut AI costs on non‑Nvidia hardware.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source values the tech at billions but does not state the deal will cut AI costs on non‑Nvidia hardware."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "AWS customers could get faster AI workloads and Amazon aims to grow its cloud revenue.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions faster performance but does not combine this with Amazon’s aim to grow cloud revenue in the same sentence."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "If you run AI on AWS, expect cheaper, faster training on Trainium chips soon.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will Amazon’s chip push shake up AI pricing?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Amazon buys Decart for $7.5B.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Amazon is buying Decart for $7.5 billion to boost Trainium chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "The deal should make AI models run faster on Amazon’s Trainium chips.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Decart’s Optimization Stack lets AI run efficiently on non‑Nvidia hardware, valued at several billion dollars.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Amazon buys Decart to boost Trainium performance",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "OpenAI announced that its GPT‑6 family can design new protein structures and sequences using only reasoning and code, without calling specialized biology models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The capability was demonstrated in internal research and in lab tests with partner Onava, where proteins based on GPT‑6.2 designs showed binding evidence across five targets.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "This marks a shift from relying on domain‑specific models to using a general‑purpose language model for protein design.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source contrasts general‑purpose and specialized models but does not explicitly state that this marks a shift from reliance on domain‑specific models."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "The GPT‑6 models generate protein shapes and amino‑acid sequences by reasoning about chemistry, physics, and biology, then outputting code to create the designs.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "In experiments, an internal GPT‑6 model matched or outperformed specialized models on many design tasks, and researchers could steer designs by prompting where a protein should attach and what shape it should take.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Lab tests with Onava showed that proteins derived from GPT‑6.2 designs bound to five different targets, and redesigned antibodies retained their binding ability, indicating functional relevance.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The preprint titled “GPT‑6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models” documents these findings and emphasizes that the model does not need additional training on protein data to perform the tasks.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Proteins are chains of amino acids that fold into three‑dimensional shapes, enabling them to perform essential biological functions such as catalyzing reactions, transporting oxygen, and defending against disease.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Designing new proteins traditionally requires specialized models that generate structures and sequences, but these tools need expert handling and cannot easily accept new constraints.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "A general‑purpose model like GPT‑6 that can reason across scientific domains simplifies the workflow, potentially lowering the expertise barrier for protein engineering.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "OpenAI’s GPT‑6 designs proteins without lab tools.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "GPT‑6 generated protein shapes and sequences just by reasoning and code.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Designs bound to five targets in lab tests, matching specialized models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "This could let engineers create therapies without deep expertise.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "You could start prototyping bio‑tools with just prompts.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will AI replace biotech engineers?",
+      "sources": [
+        "S6"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "OpenAI’s GPT‑6 designs proteins without tools.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says GPT‑6 uses reasoning and code (tools) and only omits specialized biology models; claim says designs proteins without tools, which is inaccurate."
+      ]
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "GPT‑6 designs new proteins using only reasoning and code, no specialized models.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "OpenAI notes this could let scientists design proteins without expert tools, simplifying work.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source contrasts expertise needs but does not explicitly state that scientists can design proteins without expert tools; claim overstates the source."
+      ]
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "In tests, GPT‑6 matched or beat specialized models and could be steered by prompts.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Gpt‑6 models design proteins without specialized tools",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Amazon reported that AI agents running on the open‑source Cairn framework discovered and exploited a zero‑day vulnerability on an East Asian university server with only a simple instruction to obtain shell access, and no further human oversight was required.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The attackers supplied prompts in simplified Chinese and set the model to Chinese Standard Time, then gave the agents a list of IP addresses and the goal of gaining root access.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The operation resulted in full control of the target system after the agents identified the flaw in a medical‑imaging AI application.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Cairn is a model‑agnostic problem‑solving engine that coordinates multiple agents in worker containers, allowing each to run concurrently on back‑ends such as Claude Code, Codex, Pi, GLM 5.2, DeepSeek V4 Flash and DeepSeek V4 Pro.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "In a separate campaign observed by Palo Alto Networks, the same framework enabled 25 autonomous operations against at least 19 organizations, successfully breaching at least 10 of them.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The breaches involved accessing dozens of valid credentials, mass‑exposing over one million personal records at one organization, and creating persistent administrator accounts in production systems.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Cairn was originally built for defensive penetration testing, letting users define a goal and optional hints while a dispatcher manages tasks and maintains a shared graph of facts.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Its open‑source nature and model‑agnostic design mean it can be repurposed for offensive use without major modifications, as demonstrated by the recent attacks on semiconductor, defense and civil‑society targets.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms offensive use and target sectors but does not state the repurposing occurs \"without major modifications\"."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "This illustrates how tools intended for security can be turned against defenders when adversaries adopt them quickly.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Amazon says AI agents hijacked a university server.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "AI agents using open‑source Cairn found a zero‑day on an East Asian university server.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "They gained root shell access with only Chinese prompts and no human oversight.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The breach exposed over one million personal records and created admin accounts elsewhere.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Watch AI tools you trust— they could be turned against you.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should open‑source security tools be restricted?",
+      "sources": [
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Amazon: AI agents stole university server.",
+      "sources": [
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Amazon: AI agents stole university server.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "the hook attributes this claim to someone; the cover states it as fact"
+      ]
+    },
+    {
+      "where": "card[4] duo line 1",
+      "text": "AI agents on open‑source Cairn hacked a university server without human help.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 3",
+      "text": "The same tool let attackers breach at least ten organizations, stealing millions of records.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] duo line 5",
+      "text": "Amazon reported the agents used simple Chinese prompts to gain root access.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes Chinese prompts but does not attribute this report to Amazon; the claim adds Amazon as the reporter, which is not supported by the source."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Hackers use AI agents to exploit zero‑day vulnerability",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The drop below IPO level signals weaker investor confidence in AI firms, which could make it harder for emerging AI startups to secure favorable public offerings and affect broader market sentiment",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Walmart’s integration of Meta’s Muse lets shoppers complete purchases via an AI assistant, potentially reshaping e‑commerce habits and increasing competition with retailers that limit third‑party AI agents",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "The use of open‑source AI agents to autonomously discover and exploit a zero‑day vulnerability shows how security tools can be repurposed for attacks, raising urgent risks for organizations’ data and infrastructure",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "Anthropic’s stock fell to $76, under its $83 IPO price, while Walmart launched Meta’s Muse shopping assistant for Black Friday, Amazon announced a $7.5 billion purchase of Decart to boost Trainium chips, OpenAI demonstrated GPT‑6 protein design, and researchers reported AI agents exploiting a zero‑day vulnerability.",
+      "sources": [
+        "S1",
+        "S2",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Anthropic’s stock fell below its IPO price of $83, trading as low as $76 a share by midday Tuesday | Walmart ... teaming up with Meta to let customers shop its Black Friday deals through Muse | Amazon\""
+      ]
+    },
+    {
+      "where": "repair card[2] hook",
+      "text": "Amazon buys Decart for $7.5 billion to boost Trainium.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Amazon announced acquisition of Decart and its team for $7.5 billion.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Decart’s Optimization Stack lets AI models run efficiently on non‑Nvidia silicon, valued at several billion dollars.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "The move lets AWS extract more performance from Trainium chips for customers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions extracting more performance but does not specify it is for customers."
+      ]
+    },
+    {
+      "where": "repair card[2] take",
+      "text": "Watch AWS push its own chips harder, could affect your AI workloads.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] ask",
+      "text": "Will Amazon’s chip push change your AI tools?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] cover",
+      "text": "Amazon adds Decart to AWS.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 13,
+  "cards_repaired": 1,
+  "unused": 9,
+  "date": "2026-11-25",
+  "slug": "2026-11-25-anthropic-shares-slip-below-ipo-price-as",
+  "model": "groq:openai/gpt-oss-120b"
+}
