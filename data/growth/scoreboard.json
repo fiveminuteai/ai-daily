@@ -1,8 +1,8 @@
 {
- "date": "2026-11-24",
+ "date": "2026-11-25",
  "window": [
-  "2026-11-18",
-  "2026-11-24"
+  "2026-11-19",
+  "2026-11-25"
  ],
  "this_week": {
   "reels": 0,
@@ -13,7 +13,7 @@
   "sends_per_1k": null,
   "saves_per_1k": null,
   "comments": 0,
-  "follows_per_week": 2
+  "follows_per_week": 1
  },
  "last_week": {
   "reels": 0,
@@ -57,7 +57,7 @@
   },
   {
    "metric": "follows_per_week",
-   "value": 2,
+   "value": 1,
    "target": "at least 15",
    "what": "new followers a week",
    "met": false
