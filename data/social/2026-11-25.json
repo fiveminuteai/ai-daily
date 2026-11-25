@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Anthropic shares slip below IPO price as AI market jitters rise\n\n• Anthropic's shares dropped to $76, below its $83 IPO price, signaling market caution for AI stocks.\n• Walmart lets shoppers use Meta’s Muse AI to browse and buy Black Friday deals without visiting the website.\n• Amazon pays $7.5 billion for Decart to boost Trainium chip performance on non-Nvidia hardware.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-25T05:38:41+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/instagram.png"
    ],
-   "scheduled_at": "2026-11-25T05:30:00+00:00"
+   "scheduled_at": "2026-11-25T05:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-25-x",
@@ -59,14 +61,14 @@
    "text": "OpenAI’s GPT-6 designs proteins without lab tools.\n\n• GPT-6 generated protein shapes and sequences just by reasoning and code.\n• Designs bound to five targets in lab tests, matching specialized models.\n• This could let engineers create therapies without deep expertise.\n\nDo this: You could start prototyping bio-tools with just prompts.\n\nSave this so you can find it later.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-25T03:38:44+00:00",
+   "decided_at": "2026-11-25T05:34:40+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/01.mp4"
    ],
    "scheduled_at": "2026-11-25T03:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-25-reel-2",
