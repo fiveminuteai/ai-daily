@@ -1,185 +1,9 @@
 {
  "date": "2026-11-25",
- "collected_at": "2026-11-25T02:09:34+00:00",
+ "collected_at": "2026-11-25T18:00:37+00:00",
  "website": {
-  "status": "ok",
-  "visitors_28d": 249,
-  "visitors_day": 0,
-  "daily": [
-   {
-    "day": "2026-10-29",
-    "visitors": 33
-   },
-   {
-    "day": "2026-10-30",
-    "visitors": 25
-   },
-   {
-    "day": "2026-10-31",
-    "visitors": 18
-   },
-   {
-    "day": "2026-11-01",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-02",
-    "visitors": 15
-   },
-   {
-    "day": "2026-11-03",
-    "visitors": 12
-   },
-   {
-    "day": "2026-11-04",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-05",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-06",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-07",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-08",
-    "visitors": 10
-   },
-   {
-    "day": "2026-11-09",
-    "visitors": 7
-   },
-   {
-    "day": "2026-11-10",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-11",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-12",
-    "visitors": 14
-   },
-   {
-    "day": "2026-11-13",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-14",
-    "visitors": 2
-   },
-   {
-    "day": "2026-11-15",
-    "visitors": 8
-   },
-   {
-    "day": "2026-11-16",
-    "visitors": 5
-   },
-   {
-    "day": "2026-11-17",
-    "visitors": 1
-   },
-   {
-    "day": "2026-11-18",
-    "visitors": 11
-   },
-   {
-    "day": "2026-11-19",
-    "visitors": 3
-   },
-   {
-    "day": "2026-11-20",
-    "visitors": 6
-   },
-   {
-    "day": "2026-11-21",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-22",
-    "visitors": 4
-   },
-   {
-    "day": "2026-11-23",
-    "visitors": 0
-   },
-   {
-    "day": "2026-11-24",
-    "visitors": 9
-   },
-   {
-    "day": "2026-11-25",
-    "visitors": 0
-   },
-   {
-    "day": "2026-11-26",
-    "visitors": 0
-   }
-  ],
-  "top_paths": [
-   {
-    "path": "/",
-    "title": "Five Minute AI",
-    "visitors": 11
-   },
-   {
-    "path": "/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
-    "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-20-anthropic-s-81-billion-ipo-spotlights-novel",
-    "title": "Anthropic’s $81 billion IPO spotlights novel governance model · Five Minute AI",
-    "visitors": 3
-   },
-   {
-    "path": "/posts/2026-11-24-spacex-faces-lawsuits-over-xai-s-grok",
-    "title": "SpaceX faces lawsuits over xAI's Grok generating sexualized images · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
-    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
-    "visitors": 2
-   },
-   {
-    "path": "/tags",
-    "title": "Topics · Five Minute AI",
-    "visitors": 1
-   }
-  ],
-  "top_refs": [
-   {
-    "name": "fiveminuteai.net",
-    "visitors": 15
-   },
-   {
-    "name": "(direct)",
-    "visitors": 14
-   },
-   {
-    "name": "Google",
-    "visitors": 1
-   },
-   {
-    "name": "search.daum.net/search",
-    "visitors": 1
-   }
-  ],
-  "reads_7d": {
-   "post_views": 10,
-   "read_30s": 4,
-   "read_half": 4,
-   "read_end": 1,
-   "read_end_rate": 0.1
-  }
+  "status": "error",
+  "error": "HTTP 404"
  },
  "instagram": {
   "status": "error",
@@ -188,7 +12,7 @@
  "youtube": {
   "status": "ok",
   "subscribers": 5,
-  "channel_views": 393,
+  "channel_views": 424,
   "shorts": {
    "YBYXTpMWmis": {
     "title": "OpenAI proposes AI speed limit",
@@ -235,7 +59,7 @@
    "-Sd99PhBXEk": {
     "title": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is…",
     "published": "2026-11-21T03:31:49Z",
-    "viewCount": 158,
+    "viewCount": 170,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -333,7 +157,7 @@
    "IcnrjuwA7Co": {
     "title": "Interim CEO Colette Kress presented the numbers without mentioning former CEO Jensen Huang or his…",
     "published": "2026-11-18T10:31:43Z",
-    "viewCount": 2,
+    "viewCount": 3,
     "likeCount": 0,
     "commentCount": 0
    },
