@@ -58,13 +58,15 @@
    "cover": null,
    "text": "OpenAI’s GPT-6 designs proteins without lab tools.\n\n• GPT-6 generated protein shapes and sequences just by reasoning and code.\n• Designs bound to five targets in lab tests, matching specialized models.\n• This could let engineers create therapies without deep expertise.\n\nDo this: You could start prototyping bio-tools with just prompts.\n\nSave this so you can find it later.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-25T03:38:44+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-25/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-25T03:30:00+00:00"
+   "scheduled_at": "2026-11-25T03:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-25-reel-2",
