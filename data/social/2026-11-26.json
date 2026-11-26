@@ -58,13 +58,15 @@
    "cover": "Nvidia probe over China chip smuggling[S1].",
    "text": "Nvidia under probe as chips may reach China.\n\n• Nvidia is investigated for alleged GPU smuggling to China via Megaspeed.\n• Investigators say billions in sales may have been diverted, raising huge legal risk.\n\nOur read: Watch your AI tool choices; supply issues may impact availability.\n\nSend this to a friend in tech.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #nvidia",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-26T03:38:43+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-26/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-26T03:30:00+00:00"
+   "scheduled_at": "2026-11-26T03:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-26-reel-2",
