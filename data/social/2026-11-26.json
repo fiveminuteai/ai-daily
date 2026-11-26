@@ -126,13 +126,15 @@
    "cover": "Google powers Warriors with AI Partner[S8].",
    "text": "Google equips Warriors with AI assistant Partner.\n\n• Google announced Gemini as the Official AI Assistant Partner for the Golden State Warriors.\n• The rollout adds fan-facing features at Chase Center and custom internal business tools.\n• The team will build custom AI agents to streamline basketball operations and workflows.\n\nOur read: Your game-day experience and the team's behind-the-scenes efficiency may both improve.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-26T13:38:50+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-26/reels/04.mp4"
    ],
-   "scheduled_at": "2026-11-26T13:30:00+00:00"
+   "scheduled_at": "2026-11-26T13:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   }
  ]
 }
