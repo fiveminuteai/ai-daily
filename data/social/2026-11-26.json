@@ -14,14 +14,14 @@
    "text": "Nvidia under multiple investigations over alleged GPU smuggling to China\n\n• Nvidia is investigated for possible GPU smuggling to China via Megaspeed, with focus on CEO Jensen Huang’s knowledge and relationships.\n• Character.ai filed for Chapter 11 bankruptcy in October 2026 and planned to auction its user data, including private chats, to the highest bidder.\n• Amazon and Meta are negotiating to lift the block on Muse’s ability to shop on Amazon, focusing on search and ad impacts.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-26T05:38:39+00:00",
+   "decided_at": "2026-11-26T07:34:35+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-26/instagram.png"
    ],
    "scheduled_at": "2026-11-26T05:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-26-x",
@@ -82,13 +82,15 @@
    "cover": null,
    "text": "Character.ai faces a legal block on its data auction.\n\n• The company filed Chapter 11 and planned to auction private chats.\n• 42 state attorneys general say the dataset includes over 21 million accounts, 2.1 million minors.\n• The AGs aim to stop the sale, warning it could violate privacy laws.\n\nOur read: Watch for how this could affect your chatbot data privacy.\n\nSend this to someone who follows tech news.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-26T07:38:36+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-26/reels/02.mp4"
    ],
-   "scheduled_at": "2026-11-26T07:30:00+00:00"
+   "scheduled_at": "2026-11-26T07:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-26-reel-3",
