@@ -1,0 +1,435 @@
+{
+ "date": "2026-11-26",
+ "started_at": "2026-11-26T00:15:35+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 4.6,
+   "items": 648,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 12
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 60
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 2
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 6
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 4
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 4
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 4
+    },
+    "github": {
+     "status": "ok",
+     "items": 12
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 2.1,
+   "stories": 228,
+   "editor": true,
+   "top": [
+    {
+     "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+     "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+     "score": 8.0,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Character.AI’s plan to auction off users’ private chats challenged by state AGs",
+     "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+     "score": 7.25,
+     "interest": 8.0,
+     "category": "products",
+     "player": "challenger",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+     "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+     "score": 6.99,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+     "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+     "score": 6.86,
+     "interest": 8.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space",
+     "url": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers",
+     "score": 6.65,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": false
+    },
+    {
+     "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+     "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+     "score": 6.2,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+     "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+     "score": 5.9,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "How Gemini is changing the game for Golden State's organization and fans.",
+     "url": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
+     "score": 5.29,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon drone crashes on garage after delivering shampoo, draws FAA probe",
+     "url": "https://arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage/",
+     "score": 5.25,
+     "interest": 6.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+     "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+     "score": 5.16,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "AI may soon change what it means to be a theoretical physicist",
+     "url": "https://arstechnica.com/ai/2026/11/ai-can-do-the-calculations-physicists-are-figuring-out-what-comes-next/",
+     "score": 5.05,
+     "interest": 7.0,
+     "category": "impact",
+     "player": "",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Google’s patent for custom AI video feeds paints a bleak picture of entertainment’s future",
+     "url": "https://www.theverge.com/entertainment/1042221/google-my-channel-ai-video-patent",
+     "score": 5.04,
+     "interest": 5.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "The Verge"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+     "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+     "score": 8.0,
+     "interest": 7.0,
+     "category": "policy",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica",
+      "TechCrunch",
+      "The Verge",
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Character.AI’s plan to auction off users’ private chats challenged by state AGs",
+     "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+     "score": 7.25,
+     "interest": 8.0,
+     "category": "products",
+     "player": "challenger",
+     "outlets": [
+      "Engadget",
+      "TechCrunch"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+     "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+     "score": 6.99,
+     "interest": 7.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "TechCrunch",
+      "The Verge"
+     ],
+     "picked": true
+    },
+    {
+     "title": "How Gemini is changing the game for Golden State's organization and fans.",
+     "url": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
+     "score": 5.29,
+     "interest": 6.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "Google AI blog"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Amazon drone crashes on garage after delivering shampoo, draws FAA probe",
+     "url": "https://arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage/",
+     "score": 5.25,
+     "interest": 6.0,
+     "category": "impact",
+     "player": "giant",
+     "outlets": [
+      "Ars Technica"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.0,
+   "articles": 14,
+   "with_text": 14
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 7.2,
+   "word_count": 947,
+   "sources": 9
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 177.9,
+    "reel_desk": 1052.0,
+    "layer1": 0.1,
+    "layer2": 779.4,
+    "gate": 149.9
+   },
+   "layer1": {
+    "checked": 109,
+    "ok": 84,
+    "repaired": 20,
+    "dropped": 5
+   },
+   "layer2": {
+    "checked": 92,
+    "ok": 54,
+    "repaired": 14,
+    "dropped": 24
+   },
+   "unused": 17,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "Nvidia faces scrutiny over Megaspeed chip exports",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Nvidia probe threatens AI hardware supply, big corporate risk",
+     "hook": "Nvidia under probe as chips may reach China.",
+     "chosen": true
+    },
+    {
+     "story": "Character.ai faces legal block on data auction",
+     "reel": 7,
+     "hook": "Character.ai faces a legal block on its data auction.",
+     "chosen": true
+    },
+    {
+     "story": "Amazon and Meta discuss ending Muse shopping block",
+     "reel": 6,
+     "rubric": 6,
+     "chief": 6.0,
+     "why": "Meta‑Amazon AI shopping tie‑up interesting but less urgent",
+     "hook": "Amazon may let Meta’s Muse buy on its site.",
+     "chosen": true
+    },
+    {
+     "story": "Google Gemini powers Golden State Warriors",
+     "reel": 6,
+     "hook": "Google equips Warriors with AI assistant Partner.",
+     "chosen": false
+    },
+    {
+     "story": "Amazon drone crash damages garage in Michigan",
+     "reel": 6,
+     "rubric": 7,
+     "chief": 4.0,
+     "why": "Drone crash is a safety story, limited broader impact",
+     "hook": "Amazon drone crashes onto garage, sparking FAA probe.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-26-nvidia-under-multiple-investigations-over-alleged-gpu",
+ "finished_at": "2026-11-26T00:51:49+00:00",
+ "seconds": 2174.4
+}

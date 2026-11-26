@@ -1,0 +1,1230 @@
+{
+  "checked": 92,
+  "ok": 54,
+  "repaired": 14,
+  "dropped": 24,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia under multiple investigations over alleged GPU smuggling to China",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "Character.AI promised consumers that their data would not be sold.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Nvidia faces probes by California, Congress and the SEC into whether it knew its GPUs sold to Megaspeed were being re‑exported to China, raising legal risk for the chipmaker",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Nvidia is investigated for possible GPU smuggling to China via Megaspeed, with focus on CEO Jensen Huang’s knowledge and relationships.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "42 state AGs seek to block Character.ai's auction of 21 million users' chats, including minors' data, scheduled for Dec 1, 2026.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Dec' not in cited source"
+      ]
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Amazon and Meta are negotiating to lift the block on Muse’s ability to shop on Amazon, focusing on search and ad impacts.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Gemini becomes the official AI assistant for the Warriors, adding fan interaction and internal AI agents.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "Amazon drone clipped a fiber line, crashed onto a garage roof, and triggered an FAA probe.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia is under multiple investigations concerning alleged chip smuggling to China through the Singapore‑based data centre operator Megaspeed.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The U.S. Attorney General Todd Blanche said Nvidia is not the target, but California’s attorney general, Congress and the SEC are pursuing the matter.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The inquiries focus on what Nvidia knew about the end‑use of its GPUs and whether CEO Jensen Huang’s relationship with Megaspeed executive Alice Huang raised doubts about the company’s assurances.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The U.S. government opened its probe of Megaspeed in 2024, requesting details on Nvidia’s billions of dollars in sales to the firm.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Investigators suspect chips sold for Malaysian data‑centre projects may have been diverted to China, a violation of export rules aimed at limiting China’s frontier AI development.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Malaysian' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Singapore began its own investigation in 2025, while Megaspeed denies wrongdoing.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Export‑control attorneys note that if Nvidia personnel, from staff to the CEO, had reason to doubt Megaspeed’s statements, the legal risk for Nvidia would increase significantly.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Export‑control rules require chip makers to verify that buyers will not re‑export advanced GPUs to prohibited destinations.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions need for assurances but does not state a rule requiring chip makers to verify buyers will not re‑export GPUs."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Smuggling and resale of such chips are common challenges for companies like Nvidia, whose products are in high demand for AI workloads.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Compliance relies on assurances from customers, but any indication that those assurances may be unreliable can trigger regulatory scrutiny and potential liability.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia under probe as chips may reach China.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Nvidia is investigated for alleged GPU smuggling to China via Megaspeed.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Investigators say billions in sales may have been diverted, raising huge legal risk.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The scrutiny could affect Nvidia’s AI hardware supply and its executives.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source evidence links the scrutiny to impacts on AI hardware supply or executives."
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch your AI tool choices; supply issues may impact availability.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Should Nvidia be held accountable?",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia probe over China chip smuggling.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Nvidia is investigated for chips possibly smuggled to China via Megaspeed.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "U.S. Attorney General Todd Blanche says Nvidia isn’t the target, but others investigate.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "Export rules say Nvidia must verify buyers won’t re‑export advanced GPUs.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions need for assurances but does not state export rules require Nvidia to verify buyers won’t re‑export GPUs."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia faces scrutiny over Megaspeed chip exports",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Character.ai filed for Chapter 11 bankruptcy in October 2026 and planned to auction its user data, including private chats, to the highest bidder.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "A coalition of 42 state attorneys general intervened to stop the sale, arguing it would expose sensitive information without protection.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The auction was scheduled for December 1, 2026, with Smirks and Pangs Acquisition LLC as the only disclosed bidder.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source gives the date (December 1) and bidder but does not specify the year 2026; the claim adds a year not present in the evidence."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The AGs say the dataset contains chat histories from more than 21 million U.S. accounts, of which over 2.1 million belong to minors, plus IP addresses and other personal data.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The sale would allow the buyer to resell the data without honoring Character.ai's privacy policy, according to the attorneys general.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "California Attorney General Rob Bonta called the plan illegal under federal and California law and warned that upcoming chatbot safety legislation in several states could be violated if the auction proceeds.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Bankruptcy courts can order asset sales, but consumer data is typically protected by privacy laws.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Recent state legislation, effective January 1, 2027, aims to regulate chatbot safety and data handling, adding legal risk to the proposed auction.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The AGs' intervention reflects broader scrutiny of AI companies' data practices after multiple investigations into Character.ai's safety record.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Character.ai plans to sell private chats, risking millions.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention a plan to auction chats but do not state the sale would risk \"millions\"."
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "The company filed Chapter 11 and scheduled a data auction for Dec 1.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Dec' not in cited source"
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "42 state AGs say the sale would expose 21 million users, including 2.1 million minors.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "If the auction proceeds, buyers could resell data without privacy protections, affecting anyone’s info.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Your personal chat history could end up sold to the highest bidder.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Should AI firms be allowed to sell our data?",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Character.ai’s data auction threatens 21 million users..",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Character.ai planned to auction private chats from over 21 million users.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "The sale could expose data of over 2.1 million minors.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "California AG Rob Bonta called the plan illegal under federal law.",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Character.ai faces legal block on data auction",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Amazon and Meta are in talks to allow Meta’s AI shopping assistant Muse to purchase items on Amazon’s marketplace, according to reports from Fortune cited by TechCrunch and The Verge.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The discussions mark a reversal from a block imposed two months earlier that prevented Muse users from checking out on Amazon.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Executives from both companies are said to be negotiating how search results and advertising would be handled if the block is lifted.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions negotiation of search and ads but does not state that executives from both companies are the ones negotiating."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The block was introduced after Muse users received error messages when trying to buy on Amazon, prompting concerns that third‑party agents could divert sales and ad impressions away from Amazon’s own platform.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Amazon CEO Andy Jassy has previously argued that few customers complete purchases through external agents, a point that fuels Amazon’s caution about potential revenue loss.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Negotiations focus on product recommendation criteria, the presentation of search results, and the impact on Amazon’s advertising business, which relies on human‑viewed ads across its site.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Both CEOs would need to approve any agreement, and neither company has commented publicly on the talks.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Muse is Meta’s AI assistant that can browse online stores and suggest products, a capability that retailers have begun to test with mixed reactions.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source only says Muse can connect to Amazon; it does not mention browsing online stores, suggesting products, or retailers testing with mixed reactions."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "Amazon’s marketplace generates revenue from both product sales and advertising, so allowing an external AI to complete purchases could affect the balance of those streams.",
+      "sources": [
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source discusses advertising revenue but does not state that Amazon’s marketplace earns revenue from product sales, so the claim about affecting the balance of those streams is unsupported."
+      ]
+    },
+    {
+      "where": "sections[2]",
+      "text": "The current talks reflect a broader industry debate about how AI agents should interact with e‑commerce platforms and whether they can coexist without harming existing business models.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions Amazon’s concern but does not describe a broader industry debate about AI agents coexisting with e‑commerce platforms."
+      ]
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Amazon may let Meta’s Muse buy on its site.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Amazon and Meta are negotiating to lift the Muse purchase block.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The block, added after error messages, risked losing ad revenue.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "If approved, shoppers could checkout via Muse, changing how ads work.",
+      "sources": [
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch if Muse can shop Amazon, it may reshape your buying flow.",
+      "sources": [
+        "S6"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will AI assistants change how you shop?",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Amazon may lift Muse shopping block.",
+      "sources": [
+        "S6"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Amazon and Meta may lift block on Meta’s Muse AI shopper.",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "If lifted, Muse could buy items on Amazon, changing how shoppers shop.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms a potential connection that would enable purchases, but does not state that this would change how shoppers shop; the claim adds an effect not evidenced."
+      ]
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "Amazon CEO Andy Jassy warned external agents might cut Amazon’s ad sales.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source notes concern about advertising impact, not a specific warning from Andy Jassy that external agents might cut ad sales."
+      ]
+    },
+    {
+      "where": "section title",
+      "text": "Amazon and Meta discuss ending Muse shopping block",
+      "sources": [
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Google announced that Gemini will serve as the Official AI Assistant Partner for the Golden State Warriors, the 2026 WNBA Champion Valkyries, and Chase Center.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The partnership expands an existing relationship that began in 2019.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The rollout covers fan‑facing features at the arena and internal business tools for the franchise.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Gemini will appear on interactive videoboards inside Chase Center, letting fans engage with real‑time AI‑driven content during games.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source mentions interactive videoboard features but does not specify real‑time AI‑driven content during games"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Digital channels will also use Gemini to provide personalized updates for viewers at home.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: source notes digital channel use for fans at home but does not mention personalized updates"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Behind the scenes, the Warriors will build custom AI agents with Gemini to streamline basketball operations and business workflows.",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The collaboration marks the first time a generative AI model is embedded across both fan experience and enterprise functions for a sports franchise.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions integration but does not claim it is the first such instance for a sports franchise."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Generative AI models like Gemini can understand natural language and generate text, images, or code on demand.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source provides no information about Gemini's ability to understand language or generate text, images, or code."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Sports teams have begun experimenting with AI for ticketing, marketing, and analytics, but few have integrated a single model into both public and internal systems.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Sports' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "By partnering with Google, Golden State leverages a mature LLM to enhance engagement while improving operational efficiency.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Google powers Warriors fans with AI, boosting game experience instantly.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions a more interactive experience but does not claim an instant boost to the game experience."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Gemini becomes the official AI assistant for the Warriors at Chase Center.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "It powers live videoboards and custom internal tools, the first franchise to embed a single model everywhere.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions videoboard features and custom tools but does not claim the franchise is the first to embed a single model everywhere."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Fans get real‑time content while the team streamlines operations, changing how basketball runs.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Expect smarter game interactions and faster team decisions, so your next sports app could feel AI‑driven.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will AI change how you watch sports?",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Google AI fuels Warriors experience.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Google's Gemini is the first AI used on‑court and behind scenes.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions Gemini behind the scenes but does not state it is the first AI used on‑court or behind scenes."
+      ]
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "Fans will see Gemini on Chase Center videoboards, getting real‑time AI content during games.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "The Warriors will build custom AI agents with Gemini to streamline operations and business workflows.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Google Gemini powers Golden State Warriors",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "On November 20, a Prime Air MK30 delivery drone clipped a fiber‑optic line and fell onto a garage roof in Huntington Woods, Michigan, prompting an FAA investigation.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: The source confirms the date, location and FAA probe but does not identify the drone as a Prime Air MK30, so the claim is not fully supported."
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "The incident began when Jim Brennan and his wife received a notification that their shampoo order would arrive by drone within seven minutes.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "After the drone dropped the package, it lost a propeller and became entangled in power lines.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Amazon’s battery‑powered MK30 drones can carry packages up to five pounds and include sense‑and‑avoid technology, yet this drone failed to detect the thin fiber‑optic cable.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The FAA’s preliminary notice described the event as a UAS striking a fiber cable, a residential garage, and power lines during takeoff.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Amazon’s team arrived within ten minutes, coordinated with Detroit Edison, and removed the drone by early evening, offering a $100 gift card and repair assistance.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Prime Air has been expanding aerial deliveries across the United States, but several incidents have drawn regulatory scrutiny.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Earlier crashes in October 2025 involved drones hitting a construction crane in Arizona and an Internet cable, adding to the handful of investigations by the FAA and NTSB.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'NTSB' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "These events highlight challenges in navigating low‑altitude obstacles despite onboard avoidance systems.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Amazon drone crashes onto garage, sparking FAA probe.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "A Prime Air MK30 drone hit a fiber‑optic line and fell on a Michigan garage.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "The drone delivered shampoo in seven minutes before losing a propeller.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Amazon is paying a $100 gift card and fixing the roof while the FAA investigates.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "If you rely on drone deliveries, expect possible delays and check for damage claims.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Should drones deliver to homes?",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Amazon drone crashes, FAA probes delivery.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Amazon drone crash damages garage in Michigan",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "If regulators determine Nvidia failed to verify end‑use, the company could face fines, restrictions on sales, and supply‑chain disruptions that would affect businesses relying on its GPUs for AI workloads, while consumers might see higher prices or reduced access to AI services.",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] hook",
+      "text": "Character.ai faces a legal block on its data auction.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "The company filed Chapter 11 and planned to auction private chats.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "42 state attorneys general say the dataset includes over 21 million accounts, 2.1 million minors.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] point",
+      "text": "The AGs aim to stop the sale, warning it could violate privacy laws.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] take",
+      "text": "Watch for how this could affect your chatbot data privacy.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] ask",
+      "text": "Should AI firms be allowed to sell user chats?",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[1] cover",
+      "text": "Character.ai data auction blocked by 42 states.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources say the AGs are attempting to block the sale, not that it has already been blocked."
+      ]
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Google equips Warriors with AI assistant partner.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Google announced Gemini as the Official AI Assistant Partner for the Golden State Warriors.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The rollout adds fan‑facing features at Chase Center and custom internal business tools.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The team will build custom AI agents to streamline basketball operations and workflows.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "Your game‑day experience and the team's behind‑the‑scenes efficiency may both improve.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Will AI make sports more engaging?",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "Google powers Warriors with AI partner.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair layer2",
+      "text": "Fans will see Gemini on Chase Center videoboards, getting real‑time AI content during games.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions interactive videoboard features but does not state that fans will see real‑time AI‑generated content during games."
+      ]
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 19,
+  "cards_repaired": 2,
+  "unused": 17,
+  "date": "2026-11-26",
+  "slug": "2026-11-26-nvidia-under-multiple-investigations-over-alleged-gpu",
+  "model": "groq:openai/gpt-oss-120b"
+}
