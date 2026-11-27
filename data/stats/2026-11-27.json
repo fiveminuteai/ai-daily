@@ -1,6 +1,6 @@
 {
  "date": "2026-11-27",
- "collected_at": "2026-11-27T01:38:17+00:00",
+ "collected_at": "2026-11-27T18:00:38+00:00",
  "website": {
   "status": "ok",
   "visitors_28d": 189,
@@ -188,7 +188,7 @@
  "youtube": {
   "status": "ok",
   "subscribers": 5,
-  "channel_views": 441,
+  "channel_views": 452,
   "shorts": {
    "YBYXTpMWmis": {
     "title": "OpenAI proposes AI speed limit",
@@ -235,7 +235,7 @@
    "-Sd99PhBXEk": {
     "title": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is…",
     "published": "2026-11-21T03:31:49Z",
-    "viewCount": 189,
+    "viewCount": 194,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -494,7 +494,7 @@
    "7TwtOx3fyWA": {
     "title": "How to switch off Google's AI Coach. #Shorts",
     "published": "2026-11-09T17:32:30Z",
-    "viewCount": 32,
+    "viewCount": 34,
     "likeCount": 0,
     "commentCount": 0
    }
