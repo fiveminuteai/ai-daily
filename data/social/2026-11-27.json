@@ -14,14 +14,14 @@
    "text": "Nvidia pauses AI server shipments to Southeast Asia amid export compliance review\n\n• Nvidia halted AI server shipments to four Southeast Asian nations while reviewing export compliance.\n• Kagi Mail provides private, ad-free email with optional AI tools, costing $9-monthly or $25-monthly for full features.\n• SpaceX cleared to deploy up to 1 million AI satellites, with the first launch required by November 2033.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-27T05:38:38+00:00",
+   "decided_at": "2026-11-27T07:34:40+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/instagram.png"
    ],
    "scheduled_at": "2026-11-27T05:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-27-x",
@@ -82,13 +82,15 @@
    "cover": null,
    "text": "GPT-6 Astra solved 49 of 50 private theoretical physics problems, each for under $3 of compute.\n\n• The benchmark was run as AI models improved, culminating in results presented at a September colloquium.\n• The initial test showed the AI model answered the test problem incorrectly but better than expected, prompting a formal benchmark effort.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-27T07:38:40+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/reels/02.mp4"
    ],
-   "scheduled_at": "2026-11-27T07:30:00+00:00"
+   "scheduled_at": "2026-11-27T07:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-27-reel-3",
