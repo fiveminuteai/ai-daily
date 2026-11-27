@@ -1,0 +1,1333 @@
+{
+  "checked": 73,
+  "ok": 45,
+  "repaired": 10,
+  "dropped": 18,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "Nvidia pauses AI server shipments to Southeast Asia amid export compliance review",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "quote",
+      "text": "less than the price of coffee in Paris",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "Nvidia has asked partners including Dell and Super Micro to halt shipments of AI server hardware to Malaysia, Singapore, Thailand and Indonesia while U.S. export controls are reviewed, affecting a route that supplies about 24% of China’s AI compute.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "Nvidia halted AI server shipments to four Southeast Asian nations while reviewing export compliance.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Kagi Mail provides private, ad‑free email with optional AI tools, costing $9‑monthly or $25‑monthly for full features.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "SpaceX cleared to deploy up to 1 million AI satellites, with the first launch required by November 2033.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "Meta refused a joint sandbox test of Muse with the FCA, raising regulator concerns about consumer protection.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "GPT‑6 Astra solved 49 of 50 private theoretical physics problems, each for under $3 of compute.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia has asked its manufacturing partners to pause shipments of AI server hardware to Malaysia, Singapore, Thailand and Indonesia, according to reports on 26 November 2026.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The pause applies to orders from partners such as Dell and Super Micro and is described as an unspecified period while export compliance is reviewed.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The move follows recent U.S. Commerce Department actions to close a loophole that allowed Chinese firms to access Nvidia chips remotely from data centres in those countries.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The pause was communicated to partners after the Financial Times noted that Chinese AI labs had been renting cloud compute in the four countries to bypass U.S. export rules.",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources report the FT note and the pause but do not state that the pause was communicated after the FT note; causality is not evidenced."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "The Institute for Progress estimates that remote data centres in Southeast Asia provide about 24% of China’s AI computing power, highlighting the significance of the supply route.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Nvidia reinstated Jensen Huang as chief executive days before the halt, but the company has not clarified whether the suspension is temporary or permanent.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The affected partners, including Dell and Super Micro, have told clients that Nvidia is not allowing their server orders to be shipped to the region.",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "U.S. export controls aim to prevent advanced AI chips from reaching entities that could enhance China’s military or surveillance capabilities.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source text provides that U.S. export controls aim to prevent chips reaching entities that could boost China’s military or surveillance capabilities."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "Previously, a gap allowed Chinese companies to rent servers with Nvidia GPUs in Southeast Asian data centres, effectively sidestepping direct export bans.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The recent regulatory change seeks to close that gap, prompting Nvidia to enforce stricter compliance through its supply chain.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] hook",
+      "text": "Nvidia halts AI server shipments to Southeast Asia, risking China’s compute boost.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: claim adds risk to China’s compute boost not stated in source"
+      ]
+    },
+    {
+      "where": "card[0] point",
+      "text": "Nvidia asked Dell, Super Micro to stop sending AI servers to Malaysia, Singapore, Thailand, Indonesia.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "Those data centres supply about 24% of China’s AI computing power.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The pause follows new US export rules aimed at blocking chips for China’s military.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"The pause follows new US export rules aimed at blocking chips for China’s military\""
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch your AI tool choices; supply limits may affect pricing and availability.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will this slow AI projects in your company?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "Nvidia pauses AI server shipments to SE Asia.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'SE' not in cited source"
+      ]
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "Nvidia halted AI server shipments to four Southeast Asian nations, reports say.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 3",
+      "text": "Dell and Super Micro told customers Nvidia won't ship servers there, Financial Times reports.",
+      "sources": [
+        "S2",
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "The pause follows U.S. Commerce Department steps to close a loophole Chinese AI labs used.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Nvidia pauses server shipments to Southeast Asia",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Kagi, a Palo Alto software company, introduced Kagi Mail, a Gmail‑like email service in public beta on 25 November 2026.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms company and public beta but does not state the launch date of 25 November 2026."
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "The service emphasizes privacy, ad‑free use, and keyboard shortcuts, and it currently runs only in web browsers.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Native Android and iOS apps are scheduled for the fourth quarter of 2027.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Kagi Mail offers 50 GB of storage, unlimited aliases and domains, and rule‑based filtering using the Sieve language.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'GB' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Optional AI features, off by default, let users chat with an agent to search email history, relabel messages at scale, or create new filtering rules.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Pricing options include a $9‑per‑month or $99‑per‑year plan with a 60‑day trial, while the $25‑per‑month Ultimate plan bundles frontier AI models.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Kagi positions the service as a privacy‑focused alternative to Google’s free Gmail, arguing that Google treats users as the product rather than customers.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company reports just over 75 000 paying subscribers for its search engine, a modest base compared with mainstream search services.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '75' not in cited source",
+        "number '000' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[1]",
+      "text": "Google’s own policy, announced on 24 November 2026, will require AI‑driven tools to access Gmail through MCP servers and currently blocks sending email, highlighting the regulatory environment Kagi operates within.",
+      "sources": [
+        "S4",
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Kagi launches paid email with AI features.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Kagi introduced Kagi Mail, a Gmail‑like service in public beta.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The optional AI lets users chat to search history and relabel messages, priced from $9 per month.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"optional AI features let you chat to search email history, do large‑scale re‑labeling; Kagi Mail costs $9 per month\""
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Privacy‑concerned users can avoid Google’s ad‑driven Gmail and its new sending restrictions.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "Consider switching if you want private, ad‑free email with AI help.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will you pay for private email?",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Kagi launches paid email with AI.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Kagi launches paid email service with optional AI features",
+      "sources": [
+        "S3",
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The Federal Communications Commission gave conditional approval for SpaceX to launch up to 1 million AI chip‑equipped satellites as part of its Starmind initiative.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The agency requires the first satellite to be in orbit by November 2033 and the full constellation by 2040.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The approval follows objections from Amazon, Viasat and the American Astronomical Society, which raised concerns about debris and interference.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "SpaceX describes Starmind as a solar‑powered orbital data center that will transmit data to Earth via high‑speed lasers linked to Starlink.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The company plans to manufacture the satellite chips at a new Terafab facility.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Critics, including astrophysicist Adam Becker, argue the concept is unrealistic because cooling and energy needs may still be significant.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The FCC dismissed some concerns, stating they fall outside its regulatory authority.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Putting AI compute in space aims to reduce the energy and water consumption of ground data centers.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Several firms, such as Google’s Project Suncatcher and Blue Origin’s planned launch in 2029, are exploring similar concepts.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The FCC’s sign‑off marks the first regulatory green light for a full AI satellite constellation, though opponents warn of orbital congestion and environmental risks.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "SpaceX gets FCC OK for 1 million AI satellites, shaking data centers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms FCC approval for 1 million satellites but does not state it will \"shake\" data centers; that impact claim is not in the source."
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "FCC gave conditional approval for SpaceX to launch up to 1 million AI chip‑equipped satellites.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "The first satellite must be in orbit by November 2033, with the full constellation by 2040.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Tech firms and cloud users could see cheaper compute as space‑based data centers compete.",
+      "sources": [
+        "S6"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions cheaper compute for tech firms or cloud users; the claim is not supported by the provided texts."
+      ]
+    },
+    {
+      "where": "card[2] take",
+      "text": "Watch for lower cloud costs as SpaceX’s orbital data centers enter service.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Will space AI make your cloud cheaper?",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "SpaceX cleared for 1 million AI satellites.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "SpaceX won FCC approval to launch up to one million AI satellites.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 3",
+      "text": "SpaceX says putting AI compute in space reduces energy and water use.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Sources mention solar power and efficiency but do not contain a statement that SpaceX says putting AI compute in space reduces energy and water use."
+      ]
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "Amazon, Viasat and the American Astronomical Society objected over debris and interference.",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "SpaceX receives FCC approval for 1 million AI satellites",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta declined the UK Financial Conduct Authority's request to jointly test its Muse assistant in the regulator's sandbox last week, according to FCA head of innovation Colin Payne.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The FCA wants to see how the tool interacts with consumers and how payments are handled by agents such as Muse.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Payne said the regulator hopes to understand potential risks for users with low AI literacy.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions concern, not that the regulator hopes to understand risks."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Payne explained the FCA is working with other UK watchdogs and has been observing AI shopping assistants from firms like Amazon.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "He noted that retailers including Sainsbury’s, Marks & Spencer, Ocado, Debenhams Group and Currys have been cooperating with Meta to enable Muse access to their sites.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The FCA is concerned that autonomous agents could prompt unintended actions, especially if consumers do not understand how the AI works, and wants safeguards to protect consumer interests.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Meta spokesperson Matthew Pollard said the company has engaged constructively with regulators and will continue to do so.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Muse, marketed as a personal assistant, launched in September and already has over 10 million users in North America.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "British regulators expect similar uptake in the UK because many users already use Meta platforms like Instagram, Facebook and WhatsApp.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The Information Commissioner’s Office emphasized the need for users to control how Muse uses personal data, adding to the regulatory focus on AI transparency.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Information' not in cited source",
+        "name 'Commissioner' not in cited source",
+        "name 'Office' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Meta refused to test Muse, risking payments for users.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source mentions refusal to test but does not state it risks payments for users."
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Meta said no to the FCA’s joint sandbox test of its Muse assistant.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The FCA warns autonomous agents could trigger unintended payments for consumers with low AI literacy.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "Regulators may impose new safeguards, affecting anyone using Muse in the UK.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "Watch for new safety prompts before relying on AI shopping assistants.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Should regulators force AI tools to get user consent?",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Meta refused FCA Muse test, raising payment risks.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not mention that Meta's refusal raises payment risks."
+      ]
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Meta refused FCA's request to test Muse in sandbox, Payne says.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 3",
+      "text": "The FCA wants to see Muse on shoppers and payments, fearing risks for low‑AI‑literacy users.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Sainsbury’s, Marks & Spencer and Currys work with Meta to let Muse shop.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "UK regulator seeks joint test of Meta Muse",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Professor Suvrat Raju at the International Centre for Theoretical Sciences in Bengaluru asked a frontier AI model to solve a physics problem he had already solved but not published, using it as a test of AI capability in theoretical physics.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "He then organized a private benchmark, TheoPhysEval, by collecting unpublished problems from other physicists that typically take a day for top researchers to solve.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The benchmark was run as AI models improved, culminating in results presented at a September colloquium.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The initial test showed the AI model answered the test problem incorrectly but better than expected, prompting a formal benchmark effort.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "When the full set of 50 problems was evaluated, GPT‑6 Astra solved nearly 90 % of them, correctly answering 49 of 50, and even identified errors in the human‑written solutions for the remaining cases.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Each correct answer required less than $3 of compute, comparable to the cost of a coffee in Paris, and was generated after a single human prompt.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Large language models are trained on internet text, so they may have memorized solutions to publicly discussed problems, making unseen, private problems a stricter test of genuine reasoning ability.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "TheoPhysEval was designed to avoid this by using problems that had never appeared online, ensuring the AI had to reason rather than recall.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The rapid saturation of the benchmark highlights how quickly AI can reach high performance on specialized scientific tasks.",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[4] hook",
+      "text": "GPT‑6 Astra solves 90% of tough physics problems, threatening researchers' roles.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source reports high performance but does not state that this threatens researchers' roles."
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "A private benchmark used 50 unpublished physics puzzles to test AI.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "GPT‑6 Astra answered 49 correctly, beating human experts and spotting errors.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "Physicists may need to rethink research methods as AI handles complex theory.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "If you rely on deep expertise, expect AI to automate theory work soon.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will AI replace theoretical physicists?",
+      "sources": [
+        "S9"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "GPT‑6 Astra solves 90% physics puzzles.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI models solve most benchmark physics problems",
+      "sources": [
+        "S9"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The pause could limit access to advanced AI compute for businesses in the region, potentially slowing AI development and increasing costs for companies that rely on cloud GPUs, while also signaling tighter enforcement of U.S. export rules that aim to curb military and surveillance uses of AI in China.",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: claim adds surveillance uses not mentioned in source"
+      ]
+    },
+    {
+      "where": "repair card[0] hook",
+      "text": "Nvidia blocks 24% of China’s AI compute route in Southeast Asia.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Nvidia asked partners like Dell and Super Micro to pause AI server shipments to Malaysia, Singapore, Thailand, Indonesia.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "The pause targets about 24% of China’s AI computing power that ran through those data centres.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] point",
+      "text": "Affected customers must wait as Nvidia reviews export compliance, unclear if temporary.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source only says the halt may be temporary; it does not mention customers must wait while Nvidia reviews export compliance."
+      ]
+    },
+    {
+      "where": "repair card[0] take",
+      "text": "Watch your AI hardware orders—delays may hit your projects.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] ask",
+      "text": "Will this slow your AI plans?",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[0] cover",
+      "text": "Nvidia pauses AI server shipments to Southeast Asia.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] hook",
+      "text": "SpaceX launches 1 million AI satellites, reshaping data centers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says FCC approved a plan, not that SpaceX has launched 1 million satellites"
+      ]
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "FCC gave conditional approval for SpaceX to launch up to 1 million AI chip‑equipped satellites.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "The first satellite must be in orbit by November 2033, with the full constellation by 2040.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] point",
+      "text": "Critics warn about orbital debris and cooling challenges for the solar‑powered data center.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] take",
+      "text": "Watch how SpaceX’s orbital data center could affect future compute infrastructure.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] ask",
+      "text": "Will space‑based AI change your work?",
+      "sources": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[2] cover",
+      "text": "SpaceX gets FCC OK for 1 million AI satellites",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "9 words, card limit is 8"
+      ]
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "Meta declined FCA test of Muse assistant.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Meta declined the FCA's request to jointly test Muse in its sandbox.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The FCA warns autonomous agents could trigger unintended actions for consumers.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Muse already has over 10 million North American users, prompting regulator safeguards.",
+      "sources": [
+        "S8"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'American' not in cited source"
+      ]
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "Read how regulators aim to protect your AI‑driven purchases.",
+      "sources": [
+        "S8"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Should regulators force AI testing?",
+      "sources": [
+        "S8"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "Meta declines FCA test of Muse assistant.",
+      "sources": [
+        "S8"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] hook",
+      "text": "GPT‑6 Astra solves 90% of tough physics problems, shaking research jobs.",
+      "sources": [
+        "S9"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source says it solved nearly 90% of benchmark problems, not all tough physics problems, and does not mention shaking research jobs."
+      ]
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "AI model was tested on unpublished physics problems in a private benchmark.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "It answered 49 of 50 correctly, costing less than $3 compute each.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "It identified errors in human solutions, showing AI can outperform top researchers.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] take",
+      "text": "Watch AI reshape theoretical physics and consider its impact on your tech role.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] ask",
+      "text": "Will AI replace physicists soon?",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] cover",
+      "text": "GPT‑6 Astra solves 90% of physics problems.",
+      "sources": [
+        "S9"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 14,
+  "cards_repaired": 2,
+  "cards_fallback": 2,
+  "unused": 33,
+  "date": "2026-11-27",
+  "slug": "2026-11-27-nvidia-pauses-ai-server-shipments-to-southeast",
+  "model": "groq:openai/gpt-oss-120b"
+}

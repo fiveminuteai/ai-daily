@@ -1,0 +1,118 @@
+=== STORY 1 (suggested section: products) ===
+
+[S1] TechCrunch — "Nvidia hits pause on chip shipments to Southeast Asia" (26 November 2026)
+Nvidia hits pause on chip shipments to Southeast Asia
+Nvidia is under pressure to do things differently, and a new WSJ report shows how far that’s going.
+According to the Journal, Nvidia has told manufacturing partners, including Dell and Super Micro, to hit pause on server shipments to Malaysia, Singapore, Thailand, and Indonesia for an unspecified period as it assesses whether its regional partners are meeting U.S. export requirements.
+As for why those countries, Chinese companies have been tapping Nvidia chips remotely from data centers there, a loophole the US Commerce Department closed — reportedly grudgingly — earlier this month. The Journal notes that the think tank Institute for Progress estimates remote data centers like these supply about 24% of China’s AI computing power.
+Get an Early Peek at the Next TechCrunch Disrupt Disrupt, Startup Battlefield, and more will return next year, and you can be at the front of the line. Sign up for our waitlist
+Newsletters
+Subscribe for the industry’s biggest tech news
+Related
+AI Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’ Rebecca Bellan 1 day ago
+Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’
+Privacy Character.AI’s plan to auction off users’ private chats challenged by state AGs Sarah Perez 1 day ago
+Character.AI’s plan to auction off users’ private chats challenged by state AGs
+AI Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion Connie Loizos 2 days ago
+Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion
+Latest in AI
+In Brief Nvidia hits pause on chip shipments to Southeast Asia Connie Loizos 4 hours ago
+Gaming Grand Theft Auto VI proves why efficiency isn’t a virtue Amanda Silberling 8 hours ago
+Grand Theft Auto VI proves why efficiency isn’t a virtue
+In Brief S&P considers Nvidia credit downgrade over governance and ‘key man’ risks Marina Temkin 1 day ago
+S&P considers Nvidia credit downgrade over governance and ‘key man’ risks
+
+[S2] Engadget — "NVIDIA reportedly halts AI chip shipments to Southeast Asia" (26 November 2026)
+NVIDIA reportedly halts AI chip shipments to Southeast Asia
+Companies like Dell have stopped shipping server hardware to Malaysia, Singapore, Thailand and Indonesia.
+NVIDIA has reportedly put a stop to shipments of AI server hardware to four Southeast Asian countries. According to The Financial Times , a handful of the company's manufacturing partners, including Dell and Supermicro, told clients in Malaysia, Singapore, Thailand and Indonesia that the chipmaker is not allowing their server orders to be sent to them. The Financial Times reports it's unclear if the halt is temporary. The news comes just days after NVIDIA reinstated Jensen Huang as its chief executive .
+In recent years, Chinese AI labs have turned to Malaysia, Singapore, Thailand and Indonesia to gain access to NVIDIA's most powerful chips. They used a gap in US export controls by renting access through cloud compute providers that bought servers with NVIDIA GPUs inside. In recent weeks, the US Commerce Department moved to close that loophole. First by introducing new rules aimed at stopping that exact practice, and seco
+
+=========== STORY BLOCK ===========
+
+=== STORY 2 (suggested section: models) ===
+
+[S3] Ars Technica — "Google search alternative Kagi launches Gmail rival" (25 November 2026)
+Kagi, a small, Palo Alto, California-based software company that provides a subscription-based search engine as an alternative to Google, has launched a Gmail-like e-mail service. Dubbed Kagi Mail, it makes many of the same claims as the search engine product: privacy, personal data sovereignty, customization, and control.
+Additionally, Kagi is rolling out a calendar as part of the mail service. Right now, both the email and calendar interfaces are web-only, but native Android and iOS apps are planned for the fourth quarter of next year.
+The email interface, currently in public beta, is minimalist. It emphasizes keyboard commands, as well as a private and ad-free experience. (You can see more details in Kagi’s blog post about what they mean by private.) Other feature offerings include unlimited aliases and domains, an anti-lock-in policy for user data, 50GB of storage, rule-based filtering with Sieve, an MCP server, and several optional, off-by-default AI features, like chatting with an agent to search email history, do large-scale re-labeling, or define additional filtering rules.
+Some major features are still missing, though. As noted, there are no native apps yet. Critically, there is no contacts address book, but that is also coming in 2027 (Q1 in this case) according to the roadmap.
+Like the search engine, Kagi Mail is a paid service. It’s not included in the $5 per month basic Kagi plan, nor is it in the $10 per month unlimited search plan. It is, however, included in the $25 per month Kagi Ultimate subscription, which also offers frontier AI models.
+If you want to get Kagi Mail without the $25 per month subscription, you can subscribe for $9 per month or $99 per year, and there’s a 60-day trial right now.
+Opinion: An alternative more of us should maybe consider
+That’s a lot to pay for email when Gmail has historically been such a strong product. To most people, it seems ridiculous to imagine paying for a subscription, and that’s understandable.
+According to the company, Kagi Search has just over 75,000 paying subscribers. Compared to the number of people using Google Search or even Bing or DuckDuckGo, that’s not much. But the pitch is that with Google, the user is the product, not the customer, and that paying anywhere from $5 to $25 per month (there are multiple plans; unlimited search queries is in the $10 per month plan) helps users escape from that devil’s bargain.
+Kagi also argues that Google’s search results—and increasingly its email as well—are polluted or corrupted by ad sales incentives. On that, several Ars staffers agree—my colleague L
+
+[S4] techstackups.com (via Hacker News) — "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email" (26 November 2026)
+On 24 November, Google made its eight Workspace MCP servers generally available and published a new clause in its API terms. From 1 February 2027, any tool that "is or is driven by an AI Agent" must reach Gmail, Drive, Calendar and the rest of Workspace through those servers.
+Read the Gmail server's tool list and you'll find that it can search your mail, read threads, create a draft and file things under labels. It can't send a message, reply, forward, or change a draft after creating it. Those tools exist, but Google's quota page says they "require partner access and aren't generally available".
+If you've built an email assistant on the Gmail API, or you run a coding agent with a Google Workspace plugin, you have about two months to work out which side of the rule you're on.
+What the rule says ​
+The new Workspace AI Tools Addendum to the Google APIs Terms of Service puts it in one sentence:
+The GWS Access Tool must use a Google MCP where the GWS Access Tool is or is driven by an AI Agent, an AI Harness or an AI model or service employing an AI model.
+The next sentence forbids disgui
+
+=========== STORY BLOCK ===========
+
+=== STORY 3 (suggested section: products) ===
+
+[S5] The Verge — "FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space" (25 November 2026)
+FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space
+SpaceX aims to power AI capabilities here on Earth with its ‘Starmind’ constellation.
+In an announcement on Wednesday , the FCC says it authorized SpaceX to deploy up to 1 million AI chip-equipped satellites as part of the Elon Musk-owned company’s “Starmind” initiative . With several others also pursuing the idea of putting AI data centers in space , including Google and Blue Origin, this is the first approval the agency has granted for a full “constellation” of AI satellites.
+The FCC’s approval requires SpaceX to deploy at least one satellite by 2033, and meet the 1 million satellite milestone by 2040. The FCC also deferred SpaceX’s request to dispose of satellites located above 600km in space “graveyard” orbits , rather than having them burn up in the Earth’s atmosphere, saying the company hasn’t provided “sufficient information” about its disposal process plans.
+Related
+Billionaires want data centers everywhere, including space
+SpaceX has described its Starmind project as a way to “capture solar energy in space to power” AI capabilities on Earth. The company says Starmind will transmit data to Earth using high-speed lasers that connect to Starlink. It plans to produce chips for its satellites at an upcoming Terafab facility .
+Google has already taken its first steps toward putting compute into space, with the launch of a “Project Suncatcher” AI server satellite last month. Jeff Bezos’ Blue Origin will carry out the first dedicated heavy-lift launch for Project Suncatcher in 2029.
+Most Popular
+Microsoft declares ‘Code Red’ after huge Outlook outage
+1Password breach leaked customer names and emails, but not passwords
+The New York Times warns photographers not to update Photoshop over AI features
+GTA VI PC recompilation project shut down by Take-Two
+Disney Plus, Hulu, and HBO Max are all over 50 percent off for Black Friday
+This is the title for the native ad
+
+[S6] TechCrunch — "FCC approves SpaceX plan to put AI data centers in space" (25 November 2026)
+SpaceX was given conditional approval by the Federal Communications Commission on Wednesday to deploy and operate a constellation of up to 1 million satellites for its orbital data center business, a regulatory victory for Elon Musk and his bid to move AI data centers into space.
+The FCC authorization was granted despite objections from Amazon, Viasat, and the American Astronomical Society, which flagged concerns over orbital debris and congestion, radiofrequency interference, and environmental consequences. Amazon, which is building a competitor to SpaceX’s Starlink service, argued in its petition that the application lacked basic details and described it as a “lofty ambition rather than a real plan.” Despite that lack of detail, Amazon also said the proposal “risks real harm.”
+The FCC dismissed some of the key concerns raised by opponents, including potential threats to scientific research, because the agency determined they fell outside its regulatory authority.
+FCC Chair Brendan Carr said in a statement that the action “opens a bold new frontier for the computing infrastructure n
+
+[S7] Engadget — "SpaceX gets FCC approval to deploy 1 million satellites for its AI orbital data center" (26 November 2026)
+SpaceX gets FCC approval to deploy 1 million satellites for its AI orbital data center
+The FCC expects the initiative, called Starmind, to deploy it first satellite by November 2033.
+The Federal Communications Commission (FCC) has approved SpaceX's request to deploy 1 million satellites to build its AI orbital data center. SpaceX filed its application at the beginning of the year, presenting the initiative called Starmind as the better alternative for ground-based data centers. In its filing, the company argued that "orbital data centers are the most efficient way to meet the accelerating demand for AI computing power," since they use "solar power with little operating and maintenance costs."
+But can space-based data centers for AI really work? Critics doubt they can. Adam Becker, an astrophysicist and a critic of Elon Musk's space and AI ambitions, told AP that "it's not going to happen. The idea behind sending AI data centers outside our planet is so that they don't consume resources their ground-based counterparts do, like energy and water for cooling.
+However, critics of the plan
+
+=========== STORY BLOCK ===========
+
+=== STORY 4 (suggested section: impact) ===
+
+[S8] WIRED — "Meta Refused to Share Muse for Testing, UK Financial Watchdog Complains" (26 November 2026)
+Meta declined a suggestion from the UK’s financial regulator last week that they joint-test Muse using their sandbox, according to the watchdog’s head of innovation Colin Payne. It comes as regulators across the UK, including the competition and data watchdogs, warned Meta it needs to ensure its AI products comply with UK consumer protection laws.
+“It’s another force of attack, agents hitting the streets, most of them coming from the US,” Payne, of the Financial Conduct Authority (FCA), said Tuesday in a panel hosted by AI firm Whitespace. “We’ve got a number of entrants into the market. We want to see what they’re going to be doing in the market. I think it’s just reasonable,” he later explained to WIRED. Payne told WIRED the FCA had been hoping the organizations could work together to investigate what interactions might look like between the tool, marketed as a personal assistant, and a normal customer.
+His organization has been experimenting with other firms as many, including Amazon , roll out AI shopping assistants, and other agentic tools in the UK.
+The FCA especially wants to understand how payments will be made by agents—as multiple British retailers, including grocers Sainsbury’s, Marks & Spencer, and Ocado, department store Debenhams Group, and electronics seller Currys said they’d been working with Meta to smooth Muse’s access to their sites. Payne is concerned about potential unintended consequences of prompts, especially when a user has a low level of understanding of how the AI product works. “If an agent is acting autonomously, we want to make sure it’s in the interest of the consumer,” he says.
+Payne did note the testing would have taken time to set up. “Normally you have a long period of time speaking to a firm and then you plan it over a period of weeks or months,” he explained, but Meta only made the FCA aware of its plans last month.
+“We’ve engaged constructively with the appropriate regulatory authorities and will continue to do so,” Meta Spokesperson Matthew Pollard tells WIRED.
+More than 10 million users have set up Muse in North America since it was launched in September. British watchdogs say they will be monitoring Muse’s rollout closely as they are bracing for significant uptake on their side of the pond, too, given that many Brits already use Meta’s other products , like Instagram, Facebook, and WhatsApp. “If it’s going to be equally popular in the UK, we need to be able to see what it’s going to do,” Payne says.
+The ICO stressed the importance of users understanding and being able to control how Muse uses their personal data.
+
+=========== STORY BLOCK ===========
+
+=== STORY 5 (suggested section: impact) ===
+
+[S9] Ars Technica — "AI may soon change what it means to be a theoretical physicist" (25 November 2026)
+About six months ago, Suvrat Raju, a professor of theoretical physics at the International Centre for Theoretical Sciences in Bengaluru, India, asked a frontier AI model to solve a physics problem. He didn’t ask because he needed to know the answer. He had actually solved this particular problem already. But he had never published the solution—which made it a perfect question to test how good AI was at physics.
+LLMs have been trained on the whole Internet, so if a physics problem has been discussed online, it’s likely the model already knows about it and may have memorized the answer. So a fair test of AI capabilities needs to focus on problems that have never appeared online.
+The model didn’t answer Raju’s problem correctly, but it did better than he expected—well, enough to get him thinking that the experiment should be repeated and formalized. With the help of a colleague, he set out to create a theoretical physics benchmark for AI.
+They asked other physicists for some of their private gems—minor but real findings they’d never gotten around to cleaning up for public display. They were asking for real work, problems that take humans at the top of the field about a day to solve.
+“Our contributors had to either sacrifice potential publication elsewhere, or else undertake a small research project just for us,” Raju wrote .
+By the time all the questions and answers were ready, the AIs were, too. At a colloquium in September, Raju shared preliminary results showing that leading AI models could solve about 60 percent of the problems on their own. And by the time he and his colleagues finished the full set, the situation had advanced further: GPT-6 Astra could solve nearly 90 percent of the problems.
+Curious to know where Astra was struggling on the rest, they gave the model the human-written solutions and asked it to figure out where it had gone wrong. To their surprise, Astra argued that it hadn’t made a mistake—the humans had. Astra identified subtle errors in the human-written answers. In reality, it answered 49 of 50 problems correctly. And the one problem Astra missed was something of a trick question.
+Each correct answer had cost less than $3 of compute on average—“less than the price of coffee in Paris,” as Raju put it in a talk—and had come after a single human prompt.
+In other words, Raju’s TheoPhysEval benchmark was saturated before it was released. When Raju found out, he didn’t sleep well for a couple of nights, out of a hard-to-disentangle blend of astonishment, excitement, and fear.
+I asked him if there would be a second version of the benchmar
