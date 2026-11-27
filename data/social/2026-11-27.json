@@ -126,13 +126,15 @@
    "cover": "Meta declines FCA test of Muse assistant[S8].",
    "text": "Meta declined FCA test of Muse assistant.\n\n• Meta declined the FCA's request to jointly test Muse in its sandbox.\n• The FCA warns autonomous agents could trigger unintended actions for consumers.\n\nOur read: Read how regulators aim to protect your AI-driven purchases.\n\nSend this to the friend who keeps up with AI.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #meta",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-27T13:38:37+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/reels/04.mp4"
    ],
-   "scheduled_at": "2026-11-27T13:30:00+00:00"
+   "scheduled_at": "2026-11-27T13:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   }
  ]
 }
