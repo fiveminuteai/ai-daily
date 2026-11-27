@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "Nvidia pauses AI server shipments to Southeast Asia amid export compliance review\n\n• Nvidia halted AI server shipments to four Southeast Asian nations while reviewing export compliance.\n• Kagi Mail provides private, ad-free email with optional AI tools, costing $9-monthly or $25-monthly for full features.\n• SpaceX cleared to deploy up to 1 million AI satellites, with the first launch required by November 2033.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-27T05:38:38+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/instagram.png"
    ],
-   "scheduled_at": "2026-11-27T05:30:00+00:00"
+   "scheduled_at": "2026-11-27T05:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-27-x",
@@ -59,14 +61,14 @@
    "text": "SpaceX won FCC approval to launch up to one million AI satellites.\n\n• Amazon, Viasat and the American Astronomical Society objected over debris and interference.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-27T03:38:46+00:00",
+   "decided_at": "2026-11-27T05:34:38+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/reels/01.mp4"
    ],
    "scheduled_at": "2026-11-27T03:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-27-reel-2",
