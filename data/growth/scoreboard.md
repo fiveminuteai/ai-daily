@@ -1,4 +1,4 @@
-# Growth scoreboard, 2026-11-26
+# Growth scoreboard, 2026-11-27
 
 Followers: **13**. Reels this week: 0 (last week 0).
 
