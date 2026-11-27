@@ -58,13 +58,15 @@
    "cover": null,
    "text": "SpaceX won FCC approval to launch up to one million AI satellites.\n\n• Amazon, Viasat and the American Astronomical Society objected over debris and interference.\n\nKnow someone who follows AI? Send this to them.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-27T03:38:46+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-27/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-27T03:30:00+00:00"
+   "scheduled_at": "2026-11-27T03:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-27-reel-2",
