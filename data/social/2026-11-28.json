@@ -13,13 +13,15 @@
    "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
    "text": "OpenAI sues Apple over alleged trade-secret theft\n\n• OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.\n• Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light-based processing.\n• Lausd temporarily disabled Google ai overviews on student devices to keep content age-appropriate.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-28T05:38:41+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-28/instagram.png"
    ],
-   "scheduled_at": "2026-11-28T05:30:00+00:00"
+   "scheduled_at": "2026-11-28T05:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-28-x",
@@ -59,14 +61,14 @@
    "text": "OpenAI sues Apple, accusing it of stealing hardware secrets.\n\n• OpenAI filed a countersuit claiming Apple stole hardware trade secrets.\n• The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple.\n\nOur read: Watch how this fight could affect the devices you use.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt #apple",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-28T03:38:44+00:00",
+   "decided_at": "2026-11-28T05:34:40+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-28/reels/01.mp4"
    ],
    "scheduled_at": "2026-11-28T03:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-28-reel-2",
