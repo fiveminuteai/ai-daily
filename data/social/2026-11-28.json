@@ -14,14 +14,14 @@
    "text": "OpenAI sues Apple over alleged trade-secret theft\n\n• OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.\n• Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light-based processing.\n• Lausd temporarily disabled Google ai overviews on student devices to keep content age-appropriate.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
    "edited_text": null,
    "status": "failed",
-   "decided_at": "2026-11-28T05:38:41+00:00",
+   "decided_at": "2026-11-28T07:34:38+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-28/instagram.png"
    ],
    "scheduled_at": "2026-11-28T05:30:00+00:00",
    "error": "recent posts: HTTP 400 (Meta error 200)",
-   "attempts": 3
+   "attempts": 5
   },
   {
    "id": "2026-11-28-x",
@@ -82,13 +82,15 @@
    "cover": "Q.ANT cuts AI energy with light[S2].",
    "text": "Q.ANT cuts AI energy with light.\n\n• Q.ANT unveiled photonic processors that run AI models using light.\n• Data-center operators can lower cooling costs and carbon footprints as a result.\n\nOur read: If your company runs AI in the cloud, watch for cheaper, greener hardware options soon.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-28T07:38:38+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-28/reels/02.mp4"
    ],
-   "scheduled_at": "2026-11-28T07:30:00+00:00"
+   "scheduled_at": "2026-11-28T07:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-28-reel-3",
