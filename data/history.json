@@ -3603,5 +3603,105 @@
     "theoretical"
    ]
   ]
+ },
+ {
+  "date": "2026-11-28",
+  "slug": "2026-11-28-openai-sues-apple-over-alleged-trade-secret",
+  "urls": [
+   "arxiv.org/abs/2611.33639",
+   "engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets",
+   "engadget.com/2329851/la-school-district-blocks-google-ai-search-features",
+   "huggingface.co/blog/video-trainium3",
+   "wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light"
+  ],
+  "tokens": [
+   "5.5",
+   "accuses",
+   "apple",
+   "blocks",
+   "breed",
+   "chip",
+   "claude",
+   "code",
+   "countersues",
+   "district",
+   "does",
+   "effort",
+   "evidence",
+   "features",
+   "generating",
+   "google",
+   "light",
+   "ltx-2.5",
+   "models",
+   "much",
+   "need",
+   "openai",
+   "patches",
+   "plausible-but-wrong",
+   "reviewer",
+   "runs",
+   "school",
+   "search",
+   "secrets",
+   "stealing",
+   "taking",
+   "track",
+   "trade",
+   "trainium3",
+   "using",
+   "videos",
+   "waves"
+  ],
+  "story_tokens": [
+   [
+    "accuses",
+    "apple",
+    "countersues",
+    "openai",
+    "secrets",
+    "stealing",
+    "trade"
+   ],
+   [
+    "breed",
+    "chip",
+    "light",
+    "models",
+    "runs",
+    "using",
+    "waves"
+   ],
+   [
+    "blocks",
+    "district",
+    "features",
+    "google",
+    "school",
+    "search"
+   ],
+   [
+    "generating",
+    "ltx-2.5",
+    "taking",
+    "track",
+    "trainium3",
+    "videos"
+   ],
+   [
+    "5.5",
+    "claude",
+    "code",
+    "does",
+    "effort",
+    "evidence",
+    "models",
+    "much",
+    "need",
+    "patches",
+    "plausible-but-wrong",
+    "reviewer"
+   ]
+  ]
  }
 ]

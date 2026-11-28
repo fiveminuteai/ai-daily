@@ -1,0 +1,445 @@
+{
+  "date": "2026-11-28",
+  "slug": "2026-11-28-openai-sues-apple-over-alleged-trade-secret",
+  "headline": "OpenAI sues Apple over alleged trade‑secret theft",
+  "dek": "OpenAI filed a countersuit against Apple on 27 November 2026, accusing the iPhone maker of stealing trade secrets related to hardware development[S1].",
+  "byline": "Sai Pavan UE",
+  "tags": [
+    "products",
+    "models",
+    "tools",
+    "research",
+    "openai",
+    "apple",
+    "photonic-computing"
+  ],
+  "what_happened": [
+    "OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple[S1].",
+    "Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light‑based processing[S2].",
+    "Lausd temporarily disabled Google ai overviews on student devices to keep content age‑appropriate[S3]."
+  ],
+  "sections": [
+    {
+      "story": 1,
+      "title": "OpenAI sues Apple over alleged trade‑secret theft",
+      "category": "products",
+      "paragraphs": [
+        "OpenAI filed a countersuit against Apple on 27 November 2026, accusing the iPhone maker of stealing trade secrets related to hardware development[S1]. The complaint alleges that former Apple employees accessed and downloaded dozens of confidential files after returning to Apple from OpenAI[S1]. OpenAI also claims Apple is coercing suppliers who work with both companies, suggesting unfair competitive tactics[S1].",
+        "The lawsuit states that the former employees “surreptitiously accessed and downloaded dozens of Apple’s confidential hardware‑related files,” including engineering presentations, technical specifications, and proprietary project data[S1]. OpenAI links the alleged theft to its recent acquisition of a studio called io, which was led by Apple’s former design chief Jony Ive[S1]. Apple previously sued OpenAI for similar accusations after the acquisition, and the two companies had earlier partnered to bring ChatGPT to iPhones[S1].",
+        "OpenAI’s move follows Apple’s earlier suit and reflects growing tension as OpenAI prepares its own hardware that could compete directly with Apple devices[S1]."
+      ],
+      "card": {
+        "hook": "OpenAI sues Apple, accusing it of stealing hardware secrets[S1].",
+        "points": [
+          "OpenAI filed a countersuit claiming Apple stole hardware trade secrets[S1].",
+          "The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple[S1]."
+        ],
+        "take": "Watch how this fight could affect the devices you use[S1].",
+        "take_kind": "read",
+        "ask": "Will this change your phone choices[S1]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "OpenAI’s countersuit could reshape AI‑hardware competition",
+        "desk": {
+          "rubric": 6,
+          "chief": 9.0,
+          "why": "OpenAI vs Apple lawsuit hits big names and AI‑hardware rivalry, huge office buzz"
+        },
+        "bonus": 0.0,
+        "pain": "tools",
+        "hook_type": "stakes",
+        "cover": "OpenAI sues Apple over hardware secrets[S1].",
+        "cover_hi": "sues Apple",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "OpenAI sues Apple, accusing it of stealing hardware secrets[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Stealing hardware? That's a bold way to borrow."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Maybe they just wanted a loan."
+            },
+            {
+              "who": "guest",
+              "text": "A loan that comes with extra baggage.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "OpenAI filed a countersuit claiming Apple stole hardware trade secrets[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "A countersuit? My inbox just got heavier."
+            },
+            {
+              "who": "spark",
+              "text": "The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple[S1]."
+            },
+            {
+              "who": "guest",
+              "text": "Bold borrowing, now my inbox feels robbed too.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The jokes are relatable and punchy enough for a quick share."
+        }
+      }
+    },
+    {
+      "story": 2,
+      "title": "Photonic processors aim to cut AI energy use",
+      "category": "models",
+      "paragraphs": [
+        "Q.ANT, a German hardware startup, introduced photonic processors that use light instead of electrons to run AI models, targeting the high energy costs of current AI workloads[S2]. The company began a pilot with cloud provider IONOS, installing its chips in several data‑center sites and enabling more than 30 engineering teams to develop models that run on the new hardware[S2]. The goal is to complement, not replace, GPUs by handling complex, nonlinear calculations while GPUs continue to perform linear math efficiently[S2].",
+        "Photonic processors transmit data as light waves, which generate far less heat than electron‑based chips and therefore need minimal cooling, a major expense in data centers[S2]. Because light can carry multiple data streams simultaneously, the processors can perform many operations in a single step, reducing the number of memory accesses that dominate energy use today[S2]. Q.ANT describes the chips as co‑processors that offload heavy math from GPUs, allowing the combined system to achieve higher efficiency without sacrificing performance on tasks suited to each type of hardware[S2].",
+        "AI models have become more capable, but their computational demands have driven up electricity consumption, prompting labs to locate data centers near cheap renewable power or to explore new hardware approaches[S2]. Photonic computing is an emerging field that leverages the physical properties of light to process information, offering a potential path to lower operational costs and smaller carbon footprints for AI services[S2]."
+      ],
+      "card": {
+        "hook": "Q.ANT cuts AI energy with light[S2].",
+        "points": [
+          "Q.ANT unveiled photonic processors that run AI models using light[S2].",
+          "Data‑center operators can lower cooling costs and carbon footprints as a result[S2]."
+        ],
+        "take": "If your company runs AI in the cloud, watch for cheaper, greener hardware options soon[S2].",
+        "take_kind": "read",
+        "ask": "Will lower AI energy change your cloud budget[S2]?",
+        "interest": 4,
+        "reel": 8,
+        "angle": "Photonic chips could slash the electricity bill of AI workloads you rely on.",
+        "desk": {
+          "rubric": 7,
+          "chief": 8.0,
+          "why": "Google AI blocked in LA schools affects half‑million kids, clear safety drama"
+        },
+        "bonus": 0.0,
+        "pain": "money",
+        "hook_type": "stakes",
+        "cover": "Q.ANT cuts AI energy with light[S2].",
+        "cover_hi": "cuts AI energy",
+        "duo": {
+          "guest": "rex",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Q.ANT’s photonic processors run AI models with light, not electrons[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Light instead of electrons? Well, that’s a bright idea—my old eyes finally get a break."
+            },
+            {
+              "who": "spark",
+              "text": "Q.ANT says they generate far less heat, cutting costly data‑center cooling expenses[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Less heat? At last a chill that won’t turn my fossilized fangs into a baked potato.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "IONOS pilot installs the chips, letting over 30 engineering teams test models[S2]."
+            },
+            {
+              "who": "guest",
+              "text": "Testing? If it keeps things cool, maybe my ancient joints won’t feel like a sauna any longer.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "light pun and cool‑breeze jokes are modestly funny"
+        }
+      }
+    },
+    {
+      "story": 3,
+      "title": "Los Angeles unified school district disables Google ai overviews",
+      "category": "products",
+      "paragraphs": [
+        "The change was not announced formally, but parents and students noticed the missing AI summaries in search results[S3]. The district says the move is temporary and intended to keep the experience age‑appropriate and safe[S3].",
+        "Lausd serves about half a million students and had previously been told by Google that its search engine and AI features are inseparable[S3]. After the committee discussion, the AI overviews vanished within a few days, and a local group called Schools Beyond Screens la collected video evidence confirming the disablement[S3]. Google later walked back a policy that turned on its gemini chatbot by default for k‑12 students, making the tool opt‑in instead, while maintaining that blocking ai would also block search access[S3]. Over 500 Google employees signed a petition urging the company to reconsider its strict requirements, highlighting internal dissent[S3].",
+        "Google has integrated ai-generated overviews into its search results, presenting concise summaries alongside traditional links[S3]. Schools have raised concerns about the suitability of these summaries for younger users, prompting districts like lausd to take action[S3]. The broader debate includes other large districts such as New York city and chicago considering alternative search providers if Google's policies remain unchanged[S3]."
+      ],
+      "card": {
+        "hook": "Google AI summaries blocked for LA students' safety[S3].",
+        "points": [
+          "The move affects half‑million students, citing age‑appropriate safety concerns[S3].",
+          "Google now makes Gemini opt‑in, while districts weigh other search options[S3]."
+        ],
+        "take": "Expect slower search results and check for missing AI summaries at school[S3].",
+        "take_kind": "read",
+        "ask": "Should schools block AI tools[S3]?",
+        "interest": 4,
+        "reel": 7,
+        "angle": "LA schools pull the plug on AI search summaries to protect kids",
+        "desk": {
+          "rubric": 7,
+          "chief": 7.0,
+          "why": "Amazon Trainium3 fast video demo shows tangible creator benefit, notable chip news"
+        },
+        "bonus": 0.0,
+        "pain": "safety",
+        "hook_type": "stakes",
+        "cover": "Google AI summaries blocked in LA schools[S3].",
+        "cover_hi": "blocked",
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Google AI summaries blocked for LA students' safety[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Blocking summaries? Guess they love homework."
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Homework, the new binge‑watch"
+            },
+            {
+              "who": "guest",
+              "text": "Because kids love extra worksheets",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "The move affects half‑million students, citing age‑appropriate safety concerns[S3]."
+            },
+            {
+              "who": "guest",
+              "text": "Now homework wears a safety sticker",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 7,
+          "laughs_why": "The jokes are light, relatable, and likely to get a couple of laughs and a share."
+        }
+      }
+    },
+    {
+      "story": 4,
+      "title": "Generating videos on Trainium3 with LTX‑2.5",
+      "category": "tools",
+      "paragraphs": [
+        "Hugging Face used an AWS Trainium3 instance (trn3.48xlarge, 64 NeuronCores) for a month and spent most of the time testing models on it[S4]. With five days left the author tried to generate a short video using Lightricks' LTX‑2.5 model[S4]. The test produced a 10‑second clip with sound in about 22‑23 seconds on half of the machine[S4].",
+        "LTX‑2.5 creates video and audio together from a JSON storyboard that lists shots, each with a name, a detailed paragraph‑long prompt, and optional seed values[S4]. Shots are linked by \"from\" and \"to\" keys so that frames from one shot can start the next, preserving subject continuity and motion across cuts[S4]. The generated clip was 2048×1024 resolution, comparable to LTX's online API claim of 23.7 seconds for a 10‑second 1080p clip, and slightly faster by about one second[S4]. No CUDA benchmark was available, so the comparison focused on the API rather than raw GPU speed[S4]."
+      ],
+      "card": {
+        "hook": "AWS Trainium3 generated a 10‑second video in 23 seconds[S4].",
+        "points": [
+          "Hugging Face ran an AWS Trainium3 instance for a month testing models[S4].",
+          "With five days left they generated a 10‑second clip in about 22‑23 seconds on half the machine[S4].",
+          "The result matches LTX‑2.5’s claimed speed, slightly faster by one second[S4]."
+        ],
+        "take": "If you need quick AI video output, try Trainium3 for testing[S4].",
+        "take_kind": "do",
+        "ask": "Will you try Trainium3 for video[S4]?",
+        "interest": 2,
+        "reel": 5,
+        "angle": "Fast AI video generation on cloud hardware matters for creators",
+        "pain": "tools",
+        "hook_type": "number",
+        "cover": "AWS Trainium3 creates 10‑second video in 23 seconds[S4].",
+        "cover_hi": "creates 10‑second",
+        "repaired": true,
+        "duo": {
+          "guest": "doubt",
+          "lines": [
+            {
+              "who": "spark",
+              "text": "Hugging Face made a 10‑second video in about 22 seconds on Trainium3[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "So the video outran its own editor, huh?"
+            },
+            {
+              "who": "spark",
+              "kind": "comeback",
+              "text": "Speed dating for videos, huh?"
+            },
+            {
+              "who": "guest",
+              "text": "Great, now I need a popcorn maker that can keep up.",
+              "fx": [
+                "beat"
+              ]
+            },
+            {
+              "who": "spark",
+              "text": "Hugging Face shows creators can generate high‑resolution video quickly using half a Trainium3 node[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Fantastic, my lazy weekend just upgraded to a production line."
+            },
+            {
+              "who": "spark",
+              "text": "Lightricks' LTX‑2.5 builds video and sound from a JSON storyboard that links shots[S4]."
+            },
+            {
+              "who": "guest",
+              "text": "Looks like my tiny studio just signed up for a script service.",
+              "fx": [
+                "beat"
+              ]
+            }
+          ],
+          "laughs": 6,
+          "laughs_why": "Light, relatable jokes but not punchy enough to go viral"
+        }
+      }
+    },
+    {
+      "story": 5,
+      "title": "AI code reviewers need effort to catch wrong patches",
+      "category": "research",
+      "paragraphs": [
+        "Researchers evaluated Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 as AI code reviewers on 90 Django patches generated by coding agents[S5]. High effort consistently reduced false acceptance of bad patches compared with low effort, though no setting eliminated errors entirely[S5].",
+        "The patches came from the SWE‑bench Verified suite, with 55 of them identified as wrong by strengthened SWE‑ABS tests and 35 as correct[S5]. Medium effort cost 20 % less than high for Opus and was statistically non‑inferior within a 15‑point margin, while Sonnet and Haiku saved 39 % and 51 % respectively but lacked non‑inferiority evidence[S5]. Haiku at high effort cost about 8 % of Opus at medium per review[S5].",
+        "AI coding agents can produce code faster than humans can manually review it, prompting teams to add automated reviewers[S5]. These reviewers can trade computational cost for diligence by adjusting an effort parameter[S5]."
+      ],
+      "card": {
+        "hook": "High‑effort AI reviewers cut false acceptance of bad patches but still let at least 45 % slip through[S5].",
+        "points": [
+          "Researchers evaluated Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 as AI code reviewers on 90 Django patches generated by coding agents[S5].",
+          "High effort consistently reduced false acceptance of bad patches compared with low effort, though no setting eliminated errors entirely[S5]."
+        ],
+        "take": null,
+        "take_kind": "read",
+        "ask": "Will you still trust AI code reviewers?",
+        "reel": 6,
+        "interest": 3,
+        "fallback": true,
+        "pain": "job",
+        "hook_type": "stakes",
+        "bonus": 0.0
+      }
+    }
+  ],
+  "why_it_matters": [
+    {
+      "text": "The lawsuit could reshape how AI firms and hardware makers share talent and manage suppliers, influencing future collaborations and competitive dynamics in the tech sector[S1].",
+      "speculative": true
+    },
+    {
+      "text": "Photonic processors that run AI models with light instead of electrons promise lower cooling needs and fewer memory accesses, potentially reducing data‑center electricity bills and carbon footprints for companies deploying AI services[S2].",
+      "speculative": true
+    },
+    {
+      "text": "Disabling Google’s AI‑generated search overviews removes quick summaries for half a million students, affecting how they retrieve information and prompting districts to evaluate alternative search solutions[S3].",
+      "speculative": true
+    }
+  ],
+  "quote": null,
+  "chart": null,
+  "diagram": null,
+  "timeline": [
+    {
+      "time": "2026-11-27T19:44:38+00:00",
+      "title": "OpenAI sues Apple over alleged trade‑secret theft",
+      "publisher": "Engadget",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-27T07:00:00+00:00",
+      "title": "Photonic processors aim to cut AI energy use",
+      "publisher": "WIRED",
+      "category": "models"
+    },
+    {
+      "time": "2026-11-27T22:00:08+00:00",
+      "title": "Los Angeles unified school district disables Google ai overviews",
+      "publisher": "Engadget",
+      "category": "products"
+    },
+    {
+      "time": "2026-11-27T00:00:00+00:00",
+      "title": "Generating videos on Trainium3 with LTX‑2.5",
+      "publisher": "Hugging Face blog",
+      "category": "tools"
+    },
+    {
+      "time": "2026-11-27T05:00:00+00:00",
+      "title": "AI code reviewers need effort to catch wrong patches",
+      "publisher": "arXiv cs.AI",
+      "category": "research"
+    }
+  ],
+  "visuals": [
+    "timeline"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "OpenAI countersues Apple and accuses it of stealing trade secrets",
+      "url": "https://www.engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets/",
+      "publisher": "Engadget",
+      "published": "2026-11-27T19:44:38+00:00"
+    },
+    {
+      "id": "S2",
+      "title": "A New Breed of Chip Runs AI Models Using Waves of Light",
+      "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+      "publisher": "WIRED",
+      "published": "2026-11-27T07:00:00+00:00"
+    },
+    {
+      "id": "S3",
+      "title": "LA school district blocks Google's AI search features",
+      "url": "https://www.engadget.com/2329851/la-school-district-blocks-google-ai-search-features/",
+      "publisher": "Engadget",
+      "published": "2026-11-27T22:00:08+00:00"
+    },
+    {
+      "id": "S4",
+      "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+      "url": "https://huggingface.co/blog/video-trainium3",
+      "publisher": "Hugging Face blog",
+      "published": "2026-11-27T00:00:00+00:00"
+    },
+    {
+      "id": "S5",
+      "title": "How Much Effort Does an AI Code Reviewer Need? Evidence from Claude 5.5 Models on Plausible-but-Wrong Patches",
+      "url": "https://arxiv.org/abs/2611.33639",
+      "publisher": "arXiv cs.AI",
+      "published": "2026-11-27T05:00:00+00:00"
+    }
+  ],
+  "model": "groq:openai/gpt-oss-120b",
+  "generated_at": "2026-11-28T00:48:16+00:00",
+  "verification": {
+    "checked": 88,
+    "ok": 61,
+    "repaired": 8,
+    "dropped": 19,
+    "unused": 23,
+    "layer1_done": true,
+    "layer2_done": true
+  },
+  "word_count": 1097,
+  "reading_minutes": 5
+}

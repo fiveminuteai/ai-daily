@@ -1,0 +1,47 @@
+[
+ {
+  "title": "OpenAI countersues Apple and accuses it of stealing trade secrets",
+  "items": [
+   {
+    "url": "https://www.engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets/",
+    "title": "OpenAI countersues Apple and accuses it of stealing trade secrets"
+   }
+  ]
+ },
+ {
+  "title": "A New Breed of Chip Runs AI Models Using Waves of Light",
+  "items": [
+   {
+    "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+    "title": "A New Breed of Chip Runs AI Models Using Waves of Light"
+   }
+  ]
+ },
+ {
+  "title": "LA school district blocks Google's AI search features",
+  "items": [
+   {
+    "url": "https://www.engadget.com/2329851/la-school-district-blocks-google-ai-search-features/",
+    "title": "LA school district blocks Google's AI search features"
+   }
+  ]
+ },
+ {
+  "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+  "items": [
+   {
+    "url": "https://huggingface.co/blog/video-trainium3",
+    "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5"
+   }
+  ]
+ },
+ {
+  "title": "How Much Effort Does an AI Code Reviewer Need? Evidence from Claude 5.5 Models on Plausible-but-Wrong Patches",
+  "items": [
+   {
+    "url": "https://arxiv.org/abs/2611.33639",
+    "title": "How Much Effort Does an AI Code Reviewer Need? Evidence from Claude 5.5 Models on Plausible-but-Wrong Patches"
+   }
+  ]
+ }
+]

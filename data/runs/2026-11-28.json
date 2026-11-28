@@ -1,0 +1,424 @@
+{
+ "date": "2026-11-28",
+ "started_at": "2026-11-28T00:15:37+00:00",
+ "stages": {
+  "collect": {
+   "status": "ok",
+   "seconds": 6.2,
+   "items": 588,
+   "sources": {
+    "openai": {
+     "status": "ok",
+     "items": 40
+    },
+    "deepmind": {
+     "status": "ok",
+     "items": 40
+    },
+    "google-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "msr": {
+     "status": "ok",
+     "items": 9
+    },
+    "nvidia": {
+     "status": "ok",
+     "items": 11
+    },
+    "aws-ml": {
+     "status": "ok",
+     "items": 20
+    },
+    "google-research": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-blog": {
+     "status": "ok",
+     "items": 40
+    },
+    "hf-papers": {
+     "status": "ok",
+     "items": 50
+    },
+    "arxiv-ai": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-cl": {
+     "status": "ok",
+     "items": 60
+    },
+    "arxiv-lg": {
+     "status": "ok",
+     "items": 0
+    },
+    "hf-models": {
+     "status": "ok",
+     "items": 5
+    },
+    "raschka": {
+     "status": "ok",
+     "items": 20
+    },
+    "lilianweng": {
+     "status": "ok",
+     "items": 40
+    },
+    "verge-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "techcrunch": {
+     "status": "ok",
+     "items": 20
+    },
+    "ars-ai": {
+     "status": "ok",
+     "items": 20
+    },
+    "mittr-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "wired-ai": {
+     "status": "ok",
+     "items": 10
+    },
+    "ieee-ai": {
+     "status": "ok",
+     "items": 30
+    },
+    "verge-all": {
+     "status": "ok",
+     "items": 0
+    },
+    "techcrunch-all": {
+     "status": "ok",
+     "items": 8
+    },
+    "ars-all": {
+     "status": "ok",
+     "items": 3
+    },
+    "engadget": {
+     "status": "ok",
+     "items": 7
+    },
+    "venturebeat": {
+     "status": "disabled",
+     "items": 0
+    },
+    "hn": {
+     "status": "ok",
+     "items": 5
+    },
+    "github": {
+     "status": "ok",
+     "items": 10
+    }
+   }
+  },
+  "rank": {
+   "status": "ok",
+   "seconds": 1.7,
+   "stories": 136,
+   "editor": true,
+   "top": [
+    {
+     "title": "OpenAI countersues Apple and accuses it of stealing trade secrets",
+     "url": "https://www.engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets/",
+     "score": 7.12,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Claude sabotaging ML research tasks?",
+     "url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
+     "score": 6.74,
+     "interest": 7.0,
+     "category": "models",
+     "player": "giant",
+     "outlets": [
+      "twitter.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "A New Breed of Chip Runs AI Models Using Waves of Light",
+     "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+     "score": 5.51,
+     "interest": 8.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "LA school district blocks Google's AI search features",
+     "url": "https://www.engadget.com/2329851/la-school-district-blocks-google-ai-search-features/",
+     "score": 5.36,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Man sentenced to 47 months in prison after using AI to impersonate streamer N3on",
+     "url": "https://www.engadget.com/2329150/man-sentenced-to-47-month-prison-sentence-after-using-ai-impersonate-streamer/",
+     "score": 5.26,
+     "interest": 8.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Samsung is reportedly giving its camera app an AI mode",
+     "url": "https://www.engadget.com/2329765/samsung-is-reportedly-giving-its-camera-app-an-ai-mode/",
+     "score": 4.93,
+     "interest": 6.0,
+     "category": "products",
+     "player": "challenger",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+     "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+     "score": 4.83,
+     "interest": 7.0,
+     "category": "products",
+     "player": "",
+     "outlets": [
+      "TechCrunch"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+     "url": "https://huggingface.co/blog/video-trainium3",
+     "score": 4.3,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "Hugging Face blog"
+     ],
+     "picked": true
+    },
+    {
+     "title": "How Much Effort Does an AI Code Reviewer Need? Evidence from Claude 5.5 Models on Plausible-but-Wrong Patches",
+     "url": "https://arxiv.org/abs/2611.33639",
+     "score": 4.1,
+     "interest": 5.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "arXiv"
+     ],
+     "picked": true
+    },
+    {
+     "title": "This ER Doctor Became a Hospital’s First Clinical AI Engineer",
+     "url": "https://spectrum.ieee.org/clinical-ai-engineer-dinesh-rai",
+     "score": 3.72,
+     "interest": 5.0,
+     "category": "research",
+     "player": "",
+     "outlets": [
+      "IEEE Spectrum"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Prospero: Bloat-free, native AI coding harness with ImGui",
+     "url": "https://github.com/skeeto/prospero",
+     "score": 3.62,
+     "interest": 4.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "github.com (via Hacker News)"
+     ],
+     "picked": false
+    },
+    {
+     "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+     "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+     "score": 3.6,
+     "interest": 3.0,
+     "category": "models",
+     "player": "challenger",
+     "outlets": [
+      "Hugging Face blog"
+     ],
+     "picked": false
+    }
+   ],
+   "lineup": [
+    {
+     "title": "OpenAI countersues Apple and accuses it of stealing trade secrets",
+     "url": "https://www.engadget.com/2329747/openai-countersues-apple-and-accuses-it-of-stealing-trade-secrets/",
+     "score": 7.12,
+     "interest": 9.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "A New Breed of Chip Runs AI Models Using Waves of Light",
+     "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+     "score": 5.51,
+     "interest": 8.0,
+     "category": "models",
+     "player": "",
+     "outlets": [
+      "WIRED"
+     ],
+     "picked": true
+    },
+    {
+     "title": "LA school district blocks Google's AI search features",
+     "url": "https://www.engadget.com/2329851/la-school-district-blocks-google-ai-search-features/",
+     "score": 5.36,
+     "interest": 6.0,
+     "category": "products",
+     "player": "giant",
+     "outlets": [
+      "Engadget"
+     ],
+     "picked": true
+    },
+    {
+     "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+     "url": "https://huggingface.co/blog/video-trainium3",
+     "score": 4.3,
+     "interest": 6.0,
+     "category": "tools",
+     "player": "",
+     "outlets": [
+      "Hugging Face blog"
+     ],
+     "picked": true
+    },
+    {
+     "title": "How Much Effort Does an AI Code Reviewer Need? Evidence from Claude 5.5 Models on Plausible-but-Wrong Patches",
+     "url": "https://arxiv.org/abs/2611.33639",
+     "score": 4.1,
+     "interest": 5.0,
+     "category": "research",
+     "player": "giant",
+     "outlets": [
+      "arXiv"
+     ],
+     "picked": true
+    }
+   ]
+  },
+  "extract": {
+   "status": "ok",
+   "seconds": 1.7,
+   "articles": 6,
+   "with_text": 5
+  },
+  "publish": {
+   "status": "ok",
+   "seconds": 6.0,
+   "word_count": 1097,
+   "sources": 5
+  }
+ },
+ "attempts": [
+  {
+   "n": 1,
+   "model": "groq:openai/gpt-oss-120b",
+   "seconds": {
+    "write": 178.0,
+    "reel_desk": 1110.8,
+    "layer1": 0.1,
+    "layer2": 660.1,
+    "gate": 149.5
+   },
+   "layer1": {
+    "checked": 109,
+    "ok": 92,
+    "repaired": 11,
+    "dropped": 6
+   },
+   "layer2": {
+    "checked": 88,
+    "ok": 61,
+    "repaired": 8,
+    "dropped": 19
+   },
+   "unused": 23,
+   "fails": [],
+   "reel_desk": [
+    {
+     "story": "OpenAI sues Apple over alleged trade‑secret theft",
+     "reel": 8,
+     "rubric": 6,
+     "chief": 9.0,
+     "why": "OpenAI vs Apple lawsuit hits big names and AI‑hardware rivalry, huge office buzz",
+     "hook": "OpenAI sues Apple, accusing it of stealing hardware secrets.",
+     "chosen": true
+    },
+    {
+     "story": "Photonic processors aim to cut AI energy use",
+     "reel": 8,
+     "rubric": 7,
+     "chief": 8.0,
+     "why": "Google AI blocked in LA schools affects half‑million kids, clear safety drama",
+     "hook": "Q.ANT cuts AI energy with light.",
+     "chosen": true
+    },
+    {
+     "story": "Los Angeles unified school district disables Google ai overviews",
+     "reel": 7,
+     "rubric": 7,
+     "chief": 7.0,
+     "why": "Amazon Trainium3 fast video demo shows tangible creator benefit, notable chip news",
+     "hook": "Google AI summaries blocked for LA students' safety.",
+     "chosen": true
+    },
+    {
+     "story": "Generating videos on Trainium3 with LTX‑2.5",
+     "reel": 5,
+     "hook": "AWS Trainium3 generated a 10‑second video in 23 seconds.",
+     "chosen": false
+    },
+    {
+     "story": "AI code reviewers need effort to catch wrong patches",
+     "reel": 6,
+     "hook": "High‑effort AI reviewers cut false acceptance of bad patches but still let at least 45 % slip through.",
+     "chosen": false
+    }
+   ]
+  }
+ ],
+ "status": "published",
+ "reason": "",
+ "slug": "2026-11-28-openai-sues-apple-over-alleged-trade-secret",
+ "finished_at": "2026-11-28T00:50:51+00:00",
+ "seconds": 2114.1
+}

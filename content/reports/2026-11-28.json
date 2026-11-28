@@ -1,0 +1,1197 @@
+{
+  "checked": 88,
+  "ok": 61,
+  "repaired": 8,
+  "dropped": 19,
+  "entries": [
+    {
+      "where": "headline",
+      "text": "OpenAI sues Apple over alleged trade‑secret theft",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "dek",
+      "text": "OpenAI filed a countersuit against Apple accusing former employees of stealing confidential hardware files, Q.ANT introduced photonic processors that aim to cut AI energy use, and LAUSD disabled Google AI overviews on school devices",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[0]",
+      "text": "OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[1]",
+      "text": "Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light‑based processing.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[2]",
+      "text": "Lausd temporarily disabled google ai overviews on student devices to keep content age‑appropriate.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "what_happened[3]",
+      "text": "A 10‑second 2048×1024 video with sound was generated in 22‑23 seconds on half a Trainium3 node using LTX‑2.5.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "what_happened[4]",
+      "text": "High‑effort AI reviewers cut false acceptance of bad patches but still let at least 45 % slip through.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI filed a countersuit against Apple on 27 November 2026, accusing the iPhone maker of stealing trade secrets related to hardware development.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The complaint alleges that former Apple employees accessed and downloaded dozens of confidential files after returning to Apple from OpenAI.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI also claims Apple is coercing suppliers who work with both companies, suggesting unfair competitive tactics.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The lawsuit states that the former employees “surreptitiously accessed and downloaded dozens of Apple’s confidential hardware‑related files,” including engineering presentations, technical specifications, and proprietary project data.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI links the alleged theft to its recent acquisition of a studio called io, which was led by Apple’s former design chief Jony Ive.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Apple previously sued OpenAI for similar accusations after the acquisition, and the two companies had earlier partnered to bring ChatGPT to iPhones.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "Legal disputes over intellectual property are common in the tech sector, especially when companies collaborate and later become competitors.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions how common IP disputes are in the tech sector."
+      ]
+    },
+    {
+      "where": "sections[0]",
+      "text": "OpenAI’s move follows Apple’s earlier suit and reflects growing tension as OpenAI prepares its own hardware that could compete directly with Apple devices.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[0]",
+      "text": "The outcome may influence how AI firms and hardware manufacturers manage shared talent and supplier relationships in the future.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not discuss future influence of the lawsuit on talent or supplier management."
+      ]
+    },
+    {
+      "where": "card[0] hook",
+      "text": "OpenAI sues Apple, accusing it of stealing hardware secrets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "OpenAI filed a countersuit claiming Apple stole hardware trade secrets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] point",
+      "text": "The case could shape how AI firms and hardware makers handle talent and suppliers.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source evidence about future impact on AI firms or hardware makers"
+      ]
+    },
+    {
+      "where": "card[0] take",
+      "text": "Watch how this fight could affect the devices you use.",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[0] ask",
+      "text": "Will this change your phone choices?",
+      "sources": [
+        "S1"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[0] cover",
+      "text": "OpenAI sues Apple over hardware secrets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[0] duo line 1",
+      "text": "OpenAI sued Apple for stealing its hardware trade secrets.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not say the stolen secrets are OpenAI's hardware trade secrets"
+      ]
+    },
+    {
+      "where": "card[0] duo line 5",
+      "text": "OpenAI says the theft could impact iPhone users and upcoming AI devices.",
+      "sources": [
+        "S1"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No source mentions impact on iPhone users or upcoming AI devices"
+      ]
+    },
+    {
+      "where": "card[0] duo line 7",
+      "text": "OpenAI claims former Apple staff downloaded dozens of confidential hardware files.",
+      "sources": [
+        "S1"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "OpenAI sues Apple over alleged trade‑secret theft",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Q.ANT, a German hardware startup, introduced photonic processors that use light instead of electrons to run AI models, targeting the high energy costs of current AI workloads.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The company began a pilot with cloud provider IONOS, installing its chips in several data‑center sites and enabling more than 30 engineering teams to develop models that run on the new hardware.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "The goal is to complement, not replace, GPUs by handling complex, nonlinear calculations while GPUs continue to perform linear math efficiently.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Photonic processors transmit data as light waves, which generate far less heat than electron‑based chips and therefore need minimal cooling, a major expense in data centers.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Because light can carry multiple data streams simultaneously, the processors can perform many operations in a single step, reducing the number of memory accesses that dominate energy use today.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Q.ANT describes the chips as co‑processors that offload heavy math from GPUs, allowing the combined system to achieve higher efficiency without sacrificing performance on tasks suited to each type of hardware.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "AI models have become more capable, but their computational demands have driven up electricity consumption, prompting labs to locate data centers near cheap renewable power or to explore new hardware approaches.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[1]",
+      "text": "Photonic computing is an emerging field that leverages the physical properties of light to process information, offering a potential path to lower operational costs and smaller carbon footprints for AI services.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] hook",
+      "text": "Q.ANT cuts AI energy with light.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "Q.ANT unveiled photonic processors that run AI models using light.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] point",
+      "text": "The chips let over 30 engineering teams test models while using far less power than traditional GPUs.",
+      "sources": [
+        "S2"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"More than 30 teams of engineers are developing AI models on Q.ANT’s chips, which consume less energy than GPUs, achieving about four‑to‑five‑fold energy reduction.\""
+      ]
+    },
+    {
+      "where": "card[1] point",
+      "text": "Data‑center operators can lower cooling costs and carbon footprints as a result.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] take",
+      "text": "If your company runs AI in the cloud, watch for cheaper, greener hardware options soon.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] ask",
+      "text": "Will lower AI energy change your cloud budget?",
+      "sources": [
+        "S2"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[1] cover",
+      "text": "Q.ANT cuts AI energy with light.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 1",
+      "text": "Q.ANT’s photonic processors run AI models with light, not electrons.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 3",
+      "text": "Q.ANT says they generate far less heat, cutting costly data‑center cooling expenses.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[1] duo line 5",
+      "text": "IONOS pilot installs the chips, letting over 30 engineering teams test models.",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Photonic processors aim to cut AI energy use",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Los angeles unified school district (lausd) disabled google's ai overviews on school‑issued devices in early november 2026 after a november 13 ai committee meeting.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The change was not announced formally, but parents and students noticed the missing ai summaries in search results.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The district says the move is temporary and intended to keep the experience age‑appropriate and safe.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Lausd serves about half a million students and had previously been told by google that its search engine and ai features are inseparable.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "After the committee discussion, the ai overviews vanished within a few days, and a local group called schools beyond screens la collected video evidence confirming the disablement.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Google later walked back a policy that turned on its gemini chatbot by default for k‑12 students, making the tool opt‑in instead, while maintaining that blocking ai would also block search access.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Over 500 google employees signed a petition urging the company to reconsider its strict requirements, highlighting internal dissent.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Google has integrated ai-generated overviews into its search results, presenting concise summaries alongside traditional links.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "Schools have raised concerns about the suitability of these summaries for younger users, prompting districts like lausd to take action.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[2]",
+      "text": "The broader debate includes other large districts such as new york city and chicago considering alternative search providers if google's policies remain unchanged.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] hook",
+      "text": "Google AI summaries blocked for LA students' safety.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "LAUSD disabled Google’s AI overviews on school devices in early November.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source indicates the disabling occurred after Nov 13, i.e., mid‑November, not early November"
+      ]
+    },
+    {
+      "where": "card[2] point",
+      "text": "The move affects half‑million students, citing age‑appropriate safety concerns.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] point",
+      "text": "Google now makes Gemini opt‑in, while districts weigh other search options.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] take",
+      "text": "Expect slower search results and check for missing AI summaries at school.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] ask",
+      "text": "Should schools block AI tools?",
+      "sources": [
+        "S3"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[2] cover",
+      "text": "Google AI summaries blocked in LA schools.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 1",
+      "text": "Google AI summaries blocked for LA students' safety.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 5",
+      "text": "LAUSD disabled Google’s AI overviews on school devices in early November.",
+      "sources": [
+        "S3"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[2] duo line 7",
+      "text": "The move affects half‑million students, citing age‑appropriate safety concerns.",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Los Angeles unified school district disables Google ai overviews",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Hugging Face used an AWS Trainium3 instance (trn3.48xlarge, 64 NeuronCores) for a month and spent most of the time testing models on it.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "With five days left the author tried to generate a short video using Lightricks' LTX‑2.5 model.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The test produced a 10‑second clip with sound in about 22‑23 seconds on half of the machine.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "LTX‑2.5 creates video and audio together from a JSON storyboard that lists shots, each with a name, a detailed paragraph‑long prompt, and optional seed values.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Shots are linked by \"from\" and \"to\" keys so that frames from one shot can start the next, preserving subject continuity and motion across cuts.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "The generated clip was 2048×1024 resolution, comparable to LTX's online API claim of 23.7 seconds for a 10‑second 1080p clip, and slightly faster by about one second.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "No CUDA benchmark was available, so the comparison focused on the API rather than raw GPU speed.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[3]",
+      "text": "Trainium3 is Amazon's custom inference chip designed for large‑scale AI workloads, offering many Neuron cores for parallel processing.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Amazon' not in cited source",
+        "name 'Neuron' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "Diffusion models like LTX‑2.5 generate media by iteratively refining random noise guided by textual prompts, a method that can be compute‑intensive.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source does not describe diffusion models as iteratively refining random noise; that detail is absent."
+      ]
+    },
+    {
+      "where": "sections[3]",
+      "text": "By adapting the pipeline to half of a Trainium3 node, Hugging Face demonstrated that high‑resolution video generation is feasible without extensive optimization, highlighting the practical performance of newer inference hardware for creative tasks.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source confirms half‑node use but notes extensive optimizations were required; claim of \"without extensive optimization\" is not supported."
+      ]
+    },
+    {
+      "where": "card[3] hook",
+      "text": "Amazon's Trainium3 cranks out a 10‑second video in 23 seconds.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Amazon' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] point",
+      "text": "Hugging Face ran a half‑node Trainium3 test generating video.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "The 10‑second clip rendered in just 22‑23 seconds, slightly faster than LTX’s claimed API time.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] point",
+      "text": "This shows creators can use new inference chips for fast high‑res video without heavy optimization.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] take",
+      "text": "You can try high‑resolution AI video on affordable cloud hardware now.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] ask",
+      "text": "Will you switch to inference chips for video?",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[3] cover",
+      "text": "Amazon Trainium3 speeds AI video generation.",
+      "sources": [
+        "S4"
+      ],
+      "status": "dropped",
+      "problems": [
+        "name 'Amazon' not in cited source"
+      ]
+    },
+    {
+      "where": "card[3] duo line 1",
+      "text": "Hugging Face made a 10‑second video in about 22 seconds on Trainium3.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 5",
+      "text": "Hugging Face shows creators can generate high‑resolution video quickly using half a Trainium3 node.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "card[3] duo line 7",
+      "text": "Lightricks' LTX‑2.5 builds video and sound from a JSON storyboard that links shots.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "Generating videos on Trainium3 with LTX‑2.5",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Researchers evaluated Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 as AI code reviewers on 90 Django patches generated by coding agents.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The study measured how different effort settings—low, medium and high—affected the models' ability to reject plausible‑but‑wrong changes.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: checker's evidence quote is not in the source: \"Each model reviewed the patches at low, medium and high effort to assess how effort settings affected rejection of plausible‑but‑wrong changes.\""
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "High effort consistently reduced false acceptance of bad patches compared with low effort, though no setting eliminated errors entirely.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The patches came from the SWE‑bench Verified suite, with 55 of them identified as wrong by strengthened SWE‑ABS tests and 35 as correct.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "For Opus, false‑success rates fell from 0.67 at low effort to 0.45 at high effort; Sonnet dropped from 0.65 to 0.49; Haiku from 0.78 to 0.51.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '0.67' not in cited source",
+        "number '0.45' not in cited source",
+        "number '0.65' not in cited source",
+        "number '0.49' not in cited source",
+        "number '0.78' not in cited source",
+        "number '0.51' not in cited source"
+      ]
+    },
+    {
+      "where": "sections[4]",
+      "text": "Medium effort cost 20 % less than high for Opus and was statistically non‑inferior within a 15‑point margin, while Sonnet and Haiku saved 39 % and 51 % respectively but lacked non‑inferiority evidence.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "Haiku at high effort cost about 8 % of Opus at medium per review.",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "AI coding agents can produce code faster than humans can manually review it, prompting teams to add automated reviewers.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "These reviewers can trade computational cost for diligence by adjusting an effort parameter.",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "sections[4]",
+      "text": "The study’s findings show that even the most diligent setting still accepts nearly half of wrong patches, highlighting limits of current AI review tools and the need for complementary human oversight.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source shows high acceptance of wrong patches, but does not mention the need for complementary human oversight, which is added by the claim."
+      ]
+    },
+    {
+      "where": "card[4] hook",
+      "text": "Claude cuts false approvals by 22% with high effort.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '22%' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "AI models reviewed 90 Django patches, 55 were wrong.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] point",
+      "text": "High effort lowered false‑success rates from 67% to 45% for Claude.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "number '67%' not in cited source"
+      ]
+    },
+    {
+      "where": "card[4] point",
+      "text": "Even at best settings, nearly half of bad patches slip through, so humans remain essential.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] take",
+      "text": "Expect AI code checks to miss half the bugs—keep human review.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "card[4] ask",
+      "text": "Will you still trust AI code reviewers?",
+      "sources": [
+        "S5"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "card[4] cover",
+      "text": "Claude halves bad patch approvals with effort",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "section title",
+      "text": "AI code reviewers need effort to catch wrong patches",
+      "sources": [
+        "S5"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[0]",
+      "text": "The lawsuit could reshape how AI firms and hardware makers share talent and manage suppliers, influencing future collaborations and competitive dynamics in the tech sector",
+      "sources": [
+        "S1"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[1]",
+      "text": "Photonic processors that run AI models with light instead of electrons promise lower cooling needs and fewer memory accesses, potentially reducing data‑center electricity bills and carbon footprints for companies deploying AI services",
+      "sources": [
+        "S2"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "why_it_matters[2]",
+      "text": "Disabling Google’s AI‑generated search overviews removes quick summaries for half a million students, affecting how they retrieve information and prompting districts to evaluate alternative search solutions",
+      "sources": [
+        "S3"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "layer2",
+      "text": "OpenAI filed a countersuit against Apple accusing former employees of stealing confidential hardware files, Q.ANT introduced photonic processors that aim to cut AI energy use, and LAUSD disabled Google AI overviews on school devices.",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: No single source sentence covers all three combined statements; the claim bundles three separate facts, each supported individually but not together as phrased."
+      ]
+    },
+    {
+      "where": "layer2",
+      "text": "Los Angeles unified school district (lausd) disabled Google's AI overviews on school‑issued devices in early november 2026 after a november 13 ai committee meeting.",
+      "sources": [
+        "S3"
+      ],
+      "status": "dropped",
+      "problems": [
+        "model check: Source places the disablement a few days after the Nov 13 meeting (mid‑November), not in early November as claimed."
+      ]
+    },
+    {
+      "where": "repair card[3] hook",
+      "text": "AWS Trainium3 generated a 10‑second video in 23 seconds.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "Hugging Face ran an AWS Trainium3 instance for a month testing models.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "With five days left they generated a 10‑second clip in about 22‑23 seconds on half the machine.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] point",
+      "text": "The result matches LTX‑2.5’s claimed speed, slightly faster by one second.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] take",
+      "text": "If you need quick AI video output, try Trainium3 for testing.",
+      "sources": [
+        "S4"
+      ],
+      "status": "ok",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] ask",
+      "text": "Will you try Trainium3 for video?",
+      "sources": [
+        "S4"
+      ],
+      "status": "repaired",
+      "problems": []
+    },
+    {
+      "where": "repair card[3] cover",
+      "text": "AWS Trainium3 creates 10‑second video in 23 seconds.",
+      "sources": [
+        "S4"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] hook",
+      "text": "Claude AI reviewer slashes bad patch approvals with higher effort.",
+      "sources": [
+        "S5"
+      ],
+      "status": "dropped",
+      "problems": [
+        "overstates: 'slashes' is not in the source"
+      ]
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "Researchers tested Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 on 90 Django patches, 55 wrong, 35 correct.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "High effort consistently reduced false acceptance of bad patches compared with low effort.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] point",
+      "text": "Medium effort saved up to 51% cost for Haiku but lacked non‑inferiority proof.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] take",
+      "text": "If you rely on AI code reviews, expect to balance cost and diligence, as higher effort still isn’t perfect.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] ask",
+      "text": "Should teams spend more compute for safer code?",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    },
+    {
+      "where": "repair card[4] cover",
+      "text": "Claude AI cuts bad patches.",
+      "sources": [
+        "S5"
+      ],
+      "status": "unused",
+      "problems": []
+    }
+  ],
+  "layer1_done": true,
+  "layer2_done": true,
+  "headline_problems": [],
+  "layer2_flagged": 13,
+  "cards_repaired": 1,
+  "cards_fallback": 1,
+  "unused": 23,
+  "date": "2026-11-28",
+  "slug": "2026-11-28-openai-sues-apple-over-alleged-trade-secret",
+  "model": "groq:openai/gpt-oss-120b"
+}

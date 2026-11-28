@@ -1,0 +1,130 @@
+{
+ "date": "2026-11-28",
+ "slug": "2026-11-28-openai-sues-apple-over-alleged-trade-secret",
+ "headline": "OpenAI sues Apple over alleged trade‑secret theft",
+ "url": "https://fiveminuteai.net/posts/2026-11-28-openai-sues-apple-over-alleged-trade-secret/",
+ "generated_at": "2026-11-28T00:50:52+00:00",
+ "items": [
+  {
+   "id": "2026-11-28-instagram",
+   "platform": "instagram",
+   "kind": "carousel",
+   "posting": "api",
+   "note": "The day's carousel, made from the checked post. Posts at schedule.carousel when growth.daily_carousel is on (9 Nov 2026)",
+   "text": "OpenAI sues Apple over alleged trade-secret theft\n\n• OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.\n• Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light-based processing.\n• Lausd temporarily disabled Google ai overviews on student devices to keep content age-appropriate.\n\nFull five-minute read, every claim sourced: link in bio (fiveminuteai.net)\n\n#ai #ainews #artificialintelligence #tech #technews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-28/instagram.png"
+   ],
+   "scheduled_at": "2026-11-28T05:30:00+00:00"
+  },
+  {
+   "id": "2026-11-28-x",
+   "platform": "x",
+   "kind": "post",
+   "posting": "paid",
+   "note": "X API has no free tier: about $0.20 per post with a link. Waiting on Pavan's decision",
+   "text": "OpenAI sues Apple over alleged trade-secret theft\n\n• OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.\n\nhttps://fiveminuteai.net/posts/2026-11-28-openai-sues-apple-over-alleged-trade-secret/",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null,
+   "chars": 183
+  },
+  {
+   "id": "2026-11-28-linkedin",
+   "platform": "linkedin",
+   "kind": "text",
+   "posting": "manual",
+   "note": "Company-page API needs Community Management approval: copy the text and post by hand",
+   "text": "Today in AI: OpenAI sues Apple over alleged trade-secret theft\n\n• OpenAI alleges former Apple staff stole dozens of confidential hardware files after moving back to Apple.\n• Q.ANT's photonic chips, piloted with IONOS, aim to reduce AI energy use by handling complex calculations with light-based processing.\n• Lausd temporarily disabled Google ai overviews on student devices to keep content age-appropriate.\n\nEvery claim is linked to its source. The full five-minute read:\nhttps://fiveminuteai.net/posts/2026-11-28-openai-sues-apple-over-alleged-trade-secret/\n\n#AI #ArtificialIntelligence #MachineLearning #DataEngineering",
+   "edited_text": null,
+   "status": "pending",
+   "decided_at": null,
+   "posted_url": null
+  },
+  {
+   "id": "2026-11-28-reel-1",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 0,
+   "hook": "OpenAI sues Apple, accusing it of stealing hardware secrets[S1].",
+   "duo": true,
+   "cover": "OpenAI sues Apple over hardware secrets[S1].",
+   "text": "OpenAI sues Apple, accusing it of stealing hardware secrets.\n\n• OpenAI filed a countersuit claiming Apple stole hardware trade secrets.\n• The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple.\n\nOur read: Watch how this fight could affect the devices you use.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt #apple",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-28/reels/01.mp4"
+   ],
+   "scheduled_at": "2026-11-28T03:30:00+00:00"
+  },
+  {
+   "id": "2026-11-28-reel-2",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 1,
+   "hook": "Q.ANT cuts AI energy with light[S2].",
+   "duo": true,
+   "cover": "Q.ANT cuts AI energy with light[S2].",
+   "text": "Q.ANT cuts AI energy with light.\n\n• Q.ANT unveiled photonic processors that run AI models using light.\n• Data-center operators can lower cooling costs and carbon footprints as a result.\n\nOur read: If your company runs AI in the cloud, watch for cheaper, greener hardware options soon.\n\nSend this to your group chat's AI person.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-28/reels/02.mp4"
+   ],
+   "scheduled_at": "2026-11-28T07:30:00+00:00"
+  },
+  {
+   "id": "2026-11-28-reel-3",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 2,
+   "hook": "Google AI summaries blocked for LA students' safety[S3].",
+   "duo": true,
+   "cover": "Google AI summaries blocked in LA schools[S3].",
+   "text": "Google AI summaries blocked for LA students' safety.\n\n• The move affects half-million students, citing age-appropriate safety concerns.\n• Google now makes Gemini opt-in, while districts weigh other search options.\n\nOur read: Expect slower search results and check for missing AI summaries at school.\n\nSend this to the friend who keeps up with AI.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #google #gemini",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-28/reels/03.mp4"
+   ],
+   "scheduled_at": "2026-11-28T10:30:00+00:00"
+  },
+  {
+   "id": "2026-11-28-reel-4",
+   "platform": "instagram_reel",
+   "kind": "reel",
+   "posting": "api",
+   "note": "Free: Instagram Reels through the Content Publishing API. Approve, and it posts at its time",
+   "story": 4,
+   "hook": "High‑effort AI reviewers cut false acceptance of bad patches but still let at least 45 % slip through[S5].",
+   "duo": false,
+   "cover": null,
+   "text": "High-effort AI reviewers cut false acceptance of bad patches but still let at least 45 % slip through.\n\n• Researchers evaluated Claude Opus 5.5, Sonnet 5.5 and Haiku 5.5 as AI code reviewers on 90 Django patches generated by coding agents.\n• High effort consistently reduced false acceptance of bad patches compared with low effort, though no setting eliminated errors entirely.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews",
+   "edited_text": null,
+   "status": "approved",
+   "decided_at": null,
+   "posted_url": null,
+   "media": [
+    "https://fiveminuteai.net/share/2026-11-28/reels/04.mp4"
+   ],
+   "scheduled_at": "2026-11-28T13:30:00+00:00"
+  }
+ ]
+}
