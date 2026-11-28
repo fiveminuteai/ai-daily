@@ -58,13 +58,15 @@
    "cover": "OpenAI sues Apple over hardware secrets[S1].",
    "text": "OpenAI sues Apple, accusing it of stealing hardware secrets.\n\n• OpenAI filed a countersuit claiming Apple stole hardware trade secrets.\n• The complaint says former Apple staff downloaded dozens of confidential files after moving back to Apple.\n\nOur read: Watch how this fight could affect the devices you use.\n\nSend this to a colleague who uses AI at work.\n\nEvery claim sourced at fiveminuteai.net\n\n#ai #ainews #openai #chatgpt #apple",
    "edited_text": null,
-   "status": "approved",
-   "decided_at": null,
+   "status": "failed",
+   "decided_at": "2026-11-28T03:38:44+00:00",
    "posted_url": null,
    "media": [
     "https://fiveminuteai.net/share/2026-11-28/reels/01.mp4"
    ],
-   "scheduled_at": "2026-11-28T03:30:00+00:00"
+   "scheduled_at": "2026-11-28T03:30:00+00:00",
+   "error": "recent posts: HTTP 400 (Meta error 200)",
+   "attempts": 3
   },
   {
    "id": "2026-11-28-reel-2",
