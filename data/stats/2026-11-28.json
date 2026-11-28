@@ -1,9 +1,181 @@
 {
  "date": "2026-11-28",
- "collected_at": "2026-11-28T01:18:12+00:00",
+ "collected_at": "2026-11-28T18:00:37+00:00",
  "website": {
-  "status": "error",
-  "error": "HTTP 404"
+  "status": "ok",
+  "visitors_28d": 177,
+  "visitors_day": 4,
+  "daily": [
+   {
+    "day": "2026-11-01",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-02",
+    "visitors": 15
+   },
+   {
+    "day": "2026-11-03",
+    "visitors": 12
+   },
+   {
+    "day": "2026-11-04",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-05",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-06",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-07",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-08",
+    "visitors": 10
+   },
+   {
+    "day": "2026-11-09",
+    "visitors": 7
+   },
+   {
+    "day": "2026-11-10",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-11",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-12",
+    "visitors": 14
+   },
+   {
+    "day": "2026-11-13",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-14",
+    "visitors": 2
+   },
+   {
+    "day": "2026-11-15",
+    "visitors": 8
+   },
+   {
+    "day": "2026-11-16",
+    "visitors": 5
+   },
+   {
+    "day": "2026-11-17",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-18",
+    "visitors": 11
+   },
+   {
+    "day": "2026-11-19",
+    "visitors": 3
+   },
+   {
+    "day": "2026-11-20",
+    "visitors": 6
+   },
+   {
+    "day": "2026-11-21",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-22",
+    "visitors": 4
+   },
+   {
+    "day": "2026-11-23",
+    "visitors": 0
+   },
+   {
+    "day": "2026-11-24",
+    "visitors": 9
+   },
+   {
+    "day": "2026-11-25",
+    "visitors": 2
+   },
+   {
+    "day": "2026-11-26",
+    "visitors": 1
+   },
+   {
+    "day": "2026-11-27",
+    "visitors": 0
+   },
+   {
+    "day": "2026-11-28",
+    "visitors": 4
+   },
+   {
+    "day": "2026-11-29",
+    "visitors": 0
+   }
+  ],
+  "top_paths": [
+   {
+    "path": "/posts/2026-11-24-spacex-faces-lawsuits-over-xai-s-grok",
+    "title": "SpaceX faces lawsuits over xAI's Grok generating sexualized images · Five Minute AI",
+    "visitors": 4
+   },
+   {
+    "path": "/",
+    "title": "Five Minute AI",
+    "visitors": 3
+   },
+   {
+    "path": "/posts/2026-11-18-google-expands-gemini-tasks-to-hundreds-of",
+    "title": "Google expands Gemini Tasks to more users · Five Minute AI",
+    "visitors": 2
+   },
+   {
+    "path": "/posts/2026-11-03-anthropic-warns-it-may-soon-cross-its",
+    "title": "Anthropic warns it may soon cross its own threshold for faster AI progress · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-17-openai-sued-in-california-over-rogue-ai",
+    "title": "OpenAI sued in California over rogue AI agents escaping tests · Five Minute AI",
+    "visitors": 1
+   },
+   {
+    "path": "/posts/2026-11-21-anthropic-claims-claude-generated-proof-of-riemann",
+    "title": "Anthropic mathematician claims Claude proved the Riemann hypothesis · Five Minute AI",
+    "visitors": 1
+   }
+  ],
+  "top_refs": [
+   {
+    "name": "(direct)",
+    "visitors": 9
+   },
+   {
+    "name": "fiveminuteai.net",
+    "visitors": 8
+   },
+   {
+    "name": "Google",
+    "visitors": 3
+   }
+  ],
+  "reads_7d": {
+   "post_views": 9,
+   "read_30s": 2,
+   "read_half": 4,
+   "read_end": 2,
+   "read_end_rate": 0.222
+  }
  },
  "instagram": {
   "status": "error",
@@ -12,7 +184,7 @@
  "youtube": {
   "status": "ok",
   "subscribers": 5,
-  "channel_views": 452,
+  "channel_views": 458,
   "shorts": {
    "YBYXTpMWmis": {
     "title": "OpenAI proposes AI speed limit",
@@ -31,7 +203,7 @@
    "qqt-6S20uCo": {
     "title": "Nvidia halted H200 sales in China after board ousted CEO Jensen Huang. #Shorts",
     "published": "2026-11-22T03:31:47Z",
-    "viewCount": 40,
+    "viewCount": 41,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -59,14 +231,14 @@
    "-Sd99PhBXEk": {
     "title": "Levent Alpöge says Claude helped him draft a proof of the Riemann hypothesis, but the result is…",
     "published": "2026-11-21T03:31:49Z",
-    "viewCount": 194,
+    "viewCount": 201,
     "likeCount": 0,
     "commentCount": 0
    },
    "GY-0TYZv40c": {
     "title": "Apple hiring manager for Mac AI agent. #Shorts",
     "published": "2026-11-21T07:32:34Z",
-    "viewCount": 0,
+    "viewCount": 1,
     "likeCount": 0,
     "commentCount": 0
    },
@@ -325,7 +497,7 @@
   },
   "summary": {
    "shorts": 44,
-   "zero_views": 10,
+   "zero_views": 9,
    "median_views": 3
   }
  }
